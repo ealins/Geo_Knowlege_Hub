@@ -684,6 +684,13 @@ async function registerVacancySources(input: {
     if (!canonical || isJunkDiscoveryUrl(canonical, link.label)) return [];
     const url = new URL(canonical);
     const label = link.label.replace(/\s+/g, " ").trim();
+    // Never turn category/listing/filter URLs into fake job records. Cambridge
+    // uses /jobs/term/... and /job/?category=... for listings; only individual
+    // postings should pass through to canonical extraction.
+    const listingUrl =
+      /\/(?:jobs?\/term\/|jobs?\/?|careers?\/?|vacanc(?:y|ies)\/?)$/i.test(url.pathname) ||
+      /[?&]category=\d+/i.test(url.search);
+    if (listingUrl) return [];
     const signal = `${url.pathname} ${url.search} ${label}`;
     const sameHost = url.host.toLowerCase() === host;
     const atsHost = knownApplicantTrackingHost(url.hostname.toLowerCase());
