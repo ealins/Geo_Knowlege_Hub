@@ -95,7 +95,7 @@ function isRelevantPublicationPulse(event: { entity_type: string; title: string;
   if (event.entity_type !== "publication") return true;
   const text = `${event.title} ${event.summary ?? ""}`;
   const nonEarthSpaceSignal =
-    /\b(exoplanet|astronom\w*|astrophysic\w*|space weather|solar orbiter|solar energetic electron|transiting neptune|planetary atmosphere|stellar|habitable worlds observatory|microwave kinetic inductance detector)\b/i.test(text);
+    /\b(exoplanet|astronom\w*|astrophysic\w*|space weather|solar orbiter|solar energetic electron|transiting neptune|planetary|stellar|asteroid|lunar|moon surface|mars rover|habitable worlds observatory|microwave kinetic inductance detector)\b/i.test(text);
   const earthGeoSignal =
     /\b(earth observation|earth system|geospatial|geographic information systems?|\bgis\b|geoinformat\w*|geomatic\w*|geodesy|gnss|photogrammetr\w*|remote sensing|lidar|point clouds?|satellite imagery|synthetic aperture radar|\bsar\b|cartograph\w*|spatial data|land cover|land use|agricultur\w*|crop|vegetation|forest|waterbody|flood mapping|coastal mapping|soil moisture|earth surface|terrain mapping|bathymetr\w*|volcano monitoring|volcano surveillance|mapping of)\b/i.test(text);
   const strongEarthGeoSignal =
