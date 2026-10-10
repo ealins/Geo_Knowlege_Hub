@@ -331,7 +331,7 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
                 ["PROMOTE_INSTITUTION", "IMPORT_PUBLICATIONS", "IMPORT_PROJECTS"],
                 2,
               ),
-              45_000,
+              60_000,
               "structured provider drain",
             );
             return json({ action, ...result });
