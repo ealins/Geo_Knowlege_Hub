@@ -91,7 +91,7 @@ export const opportunitiesQuery = queryOptions({
 // Publication providers can return astronomy/planetary-science papers for broad
 // "remote sensing" searches. Keep the homepage pulse tied to explicit Earth/geospatial
 // evidence in the actual paper, not merely the query that found it.
-function isRelevantPublicationPulse(event: { entity_type: string; title: string; summary: string | null }): boolean {
+function isRelevantPublicationPulse(event: { entity_type: string | null; title: string; summary: string | null }): boolean {
   if (event.entity_type !== "publication") return true;
   const text = `${event.title} ${event.summary ?? ""}`;
   const nonEarthSpaceSignal =
