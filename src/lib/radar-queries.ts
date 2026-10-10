@@ -88,6 +88,19 @@ export const opportunitiesQuery = queryOptions({
   queryFn: fetchPublicOpportunities,
 });
 
+// Publication providers can return astronomy/planetary-science papers for broad
+// "remote sensing" searches. Keep the homepage pulse tied to explicit Earth/geospatial
+// evidence in the actual paper, not merely the query that found it.
+function isRelevantPublicationPulse(event: { entity_type: string; title: string; summary: string | null }): boolean {
+  if (event.entity_type !== "publication") return true;
+  const text = `${event.title} ${event.summary ?? ""}`;
+  const explicitGeoSignal =
+    /\b(photogrammetr\w*|remote sensing|geospatial|geoinformat\w*|geomatic\w*|geodesy|gnss|geographic information systems?|\bgis\b|lidar|point clouds?|earth observation|satellite imagery|synthetic aperture radar|\bsar\b|cartograph\w*|spatial data|land cover|land use|agricultur\w*|crop|vegetation|forest|waterbody|flood mapping|coastal mapping|soil moisture|earth surface|terrain mapping|bathymetr\w*|mapping of)\b/i.test(text);
+  const nonEarthSpaceSignal =
+    /\b(exoplanet|astronom\w*|astrophysic\w*|space weather|solar orbiter|solar energetic electron|transiting neptune|planetary atmosphere|stellar|habitable worlds observatory|microwave kinetic inductance detector)\b/i.test(text);
+  return explicitGeoSignal && (!nonEarthSpaceSignal || explicitGeoSignal);
+}
+
 export const pulseQuery = queryOptions({
   queryKey: ["pulse-events"],
   queryFn: async () => {
@@ -127,6 +140,7 @@ export const pulseQuery = queryOptions({
           ? publicOpportunityIds.has(event.entity_id)
           : true,
       )
+      .filter(isRelevantPublicationPulse)
       .slice(0, 60);
   },
 });
