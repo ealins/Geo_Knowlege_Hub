@@ -221,7 +221,7 @@ jobs:
             --connect-timeout 10 --max-time 90 \
             -H "Authorization: Bearer $INGESTION_HOOK_SECRET" \
             -H "Content-Type: application/json" \
-            --data '{"action":"refresh-insights","limit":250,"trigger":"github-actions-public-pulse-refresh"}' \
+            --data '{"action":"refresh-insights","limit":20,"trigger":"github-actions-public-pulse-refresh"}' \
             https://geoacademic.app/api/public/hooks/ingest-batch | tee /tmp/pulse-refresh.json
           node -e '
             const fs = require("fs");
