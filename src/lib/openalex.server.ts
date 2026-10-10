@@ -609,11 +609,11 @@ export async function importInstitutionPublications(
       const topicalText = [work.title, work.abstract ?? "", work.venue ?? "", ...work.topics]
         .join(" ")
         .toLowerCase();
-      const nonEarthSpaceSignal =
-        /\b(exoplanet|astronom\w*|astrophysic\w*|space weather|solar orbiter|solar energetic electron|transiting neptune|rover permittivity|planetary atmosphere|stellar)\b/i.test(topicalText);
       const earthGeoSignal =
         /\b(earth observation|earth system|geospatial|geographic information|gis|land cover|land use|forest|agricultur\w*|crop|water|flood|urban|satellite imagery|photogrammetr\w*|lidar|point cloud|geodesy|gnss|cartograph\w*|terrain|soil|vegetation|river|coastal|ocean|climate|snowpack|glacier|seafloor|bathymetr\w*|ecosystem|biodiversity|sea ice|scatterometer|earth surface|remote sensing of (?:the )?earth)\b/i.test(topicalText);
-      if (nonEarthSpaceSignal && !earthGeoSignal) {
+      // Require positive Earth/geospatial evidence. A provider search match by itself
+      // is not sufficient to enter the canonical publication catalogue.
+      if (!earthGeoSignal) {
         out.skipped += 1;
         continue;
       }
