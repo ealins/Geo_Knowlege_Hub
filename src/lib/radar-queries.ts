@@ -94,11 +94,13 @@ export const opportunitiesQuery = queryOptions({
 function isRelevantPublicationPulse(event: { entity_type: string; title: string; summary: string | null }): boolean {
   if (event.entity_type !== "publication") return true;
   const text = `${event.title} ${event.summary ?? ""}`;
-  const explicitGeoSignal =
-    /\b(photogrammetr\w*|remote sensing|geospatial|geoinformat\w*|geomatic\w*|geodesy|gnss|geographic information systems?|\bgis\b|lidar|point clouds?|earth observation|satellite imagery|synthetic aperture radar|\bsar\b|cartograph\w*|spatial data|land cover|land use|agricultur\w*|crop|vegetation|forest|waterbody|flood mapping|coastal mapping|soil moisture|earth surface|terrain mapping|bathymetr\w*|mapping of)\b/i.test(text);
   const nonEarthSpaceSignal =
     /\b(exoplanet|astronom\w*|astrophysic\w*|space weather|solar orbiter|solar energetic electron|transiting neptune|planetary atmosphere|stellar|habitable worlds observatory|microwave kinetic inductance detector)\b/i.test(text);
-  return explicitGeoSignal && (!nonEarthSpaceSignal || explicitGeoSignal);
+  const earthGeoSignal =
+    /\b(earth observation|earth system|geospatial|geographic information systems?|\bgis\b|geoinformat\w*|geomatic\w*|geodesy|gnss|photogrammetr\w*|remote sensing|lidar|point clouds?|satellite imagery|synthetic aperture radar|\bsar\b|cartograph\w*|spatial data|land cover|land use|agricultur\w*|crop|vegetation|forest|waterbody|flood mapping|coastal mapping|soil moisture|earth surface|terrain mapping|bathymetr\w*|volcano monitoring|volcano surveillance|mapping of)\b/i.test(text);
+  const strongEarthGeoSignal =
+    /\b(earth observation|earth system|geospatial|geographic information systems?|\bgis\b|geoinformat\w*|geomatic\w*|geodesy|gnss|photogrammetr\w*|lidar|point clouds?|cartograph\w*|spatial data|land cover|land use|agricultur\w*|crop|vegetation|forest|waterbody|flood mapping|coastal mapping|soil moisture|earth surface|terrain mapping|bathymetr\w*|volcano monitoring|volcano surveillance)\b/i.test(text);
+  return earthGeoSignal && (!nonEarthSpaceSignal || strongEarthGeoSignal);
 }
 
 export const pulseQuery = queryOptions({
