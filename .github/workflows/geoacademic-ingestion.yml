@@ -19,7 +19,7 @@ jobs:
   review-jobs:
     if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
-    timeout-minutes: 12
+    timeout-minutes: 15
     env:
       GEOACADEMIC_BASE_URL: https://geoacademic.app
       INGESTION_HOOK_SECRET: ${{ secrets.INGESTION_HOOK_SECRET }}
@@ -85,7 +85,7 @@ jobs:
         env:
           INGESTION_FETCH_CONCURRENCY: "6"
           INGESTION_LEASE_LIMIT: "12"
-          INGESTION_RUNTIME_MS: "150000"
+          INGESTION_RUNTIME_MS: "120000"
           INGESTION_BURST_MODE: "true"
           INGESTION_WORKER_TRIGGER: "github-actions-fresh-first"
         run: node scripts/ingestion-worker.mjs
@@ -107,7 +107,7 @@ jobs:
         env:
           INGESTION_FETCH_CONCURRENCY: "6"
           INGESTION_LEASE_LIMIT: "12"
-          INGESTION_RUNTIME_MS: "120000"
+          INGESTION_RUNTIME_MS: "90000"
           INGESTION_BURST_MODE: "true"
           INGESTION_WORKER_TRIGGER: "github-actions-deep-discovery-v7"
         run: node scripts/ingestion-worker.mjs
@@ -137,7 +137,7 @@ jobs:
         run: |
           set -euo pipefail
           test -n "$INGESTION_HOOK_SECRET"
-          deadline=$((SECONDS+90))
+          deadline=$((SECONDS+60))
           processed=0
           while [ "$SECONDS" -lt "$deadline" ]; do
             response="$(curl --fail-with-body --silent --show-error \
@@ -178,7 +178,7 @@ jobs:
         run: |
           set -euo pipefail
           test -n "$INGESTION_HOOK_SECRET"
-          deadline=$((SECONDS+300))
+          deadline=$((SECONDS+180))
           processed=0
           while [ "$SECONDS" -lt "$deadline" ]; do
             response="$(curl --fail-with-body --silent --show-error \
@@ -199,18 +199,19 @@ jobs:
           echo "NORMALIZE_DRAIN_PROCESSED=$processed"
       - name: Drain vacancy review backlog
         env:
-          REVIEW_RUNTIME_MS: "300000"
-          REVIEW_LEASE_LIMIT: "10"
+          REVIEW_RUNTIME_MS: "120000"
+          REVIEW_LEASE_LIMIT: "6"
           REVIEW_CONCURRENCY: "4"
         run: node scripts/job-review-worker.mjs
       - name: Review newly fetched job pages
         env:
-          REVIEW_RUNTIME_MS: "60000"
+          REVIEW_RUNTIME_MS: "45000"
           REVIEW_LEASE_LIMIT: "10"
           REVIEW_CONCURRENCY: "4"
         run: node scripts/job-review-worker.mjs
 
       - name: Refresh public pulse projection and insights
+        if: ${{ !cancelled() }}
         shell: bash
         env:
           INGESTION_HOOK_SECRET: ${{ secrets.INGESTION_HOOK_SECRET }}
