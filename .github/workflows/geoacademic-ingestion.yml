@@ -188,3 +188,24 @@ jobs:
           REVIEW_LEASE_LIMIT: "10"
           REVIEW_CONCURRENCY: "4"
         run: node scripts/job-review-worker.mjs
+
+      - name: Refresh public pulse projection and insights
+        shell: bash
+        env:
+          INGESTION_HOOK_SECRET: ${{ secrets.INGESTION_HOOK_SECRET }}
+        run: |
+          set -euo pipefail
+          test -n "$INGESTION_HOOK_SECRET"
+          curl --fail-with-body --silent --show-error \\
+            --connect-timeout 10 --max-time 90 \\
+            -H "Authorization: Bearer $INGESTION_HOOK_SECRET" \\
+            -H "Content-Type: application/json" \\
+            --data '{"action":"refresh-insights","limit":250,"trigger":"github-actions-public-pulse-refresh"}' \\
+            https://geoacademic.app/api/public/hooks/ingest-batch | tee /tmp/pulse-refresh.json
+          node -e '
+            const fs = require("fs");
+            const v = JSON.parse(fs.readFileSync("/tmp/pulse-refresh.json", "utf8"));
+            if (v.error) throw new Error(v.error);
+            if (!v.pulse || typeof v.pulse.checked !== "number" || typeof v.pulse.projected !== "number") throw new Error("pulse refresh returned no projection counts");
+            console.log("PUBLIC_PULSE_REFRESH", JSON.stringify({checked:v.pulse.checked, projected:v.pulse.projected, insights:v.insights ?? null, partial:v.partial ?? false}));
+          '
