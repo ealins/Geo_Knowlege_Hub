@@ -60,6 +60,27 @@ jobs:
             if (v.probe !== true) throw new Error("fetch lease probe did not reach the ingestion queue");
             console.log("LEASE_SMOKE_OK", JSON.stringify({probe:v.probe, due:v.due}));
           '
+      - name: Queue due source refreshes
+        shell: bash
+        env:
+          INGESTION_HOOK_SECRET: ${{ secrets.INGESTION_HOOK_SECRET }}
+        run: |
+          set -euo pipefail
+          test -n "$INGESTION_HOOK_SECRET"
+          response="$(curl --fail-with-body --silent --show-error \
+            --connect-timeout 10 --max-time 45 \
+            -H "Authorization: Bearer $INGESTION_HOOK_SECRET" \
+            -H "Content-Type: application/json" \
+            --data '{"action":"refresh-due","limit":150,"trigger":"github-actions-due-source-refresh"}' \
+            https://geoacademic.app/api/public/hooks/ingest-batch)"
+          echo "$response"
+          node -e '
+            const v = JSON.parse(process.argv[1]);
+            if (v.error) throw new Error(v.error);
+            if (typeof v.queued !== "number") throw new Error("refresh-due returned no queue count");
+            console.log("DUE_SOURCE_REFRESH", JSON.stringify({queued:v.queued, skipped:v.skipped ?? 0}));
+          ' "$response"
+
       - name: Fetch fresh source data first
         env:
           INGESTION_FETCH_CONCURRENCY: "6"
