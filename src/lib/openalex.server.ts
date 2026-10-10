@@ -463,7 +463,7 @@ async function crossrefWorks(
   const url =
     `${CROSSREF_API}?query.bibliographic=${encodeURIComponent(query)}` +
     `&filter=${encodeURIComponent(filter)}&rows=${rows}` +
-    `&sort=is-referenced-by-count&order=desc&mailto=${encodeURIComponent(CONTACT)}`;
+    `&sort=published&order=desc&mailto=${encodeURIComponent(CONTACT)}`;
   const res = await fetch(url, {
     headers: { "user-agent": UA, accept: "application/json" },
   });
@@ -577,8 +577,24 @@ export async function importInstitutionPublications(
   };
 
   for (const query of queries) {
-    let works = await openAireWorks(ror, query, since, perQuery);
-    if (works.length === 0) works = await crossrefWorks(ror, query, since, perQuery);
+    const [openAire, crossref] = await Promise.all([
+      openAireWorks(ror, query, since, perQuery),
+      crossrefWorks(ror, query, since, perQuery),
+    ]);
+
+    // Merge provider results, deduplicate by DOI/title, and keep the newest
+    // source-dated work first. OpenAIRE-only fallback missed Crossref's newer
+    // records whenever OpenAIRE returned any results at all.
+    const merged = [...openAire, ...crossref].sort((a, b) =>
+      (b.publication_date ?? "").localeCompare(a.publication_date ?? ""),
+    );
+    const seenWorks = new Set<string>();
+    const works = merged.filter((work) => {
+      const key = work.doi ? `doi:${work.doi.toLowerCase()}` : `title:${normalizeName(work.title)}`;
+      if (seenWorks.has(key)) return false;
+      seenWorks.add(key);
+      return true;
+    }).slice(0, perQuery);
 
     for (const work of works) {
       out.seen += 1;
