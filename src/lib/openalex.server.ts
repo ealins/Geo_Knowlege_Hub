@@ -564,7 +564,7 @@ export async function importInstitutionPublications(
   const minCitations = opts.minCitations ?? 0;
   const queries = DOMAIN_QUERIES.slice(
     0,
-    Math.max(1, Math.min(DOMAIN_QUERIES.length, opts.queries ?? 3)),
+    Math.max(1, Math.min(DOMAIN_QUERIES.length, opts.queries ?? DOMAIN_QUERIES.length)),
   );
   const out: PublicationImportResult = {
     institution: inst.name,
@@ -586,6 +586,22 @@ export async function importInstitutionPublications(
         out.skipped += 1;
         continue;
       }
+
+      // "Remote sensing" also appears in astronomy and planetary science. Keep
+      // those records out unless the work itself contains explicit Earth/
+      // geospatial evidence; broad provider query terms alone are insufficient.
+      const topicalText = [work.title, work.abstract ?? "", work.venue ?? "", ...work.topics]
+        .join(" ")
+        .toLowerCase();
+      const nonEarthSpaceSignal =
+        /\\b(exoplanet|astronom\\w*|astrophysic\\w*|space weather|solar orbiter|solar energetic electron|transiting neptune|rover permittivity|planetary atmosphere|stellar)\\b/i.test(topicalText);
+      const earthGeoSignal =
+        /\\b(earth observation|earth system|geospatial|geographic information|gis|land cover|land use|forest|agricultur\\w*|crop|water|flood|urban|satellite imagery|photogrammetr\\w*|lidar|point cloud|geodesy|gnss|cartograph\\w*|terrain|soil|vegetation|river|coastal|ocean|climate|snowpack|glacier|seafloor|bathymetr\\w*|ecosystem|biodiversity|sea ice|scatterometer|earth surface|remote sensing of (?:the )?earth)\\b/i.test(topicalText);
+      if (nonEarthSpaceSignal && !earthGeoSignal) {
+        out.skipped += 1;
+        continue;
+      }
+
       // Only apply a citation threshold when a caller explicitly asks for one.
       // Unknown counts are normal for fresh work and are not a reason to drop it.
       if (minCitations > 0 && work.cited_by_count !== null && work.cited_by_count < minCitations) {
