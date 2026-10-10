@@ -967,8 +967,11 @@ export async function importInstitutionProjects(
         });
       }
 
+      // As with publications, topic tags must come from project evidence, not
+      // the broad search phrase that happened to retrieve the record.
       const labels = [
-        query,
+        name,
+        text(project.summary) ?? "",
         text(project.keywords) ?? "",
         ...arr(project.subjects).map((subject) =>
           typeof subject === "string"
