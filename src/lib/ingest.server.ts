@@ -695,16 +695,26 @@ async function registerVacancySources(input: {
     if ((!sameHost && !atsHost) || (!detailSignal && !roleLabel)) return [];
     return [{ url: canonical, label }];
   });
+  const candidates = postings.slice(0, 120);
+  if (candidates.length === 0) return 0;
+
+  // Batch duplicate detection before writes. Per-link lookups consumed the
+  // Worker subrequest budget before later, actual job postings were reached.
+  const candidateUrls = candidates.map((posting) => posting.url);
+  const [byUrl, byCanonical] = await Promise.all([
+    supabaseAdmin.from("sources").select("url").in("url", candidateUrls),
+    supabaseAdmin.from("sources").select("canonical_url").in("canonical_url", candidateUrls),
+  ]);
+  const existing = new Set<string>([
+    ...((byUrl.data ?? []).map((row) => row.url).filter((value): value is string => Boolean(value))),
+    ...((byCanonical.data ?? []).map((row) => row.canonical_url).filter((value): value is string => Boolean(value))),
+  ]);
+
   let inserted = 0;
   const seen = new Set<string>();
-  for (const posting of postings.slice(0, 60)) {
-    if (seen.has(posting.url)) continue;
+  for (const posting of candidates) {
+    if (seen.has(posting.url) || existing.has(posting.url)) continue;
     seen.add(posting.url);
-    const [urlMatch, canonicalMatch] = await Promise.all([
-      supabaseAdmin.from("sources").select("id").eq("url", posting.url).maybeSingle(),
-      supabaseAdmin.from("sources").select("id").eq("canonical_url", posting.url).maybeSingle(),
-    ]);
-    if (urlMatch.data || canonicalMatch.data) continue;
     const { data: child } = await supabaseAdmin
       .from("sources")
       .insert({
@@ -726,10 +736,12 @@ async function registerVacancySources(input: {
       .maybeSingle();
     if (!child) continue;
     inserted += 1;
+    existing.add(posting.url);
     await enqueue("FETCH", {
       source_id: child.id,
       institution_id: input.institutionId ?? undefined,
     });
+    if (inserted >= 8) break;
   }
   return inserted;
 }
@@ -1882,7 +1894,8 @@ export async function completeExternalFetch(input: ExternalFetchCompletion): Pro
   // additional Supabase reads. Bound the completion fan-out so the fetch itself
   // can always commit successfully; the next scheduled discovery pass can expand
   // the remaining links without losing the canonical raw snapshot.
-  const links = externalLinks(input.links).slice(0, 18);
+  const allLinks = externalLinks(input.links);
+  const links = allLinks.slice(0, 18);
   await registerDetailSourcesFromLinks({
     links,
     finalUrl,
@@ -1891,8 +1904,10 @@ export async function completeExternalFetch(input: ExternalFetchCompletion): Pro
     adapterKey: source.adapter_key,
   });
   if (source.category === "vacancies") {
+    // Vacancy postings often appear after the first navigation links. Pass the
+    // complete bounded link snapshot to the dedicated filter, not the first 18.
     await registerVacancySources({
-      links,
+      links: allLinks,
       finalUrl,
       institutionId: source.institution_id,
     });
