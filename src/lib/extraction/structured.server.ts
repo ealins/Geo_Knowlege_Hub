@@ -324,6 +324,54 @@ function keywordsFrom(node: StructuredNode): string[] {
   return [...stringList(node["keywords"]), ...stringList(node["about"])].slice(0, 20);
 }
 
+/**
+ * Person JSON-LD is also commonly used for article authors, press contacts,
+ * and page editors. Those are not researcher profiles. Require the page title
+ * to identify the same person and reject known editorial/listing routes before
+ * creating a canonical researcher.
+ */
+function researcherProfileGate(
+  raw: StructuredRawRecord,
+  name: string,
+  node: StructuredNode,
+): string | null {
+  let path: string;
+  try {
+    path = new URL(raw.final_url ?? "").pathname.toLowerCase();
+  } catch {
+    return "researcher source URL is invalid";
+  }
+  if (
+    /\/(?:news|live|media-contacts|recently-published|press|press-releases|blog|blogs|articles|stories|people-of-nasa)(?:\/|$)/i.test(path)
+  ) {
+    return "editorial, news, contact, or public-story page is not a researcher profile";
+  }
+  if (
+    /\/(?:people|staff|team|faculty|researchers|profiles?|persons?)\/?$/i.test(path)
+  ) {
+    return "generic people listing is not a researcher profile";
+  }
+
+  const normalize = (value: string) =>
+    value.toLowerCase().normalize("NFKD").replace(/[^\p{L}\p{N}]+/gu, " ").trim().replace(/\s+/g, " ");
+  const normalizedName = normalize(name);
+  const normalizedTitle = normalize(raw.page_title ?? "");
+  if (!normalizedName || !normalizedTitle.includes(normalizedName)) {
+    return "page title does not identify the JSON-LD person";
+  }
+
+  const affiliation = nestedObject(node["affiliation"] ?? node["worksFor"]);
+  const hasProfileSignal = Boolean(
+    textValue(node["jobTitle"]) ||
+    textValue(node["description"]) ||
+    textValue(node["honorificPrefix"]) ||
+    textValue(affiliation?.["name"]) ||
+    stringList(node["sameAs"]).some((value) => /orcid\.org\//i.test(value)),
+  );
+  if (!hasProfileSignal) return "person metadata lacks researcher-profile signals";
+  return null;
+}
+
 async function linkExactTopics(
   table: "project_topics" | "course_topics" | "researcher_topics" | "event_topics",
   column: "project_id" | "course_id" | "researcher_id" | "event_id",
@@ -476,6 +524,8 @@ export async function normalizeStructuredNonVacancy(
     if (!node) return null;
     const name = textValue(node["name"]);
     if (!name || name.split(/\s+/).length < 2) return null;
+    const profileGate = researcherProfileGate(raw, name, node);
+    if (profileGate) return { status: "SKIPPED", reason: profileGate };
     const profileUrl = absoluteUrl(node["url"] ?? node["sameAs"], url) ?? url;
     const sameAs = stringList(node["sameAs"]);
     const orcid =
