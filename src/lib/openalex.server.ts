@@ -564,7 +564,7 @@ export async function importInstitutionPublications(
   const minCitations = opts.minCitations ?? 0;
   const queries = DOMAIN_QUERIES.slice(
     0,
-    Math.max(1, Math.min(DOMAIN_QUERIES.length, opts.queries ?? DOMAIN_QUERIES.length)),
+    Math.max(1, Math.min(DOMAIN_QUERIES.length, opts.queries ?? 3)),
   );
   const out: PublicationImportResult = {
     institution: inst.name,
