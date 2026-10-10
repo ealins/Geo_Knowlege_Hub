@@ -556,7 +556,7 @@ export async function importInstitutionPublications(
     };
   }
 
-  const perQuery = Math.min(50, opts.perQuery ?? 25);
+  const perQuery = Math.min(50, opts.perQuery ?? 10);
   // Default to last 12 months for lean ingestion; allow override via sinceYear
   const since = opts.sinceYear ?? new Date().getUTCFullYear() - 1;
   // Freshness radar: a source-backed domain match is sufficient. Citation
