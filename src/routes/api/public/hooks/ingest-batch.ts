@@ -18,7 +18,9 @@ type Body = {
     | "lease-fetch"
     | "complete-fetch"
     | "lease-review"
-    | "complete-review";
+    | "complete-review"
+    | "sync-pulse"
+    | "refresh-insights";
   limit?: number;
   trigger?: string;
   model_available?: boolean;
