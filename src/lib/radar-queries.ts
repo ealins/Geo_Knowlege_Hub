@@ -91,7 +91,7 @@ export const opportunitiesQuery = queryOptions({
 export const pulseQuery = queryOptions({
   queryKey: ["pulse-events"],
   queryFn: async () => {
-    const [{ data, error }, opportunities] = await Promise.all([
+    const [{ data, error }, opportunityResult] = await Promise.all([
       supabase
         .from("pulse_events")
         .select(
@@ -108,11 +108,19 @@ export const pulseQuery = queryOptions({
         // newest event dates first; importance must never outrank freshness.
         .order("event_date", { ascending: false })
         .limit(100),
-      fetchPublicOpportunities(),
+      fetchPublicOpportunities()
+        .then((rows) => ({ rows, error: null as unknown }))
+        .catch((opportunityError: unknown) => {
+          // A failure in the separate jobs catalogue must not blank the entire
+          // research pulse. Fail closed for job pulses, but keep sourced papers,
+          // projects, people and events visible.
+          console.error("[pulse-query] Opportunity filter unavailable; hiding job pulses only", opportunityError);
+          return { rows: [] as OpportunityRow[], error: opportunityError };
+        }),
     ]);
     if (error) throw error;
 
-    const publicOpportunityIds = new Set(opportunities.map((row) => row.id));
+    const publicOpportunityIds = new Set(opportunityResult.rows.map((row) => row.id));
     return (data ?? [])
       .filter((event) =>
         event.entity_type === "opportunity"
@@ -132,11 +140,18 @@ export const countsQuery = queryOptions({
       throw new Error("Public surface counts returned no data");
     }
     const counts = surfaceCounts as Record<string, unknown>;
-    const opportunities = await client.fetchQuery(opportunitiesQuery);
+    // The SQL public-surface count is an independent fallback. A failure in the
+    // richer jobs query must not turn every homepage count into "Unavailable".
+    let opportunityCount = Number(counts["opportunities"] ?? 0);
+    try {
+      opportunityCount = (await client.fetchQuery(opportunitiesQuery)).length;
+    } catch (opportunityError) {
+      console.error("[counts-query] Using public SQL position count because the detailed jobs query failed", opportunityError);
+    }
     return {
       institutions: Number(counts["institutions"] ?? 0),
       researchers: Number(counts["researchers"] ?? 0),
-      opportunities: opportunities.length,
+      opportunities: opportunityCount,
       publications: Number(counts["publications"] ?? 0),
       projects: Number(counts["projects"] ?? 0),
       events: Number(counts["events"] ?? 0),
