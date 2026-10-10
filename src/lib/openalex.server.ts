@@ -738,7 +738,16 @@ export async function importInstitutionPublications(
         });
       }
 
-      const topicIds = await topicIdsFor([query, ...work.topics]);
+      // Classify from the work's own metadata, never from the provider search query.
+      // Adding `query` here made every result of a broad "remote sensing" search
+      // look like an Environmental Remote Sensing paper, even when it was astronomy.
+      const topicEvidence = [
+        work.title,
+        work.abstract ?? "",
+        work.venue ?? "",
+        ...work.topics,
+      ].filter(Boolean);
+      const topicIds = await topicIdsFor(topicEvidence);
       if (topicIds.length) {
         await supabaseAdmin
           .from("publication_topics")
