@@ -98,19 +98,19 @@ export async function topicIdsFor(names: string[]): Promise<string[]> {
   const byName = new Map(taxonomy.map((t) => [t.name.toLowerCase(), t.id]));
   const ids: string[] = [];
   const labels = names.map((name) => name.toLowerCase().replace(/[-_]+/g, " ").trim());
-  const astronomyContext = labels.some((label) => /\\b(exoplanet|astronomy|astronomical)\\b/.test(label));
+  const astronomyContext = labels.some((label) => /\b(exoplanet|astronomy|astronomical)\b/.test(label));
 
   // Provider taxonomies rarely use our exact display labels. Accept only
   // explicit, domain-specific aliases; never infer a topic from generic AI,
   // data science, or software keywords alone.
   const aliases: Array<{ topic: string; pattern: RegExp }> = [
-    { topic: "Environmental Remote Sensing", pattern: /\\b(remote sensing|earth observation|satellite imagery|lidar|photogrammetr(y|ic)|sentinel[- ]?[12]|landsat)\\b/ },
-    { topic: "Multimodal Earth Observation", pattern: /\\b(multimodal earth observation|multimodal remote sensing)\\b/ },
-    { topic: "Foundation Models for Earth Observation", pattern: /\\b(foundation models? for earth observation|earth observation foundation models?)\\b/ },
-    { topic: "UAV Mapping", pattern: /\\b(uav|unmanned aerial|drone mapping|drone remote sensing|structure from motion|sfm photogrammetry)\\b/ },
-    { topic: "Geomatics", pattern: /\\b(geomatics|geoinformatics|geodesy|cartography|surveying|photogrammetr(y|ic)|\\bgis\\b)\\b/ },
-    { topic: "3D GIS", pattern: /\\b3d gis\\b/ },
-    { topic: "Urban Digital Twins", pattern: /\\b(urban digital twins?|digital twins?)\\b/ },
+    { topic: "Environmental Remote Sensing", pattern: /\b(remote sensing|earth observation|satellite imagery|lidar|photogrammetr(y|ic)|sentinel[- ]?[12]|landsat)\b/ },
+    { topic: "Multimodal Earth Observation", pattern: /\b(multimodal earth observation|multimodal remote sensing)\b/ },
+    { topic: "Foundation Models for Earth Observation", pattern: /\b(foundation models? for earth observation|earth observation foundation models?)\b/ },
+    { topic: "UAV Mapping", pattern: /\b(uav|unmanned aerial|drone mapping|drone remote sensing|structure from motion|sfm photogrammetry)\b/ },
+    { topic: "Geomatics", pattern: /\b(geomatics|geoinformatics|geodesy|cartography|surveying|photogrammetr(y|ic)|\bgis\b)\b/ },
+    { topic: "3D GIS", pattern: /\b3d gis\b/ },
+    { topic: "Urban Digital Twins", pattern: /\b(urban digital twins?|digital twins?)\b/ },
   ];
 
   for (const label of labels) {
