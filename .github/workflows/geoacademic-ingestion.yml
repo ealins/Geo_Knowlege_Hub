@@ -196,11 +196,11 @@ jobs:
         run: |
           set -euo pipefail
           test -n "$INGESTION_HOOK_SECRET"
-          curl --fail-with-body --silent --show-error \\
-            --connect-timeout 10 --max-time 90 \\
-            -H "Authorization: Bearer $INGESTION_HOOK_SECRET" \\
-            -H "Content-Type: application/json" \\
-            --data '{"action":"refresh-insights","limit":250,"trigger":"github-actions-public-pulse-refresh"}' \\
+          curl --fail-with-body --silent --show-error \
+            --connect-timeout 10 --max-time 90 \
+            -H "Authorization: Bearer $INGESTION_HOOK_SECRET" \
+            -H "Content-Type: application/json" \
+            --data '{"action":"refresh-insights","limit":250,"trigger":"github-actions-public-pulse-refresh"}' \
             https://geoacademic.app/api/public/hooks/ingest-batch | tee /tmp/pulse-refresh.json
           node -e '
             const fs = require("fs");
