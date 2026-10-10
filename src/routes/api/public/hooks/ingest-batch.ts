@@ -211,7 +211,7 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
 
           if (action === "refresh-insights") {
             const { backfillPulseEvents } = await import("@/lib/pulse.server");
-            const pulse = await backfillPulseEvents(Math.min(250, Math.max(5, body.limit ?? 20)));
+            const pulse = await backfillPulseEvents(Math.min(250, Math.max(1, body.limit ?? 1)));
             const { data: insights, error } = await supabaseAdmin.rpc("refresh_public_insights");
             if (!error) return json({ action, pulse, insights });
 
