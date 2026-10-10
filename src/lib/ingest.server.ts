@@ -1438,14 +1438,20 @@ export async function runQueueBatch(
           } else {
             const r = await importInstitutionPublications(task.institution_id, {
               sinceYear: new Date().getUTCFullYear() - 1,
-              minCitations: 5,
+              // A freshness radar must not suppress recent papers simply because
+              // they have not accumulated citations yet.
+              minCitations: 0,
+              perQuery: 5,
             });
             detail = `PUBLICATIONS ${r.institution}: +${r.inserted} new, ${r.updated} updated, ${r.seen} seen via ${r.provider}`;
           }
         } else {
           const r = await importInstitutionPublications(task.institution_id, {
             sinceYear: new Date().getUTCFullYear() - 1,
-            minCitations: 5,
+            // A freshness radar must not suppress recent papers simply because
+            // they have not accumulated citations yet.
+            minCitations: 0,
+            perQuery: 5,
           });
           detail = `PUBLICATIONS ${r.institution}: +${r.inserted} new, ${r.updated} updated, ${r.seen} seen via ${r.provider}`;
         }
