@@ -141,10 +141,10 @@ jobs:
           processed=0
           while [ "$SECONDS" -lt "$deadline" ]; do
             response="$(curl --fail-with-body --silent --show-error \
-              --connect-timeout 10 --max-time 25 \
+              --connect-timeout 10 --max-time 55 \
               -H "Authorization: Bearer $INGESTION_HOOK_SECRET" \
               -H "Content-Type: application/json" \
-              --data '{"action":"drain-providers","limit":12,"trigger":"github-actions-provider-refresh"}' \
+              --data '{"action":"drain-providers","limit":4,"trigger":"github-actions-provider-refresh"}' \
               https://geoacademic.app/api/public/hooks/ingest-batch)"
             echo "$response"
             count="$(node -e 'const v=JSON.parse(process.argv[1]); process.stdout.write(String(v.processed||0))' "$response")"
