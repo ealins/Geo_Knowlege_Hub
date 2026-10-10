@@ -1470,11 +1470,11 @@ export async function runQueueBatch(
           if (!promoted.matched) {
             detail = `PROJECTS ${promoted.institution}: waiting for verified ROR (${promoted.reason ?? "no match"})`;
           } else {
-            const r = await importInstitutionProjects(task.institution_id);
+            const r = await importInstitutionProjects(task.institution_id, { queries: 2, perQuery: 10 });
             detail = `PROJECTS ${r.institution}: +${r.inserted} new, ${r.updated} updated, ${r.seen} seen via OpenAIRE`;
           }
         } else {
-          const r = await importInstitutionProjects(task.institution_id);
+          const r = await importInstitutionProjects(task.institution_id, { queries: 2, perQuery: 10 });
           detail = `PROJECTS ${r.institution}: +${r.inserted} new, ${r.updated} updated, ${r.seen} seen via OpenAIRE`;
         }
       } else {
