@@ -559,8 +559,9 @@ export async function importInstitutionPublications(
   const perQuery = Math.min(50, opts.perQuery ?? 25);
   // Default to last 12 months for lean ingestion; allow override via sinceYear
   const since = opts.sinceYear ?? new Date().getUTCFullYear() - 1;
-  // Minimum citation threshold for high-value filtering (default: 5 citations)
-  const minCitations = opts.minCitations ?? 5;
+  // Freshness radar: a source-backed domain match is sufficient. Citation
+  // counts must not suppress new or not-yet-cited work by default.
+  const minCitations = opts.minCitations ?? 0;
   const queries = DOMAIN_QUERIES.slice(
     0,
     Math.max(1, Math.min(DOMAIN_QUERIES.length, opts.queries ?? 3)),
@@ -585,8 +586,9 @@ export async function importInstitutionPublications(
         out.skipped += 1;
         continue;
       }
-      // Lean filter: unknown citation counts are not evidence of impact.
-      if (work.cited_by_count === null || work.cited_by_count < minCitations) {
+      // Only apply a citation threshold when a caller explicitly asks for one.
+      // Unknown counts are normal for fresh work and are not a reason to drop it.
+      if (minCitations > 0 && work.cited_by_count !== null && work.cited_by_count < minCitations) {
         out.skipped += 1;
         continue;
       }
