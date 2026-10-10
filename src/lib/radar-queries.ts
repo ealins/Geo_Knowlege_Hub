@@ -104,7 +104,8 @@ export const pulseQuery = queryOptions({
         .in("confidence", PUBLIC_CONFIDENCE_LEVELS)
         .not("source_url", "is", null)
         .order("is_demo", { ascending: true })
-        .order("importance", { ascending: false })
+        // A pulse is one source-backed event, not a weighted score. Surface the
+        // newest event dates first; importance must never outrank freshness.
         .order("event_date", { ascending: false })
         .limit(100),
       fetchPublicOpportunities(),
