@@ -48,6 +48,8 @@ async function getJson<T>(
 ): Promise<T | null> {
   const res = await fetch(url, {
     headers: { "user-agent": UA, accept: "application/json", ...extraHeaders },
+    // Provider calls must not hold a leased queue task indefinitely.
+    signal: AbortSignal.timeout(15_000),
   });
   if (res.status === 429 || res.status === 503) {
     throw new ProviderBudgetError(provider, retryMinutes(res));
@@ -466,6 +468,7 @@ async function crossrefWorks(
     `&sort=published&order=desc&mailto=${encodeURIComponent(CONTACT)}`;
   const res = await fetch(url, {
     headers: { "user-agent": UA, accept: "application/json" },
+    signal: AbortSignal.timeout(15_000),
   });
   if (res.status === 429 || res.status === 503) {
     throw new ProviderBudgetError("crossref", retryMinutes(res));
