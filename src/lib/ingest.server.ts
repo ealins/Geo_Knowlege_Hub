@@ -688,7 +688,8 @@ async function registerVacancySources(input: {
     // uses /jobs/term/... and /job/?category=... for listings; only individual
     // postings should pass through to canonical extraction.
     const listingUrl =
-      /\/(?:jobs?\/term\/|jobs?\/?|careers?\/?|vacanc(?:y|ies)\/?)$/i.test(url.pathname) ||
+      /\/jobs?\/term\//i.test(url.pathname) ||
+      /\/(?:jobs?|careers?|vacanc(?:y|ies))\/?$/i.test(url.pathname) ||
       /[?&]category=\d+/i.test(url.search);
     if (listingUrl) return [];
     const signal = `${url.pathname} ${url.search} ${label}`;
