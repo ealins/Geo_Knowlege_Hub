@@ -267,9 +267,31 @@ async function robotsAllows(url) {
 
 const hostNextStart = new Map();
 
+// Per-domain rate-limit backoff. When a host returns HTTP 429 we back off
+// exponentially (1m, 2m, 4m ... capped at 30m) instead of hammering it on
+// the normal retry cycle. A successful fetch resets the backoff.
+const hostRateLimit = new Map();
+
+function recordRateLimit(host) {
+  const prev = hostRateLimit.get(host);
+  const consecutive = (prev?.consecutive || 0) + 1;
+  const backoffMs = Math.min(30 * 60_000, 60_000 * 2 ** (consecutive - 1));
+  hostRateLimit.set(host, {
+    consecutive,
+    until: Date.now() + backoffMs,
+  });
+  return backoffMs;
+}
+
+function clearRateLimit(host) {
+  hostRateLimit.delete(host);
+}
+
 async function respectHostDelay(url) {
   const host = new URL(url).host;
-  const startAt = Math.max(Date.now(), hostNextStart.get(host) || 0);
+  const limited = hostRateLimit.get(host);
+  const limitUntil = limited && limited.until > Date.now() ? limited.until : 0;
+  const startAt = Math.max(Date.now(), hostNextStart.get(host) || 0, limitUntil);
   hostNextStart.set(host, startAt + PER_HOST_DELAY_MS);
   const waitMs = Math.max(0, startAt - Date.now());
   if (waitMs) await sleep(waitMs);
@@ -467,13 +489,24 @@ async function fetchLease(lease) {
     } else {
       const response = await fetchWithTimeout(lease.url);
       if (!response.ok) {
+        const host = new URL(lease.url).host;
+        let error = `HTTP ${response.status}`;
+        if (response.status === 429) {
+          const backoffMs = recordRateLimit(host);
+          error = `HTTP 429 (rate limited, backing off ${Math.round(backoffMs / 60000)}m)`;
+        } else if (response.status < 500) {
+          // Non-transient client errors won't improve on retry; don't
+          // escalate backoff, but a success later still clears it.
+          clearRateLimit(host);
+        }
         completion = {
           success: false,
           http_status: response.status,
           blocked: response.status === 403,
-          error: `HTTP ${response.status}`,
+          error,
         };
       } else {
+        clearRateLimit(new URL(lease.url).host);
         const contentType = (
           response.headers.get("content-type") || ""
         ).toLowerCase();
