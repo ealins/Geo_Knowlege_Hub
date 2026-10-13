@@ -86,10 +86,6 @@ export function isPublicOpportunityEvidence(
     return false;
   }
 
-  if (!row.application_deadline && row.status !== "rolling") {
-    return false;
-  }
-
   if (PUBLIC_NON_POSTING_TITLE.test(row.title.trim())) {
     return false;
   }
