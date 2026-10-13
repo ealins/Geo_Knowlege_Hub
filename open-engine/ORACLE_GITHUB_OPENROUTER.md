@@ -112,7 +112,11 @@ OPEN_ENGINE_BASE_URL=https://api.geoacademic.app
 OPEN_ENGINE_INTERNAL_TOKEN=<same value as Oracle INTERNAL_API_TOKEN>
 ```
 
-`.github/workflows/geoacademic-open-engine-maintenance.yml` checks API health, recovers stale task leases, enqueues overdue sources and reports queue state. It safely exits without doing anything until both secrets exist.
+`.github/workflows/geoacademic-ingestion.yml` checks the ingestion lease
+endpoint, fetches due sources, and drains normalization and vacancy review
+backlogs. It runs every 15 minutes and safely fails early when required
+credentials are missing. The workflow's successful completion means the
+bounded batch completed; it does not mean every source was refreshed.
 
 ### Deployment
 

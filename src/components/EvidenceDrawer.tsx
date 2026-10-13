@@ -32,8 +32,8 @@ export function staleness(lastVerified: string | null): {
 } {
   if (!lastVerified) return { label: "Never verified", tone: "text-deadline" };
   const days = Math.floor((Date.now() - new Date(lastVerified).getTime()) / 86_400_000);
-  if (days <= 14) return { label: `Verified ${days}d ago`, tone: "text-growth" };
-  if (days <= 90) return { label: `Verified ${days}d ago`, tone: "text-signal" };
+  if (days <= 7) return { label: `Fresh — checked ${days}d ago`, tone: "text-growth" };
+  if (days <= 30) return { label: `Aging — checked ${days}d ago`, tone: "text-signal" };
   return { label: `Stale — ${days}d since check`, tone: "text-deadline" };
 }
 

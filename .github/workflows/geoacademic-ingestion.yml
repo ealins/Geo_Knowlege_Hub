@@ -62,9 +62,9 @@ jobs:
           '
       - name: Fetch fresh source data first
         env:
-          INGESTION_FETCH_CONCURRENCY: "6"
-          INGESTION_LEASE_LIMIT: "12"
-          INGESTION_RUNTIME_MS: "150000"
+          INGESTION_FETCH_CONCURRENCY: "8"
+          INGESTION_LEASE_LIMIT: "20"
+          INGESTION_RUNTIME_MS: "240000"
           INGESTION_BURST_MODE: "true"
           INGESTION_WORKER_TRIGGER: "github-actions-fresh-first"
         run: node scripts/ingestion-worker.mjs

@@ -11,8 +11,10 @@ export const getRouter = () => {
         // refiring every request.
         staleTime: 5 * 60_000,
         gcTime: 30 * 60_000,
-        refetchOnWindowFocus: false,
-        refetchOnMount: false,
+        refetchOnWindowFocus: true,
+        refetchOnMount: true,
+        refetchInterval: 5 * 60_000,
+        refetchIntervalInBackground: false,
         retry: 1,
       },
     },

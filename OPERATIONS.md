@@ -42,6 +42,13 @@ The repository may retain Python ingestion/runtime code under `open-engine/cloud
 
 The canonical refresh path is a bounded ingestion cycle that writes to Supabase and uses OmniRoute as the primary AI provider. The production workflow must not depend on a Google Cloud scheduler or Cloud Run job.
 
+`.github/workflows/geoacademic-ingestion.yml` runs every 15 minutes. Each run
+fetches a bounded batch of due sources, then drains normalization and vacancy
+review work. Monitor its `FETCH leased`, `complete`, `retry`, and `stale` log
+fields together with the queue counts returned by the hook endpoints. A
+successful workflow run does not mean every source was checked; source
+category intervals and adaptive backoff still determine which sources are due.
+
 The former Google Cloud provisioning scripts have been removed from the repository. Do not recreate them as part of normal maintenance.
 
 The manual GitHub Actions workflow `.github/workflows/geoacademic-cloudrun-ingestion.yml` is a runner workflow only; despite its historical filename, it does **not** provision or invoke Google Cloud. It should remain manual-only.
