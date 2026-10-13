@@ -1,4 +1,5 @@
 import { supabaseAdmin } from "@/integrations/supabase/client.server";
+import { isPublicOpportunityEvidence } from "@/lib/public-data";
 
 type PulseEntityType = "opportunity" | "project" | "researcher" | "event" | "publication";
 
@@ -94,7 +95,7 @@ async function buildPulseRow(
       )
       .eq("id", entityId)
       .maybeSingle();
-    if (!data || data.is_demo) return null;
+    if (!data || data.is_demo || !isPublicOpportunityEvidence(data)) return null;
     const country = data.country ?? (await institutionCountry(data.institution_id));
     const importance =
       data.status === "closing_soon"

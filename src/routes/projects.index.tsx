@@ -1,5 +1,4 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useQuery } from "@tanstack/react-query";
 import { ExternalLink } from "lucide-react";
 
 import { AppShell, PageHeader, ProvenanceChips, TopicPills } from "@/components/layout/AppShell";
@@ -8,6 +7,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { CardLink } from "@/components/CardLink";
 
 export const Route = createFileRoute("/projects/")({
+  loader: ({ context }) => context.queryClient.ensureQueryData(projectsQuery),
   head: () => ({
     meta: [
       { title: "Research Projects — GeoAcademic Radar" },
@@ -38,6 +38,14 @@ const STATUS_TONE: Record<string, string> = {
   unknown: "border-border bg-muted/50 text-muted-foreground",
 };
 
+function relativeEvidence(value: string | null | undefined) {
+  if (!value) return "Evidence date not stated";
+  const days = Math.max(0, Math.floor((Date.now() - new Date(value).getTime()) / 86_400_000));
+  if (days === 0) return "Evidence checked today";
+  if (days === 1) return "Evidence checked 1 day ago";
+  return `Evidence checked ${days} days ago`;
+}
+
 function money(amount: number | null, currency: string | null) {
   if (amount === null) return "Budget not stated";
   return `${new Intl.NumberFormat("en-US", { notation: "compact", maximumFractionDigits: 1 }).format(
@@ -46,7 +54,9 @@ function money(amount: number | null, currency: string | null) {
 }
 
 function ProjectsPage() {
-  const { data, isLoading, error } = useQuery(projectsQuery);
+  const data = Route.useLoaderData();
+  const isLoading = false;
+  const error = null;
 
   return (
     <AppShell>
@@ -120,6 +130,10 @@ function ProjectsPage() {
                     confidence={p.confidence}
                     isDemo={p.is_demo}
                   />
+                  <p className="mt-2 text-[0.68rem] text-muted-foreground">
+                    {relativeEvidence(p.evidence?.last_checked_at ?? p.evidence?.last_verified_at)}
+                    {p.evidence?.source_organization ? ` · ${p.evidence.source_organization}` : ""}
+                  </p>
                   {p.website ? (
                     <a
                       href={p.website}

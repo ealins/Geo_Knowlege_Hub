@@ -58,18 +58,30 @@ const DEGREE_TITLE =
 const GENERIC_STUDY_TITLE =
   /^(study(ing)?( (at|with|here))?|studium|studies|study programmes?|degree programmes?|programmes?|programs?|academics|education|teaching|lehre|prospective students|admissions|apply now|bewerbung)\b[\s|:–-]*$/i;
 const PROGRAMME_BODY =
-  /(credits?|ects|semester|module|curriculum|studienverlauf|admission|zulassung|application (deadline|period|procedure)|bewerbungsfrist|tuition|studienbeitrag|degree awarded|abschluss|standard period of study|regelstudienzeit|language of instruction|unterrichtssprache|duration)/i;
+  /(credits?|ects|semester|module|curriculum|studienverlauf|admission|zulassung|application (deadline|period|procedure)|bewerbungsfrist|tuition|studienbeitrag|degree awarded|abschluss|standard period of study|regelstudienzeit|language of instruction|unterrichtssprache|duration|research (programme|program|training)|training programme|fellowship|doctoral training|graduate training|scientific programme)/i;
 
-export function programmeGate(url: string, title: string, text: string): Gate {
+// Media/editorial titles must not become academic offerings because their text
+// happens to contain generic words such as "course" or "programme".
+const NON_COURSE_MEDIA =
+  /\b(video|movie|multimedia|image|photo gallery|flyby|launch|rollout|press release|news article|spacecraft|satellite launch)\b/i;
+
+export function programmeGate(url: string, title: string, text: string, classification: string | null = null): Gate {
   const t = (title || "").trim();
   if (!t) return { ok: false, reason: "no title" };
+  if (NON_COURSE_MEDIA.test(t) || /\/(?:multimedia|images?|videos?|news|press-releases?)\//i.test(pathOf(url)))
+    return { ok: false, reason: "editorial/media page, not a course or degree programme" };
   if (GENERIC_STUDY_TITLE.test(t)) return { ok: false, reason: "generic university study landing page" };
   if (LIST_TITLE.test(t)) return { ok: false, reason: "programme listing page, not one programme" };
   if (text.length < 600) return { ok: false, reason: "page too thin to be a programme description" };
-  if (!DEGREE_TITLE.test(t) && !DEGREE_TITLE.test(text.slice(0, 2500)))
-    return { ok: false, reason: "no degree level stated (Master/Bachelor/PhD programme)" };
+  const degreeEvidence = DEGREE_TITLE.test(t) || DEGREE_TITLE.test(text.slice(0, 2500));
+  const researchProgramme = /\b(research|doctoral training|graduate training|scientific|training) (programme|program)\b/i.test(t);
+  const specificCourse = classification === "COURSE"
+    && !GENERIC_STUDY_TITLE.test(t)
+    && (/\/(?:courses?|modules?|lectures?)\//i.test(pathOf(url)) || /\b(course|module|lecture|lab|practical|seminar)\b/i.test(t));
+  if (!degreeEvidence && !researchProgramme && !specificCourse)
+    return { ok: false, reason: "no degree level, explicit research/training programme, or specific course stated" };
   if (!PROGRAMME_BODY.test(text))
-    return { ok: false, reason: "no programme signals (ECTS, semesters, curriculum, admission)" };
+    return { ok: false, reason: "no programme signals (ECTS, semesters, curriculum, admission, training)" };
   return { ok: true };
 }
 
@@ -141,7 +153,7 @@ export function selectCandidate(input: {
     }
     case "PROGRAMME":
     case "COURSE": {
-      const gate = programmeGate(url, title, text);
+      const gate = programmeGate(url, title, text, input.classification);
       if (!gate.ok) return { candidate: "NOT_A_CANDIDATE", reason: `deterministic programme gate rejected: ${gate.reason}` };
       return { candidate: "PROGRAMME_CANDIDATE", reason: "single degree programme page passed the deterministic gate" };
     }

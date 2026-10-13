@@ -19,7 +19,7 @@ jobs:
   review-jobs:
     if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
-    timeout-minutes: 12
+    timeout-minutes: 15
     env:
       GEOACADEMIC_BASE_URL: https://geoacademic.app
       INGESTION_HOOK_SECRET: ${{ secrets.INGESTION_HOOK_SECRET }}
@@ -39,7 +39,7 @@ jobs:
         run: |
           set -euo pipefail
           test -n "${OMNIROUTE_API_KEY:-}"
-          echo "OMNIROUTE_CONFIGURED=true"
+          echo "AI_PROVIDER=OmniRoute"
       - name: Verify fetch lease endpoint
         shell: bash
         env:
@@ -60,14 +60,58 @@ jobs:
             if (v.probe !== true) throw new Error("fetch lease probe did not reach the ingestion queue");
             console.log("LEASE_SMOKE_OK", JSON.stringify({probe:v.probe, due:v.due}));
           '
+      - name: Queue due source refreshes
+        shell: bash
+        env:
+          INGESTION_HOOK_SECRET: ${{ secrets.INGESTION_HOOK_SECRET }}
+        run: |
+          set -euo pipefail
+          test -n "$INGESTION_HOOK_SECRET"
+          response="$(curl --fail-with-body --silent --show-error \
+            --connect-timeout 10 --max-time 45 \
+            -H "Authorization: Bearer $INGESTION_HOOK_SECRET" \
+            -H "Content-Type: application/json" \
+            --data '{"action":"refresh-due","limit":150,"trigger":"github-actions-due-source-refresh"}' \
+            https://geoacademic.app/api/public/hooks/ingest-batch)"
+          echo "$response"
+          node -e '
+            const v = JSON.parse(process.argv[1]);
+            if (v.error) throw new Error(v.error);
+            if (typeof v.queued !== "number") throw new Error("refresh-due returned no queue count");
+            console.log("DUE_SOURCE_REFRESH", JSON.stringify({queued:v.queued, skipped:v.skipped ?? 0}));
+          ' "$response"
+
       - name: Fetch fresh source data first
         env:
-          INGESTION_FETCH_CONCURRENCY: "8"
-          INGESTION_LEASE_LIMIT: "20"
-          INGESTION_RUNTIME_MS: "240000"
+          INGESTION_FETCH_CONCURRENCY: "6"
+          INGESTION_LEASE_LIMIT: "12"
+          INGESTION_RUNTIME_MS: "120000"
           INGESTION_BURST_MODE: "true"
           INGESTION_WORKER_TRIGGER: "github-actions-fresh-first"
         run: node scripts/ingestion-worker.mjs
+      - name: Reseed high-value discovery pages
+        shell: bash
+        env:
+          INGESTION_HOOK_SECRET: ${{ secrets.INGESTION_HOOK_SECRET }}
+        run: |
+          set -euo pipefail
+          test -n "$INGESTION_HOOK_SECRET"
+          curl --fail-with-body --silent --show-error \
+            --connect-timeout 10 --max-time 45 \
+            -H "Authorization: Bearer $INGESTION_HOOK_SECRET" \
+            -H "Content-Type: application/json" \
+            --data '{"action":"reseed-high-value","limit":100,"trigger":"github-actions-deep-discovery-v7"}' \
+            https://geoacademic.app/api/public/hooks/ingest-batch
+
+      - name: Fetch reseeded discovery pages
+        env:
+          INGESTION_FETCH_CONCURRENCY: "6"
+          INGESTION_LEASE_LIMIT: "12"
+          INGESTION_RUNTIME_MS: "90000"
+          INGESTION_BURST_MODE: "true"
+          INGESTION_WORKER_TRIGGER: "github-actions-deep-discovery-v7"
+        run: node scripts/ingestion-worker.mjs
+
       - name: Queue programme discovery coverage sweep
         if: github.event_name == 'schedule'
         shell: bash
@@ -86,7 +130,7 @@ jobs:
             -H "Content-Type: application/json" \
             --data '{"action":"discover-programmes","limit":10,"trigger":"github-actions-programme-coverage"}' \
             https://geoacademic.app/api/public/hooks/ingest-batch
-      - name: Drain canonical normalization backlog
+      - name: Drain structured provider backlog
         shell: bash
         env:
           INGESTION_HOOK_SECRET: ${{ secrets.INGESTION_HOOK_SECRET }}
@@ -97,10 +141,51 @@ jobs:
           processed=0
           while [ "$SECONDS" -lt "$deadline" ]; do
             response="$(curl --fail-with-body --silent --show-error \
-              --connect-timeout 10 --max-time 45 \
+              --connect-timeout 10 --max-time 70 \
               -H "Authorization: Bearer $INGESTION_HOOK_SECRET" \
               -H "Content-Type: application/json" \
-              --data '{"action":"drain","limit":8,"trigger":"github-actions-normalize-backlog"}' \
+              --data '{"action":"drain-providers","limit":1,"trigger":"github-actions-provider-refresh"}' \
+              https://geoacademic.app/api/public/hooks/ingest-batch)"
+            echo "$response"
+            count="$(node -e 'const v=JSON.parse(process.argv[1]); process.stdout.write(String(v.processed||0))' "$response")"
+            processed=$((processed+count))
+            if [ "$count" -eq 0 ]; then
+              echo "PROVIDER_DRAIN_IDLE processed=$processed"
+              break
+            fi
+            sleep 1
+          done
+          echo "PROVIDER_DRAIN_PROCESSED=$processed"
+
+      - name: Recover transient semantic failures
+        shell: bash
+        env:
+          INGESTION_HOOK_SECRET: ${{ secrets.INGESTION_HOOK_SECRET }}
+        run: |
+          set -euo pipefail
+          test -n "$INGESTION_HOOK_SECRET"
+          curl --fail-with-body --silent --show-error \
+            --connect-timeout 10 --max-time 45 \
+            -H "Authorization: Bearer $INGESTION_HOOK_SECRET" \
+            -H "Content-Type: application/json" \
+            --data '{"action":"recover-semantic-failures","limit":500,"trigger":"github-actions-semantic-recovery"}' \
+            https://geoacademic.app/api/public/hooks/ingest-batch
+
+      - name: Drain canonical normalization backlog
+        shell: bash
+        env:
+          INGESTION_HOOK_SECRET: ${{ secrets.INGESTION_HOOK_SECRET }}
+        run: |
+          set -euo pipefail
+          test -n "$INGESTION_HOOK_SECRET"
+          deadline=$((SECONDS+180))
+          processed=0
+          while [ "$SECONDS" -lt "$deadline" ]; do
+            response="$(curl --fail-with-body --silent --show-error \
+              --connect-timeout 10 --max-time 35 \
+              -H "Authorization: Bearer $INGESTION_HOOK_SECRET" \
+              -H "Content-Type: application/json" \
+              --data '{"action":"drain","limit":3,"trigger":"github-actions-normalize-backlog"}' \
               https://geoacademic.app/api/public/hooks/ingest-batch)"
             echo "$response"
             count="$(node -e 'const v=JSON.parse(process.argv[1]); process.stdout.write(String(v.processed||0))' "$response")"
@@ -114,13 +199,35 @@ jobs:
           echo "NORMALIZE_DRAIN_PROCESSED=$processed"
       - name: Drain vacancy review backlog
         env:
-          REVIEW_RUNTIME_MS: "300000"
-          REVIEW_LEASE_LIMIT: "10"
+          REVIEW_RUNTIME_MS: "120000"
+          REVIEW_LEASE_LIMIT: "6"
           REVIEW_CONCURRENCY: "4"
         run: node scripts/job-review-worker.mjs
       - name: Review newly fetched job pages
         env:
-          REVIEW_RUNTIME_MS: "60000"
+          REVIEW_RUNTIME_MS: "45000"
           REVIEW_LEASE_LIMIT: "10"
           REVIEW_CONCURRENCY: "4"
         run: node scripts/job-review-worker.mjs
+
+      - name: Refresh public pulse projection and insights
+        if: ${{ !cancelled() }}
+        shell: bash
+        env:
+          INGESTION_HOOK_SECRET: ${{ secrets.INGESTION_HOOK_SECRET }}
+        run: |
+          set -euo pipefail
+          test -n "$INGESTION_HOOK_SECRET"
+          curl --fail-with-body --silent --show-error \
+            --connect-timeout 10 --max-time 90 \
+            -H "Authorization: Bearer $INGESTION_HOOK_SECRET" \
+            -H "Content-Type: application/json" \
+            --data '{"action":"refresh-insights","limit":1,"trigger":"github-actions-public-pulse-refresh"}' \
+            https://geoacademic.app/api/public/hooks/ingest-batch | tee /tmp/pulse-refresh.json
+          node -e '
+            const fs = require("fs");
+            const v = JSON.parse(fs.readFileSync("/tmp/pulse-refresh.json", "utf8"));
+            if (v.error) throw new Error(v.error);
+            if (!v.pulse || typeof v.pulse.checked !== "number" || typeof v.pulse.projected !== "number") throw new Error("pulse refresh returned no projection counts");
+            console.log("PUBLIC_PULSE_REFRESH", JSON.stringify({checked:v.pulse.checked, projected:v.pulse.projected, insights:v.insights ?? null, partial:v.partial ?? false}));
+          '

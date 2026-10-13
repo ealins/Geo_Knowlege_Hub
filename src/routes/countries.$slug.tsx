@@ -112,7 +112,12 @@ function CountryDetail() {
       />
       <div className="mx-auto w-full max-w-7xl px-6 py-8">
         <div className="grid gap-3 sm:grid-cols-3 xl:grid-cols-6">
-          <StatTile label="Academic pulse" value={data.totals.pulse} tone="signal" />
+          <StatTile
+            label="Academic pulse"
+            value={data.totals.pulse}
+            tone="signal"
+            hint="One point for each qualifying sourced Pulse signal"
+          />
           <StatTile label="Institutions" value={data.totals.institutions} />
           <StatTile label="Open calls" value={data.totals.openCalls} tone="deadline" />
           <StatTile label="Programmes" value={data.totals.programmes} />

@@ -212,7 +212,7 @@ async function fetchWithTimeout(url, init = {}) {
       signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
       headers: {
         "user-agent": USER_AGENT,
-        accept: "text/html,application/xhtml+xml,text/plain;q=0.8",
+        accept: "text/html,application/xhtml+xml,text/plain,application/rss+xml,application/atom+xml,application/xml,text/xml;q=0.9",
         ...(init.headers || {}),
       },
     });
@@ -313,9 +313,10 @@ function decodeEntities(value) {
 }
 
 function extractTitle(html) {
-  const match = /<title[^>]*>([\s\S]*?)<\/title>/i.exec(html);
+  const match = /<title[^>]*>([\s\S]*?)<\/title>/i.exec(html)
+    || /<(?:rss:title|atom:title|title)\b[^>]*>([\s\S]*?)<\/(?:rss:title|atom:title|title)>/i.exec(html);
   return match?.[1]
-    ? decodeEntities(match[1]).replace(/\s+/g, " ").trim().slice(0, 300)
+    ? decodeEntities(match[1].replace(/<[^>]+>/g, " ")).replace(/\s+/g, " ").trim().slice(0, 300)
     : null;
 }
 
@@ -335,27 +336,34 @@ function extractText(html) {
 function extractLinks(html, baseUrl) {
   const links = [];
   const seen = new Set();
-  const expression = /<a\b[^>]*href=["']([^"'#]+)["'][^>]*>([\s\S]*?)<\/a>/gi;
-  let match;
-  while ((match = expression.exec(html)) !== null && links.length < 200) {
-    const href = match[1] || "";
-    if (/^(?:mailto:|tel:|javascript:)/i.test(href)) continue;
+  const add = (href, label) => {
+    if (!href || /^(?:mailto:|tel:|javascript:)/i.test(href.trim())) return;
     try {
-      const url = new URL(href, baseUrl);
+      const url = new URL(decodeEntities(href.trim()), baseUrl);
       url.hash = "";
-      if (!/^https?:$/.test(url.protocol) || seen.has(url.toString())) continue;
+      if (!/^https?:$/.test(url.protocol) || seen.has(url.toString())) return;
       seen.add(url.toString());
       links.push({
         url: url.toString(),
-        label: decodeEntities(match[2] || "")
-          .replace(/<[^>]+>/g, " ")
-          .replace(/\s+/g, " ")
-          .trim()
-          .slice(0, 200),
+        label: decodeEntities(label || "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim().slice(0, 200),
       });
     } catch {
       // Ignore malformed links.
     }
+  };
+  const anchors = /<a\b[^>]*href=["']([^"'#]+)["'][^>]*>([\s\S]*?)<\/a>/gi;
+  let match;
+  while ((match = anchors.exec(html)) !== null && links.length < 200) add(match[1], match[2]);
+
+  // RSS/Atom entries become individual discovered source links, not one feed-sized pulse.
+  const entries = /<(?:item|entry)\b[^>]*>([\s\S]*?)<\/(?:item|entry)>/gi;
+  let entry;
+  while ((entry = entries.exec(html)) !== null && links.length < 200) {
+    const block = entry[1] || "";
+    const label = /<title\b[^>]*>([\s\S]*?)<\/title>/i.exec(block)?.[1] || "";
+    const href = /<link\b[^>]*href=["']([^"']+)["'][^>]*\/?\s*>/i.exec(block)?.[1]
+      || /<link\b[^>]*>([\s\S]*?)<\/link>/i.exec(block)?.[1];
+    add(href, label);
   }
   return links;
 }
@@ -471,7 +479,7 @@ async function fetchLease(lease) {
         ).toLowerCase();
         if (
           contentType &&
-          !/(?:text\/html|application\/xhtml\+xml|text\/plain)/.test(
+          !/(?:text\/html|application\/xhtml\+xml|text\/plain|application\/(?:rss\+xml|atom\+xml|xml)|text\/xml)/.test(
             contentType,
           )
         ) {
@@ -653,6 +661,19 @@ if (shouldRunDirectly) {
       const retries = results.filter(
         (result) => result?.result?.status === "RETRY",
       ).length;
+      const retryDetails = results
+        .filter((result) => result?.result?.status === "RETRY")
+        .slice(0, 5)
+        .map((result) => ({
+          task_id: result?.lease?.task_id,
+          url: result?.lease?.url,
+          error: result?.completion?.error ?? "unknown",
+        }));
+      if (retryDetails.length) {
+        console.warn(
+          `${new Date().toISOString()} FETCH_RETRY_DETAILS ${JSON.stringify(retryDetails)}`,
+        );
+      }
       const staleResults = results.filter(
         (result) => result?.result?.status === "STALE",
       );

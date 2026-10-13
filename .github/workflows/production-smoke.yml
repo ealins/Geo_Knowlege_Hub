@@ -29,8 +29,11 @@ jobs:
             health_code=$(curl -L -sS -o /tmp/health.json -w '%{http_code}' --connect-timeout 10 --max-time 30 "$SITE/api/public/data-health?smoke=$nonce" || true)
             jobs_code=$(curl -L -sS -o /tmp/jobs.html -w '%{http_code}' --connect-timeout 10 --max-time 30 "$SITE/jobs/?sector=all&smoke=$nonce" || true)
             events_code=$(curl -L -sS -o /tmp/events.html -w '%{http_code}' --connect-timeout 10 --max-time 30 "$SITE/events/?smoke=$nonce" || true)
+            programmes_code=$(curl -L -sS -o /tmp/programmes.html -w '%{http_code}' --connect-timeout 10 --max-time 30 "$SITE/programmes/?smoke=$nonce" || true)
+            researchers_code=$(curl -L -sS -o /tmp/researchers.html -w '%{http_code}' --connect-timeout 10 --max-time 30 "$SITE/researchers/?smoke=$nonce" || true)
+            projects_code=$(curl -L -sS -o /tmp/projects.html -w '%{http_code}' --connect-timeout 10 --max-time 30 "$SITE/projects/?smoke=$nonce" || true)
 
-            read -r jobs_cards events_cards < <(python3 <<'PY'
+            read -r jobs_cards events_cards programmes_cards researchers_cards projects_cards < <(python3 <<'PY'
           from html.parser import HTMLParser
           from pathlib import Path
 
@@ -47,7 +50,7 @@ jobs:
                       self.count += 1
 
           counts = []
-          for name in ("jobs", "events"):
+          for name in ("jobs", "events", "programmes", "researchers", "projects"):
               parser = LinkParser(f"/{name}/")
               parser.feed(Path(f"/tmp/{name}.html").read_text(errors="replace"))
               counts.append(parser.count)
@@ -55,12 +58,12 @@ jobs:
           PY
             )
 
-            echo "Attempt $attempt: home=$page_code health=$health_code jobs=$jobs_code/$jobs_cards events=$events_code/$events_cards"
+            echo "Attempt $attempt: home=$page_code health=$health_code jobs=$jobs_code/$jobs_cards events=$events_code/$events_cards programmes=$programmes_code/$programmes_cards researchers=$researchers_code/$researchers_cards projects=$projects_code/$projects_cards"
             [[ -s /tmp/health.json ]] && { echo -n "health: "; head -c 1500 /tmp/health.json; echo; } || true
 
-            if [[ "$page_code" == "200" && "$health_code" == "200" && "$jobs_code" == "200" && "$events_code" == "200" ]] && \
+            if [[ "$page_code" == "200" && "$health_code" == "200" && "$jobs_code" == "200" && "$events_code" == "200" && "$programmes_code" == "200" && "$researchers_code" == "200" && "$projects_code" == "200" ]] && \
                grep -q "Research Pulse" /tmp/home.html && \
-               (( jobs_cards > 0 )) && (( events_cards > 0 )); then
+               (( jobs_cards > 0 )) && (( events_cards > 0 )) && (( programmes_cards > 0 )) && (( researchers_cards > 0 )) && (( projects_cards > 0 )); then
               if node <<'NODE'
           const fs = require('fs');
           const health = JSON.parse(fs.readFileSync('/tmp/health.json', 'utf8'));
@@ -88,5 +91,5 @@ jobs:
             sleep 10
           done
 
-          echo "Active geoacademic.app deployment is unhealthy or SSR jobs/events are empty." >&2
+          echo "Active geoacademic.app deployment is unhealthy or one or more public catalogues are empty." >&2
           exit 1

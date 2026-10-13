@@ -1,5 +1,4 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { ExternalLink } from "lucide-react";
 
@@ -9,6 +8,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { CardLink } from "@/components/CardLink";
 
 export const Route = createFileRoute("/researchers/")({
+  loader: ({ context }) => context.queryClient.ensureQueryData(researchersQuery),
   head: () => ({
     meta: [
       { title: "Researchers — GeoAcademic Radar" },
@@ -33,7 +33,9 @@ export const Route = createFileRoute("/researchers/")({
 });
 
 function ResearchersPage() {
-  const { data, isLoading, error } = useQuery(researchersQuery);
+  const data = Route.useLoaderData();
+  const isLoading = false;
+  const error = null;
   const [visible, setVisible] = useState(36);
   const rows = data ?? [];
   const visibleRows = rows.slice(0, visible);

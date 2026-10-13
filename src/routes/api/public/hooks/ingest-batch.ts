@@ -13,11 +13,14 @@ type Body = {
     | "drain-providers"
     | "reseed-high-value"
     | "recover-detail-sources"
+    | "recover-semantic-failures"
     | "worker-status"
     | "lease-fetch"
     | "complete-fetch"
     | "lease-review"
-    | "complete-review";
+    | "complete-review"
+    | "sync-pulse"
+    | "refresh-insights";
   limit?: number;
   trigger?: string;
   model_available?: boolean;
@@ -39,6 +42,23 @@ function errorMessage(error: unknown): string {
     return JSON.stringify(error);
   } catch {
     return String(error);
+  }
+}
+
+async function withTimeout<T>(promise: Promise<T>, timeoutMs: number, label: string): Promise<T> {
+  let timer: ReturnType<typeof setTimeout> | undefined;
+  try {
+    return await Promise.race([
+      promise,
+      new Promise<T>((_, reject) => {
+        timer = setTimeout(
+          () => reject(new Error(label + " timed out after " + timeoutMs + "ms")),
+          timeoutMs,
+        );
+      }),
+    ]);
+  } finally {
+    if (timer) clearTimeout(timer);
   }
 }
 
@@ -191,7 +211,7 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
 
           if (action === "refresh-insights") {
             const { backfillPulseEvents } = await import("@/lib/pulse.server");
-            const pulse = await backfillPulseEvents(Math.min(250, Math.max(20, body.limit ?? 160)));
+            const pulse = await backfillPulseEvents(Math.min(250, Math.max(1, body.limit ?? 1)));
             const { data: insights, error } = await supabaseAdmin.rpc("refresh_public_insights");
             if (!error) return json({ action, pulse, insights });
 
@@ -214,6 +234,14 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
             const { enqueueHighValueReseed } = await import("@/lib/ingest.server");
             const result = await enqueueHighValueReseed(
               Math.min(300, Math.max(10, body.limit ?? 150)),
+            );
+            return json({ action, ...result });
+          }
+
+          if (action === "recover-semantic-failures") {
+            const { enqueueSemanticFailureRecovery } = await import("@/lib/ingest.server");
+            const result = await enqueueSemanticFailureRecovery(
+              Math.min(1000, Math.max(10, body.limit ?? 500)),
             );
             return json({ action, ...result });
           }
@@ -297,10 +325,14 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
           // so it is safe to run on its own cheap cadence.
           if (action === "drain-providers") {
             const { runQueueBatch } = await import("@/lib/ingest.server");
-            const result = await runQueueBatch(
-              Math.min(30, Math.max(1, body.limit ?? 12)),
-              ["PROMOTE_INSTITUTION", "IMPORT_PUBLICATIONS", "IMPORT_PROJECTS"],
-              2,
+            const result = await withTimeout(
+              runQueueBatch(
+                Math.min(30, Math.max(1, body.limit ?? 12)),
+                ["PROMOTE_INSTITUTION", "IMPORT_PUBLICATIONS", "IMPORT_PROJECTS"],
+                2,
+              ),
+              60_000,
+              "structured provider drain",
             );
             return json({ action, ...result });
           }
@@ -394,13 +426,12 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
             // Backlog draining is adaptive: process NORMALIZE in small waves with
             // Use bounded parallelism on the paid Workers plan while keeping each
             // invocation below the six simultaneous outgoing-connection limit.
-            const normalizeTarget =
-              queueState.mode === "BACKLOG" ? Math.min(6, batch) : Math.min(3, batch);
+            const normalizeTarget = 1;
             // Vacancy normalization is deterministic and source-backed.
             // Keep requests below the Cloudflare request budget while using
             // parallel workers; semantic enrichment remains asynchronous.
-            const normalizeWave = queueState.mode === "BACKLOG" ? 3 : 2;
-            const normalizeBudgetMs = queueState.mode === "BACKLOG" ? 24_000 : 20_000;
+            const normalizeWave = 1;
+            const normalizeBudgetMs = queueState.mode === "BACKLOG" ? 28_000 : 24_000;
             const emptyResult = () => ({
               processed: 0,
               ok: 0,
@@ -419,10 +450,14 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
               Date.now() - startedAt.getTime() < normalizeBudgetMs
             ) {
               const remaining = normalizeTarget - result.processed;
-              const wave = await runQueueBatch(
-                Math.min(normalizeWave, remaining),
-                ["NORMALIZE"],
-                queueState.mode === "BACKLOG" ? 3 : 2,
+              const wave = await withTimeout(
+                runQueueBatch(
+                  Math.min(normalizeWave, remaining),
+                  ["NORMALIZE"],
+                  queueState.mode === "BACKLOG" ? 3 : 2,
+                ),
+                25_000,
+                "normalization wave",
               );
               normalizeWaves += 1;
               result.processed += wave.processed;
@@ -445,7 +480,11 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
               // production does not inherit the legacy Fly-only environment flag,
               // and a second consumer would invalidate the external worker lease.
               taskGroup = "DISCOVER";
-              const collection = await runQueueBatch(batch, ["DISCOVER"]);
+              const collection = await withTimeout(
+                runQueueBatch(batch, ["DISCOVER"]),
+                15_000,
+                "discovery batch",
+              );
               result.processed = collection.processed;
               result.ok = collection.ok;
               result.failed = collection.failed;
@@ -495,6 +534,7 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
             });
           } catch (e) {
             const message = errorMessage(e);
+            const timedOut = /timed out after \d+ms/i.test(message);
             if (run?.id) {
               await supabaseAdmin
                 .from("pipeline_runs")
@@ -503,8 +543,26 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
                   duration_ms: Date.now() - startedAt.getTime(),
                   errors: 1,
                   error_message: message.slice(0, 1000),
+                  details: {
+                    mode: queueState.mode,
+                    partial: timedOut,
+                    timeout: timedOut,
+                    error: message.slice(0, 1000),
+                  } as never,
                 })
                 .eq("id", run.id);
+            }
+            // A single slow normalization/discovery batch must not abort the
+            // entire ingestion workflow. The next scheduled tick can recover
+            // its stale lease and continue from the remaining queue.
+            if (timedOut) {
+              return json({
+                action: "drain",
+                run_id: run?.id ?? null,
+                partial: true,
+                timed_out: true,
+                error: message,
+              });
             }
             return json({ error: message }, 500);
           }

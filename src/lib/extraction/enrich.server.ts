@@ -1,7 +1,7 @@
 // Optional Nemotron enrichment for a vacancy page that already passed the
 // deterministic gate. Only adds validated fields; never overturns the gate.
 import { LLM_EXTRACTION_ENABLED } from "../llm-config.server";
-import { isNvidiaConfigured } from "../nvidia.server";
+import { isAIConfigured } from "../nvidia.server";
 import { extractVacancy, type VacancyExtraction } from "./vacancy.server";
 import { findCachedResult, logCacheHit, recordValidatedResult, validateVacancy } from "./validate.server";
 
@@ -24,7 +24,7 @@ export async function enrichVacancy(input: {
   contentHash?: string | null;
 }): Promise<EnrichOutcome> {
   if (!LLM_EXTRACTION_ENABLED) return NONE;
-  if (!isNvidiaConfigured()) return { ...NONE, errorCode: "NVIDIA_SECRET_NOT_CONFIGURED" };
+  if (!isAIConfigured()) return { ...NONE, errorCode: "AI_PROVIDER_NOT_CONFIGURED" };
 
   const cached = (await findCachedResult({ operation: "VACANCY_EXTRACTION", contentHash: input.contentHash ?? null })) as
     | VacancyExtraction

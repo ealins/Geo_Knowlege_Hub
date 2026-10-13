@@ -6,9 +6,8 @@ export const getRouter = () => {
   const queryClient = new QueryClient({
     defaultOptions: {
       queries: {
-        // Data is refreshed by the ingestion pipeline, not per-second — keep
-        // results warm so navigating back to a page is instant instead of
-        // refiring every request.
+        // Revalidate active and returning tabs so newly ingested data appears
+        // without requiring visitors to perform a hard refresh.
         staleTime: 5 * 60_000,
         gcTime: 30 * 60_000,
         refetchOnWindowFocus: true,

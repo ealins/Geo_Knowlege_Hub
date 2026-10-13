@@ -124,7 +124,7 @@ export function institutionDetailQuery(slug: string) {
           supabase
             .from("researchers")
             .select(
-              "id, full_name, slug, academic_title, current_position, verification_status, researcher_topics!inner(topic_id)",
+              "id, full_name, slug, academic_title, current_position, verification_status, researcher_topics(topic_id)",
             )
             .eq("institution_id", id)
             .eq("is_demo", false)
@@ -145,7 +145,7 @@ export function institutionDetailQuery(slug: string) {
           supabase
             .from("projects")
             .select(
-              "id, name, slug, acronym, status, start_date, end_date, funding_organization, website, project_topics!inner(topic_id)",
+              "id, name, slug, acronym, status, start_date, end_date, funding_organization, website, project_topics(topic_id)",
             )
             .eq("institution_id", id)
             .eq("is_demo", false)
@@ -155,7 +155,7 @@ export function institutionDetailQuery(slug: string) {
           supabase
             .from("publications")
             .select(
-              "id, title, doi, venue, year, citation_count, is_open_access, landing_url, publication_topics!inner(topic_id)",
+              "id, title, doi, venue, year, citation_count, is_open_access, landing_url, publication_topics(topic_id)",
             )
             .eq("institution_id", id)
             .eq("is_demo", false)
@@ -165,7 +165,7 @@ export function institutionDetailQuery(slug: string) {
           supabase
             .from("courses")
             .select(
-              "id, title, slug, degree_type, language, duration, website, course_topics!inner(topic_id)",
+              "id, title, slug, degree_type, language, duration, website, course_topics(topic_id)",
             )
             .eq("institution_id", id)
             .eq("is_demo", false)
@@ -212,7 +212,7 @@ export function researcherDetailQuery(slug: string) {
            institutions ( id, name, slug, country ),
            departments ( name, slug ),
            research_groups ( name, slug ),
-           researcher_topics!inner ( weight, research_topics ( name, slug ) )`,
+           researcher_topics ( weight, research_topics ( name, slug ) )`,
         )
         .eq("slug", slug)
         .eq("is_demo", false)
@@ -235,16 +235,16 @@ export function researcherDetailQuery(slug: string) {
           .from("publication_researchers")
           .select(
             `author_position,
-             publications!inner ( id, title, doi, venue, year, citation_count, is_open_access,
-               landing_url, is_demo, verification_status, publication_topics!inner(topic_id) )`,
+             publications ( id, title, doi, venue, year, citation_count, is_open_access,
+               landing_url, is_demo, verification_status, publication_topics(topic_id) )`,
           )
           .eq("researcher_id", id)
           .limit(50),
         supabase
           .from("project_researchers")
           .select(
-            `role, projects!inner ( id, name, slug, acronym, status, funding_organization,
-              website, is_demo, verification_status, project_topics!inner(topic_id) )`,
+            `role, projects ( id, name, slug, acronym, status, funding_organization,
+              website, is_demo, verification_status, project_topics(topic_id) )`,
           )
           .eq("researcher_id", id),
         supabase
@@ -262,8 +262,8 @@ export function researcherDetailQuery(slug: string) {
         supabase
           .from("course_researchers")
           .select(
-            `courses!inner ( id, title, slug, degree_type, is_demo, verification_status,
-              course_topics!inner(topic_id) )`,
+            `courses ( id, title, slug, degree_type, is_demo, verification_status,
+              course_topics(topic_id) )`,
           )
           .eq("researcher_id", id),
       ]);
@@ -476,7 +476,7 @@ export function projectDetailQuery(slug: string) {
            institutions!projects_institution_id_fkey ( id, name, slug, country ),
            departments ( name, slug ),
            organizations!projects_funder_id_fkey ( name, slug, org_type ),
-           project_topics!inner ( research_topics ( name, slug ) )`,
+           project_topics ( research_topics ( name, slug ) )`,
         )
         .eq("slug", slug)
         .eq("is_demo", false)
@@ -546,7 +546,7 @@ export function publicationDetailQuery(id: string) {
            citation_source, is_open_access, abstract, source, external_id, landing_url,
            verification_status, confidence, last_verified_at, is_demo,
            institutions!publications_institution_id_fkey ( id, name, slug, country ),
-           publication_topics!inner ( research_topics ( name, slug ) )`,
+           publication_topics ( research_topics ( name, slug ) )`,
         )
         .eq("id", id)
         .eq("is_demo", false)

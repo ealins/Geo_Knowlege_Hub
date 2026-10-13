@@ -56,23 +56,33 @@ export function programmeFamily(title: string): string {
   return "Interdisciplinary";
 }
 
-export const DEGREE_ORDER = ["BSc", "MSc", "MEng", "PhD", "Certificate"];
+export const DEGREE_ORDER = ["Master's", "Doctoral"] as const;
 
-export function degreeLabel(degree: string | null): string {
-  switch (degree) {
-    case "BSc":
-      return "Bachelor";
-    case "MSc":
-      return "Master";
-    case "MEng":
-      return "Engineering master";
-    case "PhD":
-      return "Doctoral";
-    case "Certificate":
-      return "Diploma / certificate";
-    default:
-      return "Other";
+const POSTGRADUATE_DEGREE_TYPES = new Set([
+  "Master",
+  "MSc",
+  "MA",
+  "MPhil",
+  "MASt",
+  "MEng",
+  "Doctoral",
+  "PhD",
+  "DPhil",
+]);
+
+export function isPostgraduateProgramme(degree: string | null): boolean {
+  return Boolean(degree && POSTGRADUATE_DEGREE_TYPES.has(degree));
+}
+
+export function degreeLabel(degree: string | null): "Master's" | "Doctoral" | null {
+  if (!degree) return null;
+  if (["Master", "MSc", "MA", "MPhil", "MASt", "MEng"].includes(degree)) {
+    return "Master's";
   }
+  if (["Doctoral", "PhD", "DPhil"].includes(degree)) {
+    return "Doctoral";
+  }
+  return null;
 }
 
 type Rollup = {
@@ -97,7 +107,7 @@ async function fetchLandscape() {
     .toISOString()
     .slice(0, 10);
 
-  const [inst, opps, courses, projects, pubs, researchers, events] =
+  const [inst, opps, courses, projects, pubs, researchers, events, pulseEvents] =
     await Promise.all([
       supabase
         .from("institutions")
@@ -120,7 +130,8 @@ async function fetchLandscape() {
         .from("courses")
         .select("id, institution_id, degree_type, course_topics(topic_id)")
         .eq("is_demo", false)
-        .in("verification_status", PUBLIC_VERIFICATION_STATUSES),
+        .in("verification_status", PUBLIC_VERIFICATION_STATUSES)
+        .in("degree_type", ["Master", "MSc", "MA", "MPhil", "MASt", "MEng", "Doctoral", "PhD", "DPhil"]),
 
       supabase
         .from("projects")
@@ -147,6 +158,14 @@ async function fetchLandscape() {
         .select("id, country, start_date, event_topics(topic_id)")
         .eq("is_demo", false)
         .in("verification_status", PUBLIC_VERIFICATION_STATUSES),
+
+      supabase
+        .from("pulse_events")
+        .select("id, institution_id, country, entity_type, entity_id, event_date, source_url")
+        .eq("is_demo", false)
+        .in("verification_status", ["verified", "auto_discovered"])
+        .in("confidence", PUBLIC_CONFIDENCE_LEVELS)
+        .not("source_url", "is", null),
     ]);
 
   const err =
@@ -156,7 +175,8 @@ async function fetchLandscape() {
     projects.error ||
     pubs.error ||
     researchers.error ||
-    events.error;
+    events.error ||
+    pulseEvents.error;
 
   if (err) throw err;
 
@@ -172,7 +192,7 @@ async function fetchLandscape() {
         ...row,
         country: canonicalCountry(row.country),
       })),
-    courses: courses.data ?? [],
+    courses: (courses.data ?? []).filter((row) => isPostgraduateProgramme(row.degree_type)),
     projects: projects.data ?? [],
     publications: pubs.data ?? [],
     researchers: researchers.data ?? [],
@@ -180,6 +200,7 @@ async function fetchLandscape() {
       ...row,
       country: canonicalCountry(row.country),
     })),
+    pulseEvents: pulseEvents.data ?? [],
   };
 }
 
@@ -230,6 +251,10 @@ function scoreInstitutions(
         (r) => r.institution_id === i.id,
       ).length;
 
+      const pulse = l.pulseEvents.filter(
+        (event) => event.institution_id === i.id,
+      ).length;
+
       return {
         id: i.id,
         name: i.name,
@@ -243,12 +268,7 @@ function scoreInstitutions(
         projects,
         publications,
         researchers,
-        pulse:
-          openCalls * 4 +
-          projects * 2 +
-          publications * 1.5 +
-          researchers +
-          programmes * 0.5,
+        pulse,
       };
     })
     .sort((a, b) => b.pulse - a.pulse || a.name.localeCompare(b.name));
@@ -296,7 +316,6 @@ export const countriesRollupQuery = queryOptions({
       row.projects += i.projects;
       row.publications += i.publications;
       row.researchers += i.researchers;
-      row.pulse += i.pulse;
 
       if (row.topInstitutions.length < 3) {
         row.topInstitutions.push({
@@ -308,6 +327,25 @@ export const countriesRollupQuery = queryOptions({
       map.set(key, row);
     }
 
+    const { data: pulseEvents, error: pulseError } = await supabase
+      .from("pulse_events")
+      .select("country")
+      .eq("is_demo", false)
+      .in("verification_status", ["verified", "auto_discovered"])
+      .in("confidence", PUBLIC_CONFIDENCE_LEVELS)
+      .not("source_url", "is", null);
+
+    if (pulseError) throw pulseError;
+
+    for (const event of pulseEvents ?? []) {
+      const eventCountry = canonicalCountry(event.country);
+      if (!eventCountry) continue;
+      const row = map.get(eventCountry);
+      if (row) {
+        row.pulse += 1;
+      }
+    }
+
     for (const e of l.events) {
       const eventCountry = canonicalCountry(e.country);
       if (!eventCountry) continue;
@@ -316,7 +354,7 @@ export const countriesRollupQuery = queryOptions({
       if (row) row.events += 1;
     }
 
-    return [...map.values()].sort((a, b) => b.pulse - a.pulse);
+    return [...map.values()].sort((a, b) => b.pulse - a.pulse || a.country.localeCompare(b.country));
   },
   staleTime: 60_000,
 });
@@ -482,9 +520,9 @@ export function countryDetailQuery(slug: string) {
             (s, i) => s + i.researchers,
             0,
           ),
-          pulse: Math.round(
-            institutions.reduce((s, i) => s + i.pulse, 0),
-          ),
+          pulse: l.pulseEvents.filter(
+            (event) => canonicalCountry(event.country) === country,
+          ).length,
         },
       };
     },
@@ -505,6 +543,7 @@ export const programmeCatalogueQuery = queryOptions({
       )
       .eq("is_demo", false)
       .in("verification_status", PUBLIC_VERIFICATION_STATUSES)
+      .in("degree_type", ["Master", "MSc", "MA", "MPhil", "MASt", "MEng", "Doctoral", "PhD", "DPhil"])
       .order("is_demo", { ascending: true })
       .order("title");
 
@@ -537,6 +576,7 @@ export function programmeDetailQuery(slug: string) {
         .eq("slug", slug)
         .eq("is_demo", false)
         .in("verification_status", PUBLIC_VERIFICATION_STATUSES)
+        .in("degree_type", ["Master", "MSc", "MA", "MPhil", "MASt", "MEng", "Doctoral", "PhD", "DPhil"])
         .maybeSingle();
 
       if (error) throw error;
@@ -573,6 +613,7 @@ export function programmeDetailQuery(slug: string) {
               .eq("institution_id", instId)
               .eq("is_demo", false)
               .in("verification_status", PUBLIC_VERIFICATION_STATUSES)
+              .in("degree_type", ["Master", "MSc", "MA", "MPhil", "MASt", "MEng", "Doctoral", "PhD", "DPhil"])
               .neq("slug", slug)
               .limit(8)
           : Promise.resolve({ data: [], error: null }),

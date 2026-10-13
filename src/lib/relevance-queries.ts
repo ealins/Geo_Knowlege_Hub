@@ -36,7 +36,7 @@ export function eventDetailQuery(slug: string) {
           `id, title, slug, organization, location, country, start_date, end_date,
            abstract_deadline, paper_deadline, registration_deadline, website, recurrence,
            summary, source, event_kind, verification_status, confidence, last_verified_at, is_demo,
-           event_topics!inner ( research_topics ( name, slug, category ) )`,
+           event_topics ( research_topics ( name, slug, category ) )`,
         )
         .eq("slug", slug)
         .eq("is_demo", false)
@@ -57,7 +57,7 @@ export function eventDetailQuery(slug: string) {
       const [siblings, calls] = await Promise.all([
         supabase
           .from("events")
-          .select("id, title, slug, start_date, end_date, location, event_kind, event_topics!inner(topic_id)")
+          .select("id, title, slug, start_date, end_date, location, event_kind, event_topics(topic_id)")
           .neq("slug", slug)
           .eq("is_demo", false)
           .in("verification_status", PUBLIC_VERIFICATION_STATUSES)
@@ -178,7 +178,7 @@ async function fetchTopPickEvents(): Promise<{ data: TopPickEvent[] | null; erro
   const { data, error } = await supabase
     .from("events")
     .select(
-      "id, title, slug, start_date, location, country, event_kind, abstract_deadline, event_topics!inner(topic_id)",
+      "id, title, slug, start_date, location, country, event_kind, abstract_deadline, event_topics(topic_id)",
     )
     .gte("start_date", new Date().toISOString().slice(0, 10))
     .eq("is_demo", false)

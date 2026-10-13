@@ -49,7 +49,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          printf '%s' "$OMNIROUTE_API_KEY" | ./node_modules/.bin/wrangler secret put OMNIROUTE_API_KEY --name research-pulse-global
+          printf '%s' "$OMNIROUTE_API_KEY" | ./node_modules/.bin/wrangler versions secret put OMNIROUTE_API_KEY --name research-pulse-global
 
       - name: Deploy active Worker
         run: ./node_modules/.bin/wrangler deploy

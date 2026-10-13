@@ -65,13 +65,13 @@
 }
 
 :root {
-  --radius: 0.5rem;
+  --radius: 0.625rem;
 
-  --background: oklch(0.16 0.032 265);
+  --background: oklch(0.145 0.028 265);
   --foreground: oklch(0.96 0.006 250);
-  --surface: oklch(0.2 0.034 265);
+  --surface: oklch(0.18 0.03 265);
   --surface-foreground: oklch(0.96 0.006 250);
-  --card: oklch(0.21 0.035 265);
+  --card: oklch(0.19 0.032 265);
   --card-foreground: oklch(0.96 0.006 250);
   --popover: oklch(0.19 0.034 265);
   --popover-foreground: oklch(0.96 0.006 250);
@@ -94,7 +94,7 @@
 
   --destructive: oklch(0.64 0.2 22);
   --destructive-foreground: oklch(0.98 0.004 250);
-  --border: oklch(0.31 0.038 265);
+  --border: oklch(0.28 0.034 265);
   --input: oklch(0.3 0.038 265);
   --ring: oklch(0.78 0.14 195);
 
@@ -104,7 +104,7 @@
   --chart-4: oklch(0.79 0.15 72);
   --chart-5: oklch(0.7 0.17 340);
 
-  --sidebar: oklch(0.18 0.033 265);
+  --sidebar: oklch(0.155 0.029 265);
   --sidebar-foreground: oklch(0.9 0.012 250);
   --sidebar-primary: oklch(0.78 0.14 195);
   --sidebar-primary-foreground: oklch(0.17 0.035 265);
@@ -123,7 +123,7 @@
     color-mix(in oklab, var(--card) 92%, var(--primary)),
     var(--card)
   );
-  --shadow-panel: 0 18px 40px -24px oklch(0.08 0.03 265 / 0.9);
+  --shadow-panel: 0 10px 28px -24px oklch(0.05 0.02 265 / 0.9);
   --shadow-glow: 0 0 0 1px color-mix(in oklab, var(--primary) 40%, transparent),
     0 12px 32px -18px color-mix(in oklab, var(--primary) 55%, transparent);
 }
@@ -191,7 +191,7 @@
   background-image:
     linear-gradient(to right, color-mix(in oklab, var(--border) 55%, transparent) 1px, transparent 1px),
     linear-gradient(to bottom, color-mix(in oklab, var(--border) 55%, transparent) 1px, transparent 1px);
-  background-size: 44px 44px;
+  background-size: 56px 56px;
 }
 
 @utility signal-wash {

@@ -40,7 +40,6 @@ const CATEGORY_RULES: { category: string; kind: string; words: string[] }[] = [
       "personen",
       "professor",
       "faculty",
-      "members",
     ],
   },
   {
@@ -171,6 +170,15 @@ export function classifyUrlAndText(url: string, title: string, text: string): Cl
   // Programme/course classification is deliberately stricter than a generic
   // "programme" keyword. Job titles such as "Programme Manager" and internship
   // pages must never become degree programmes.
+  // Explicit media/editorial paths and headlines outrank generic lexical
+  // matches like "course to Jupiter" or "programme" in article text.
+  if (
+    /\/(?:multimedia|images?|videos?|news|press-releases?)\//i.test(path) ||
+    /\b(video|movie|multimedia|image|flyby|launch|rollout|press release|spacecraft|satellite launch)\b/i.test(heading)
+  ) {
+    return { classification: "GENERAL", confidence: 0.95 };
+  }
+
   const internshipPage = /(?:intern|internship|fellowship|job|career|vacanc)/i.test(
     `${path} ${heading}`,
   );
@@ -417,7 +425,7 @@ function likelyDetailLink(
   const cleanLabel = label.replace(/\s+/g, " ").trim();
   const text = `${child.pathname} ${child.search} ${cleanLabel}`.toLowerCase();
   const generic =
-    /^(more|read more|learn more|overview|home|back|next|previous|all|view all|people|team|staff|projects|events|courses|programmes?|research|news|contact)$/i;
+    /^(more|read more|learn more|overview|home|back|next|previous|all|view all|people|team|staff|faculty|academic staff|research staff|professional services|technical staff|emeritus(?: faculty)?|post[- ]?docs?|graduate students?|projects|events|courses|programmes?|research|news|contact)$/i;
   if (!cleanLabel || generic.test(cleanLabel)) return false;
 
   const depth = child.pathname.split("/").filter(Boolean).length;
@@ -440,12 +448,17 @@ function likelyDetailLink(
   // evidence is therefore accepted here; the deterministic entity gate still
   // decides whether the fetched page is a real record before any model call.
   switch (category) {
-    case "people":
-      return (
-        /(people|staff|team|faculty|profile|person|member|researcher|professor|mitarbeiter)/i.test(
-          text,
-        ) || personLike
-      );
+    case "people": {
+      const listingPath =
+        /\/(?:people|staff|faculty|team|members?)(?:\/(?:academic|research|professional|technical|emeritus|post[-_ ]?docs?|graduate|staff))?\/?$/i.test(
+          child.pathname,
+        );
+      return !listingPath && (personLike ||
+        /\/(?:people|staff|faculty|profile|person|member|researcher|professor|mitarbeiter)\//i.test(
+          child.pathname,
+        ) ||
+        /[?&](?:person|profile|uid|id)=/i.test(child.search));
+    }
     case "projects":
       return (
         /(project|projekt|research[-_/ ]?project)/i.test(text) ||
@@ -671,6 +684,14 @@ async function registerVacancySources(input: {
     if (!canonical || isJunkDiscoveryUrl(canonical, link.label)) return [];
     const url = new URL(canonical);
     const label = link.label.replace(/\s+/g, " ").trim();
+    // Never turn category/listing/filter URLs into fake job records. Cambridge
+    // uses /jobs/term/... and /job/?category=... for listings; only individual
+    // postings should pass through to canonical extraction.
+    const listingUrl =
+      /\/jobs?\/term\//i.test(url.pathname) ||
+      /\/(?:jobs?|careers?|vacanc(?:y|ies))\/?$/i.test(url.pathname) ||
+      /[?&]category=\d+/i.test(url.search);
+    if (listingUrl) return [];
     const signal = `${url.pathname} ${url.search} ${label}`;
     const sameHost = url.host.toLowerCase() === host;
     const atsHost = knownApplicantTrackingHost(url.hostname.toLowerCase());
@@ -682,16 +703,26 @@ async function registerVacancySources(input: {
     if ((!sameHost && !atsHost) || (!detailSignal && !roleLabel)) return [];
     return [{ url: canonical, label }];
   });
+  const candidates = postings.slice(0, 120);
+  if (candidates.length === 0) return 0;
+
+  // Batch duplicate detection before writes. Per-link lookups consumed the
+  // Worker subrequest budget before later, actual job postings were reached.
+  const candidateUrls = candidates.map((posting) => posting.url);
+  const [byUrl, byCanonical] = await Promise.all([
+    supabaseAdmin.from("sources").select("url").in("url", candidateUrls),
+    supabaseAdmin.from("sources").select("canonical_url").in("canonical_url", candidateUrls),
+  ]);
+  const existing = new Set<string>([
+    ...((byUrl.data ?? []).map((row) => row.url).filter((value): value is string => Boolean(value))),
+    ...((byCanonical.data ?? []).map((row) => row.canonical_url).filter((value): value is string => Boolean(value))),
+  ]);
+
   let inserted = 0;
   const seen = new Set<string>();
-  for (const posting of postings.slice(0, 60)) {
-    if (seen.has(posting.url)) continue;
+  for (const posting of candidates) {
+    if (seen.has(posting.url) || existing.has(posting.url)) continue;
     seen.add(posting.url);
-    const [urlMatch, canonicalMatch] = await Promise.all([
-      supabaseAdmin.from("sources").select("id").eq("url", posting.url).maybeSingle(),
-      supabaseAdmin.from("sources").select("id").eq("canonical_url", posting.url).maybeSingle(),
-    ]);
-    if (urlMatch.data || canonicalMatch.data) continue;
     const { data: child } = await supabaseAdmin
       .from("sources")
       .insert({
@@ -713,10 +744,12 @@ async function registerVacancySources(input: {
       .maybeSingle();
     if (!child) continue;
     inserted += 1;
+    existing.add(posting.url);
     await enqueue("FETCH", {
       source_id: child.id,
       institution_id: input.institutionId ?? undefined,
     });
+    if (inserted >= 8) break;
   }
   return inserted;
 }
@@ -959,7 +992,7 @@ export async function enqueueHighValueReseed(limit = 150): Promise<{
   queued: number;
   by_category: Record<string, number>;
 }> {
-  const marker = "deep-discovery-v6.1";
+  const marker = "deep-discovery-v7.0";
   const { data: sources, error } = await supabaseAdmin
     .from("sources")
     .select(
@@ -1037,6 +1070,9 @@ export async function enqueueExistingDetailRecovery(limit = 300): Promise<{
     .limit(Math.max(1, Math.min(limit, 1000)));
   if (error) throw error;
 
+  const RETRYABLE_EXTRACTION_ERROR =
+    /(?:NVIDIA_SECRET_NOT_CONFIGURED|AI_PROVIDER_NOT_CONFIGURED|HTTP_(?:429|5\d\d)|TIMEOUT|NETWORK_ERROR|UNPARSEABLE_RESPONSE|OUTPUT_TRUNCATED|EMPTY_COMPLETION)/i;
+
   let normalizeQueued = 0;
   let fetchQueued = 0;
   let alreadyNormalized = 0;
@@ -1047,7 +1083,7 @@ export async function enqueueExistingDetailRecovery(limit = 300): Promise<{
 
     const { data: raw } = await supabaseAdmin
       .from("raw_records")
-      .select("id, normalization_status, classification, classification_confidence")
+      .select("id, normalization_status, classification, classification_confidence, normalization_error")
       .eq("source_id", source.id)
       .order("fetched_at", { ascending: false })
       .limit(1)
@@ -1058,6 +1094,16 @@ export async function enqueueExistingDetailRecovery(limit = 300): Promise<{
         alreadyNormalized += 1;
         continue;
       }
+
+      // Only retry pages whose semantic extraction actually failed or was
+      // unavailable. Listing/gate rejections are intentional and should not
+      // churn every 15 minutes.
+      const retrySemanticFailure =
+        raw.normalization_status === "PENDING" ||
+        RETRYABLE_EXTRACTION_ERROR.test(raw.normalization_error ?? "");
+
+      if (!retrySemanticFailure) continue;
+
       await supabaseAdmin
         .from("raw_records")
         .update({
@@ -1067,10 +1113,11 @@ export async function enqueueExistingDetailRecovery(limit = 300): Promise<{
           normalization_error: null,
         } as never)
         .eq("id", raw.id);
+
       await enqueue("NORMALIZE", {
         source_id: source.id,
         institution_id: source.institution_id ?? undefined,
-        payload: { classification, reason: "detail-recovery-v6.1" },
+        payload: { classification, reason: "detail-semantic-recovery-v7" },
       });
       normalizeQueued += 1;
       continue;
@@ -1080,7 +1127,7 @@ export async function enqueueExistingDetailRecovery(limit = 300): Promise<{
       await enqueue("FETCH", {
         source_id: source.id,
         institution_id: source.institution_id ?? undefined,
-        payload: { reason: "detail-recovery-v6.1" },
+        payload: { reason: "detail-semantic-recovery-v7" },
       });
       fetchQueued += 1;
     }
@@ -1092,6 +1139,63 @@ export async function enqueueExistingDetailRecovery(limit = 300): Promise<{
     fetch_queued: fetchQueued,
     already_normalized: alreadyNormalized,
   };
+}
+
+/** Requeue only non-vacancy pages whose semantic extraction failed transiently. */
+export async function enqueueSemanticFailureRecovery(limit = 500): Promise<{
+  scanned: number;
+  queued: number;
+  skipped: number;
+}> {
+  const retryable =
+    /(?:NVIDIA_SECRET_NOT_CONFIGURED|AI_PROVIDER_NOT_CONFIGURED|HTTP_(?:429|5\d\d)|TIMEOUT|NETWORK_ERROR|UNPARSEABLE_RESPONSE|OUTPUT_TRUNCATED|EMPTY_COMPLETION)/i;
+
+  const { data: raws, error } = await supabaseAdmin
+    .from("raw_records")
+    .select("id, source_id, institution_id, classification, normalization_status, normalization_error, fetched_at")
+    .in("classification", ["PROJECT", "RESEARCHER", "EVENT", "PROGRAMME", "COURSE"])
+    .eq("normalization_status", "SKIPPED")
+    .order("fetched_at", { ascending: false })
+    .limit(Math.max(1, Math.min(limit, 1000)));
+  if (error) throw error;
+
+  let queued = 0;
+  let skipped = 0;
+  for (const raw of raws ?? []) {
+    if (!raw.source_id || !retryable.test(raw.normalization_error ?? "")) {
+      skipped += 1;
+      continue;
+    }
+    const { data: source } = await supabaseAdmin
+      .from("sources")
+      .select("active, status")
+      .eq("id", raw.source_id)
+      .maybeSingle();
+    if (!source?.active || source.status === "BLOCKED") {
+      skipped += 1;
+      continue;
+    }
+
+    await supabaseAdmin
+      .from("raw_records")
+      .update({
+        normalization_status: "PENDING",
+        normalization_error: null,
+      } as never)
+      .eq("id", raw.id);
+
+    await enqueue("NORMALIZE", {
+      source_id: raw.source_id,
+      institution_id: raw.institution_id ?? undefined,
+      payload: {
+        classification: raw.classification,
+        reason: "semantic-failure-recovery-v7",
+      },
+    });
+    queued += 1;
+  }
+
+  return { scanned: (raws ?? []).length, queued, skipped };
 }
 
 /* ------------------------------------------------------------------ */
@@ -1248,7 +1352,9 @@ export async function runQueueBatch(
       const ap = NORMALIZE_CLASS_PRIORITY[queuedClassification(a)] ?? fallbackPriority;
       const bp = NORMALIZE_CLASS_PRIORITY[queuedClassification(b)] ?? fallbackPriority;
       if (ap !== bp) return ap - bp;
-      return new Date(a.run_after).getTime() - new Date(b.run_after).getTime();
+      // Prefer the newest queued source within the same entity type. Fresh
+      // discovery is the product goal; old retryable pages can drain later.
+      return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
     });
     // Vacancy records are source-backed and must not wait for semantic review.
     // The canonical writer publishes the crawled source first; semantic enrichment
@@ -1332,14 +1438,20 @@ export async function runQueueBatch(
           } else {
             const r = await importInstitutionPublications(task.institution_id, {
               sinceYear: new Date().getUTCFullYear() - 1,
-              minCitations: 5,
+              // A freshness radar must not suppress recent papers simply because
+              // they have not accumulated citations yet.
+              minCitations: 0,
+              perQuery: 5,
             });
             detail = `PUBLICATIONS ${r.institution}: +${r.inserted} new, ${r.updated} updated, ${r.seen} seen via ${r.provider}`;
           }
         } else {
           const r = await importInstitutionPublications(task.institution_id, {
             sinceYear: new Date().getUTCFullYear() - 1,
-            minCitations: 5,
+            // A freshness radar must not suppress recent papers simply because
+            // they have not accumulated citations yet.
+            minCitations: 0,
+            perQuery: 5,
           });
           detail = `PUBLICATIONS ${r.institution}: +${r.inserted} new, ${r.updated} updated, ${r.seen} seen via ${r.provider}`;
         }
@@ -1358,11 +1470,11 @@ export async function runQueueBatch(
           if (!promoted.matched) {
             detail = `PROJECTS ${promoted.institution}: waiting for verified ROR (${promoted.reason ?? "no match"})`;
           } else {
-            const r = await importInstitutionProjects(task.institution_id);
+            const r = await importInstitutionProjects(task.institution_id, { queries: 2, perQuery: 10 });
             detail = `PROJECTS ${r.institution}: +${r.inserted} new, ${r.updated} updated, ${r.seen} seen via OpenAIRE`;
           }
         } else {
-          const r = await importInstitutionProjects(task.institution_id);
+          const r = await importInstitutionProjects(task.institution_id, { queries: 2, perQuery: 10 });
           detail = `PROJECTS ${r.institution}: +${r.inserted} new, ${r.updated} updated, ${r.seen} seen via OpenAIRE`;
         }
       } else {
@@ -1661,7 +1773,15 @@ export async function completeExternalFetch(input: ExternalFetchCompletion): Pro
       .eq("id", source.id);
     await recordRun(false, false, message);
 
-    const dead = task.attempts >= task.max_attempts;
+    const permanentlyUnavailable = statusCode === 404 || statusCode === 410;
+    if (permanentlyUnavailable) {
+      await supabaseAdmin
+        .from("sources")
+        .update({ active: false })
+        .eq("id", source.id);
+    }
+    // 404/410 means the source was removed, so retire it instead of retrying it.
+    const dead = permanentlyUnavailable || task.attempts >= task.max_attempts;
     const backoffMinutes = Math.min(60 * 12, 2 ** Math.max(1, task.attempts));
     const { data: updated } = await supabaseAdmin
       .from("ingestion_tasks")
@@ -1788,7 +1908,8 @@ export async function completeExternalFetch(input: ExternalFetchCompletion): Pro
   // additional Supabase reads. Bound the completion fan-out so the fetch itself
   // can always commit successfully; the next scheduled discovery pass can expand
   // the remaining links without losing the canonical raw snapshot.
-  const links = externalLinks(input.links).slice(0, 12);
+  const allLinks = externalLinks(input.links);
+  const links = allLinks.slice(0, 18);
   await registerDetailSourcesFromLinks({
     links,
     finalUrl,
@@ -1797,8 +1918,10 @@ export async function completeExternalFetch(input: ExternalFetchCompletion): Pro
     adapterKey: source.adapter_key,
   });
   if (source.category === "vacancies") {
+    // Vacancy postings often appear after the first navigation links. Pass the
+    // complete bounded link snapshot to the dedicated filter, not the first 18.
     await registerVacancySources({
-      links,
+      links: allLinks,
       finalUrl,
       institutionId: source.institution_id,
     });

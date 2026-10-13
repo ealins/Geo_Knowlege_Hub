@@ -88,24 +88,62 @@ export const opportunitiesQuery = queryOptions({
   queryFn: fetchPublicOpportunities,
 });
 
+// Publication providers can return astronomy/planetary-science papers for broad
+// "remote sensing" searches. Keep the homepage pulse tied to explicit Earth/geospatial
+// evidence in the actual paper, not merely the query that found it.
+function isRelevantPublicationPulse(event: { entity_type: string | null; title: string; summary: string | null }): boolean {
+  if (event.entity_type !== "publication") return true;
+  const text = `${event.title} ${event.summary ?? ""}`;
+  const nonEarthSpaceSignal =
+    /\b(exoplanet|astronom\w*|astrophysic\w*|space weather|solar orbiter|solar energetic electron|transiting neptune|planetary|stellar|asteroid|lunar|moon surface|mars rover|habitable worlds observatory|microwave kinetic inductance detector)\b/i.test(text);
+  const earthGeoSignal =
+    /\b(earth observation|earth system|geospatial|geographic information systems?|\bgis\b|geoinformat\w*|geomatic\w*|geodesy|gnss|photogrammetr\w*|remote sensing|lidar|point clouds?|satellite imagery|synthetic aperture radar|\bsar\b|cartograph\w*|spatial data|land cover|land use|agricultur\w*|crop|vegetation|forest|waterbody|flood mapping|coastal mapping|soil moisture|earth surface|terrain mapping|bathymetr\w*|volcano monitoring|volcano surveillance|mapping of)\b/i.test(text);
+  const strongEarthGeoSignal =
+    /\b(earth observation|earth system|geospatial|geographic information systems?|\bgis\b|geoinformat\w*|geomatic\w*|geodesy|gnss|photogrammetr\w*|lidar|point clouds?|cartograph\w*|spatial data|land cover|land use|agricultur\w*|crop|vegetation|forest|waterbody|flood mapping|coastal mapping|soil moisture|earth surface|terrain mapping|bathymetr\w*|volcano monitoring|volcano surveillance)\b/i.test(text);
+  return earthGeoSignal && (!nonEarthSpaceSignal || strongEarthGeoSignal);
+}
+
 export const pulseQuery = queryOptions({
   queryKey: ["pulse-events"],
   queryFn: async () => {
-    const { data, error } = await supabase
-      .from("pulse_events")
-      .select(
-        `id, category, title, summary, event_date, importance, link_url, source_url,
-         verification_status, confidence, is_demo, country,
-         pulse_event_topics ( research_topics ( name, slug ) )`,
-      )
-      .eq("is_demo", false)
-      .in("verification_status", ["verified", "auto_discovered"])
-      .order("is_demo", { ascending: true })
-      .order("importance", { ascending: false })
-      .order("event_date", { ascending: false })
-      .limit(60);
+    const [{ data, error }, opportunityResult] = await Promise.all([
+      supabase
+        .from("pulse_events")
+        .select(
+          `id, category, title, summary, event_date, importance, link_url, source_url,
+           verification_status, confidence, is_demo, country, entity_type, entity_id,
+           pulse_event_topics ( research_topics ( name, slug ) )`,
+        )
+        .eq("is_demo", false)
+        .in("verification_status", ["verified", "auto_discovered"])
+        .in("confidence", PUBLIC_CONFIDENCE_LEVELS)
+        .not("source_url", "is", null)
+        .order("is_demo", { ascending: true })
+        // A pulse is one source-backed event, not a weighted score. Surface the
+        // newest event dates first; importance must never outrank freshness.
+        .order("event_date", { ascending: false })
+        .limit(100),
+      fetchPublicOpportunities()
+        .then((rows) => ({ rows, error: null as unknown }))
+        .catch((opportunityError: unknown) => {
+          // A failure in the separate jobs catalogue must not blank the entire
+          // research pulse. Fail closed for job pulses, but keep sourced papers,
+          // projects, people and events visible.
+          console.error("[pulse-query] Opportunity filter unavailable; hiding job pulses only", opportunityError);
+          return { rows: [] as OpportunityRow[], error: opportunityError };
+        }),
+    ]);
     if (error) throw error;
-    return data ?? [];
+
+    const publicOpportunityIds = new Set(opportunityResult.rows.map((row) => row.id));
+    return (data ?? [])
+      .filter((event) =>
+        event.entity_type === "opportunity"
+          ? publicOpportunityIds.has(event.entity_id)
+          : true,
+      )
+      .filter(isRelevantPublicationPulse)
+      .slice(0, 60);
   },
 });
 
@@ -118,11 +156,18 @@ export const countsQuery = queryOptions({
       throw new Error("Public surface counts returned no data");
     }
     const counts = surfaceCounts as Record<string, unknown>;
-    const opportunities = await client.fetchQuery(opportunitiesQuery);
+    // The SQL public-surface count is an independent fallback. A failure in the
+    // richer jobs query must not turn every homepage count into "Unavailable".
+    let opportunityCount = Number(counts["opportunities"] ?? 0);
+    try {
+      opportunityCount = (await client.fetchQuery(opportunitiesQuery)).length;
+    } catch (opportunityError) {
+      console.error("[counts-query] Using public SQL position count because the detailed jobs query failed", opportunityError);
+    }
     return {
       institutions: Number(counts["institutions"] ?? 0),
       researchers: Number(counts["researchers"] ?? 0),
-      opportunities: opportunities.length,
+      opportunities: opportunityCount,
       publications: Number(counts["publications"] ?? 0),
       projects: Number(counts["projects"] ?? 0),
       events: Number(counts["events"] ?? 0),
@@ -188,6 +233,24 @@ export const trendsQuery = queryOptions({
   },
 });
 
+function isLikelyEventListingUrl(value: string | null): boolean {
+  if (!value) return false;
+  try {
+    const url = new URL(value);
+    const path = url.pathname.replace(/\/+$/, "").toLowerCase();
+    return (
+      path === "/events" ||
+      path === "/event" ||
+      path === "/calendar" ||
+      path === "/calendar/events" ||
+      /\/calendar\/\d{4}$/.test(path) ||
+      /\/events\/(calendar|archive|upcoming|past|all)$/.test(path)
+    );
+  } catch {
+    return false;
+  }
+}
+
 export const eventsQuery = queryOptions({
   queryKey: ["events"],
   queryFn: async () => {
@@ -213,6 +276,7 @@ export const eventsQuery = queryOptions({
         if (!e.end_date && e.start_date && e.start_date < today) return false;
         return true;
       })
+      .filter((event) => !isLikelyEventListingUrl(event.website))
       .map((event) => ({
         ...event,
         country: canonicalCountry(event.country),
@@ -277,10 +341,31 @@ export const projectsQuery = queryOptions({
       .eq("is_demo", false)
       .in("verification_status", ["verified", "auto_discovered", "possibly_outdated"])
       .in("status", ["planned", "active", "completed"])
-      .order("is_demo", { ascending: true })
+      .gte("start_date", "2020-01-01")
       .order("start_date", { ascending: false, nullsFirst: false });
     if (error) throw error;
-    return data ?? [];
+
+    // The public catalogue is for current/recent research, not an archive of historical grants.
+    const rows = (data ?? []).filter((row) => row.start_date && row.start_date >= "2020-01-01");
+    if (!rows.length) return rows;
+    const ids = rows.map((row) => row.id);
+    const { data: evidence, error: evidenceError } = await supabase
+      .from("record_sources")
+      .select("entity_id, source_url, source_organization, last_checked_at, last_verified_at, is_primary")
+      .eq("entity_type", "project")
+      .in("entity_id", ids)
+      .order("is_primary", { ascending: false })
+      .order("last_checked_at", { ascending: false });
+    if (evidenceError) throw evidenceError;
+
+    const latestEvidence = new Map<string, (typeof evidence)[number]>();
+    for (const item of evidence ?? []) {
+      if (!latestEvidence.has(item.entity_id)) latestEvidence.set(item.entity_id, item);
+    }
+    return rows.map((row) => ({
+      ...row,
+      evidence: latestEvidence.get(row.id) ?? null,
+    }));
   },
 });
 

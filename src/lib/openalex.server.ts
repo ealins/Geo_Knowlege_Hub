@@ -48,6 +48,8 @@ async function getJson<T>(
 ): Promise<T | null> {
   const res = await fetch(url, {
     headers: { "user-agent": UA, accept: "application/json", ...extraHeaders },
+    // Provider calls must not hold a leased queue task indefinitely.
+    signal: AbortSignal.timeout(15_000),
   });
   if (res.status === 429 || res.status === 503) {
     throw new ProviderBudgetError(provider, retryMinutes(res));
@@ -463,9 +465,10 @@ async function crossrefWorks(
   const url =
     `${CROSSREF_API}?query.bibliographic=${encodeURIComponent(query)}` +
     `&filter=${encodeURIComponent(filter)}&rows=${rows}` +
-    `&sort=is-referenced-by-count&order=desc&mailto=${encodeURIComponent(CONTACT)}`;
+    `&sort=published&order=desc&mailto=${encodeURIComponent(CONTACT)}`;
   const res = await fetch(url, {
     headers: { "user-agent": UA, accept: "application/json" },
+    signal: AbortSignal.timeout(15_000),
   });
   if (res.status === 429 || res.status === 503) {
     throw new ProviderBudgetError("crossref", retryMinutes(res));
@@ -556,11 +559,12 @@ export async function importInstitutionPublications(
     };
   }
 
-  const perQuery = Math.min(50, opts.perQuery ?? 25);
+  const perQuery = Math.min(50, opts.perQuery ?? 10);
   // Default to last 12 months for lean ingestion; allow override via sinceYear
   const since = opts.sinceYear ?? new Date().getUTCFullYear() - 1;
-  // Minimum citation threshold for high-value filtering (default: 5 citations)
-  const minCitations = opts.minCitations ?? 5;
+  // Freshness radar: a source-backed domain match is sufficient. Citation
+  // counts must not suppress new or not-yet-cited work by default.
+  const minCitations = opts.minCitations ?? 0;
   const queries = DOMAIN_QUERIES.slice(
     0,
     Math.max(1, Math.min(DOMAIN_QUERIES.length, opts.queries ?? 3)),
@@ -576,8 +580,24 @@ export async function importInstitutionPublications(
   };
 
   for (const query of queries) {
-    let works = await openAireWorks(ror, query, since, perQuery);
-    if (works.length === 0) works = await crossrefWorks(ror, query, since, perQuery);
+    const [openAire, crossref] = await Promise.all([
+      openAireWorks(ror, query, since, perQuery),
+      crossrefWorks(ror, query, since, perQuery),
+    ]);
+
+    // Merge provider results, deduplicate by DOI/title, and keep the newest
+    // source-dated work first. OpenAIRE-only fallback missed Crossref's newer
+    // records whenever OpenAIRE returned any results at all.
+    const merged = [...openAire, ...crossref].sort((a, b) =>
+      (b.publication_date ?? "").localeCompare(a.publication_date ?? ""),
+    );
+    const seenWorks = new Set<string>();
+    const works = merged.filter((work) => {
+      const key = work.doi ? `doi:${work.doi.toLowerCase()}` : `title:${normalizeName(work.title)}`;
+      if (seenWorks.has(key)) return false;
+      seenWorks.add(key);
+      return true;
+    }).slice(0, perQuery);
 
     for (const work of works) {
       out.seen += 1;
@@ -585,8 +605,25 @@ export async function importInstitutionPublications(
         out.skipped += 1;
         continue;
       }
-      // Lean filter: unknown citation counts are not evidence of impact.
-      if (work.cited_by_count === null || work.cited_by_count < minCitations) {
+
+      // "Remote sensing" also appears in astronomy and planetary science. Keep
+      // those records out unless the work itself contains explicit Earth/
+      // geospatial evidence; broad provider query terms alone are insufficient.
+      const topicalText = [work.title, work.abstract ?? "", work.venue ?? "", ...work.topics]
+        .join(" ")
+        .toLowerCase();
+      const earthGeoSignal =
+        /\b(earth observation|earth system|geospatial|geographic information|gis|land cover|land use|forest|agricultur\w*|crop|water|flood|urban|satellite imagery|photogrammetr\w*|lidar|point cloud|geodesy|gnss|cartograph\w*|terrain|soil|vegetation|river|coastal|ocean|climate|snowpack|glacier|seafloor|bathymetr\w*|ecosystem|biodiversity|sea ice|scatterometer|earth surface|remote sensing of (?:the )?earth)\b/i.test(topicalText);
+      // Require positive Earth/geospatial evidence. A provider search match by itself
+      // is not sufficient to enter the canonical publication catalogue.
+      if (!earthGeoSignal) {
+        out.skipped += 1;
+        continue;
+      }
+
+      // Only apply a citation threshold when a caller explicitly asks for one.
+      // Unknown counts are normal for fresh work and are not a reason to drop it.
+      if (minCitations > 0 && work.cited_by_count !== null && work.cited_by_count < minCitations) {
         out.skipped += 1;
         continue;
       }
@@ -704,7 +741,16 @@ export async function importInstitutionPublications(
         });
       }
 
-      const topicIds = await topicIdsFor([query, ...work.topics]);
+      // Classify from the work's own metadata, never from the provider search query.
+      // Adding `query` here made every result of a broad "remote sensing" search
+      // look like an Environmental Remote Sensing paper, even when it was astronomy.
+      const topicEvidence = [
+        work.title,
+        work.abstract ?? "",
+        work.venue ?? "",
+        ...work.topics,
+      ].filter(Boolean);
+      const topicIds = await topicIdsFor(topicEvidence);
       if (topicIds.length) {
         await supabaseAdmin
           .from("publication_topics")
@@ -794,11 +840,27 @@ export async function importInstitutionProjects(
   const pageSize = Math.min(50, opts.perQuery ?? 25);
 
   for (const query of queries) {
-    const url =
-      `${OPENAIRE_API}/projects?relOrganizationId=${encodeURIComponent(openAireOrgId)}` +
-      `&search=${encodeURIComponent(query)}&pageSize=${pageSize}` +
+    const base =
+      `&search=${encodeURIComponent(query)}&fromStartDate=2020-01-01&pageSize=${pageSize}` +
       `&sortBy=${encodeURIComponent("startDate DESC")}`;
-    const payload = await getJson<{ results?: OpenAireProject[] }>(url, "openaire");
+    // Prefer the canonical institution name. ROR/OpenAIRE organization mappings can
+    // point to a parent or stale organization and produce unrelated historical grants.
+    const nameUrl =
+      `${OPENAIRE_API}/projects?relOrganizationName=${encodeURIComponent(inst.name)}${base}`;
+    let payload = await getJson<{ results?: OpenAireProject[] }>(nameUrl, "openaire");
+
+    // Fall back to the ROR-linked OpenAIRE organization only when the name query
+    // returns no modern projects.
+    const hasModern = (payload?.results ?? []).some((project) => {
+      const start = text(project.startDate);
+      return Boolean(start && start >= "2020-01-01");
+    });
+    if (!hasModern) {
+      const idUrl =
+        `${OPENAIRE_API}/projects?relOrganizationId=${encodeURIComponent(openAireOrgId)}${base}`;
+      const byId = await getJson<{ results?: OpenAireProject[] }>(idUrl, "openaire");
+      if ((byId?.results ?? []).length) payload = byId;
+    }
 
     for (const project of payload?.results ?? []) {
       out.seen += 1;
@@ -821,6 +883,12 @@ export async function importInstitutionProjects(
       const today = new Date().toISOString().slice(0, 10);
       const start = text(project.startDate);
       const end = text(project.endDate);
+      // Never promote historical projects into the current catalogue. The API filter is
+      // an optimization; this local barrier protects us if a provider ignores a filter.
+      if (!start || start < "2020-01-01") {
+        out.skipped += 1;
+        continue;
+      }
       const status =
         start && start > today ? "planned" : end && end < today ? "completed" : "active";
       const funder = project.fundings?.[0]?.name ?? project.fundings?.[0]?.shortName ?? null;
@@ -902,8 +970,11 @@ export async function importInstitutionProjects(
         });
       }
 
+      // As with publications, topic tags must come from project evidence, not
+      // the broad search phrase that happened to retrieve the record.
       const labels = [
-        query,
+        name,
+        text(project.summary) ?? "",
         text(project.keywords) ?? "",
         ...arr(project.subjects).map((subject) =>
           typeof subject === "string"

@@ -145,13 +145,26 @@ function projectStatus(start: string | null, end: string | null): string {
   return "unknown";
 }
 
-const DEGREE_TYPE: Record<string, string> = {
-  bachelor: "Bachelor",
+const DEGREE_TYPE: Record<string, "Master" | "Doctoral"> = {
   master: "Master",
   doctoral: "Doctoral",
-  certificate: "Certificate",
-  other: "Other",
 };
+
+function isEventListingUrl(value: string): boolean {
+  try {
+    const path = new URL(value).pathname.replace(/\/+$/, "").toLowerCase();
+    return (
+      path === "/events" ||
+      path === "/event" ||
+      path === "/calendar" ||
+      path === "/calendar/events" ||
+      /\/calendar\/\d{4}$/.test(path) ||
+      /\/events\/(?:calendar|archive|upcoming|past|all)$/.test(path)
+    );
+  } catch {
+    return true;
+  }
+}
 
 /**
  * Extract and persist one canonical record for a non-vacancy raw page.
@@ -268,6 +281,9 @@ export async function normalizeNonVacancy(
       }
       if (!raw.institution_id)
         return { status: "SKIPPED", reason: "missing institution for programme" };
+      if (ex.degree_level !== "master" && ex.degree_level !== "doctoral") {
+        return { status: "SKIPPED", reason: "programme is not Master's or Doctoral" };
+      }
 
       const { data: existing } = await supabaseAdmin
         .from("courses")
@@ -412,6 +428,10 @@ export async function normalizeNonVacancy(
         };
       }
 
+      if (!ex.event_url || isEventListingUrl(ex.event_url)) {
+        return { status: "SKIPPED", reason: "event has no exact event URL" };
+      }
+
       // Lean filter: retain only explicitly dated events starting between today
       // and three calendar months from today (UTC).
       if (!ex.start_date) {
@@ -427,11 +447,18 @@ export async function normalizeNonVacancy(
         return { status: "SKIPPED", reason: "event is too far in the future" };
       }
 
-      const { data: existing } = await supabaseAdmin
+      const { data: existingBySource } = await supabaseAdmin
         .from("events")
         .select("id")
-        .eq("website", url)
+        .eq("source", url)
+        .eq("title", ex.title)
         .maybeSingle();
+      const { data: existingByWebsite } = await supabaseAdmin
+        .from("events")
+        .select("id")
+        .eq("website", ex.event_url)
+        .maybeSingle();
+      const existing = existingByWebsite ?? existingBySource;
       const slug = await uniqueSlug("events", slugify(ex.title), url, existing?.id);
 
       const payload = {
@@ -445,7 +472,10 @@ export async function normalizeNonVacancy(
         abstract_deadline: ex.abstract_deadline,
         paper_deadline: ex.paper_deadline,
         registration_deadline: ex.registration_deadline,
-        website: url,
+        // Prefer the exact event page extracted from the source page. The raw
+        // page remains provenance in `source`, so listing/calendar pages do
+        // not become the user's click destination.
+        website: ex.event_url ?? url,
         summary: ex.summary,
         source: url,
         event_kind: ex.event_kind ?? "other",

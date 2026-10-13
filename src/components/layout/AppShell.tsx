@@ -67,9 +67,9 @@ export function AppShell({ children }: { children: ReactNode }) {
   const { data: surfaceCounts } = useQuery(countsQuery);
 
   return (
-    <div className="min-h-screen lg:grid lg:grid-cols-[16.5rem_1fr]">
-      <aside className="border-b border-sidebar-border bg-sidebar/80 backdrop-blur lg:sticky lg:top-0 lg:h-screen lg:overflow-y-auto lg:border-b-0 lg:border-r">
-        <div className="flex items-center gap-3 px-5 py-5">
+    <div className="min-h-screen lg:grid lg:grid-cols-[15rem_1fr]">
+      <aside className="border-b border-sidebar-border bg-sidebar lg:sticky lg:top-0 lg:h-screen lg:overflow-y-auto lg:border-b-0 lg:border-r">
+        <div className="flex items-center gap-2.5 px-4 py-5">
           <span className="relative flex h-2.5 w-2.5 items-center justify-center text-primary">
             <span className="live-dot absolute inset-0 rounded-full" />
             <span className="relative h-2.5 w-2.5 rounded-full bg-primary" />
@@ -79,7 +79,7 @@ export function AppShell({ children }: { children: ReactNode }) {
               GeoAcademic Radar
             </p>
             <p className="mt-1 text-[0.65rem] uppercase tracking-[0.18em] text-muted-foreground">
-              Photogrammetry · RS · GI
+              Geospatial intelligence
             </p>
           </div>
         </div>
@@ -88,10 +88,10 @@ export function AppShell({ children }: { children: ReactNode }) {
           <CommandPalette />
         </div>
 
-        <nav className="flex flex-col gap-4 px-3 pb-4">
+        <nav className="flex flex-col gap-2 px-2 pb-4">
           {NAV_GROUPS.map((group) => (
             <div key={group.label}>
-              <p className="px-3 pb-1.5 text-[0.6rem] font-medium uppercase tracking-[0.2em] text-muted-foreground/70">
+              <p className="px-2 pb-1 text-[0.6rem] font-semibold uppercase tracking-[0.16em] text-muted-foreground/60">
                 {group.label}
               </p>
               <div className="flex gap-1 overflow-x-auto lg:flex-col lg:overflow-visible">
@@ -100,7 +100,7 @@ export function AppShell({ children }: { children: ReactNode }) {
                     key={to}
                     to={to}
                     activeOptions={{ exact: to === "/" }}
-                    className="group flex shrink-0 items-center gap-2.5 rounded-md px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-sidebar-accent hover:text-sidebar-accent-foreground data-[status=active]:bg-sidebar-accent data-[status=active]:text-sidebar-primary"
+                    className="group flex shrink-0 items-center gap-2 rounded-lg px-2.5 py-2 text-[0.82rem] text-muted-foreground transition-colors hover:bg-sidebar-accent hover:text-sidebar-accent-foreground data-[status=active]:bg-sidebar-accent data-[status=active]:text-sidebar-primary"
                   >
                     <Icon className="h-4 w-4" />
                     <span className="whitespace-nowrap">{label}</span>
@@ -134,18 +134,18 @@ export function PageHeader({
   actions?: ReactNode;
 }) {
   return (
-    <header className="grid-lines border-b border-border">
+    <header className="border-b border-border">
       <div className="signal-wash">
         <div className="mx-auto w-full max-w-7xl px-6 py-10">
-          <p className="text-[0.68rem] font-medium uppercase tracking-[0.24em] text-primary">
+          <p className="text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-primary">
             {eyebrow}
           </p>
-          <div className="mt-3 flex flex-wrap items-end justify-between gap-4">
+          <div className="mt-2.5 flex flex-wrap items-end justify-between gap-4">
             <div>
               <h1 className="text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
                 {title}
               </h1>
-              <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+              <p className="mt-2 max-w-2xl text-[0.9rem] leading-relaxed text-muted-foreground">
                 {description}
               </p>
             </div>
@@ -190,7 +190,7 @@ export function StatTile({
           : "text-primary";
   const empty = isEmptyStat(value);
   return (
-    <div className="panel panel-hover rise-in relative p-4">
+    <div className="panel relative p-4 shadow-none">
       {to ? <CardLink to={to} params={params} search={search} label={`${label}: open`} /> : null}
       <p className="text-[0.65rem] font-medium uppercase tracking-[0.16em] text-muted-foreground">
         {label}
@@ -234,7 +234,7 @@ export function ProvenanceChips({
 }) {
   return (
     <span className="flex flex-wrap items-center gap-1.5">
-      <span className="rounded-full border border-border bg-muted/60 px-2 py-0.5 text-[0.62rem] uppercase tracking-wider text-muted-foreground">
+      <span className="rounded-full border border-border/80 bg-muted/30 px-2 py-0.5 text-[0.6rem] font-medium tracking-wide text-muted-foreground">
         {verificationLabel(verification)}
       </span>
       {confidence ? (
@@ -243,7 +243,7 @@ export function ProvenanceChips({
         </span>
       ) : null}
       {isDemo ? (
-        <span className="rounded-full border border-deadline/40 bg-deadline/10 px-2 py-0.5 text-[0.62rem] uppercase tracking-wider text-deadline">
+        <span className="rounded-full border border-deadline/40 bg-deadline/10 px-2 py-0.5 text-[0.6rem] font-medium tracking-wide text-deadline">
           Demo data
         </span>
       ) : null}
@@ -259,7 +259,7 @@ export function TopicPills({ topics }: { topics: (string | undefined)[] }) {
       {list.map((t) => (
         <span
           key={t}
-          className="rounded-md border border-signal/30 bg-signal/10 px-2 py-0.5 text-[0.68rem] text-foreground/85"
+          className="rounded-md border border-border/80 bg-muted/30 px-2 py-0.5 text-[0.66rem] text-muted-foreground"
         >
           {t}
         </span>

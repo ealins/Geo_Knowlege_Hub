@@ -1,4 +1,4 @@
-// Server-only OmniRoute OpenAI-compatible client. The API key is read inside the call,
+// Server-only AI provider client. OpenAI is preferred; OmniRoute is the controlled fallback. The API key is read inside the call,
 // never logged, never returned to callers, never written to the database.
 import { supabaseAdmin } from "@/integrations/supabase/client.server";
 import {
@@ -65,9 +65,10 @@ function release(): void {
 
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
-export function isNvidiaConfigured(): boolean {
-  return Boolean(process.env["OMNIROUTE_API_KEY"] ?? process.env["OMNIROUTE_URL"]);
+export function isAIConfigured(): boolean {
+  return Boolean(process.env["OMNIROUTE_API_KEY"] || process.env["OMNIROUTE_URL"]);
 }
+export const isNvidiaConfigured = isAIConfigured;
 
 async function logRun(row: Record<string, unknown>): Promise<string | null> {
   const { data } = await supabaseAdmin
@@ -79,13 +80,12 @@ async function logRun(row: Record<string, unknown>): Promise<string | null> {
 }
 
 /**
- * Single entry point for every Nemotron request.
+ * Single entry point for every semantic AI request.
  * Every attempt — success, failure or missing secret — is recorded in
  * llm_processing_runs. Retries only on 429 / 5xx / network errors.
  */
 export async function callNemotron(call: NemotronCall): Promise<NemotronResult> {
-  const model =
-    call.model ?? (call.modelTier ? NVIDIA_MODEL_BY_TIER[call.modelTier] : NVIDIA_MODEL);
+  const model = call.model ?? (call.modelTier ? NVIDIA_MODEL_BY_TIER[call.modelTier] : (process.env["OMNIROUTE_MODEL"] ?? "auto"));
   const tier: NvidiaModelTier =
     call.modelTier ??
     (model === NVIDIA_MODEL_BY_TIER.ULTRA
@@ -107,14 +107,15 @@ export async function callNemotron(call: NemotronCall): Promise<NemotronResult> 
 
   const apiKey = process.env["OMNIROUTE_API_KEY"];
   const endpoint = process.env["OMNIROUTE_URL"]?.replace(/\/$/, "") ?? "https://omniroute.geoacademic.app/v1";
+  const providerModel = model;
   if (!apiKey) {
     const runId = await logRun({
       ...base,
       status: "FAILED",
       completed_at: new Date().toISOString(),
       latency_ms: 0,
-      error_code: "OMNIROUTE_API_KEY_NOT_CONFIGURED",
-      error_message: `Secret "OMNIROUTE_API_KEY" is not configured on the server.`,
+      error_code: "AI_PROVIDER_NOT_CONFIGURED",
+      error_message: `OmniRoute is not configured. Set OMNIROUTE_API_KEY or OMNIROUTE_URL on the server.`,
     });
     return {
       ok: false,
@@ -124,8 +125,8 @@ export async function callNemotron(call: NemotronCall): Promise<NemotronResult> 
       model,
       provider: AI_PROVIDER,
       attempt: 0,
-      errorCode: "OMNIROUTE_API_KEY_NOT_CONFIGURED",
-      errorMessage: `Secret "OMNIROUTE_API_KEY" is not configured on the server.`,
+      errorCode: "AI_PROVIDER_NOT_CONFIGURED",
+      errorMessage: `No AI provider is configured. Set OPENAI_API_KEY or OMNIROUTE_API_KEY on the server.`,
       runId,
     };
   }
@@ -155,7 +156,7 @@ export async function callNemotron(call: NemotronCall): Promise<NemotronResult> 
           Accept: "application/json",
         },
         body: JSON.stringify({
-          model: process.env["OMNIROUTE_MODEL"] ?? "auto",
+          model: providerModel,
           temperature: call.temperature ?? LLM_DEFAULT_TEMPERATURE,
           max_tokens: call.maxTokens ?? LLM_DEFAULT_MAX_TOKENS,
           // GeoAcademic Radar uses Nemotron for terse structured extraction,

@@ -16,6 +16,11 @@ export const LIVE_OPPORTUNITY_STATUSES = [
 export type PublicOpportunityEvidence = {
   title: string | null;
   description: string | null;
+  country?: string | null;
+  city?: string | null;
+  sector?: string | null;
+  employer_name?: string | null;
+  seniority?: string | null;
   official_source_url: string | null;
   confidence: string | null;
   verification_status: string | null;
@@ -35,6 +40,10 @@ const PUBLIC_POSTING_PATH =
 
 const PUBLIC_POSTING_TITLE =
   /\b(?:p[.]?h[.]?d|post[- ]?doc(?:toral)?|doctoral|research assistant|research associate|research scientist|research fellow|scientist|engineer|developer|analyst|professor|lecturer|faculty|fellowship|fellow|intern(?:ship)?|technician|manager|coordinator|officer|specialist|principal|director|assistant professor|associate professor)\b/i;
+
+const PUBLIC_ACADEMIC_ROLE = /\b(?:phd|doctoral|postdoc|post-doctoral|research (?:assistant|associate|scientist|fellow)|professor|lecturer|faculty|fellowship|academic)\b/i;
+const PUBLIC_GENERIC_SUPPORT_ROLE = /\b(?:business continuity|restaurant|clinical lecturer|ethics|publications? coordinator|outreach associate|administrative|administration|finance|human resources|hr|procurement|legal|communications?|marketing|sales|customer|facilities?|building|warehouse|lager|secretar(?:y|iat)|recruiter|recruitment|talent)\b/i;
+const PUBLIC_GEOSPATIAL_TITLE = /\b(?:photogrammetr|remote sensing|geospatial|geoinformat|geomatic|geodes|gis|geoai|lidar|earth observation|satellite|mapping|cartograph|spatial data|surveying|point cloud)\b/i;
 
 const PUBLIC_GEOSPATIAL =
   /(photogrammetr|remote sensing|fernerkundung|geoinformat|geospatial|geographic information systems?|\bgis\b|geodes[yi]|geomatic|earth observation|geoai|lidar|laser scann|point cloud|punktwolke|synthetic aperture radar|\bsar\b|spatial data|surveying|cartograph|mapping|satellite imagery)/i;

@@ -25,6 +25,16 @@ INSTITUTIONS = [
 ]
 
 
+GLOBAL_SOURCES = [
+    ("https://euraxess.ec.europa.eu/jobs/search", "EURAXESS research jobs", "EURAXESS", "careers_page", "vacancies", 2),
+    ("https://www.isprs.org/calendar/2026.aspx", "ISPRS events 2026", "ISPRS", "institution", "events", 2),
+    ("https://www.isprs.org/calendar/2027.aspx", "ISPRS events 2027", "ISPRS", "institution", "events", 2),
+    ("https://www.isprs.org/job_opportunities/default.aspx", "ISPRS job opportunities", "ISPRS", "careers_page", "vacancies", 2),
+    ("https://www.egu.eu/g/jobs/", "EGU jobs", "EGU", "careers_page", "vacancies", 2),
+    ("https://earthobservations.org/about-us/events", "GEO events", "Group on Earth Observations", "institution", "events", 2),
+    ("https://www.egu.eu/g/events/", "EGU events", "EGU", "institution", "events", 2),
+]
+
 def source_rows(row):
     _, name, _, _, official_url, careers_url, research_url, _ = row
     return [
@@ -43,6 +53,40 @@ async def main() -> None:
     institutions = sources = fetch_queued = promote_queued = 0
     try:
         async with conn.transaction():
+            for url, name, organization, source_type, category, priority in GLOBAL_SOURCES:
+                source_id = await conn.fetchval(
+                    """
+                    INSERT INTO public.sources(
+                        url,canonical_url,name,organization,source_type,adapter_key,
+                        trust_level,refresh_frequency_hours,institution_id,category,
+                        priority,status,active,notes)
+                    VALUES($1,$1,$2,$3,$4::public.source_type,'html-generic',5,24,
+                           NULL,$5,$6,'PENDING',true,
+                           'Seeded global authoritative source')
+                    ON CONFLICT(url) DO UPDATE SET
+                        name=excluded.name, organization=excluded.organization,
+                        category=excluded.category, priority=excluded.priority,
+                        active=true, status='PENDING', updated_at=now()
+                    RETURNING id
+                    """,
+                    url, name, organization, source_type, category, priority,
+                )
+                sources += 1
+                queued = await conn.fetchval(
+                    """
+                    INSERT INTO public.ingestion_tasks(task_type,source_id,payload)
+                    SELECT 'FETCH',$1,jsonb_build_object('seed',true,'global_source',true)
+                    WHERE NOT EXISTS (
+                        SELECT 1 FROM public.ingestion_tasks
+                        WHERE task_type='FETCH' AND source_id=$1
+                          AND status IN ('QUEUED','PROCESSING','RETRY'))
+                    RETURNING id
+                    """,
+                    source_id,
+                )
+                if queued:
+                    fetch_queued += 1
+
             for row in INSTITUTIONS:
                 slug, name, country_code, continent, official_url, careers_url, research_url, institution_type = row
                 institution_id = await conn.fetchval(
