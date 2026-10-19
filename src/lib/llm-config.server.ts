@@ -17,6 +17,9 @@ export const NVIDIA_MODEL_ULTRA =
 export const NVIDIA_MODEL = NVIDIA_MODEL_NANO;
 export const NVIDIA_MODEL_CHAIN_LABEL = "Lightning 3.5 → Super → Ultra";
 
+// OmniRoute-specific model routes for specialized tasks
+export const OMNIROUTE_CODING_MODEL = process.env["OMNIROUTE_CODING_MODEL"] ?? "auto/coding:free";
+
 export type NvidiaModelTier = "NANO" | "SUPER" | "ULTRA";
 export const NVIDIA_MODEL_BY_TIER: Record<NvidiaModelTier, string> = {
   NANO: NVIDIA_MODEL_NANO,
@@ -50,6 +53,7 @@ export type LlmOperation =
  * - Super is the default for the two hardest entity types and the first
  *   fallback for routine extractors.
  * - Ultra is a rare last resort for difficult canonical extraction.
+ * - Coding-free model is used for code-related extraction tasks when available.
  */
 export const NVIDIA_MODEL_CHAIN: Record<LlmOperation, readonly NvidiaModelTier[]> = {
   CONNECTION_TEST: ["NANO"],
@@ -61,7 +65,8 @@ export const NVIDIA_MODEL_CHAIN: Record<LlmOperation, readonly NvidiaModelTier[]
   RESEARCHER_EXTRACTION: ["SUPER", "ULTRA"],
 };
 
-/** Per-model request timeout with reasoning disabled. */
+/**
+ * Per-model request timeout with reasoning disabled. */
 export const NVIDIA_TIMEOUT_BY_TIER: Record<NvidiaModelTier, number> = {
   NANO: 35_000,
   SUPER: 60_000,
