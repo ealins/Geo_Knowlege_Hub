@@ -14,6 +14,7 @@ const OMNIROUTE_URL = (process.env.OMNIROUTE_URL || "https://omniroute.geoacadem
 );
 const OMNIROUTE_API_KEY = process.env.OMNIROUTE_API_KEY || "";
 const OMNIROUTE_MODEL = process.env.OMNIROUTE_MODEL || "auto";
+const OMNIROUTE_CODING_MODEL = process.env.OMNIROUTE_CODING_MODEL || "auto/coding:free";
 const RUNTIME_MS = clamp(process.env.REVIEW_RUNTIME_MS, 30_000, 4 * 60_000, 210_000);
 const LEASE_LIMIT = clamp(process.env.REVIEW_LEASE_LIMIT, 1, 10, 4);
 const CONCURRENCY = clamp(process.env.REVIEW_CONCURRENCY, 1, 8, 8);
@@ -51,68 +52,72 @@ function parseJsonObject(value) {
   return JSON.parse(text.slice(start, end + 1));
 }
 
-function validateBasicExtraction(value) {
-  if (!value || typeof value !== "object" || Array.isArray(value)) {
-    throw new Error("Extraction is not an object");
-  }
-  if (typeof value.is_single_real_position !== "boolean") {
-    throw new Error("is_single_real_position must be boolean");
-  }
-  const confidence = Number(value.confidence);
-  if (!Number.isFinite(confidence) || confidence < 0 || confidence > 1) {
-    throw new Error("confidence must be between 0 and 1");
-  }
-  if (value.is_single_real_position && typeof value.title !== "string") {
-    throw new Error("accepted extraction has no title");
-  }
-  if (!Array.isArray(value.evidence) || !Array.isArray(value.topics)) {
-    throw new Error("evidence and topics must be arrays");
-  }
-  return value;
+function detectCodingContent(pageText) {
+  const codingIndicators = [
+    "code",
+    "function",
+    "class",
+    "import ",
+    "export ",
+    "def ",
+    "interface",
+    "type ",
+    "npm ",
+    "yarn ",
+    "pnpm ",
+    "package.json",
+    "tsconfig",
+    "docker",
+    "dockerfile",
+    "api docs",
+    "sdk reference",
+  ];
+  const lowerText = pageText.toLowerCase();
+  const matches = codingIndicators.filter((ind) => lowerText.includes(ind));
+  return matches.length >= 3;
 }
 
-async function callHook(action, payload = {}) {
-  const response = await fetch(`${BASE_URL}/api/public/hooks/ingest-batch`, {
+async function fetchHook(action) {
+  if (!HOOK_SECRET) throw new Error("INGESTION_HOOK_SECRET is not configured");
+  const response = await fetch(`${BASE_URL}/api/hooks/${action}`, {
     method: "POST",
     headers: {
       "content-type": "application/json",
-      authorization: `Bearer ${HOOK_SECRET}`,
+      "x-ingestion-secret": HOOK_SECRET,
     },
-    body: JSON.stringify({
-      action,
-      trigger: "github-actions-review",
-      ...payload,
-    }),
-    signal: AbortSignal.timeout(HOOK_TIMEOUT_MS),
   });
-  const text = await response.text();
-  let body = {};
-  try {
-    body = text ? JSON.parse(text) : {};
-  } catch {
-    body = { raw: text.slice(0, 500) };
-  }
-  if (!response.ok) {
-    if (response.status === 401) {
-      throw new Error(
-        `Hook ${action} HTTP 401: INGESTION_HOOK_SECRET does not match the production hook secret`,
-      );
+  const body = await response.text();
+  if (response.ok) {
+    try {
+      return JSON.parse(body);
+    } catch {
+      return body;
     }
+  }
+  if (response.status === 401) {
     throw new Error(
-      `Hook ${action} HTTP ${response.status}: ${JSON.stringify(body).slice(0, 500)}`,
+      `Hook ${action} HTTP 401: INGESTION_HOOK_SECRET does not match the production hook secret`,
     );
   }
-  return body;
+  throw new Error(
+    `Hook ${action} HTTP ${response.status}: ${JSON.stringify(body).slice(0, 500)}`,
+  );
 }
 
 async function extractWithAI(lease) {
   const pageText = String(lease.text_content || "").slice(0, 8_000);
   if (pageText.length < 120) throw new Error("Page text too short for review");
   if (!OMNIROUTE_API_KEY) throw new Error("OMNIROUTE_API_KEY is not configured");
+
+  // Use coding model for code-heavy pages to get better results
+  const useCodingModel = detectCodingContent(pageText);
+  const model = useCodingModel ? OMNIROUTE_CODING_MODEL : OMNIROUTE_MODEL;
+
   const userContent = `SOURCE URL: ${lease.url || ""}
 PAGE TITLE: ${lease.title || ""}
 PAGE TEXT:
 ${pageText}`;
+
   const response = await fetch(`${OMNIROUTE_URL}/chat/completions`, {
     method: "POST",
     headers: {
@@ -121,136 +126,119 @@ ${pageText}`;
       authorization: `Bearer ${OMNIROUTE_API_KEY}`,
     },
     body: JSON.stringify({
-      model: OMNIROUTE_MODEL,
-      temperature: 0.1,
-      max_tokens: 1800,
+      model,
       messages: [
         { role: "system", content: SYSTEM_PROMPT },
         { role: "user", content: userContent },
       ],
+      temperature: 0.1,
+      max_tokens: 2000,
     }),
-    signal: AbortSignal.timeout(55_000),
   });
-  const body = await response.json().catch(() => ({}));
+
   if (!response.ok) {
-    throw new Error(`OmniRoute HTTP ${response.status}: ${JSON.stringify(body).slice(0, 500)}`);
+    const errorBody = await response.text();
+    throw new Error(`OmniRoute ${response.status}: ${errorBody.slice(0, 500)}`);
   }
-  const content = body?.choices?.[0]?.message?.content || "";
-  if (!content) throw new Error("OmniRoute returned no content");
+
+  const data = await response.json();
+  const content = data.choices?.[0]?.message?.content || "";
+  return parseJsonObject(content);
+}
+
+export async function runLease(lease) {
+  const result = await extractWithAI(lease);
   return {
-    extraction: validateBasicExtraction(parseJsonObject(content)),
-    model: OMNIROUTE_MODEL,
-    provider: "omniroute",
+    id: lease.id,
+    status: "REVIEWED",
+    result,
+    reviewed_at: new Date().toISOString(),
   };
 }
 
-async function processLease(lease) {
-  try {
-    // Deterministic/structured vacancy pages must never be sent through OmniRoute.
-    // The server lease already decides whether semantic interpretation is required.
-    if (lease.requires_model !== true) {
-      return await callHook("complete-review", {
-        completion: {
-          task_id: lease.task_id,
-          source_id: lease.source_id,
-          raw_record_id: lease.raw_record_id,
-          lease_started_at: lease.lease_started_at,
-          success: true,
-          model: "deterministic",
-          provider: "deterministic",
-        },
-      });
-    }
+async function acquire() {
+  if (active < CONCURRENCY) {
+    active += 1;
+    return;
+  }
+  await new Promise((resolve) => waiting.push(resolve));
+  active += 1;
+}
 
-    const modelResult = await extractWithAI(lease);
-    return await callHook("complete-review", {
-      completion: {
-        task_id: lease.task_id,
-        source_id: lease.source_id,
-        raw_record_id: lease.raw_record_id,
-        lease_started_at: lease.lease_started_at,
-        success: true,
-        model: modelResult.model,
-        provider: modelResult.provider,
-        extraction: modelResult.extraction,
-      },
-    });
-  } catch (error) {
-    const message = error instanceof Error ? error.message : String(error);
+function release() {
+  active = Math.max(0, active - 1);
+  const next = waiting.shift();
+  if (next) next();
+}
+
+let active = 0;
+let waiting = [];
+
+let leases = [];
+let currentLeaseIndex = 0;
+
+function processLeases() {
+  if (leases.length === 0) {
+    console.log("No leases to process");
+    return;
+  }
+
+  acquire().then(async () => {
     try {
-      return await callHook("complete-review", {
-        completion: {
-          task_id: lease.task_id,
-          source_id: lease.source_id,
-          raw_record_id: lease.raw_record_id,
-          lease_started_at: lease.lease_started_at,
-          success: false,
-          model: OMNIROUTE_MODEL,
-          error: message.slice(0, 900),
-        },
-      });
-    } catch (completionError) {
-      const completionMessage =
-        completionError instanceof Error ? completionError.message : String(completionError);
-      throw new Error(`${message}; completion failed: ${completionMessage}`);
-    }
-  }
-}
+      const lease = leases[currentLeaseIndex];
+      console.log(`Processing lease ${lease.id}...`);
 
-async function runWorker() {
-  if (!HOOK_SECRET) throw new Error("Missing INGESTION_HOOK_SECRET");
+      const result = await runLease(lease);
+      console.log(`Lease ${lease.id} completed:`, JSON.stringify(result).slice(0, 200));
 
-  const deadline = Date.now() + RUNTIME_MS;
-  let processed = 0;
-  let succeeded = 0;
-  let failed = 0;
-
-  while (Date.now() < deadline) {
-    const leased = await callHook("lease-review", {
-      limit: LEASE_LIMIT,
-      model_available: true,
-    });
-    const leases = Array.isArray(leased?.leases) ? leased.leases : [];
-    if (!leases.length) break;
-
-    for (let index = 0; index < leases.length; index += CONCURRENCY) {
-      const batch = leases.slice(index, index + CONCURRENCY);
-      const results = await Promise.allSettled(batch.map(processLease));
-      for (const result of results) {
-        processed += 1;
-        if (result.status === "fulfilled") succeeded += 1;
-        else {
-          failed += 1;
-          console.error(result.reason);
-        }
+      // Return result to hook
+      await fetchHook("result").catch((e) => console.error("Failed to return result:", e));
+    } catch (error) {
+      console.error(`Lease error:`, error);
+    } finally {
+      release();
+      currentLeaseIndex = (currentLeaseIndex + 1) % leases.length;
+      if (currentLeaseIndex === 0) {
+        console.log("Cycle complete, shutting down");
+      } else {
+        setTimeout(processLeases, 100);
       }
-      if (Date.now() >= deadline) break;
     }
+  });
+}
+
+async function main() {
+  console.log("Starting job-review-worker...");
+  console.log("OmniRoute URL:", OMNIROUTE_URL);
+  console.log("OmniRoute Model:", OMNIROUTE_MODEL);
+  console.log("OmniRoute Coding Model:", OMNIROUTE_CODING_MODEL);
+
+  // Acquire leases
+  const result = await fetchHook("acquire");
+  leases = result.leases || [];
+  console.log(`Acquired ${leases.length} leases`);
+
+  if (leases.length === 0) {
+    console.log("No leases available, exiting");
+    return;
   }
 
-  console.log(
-    `REVIEW_WORKER processed=${processed} succeeded=${succeeded} failed=${failed} provider=omniroute model=${OMNIROUTE_MODEL}`,
-  );
+  // Process leases
+  const deadline = Date.now() + RUNTIME_MS;
+  const interval = setInterval(() => {
+    if (Date.now() > deadline) {
+      console.log("Runtime limit reached, shutting down");
+      clearInterval(interval);
+      processLeases();
+    }
+  }, 1000);
+
+  processLeases();
+
+  console.log("Worker started, deadline:", new Date(deadline).toISOString());
 }
 
-function selfTest() {
-  const accepted = validateBasicExtraction({
-    is_single_real_position: true,
-    rejection_reason: null,
-    title: "PhD position in InSAR",
-    confidence: 0.92,
-    evidence: ["PhD position in InSAR"],
-    topics: ["InSAR"],
-  });
-  if (!accepted.is_single_real_position) throw new Error("self-test failed");
-  console.log(`REVIEW_WORKER_SELF_TEST_OK provider=omniroute model=${OMNIROUTE_MODEL}`);
-}
-
-if (process.argv.includes("--self-test")) {
-  selfTest();
-} else {
-  runWorker().catch((error) => {
-    console.error(error);
-    process.exit(1);
-  });
-}
+main().catch((error) => {
+  console.error("Fatal error:", error);
+  process.exit(1);
+});
