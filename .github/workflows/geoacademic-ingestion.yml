@@ -140,11 +140,11 @@ jobs:
         run: |
           set -euo pipefail
           test -n "$INGESTION_HOOK_SECRET"
-          response="$(curl --fail-with-body --silent --show-error \\
-            --connect-timeout 10 --max-time 45 \\
-            -H "Authorization: Bearer $INGESTION_HOOK_SECRET" \\
-            -H "Content-Type: application/json" \\
-            --data '{"action":"backfill-providers","limit":30,"trigger":"github-actions-structured-provider-refresh"}' \\
+          response="$(curl --fail-with-body --silent --show-error \
+            --connect-timeout 10 --max-time 45 \
+            -H "Authorization: Bearer $INGESTION_HOOK_SECRET" \
+            -H "Content-Type: application/json" \
+            --data '{"action":"backfill-providers","limit":30,"trigger":"github-actions-structured-provider-refresh"}' \
             https://geoacademic.app/api/public/hooks/ingest-batch)"
           echo "$response"
           node -e '
