@@ -133,6 +133,30 @@ jobs:
             -H "Content-Type: application/json" \
             --data '{"action":"discover-programmes","limit":10,"trigger":"github-actions-programme-coverage"}' \
             https://geoacademic.app/api/public/hooks/ingest-batch
+      - name: Queue due structured provider refreshes
+        shell: bash
+        env:
+          INGESTION_HOOK_SECRET: ${{ secrets.INGESTION_HOOK_SECRET }}
+        run: |
+          set -euo pipefail
+          test -n "$INGESTION_HOOK_SECRET"
+          response="$(curl --fail-with-body --silent --show-error \\
+            --connect-timeout 10 --max-time 45 \\
+            -H "Authorization: Bearer $INGESTION_HOOK_SECRET" \\
+            -H "Content-Type: application/json" \\
+            --data '{"action":"backfill-providers","limit":30,"trigger":"github-actions-structured-provider-refresh"}' \\
+            https://geoacademic.app/api/public/hooks/ingest-batch)"
+          echo "$response"
+          node -e '
+            const v = JSON.parse(process.argv[1]);
+            if (v.error) throw new Error(v.error);
+            console.log("STRUCTURED_PROVIDER_REFRESH", JSON.stringify({
+              promote_queued: v.promote_queued ?? 0,
+              publications_queued: v.publications_queued ?? 0,
+              projects_queued: v.projects_queued ?? 0
+            }));
+          ' "$response"
+
       - name: Drain structured provider backlog
         shell: bash
         env:
