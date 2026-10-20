@@ -32,8 +32,8 @@ jobs:
     steps:
       - name: Check out worker
         uses: actions/checkout@v4
-      - name: Validate worker
-        run: node scripts/job-review-worker.mjs --self-test
+      - name: Validate worker scripts
+        run: node --check scripts/ingestion-worker.mjs && node --check scripts/job-review-worker.mjs
       - name: Check OmniRoute credentials
         shell: bash
         run: |
