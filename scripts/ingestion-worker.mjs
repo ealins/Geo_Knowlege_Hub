@@ -580,7 +580,7 @@ async function runMaintenance() {
   // separate non-critical job; allowing it here previously aborted the whole
   // worker after the 120-second hook timeout.
   const [refreshResult, discoveryResult] = await Promise.allSettled([
-    callHook("refresh-due", { limit: 80 }, 30_000),
+    callHook("refresh-due", { limit: 20 }, 30_000),
     callHook("enqueue-discovery", { limit: 8 }, 30_000),
   ]);
 
