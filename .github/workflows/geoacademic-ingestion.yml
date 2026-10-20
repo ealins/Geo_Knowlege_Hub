@@ -9,7 +9,9 @@ on:
     types: [completed]
 
 concurrency:
-  group: geoacademic-ingestion-manual
+  # Keep one run per trigger type, but allow the post-deploy recovery run to
+  # proceed even if a scheduled batch is stalled on an external source.
+  group: geoacademic-ingestion-${{ github.event_name }}
   cancel-in-progress: false
 
 permissions:
