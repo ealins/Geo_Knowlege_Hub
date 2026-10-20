@@ -151,9 +151,24 @@ export async function enqueueProviderBackfill(
       "IMPORT_PROJECTS",
     ])
     .in("status", ["QUEUED", "PROCESSING", "RETRY"]);
-  const openKey = new Set(
-    (openTasks ?? []).map((t) => `${t.task_type}:${t.institution_id}`),
-  );
+  const recentTerminalTasks = await supabaseAdmin
+    .from("ingestion_tasks")
+    .select("task_type, institution_id")
+    .in("task_type", [
+      "PROMOTE_INSTITUTION",
+      "IMPORT_PUBLICATIONS",
+      "IMPORT_PROJECTS",
+    ])
+    .in("status", ["COMPLETE", "DEAD"])
+    .gte("updated_at", new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString());
+
+  // Do not repeatedly enqueue the same provider import every 15-minute tick.
+  // A completed or exhausted task is considered recently handled for seven
+  // days; queued/retry/processing tasks remain protected by openKey.
+  const openKey = new Set([
+    ...(openTasks ?? []).map((t) => `${t.task_type}:${t.institution_id}`),
+    ...((recentTerminalTasks.data ?? []).map((t) => `${t.task_type}:${t.institution_id}`)),
+  ]);
 
   const { data: institutions } = await supabaseAdmin
     .from("institutions")
