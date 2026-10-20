@@ -63,6 +63,8 @@ jobs:
 
             if [[ "$page_code" == "200" && "$health_code" == "200" && "$jobs_code" == "200" && "$events_code" == "200" && "$programmes_code" == "200" && "$researchers_code" == "200" && "$projects_code" == "200" ]] && \
                grep -q "Research Pulse" /tmp/home.html && \
+               ! grep -q "The count could not be confirmed" /tmp/home.html && \
+               grep -Eq "Latest [1-9][0-9]*" /tmp/home.html && \
                (( jobs_cards > 0 )) && (( events_cards > 0 )) && (( programmes_cards > 0 )) && (( researchers_cards > 0 )) && (( projects_cards > 0 )); then
               if node <<'NODE'
           const fs = require('fs');
