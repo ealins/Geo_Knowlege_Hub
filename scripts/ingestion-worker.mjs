@@ -306,12 +306,24 @@ function clearRateLimit(host) {
 
 async function respectHostDelay(url) {
   const host = new URL(url).host;
+  const now = Date.now();
   const limited = hostRateLimit.get(host);
-  const limitUntil = limited && limited.until > Date.now() ? limited.until : 0;
-  const startAt = Math.max(Date.now(), hostNextStart.get(host) || 0, limitUntil);
+  const limitUntil = limited && limited.until > now ? limited.until : 0;
+
+  // Never let one rate-limited host hold the entire worker batch. Defer that
+  // lease back to the queue instead of sleeping for the host's full backoff.
+  if (limitUntil > now) {
+    return { deferred: true, waitMs: limitUntil - now };
+  }
+
+  const startAt = Math.max(now, hostNextStart.get(host) || 0);
   hostNextStart.set(host, startAt + PER_HOST_DELAY_MS);
-  const waitMs = Math.max(0, startAt - Date.now());
+  const waitMs = Math.max(0, startAt - now);
+  if (waitMs > 5_000) {
+    return { deferred: true, waitMs };
+  }
   if (waitMs) await sleep(waitMs);
+  return { deferred: false, waitMs };
 }
 
 async function readTextLimited(response) {
@@ -496,8 +508,13 @@ async function fetchLease(lease) {
   const startedAt = Date.now();
   let completion;
   try {
-    await respectHostDelay(lease.url);
-    if (!(await robotsAllows(lease.url))) {
+    const hostDelay = await respectHostDelay(lease.url);
+    if (hostDelay.deferred) {
+      completion = {
+        success: false,
+        error: `Deferred by host rate-limit backoff for ${Math.ceil(hostDelay.waitMs / 1000)}s`,
+      };
+    } else if (!(await robotsAllows(lease.url))) {
       completion = {
         success: false,
         blocked: true,
