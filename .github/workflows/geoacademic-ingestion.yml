@@ -34,12 +34,15 @@ jobs:
         uses: actions/checkout@v4
       - name: Validate worker
         run: node scripts/job-review-worker.mjs --self-test
-      - name: Require OmniRoute credentials
+      - name: Check OmniRoute credentials
         shell: bash
         run: |
           set -euo pipefail
-          test -n "${OMNIROUTE_API_KEY:-}"
-          echo "AI_PROVIDER=OmniRoute"
+          if [[ -n "${OMNIROUTE_API_KEY:-}" ]]; then
+            echo "AI_PROVIDER=OmniRoute"
+          else
+            echo "::warning::OMNIROUTE_API_KEY is missing; AI vacancy review will be skipped, but source ingestion must continue."
+          fi
       - name: Verify fetch lease endpoint
         shell: bash
         env:
@@ -198,12 +201,14 @@ jobs:
           done
           echo "NORMALIZE_DRAIN_PROCESSED=$processed"
       - name: Drain vacancy review backlog
+        if: ${{ env.OMNIROUTE_API_KEY != '' }}
         env:
           REVIEW_RUNTIME_MS: "120000"
           REVIEW_LEASE_LIMIT: "6"
           REVIEW_CONCURRENCY: "4"
         run: node scripts/job-review-worker.mjs
       - name: Review newly fetched job pages
+        if: ${{ env.OMNIROUTE_API_KEY != '' }}
         env:
           REVIEW_RUNTIME_MS: "45000"
           REVIEW_LEASE_LIMIT: "10"
