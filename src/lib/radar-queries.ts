@@ -105,7 +105,7 @@ function isRelevantPublicationPulse(event: { entity_type: string | null; title: 
 
 export const pulseQuery = queryOptions({
   queryKey: ["pulse-events"],
-  queryFn: async () => {
+  queryFn: async ({ client }) => {
     const [{ data, error }, opportunityResult] = await Promise.all([
       supabase
         .from("pulse_events")
@@ -123,7 +123,7 @@ export const pulseQuery = queryOptions({
         // newest event dates first; importance must never outrank freshness.
         .order("event_date", { ascending: false })
         .limit(100),
-      fetchPublicOpportunities()
+      client.fetchQuery(opportunitiesQuery)
         .then((rows) => ({ rows, error: null as unknown }))
         .catch((opportunityError: unknown) => {
           // A failure in the separate jobs catalogue must not blank the entire
