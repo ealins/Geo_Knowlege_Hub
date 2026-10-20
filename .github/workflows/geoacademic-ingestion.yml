@@ -170,11 +170,11 @@ jobs:
           processed=0
           failures=0
           while [ "$SECONDS" -lt "$deadline" ]; do
-            if ! response="$(curl --fail-with-body --silent --show-error \\
-              --connect-timeout 10 --max-time 35 \\
-              -H "Authorization: Bearer $INGESTION_HOOK_SECRET" \\
-              -H "Content-Type: application/json" \\
-              --data '{"action":"drain-providers","limit":1,"trigger":"github-actions-provider-refresh"}' \\
+            if ! response="$(curl --fail-with-body --silent --show-error \
+              --connect-timeout 10 --max-time 35 \
+              -H "Authorization: Bearer $INGESTION_HOOK_SECRET" \
+              -H "Content-Type: application/json" \
+              --data '{"action":"drain-providers","limit":1,"trigger":"github-actions-provider-refresh"}' \
               https://geoacademic.app/api/public/hooks/ingest-batch)"; then
               failures=$((failures+1))
               echo "::warning::Provider drain timed out or failed (consecutive failures=$failures); continuing to the next provider task."
