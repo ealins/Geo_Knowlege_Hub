@@ -63,6 +63,14 @@ export const Route = createFileRoute("/")({
       { name: "twitter:image", content: "https://geoacademic.app/og-geoacademic-radar.jpg" },
     ],
   }),
+  loader: async ({ context }) => {
+    // Render the live public counts and source-backed pulse feed in the server
+    // HTML as well as after hydration. The globe remains a non-blocking client query.
+    await Promise.allSettled([
+      context.queryClient.ensureQueryData(countsQuery),
+      context.queryClient.ensureQueryData(pulseQuery),
+    ]);
+  },
   component: AcademicPulse,
 });
 
