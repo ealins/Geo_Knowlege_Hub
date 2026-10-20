@@ -172,6 +172,23 @@ function isPrivateAddress(address) {
 
 const dnsCache = new Map();
 
+async function lookupWithTimeout(host, timeoutMs = 5_000) {
+  let timer;
+  try {
+    return await Promise.race([
+      lookup(host, { all: true, verbatim: true }),
+      new Promise((_, reject) => {
+        timer = setTimeout(
+          () => reject(new Error(`DNS lookup timed out for ${host} after ${timeoutMs}ms`)),
+          timeoutMs,
+        );
+      }),
+    ]);
+  } finally {
+    if (timer) clearTimeout(timer);
+  }
+}
+
 async function assertPublicUrl(value) {
   const url = new URL(value);
   if (!/^https?:$/.test(url.protocol))
@@ -190,7 +207,7 @@ async function assertPublicUrl(value) {
   if (!addresses || addresses.expiresAt <= Date.now()) {
     const resolved = isIP(host)
       ? [{ address: host }]
-      : await lookup(host, { all: true, verbatim: true });
+      : await lookupWithTimeout(host);
     addresses = {
       values: resolved.map((entry) => entry.address),
       expiresAt: Date.now() + 10 * 60_000,
@@ -553,7 +570,7 @@ async function fetchLease(lease) {
         ...completion,
       },
     },
-    90_000,
+    30_000,
   );
   return { lease, completion, result };
 }
