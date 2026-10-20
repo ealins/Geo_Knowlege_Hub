@@ -77,31 +77,29 @@ function detectCodingContent(pageText) {
   return matches.length >= 3;
 }
 
-async function fetchHook(action) {
+async function fetchHook(action, payload = {}) {
   if (!HOOK_SECRET) throw new Error("INGESTION_HOOK_SECRET is not configured");
-  const response = await fetch(`${BASE_URL}/api/hooks/${action}`, {
+  const response = await fetch(`${BASE_URL}/api/public/hooks/ingest-batch`, {
     method: "POST",
     headers: {
       "content-type": "application/json",
-      "x-ingestion-secret": HOOK_SECRET,
+      authorization: `Bearer ${HOOK_SECRET}`,
     },
+    body: JSON.stringify({ action, trigger: "github-actions-vacancy-review", ...payload }),
+    signal: AbortSignal.timeout(HOOK_TIMEOUT_MS),
   });
   const body = await response.text();
-  if (response.ok) {
-    try {
-      return JSON.parse(body);
-    } catch {
-      return body;
-    }
+  let result = {};
+  try {
+    result = body ? JSON.parse(body) : {};
+  } catch {
+    result = { raw: body.slice(0, 500) };
   }
-  if (response.status === 401) {
-    throw new Error(
-      `Hook ${action} HTTP 401: INGESTION_HOOK_SECRET does not match the production hook secret`,
-    );
+  if (!response.ok) {
+    throw new Error(`Hook ${action} HTTP ${response.status}: ${JSON.stringify(result).slice(0, 500)}`);
   }
-  throw new Error(
-    `Hook ${action} HTTP ${response.status}: ${JSON.stringify(body).slice(0, 500)}`,
-  );
+  if (result.error) throw new Error(`Hook ${action} failed: ${String(result.error).slice(0, 500)}`);
+  return result;
 }
 
 async function extractWithAI(lease) {
@@ -146,99 +144,75 @@ ${pageText}`;
   return parseJsonObject(content);
 }
 
-export async function runLease(lease) {
-  const result = await extractWithAI(lease);
-  return {
-    id: lease.id,
-    status: "REVIEWED",
-    result,
-    reviewed_at: new Date().toISOString(),
-  };
-}
-
-async function acquire() {
-  if (active < CONCURRENCY) {
-    active += 1;
-    return;
-  }
-  await new Promise((resolve) => waiting.push(resolve));
-  active += 1;
-}
-
-function release() {
-  active = Math.max(0, active - 1);
-  const next = waiting.shift();
-  if (next) next();
-}
-
-let active = 0;
-let waiting = [];
-
-let leases = [];
-let currentLeaseIndex = 0;
-
-function processLeases() {
-  if (leases.length === 0) {
-    console.log("No leases to process");
+async function main() {
+  if (!HOOK_SECRET) throw new Error("INGESTION_HOOK_SECRET is not configured");
+  if (!OMNIROUTE_API_KEY) {
+    console.log("OMNIROUTE_API_KEY is missing; skipping external vacancy review.");
     return;
   }
 
-  acquire().then(async () => {
+  console.log("Starting GeoAcademic vacancy review worker");
+  const leaseResponse = await fetchHook("lease-review", {
+    limit: LEASE_LIMIT,
+    model_available: true,
+  });
+  const leases = Array.isArray(leaseResponse.leases) ? leaseResponse.leases : [];
+  console.log(`Leased ${leases.length} vacancy review task(s)`);
+  if (leases.length === 0) return;
+
+  const deadline = Date.now() + RUNTIME_MS;
+  for (const lease of leases) {
+    if (Date.now() >= deadline) {
+      console.log("Review runtime limit reached; remaining leases will be picked up by a later run.");
+      break;
+    }
+
+    const startedAt = Date.now();
+    const pageText = String(lease.text_content || "").slice(0, 8_000);
+    const model = detectCodingContent(pageText) ? OMNIROUTE_CODING_MODEL : OMNIROUTE_MODEL;
     try {
-      const lease = leases[currentLeaseIndex];
-      console.log(`Processing lease ${lease.id}...`);
-
-      const result = await runLease(lease);
-      console.log(`Lease ${lease.id} completed:`, JSON.stringify(result).slice(0, 200));
-
-      // Return result to hook
-      await fetchHook("result").catch((e) => console.error("Failed to return result:", e));
+      const extraction = await extractWithAI(lease);
+      const result = await fetchHook("complete-review", {
+        completion: {
+          task_id: lease.task_id,
+          source_id: lease.source_id,
+          raw_record_id: lease.raw_record_id,
+          lease_started_at: lease.lease_started_at,
+          success: true,
+          extraction,
+          model,
+          latency_ms: Date.now() - startedAt,
+          input_characters: pageText.length,
+          output_characters: JSON.stringify(extraction).length,
+        },
+      });
+      console.log(`Review completed task=${lease.task_id} status=${result.status ?? "accepted"}`);
     } catch (error) {
-      console.error(`Lease error:`, error);
-    } finally {
-      release();
-      currentLeaseIndex = (currentLeaseIndex + 1) % leases.length;
-      if (currentLeaseIndex === 0) {
-        console.log("Cycle complete, shutting down");
-      } else {
-        setTimeout(processLeases, 100);
+      const message = error instanceof Error ? error.message : String(error);
+      console.error(`Review failed task=${lease.task_id}: ${message}`);
+      try {
+        const result = await fetchHook("complete-review", {
+          completion: {
+            task_id: lease.task_id,
+            source_id: lease.source_id,
+            raw_record_id: lease.raw_record_id,
+            lease_started_at: lease.lease_started_at,
+            success: false,
+            error: message.slice(0, 1_000),
+            model,
+            latency_ms: Date.now() - startedAt,
+            input_characters: pageText.length,
+          },
+        });
+        console.log(`Review failure recorded task=${lease.task_id} status=${result.status ?? "accepted"}`);
+      } catch (completionError) {
+        console.error(`Could not record review failure task=${lease.task_id}:`, completionError);
       }
     }
-  });
-}
-
-async function main() {
-  console.log("Starting job-review-worker...");
-  console.log("OmniRoute URL:", OMNIROUTE_URL);
-  console.log("OmniRoute Model:", OMNIROUTE_MODEL);
-  console.log("OmniRoute Coding Model:", OMNIROUTE_CODING_MODEL);
-
-  // Acquire leases
-  const result = await fetchHook("acquire");
-  leases = result.leases || [];
-  console.log(`Acquired ${leases.length} leases`);
-
-  if (leases.length === 0) {
-    console.log("No leases available, exiting");
-    return;
   }
-
-  // Process leases
-  const deadline = Date.now() + RUNTIME_MS;
-  const interval = setInterval(() => {
-    if (Date.now() > deadline) {
-      console.log("Runtime limit reached, shutting down");
-      clearInterval(interval);
-      processLeases();
-    }
-  }, 1000);
-
-  processLeases();
-
-  console.log("Worker started, deadline:", new Date(deadline).toISOString());
 }
 
 main().catch((error) => {
-  console.error("Fatal error:", error);
-  process.exit(1);
+  console.error("Fatal vacancy review worker error:", error);
+  process.exitCode = 1;
 });
