@@ -105,7 +105,7 @@ jobs:
             --connect-timeout 10 --max-time 45 \
             -H "Authorization: Bearer $INGESTION_HOOK_SECRET" \
             -H "Content-Type: application/json" \
-            --data '{"action":"reseed-high-value","limit":100,"trigger":"github-actions-deep-discovery-v7"}' \
+            --data '{"action":"reseed-high-value","limit":20,"trigger":"github-actions-deep-discovery-v7"}' \
             https://geoacademic.app/api/public/hooks/ingest-batch
 
       - name: Fetch reseeded discovery pages
