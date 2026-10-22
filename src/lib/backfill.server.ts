@@ -41,14 +41,33 @@ export async function enqueueRawBackfill(limit = 400): Promise<BackfillPlan> {
     by_classification: {},
   };
 
-  const { data: raws } = await supabaseAdmin
-    .from("raw_records")
-    .select("id, source_id, classification, normalization_status, normalization_error, fetched_at")
-    .in("classification", BACKFILL_CLASSIFICATIONS as unknown as string[])
-    .order("fetched_at", { ascending: false })
-    .limit(2000);
+  const rawFields =
+    "id, source_id, classification, normalization_status, normalization_error, fetched_at";
 
-  const candidates = (raws ?? []).filter((r) => {
+  // Query pending rows independently and oldest-first. Previously we took the
+  // newest 2,000 raw records and only then filtered in memory; a steady stream of
+  // newer records could permanently hide older PENDING rows from backfill.
+  const [pendingResult, retryableResult] = await Promise.all([
+    supabaseAdmin
+      .from("raw_records")
+      .select(rawFields)
+      .in("classification", BACKFILL_CLASSIFICATIONS as unknown as string[])
+      .eq("normalization_status", "PENDING")
+      .order("fetched_at", { ascending: true })
+      .limit(2000),
+    supabaseAdmin
+      .from("raw_records")
+      .select(rawFields)
+      .in("classification", BACKFILL_CLASSIFICATIONS as unknown as string[])
+      .in("normalization_status", ["FAILED", "SKIPPED"])
+      .order("fetched_at", { ascending: false })
+      .limit(2000),
+  ]);
+  if (pendingResult.error) throw pendingResult.error;
+  if (retryableResult.error) throw retryableResult.error;
+  const raws = [...(pendingResult.data ?? []), ...(retryableResult.data ?? [])];
+
+  const candidates = raws.filter((r) => {
     if (!r.source_id) return false;
     const status = r.normalization_status ?? "PENDING";
     if (status === "NORMALIZED") return false;
