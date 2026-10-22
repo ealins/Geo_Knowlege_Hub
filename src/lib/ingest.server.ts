@@ -1781,7 +1781,10 @@ export async function completeExternalFetch(input: ExternalFetchCompletion): Pro
         .eq("id", source.id);
     }
     // 404/410 means the source was removed, so retire it instead of retrying it.
-    const dead = permanentlyUnavailable || task.attempts >= task.max_attempts;
+    // A blocked source is excluded by the lease RPC, so leaving its task in
+    // RETRY creates an unclaimable task that can never recover automatically.
+    // Keep the source and error history; terminalize only this task.
+    const dead = blocked || permanentlyUnavailable || task.attempts >= task.max_attempts;
     const backoffMinutes = Math.min(60 * 12, 2 ** Math.max(1, task.attempts));
     const { data: updated } = await supabaseAdmin
       .from("ingestion_tasks")
