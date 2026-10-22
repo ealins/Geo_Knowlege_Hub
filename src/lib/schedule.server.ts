@@ -144,30 +144,45 @@ export async function enqueueDueRefreshes(
   let queued = 0;
   let scanned = 0;
 
-  const [{ data: sources }, { data: pendingFetches }] = await Promise.all([
-    supabaseAdmin
-      .from("sources")
-      .select(
-        "id, category, institution_id, last_success_at, refresh_frequency_hours, status, active",
-      )
-      .neq("status", "BLOCKED")
-      .eq("active", true)
-      .order("last_success_at", { ascending: true, nullsFirst: true })
-      // Include the entire active registry. A fixed 1,000-row window can starve
-      // sources outside that window while older sources remain due or failing.
-      .limit(5000),
-    supabaseAdmin
-      .from("ingestion_tasks")
-      .select("source_id")
-      .eq("task_type", "FETCH")
-      .in("status", ["QUEUED", "PROCESSING", "RETRY"])
-      .not("source_id", "is", null)
-      .limit(5000),
-  ]);
-  const pendingSourceIds = new Set(
-    (pendingFetches ?? [])
-      .map((task) => task.source_id)
-      .filter((id): id is string => Boolean(id)),
+  const pageOffsets = [0, 1000, 2000, 3000, 4000];
+  const sourcePages = await Promise.all(
+    pageOffsets.map((offset) =>
+      supabaseAdmin
+        .from("sources")
+        .select("id, category, institution_id, last_success_at, refresh_frequency_hours, status, active")
+        .neq("status", "BLOCKED")
+        .eq("active", true)
+        .order("last_success_at", { ascending: true, nullsFirst: true })
+        .order("id", { ascending: true })
+        .range(offset, offset + 999),
+    ),
+  );
+  for (const result of sourcePages) {
+    if (result.error) throw result.error;
+  }
+  const sources = sourcePages.flatMap((result) => result.data ?? []);
+
+  const pendingPages = await Promise.all(
+    pageOffsets.map((offset) =>
+      supabaseAdmin
+        .from("ingestion_tasks")
+        .select("source_id")
+        .eq("task_type", "FETCH")
+        .in("status", ["QUEUED", "PROCESSING", "RETRY"])
+        .not("source_id", "is", null)
+        .order("id", { ascending: true })
+        .range(offset, offset + 999),
+    ),
+  );
+  for (const result of pendingPages) {
+    if (result.error) throw result.error;
+  }
+  const pendingSourceIds = new Set<string>(
+    pendingPages.flatMap((result) =>
+      (result.data ?? [])
+        .map((task) => task.source_id)
+        .filter((id): id is string => Boolean(id)),
+    ),
   );
 
   const now = Date.now();
