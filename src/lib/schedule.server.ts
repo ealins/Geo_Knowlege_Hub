@@ -144,20 +144,40 @@ export async function enqueueDueRefreshes(
   let queued = 0;
   let scanned = 0;
 
-  const { data: sources } = await supabaseAdmin
-    .from("sources")
-    .select(
-      "id, category, institution_id, last_success_at, refresh_frequency_hours, status, active",
-    )
-    .neq("status", "BLOCKED")
-    .eq("active", true)
-    .order("last_success_at", { ascending: true, nullsFirst: true })
-    .limit(1000);
+  const [{ data: sources }, { data: pendingFetches }] = await Promise.all([
+    supabaseAdmin
+      .from("sources")
+      .select(
+        "id, category, institution_id, last_success_at, refresh_frequency_hours, status, active",
+      )
+      .neq("status", "BLOCKED")
+      .eq("active", true)
+      .order("last_success_at", { ascending: true, nullsFirst: true })
+      // Include the entire active registry. A fixed 1,000-row window can starve
+      // sources outside that window while older sources remain due or failing.
+      .limit(5000),
+    supabaseAdmin
+      .from("ingestion_tasks")
+      .select("source_id")
+      .eq("task_type", "FETCH")
+      .in("status", ["QUEUED", "PROCESSING", "RETRY"])
+      .not("source_id", "is", null)
+      .limit(5000),
+  ]);
+  const pendingSourceIds = new Set(
+    (pendingFetches ?? [])
+      .map((task) => task.source_id)
+      .filter((id): id is string => Boolean(id)),
+  );
 
   const now = Date.now();
   for (const s of sources ?? []) {
     if (queued >= limit) break;
     scanned += 1;
+    // Do not count already queued/in-flight/retrying fetches against this tick's
+    // enqueue budget. Otherwise the same failing sources can consume all 40 slots
+    // and prevent other due sources from ever entering the queue.
+    if (pendingSourceIds.has(s.id)) continue;
     const base = refreshHoursFor(config, s.category);
     // A source that keeps coming back unchanged carries a larger stored
     // interval; we honour it up to the configured backoff ceiling.
