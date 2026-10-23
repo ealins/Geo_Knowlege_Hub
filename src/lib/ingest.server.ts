@@ -2,6 +2,7 @@
 // Pipeline: DISCOVER -> FETCH -> RAW STORAGE -> CLASSIFY -> EXTRACT/NORMALIZE -> CANONICAL -> PROVENANCE
 import { supabaseAdmin } from "@/integrations/supabase/client.server";
 import { buildNormalizationTaskPayload } from "./normalization-task-payload";
+import { shouldRecoverSemanticFailure } from "./semantic-recovery-policy";
 import {
   extractStructuredSnapshot,
   structuredVacancyFromPayload,
@@ -1153,52 +1154,108 @@ export async function enqueueSemanticFailureRecovery(limit = 500): Promise<{
   queued: number;
   skipped: number;
 }> {
-  const retryable =
-    /(?:NVIDIA_SECRET_NOT_CONFIGURED|AI_PROVIDER_NOT_CONFIGURED|HTTP_(?:429|5\d\d)|TIMEOUT|NETWORK_ERROR|UNPARSEABLE_RESPONSE|OUTPUT_TRUNCATED|EMPTY_COMPLETION)/i;
+  const candidateLimit = Math.max(1, Math.min(limit, 1000));
+  const rawFields = "id, source_id, institution_id, classification, normalization_status, normalization_error, fetched_at";
 
-  const { data: raws, error } = await supabaseAdmin
+  // Prioritize transient FAILED rows separately. A single newest-first query
+  // over FAILED + SKIPPED can let thousands of newer content-quality skips hide
+  // the FAILED rows that the new retry policy is supposed to recover.
+  const { data: failedRaws, error: failedError } = await supabaseAdmin
     .from("raw_records")
-    .select("id, source_id, institution_id, classification, normalization_status, normalization_error, fetched_at")
+    .select(rawFields)
     .in("classification", ["PROJECT", "RESEARCHER", "EVENT", "PROGRAMME", "COURSE"])
-    .eq("normalization_status", "SKIPPED")
+    .eq("normalization_status", "FAILED")
     .order("fetched_at", { ascending: false })
-    .limit(Math.max(1, Math.min(limit, 1000)));
-  if (error) throw error;
+    .limit(candidateLimit);
+  if (failedError) throw failedError;
+  const retryableFailed = (failedRaws ?? []).filter((raw) =>
+    shouldRecoverSemanticFailure({
+      status: raw.normalization_status,
+      error: raw.normalization_error,
+      hasOpenNormalizeTask: false,
+    }),
+  );
+
+  const skippedLimit = Math.max(0, candidateLimit - retryableFailed.length);
+  let skippedRaws: typeof retryableFailed = [];
+  if (skippedLimit > 0) {
+    const { data, error: skippedError } = await supabaseAdmin
+      .from("raw_records")
+      .select(rawFields)
+      .in("classification", ["PROJECT", "RESEARCHER", "EVENT", "PROGRAMME", "COURSE"])
+      .eq("normalization_status", "SKIPPED")
+      .order("fetched_at", { ascending: false })
+      .limit(skippedLimit);
+    if (skippedError) throw skippedError;
+    skippedRaws = (data ?? []) as typeof retryableFailed;
+  }
+  const raws = [...retryableFailed, ...skippedRaws];
+
+  const sourceIds = [...new Set(
+    (raws ?? []).map((raw) => raw.source_id).filter((id): id is string => Boolean(id)),
+  )];
+  const activeSourceIds = new Set<string>();
+  const openNormalizeSourceIds = new Set<string>();
+  if (sourceIds.length > 0) {
+    const [sourceResult, openTaskResult] = await Promise.all([
+      supabaseAdmin
+        .from("sources")
+        .select("id, active, status")
+        .in("id", sourceIds),
+      supabaseAdmin
+        .from("ingestion_tasks")
+        .select("source_id")
+        .eq("task_type", "NORMALIZE")
+        .in("source_id", sourceIds)
+        .in("status", ["QUEUED", "PROCESSING", "RETRY"]),
+    ]);
+    if (sourceResult.error) throw sourceResult.error;
+    if (openTaskResult.error) throw openTaskResult.error;
+    for (const source of sourceResult.data ?? []) {
+      if (source.active && source.status !== "BLOCKED") activeSourceIds.add(source.id);
+    }
+    for (const task of openTaskResult.data ?? []) {
+      if (task.source_id) openNormalizeSourceIds.add(task.source_id);
+    }
+  }
 
   let queued = 0;
   let skipped = 0;
   for (const raw of raws ?? []) {
-    if (!raw.source_id || !retryable.test(raw.normalization_error ?? "")) {
+    if (!raw.source_id || !activeSourceIds.has(raw.source_id)) {
       skipped += 1;
       continue;
     }
-    const { data: source } = await supabaseAdmin
-      .from("sources")
-      .select("active, status")
-      .eq("id", raw.source_id)
-      .maybeSingle();
-    if (!source?.active || source.status === "BLOCKED") {
+    if (!shouldRecoverSemanticFailure({
+      status: raw.normalization_status,
+      error: raw.normalization_error,
+      hasOpenNormalizeTask: openNormalizeSourceIds.has(raw.source_id),
+    })) {
       skipped += 1;
       continue;
     }
 
-    await supabaseAdmin
-      .from("raw_records")
-      .update({
-        normalization_status: "PENDING",
-        normalization_error: null,
-      } as never)
-      .eq("id", raw.id);
-
-    await enqueue("NORMALIZE", {
+    // Enqueue first. If deduplication refuses the task (including a race with
+    // another worker), leave the raw row's status/error untouched. The exact
+    // raw ID is carried in the payload so the task cannot silently normalize a
+    // different snapshot from the same source.
+    const inserted = await enqueue("NORMALIZE", {
       source_id: raw.source_id,
       institution_id: raw.institution_id ?? undefined,
       payload: buildNormalizationTaskPayload({
         classification: raw.classification,
-        reason: "semantic-failure-recovery-v7",
+        reason: "semantic-failure-recovery-v8",
         rawRecordId: raw.id,
       }),
     });
+    // Reserve this source for the rest of this batch whether we inserted or
+    // raced with another enqueue, preserving one open normalization task/source.
+    openNormalizeSourceIds.add(raw.source_id);
+    if (!inserted) {
+      skipped += 1;
+      continue;
+    }
+    // Raw status transitions belong to the worker; do not reset it here.
     queued += 1;
   }
 
@@ -1225,35 +1282,41 @@ export async function enqueue(
     institution_id?: string | undefined;
     payload?: Record<string, unknown> | undefined;
   },
-): Promise<void> {
+): Promise<boolean> {
   if (opts.source_id) {
-    const { data: dup } = await supabaseAdmin
+    const { data: dup, error: duplicateError } = await supabaseAdmin
       .from("ingestion_tasks")
       .select("id")
       .eq("task_type", taskType)
       .eq("source_id", opts.source_id)
       .in("status", ["QUEUED", "PROCESSING", "RETRY"])
+      .limit(1)
       .maybeSingle();
-    if (dup) return;
+    if (duplicateError) throw duplicateError;
+    if (dup) return false;
   } else if (
     opts.institution_id &&
     ["PROMOTE_INSTITUTION", "IMPORT_PUBLICATIONS", "IMPORT_PROJECTS"].includes(taskType)
   ) {
-    const { data: dup } = await supabaseAdmin
+    const { data: dup, error: duplicateError } = await supabaseAdmin
       .from("ingestion_tasks")
       .select("id")
       .eq("task_type", taskType)
       .eq("institution_id", opts.institution_id)
       .in("status", ["QUEUED", "PROCESSING", "RETRY"])
+      .limit(1)
       .maybeSingle();
-    if (dup) return;
+    if (duplicateError) throw duplicateError;
+    if (dup) return false;
   }
-  await supabaseAdmin.from("ingestion_tasks").insert({
+  const { error } = await supabaseAdmin.from("ingestion_tasks").insert({
     task_type: taskType,
     source_id: opts.source_id ?? null,
     institution_id: opts.institution_id ?? null,
     payload: (opts.payload ?? {}) as never,
   });
+  if (error) throw error;
+  return true;
 }
 
 const NORMALIZABLE_CLASSES = new Set([
