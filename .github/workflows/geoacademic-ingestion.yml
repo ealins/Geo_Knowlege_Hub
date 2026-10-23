@@ -3,7 +3,8 @@ name: GeoAcademic fresh ingestion
 on:
   workflow_dispatch:
   schedule:
-    - cron: "*/15 * * * *"
+    # Keep the 15-minute cadence while avoiding quarter-hour boundaries.
+    - cron: "7,22,37,52 * * * *"
   workflow_run:
     workflows: ["Deploy GeoAcademic to Cloudflare"]
     types: [completed]
