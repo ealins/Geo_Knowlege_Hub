@@ -248,6 +248,7 @@ jobs:
           deadline=$((SECONDS+180))
           processed=0
           failures=0
+          backfill_passes=0
           while [ "$SECONDS" -lt "$deadline" ]; do
             if ! response="$(curl --fail-with-body --silent --show-error \
               --connect-timeout 10 --max-time 25 \
@@ -269,6 +270,32 @@ jobs:
             count="$(node -e 'const v=JSON.parse(process.argv[1]); process.stdout.write(String(v.processed||0))' "$response")"
             processed=$((processed+count))
             if [ "$count" -eq 0 ]; then
+              # Draining can free sources that had pending snapshots skipped by
+              # the first backfill pass. Requeue those exact snapshots and keep
+              # draining, with a strict two-pass cap inside the existing deadline.
+              if [ "$backfill_passes" -lt 2 ]; then
+                backfill_response="$(curl --fail-with-body --silent --show-error \\
+                  --connect-timeout 10 --max-time 25 \\
+                  -H "Authorization: Bearer $INGESTION_HOOK_SECRET" \\
+                  -H "Content-Type: application/json" \\
+                  --data '{"action":"backfill-raw","limit":100,"trigger":"github-actions-post-drain-raw-backfill"}' \\
+                  https://geoacademic.app/api/public/hooks/ingest-batch)"
+                echo "$backfill_response"
+                queued="$(node -e '
+                  const v = JSON.parse(process.argv[1]);
+                  if (v.error) throw new Error(v.error);
+                  for (const key of ["raw_candidates", "queued", "already_queued"]) {
+                    if (typeof v[key] !== "number") throw new Error(`backfill-raw returned no numeric ${key}`);
+                  }
+                  process.stdout.write(String(v.queued));
+                ' "$backfill_response")"
+                if [ "$queued" -gt 0 ]; then
+                  backfill_passes=$((backfill_passes+1))
+                  echo "POST_DRAIN_RAW_BACKFILL queued=$queued pass=$backfill_passes"
+                  sleep 1
+                  continue
+                fi
+              fi
               echo "NORMALIZE_DRAIN_IDLE processed=$processed"
               break
             fi
