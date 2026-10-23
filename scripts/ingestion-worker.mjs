@@ -63,6 +63,19 @@ const RESEED_INTERVAL_MS = clamp(
   7 * 24 * 60 * 60_000,
   6 * 60 * 60_000,
 );
+
+const PROGRAMME_DISCOVERY_INTERVAL_MS = clamp(
+  process.env.PROGRAMME_DISCOVERY_INTERVAL_MS,
+  5 * 60_000,
+  24 * 60 * 60_000,
+  60 * 60_000,
+);
+const PROGRAMME_DISCOVERY_RETRY_MS = clamp(
+  process.env.PROGRAMME_DISCOVERY_RETRY_MS,
+  5 * 60_000,
+  60 * 60_000,
+  10 * 60_000,
+);
 const RUNTIME_MS = clamp(process.env.INGESTION_RUNTIME_MS, 0, 4 * 60_000, 0);
 const BURST_MODE =
   (process.env.INGESTION_BURST_MODE || "").toLowerCase() === "true";
@@ -91,6 +104,23 @@ export function shouldQueueMaintenance({
   if (burstMode && fetchLeaseCount > 0) return false;
   if (lastMaintenanceAtMs === 0) return true;
   return nowMs - lastMaintenanceAtMs >= maintenanceIntervalMs;
+}
+
+export function shouldRunProgrammeDiscovery({
+  burstMode,
+  lastSuccessAtMs,
+  lastAttemptAtMs,
+  nowMs,
+  intervalMs,
+  retryIntervalMs,
+}) {
+  // Keep this on the persistent worker, not bounded GitHub Actions bursts.
+  if (burstMode) return false;
+  if (lastAttemptAtMs > 0 && nowMs - lastAttemptAtMs < retryIntervalMs) {
+    return false;
+  }
+  if (lastSuccessAtMs === 0) return true;
+  return nowMs - lastSuccessAtMs >= intervalMs;
 }
 
 let stopping = false;
@@ -656,6 +686,8 @@ if (shouldRunDirectly) {
 
   let lastMaintenanceAt = 0;
   let lastReseedAt = 0;
+  let lastProgrammeDiscoveryAt = 0;
+  let lastProgrammeDiscoveryAttemptAt = 0;
   const stopAt = RUNTIME_MS ? Date.now() + RUNTIME_MS : Number.POSITIVE_INFINITY;
   while (!stopping && Date.now() < stopAt) {
     try {
@@ -669,6 +701,34 @@ if (shouldRunDirectly) {
         console.log(
           `${new Date().toISOString()} RESEED queued=${reseed.queued ?? 0}`,
         );
+      }
+
+      if (shouldRunProgrammeDiscovery({
+        burstMode: BURST_MODE,
+        lastSuccessAtMs: lastProgrammeDiscoveryAt,
+        lastAttemptAtMs: lastProgrammeDiscoveryAttemptAt,
+        nowMs: Date.now(),
+        intervalMs: PROGRAMME_DISCOVERY_INTERVAL_MS,
+        retryIntervalMs: PROGRAMME_DISCOVERY_RETRY_MS,
+      })) {
+        lastProgrammeDiscoveryAttemptAt = Date.now();
+        try {
+          const result = await callHook(
+            "discover-programmes",
+            { limit: 10, trigger: "persistent-worker-programme-coverage" },
+            30_000,
+          );
+          if (result.error) throw new Error(String(result.error));
+          lastProgrammeDiscoveryAt = Date.now();
+          console.log(
+            `${new Date().toISOString()} PROGRAMME_DISCOVERY queued=${result.queued ?? 0}`,
+          );
+        } catch (error) {
+          console.error(
+            `${new Date().toISOString()} PROGRAMME_DISCOVERY_FAILED`,
+            error instanceof Error ? error.message : String(error),
+          );
+        }
       }
 
       const leased = await callHook(
