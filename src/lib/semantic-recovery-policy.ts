@@ -10,5 +10,5 @@ export function shouldRecoverSemanticFailure(input: {
 }): boolean {
   if (input.hasOpenNormalizeTask) return false;
   if (input.status !== "SKIPPED" && input.status !== "FAILED") return false;
-  return /(?:NVIDIA_SECRET_NOT_CONFIGURED|AI_PROVIDER_NOT_CONFIGURED|HTTP_(?:429|5\\d\\d)|TIMEOUT|NETWORK_ERROR|UNPARSEABLE_RESPONSE|OUTPUT_TRUNCATED|EMPTY_COMPLETION)/i.test(input.error ?? "");
+  return /(?:NVIDIA_SECRET_NOT_CONFIGURED|AI_PROVIDER_NOT_CONFIGURED|HTTP_(?:429|5\d\d)|TIMEOUT|NETWORK_ERROR|UNPARSEABLE_RESPONSE|OUTPUT_TRUNCATED|EMPTY_COMPLETION)/i.test(input.error ?? "");
 }
