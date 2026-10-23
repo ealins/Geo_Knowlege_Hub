@@ -12,3 +12,21 @@ export function shouldRecoverSemanticFailure(input: {
   if (input.status !== "SKIPPED" && input.status !== "FAILED") return false;
   return /(?:NVIDIA_SECRET_NOT_CONFIGURED|AI_PROVIDER_NOT_CONFIGURED|HTTP_(?:429|5\d\d)|TIMEOUT|NETWORK_ERROR|UNPARSEABLE_RESPONSE|OUTPUT_TRUNCATED|EMPTY_COMPLETION)/i.test(input.error ?? "");
 }
+
+
+/**
+ * A vacancy may be published without an institution association when its raw
+ * record came from a general job board. Retry only this exact legacy failure
+ * after the vacancy writer has been made nullable-institution safe.
+ */
+export function shouldRetryInstitutionlessVacancy(input: {
+  classification: string | null | undefined;
+  status: string | null | undefined;
+  error: string | null | undefined;
+}): boolean {
+  return (
+    input.classification === "VACANCY" &&
+    input.status === "FAILED" &&
+    (input.error ?? "").trim().toLowerCase() === "missing institution"
+  );
+}
