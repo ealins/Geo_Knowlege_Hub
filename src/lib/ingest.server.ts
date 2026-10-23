@@ -1217,14 +1217,9 @@ export async function enqueueSemanticFailureRecovery(limit = 500): Promise<{
       continue;
     }
 
-    // Conditional status update avoids clobbering a fast worker that already
-    // normalized or re-failed this row after the task was inserted.
-    const { error: statusError } = await supabaseAdmin
-      .from("raw_records")
-      .update({ normalization_status: "PENDING", normalization_error: null } as never)
-      .eq("id", raw.id)
-      .in("normalization_status", ["SKIPPED", "FAILED"]);
-    if (statusError) throw statusError;
+    // Leave raw status/error untouched here. The worker owns the status
+    // transition; mutating it in the enqueue path can race with fast processing
+    // and can make a failed or skipped raw record look pending without cause.
     queued += 1;
   }
 
