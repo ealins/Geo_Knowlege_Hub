@@ -3,8 +3,11 @@ name: GeoAcademic fresh ingestion
 on:
   workflow_dispatch:
   schedule:
-    # Keep the 15-minute cadence while avoiding quarter-hour boundaries.
-    - cron: "7,22,37,52 * * * *"
+    # Keep four runs per hour away from quarter-hour boundaries. The :07
+    # expression is separate so the hourly discovery sweep can identify it
+    # reliably even when GitHub starts the scheduled job late.
+    - cron: "7 * * * *"
+    - cron: "22,37,52 * * * *"
   workflow_run:
     workflows: ["Deploy GeoAcademic to Cloudflare"]
     types: [completed]
@@ -119,17 +122,12 @@ jobs:
         run: node scripts/ingestion-worker.mjs
 
       - name: Queue programme discovery coverage sweep
-        if: github.event_name == 'schedule'
+        if: github.event_name == 'schedule' && github.event.schedule == '7 * * * *'
         shell: bash
         env:
           INGESTION_HOOK_SECRET: ${{ secrets.INGESTION_HOOK_SECRET }}
         run: |
           set -euo pipefail
-          minute="$(date -u +%M)"
-          if [[ "$minute" != "00" ]]; then
-            echo "PROGRAMME_DISCOVERY_SWEEP=SKIP minute=$minute"
-            exit 0
-          fi
           curl --fail-with-body --silent --show-error \
             --connect-timeout 10 --max-time 45 \
             -H "Authorization: Bearer $INGESTION_HOOK_SECRET" \
