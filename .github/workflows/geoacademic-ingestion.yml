@@ -196,6 +196,34 @@ jobs:
           done
           echo "PROVIDER_DRAIN_PROCESSED=$processed"
 
+      - name: Queue pending raw snapshots for normalization
+        shell: bash
+        env:
+          INGESTION_HOOK_SECRET: ${{ secrets.INGESTION_HOOK_SECRET }}
+        run: |
+          set -euo pipefail
+          test -n "$INGESTION_HOOK_SECRET"
+          response="$(curl --fail-with-body --silent --show-error \
+            --connect-timeout 10 --max-time 45 \
+            -H "Authorization: Bearer $INGESTION_HOOK_SECRET" \
+            -H "Content-Type: application/json" \
+            --data '{"action":"backfill-raw","limit":100,"trigger":"github-actions-pending-raw-backfill"}' \
+            https://geoacademic.app/api/public/hooks/ingest-batch)"
+          echo "$response"
+          node -e '
+            const v = JSON.parse(process.argv[1]);
+            if (v.error) throw new Error(v.error);
+            for (const key of ["raw_candidates", "queued", "already_queued"]) {
+              if (typeof v[key] !== "number") throw new Error(`backfill-raw returned no numeric ${key}`);
+            }
+            console.log("RAW_NORMALIZATION_BACKFILL", JSON.stringify({
+              raw_candidates: v.raw_candidates,
+              queued: v.queued,
+              already_queued: v.already_queued,
+              by_classification: v.by_classification ?? {}
+            }));
+          ' "$response"
+
       - name: Recover transient semantic failures
         shell: bash
         env:
