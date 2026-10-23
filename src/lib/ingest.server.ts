@@ -1154,14 +1154,42 @@ export async function enqueueSemanticFailureRecovery(limit = 500): Promise<{
   queued: number;
   skipped: number;
 }> {
-  const { data: raws, error } = await supabaseAdmin
+  const candidateLimit = Math.max(1, Math.min(limit, 1000));
+  const rawFields = "id, source_id, institution_id, classification, normalization_status, normalization_error, fetched_at";
+
+  // Prioritize transient FAILED rows separately. A single newest-first query
+  // over FAILED + SKIPPED can let thousands of newer content-quality skips hide
+  // the FAILED rows that the new retry policy is supposed to recover.
+  const { data: failedRaws, error: failedError } = await supabaseAdmin
     .from("raw_records")
-    .select("id, source_id, institution_id, classification, normalization_status, normalization_error, fetched_at")
+    .select(rawFields)
     .in("classification", ["PROJECT", "RESEARCHER", "EVENT", "PROGRAMME", "COURSE"])
-    .in("normalization_status", ["SKIPPED", "FAILED"])
+    .eq("normalization_status", "FAILED")
     .order("fetched_at", { ascending: false })
-    .limit(Math.max(1, Math.min(limit, 1000)));
-  if (error) throw error;
+    .limit(candidateLimit);
+  if (failedError) throw failedError;
+  const retryableFailed = (failedRaws ?? []).filter((raw) =>
+    shouldRecoverSemanticFailure({
+      status: raw.normalization_status,
+      error: raw.normalization_error,
+      hasOpenNormalizeTask: false,
+    }),
+  );
+
+  const skippedLimit = Math.max(0, candidateLimit - retryableFailed.length);
+  let skippedRaws: typeof retryableFailed = [];
+  if (skippedLimit > 0) {
+    const { data, error: skippedError } = await supabaseAdmin
+      .from("raw_records")
+      .select(rawFields)
+      .in("classification", ["PROJECT", "RESEARCHER", "EVENT", "PROGRAMME", "COURSE"])
+      .eq("normalization_status", "SKIPPED")
+      .order("fetched_at", { ascending: false })
+      .limit(skippedLimit);
+    if (skippedError) throw skippedError;
+    skippedRaws = (data ?? []) as typeof retryableFailed;
+  }
+  const raws = [...retryableFailed, ...skippedRaws];
 
   let queued = 0;
   let skipped = 0;
