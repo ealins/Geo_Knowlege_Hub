@@ -1191,37 +1191,45 @@ export async function enqueueSemanticFailureRecovery(limit = 500): Promise<{
   }
   const raws = [...retryableFailed, ...skippedRaws];
 
+  const sourceIds = [...new Set(
+    (raws ?? []).map((raw) => raw.source_id).filter((id): id is string => Boolean(id)),
+  )];
+  const activeSourceIds = new Set<string>();
+  const openNormalizeSourceIds = new Set<string>();
+  if (sourceIds.length > 0) {
+    const [sourceResult, openTaskResult] = await Promise.all([
+      supabaseAdmin
+        .from("sources")
+        .select("id, active, status")
+        .in("id", sourceIds),
+      supabaseAdmin
+        .from("ingestion_tasks")
+        .select("source_id")
+        .eq("task_type", "NORMALIZE")
+        .in("source_id", sourceIds)
+        .in("status", ["QUEUED", "PROCESSING", "RETRY"]),
+    ]);
+    if (sourceResult.error) throw sourceResult.error;
+    if (openTaskResult.error) throw openTaskResult.error;
+    for (const source of sourceResult.data ?? []) {
+      if (source.active && source.status !== "BLOCKED") activeSourceIds.add(source.id);
+    }
+    for (const task of openTaskResult.data ?? []) {
+      if (task.source_id) openNormalizeSourceIds.add(task.source_id);
+    }
+  }
+
   let queued = 0;
   let skipped = 0;
   for (const raw of raws ?? []) {
-    if (!raw.source_id) {
+    if (!raw.source_id || !activeSourceIds.has(raw.source_id)) {
       skipped += 1;
       continue;
     }
-    const { data: source, error: sourceError } = await supabaseAdmin
-      .from("sources")
-      .select("active, status")
-      .eq("id", raw.source_id)
-      .maybeSingle();
-    if (sourceError) throw sourceError;
-    if (!source?.active || source.status === "BLOCKED") {
-      skipped += 1;
-      continue;
-    }
-
-    const { data: openTask, error: openTaskError } = await supabaseAdmin
-      .from("ingestion_tasks")
-      .select("id")
-      .eq("task_type", "NORMALIZE")
-      .eq("source_id", raw.source_id)
-      .in("status", ["QUEUED", "PROCESSING", "RETRY"])
-      .limit(1)
-      .maybeSingle();
-    if (openTaskError) throw openTaskError;
     if (!shouldRecoverSemanticFailure({
       status: raw.normalization_status,
       error: raw.normalization_error,
-      hasOpenNormalizeTask: Boolean(openTask),
+      hasOpenNormalizeTask: openNormalizeSourceIds.has(raw.source_id),
     })) {
       skipped += 1;
       continue;
@@ -1240,14 +1248,14 @@ export async function enqueueSemanticFailureRecovery(limit = 500): Promise<{
         rawRecordId: raw.id,
       }),
     });
+    // Reserve this source for the rest of this batch whether we inserted or
+    // raced with another enqueue, preserving one open normalization task/source.
+    openNormalizeSourceIds.add(raw.source_id);
     if (!inserted) {
       skipped += 1;
       continue;
     }
-
-    // Leave raw status/error untouched here. The worker owns the status
-    // transition; mutating it in the enqueue path can race with fast processing
-    // and can make a failed or skipped raw record look pending without cause.
+    // Raw status transitions belong to the worker; do not reset it here.
     queued += 1;
   }
 
