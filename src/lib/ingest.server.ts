@@ -2,6 +2,10 @@
 // Pipeline: DISCOVER -> FETCH -> RAW STORAGE -> CLASSIFY -> EXTRACT/NORMALIZE -> CANONICAL -> PROVENANCE
 import { supabaseAdmin } from "@/integrations/supabase/client.server";
 import { buildNormalizationTaskPayload } from "./normalization-task-payload";
+import {
+  parseHostFetchDeferralSeconds,
+  restoreAttemptsAfterUnstartedFetch,
+} from "./host-fetch-deferral-policy";
 import { shouldRecoverSemanticFailure } from "./semantic-recovery-policy";
 import {
   extractStructuredSnapshot,
@@ -1837,6 +1841,37 @@ export async function completeExternalFetch(input: ExternalFetchCompletion): Pro
     const message = (input.error || (statusCode ? `HTTP ${statusCode}` : "External fetch failed"))
       .trim()
       .slice(0, 1000);
+
+    // Host-level scheduling deferrals are not fetch failures: no HTTP request
+    // was made. Release the lease for the requested delay without marking the
+    // source failed, writing a failed sync run, or consuming an attempt.
+    const deferredSeconds = parseHostFetchDeferralSeconds(input.error);
+    if (statusCode === 0 && deferredSeconds !== null && input.blocked !== true) {
+      // The conditional UPDATE below compares timestamptz values in Postgres;
+      // avoid a JavaScript string comparison because equivalent timestamps can
+      // have different ISO formatting across RPC and PostgREST responses.
+      const { data: updated, error: updateError } = await supabaseAdmin
+        .from("ingestion_tasks")
+        .update({
+          status: "RETRY",
+          attempts: restoreAttemptsAfterUnstartedFetch(Number(task.attempts ?? 0)),
+          started_at: null,
+          last_error: message,
+          run_after: new Date(Date.now() + deferredSeconds * 1000 + 250).toISOString(),
+        })
+        .eq("id", task.id)
+        .eq("status", "PROCESSING")
+        .eq("started_at", input.lease_started_at)
+        .select("id")
+        .maybeSingle();
+      if (updateError) throw updateError;
+      return {
+        accepted: Boolean(updated),
+        status: updated ? "RETRY" : "STALE",
+        ...(updated ? {} : { stale_reason: "lease_changed" }),
+      };
+    }
+
     // 429 is temporary rate limiting and must be retried with backoff. Marking
     // it BLOCKED permanently removed healthy career sites from future crawls.
     const blocked = input.blocked === true || statusCode === 403;
