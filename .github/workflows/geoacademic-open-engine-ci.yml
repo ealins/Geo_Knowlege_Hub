@@ -69,9 +69,10 @@ jobs:
         with:
           bun-version: "1.3.14"
 
-      - name: Build frontend
+      - name: Build frontend and test transient extraction retry policy
         run: |
           bun install --frozen-lockfile
+          bun test src/lib/extraction/transient-errors.test.ts
           bun run build
 
       - name: Validate shell entrypoints

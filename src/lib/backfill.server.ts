@@ -82,7 +82,8 @@ export async function enqueueRawBackfill(limit = 400): Promise<BackfillPlan> {
       status === "FAILED" &&
       (err.includes(SEMANTIC_REVIEW_MISSING) ||
         err.includes(RETIRED_NVIDIA_MODEL) ||
-        err.includes(NVIDIA_NOT_CONFIGURED))
+        err.includes(NVIDIA_NOT_CONFIGURED) ||
+        err.includes("TRANSIENT_EXTRACTION_FAILURE"))
     ) {
       return true;
     }
