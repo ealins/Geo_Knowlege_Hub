@@ -1,6 +1,7 @@
 // Server-only ingestion engine. Never imported by client code.
 // Pipeline: DISCOVER -> FETCH -> RAW STORAGE -> CLASSIFY -> EXTRACT/NORMALIZE -> CANONICAL -> PROVENANCE
 import { supabaseAdmin } from "@/integrations/supabase/client.server";
+import { buildNormalizationTaskPayload } from "./normalization-task-payload";
 import {
   extractStructuredSnapshot,
   structuredVacancyFromPayload,
@@ -587,10 +588,11 @@ async function registerDetailSourcesFromLinks(input: {
         await enqueue("NORMALIZE", {
           source_id: existing.id,
           institution_id: existing.institution_id ?? input.institutionId ?? undefined,
-          payload: {
+          payload: buildNormalizationTaskPayload({
             classification: targetClassification,
             reason: "deep-discovery-v6.1-existing-detail",
-          },
+            rawRecordId: latestRaw.id,
+          }),
         });
       } else if (!latestRaw && existing.status !== "BLOCKED" && existing.active !== false) {
         await enqueue("FETCH", {
@@ -1117,7 +1119,11 @@ export async function enqueueExistingDetailRecovery(limit = 300): Promise<{
       await enqueue("NORMALIZE", {
         source_id: source.id,
         institution_id: source.institution_id ?? undefined,
-        payload: { classification, reason: "detail-semantic-recovery-v7" },
+        payload: buildNormalizationTaskPayload({
+          classification,
+          reason: "detail-semantic-recovery-v7",
+          rawRecordId: raw.id,
+        }),
       });
       normalizeQueued += 1;
       continue;
@@ -1187,10 +1193,11 @@ export async function enqueueSemanticFailureRecovery(limit = 500): Promise<{
     await enqueue("NORMALIZE", {
       source_id: raw.source_id,
       institution_id: raw.institution_id ?? undefined,
-      payload: {
+      payload: buildNormalizationTaskPayload({
         classification: raw.classification,
         reason: "semantic-failure-recovery-v7",
-      },
+        rawRecordId: raw.id,
+      }),
     });
     queued += 1;
   }
@@ -1902,7 +1909,7 @@ export async function completeExternalFetch(input: ExternalFetchCompletion): Pro
     await enqueue("NORMALIZE", {
       source_id: source.id,
       institution_id: source.institution_id ?? undefined,
-      payload: { classification },
+      payload: buildNormalizationTaskPayload({ classification, rawRecordId: rawId }),
     });
   } else if (changed && rawId) {
     await supabaseAdmin
@@ -2526,7 +2533,7 @@ export async function fetchSource(sourceId: string): Promise<FetchOutcome> {
     await enqueue("NORMALIZE", {
       source_id: source.id,
       institution_id: source.institution_id ?? undefined,
-      payload: { classification },
+      payload: buildNormalizationTaskPayload({ classification, rawRecordId: rawId }),
     });
   } else if (changed && rawId) {
     await supabaseAdmin
