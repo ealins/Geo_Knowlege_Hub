@@ -20,6 +20,15 @@ export type CanonicalResult = {
   entity_id?: string | undefined;
 };
 
+/** Provider outages are retryable; business-rule and schema rejections are not. */
+export function isTransientExtractionError(errorCode: string | null | undefined): boolean {
+  if (!errorCode) return false;
+  return errorCode === "TIMEOUT" ||
+    errorCode === "NETWORK_ERROR" ||
+    errorCode === "HTTP_429" ||
+    /^HTTP_5\\d{2}$/.test(errorCode);
+}
+
 export type RawRecord = {
   id: string;
   final_url: string | null;
@@ -198,8 +207,10 @@ export async function normalizeNonVacancy(
       const out = await extractProject(input);
       if (!out.value)
         return {
-          status: "SKIPPED",
-          reason: `project extraction unusable: ${out.errorCode ?? "no result"}`,
+          status: isTransientExtractionError(out.errorCode) ? "FAILED" : "SKIPPED",
+          reason: isTransientExtractionError(out.errorCode)
+            ? `TRANSIENT_EXTRACTION_FAILURE ${out.errorCode}: ${out.errorMessage ?? "provider request failed"}`
+            : `project extraction unusable: ${out.errorCode ?? "no result"}`,
         };
       const ex = out.value;
       if (!ex.is_single_real_project || !ex.title) {
@@ -269,8 +280,10 @@ export async function normalizeNonVacancy(
       const out = await extractProgramme(input);
       if (!out.value)
         return {
-          status: "SKIPPED",
-          reason: `programme extraction unusable: ${out.errorCode ?? "no result"}`,
+          status: isTransientExtractionError(out.errorCode) ? "FAILED" : "SKIPPED",
+          reason: isTransientExtractionError(out.errorCode)
+            ? `TRANSIENT_EXTRACTION_FAILURE ${out.errorCode}: ${out.errorMessage ?? "provider request failed"}`
+            : `programme extraction unusable: ${out.errorCode ?? "no result"}`,
         };
       const ex = out.value;
       if (!ex.is_single_real_programme || !ex.name) {
@@ -337,8 +350,10 @@ export async function normalizeNonVacancy(
       const out = await extractResearcher(input);
       if (!out.value)
         return {
-          status: "SKIPPED",
-          reason: `researcher extraction unusable: ${out.errorCode ?? "no result"}`,
+          status: isTransientExtractionError(out.errorCode) ? "FAILED" : "SKIPPED",
+          reason: isTransientExtractionError(out.errorCode)
+            ? `TRANSIENT_EXTRACTION_FAILURE ${out.errorCode}: ${out.errorMessage ?? "provider request failed"}`
+            : `researcher extraction unusable: ${out.errorCode ?? "no result"}`,
         };
       const ex = out.value;
       if (!ex.is_single_real_profile || !ex.full_name) {
@@ -417,8 +432,10 @@ export async function normalizeNonVacancy(
       const out = await extractEvent(input);
       if (!out.value)
         return {
-          status: "SKIPPED",
-          reason: `event extraction unusable: ${out.errorCode ?? "no result"}`,
+          status: isTransientExtractionError(out.errorCode) ? "FAILED" : "SKIPPED",
+          reason: isTransientExtractionError(out.errorCode)
+            ? `TRANSIENT_EXTRACTION_FAILURE ${out.errorCode}: ${out.errorMessage ?? "provider request failed"}`
+            : `event extraction unusable: ${out.errorCode ?? "no result"}`,
         };
       const ex = out.value;
       if (!ex.is_single_real_event || !ex.title) {
