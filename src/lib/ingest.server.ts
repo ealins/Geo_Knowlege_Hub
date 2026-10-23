@@ -1406,6 +1406,11 @@ export async function runQueueBatch(
         const rawRecordId =
           typeof payload.raw_record_id === "string" ? payload.raw_record_id : undefined;
         const r = await normalizeSource(task.source_id, undefined, rawRecordId);
+        if (r.status === "FAILED" && r.reason?.startsWith("TRANSIENT_EXTRACTION_FAILURE")) {
+          // Throw into the queue's existing bounded exponential retry policy.
+          // Exact raw_record_id stays in the task payload across retries.
+          throw new Error(r.reason);
+        }
         if (r.status === "NORMALIZED") out.normalized += 1;
         if (r.status === "SKIPPED") out.skipped += 1;
         detail = `NORMALIZE ${r.status}${r.reason ? `: ${r.reason}` : ""}`;
