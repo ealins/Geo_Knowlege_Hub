@@ -95,11 +95,17 @@ export async function enqueueRawBackfill(limit = 400): Promise<BackfillPlan> {
     );
   });
 
-  // One task per source: normalizeSource() always works on the newest raw page.
-  const bySource = new Map<string, string>();
+  // One task per source, but carry the exact selected raw snapshot. Without
+  // raw_record_id the normalizer falls back to the newest page, which can leave
+  // this older PENDING/eligible row untouched forever.
+  const bySource = new Map<string, { classification: string; rawRecordId: string }>();
   for (const r of candidates) {
-    if (!bySource.has(r.source_id as string))
-      bySource.set(r.source_id as string, r.classification ?? "UNKNOWN");
+    if (!bySource.has(r.source_id as string)) {
+      bySource.set(r.source_id as string, {
+        classification: r.classification ?? "UNKNOWN",
+        rawRecordId: r.id,
+      });
+    }
   }
   plan.raw_candidates = bySource.size;
 
@@ -117,7 +123,8 @@ export async function enqueueRawBackfill(limit = 400): Promise<BackfillPlan> {
     source_id: string;
     payload: Record<string, unknown>;
   }[] = [];
-  for (const [sourceId, classification] of bySource) {
+  for (const [sourceId, candidate] of bySource) {
+    const { classification, rawRecordId } = candidate;
     plan.by_classification[classification] =
       (plan.by_classification[classification] ?? 0) + 1;
     if (open.has(sourceId)) {
@@ -128,7 +135,7 @@ export async function enqueueRawBackfill(limit = 400): Promise<BackfillPlan> {
     rows.push({
       task_type: "NORMALIZE",
       source_id: sourceId,
-      payload: { backfill: true, classification },
+      payload: { backfill: true, classification, raw_record_id: rawRecordId },
     });
   }
 

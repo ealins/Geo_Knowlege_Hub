@@ -1402,7 +1402,10 @@ export async function runQueueBatch(
         const r = await fetchSource(task.source_id);
         detail = `FETCH ${r.http_status} ${r.classification ?? "-"} ${r.url}`;
       } else if (task.task_type === "NORMALIZE" && task.source_id) {
-        const r = await normalizeSource(task.source_id);
+        const payload = (task.payload ?? {}) as Record<string, unknown>;
+        const rawRecordId =
+          typeof payload.raw_record_id === "string" ? payload.raw_record_id : undefined;
+        const r = await normalizeSource(task.source_id, undefined, rawRecordId);
         if (r.status === "NORMALIZED") out.normalized += 1;
         if (r.status === "SKIPPED") out.skipped += 1;
         detail = `NORMALIZE ${r.status}${r.reason ? `: ${r.reason}` : ""}`;
@@ -2674,16 +2677,23 @@ export async function normalizeSource(
     extraction: VacancyExtraction | null;
     model?: string | null;
   },
+  rawRecordId?: string,
 ): Promise<NormalizeResult> {
-  const { data: raw } = await supabaseAdmin
+  const rawQuery = supabaseAdmin
     .from("raw_records")
     .select(
       "id, final_url, page_title, text_content, classification, classification_confidence, institution_id, source_id, content_hash, payload",
-    )
-    .eq("source_id", sourceId)
-    .order("fetched_at", { ascending: false })
-    .limit(1)
-    .maybeSingle();
+    );
+  // Backfill tasks must process the snapshot they selected, not whichever page
+  // happens to be newest for this source. Keep the source_id guard so a malformed
+  // task payload cannot normalize a record belonging to another source.
+  const { data: raw } = rawRecordId
+    ? await rawQuery.eq("id", rawRecordId).eq("source_id", sourceId).maybeSingle()
+    : await rawQuery
+        .eq("source_id", sourceId)
+        .order("fetched_at", { ascending: false })
+        .limit(1)
+        .maybeSingle();
 
   if (!raw) return { status: "SKIPPED", reason: "no raw record for source" };
 
