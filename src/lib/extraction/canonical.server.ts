@@ -2,6 +2,7 @@
 // passed: deterministic gate -> Nemotron extraction -> strict validation ->
 // controlled topic classification. Provenance is always recorded.
 import { supabaseAdmin } from "@/integrations/supabase/client.server";
+import { isTransientExtractionError } from "./transient-errors";
 import { NVIDIA_MODEL } from "../llm-config.server";
 import { eventGate, programmeGate, projectGate, researcherGate } from "../llm-gating.server";
 import {
@@ -19,15 +20,6 @@ export type CanonicalResult = {
   reason?: string | undefined;
   entity_id?: string | undefined;
 };
-
-/** Provider outages are retryable; business-rule and schema rejections are not. */
-export function isTransientExtractionError(errorCode: string | null | undefined): boolean {
-  if (!errorCode) return false;
-  return errorCode === "TIMEOUT" ||
-    errorCode === "NETWORK_ERROR" ||
-    errorCode === "HTTP_429" ||
-    /^HTTP_5\\d{2}$/.test(errorCode);
-}
 
 export type RawRecord = {
   id: string;
