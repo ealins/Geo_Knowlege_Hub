@@ -274,11 +274,11 @@ jobs:
               # the first backfill pass. Requeue those exact snapshots and keep
               # draining, with a strict two-pass cap inside the existing deadline.
               if [ "$backfill_passes" -lt 2 ]; then
-                backfill_response="$(curl --fail-with-body --silent --show-error \\
-                  --connect-timeout 10 --max-time 25 \\
-                  -H "Authorization: Bearer $INGESTION_HOOK_SECRET" \\
-                  -H "Content-Type: application/json" \\
-                  --data '{"action":"backfill-raw","limit":100,"trigger":"github-actions-post-drain-raw-backfill"}' \\
+                backfill_response="$(curl --fail-with-body --silent --show-error \
+                  --connect-timeout 10 --max-time 25 \
+                  -H "Authorization: Bearer $INGESTION_HOOK_SECRET" \
+                  -H "Content-Type: application/json" \
+                  --data '{"action":"backfill-raw","limit":100,"trigger":"github-actions-post-drain-raw-backfill"}' \
                   https://geoacademic.app/api/public/hooks/ingest-batch)"
                 echo "$backfill_response"
                 queued="$(node -e '
