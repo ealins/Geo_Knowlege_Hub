@@ -1847,9 +1847,9 @@ export async function completeExternalFetch(input: ExternalFetchCompletion): Pro
     // source failed, writing a failed sync run, or consuming an attempt.
     const deferredSeconds = parseHostFetchDeferralSeconds(input.error);
     if (statusCode === 0 && deferredSeconds !== null && input.blocked !== true) {
-      if (task.started_at !== input.lease_started_at) {
-        return { accepted: false, status: "STALE", stale_reason: "lease_mismatch" };
-      }
+      // The conditional UPDATE below compares timestamptz values in Postgres;
+      // avoid a JavaScript string comparison because equivalent timestamps can
+      // have different ISO formatting across RPC and PostgREST responses.
       const { data: updated, error: updateError } = await supabaseAdmin
         .from("ingestion_tasks")
         .update({
