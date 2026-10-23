@@ -2843,15 +2843,18 @@ export async function normalizeSource(
     return outcome;
   }
 
-  if (!raw.institution_id) {
-    await mark("FAILED", "missing institution");
-    return { status: "FAILED", reason: "missing institution" };
-  }
-  const { data: institution } = await supabaseAdmin
-    .from("institutions")
-    .select("name, institution_type")
-    .eq("id", raw.institution_id)
-    .maybeSingle();
+  // Independent job boards (for example, EURAXESS) can publish a valid
+  // single vacancy without a GeoAcademic institution association. Keep the
+  // posting-quality gate below, but do not discard the posting just because
+  // employer linkage is unavailable; the schema allows a nullable institution.
+  const institutionResult = raw.institution_id
+    ? await supabaseAdmin
+        .from("institutions")
+        .select("name, institution_type")
+        .eq("id", raw.institution_id)
+        .maybeSingle()
+    : { data: null };
+  const institution = institutionResult.data;
   const title = (raw.page_title ?? "")
     // Strip site chrome that job portals append to <title>.
     .replace(

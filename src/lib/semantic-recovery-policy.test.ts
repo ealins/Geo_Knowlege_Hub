@@ -1,5 +1,8 @@
 import { describe, expect, test } from "bun:test";
-import { shouldRecoverSemanticFailure } from "./semantic-recovery-policy";
+import {
+  shouldRecoverSemanticFailure,
+  shouldRetryInstitutionlessVacancy,
+} from "./semantic-recovery-policy";
 
 describe("shouldRecoverSemanticFailure", () => {
   test("recovers FAILED transient provider errors as well as legacy SKIPPED errors", () => {
@@ -15,5 +18,34 @@ describe("shouldRecoverSemanticFailure", () => {
     expect(shouldRecoverSemanticFailure({ status: "FAILED", error: "HTTP_404", hasOpenNormalizeTask: false })).toBe(false);
     expect(shouldRecoverSemanticFailure({ status: "NORMALIZED", error: "HTTP_502", hasOpenNormalizeTask: false })).toBe(false);
     expect(shouldRecoverSemanticFailure({ status: "PENDING", error: "HTTP_502", hasOpenNormalizeTask: false })).toBe(false);
+  });
+});
+
+
+describe("shouldRetryInstitutionlessVacancy", () => {
+  test("retries only failed vacancy records blocked by a missing institution", () => {
+    expect(shouldRetryInstitutionlessVacancy({
+      classification: "VACANCY",
+      status: "FAILED",
+      error: "missing institution",
+    })).toBe(true);
+  });
+
+  test("does not retry other classifications, statuses, or failure reasons", () => {
+    expect(shouldRetryInstitutionlessVacancy({
+      classification: "PROJECT",
+      status: "FAILED",
+      error: "missing institution",
+    })).toBe(false);
+    expect(shouldRetryInstitutionlessVacancy({
+      classification: "VACANCY",
+      status: "SKIPPED",
+      error: "missing institution",
+    })).toBe(false);
+    expect(shouldRetryInstitutionlessVacancy({
+      classification: "VACANCY",
+      status: "FAILED",
+      error: "HTTP_502",
+    })).toBe(false);
   });
 });

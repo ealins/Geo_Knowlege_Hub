@@ -3,6 +3,7 @@
 // here calls a model — it only enqueues tasks that the deployed autonomous
 // drain loop processes with the existing gates, cache and validators.
 import { supabaseAdmin } from "@/integrations/supabase/client.server";
+import { shouldRetryInstitutionlessVacancy } from "./semantic-recovery-policy";
 
 /** Skip reasons written before the entity extractors existed — safe to retry. */
 const LEGACY_SKIP = "unsupported record type for canonical extraction";
@@ -73,6 +74,17 @@ export async function enqueueRawBackfill(limit = 400): Promise<BackfillPlan> {
     if (status === "NORMALIZED") return false;
     if (status === "PENDING") return true;
     const err = r.normalization_error ?? "";
+
+    // The canonical vacancy writer supports a nullable institution link. Retry
+    // legacy vacancy rows that were failed only because a general job board had
+    // no institution association; the single-posting quality gate still applies.
+    if (shouldRetryInstitutionlessVacancy({
+      classification: r.classification,
+      status,
+      error: err,
+    })) {
+      return true;
+    }
 
     // Retry only failure modes that mean the canonical writer never actually
     // received a usable semantic result. These are infrastructure/model-routing
