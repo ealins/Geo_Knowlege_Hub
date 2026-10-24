@@ -3,9 +3,10 @@ name: GeoAcademic freshness fallback
 on:
   workflow_dispatch:
   schedule:
-    # A small independent source-refresh pass between the main quarter-hour
-    # runs. This limits the impact of missed GitHub schedule events.
-    - cron: "17 * * * *"
+    # Run four bounded refresh passes per hour, five minutes before the main
+    # ingestion schedule. Queue deduplication, source cooldowns, and fetch
+    # leases keep this independent fallback safe if the primary schedule fires.
+    - cron: "2,17,32,47 * * * *"
 
 concurrency:
   group: geoacademic-freshness-fallback
