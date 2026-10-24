@@ -9,7 +9,12 @@ on:
     - cron: "7 * * * *"
     - cron: "22,37,52 * * * *"
   workflow_run:
-    workflows: ["Deploy GeoAcademic to Cloudflare"]
+    # A successful scheduled fallback is also a watchdog for missed primary cron events.
+    # The job condition below accepts only fallback runs whose original event was schedule,
+    # preventing a workflow_run-to-workflow_run loop.
+    workflows:
+      - "Deploy GeoAcademic to Cloudflare"
+      - "GeoAcademic freshness fallback"
     types: [completed]
 
 concurrency:
@@ -23,7 +28,19 @@ permissions:
 
 jobs:
   review-jobs:
-    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    if: >-
+      github.event_name != 'workflow_run' ||
+      (
+        github.event.workflow_run.conclusion == 'success' &&
+        (
+          github.event.workflow_run.name == 'Deploy GeoAcademic to Cloudflare' ||
+          (
+            github.event.workflow_run.name == 'GeoAcademic freshness fallback' &&
+            github.event.workflow_run.event == 'schedule' &&
+            github.event.workflow_run.head_branch == 'main'
+          )
+        )
+      )
     runs-on: ubuntu-latest
     timeout-minutes: 15
     env:
