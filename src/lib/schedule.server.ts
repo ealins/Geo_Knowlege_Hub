@@ -225,6 +225,9 @@ export async function enqueueDueRefreshes(
     if (last && now - last < hours * 3_600_000) continue;
 
     if (blockedReprobe) {
+      // The policy guarantees these timestamps exist; keep explicit guards so
+      // the database compare-and-set below is type-safe and fail-closed.
+      if (!s.last_success_at || !s.last_failure_at) continue;
       // Re-enable only if the exact failure we evaluated is still current. If a
       // concurrent success/failure changed the source, leave that newer state alone.
       const cutoff = new Date(now - 24 * 3_600_000).toISOString();
