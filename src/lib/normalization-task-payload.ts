@@ -19,17 +19,34 @@ export function buildNormalizationTaskPayload(
 }
 
 
+export type LegacyNormalizationSnapshotTarget =
+  | "PENDING_OLDEST"
+  | "FAILED_TRANSIENT_LATEST";
+
 /**
- * Legacy NORMALIZE tasks created before exact-snapshot targeting may lack a
- * raw_record_id. If they also carry a classification, the worker may pin the
- * oldest matching PENDING snapshot once, then preserve that ID across retries.
+ * Legacy tasks without raw_record_id must retain the intent of their producer:
+ * semantic-failure-recovery-v7 selected a transient FAILED snapshot, while older
+ * generic backfill tasks are allowed to claim the oldest matching PENDING one.
  */
-export function shouldHydrateLegacyPendingSnapshot(
+export function legacyNormalizationSnapshotTarget(
   payload: Record<string, unknown>,
-): boolean {
+): LegacyNormalizationSnapshotTarget | null {
   const hasRawRecordId =
     typeof payload.raw_record_id === "string" && payload.raw_record_id.trim().length > 0;
   const hasClassification =
     typeof payload.classification === "string" && payload.classification.trim().length > 0;
-  return !hasRawRecordId && hasClassification;
+  if (hasRawRecordId || !hasClassification) return null;
+  return payload.reason === "semantic-failure-recovery-v7"
+    ? "FAILED_TRANSIENT_LATEST"
+    : "PENDING_OLDEST";
+}
+
+/**
+ * Kept as a small compatibility predicate for callers/tests that only need to
+ * know whether the generic legacy pending-snapshot path applies.
+ */
+export function shouldHydrateLegacyPendingSnapshot(
+  payload: Record<string, unknown>,
+): boolean {
+  return legacyNormalizationSnapshotTarget(payload) === "PENDING_OLDEST";
 }
