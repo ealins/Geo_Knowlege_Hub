@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { isTransientExtractionError, shouldUseOpenRouterFallback, shouldUseOpenAIFallback, shouldRetryPrimaryProvider } from "./transient-errors";
+import { isTransientExtractionError, shouldUseOpenRouterFallback, shouldUseOpenAIFallback, shouldRetryPrimaryProvider, getNormalizationProviderDeferralMinutes } from "./transient-errors";
 
 describe("isTransientExtractionError", () => {
   test("retries common transient provider failures", () => {
@@ -70,5 +70,27 @@ describe("shouldRetryPrimaryProvider", () => {
     expect(shouldRetryPrimaryProvider({ errorCode: "HTTP_502", attempt: 1, retryLimit: 2 })).toBe(true);
     expect(shouldRetryPrimaryProvider({ errorCode: "HTTP_502", attempt: 2, retryLimit: 2 })).toBe(false);
     expect(shouldRetryPrimaryProvider({ errorCode: "HTTP_403", attempt: 1, retryLimit: 2 })).toBe(false);
+  });
+});
+
+
+describe("getNormalizationProviderDeferralMinutes", () => {
+  test("defers the confirmed HTTP 530 outage when no independent fallback is configured", () => {
+    expect(getNormalizationProviderDeferralMinutes(
+      "TRANSIENT_EXTRACTION_FAILURE HTTP_530: error code: 1033; no independent fallback is configured (set OPENAI_API_KEY or OPENROUTER_API_KEY with OPENROUTER_MODEL)",
+    )).toBe(30);
+  });
+
+  test("does not defer HTTP 530 when the independent fallback diagnostic is absent", () => {
+    expect(getNormalizationProviderDeferralMinutes(
+      "TRANSIENT_EXTRACTION_FAILURE HTTP_530: fallback returned HTTP_502",
+    )).toBe(null);
+  });
+
+  test("leaves other transient provider errors on the existing bounded retry policy", () => {
+    expect(getNormalizationProviderDeferralMinutes(
+      "TRANSIENT_EXTRACTION_FAILURE HTTP_502: upstream temporarily unavailable",
+    )).toBe(null);
+    expect(getNormalizationProviderDeferralMinutes("missing title")).toBe(null);
   });
 });

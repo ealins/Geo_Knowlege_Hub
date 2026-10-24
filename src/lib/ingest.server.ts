@@ -2,6 +2,7 @@
 // Pipeline: DISCOVER -> FETCH -> RAW STORAGE -> CLASSIFY -> EXTRACT/NORMALIZE -> CANONICAL -> PROVENANCE
 import { supabaseAdmin } from "@/integrations/supabase/client.server";
 import { buildNormalizationTaskPayload } from "./normalization-task-payload";
+import { getNormalizationProviderDeferralMinutes } from "./extraction/transient-errors";
 import {
   parseHostFetchDeferralSeconds,
   restoreAttemptsAfterUnstartedFetch,
@@ -1481,7 +1482,13 @@ export async function runQueueBatch(
           typeof payload.raw_record_id === "string" ? payload.raw_record_id : undefined;
         const r = await normalizeSource(task.source_id, undefined, rawRecordId);
         if (r.status === "FAILED" && r.reason?.startsWith("TRANSIENT_EXTRACTION_FAILURE")) {
-          // Throw into the queue's existing bounded exponential retry policy.
+          // During the confirmed OmniRoute HTTP 530 outage, no independent
+          // provider is configured. Defer without consuming task attempts so
+          // the queue does not burn through retries while configuration is blocked.
+          const deferMinutes = getNormalizationProviderDeferralMinutes(r.reason);
+          if (deferMinutes !== null) {
+            throw Object.assign(new Error(r.reason), { retryAfterMinutes: deferMinutes });
+          }
           // Exact raw_record_id stays in the task payload across retries.
           throw new Error(r.reason);
         }
