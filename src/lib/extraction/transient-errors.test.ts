@@ -66,10 +66,30 @@ describe("shouldRetryPrimaryProvider", () => {
     expect(shouldRetryPrimaryProvider({ errorCode: "HTTP_530", attempt: 1, retryLimit: 2 })).toBe(false);
   });
 
-  test("retries other transient errors only while attempts remain", () => {
+  test("retries other transient errors only while attempts remain when no fallback is configured", () => {
     expect(shouldRetryPrimaryProvider({ errorCode: "HTTP_502", attempt: 1, retryLimit: 2 })).toBe(true);
     expect(shouldRetryPrimaryProvider({ errorCode: "HTTP_502", attempt: 2, retryLimit: 2 })).toBe(false);
     expect(shouldRetryPrimaryProvider({ errorCode: "HTTP_403", attempt: 1, retryLimit: 2 })).toBe(false);
+  });
+
+  test("fails over immediately on primary 5xx when an independent fallback is configured", () => {
+    for (const errorCode of ["HTTP_500", "HTTP_502", "HTTP_503", "HTTP_504", "HTTP_599"]) {
+      expect(shouldRetryPrimaryProvider({
+        errorCode,
+        attempt: 1,
+        retryLimit: 2,
+        independentFallbackConfigured: true,
+      })).toBe(false);
+    }
+  });
+
+  test("keeps the bounded retry when a fallback is not configured", () => {
+    expect(shouldRetryPrimaryProvider({
+      errorCode: "HTTP_502",
+      attempt: 1,
+      retryLimit: 2,
+      independentFallbackConfigured: false,
+    })).toBe(true);
   });
 });
 

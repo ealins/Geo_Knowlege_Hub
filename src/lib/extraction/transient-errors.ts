@@ -44,8 +44,17 @@ export function shouldRetryPrimaryProvider(input: {
   errorCode: string | null | undefined;
   attempt: number;
   retryLimit: number;
+  independentFallbackConfigured?: boolean;
 }): boolean {
   if (input.errorCode === "HTTP_530" || input.errorCode === "GATEWAY_5XX") return false;
+
+  // When a separate provider is configured, fail over on the first primary
+  // 5xx instead of spending another attempt against the same failing gateway.
+  // Without a fallback, preserve the existing bounded retry behavior.
+  if (input.independentFallbackConfigured && /^HTTP_5\d{2}$/.test(input.errorCode ?? "")) {
+    return false;
+  }
+
   return input.attempt < input.retryLimit && isTransientExtractionError(input.errorCode);
 }
 
