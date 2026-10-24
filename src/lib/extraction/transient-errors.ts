@@ -51,7 +51,7 @@ export function shouldRetryPrimaryProvider(input: {
   // When a separate provider is configured, fail over on the first primary
   // 5xx instead of spending another attempt against the same failing gateway.
   // Without a fallback, preserve the existing bounded retry behavior.
-  if (input.independentFallbackConfigured && /^HTTP_5\\d{2}$/.test(input.errorCode ?? "")) {
+  if (input.independentFallbackConfigured && /^HTTP_5\d{2}$/.test(input.errorCode ?? "")) {
     return false;
   }
 
