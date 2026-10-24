@@ -23,3 +23,12 @@ export function shouldUseOpenRouterFallback(input: {
     isTransientExtractionError(input.primaryErrorCode),
   );
 }
+
+
+/** Use OpenAI only for transient primary-provider failures. */
+export function shouldUseOpenAIFallback(input: {
+  primaryErrorCode: string | null | undefined;
+  apiKey: string | null | undefined;
+}): boolean {
+  return Boolean(input.apiKey?.trim() && isTransientExtractionError(input.primaryErrorCode));
+}
