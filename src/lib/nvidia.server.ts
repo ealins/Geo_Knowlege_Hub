@@ -1,5 +1,5 @@
-// Server-only AI provider client. OpenAI is preferred; OmniRoute is the controlled fallback. The API key is read inside the call,
-// never logged, never returned to callers, never written to the database.
+// Server-only AI provider client. OmniRoute is primary; OpenAI and OpenRouter are independent fallbacks.
+// API keys are read inside provider calls, never logged, returned to callers, or written to the database.
 import { supabaseAdmin } from "@/integrations/supabase/client.server";
 import {
   AI_PROVIDER,
@@ -13,7 +13,7 @@ import {
   type LlmOperation,
   type NvidiaModelTier,
 } from "./llm-config.server";
-import { shouldUseOpenRouterFallback } from "./extraction/transient-errors";
+import { shouldUseOpenRouterFallback, shouldUseOpenAIFallback } from "./extraction/transient-errors";
 
 export type NemotronCall = {
   system: string;
@@ -68,6 +68,7 @@ const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
 export function isAIConfigured(): boolean {
   return Boolean(
+    process.env["OPENAI_API_KEY"]?.trim() ||
     process.env["OMNIROUTE_API_KEY"] ||
     process.env["OMNIROUTE_URL"] ||
     (process.env["OPENROUTER_API_KEY"]?.trim() && process.env["OPENROUTER_MODEL"]?.trim()),
@@ -208,6 +209,124 @@ async function callOpenRouterFallback(
   };
 }
 
+
+async function callOpenAIFallback(
+  call: NemotronCall,
+  tier: NvidiaModelTier,
+): Promise<NemotronResult | null> {
+  const apiKey = process.env["OPENAI_API_KEY"]?.trim();
+  const model = (process.env["OPENAI_MODEL"]?.trim() || "gpt-4.1-mini");
+  if (!apiKey || !model) return null;
+
+  const configuredUrl = process.env["OPENAI_URL"]?.trim();
+  const endpoint = !configuredUrl
+    ? "https://api.openai.com/v1/chat/completions"
+    : configuredUrl.endsWith("/chat/completions")
+      ? configuredUrl
+      : `${(configuredUrl.endsWith("/") ? configuredUrl.slice(0, -1) : configuredUrl)}/chat/completions`;
+  const startedAt = new Date();
+  const t0 = Date.now();
+  let httpStatus: number | null = null;
+  let content: string | null = null;
+  let errorCode: string | null = null;
+  let errorMessage: string | null = null;
+  let finishReason: string | null = null;
+  let outputTokens: number | null = null;
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), NVIDIA_TIMEOUT_BY_TIER[tier]);
+
+  try {
+    const response = await fetch(endpoint, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        model,
+        temperature: call.temperature ?? LLM_DEFAULT_TEMPERATURE,
+        max_tokens: call.maxTokens ?? LLM_DEFAULT_MAX_TOKENS,
+        messages: [
+          { role: "system", content: call.system },
+          { role: "user", content: call.user },
+        ],
+      }),
+      signal: controller.signal,
+    });
+    httpStatus = response.status;
+    const bodyText = await response.text();
+    if (!response.ok) {
+      errorCode = `HTTP_${response.status}`;
+      errorMessage = bodyText.slice(0, 800);
+    } else {
+      try {
+        const parsed = JSON.parse(bodyText) as {
+          choices?: { message?: { content?: string }; finish_reason?: string }[];
+          usage?: { completion_tokens?: number };
+        };
+        content = parsed.choices?.[0]?.message?.content ?? null;
+        finishReason = parsed.choices?.[0]?.finish_reason ?? null;
+        outputTokens = parsed.usage?.completion_tokens ?? null;
+        if (!content) {
+          errorCode = finishReason === "length" ? "OUTPUT_TRUNCATED" : "EMPTY_COMPLETION";
+          errorMessage = `finish_reason=${finishReason ?? "unknown"} completion_tokens=${outputTokens ?? "?"} ${bodyText.slice(0, 300)}`;
+        } else if (finishReason === "length" && !content.trimEnd().endsWith("}")) {
+          errorCode = "OUTPUT_TRUNCATED";
+          errorMessage = `finish_reason=length completion_tokens=${outputTokens ?? "?"}`;
+          content = null;
+        }
+      } catch {
+        errorCode = "UNPARSEABLE_RESPONSE";
+        errorMessage = bodyText.slice(0, 400);
+      }
+    }
+  } catch (e) {
+    const message = e instanceof Error ? e.message : String(e);
+    errorCode = message.toLowerCase().includes("abort") ? "TIMEOUT" : "NETWORK_ERROR";
+    errorMessage = message.slice(0, 500);
+  } finally {
+    clearTimeout(timer);
+  }
+
+  const latencyMs = Date.now() - t0;
+  const ok = Boolean(content) && !errorCode;
+  const runId = await logRun({
+    provider: "OpenAI",
+    model,
+    operation: call.operation,
+    source_id: call.sourceId ?? null,
+    raw_page_id: call.rawRecordId ?? null,
+    content_hash: call.contentHash ?? null,
+    content_reduced: call.contentReduced ?? false,
+    input_characters: call.system.length + call.user.length,
+    started_at: startedAt.toISOString(),
+    completed_at: new Date().toISOString(),
+    status: ok ? "SUCCESS" : "FAILED",
+    latency_ms: latencyMs,
+    attempt: 1,
+    http_status: httpStatus,
+    output_characters: content?.length ?? 0,
+    error_code: errorCode,
+    error_message: errorMessage,
+  });
+
+  return {
+    ok,
+    content,
+    httpStatus,
+    latencyMs,
+    model,
+    provider: "OpenAI",
+    attempt: 1,
+    errorCode,
+    errorMessage,
+    runId,
+    finishReason,
+    outputTokens,
+  };
+}
+
 /**
  * Single entry point for every semantic AI request.
  * Every attempt — success, failure or missing secret — is recorded in
@@ -238,15 +357,38 @@ export async function callNemotron(call: NemotronCall): Promise<NemotronResult> 
   const endpoint = process.env["OMNIROUTE_URL"]?.replace(/\/$/, "") ?? "https://omniroute.geoacademic.app/v1";
   const providerModel = model;
   if (!apiKey) {
+    // A missing primary key must not prevent use of the independently
+    // configured OpenAI credential. Try OpenAI first, then OpenRouter.
+    const openAIOnly = await callOpenAIFallback(call, tier);
+    if (openAIOnly?.ok) return openAIOnly;
+
     const openRouterOnly = await callOpenRouterFallback(call, tier);
-    if (openRouterOnly) return openRouterOnly;
+    if (openRouterOnly?.ok) return openRouterOnly;
+
+    const fallbackFailures = [
+      openAIOnly
+        ? `OpenAI fallback failed (${openAIOnly.errorCode ?? "unknown"}): ${openAIOnly.errorMessage ?? "no details"}`
+        : null,
+      openRouterOnly
+        ? `OpenRouter fallback failed (${openRouterOnly.errorCode ?? "unknown"}): ${openRouterOnly.errorMessage ?? "no details"}`
+        : null,
+    ].filter((value): value is string => Boolean(value));
+
+    if (openAIOnly || openRouterOnly) {
+      const failedResult = openAIOnly ?? openRouterOnly!;
+      return {
+        ...failedResult,
+        errorMessage: `OmniRoute is not configured; ${fallbackFailures.join("; ")}`.slice(0, 1200),
+      };
+    }
+
     const runId = await logRun({
       ...base,
       status: "FAILED",
       completed_at: new Date().toISOString(),
       latency_ms: 0,
       error_code: "AI_PROVIDER_NOT_CONFIGURED",
-      error_message: `No primary provider key is configured. Set OMNIROUTE_API_KEY or configure OPENROUTER_API_KEY with OPENROUTER_MODEL.`,
+      error_message: `No AI provider key is configured. Set OPENAI_API_KEY, OMNIROUTE_API_KEY, or OPENROUTER_API_KEY with OPENROUTER_MODEL.`,
     });
     return {
       ok: false,
@@ -257,7 +399,7 @@ export async function callNemotron(call: NemotronCall): Promise<NemotronResult> 
       provider: AI_PROVIDER,
       attempt: 0,
       errorCode: "AI_PROVIDER_NOT_CONFIGURED",
-      errorMessage: `No AI provider is configured. Set OPENAI_API_KEY or OMNIROUTE_API_KEY on the server.`,
+      errorMessage: `No AI provider is configured. Set OPENAI_API_KEY, OMNIROUTE_API_KEY, or OPENROUTER_API_KEY with OPENROUTER_MODEL on the server.`,
       runId,
     };
   }
@@ -388,6 +530,21 @@ export async function callNemotron(call: NemotronCall): Promise<NemotronResult> 
       httpStatus === 429 ||
       (httpStatus !== null && httpStatus >= 500);
     if (!retriable || attempt === retryLimit) {
+      if (shouldUseOpenAIFallback({
+        primaryErrorCode: errorCode,
+        apiKey: process.env["OPENAI_API_KEY"],
+      })) {
+        const fallback = await callOpenAIFallback(call, tier);
+        if (fallback?.ok) return fallback;
+        if (fallback) {
+          const openRouterFallback = await callOpenRouterFallback(call, tier);
+          if (openRouterFallback?.ok) return openRouterFallback;
+          return {
+            ...lastResult,
+            errorMessage: `${lastResult.errorMessage ?? lastResult.errorCode ?? "OmniRoute failed"}; OpenAI fallback failed (${fallback.errorCode ?? "unknown"}): ${fallback.errorMessage ?? "no details"}${openRouterFallback ? `; OpenRouter fallback failed (${openRouterFallback.errorCode ?? "unknown"}): ${openRouterFallback.errorMessage ?? "no details"}` : ""}`.slice(0, 1200),
+          };
+        }
+      }
       if (shouldUseOpenRouterFallback({
         primaryErrorCode: errorCode,
         apiKey: process.env["OPENROUTER_API_KEY"],
