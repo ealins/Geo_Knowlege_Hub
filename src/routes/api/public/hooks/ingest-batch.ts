@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type { ExternalFetchCompletion, ExternalReviewCompletion } from "@/lib/ingest.server";
-import { shouldThrottleSteadyStateDrain } from "@/lib/queue-drain-policy";
+import { hasProviderCircuitOpenSignal, hasProviderGatewayFailureSignal, normalizationWavePolicy, shouldThrottleSteadyStateDrain } from "@/lib/queue-drain-policy";
 
 type Body = {
   action?:
@@ -377,7 +377,7 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
           // Do not claim NORMALIZE tasks while the primary AI gateway circuit is open.
           // This is a preflight guard: it leaves task attempts, leases, retry timestamps,
           // and exact-snapshot payloads untouched. Other deterministic queue work can run.
-          let providerCircuitOpen = false;
+          let providerCircuitOpen = false;\n          let providerGatewayFailure = false;
           const independentFallbackConfigured = Boolean(
             process.env["OPENAI_API_KEY"]?.trim() ||
               (process.env["OPENROUTER_API_KEY"]?.trim() &&
@@ -526,12 +526,17 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
             // per invocation): up to 4 normalizations per tick in BACKLOG
             // mode, 3 in steady state, 2 concurrent. The wave timeout and
             // budget below still guard against overruns.
-            const normalizeTarget =
-              queueState.mode === "BACKLOG" ? Math.min(4, batch) : Math.min(3, batch);
-            // Vacancy normalization is deterministic and source-backed.
-            // Keep requests below the Cloudflare request budget while using
-            // parallel workers; semantic enrichment remains asynchronous.
-            const normalizeWave = 2;
+            const normalizePolicy = normalizationWavePolicy({
+              mode: queueState.mode,
+              batch,
+              independentFallbackConfigured,
+            });
+            const normalizeTarget = normalizePolicy.target;
+            // When no independent provider is configured, process one task at
+            // a time so the first gateway failure can stop further task claims.
+            // With a fallback configured, preserve the existing bounded waves.
+            const normalizeWave = normalizePolicy.waveSize;
+            const normalizeConcurrency = normalizePolicy.concurrency;
             const normalizeBudgetMs = queueState.mode === "BACKLOG" ? 28_000 : 24_000;
             const emptyResult = () => ({
               processed: 0,
@@ -555,7 +560,7 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
                 runQueueBatch(
                   Math.min(normalizeWave, remaining),
                   ["NORMALIZE"],
-                  queueState.mode === "BACKLOG" ? 3 : 2,
+                  normalizeConcurrency,
                 ),
                 25_000,
                 "normalization wave",
@@ -569,6 +574,19 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
               result.skipped += wave.skipped;
               result.details.push(...wave.details);
 
+              if (hasProviderCircuitOpenSignal(wave.details)) {
+                providerCircuitOpen = true;
+              }
+              if (
+                !independentFallbackConfigured &&
+                hasProviderGatewayFailureSignal(wave.details)
+              ) {
+                providerGatewayFailure = true;
+                // The current task is already deferred by the provider policy.
+                // Stop before another task can be claimed in this invocation.
+                break;
+              }
+              if (providerCircuitOpen) break;
               if (wave.processed === 0) break;
               // If a wave ends with multiple hard failures, stop this tick and let
               // exponential retry/backoff cool the provider down before the next wake.
@@ -619,7 +637,7 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
                     normalize_waves: taskGroup === "NORMALIZE" ? normalizeWaves : 0,
                     normalize_target: taskGroup === "NORMALIZE" ? normalizeTarget : 0,
                     normalize_budget_ms: taskGroup === "NORMALIZE" ? normalizeBudgetMs : 0,
-                    provider_circuit_open: providerCircuitOpen,
+                    provider_circuit_open: providerCircuitOpen,\n                    provider_gateway_failure: providerGatewayFailure,
                     normalized: result.normalized,
                     skipped: result.skipped,
                     sample: result.details.slice(0, 20),
