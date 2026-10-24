@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { shouldBackoffSourceAfterFailure } from "./source-refresh-policy";
+import { shouldBackoffSourceAfterFailure, shouldReprobeBlocked403Source } from "./source-refresh-policy";
 
 const now = Date.parse("2026-10-24T03:00:00.000Z");
 
@@ -49,6 +49,58 @@ describe("shouldBackoffSourceAfterFailure", () => {
       lastSuccessAt: new Date(now - 30 * 60 * 1000).toISOString(),
       lastFailureAt: new Date(now - 60 * 60 * 1000).toISOString(),
       lastHttpStatus: 403,
+      nowMs: now,
+    })).toBe(false);
+  });
+});
+
+
+describe("shouldReprobeBlocked403Source", () => {
+  test("re-probes only previously successful sources after the 24-hour 403 cooldown", () => {
+    expect(shouldReprobeBlocked403Source({
+      status: "BLOCKED",
+      lastHttpStatus: 403,
+      lastSuccessAt: new Date(now - 3 * 24 * 60 * 60 * 1000).toISOString(),
+      lastFailureAt: new Date(now - 25 * 60 * 60 * 1000).toISOString(),
+      nowMs: now,
+    })).toBe(true);
+    expect(shouldReprobeBlocked403Source({
+      status: "BLOCKED",
+      lastHttpStatus: 403,
+      lastSuccessAt: new Date(now - 3 * 24 * 60 * 60 * 1000).toISOString(),
+      lastFailureAt: new Date(now - 23 * 60 * 60 * 1000).toISOString(),
+      nowMs: now,
+    })).toBe(false);
+  });
+
+  test("never re-probes never-successful, removed, or robots-blocked sources", () => {
+    const oldFailure = new Date(now - 48 * 60 * 60 * 1000).toISOString();
+    expect(shouldReprobeBlocked403Source({
+      status: "BLOCKED", lastHttpStatus: 403, lastFailureAt: oldFailure, nowMs: now,
+    })).toBe(false);
+    expect(shouldReprobeBlocked403Source({
+      status: "BLOCKED", lastHttpStatus: 404,
+      lastSuccessAt: new Date(now - 5 * 24 * 60 * 60 * 1000).toISOString(),
+      lastFailureAt: oldFailure, nowMs: now,
+    })).toBe(false);
+    expect(shouldReprobeBlocked403Source({
+      status: "BLOCKED", lastHttpStatus: null,
+      lastSuccessAt: new Date(now - 5 * 24 * 60 * 60 * 1000).toISOString(),
+      lastFailureAt: oldFailure, nowMs: now,
+    })).toBe(false);
+  });
+
+  test("does not re-probe when a success is newer than the failure or source is no longer blocked", () => {
+    expect(shouldReprobeBlocked403Source({
+      status: "FETCHED", lastHttpStatus: 403,
+      lastSuccessAt: new Date(now - 60 * 60 * 1000).toISOString(),
+      lastFailureAt: new Date(now - 48 * 60 * 60 * 1000).toISOString(),
+      nowMs: now,
+    })).toBe(false);
+    expect(shouldReprobeBlocked403Source({
+      status: "BLOCKED", lastHttpStatus: 403,
+      lastSuccessAt: new Date(now - 24 * 60 * 60 * 1000).toISOString(),
+      lastFailureAt: new Date(now - 48 * 60 * 60 * 1000).toISOString(),
       nowMs: now,
     })).toBe(false);
   });
