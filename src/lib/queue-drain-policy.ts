@@ -32,8 +32,8 @@ export type NormalizationQueueMode = "BACKLOG" | "STEADY_STATE";
 
 /**
  * Keep the existing bounded parallel wave when an independent provider exists.
- * Without one, serialize tasks so a gateway failure can open the circuit before
- * additional normalization tasks are claimed in the same drain invocation.
+ * Without one, serialize tasks so a gateway failure can stop additional
+ * normalization task claims in the same drain invocation.
  */
 export function normalizationWavePolicy(input: {
   mode: NormalizationQueueMode;
@@ -56,7 +56,7 @@ export function normalizationWavePolicy(input: {
 /** True when a completed task wave reports an actual provider gateway failure. */
 export function hasProviderGatewayFailureSignal(details: readonly string[]): boolean {
   return details.some((detail) =>
-    /\\b(?:HTTP_502|HTTP_503|HTTP_530|GATEWAY_5XX|CIRCUIT_OPEN_GATEWAY_5XX)\\b|circuit open after repeated recent primary gateway/i.test(detail)
+    /\b(?:HTTP_502|HTTP_503|HTTP_530|GATEWAY_5XX|CIRCUIT_OPEN_GATEWAY_5XX)\b|circuit open after repeated recent primary gateway/i.test(detail)
   );
 }
 
