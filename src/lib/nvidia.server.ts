@@ -13,6 +13,7 @@ import {
   type LlmOperation,
   type NvidiaModelTier,
 } from "./llm-config.server";
+import { shouldUseOpenRouterFallback } from "./extraction/transient-errors";
 
 export type NemotronCall = {
   system: string;
@@ -66,7 +67,11 @@ function release(): void {
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
 export function isAIConfigured(): boolean {
-  return Boolean(process.env["OMNIROUTE_API_KEY"] || process.env["OMNIROUTE_URL"]);
+  return Boolean(
+    process.env["OMNIROUTE_API_KEY"] ||
+    process.env["OMNIROUTE_URL"] ||
+    (process.env["OPENROUTER_API_KEY"]?.trim() && process.env["OPENROUTER_MODEL"]?.trim()),
+  );
 }
 export const isNvidiaConfigured = isAIConfigured;
 
@@ -77,6 +82,130 @@ async function logRun(row: Record<string, unknown>): Promise<string | null> {
     .select("id")
     .maybeSingle();
   return data?.id ?? null;
+}
+
+
+/**
+ * One-shot independent fallback. OPENROUTER_API_KEY and OPENROUTER_MODEL are
+ * optional; when absent, the existing OmniRoute-only behavior is unchanged.
+ */
+async function callOpenRouterFallback(
+  call: NemotronCall,
+  tier: NvidiaModelTier,
+): Promise<NemotronResult | null> {
+  const apiKey = process.env["OPENROUTER_API_KEY"]?.trim();
+  const model = process.env["OPENROUTER_MODEL"]?.trim();
+  if (!apiKey || !model) return null;
+
+  const configuredUrl = process.env["OPENROUTER_URL"]?.trim();
+  const endpoint = !configuredUrl
+    ? "https://openrouter.ai/api/v1/chat/completions"
+    : configuredUrl.endsWith("/chat/completions")
+      ? configuredUrl
+      : `${configuredUrl.replace(/\\/$/, "")}/chat/completions`;
+  const startedAt = new Date();
+  const t0 = Date.now();
+  let httpStatus: number | null = null;
+  let content: string | null = null;
+  let errorCode: string | null = null;
+  let errorMessage: string | null = null;
+  let finishReason: string | null = null;
+  let outputTokens: number | null = null;
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), NVIDIA_TIMEOUT_BY_TIER[tier]);
+
+  try {
+    const response = await fetch(endpoint, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        "HTTP-Referer": "https://geoacademic.app",
+        "X-Title": "GeoAcademic",
+      },
+      body: JSON.stringify({
+        model,
+        temperature: call.temperature ?? LLM_DEFAULT_TEMPERATURE,
+        max_tokens: call.maxTokens ?? LLM_DEFAULT_MAX_TOKENS,
+        messages: [
+          { role: "system", content: call.system },
+          { role: "user", content: call.user },
+        ],
+      }),
+      signal: controller.signal,
+    });
+    httpStatus = response.status;
+    const bodyText = await response.text();
+    if (!response.ok) {
+      errorCode = `HTTP_${response.status}`;
+      errorMessage = bodyText.slice(0, 800);
+    } else {
+      try {
+        const parsed = JSON.parse(bodyText) as {
+          choices?: { message?: { content?: string }; finish_reason?: string }[];
+          usage?: { completion_tokens?: number };
+        };
+        content = parsed.choices?.[0]?.message?.content ?? null;
+        finishReason = parsed.choices?.[0]?.finish_reason ?? null;
+        outputTokens = parsed.usage?.completion_tokens ?? null;
+        if (!content) {
+          errorCode = finishReason === "length" ? "OUTPUT_TRUNCATED" : "EMPTY_COMPLETION";
+          errorMessage = `finish_reason=${finishReason ?? "unknown"} completion_tokens=${outputTokens ?? "?"} ${bodyText.slice(0, 300)}`;
+        } else if (finishReason === "length" && !content.trimEnd().endsWith("}")) {
+          errorCode = "OUTPUT_TRUNCATED";
+          errorMessage = `finish_reason=length completion_tokens=${outputTokens ?? "?"}`;
+          content = null;
+        }
+      } catch {
+        errorCode = "UNPARSEABLE_RESPONSE";
+        errorMessage = bodyText.slice(0, 400);
+      }
+    }
+  } catch (e) {
+    const message = e instanceof Error ? e.message : String(e);
+    errorCode = message.toLowerCase().includes("abort") ? "TIMEOUT" : "NETWORK_ERROR";
+    errorMessage = message.slice(0, 500);
+  } finally {
+    clearTimeout(timer);
+  }
+
+  const latencyMs = Date.now() - t0;
+  const ok = Boolean(content) && !errorCode;
+  const runId = await logRun({
+    provider: "OpenRouter",
+    model,
+    operation: call.operation,
+    source_id: call.sourceId ?? null,
+    raw_page_id: call.rawRecordId ?? null,
+    content_hash: call.contentHash ?? null,
+    content_reduced: call.contentReduced ?? false,
+    input_characters: call.system.length + call.user.length,
+    started_at: startedAt.toISOString(),
+    completed_at: new Date().toISOString(),
+    status: ok ? "SUCCESS" : "FAILED",
+    latency_ms: latencyMs,
+    attempt: 1,
+    http_status: httpStatus,
+    output_characters: content?.length ?? 0,
+    error_code: errorCode,
+    error_message: errorMessage,
+  });
+
+  return {
+    ok,
+    content,
+    httpStatus,
+    latencyMs,
+    model,
+    provider: "OpenRouter",
+    attempt: 1,
+    errorCode,
+    errorMessage,
+    runId,
+    finishReason,
+    outputTokens,
+  };
 }
 
 /**
@@ -109,6 +238,8 @@ export async function callNemotron(call: NemotronCall): Promise<NemotronResult> 
   const endpoint = process.env["OMNIROUTE_URL"]?.replace(/\/$/, "") ?? "https://omniroute.geoacademic.app/v1";
   const providerModel = model;
   if (!apiKey) {
+    const openRouterOnly = await callOpenRouterFallback(call, tier);
+    if (openRouterOnly) return openRouterOnly;
     const runId = await logRun({
       ...base,
       status: "FAILED",
@@ -256,7 +387,25 @@ export async function callNemotron(call: NemotronCall): Promise<NemotronResult> 
       errorCode === "TIMEOUT" ||
       httpStatus === 429 ||
       (httpStatus !== null && httpStatus >= 500);
-    if (!retriable || attempt === retryLimit) return lastResult;
+    if (!retriable || attempt === retryLimit) {
+      if (shouldUseOpenRouterFallback({
+        primaryErrorCode: errorCode,
+        apiKey: process.env["OPENROUTER_API_KEY"],
+        model: process.env["OPENROUTER_MODEL"],
+      })) {
+        const fallback = await callOpenRouterFallback(call, tier);
+        if (fallback?.ok) return fallback;
+        if (fallback) {
+          // Preserve the primary transient code so queue policy still retries
+          // if the independent provider is also temporarily unavailable.
+          return {
+            ...lastResult,
+            errorMessage: `${lastResult.errorMessage ?? lastResult.errorCode ?? "OmniRoute failed"}; OpenRouter fallback failed (${fallback.errorCode ?? "unknown"}): ${fallback.errorMessage ?? "no details"}`.slice(0, 1200),
+          };
+        }
+      }
+      return lastResult;
+    }
 
     // Capacity/rate-limit failures benefit from a slightly longer cool-down.
     // Honour Retry-After when NVIDIA provides it; otherwise use bounded
