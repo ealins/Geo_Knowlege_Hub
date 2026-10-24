@@ -1,7 +1,7 @@
 // Server-only ingestion engine. Never imported by client code.
 // Pipeline: DISCOVER -> FETCH -> RAW STORAGE -> CLASSIFY -> EXTRACT/NORMALIZE -> CANONICAL -> PROVENANCE
 import { supabaseAdmin } from "@/integrations/supabase/client.server";
-import { buildNormalizationTaskPayload, shouldHydrateLegacyPendingSnapshot } from "./normalization-task-payload";
+import { buildNormalizationTaskPayload, legacyNormalizationSnapshotTarget } from "./normalization-task-payload";
 import { getNormalizationProviderDeferralMinutes } from "./extraction/transient-errors";
 import {
   parseHostFetchDeferralSeconds,
@@ -1485,28 +1485,39 @@ export async function runQueueBatch(
             ? payload.raw_record_id
             : undefined;
 
-        // Older open tasks predate exact-snapshot targeting. If such a task's
-        // source still has a PENDING snapshot of the same classification, pin
-        // the oldest one to this task before normalization. This lets the
-        // existing one-task-per-source queue drain legacy pending snapshots
-        // without silently switching snapshots on a provider retry.
-        if (shouldHydrateLegacyPendingSnapshot(payload)) {
+        // Older open tasks predate exact-snapshot targeting. Pin them to the
+        // snapshot type implied by their original producer so retries cannot drift
+        // to another record from the same source.
+        const legacyTarget = legacyNormalizationSnapshotTarget(payload);
+        if (legacyTarget) {
           const classification = String(payload.classification).trim();
-          const { data: legacyPendingRaw, error: legacyPendingError } = await supabaseAdmin
-            .from("raw_records")
-            .select("id")
-            .eq("source_id", task.source_id)
-            .eq("classification", classification)
-            .eq("normalization_status", "PENDING")
-            .order("fetched_at", { ascending: true })
-            .limit(1)
-            .maybeSingle();
-          if (legacyPendingError) throw legacyPendingError;
+          const legacyLookup =
+            legacyTarget === "FAILED_TRANSIENT_LATEST"
+              ? await supabaseAdmin
+                  .from("raw_records")
+                  .select("id")
+                  .eq("source_id", task.source_id)
+                  .eq("classification", classification)
+                  .eq("normalization_status", "FAILED")
+                  .like("normalization_error", "TRANSIENT_EXTRACTION_FAILURE%")
+                  .order("fetched_at", { ascending: false })
+                  .limit(1)
+                  .maybeSingle()
+              : await supabaseAdmin
+                  .from("raw_records")
+                  .select("id")
+                  .eq("source_id", task.source_id)
+                  .eq("classification", classification)
+                  .eq("normalization_status", "PENDING")
+                  .order("fetched_at", { ascending: true })
+                  .limit(1)
+                  .maybeSingle();
+          if (legacyLookup.error) throw legacyLookup.error;
 
-          if (legacyPendingRaw?.id) {
+          if (legacyLookup.data?.id) {
             const { data: pinnedTask, error: pinError } = await supabaseAdmin
               .from("ingestion_tasks")
-              .update({ payload: { ...payload, raw_record_id: legacyPendingRaw.id } })
+              .update({ payload: { ...payload, raw_record_id: legacyLookup.data.id } })
               .eq("id", task.id)
               .eq("status", "PROCESSING")
               .eq("started_at", leaseStartedAt)
@@ -1519,7 +1530,7 @@ export async function runQueueBatch(
               );
               return;
             }
-            rawRecordId = legacyPendingRaw.id;
+            rawRecordId = legacyLookup.data.id;
           }
         }
 
