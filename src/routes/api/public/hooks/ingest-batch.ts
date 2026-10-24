@@ -377,7 +377,8 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
           // Do not claim NORMALIZE tasks while the primary AI gateway circuit is open.
           // This is a preflight guard: it leaves task attempts, leases, retry timestamps,
           // and exact-snapshot payloads untouched. Other deterministic queue work can run.
-          let providerCircuitOpen = false;\n          let providerGatewayFailure = false;
+          let providerCircuitOpen = false;
+          let providerGatewayFailure = false;
           const independentFallbackConfigured = Boolean(
             process.env["OPENAI_API_KEY"]?.trim() ||
               (process.env["OPENROUTER_API_KEY"]?.trim() &&
@@ -637,7 +638,8 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
                     normalize_waves: taskGroup === "NORMALIZE" ? normalizeWaves : 0,
                     normalize_target: taskGroup === "NORMALIZE" ? normalizeTarget : 0,
                     normalize_budget_ms: taskGroup === "NORMALIZE" ? normalizeBudgetMs : 0,
-                    provider_circuit_open: providerCircuitOpen,\n                    provider_gateway_failure: providerGatewayFailure,
+                    provider_circuit_open: providerCircuitOpen,
+                    provider_gateway_failure: providerGatewayFailure,
                     normalized: result.normalized,
                     skipped: result.skipped,
                     sample: result.details.slice(0, 20),
@@ -651,6 +653,7 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
               mode: queueState.mode,
               task_group: taskGroup,
               provider_circuit_open: providerCircuitOpen,
+              provider_gateway_failure: providerGatewayFailure,
               ...result,
             });
           } catch (e) {
