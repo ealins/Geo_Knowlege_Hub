@@ -4,6 +4,7 @@ export function isTransientExtractionError(errorCode: string | null | undefined)
   return errorCode === "TIMEOUT" ||
     errorCode === "NETWORK_ERROR" ||
     errorCode === "HTTP_429" ||
+    errorCode === "GATEWAY_5XX" ||
     /^HTTP_5\d{2}$/.test(errorCode);
 }
 
@@ -44,39 +45,38 @@ export function shouldRetryPrimaryProvider(input: {
   attempt: number;
   retryLimit: number;
 }): boolean {
-  if (input.errorCode === "HTTP_530") return false;
+  if (input.errorCode === "HTTP_530" || input.errorCode === "GATEWAY_5XX") return false;
   return input.attempt < input.retryLimit && isTransientExtractionError(input.errorCode);
 }
 
 
 /**
- * Defer repeated normalization failures only for the observed provider-wide
- * HTTP 530 case where no independent fallback is configured. The queue's
+ * Defer repeated normalization failures for a confirmed provider gateway
+ * outage when no independent fallback is configured. The queue's
  * retryAfterMinutes path preserves attempts and exact-snapshot payloads.
  */
 export function getNormalizationProviderDeferralMinutes(
   reason: string | null | undefined,
 ): number | null {
   if (!reason?.startsWith("TRANSIENT_EXTRACTION_FAILURE")) return null;
-  if (!/\bHTTP_530\b/.test(reason)) return null;
+  if (!/\b(?:HTTP_530|GATEWAY_5XX)\b/.test(reason)) return null;
   if (!/no independent fallback is configured/i.test(reason)) return null;
   return 30;
 }
 
 /**
- * Avoid repeated requests to a provider during a confirmed outage when no
- * independent route is configured. Only real HTTP_530 rows count toward the
- * threshold; circuit-open telemetry uses a different error code so it cannot
- * keep the circuit open indefinitely.
+ * Avoid repeated requests to a provider during a confirmed gateway outage when
+ * no independent route is configured. Count only actual 502/503/530 responses;
+ * circuit-open telemetry has no HTTP status and cannot extend the window.
  */
 export function shouldOpenOmniRouteCircuit(input: {
-  recentHttp530Failures: number;
+  recentGatewayFailures: number;
   independentFallbackConfigured: boolean;
   threshold?: number;
 }): boolean {
   if (input.independentFallbackConfigured) return false;
   const threshold = Math.max(1, Math.floor(input.threshold ?? 3));
-  return Number.isFinite(input.recentHttp530Failures) &&
-    input.recentHttp530Failures >= threshold;
+  return Number.isFinite(input.recentGatewayFailures) &&
+    input.recentGatewayFailures >= threshold;
 }
 

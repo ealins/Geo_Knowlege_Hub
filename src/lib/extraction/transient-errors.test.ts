@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { isTransientExtractionError, shouldUseOpenRouterFallback, shouldUseOpenAIFallback, shouldRetryPrimaryProvider, getNormalizationProviderDeferralMinutes } from "./transient-errors";
+import { isTransientExtractionError, shouldUseOpenRouterFallback, shouldUseOpenAIFallback, shouldRetryPrimaryProvider, getNormalizationProviderDeferralMinutes, shouldOpenOmniRouteCircuit } from "./transient-errors";
 
 describe("isTransientExtractionError", () => {
   test("retries common transient provider failures", () => {
@@ -87,7 +87,13 @@ describe("getNormalizationProviderDeferralMinutes", () => {
     )).toBe(null);
   });
 
-  test("leaves other transient provider errors on the existing bounded retry policy", () => {
+  test("defers a circuit-open gateway outage when no independent fallback is configured", () => {
+    expect(getNormalizationProviderDeferralMinutes(
+      "TRANSIENT_EXTRACTION_FAILURE GATEWAY_5XX: circuit open after repeated gateway failures; no independent fallback is configured",
+    )).toBe(30);
+  });
+
+  test("leaves unrelated transient provider errors on the existing bounded retry policy", () => {
     expect(getNormalizationProviderDeferralMinutes(
       "TRANSIENT_EXTRACTION_FAILURE HTTP_502: upstream temporarily unavailable",
     )).toBe(null);
@@ -96,20 +102,17 @@ describe("getNormalizationProviderDeferralMinutes", () => {
 });
 
 describe("shouldOpenOmniRouteCircuit", () => {
-  test("opens after repeated HTTP 530 failures when no fallback is configured", async () => {
-    const { shouldOpenOmniRouteCircuit } = await import("./transient-errors");
-    expect(shouldOpenOmniRouteCircuit({ recentHttp530Failures: 3, independentFallbackConfigured: false })).toBe(true);
-    expect(shouldOpenOmniRouteCircuit({ recentHttp530Failures: 60, independentFallbackConfigured: false })).toBe(true);
+  test("opens after repeated gateway 502/503/530 failures when no fallback is configured", () => {
+    expect(shouldOpenOmniRouteCircuit({ recentGatewayFailures: 3, independentFallbackConfigured: false })).toBe(true);
+    expect(shouldOpenOmniRouteCircuit({ recentGatewayFailures: 60, independentFallbackConfigured: false })).toBe(true);
   });
 
-  test("keeps the circuit closed below threshold", async () => {
-    const { shouldOpenOmniRouteCircuit } = await import("./transient-errors");
-    expect(shouldOpenOmniRouteCircuit({ recentHttp530Failures: 2, independentFallbackConfigured: false })).toBe(false);
+  test("keeps the circuit closed below threshold", () => {
+    expect(shouldOpenOmniRouteCircuit({ recentGatewayFailures: 2, independentFallbackConfigured: false })).toBe(false);
   });
 
-  test("never blocks configured independent fallback routes", async () => {
-    const { shouldOpenOmniRouteCircuit } = await import("./transient-errors");
-    expect(shouldOpenOmniRouteCircuit({ recentHttp530Failures: 100, independentFallbackConfigured: true })).toBe(false);
+  test("never blocks configured independent fallback routes", () => {
+    expect(shouldOpenOmniRouteCircuit({ recentGatewayFailures: 100, independentFallbackConfigured: true })).toBe(false);
   });
 });
 

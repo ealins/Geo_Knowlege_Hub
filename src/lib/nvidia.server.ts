@@ -404,34 +404,35 @@ export async function callNemotron(call: NemotronCall): Promise<NemotronResult> 
     };
   }
 
-  // A sustained provider-wide HTTP 530 outage with no independent route can
+  // A sustained primary gateway outage with no independent route can
   // otherwise cause every queued record to make another doomed network request.
-  // Open a short, database-backed circuit after three real 530 responses in five
-  // minutes. Fail open if telemetry is unavailable; configured fallbacks bypass it.
+  // Open a short, database-backed circuit after three real 502/503/530 responses
+  // in five minutes. Fail open if telemetry is unavailable; configured fallbacks bypass it.
   const hasIndependentFallback = Boolean(
     process.env["OPENAI_API_KEY"]?.trim() ||
       (process.env["OPENROUTER_API_KEY"]?.trim() && process.env["OPENROUTER_MODEL"]?.trim()),
   );
   if (!hasIndependentFallback) {
     const circuitWindowStart = new Date(Date.now() - 5 * 60_000).toISOString();
-    const { count: recentHttp530Failures, error: circuitReadError } = await supabaseAdmin
+    const { count: recentGatewayFailures, error: circuitReadError } = await supabaseAdmin
       .from("llm_processing_runs")
       .select("id", { count: "exact", head: true })
       .eq("provider", AI_PROVIDER)
-      .eq("error_code", "HTTP_530")
+      .eq("status", "FAILED")
+      .in("http_status", [502, 503, 530])
       .gte("created_at", circuitWindowStart);
 
     // Telemetry read errors must not prevent a legitimate provider attempt.
     if (
       !circuitReadError &&
       shouldOpenOmniRouteCircuit({
-        recentHttp530Failures: recentHttp530Failures ?? 0,
+        recentGatewayFailures: recentGatewayFailures ?? 0,
         independentFallbackConfigured: false,
       })
     ) {
       const circuitTime = new Date().toISOString();
       const circuitMessage =
-        "TRANSIENT_EXTRACTION_FAILURE HTTP_530: circuit open after repeated recent primary HTTP_530 failures; no independent fallback is configured (set OPENAI_API_KEY or OPENROUTER_API_KEY with OPENROUTER_MODEL)";
+        "TRANSIENT_EXTRACTION_FAILURE GATEWAY_5XX: circuit open after repeated recent primary gateway HTTP 502/503/530 failures; no independent fallback is configured (set OPENAI_API_KEY or OPENROUTER_API_KEY with OPENROUTER_MODEL)";
       const runId = await logRun({
         ...base,
         started_at: circuitTime,
@@ -440,7 +441,7 @@ export async function callNemotron(call: NemotronCall): Promise<NemotronResult> 
         latency_ms: 0,
         attempt: 0,
         http_status: null,
-        error_code: "CIRCUIT_OPEN_HTTP_530",
+        error_code: "CIRCUIT_OPEN_GATEWAY_5XX",
         error_message: circuitMessage,
       });
       return {
@@ -451,7 +452,7 @@ export async function callNemotron(call: NemotronCall): Promise<NemotronResult> 
         model,
         provider: AI_PROVIDER,
         attempt: 0,
-        errorCode: "HTTP_530",
+        errorCode: "GATEWAY_5XX",
         errorMessage: circuitMessage,
         runId,
       };
