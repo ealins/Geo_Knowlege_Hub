@@ -3,9 +3,12 @@ name: GeoAcademic freshness fallback
 on:
   workflow_dispatch:
   schedule:
-    # Keep one independent hourly backstop; successful primary ingestion runs
-    # also trigger this bounded pass so missed cron events do not stop refresh.
+    # Four bounded checks per hour provide a 15-minute backstop when GitHub
+    # delays or omits primary cron runs. Workflow-run triggers remain enabled.
     - cron: "2 * * * *"
+    - cron: "17 * * * *"
+    - cron: "32 * * * *"
+    - cron: "47 * * * *"
   workflow_run:
     workflows: ["GeoAcademic fresh ingestion"]
     types: [completed]
