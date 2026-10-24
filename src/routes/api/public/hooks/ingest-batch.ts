@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type { ExternalFetchCompletion, ExternalReviewCompletion } from "@/lib/ingest.server";
+import { shouldThrottleSteadyStateDrain } from "@/lib/queue-drain-policy";
 
 type Body = {
   action?:
@@ -386,7 +387,17 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
               .gt("tasks_processed", 0)
               .limit(1)
               .maybeSingle();
-            if (recent) {
+            // Do not let a recent small batch throttle a larger sub-threshold backlog.
+            // If more than two steady-state waves (minimum eight tasks) are due,
+            // allow bounded catch-up; the existing batch size and worker budget still apply.
+            if (
+              recent &&
+              shouldThrottleSteadyStateDrain({
+                recentWork: true,
+                dueTasks: queueState.due_tasks,
+                batchSize: queueState.batch_size,
+              })
+            ) {
               const runId = await recordSkippedPipelineRun("steady-state interval not elapsed", {
                 mode: queueState.mode,
                 interval_minutes: queueState.interval_minutes,
