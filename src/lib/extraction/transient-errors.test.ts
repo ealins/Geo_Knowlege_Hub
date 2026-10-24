@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { isTransientExtractionError, shouldUseOpenRouterFallback, shouldUseOpenAIFallback } from "./transient-errors";
+import { isTransientExtractionError, shouldUseOpenRouterFallback, shouldUseOpenAIFallback, shouldRetryPrimaryProvider } from "./transient-errors";
 
 describe("isTransientExtractionError", () => {
   test("retries common transient provider failures", () => {
@@ -57,5 +57,18 @@ describe("shouldUseOpenAIFallback", () => {
   test("does not call OpenAI for permanent errors or without a key", () => {
     expect(shouldUseOpenAIFallback({ primaryErrorCode: "HTTP_403", apiKey: "configured" })).toBe(false);
     expect(shouldUseOpenAIFallback({ primaryErrorCode: "HTTP_502", apiKey: "" })).toBe(false);
+  });
+});
+
+
+describe("shouldRetryPrimaryProvider", () => {
+  test("does not repeat the primary route for HTTP 530", () => {
+    expect(shouldRetryPrimaryProvider({ errorCode: "HTTP_530", attempt: 1, retryLimit: 2 })).toBe(false);
+  });
+
+  test("retries other transient errors only while attempts remain", () => {
+    expect(shouldRetryPrimaryProvider({ errorCode: "HTTP_502", attempt: 1, retryLimit: 2 })).toBe(true);
+    expect(shouldRetryPrimaryProvider({ errorCode: "HTTP_502", attempt: 2, retryLimit: 2 })).toBe(false);
+    expect(shouldRetryPrimaryProvider({ errorCode: "HTTP_403", attempt: 1, retryLimit: 2 })).toBe(false);
   });
 });
