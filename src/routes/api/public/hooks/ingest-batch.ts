@@ -442,6 +442,37 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
             }
           }
 
+          // Do not claim NORMALIZE tasks while the primary AI gateway circuit is open.
+          // This is a preflight guard: it leaves task attempts, leases, retry timestamps,
+          // and exact-snapshot payloads untouched. Other deterministic queue work can run.
+          let providerCircuitOpen = false;
+          const independentFallbackConfigured = Boolean(
+            process.env["OPENAI_API_KEY"]?.trim() ||
+              (process.env["OPENROUTER_API_KEY"]?.trim() &&
+                process.env["OPENROUTER_MODEL"]?.trim()),
+          );
+          if (!independentFallbackConfigured) {
+            const { AI_PROVIDER } = await import("@/lib/llm-config.server");
+            const { shouldOpenOmniRouteCircuit } = await import("@/lib/extraction/transient-errors");
+            const circuitWindowStart = new Date(Date.now() - 5 * 60_000).toISOString();
+            const { count: recentGatewayFailures, error: circuitReadError } = await supabaseAdmin
+              .from("llm_processing_runs")
+              .select("id", { count: "exact", head: true })
+              .eq("provider", AI_PROVIDER)
+              .eq("status", "FAILED")
+              .in("http_status", [502, 503, 530])
+              .gte("created_at", circuitWindowStart);
+
+            // Fail open on telemetry-read errors; a database read issue must not
+            // silently block legitimate normalization after the provider recovers.
+            if (!circuitReadError) {
+              providerCircuitOpen = shouldOpenOmniRouteCircuit({
+                recentGatewayFailures: recentGatewayFailures ?? 0,
+                independentFallbackConfigured: false,
+              });
+            }
+          }
+
           const batch = Math.min(50, Math.max(1, body.limit ?? queueState.batch_size));
 
           // Every autonomous tick is recorded so /admin/pipeline-health can prove
@@ -490,10 +521,15 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
             let normalizeWaves = 0;
             let taskGroup: "NORMALIZE" | "FETCH_DISCOVER" = "NORMALIZE";
 
-            while (
-              result.processed < normalizeTarget &&
-              Date.now() - startedAt.getTime() < normalizeBudgetMs
-            ) {
+            if (providerCircuitOpen) {
+              result.details.push(
+                "CIRCUIT_OPEN_GATEWAY_5XX: normalization not claimed; provider circuit is open and no independent fallback is configured",
+              );
+            } else {
+              while (
+                result.processed < normalizeTarget &&
+                Date.now() - startedAt.getTime() < normalizeBudgetMs
+              ) {
               const remaining = normalizeTarget - result.processed;
               const wave = await withTimeout(
                 runQueueBatch(
@@ -517,6 +553,7 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
               // If a wave ends with multiple hard failures, stop this tick and let
               // exponential retry/backoff cool the provider down before the next wake.
               if (wave.failed + wave.dead >= 2) break;
+              }
             }
 
             if (result.processed === 0) {
@@ -563,6 +600,7 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
                     normalize_waves: taskGroup === "NORMALIZE" ? normalizeWaves : 0,
                     normalize_target: taskGroup === "NORMALIZE" ? normalizeTarget : 0,
                     normalize_budget_ms: taskGroup === "NORMALIZE" ? normalizeBudgetMs : 0,
+                    provider_circuit_open: providerCircuitOpen,
                     normalized: result.normalized,
                     skipped: result.skipped,
                     sample: result.details.slice(0, 20),
@@ -575,6 +613,7 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
               run_id: run?.id ?? null,
               mode: queueState.mode,
               task_group: taskGroup,
+              provider_circuit_open: providerCircuitOpen,
               ...result,
             });
           } catch (e) {
