@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { shouldThrottleSteadyStateDrain } from "./queue-drain-policy";
+import { hasProviderCircuitOpenSignal, hasProviderGatewayFailureSignal, normalizationWavePolicy, shouldThrottleSteadyStateDrain } from "./queue-drain-policy";
 
 describe("shouldThrottleSteadyStateDrain", () => {
   test("keeps the interval for a small, recently due queue after recent work", () => {
@@ -60,5 +60,48 @@ describe("shouldThrottleSteadyStateDrain", () => {
       batchSize: 6,
       oldestDueAgeMinutes: 2,
     })).toBe(false);
+  });
+});
+
+
+describe("normalizationWavePolicy", () => {
+  test("serializes normalization when no independent provider is configured", () => {
+    expect(normalizationWavePolicy({
+      mode: "BACKLOG",
+      batch: 4,
+      independentFallbackConfigured: false,
+    })).toEqual({ target: 4, waveSize: 1, concurrency: 1 });
+  });
+
+  test("preserves bounded parallel waves when an independent provider is configured", () => {
+    expect(normalizationWavePolicy({
+      mode: "BACKLOG",
+      batch: 4,
+      independentFallbackConfigured: true,
+    })).toEqual({ target: 4, waveSize: 2, concurrency: 3 });
+    expect(normalizationWavePolicy({
+      mode: "STEADY_STATE",
+      batch: 3,
+      independentFallbackConfigured: true,
+    })).toEqual({ target: 3, waveSize: 2, concurrency: 2 });
+  });
+});
+
+describe("provider gateway failure signals", () => {
+  test("detects a gateway deferral so the drain can stop before claiming another task", () => {
+    expect(hasProviderGatewayFailureSignal([
+      "DEFERRED NORMALIZE: TRANSIENT_EXTRACTION_FAILURE GATEWAY_5XX: HTTP_502",
+    ])).toBe(true);
+  });
+
+  test("detects an explicit circuit-open response", () => {
+    expect(hasProviderCircuitOpenSignal([
+      "DEFERRED NORMALIZE: circuit open after repeated recent primary gateway HTTP 502/503/530 failures",
+    ])).toBe(true);
+  });
+
+  test("does not classify ordinary extraction validation failures as gateway outages", () => {
+    expect(hasProviderGatewayFailureSignal(["FAILED NORMALIZE: missing title"])).toBe(false);
+    expect(hasProviderCircuitOpenSignal(["FAILED NORMALIZE: missing title"])).toBe(false);
   });
 });
