@@ -13,7 +13,7 @@ import {
   type LlmOperation,
   type NvidiaModelTier,
 } from "./llm-config.server";
-import { shouldUseOpenRouterFallback, shouldUseOpenAIFallback, shouldRetryPrimaryProvider } from "./extraction/transient-errors";
+import { shouldUseOpenRouterFallback, shouldUseOpenAIFallback, shouldRetryPrimaryProvider, shouldOpenOmniRouteCircuit } from "./extraction/transient-errors";
 
 export type NemotronCall = {
   system: string;
@@ -402,6 +402,60 @@ export async function callNemotron(call: NemotronCall): Promise<NemotronResult> 
       errorMessage: `No AI provider is configured. Set OPENAI_API_KEY, OMNIROUTE_API_KEY, or OPENROUTER_API_KEY with OPENROUTER_MODEL on the server.`,
       runId,
     };
+  }
+
+  // A sustained provider-wide HTTP 530 outage with no independent route can
+  // otherwise cause every queued record to make another doomed network request.
+  // Open a short, database-backed circuit after three real 530 responses in five
+  // minutes. Fail open if telemetry is unavailable; configured fallbacks bypass it.
+  const hasIndependentFallback = Boolean(
+    process.env["OPENAI_API_KEY"]?.trim() ||
+      (process.env["OPENROUTER_API_KEY"]?.trim() && process.env["OPENROUTER_MODEL"]?.trim()),
+  );
+  if (!hasIndependentFallback) {
+    const circuitWindowStart = new Date(Date.now() - 5 * 60_000).toISOString();
+    const { count: recentHttp530Failures, error: circuitReadError } = await supabaseAdmin
+      .from("llm_processing_runs")
+      .select("id", { count: "exact", head: true })
+      .eq("provider", AI_PROVIDER)
+      .eq("error_code", "HTTP_530")
+      .gte("created_at", circuitWindowStart);
+
+    // Telemetry read errors must not prevent a legitimate provider attempt.
+    if (
+      !circuitReadError &&
+      shouldOpenOmniRouteCircuit({
+        recentHttp530Failures: recentHttp530Failures ?? 0,
+        independentFallbackConfigured: false,
+      })
+    ) {
+      const circuitTime = new Date().toISOString();
+      const circuitMessage =
+        "TRANSIENT_EXTRACTION_FAILURE HTTP_530: circuit open after repeated recent primary HTTP_530 failures; no independent fallback is configured (set OPENAI_API_KEY or OPENROUTER_API_KEY with OPENROUTER_MODEL)";
+      const runId = await logRun({
+        ...base,
+        started_at: circuitTime,
+        completed_at: circuitTime,
+        status: "FAILED",
+        latency_ms: 0,
+        attempt: 0,
+        http_status: null,
+        error_code: "CIRCUIT_OPEN_HTTP_530",
+        error_message: circuitMessage,
+      });
+      return {
+        ok: false,
+        content: null,
+        httpStatus: null,
+        latencyMs: 0,
+        model,
+        provider: AI_PROVIDER,
+        attempt: 0,
+        errorCode: "HTTP_530",
+        errorMessage: circuitMessage,
+        runId,
+      };
+    }
   }
 
   let lastResult: NemotronResult | null = null;
