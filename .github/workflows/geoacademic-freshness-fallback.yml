@@ -3,10 +3,12 @@ name: GeoAcademic freshness fallback
 on:
   workflow_dispatch:
   schedule:
-    # Run four bounded refresh passes per hour, five minutes before the main
-    # ingestion schedule. Queue deduplication, source cooldowns, and fetch
-    # leases keep this independent fallback safe if the primary schedule fires.
-    - cron: "2,17,32,47 * * * *"
+    # Keep one independent hourly backstop; successful primary ingestion runs
+    # also trigger this bounded pass so missed cron events do not stop refresh.
+    - cron: "2 * * * *"
+  workflow_run:
+    workflows: ["GeoAcademic fresh ingestion"]
+    types: [completed]
 
 concurrency:
   group: geoacademic-freshness-fallback
@@ -17,6 +19,7 @@ permissions:
 
 jobs:
   refresh-due-sources:
+    if: github.event_name != 'workflow_run' || (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main')
     runs-on: ubuntu-latest
     timeout-minutes: 6
     env:
