@@ -44,3 +44,24 @@ describe("shouldDeadLetterFetchFailure", () => {
     })).toBe(true);
   });
 });
+
+
+describe("isUnleaseableFetchSource", () => {
+  test("rejects inactive sources regardless of status", async () => {
+    const { isUnleaseableFetchSource } = await import("./fetch-failure-policy");
+    expect(isUnleaseableFetchSource({ active: false, status: "PENDING" })).toBe(true);
+    expect(isUnleaseableFetchSource({ active: false, status: "FAILED" })).toBe(true);
+  });
+
+  test("rejects blocked sources even when active is true", async () => {
+    const { isUnleaseableFetchSource } = await import("./fetch-failure-policy");
+    expect(isUnleaseableFetchSource({ active: true, status: "BLOCKED" })).toBe(true);
+  });
+
+  test("preserves eligible sources and null active values allowed by the lease RPC", async () => {
+    const { isUnleaseableFetchSource } = await import("./fetch-failure-policy");
+    expect(isUnleaseableFetchSource({ active: true, status: "FAILED" })).toBe(false);
+    expect(isUnleaseableFetchSource({ active: true, status: "FETCHED" })).toBe(false);
+    expect(isUnleaseableFetchSource({ active: null, status: "PENDING" })).toBe(false);
+  });
+});
