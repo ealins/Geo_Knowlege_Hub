@@ -1,7 +1,7 @@
 // Server-only ingestion engine. Never imported by client code.
 // Pipeline: DISCOVER -> FETCH -> RAW STORAGE -> CLASSIFY -> EXTRACT/NORMALIZE -> CANONICAL -> PROVENANCE
 import { supabaseAdmin } from "@/integrations/supabase/client.server";
-import { buildNormalizationTaskPayload } from "./normalization-task-payload";
+import { buildNormalizationTaskPayload, shouldHydrateLegacyPendingSnapshot } from "./normalization-task-payload";
 import { getNormalizationProviderDeferralMinutes } from "./extraction/transient-errors";
 import {
   parseHostFetchDeferralSeconds,
@@ -1452,20 +1452,22 @@ export async function runQueueBatch(
   let cursor = 0;
 
   const processTask = async (task: (typeof queue)[number]) => {
+    const claimStartedAt = new Date().toISOString();
     const { data: claimed, error: claimError } = await supabaseAdmin
       .from("ingestion_tasks")
       .update({
         status: "PROCESSING",
         attempts: task.attempts + 1,
-        started_at: new Date().toISOString(),
+        started_at: claimStartedAt,
         last_error: null,
       })
       .eq("id", task.id)
       .in("status", ["QUEUED", "RETRY"])
-      .select("id")
+      .select("id, started_at")
       .maybeSingle();
     if (claimError) throw claimError;
     if (!claimed) return;
+    const leaseStartedAt = claimed.started_at ?? claimStartedAt;
 
     out.processed += 1;
     try {
@@ -1478,8 +1480,49 @@ export async function runQueueBatch(
         detail = `FETCH ${r.http_status} ${r.classification ?? "-"} ${r.url}`;
       } else if (task.task_type === "NORMALIZE" && task.source_id) {
         const payload = (task.payload ?? {}) as Record<string, unknown>;
-        const rawRecordId =
-          typeof payload.raw_record_id === "string" ? payload.raw_record_id : undefined;
+        let rawRecordId =
+          typeof payload.raw_record_id === "string" && payload.raw_record_id.trim()
+            ? payload.raw_record_id
+            : undefined;
+
+        // Older open tasks predate exact-snapshot targeting. If such a task's
+        // source still has a PENDING snapshot of the same classification, pin
+        // the oldest one to this task before normalization. This lets the
+        // existing one-task-per-source queue drain legacy pending snapshots
+        // without silently switching snapshots on a provider retry.
+        if (shouldHydrateLegacyPendingSnapshot(payload)) {
+          const classification = String(payload.classification).trim();
+          const { data: legacyPendingRaw, error: legacyPendingError } = await supabaseAdmin
+            .from("raw_records")
+            .select("id")
+            .eq("source_id", task.source_id)
+            .eq("classification", classification)
+            .eq("normalization_status", "PENDING")
+            .order("fetched_at", { ascending: true })
+            .limit(1)
+            .maybeSingle();
+          if (legacyPendingError) throw legacyPendingError;
+
+          if (legacyPendingRaw?.id) {
+            const { data: pinnedTask, error: pinError } = await supabaseAdmin
+              .from("ingestion_tasks")
+              .update({ payload: { ...payload, raw_record_id: legacyPendingRaw.id } })
+              .eq("id", task.id)
+              .eq("status", "PROCESSING")
+              .eq("started_at", leaseStartedAt)
+              .select("id")
+              .maybeSingle();
+            if (pinError) throw pinError;
+            if (!pinnedTask) {
+              out.details.push(
+                `NORMALIZE skipped: lease changed before legacy snapshot pinning (${task.id})`,
+              );
+              return;
+            }
+            rawRecordId = legacyPendingRaw.id;
+          }
+        }
+
         const r = await normalizeSource(task.source_id, undefined, rawRecordId);
         if (r.status === "FAILED" && r.reason?.startsWith("TRANSIENT_EXTRACTION_FAILURE")) {
           // During the confirmed OmniRoute HTTP 530 outage, no independent
