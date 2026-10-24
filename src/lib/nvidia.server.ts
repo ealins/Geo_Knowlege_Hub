@@ -579,7 +579,12 @@ export async function callNemotron(call: NemotronCall): Promise<NemotronResult> 
 
     if (ok) return lastResult;
 
-    const retryPrimary = shouldRetryPrimaryProvider({ errorCode, attempt, retryLimit });
+    const retryPrimary = shouldRetryPrimaryProvider({
+      errorCode,
+      attempt,
+      retryLimit,
+      independentFallbackConfigured: hasIndependentFallback,
+    });
     if (!retryPrimary) {
       if (shouldUseOpenAIFallback({
         primaryErrorCode: errorCode,
