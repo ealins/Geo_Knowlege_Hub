@@ -51,5 +51,18 @@ jobs:
           set -euo pipefail
           printf '%s' "$OMNIROUTE_API_KEY" | ./node_modules/.bin/wrangler versions secret put OMNIROUTE_API_KEY --name research-pulse-global
 
+      - name: Configure OpenAI Worker secret when available
+        shell: bash
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          set -euo pipefail
+          if [[ -n "${OPENAI_API_KEY:-}" ]]; then
+            printf '%s' "$OPENAI_API_KEY" | ./node_modules/.bin/wrangler versions secret put OPENAI_API_KEY --name research-pulse-global
+            echo "OPENAI_FALLBACK_SECRET_CONFIGURED=true"
+          else
+            echo "::warning::OPENAI_API_KEY GitHub Actions secret is not configured; OpenAI fallback requires a separately configured Worker secret."
+          fi
+
       - name: Deploy active Worker
         run: ./node_modules/.bin/wrangler deploy
