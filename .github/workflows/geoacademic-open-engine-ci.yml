@@ -72,7 +72,7 @@ jobs:
       - name: Build frontend and test transient extraction retry policy
         run: |
           bun install --frozen-lockfile
-          bun test src/lib/extraction/transient-errors.test.ts src/lib/normalization-task-payload.test.ts src/lib/semantic-recovery-policy.test.ts src/lib/host-fetch-deferral-policy.test.ts scripts/ingestion-worker-policy.test.mjs
+          bun test src/lib/extraction/transient-errors.test.ts src/lib/normalization-task-payload.test.ts src/lib/semantic-recovery-policy.test.ts src/lib/host-fetch-deferral-policy.test.ts src/lib/fetch-failure-policy.test.ts scripts/ingestion-worker-policy.test.mjs
           bun run build
 
       - name: Validate shell entrypoints
