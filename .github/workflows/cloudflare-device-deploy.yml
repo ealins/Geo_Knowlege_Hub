@@ -64,5 +64,24 @@ jobs:
             echo "::warning::OPENAI_API_KEY GitHub Actions secret is not configured; OpenAI fallback requires a separately configured Worker secret."
           fi
 
+      - name: Configure OpenRouter Worker fallback when available
+        shell: bash
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          OPENROUTER_MODEL: ${{ vars.OPENROUTER_MODEL || secrets.OPENROUTER_MODEL }}
+          OPENROUTER_URL: ${{ vars.OPENROUTER_URL || secrets.OPENROUTER_URL }}
+        run: |
+          set -euo pipefail
+          if [[ -n "${OPENROUTER_API_KEY:-}" && -n "${OPENROUTER_MODEL:-}" ]]; then
+            printf '%s' "$OPENROUTER_API_KEY" | ./node_modules/.bin/wrangler versions secret put OPENROUTER_API_KEY --name research-pulse-global
+            printf '%s' "$OPENROUTER_MODEL" | ./node_modules/.bin/wrangler versions secret put OPENROUTER_MODEL --name research-pulse-global
+            if [[ -n "${OPENROUTER_URL:-}" ]]; then
+              printf '%s' "$OPENROUTER_URL" | ./node_modules/.bin/wrangler versions secret put OPENROUTER_URL --name research-pulse-global
+            fi
+            echo "OPENROUTER_FALLBACK_SECRET_CONFIGURED=true"
+          else
+            echo "::warning::OpenRouter fallback is not configured: set OPENROUTER_API_KEY and OPENROUTER_MODEL as a repository secret/variable or configure them directly on the Worker."
+          fi
+
       - name: Deploy active Worker
         run: ./node_modules/.bin/wrangler deploy
