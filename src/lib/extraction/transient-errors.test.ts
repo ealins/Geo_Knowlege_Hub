@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { isTransientExtractionError, shouldUseOpenRouterFallback } from "./transient-errors";
+import { isTransientExtractionError, shouldUseOpenRouterFallback, shouldUseOpenAIFallback } from "./transient-errors";
 
 describe("isTransientExtractionError", () => {
   test("retries common transient provider failures", () => {
@@ -43,5 +43,19 @@ describe("shouldUseOpenRouterFallback", () => {
       apiKey: "configured",
       model: "",
     })).toBe(false);
+  });
+});
+
+
+describe("shouldUseOpenAIFallback", () => {
+  test("uses the configured OpenAI key after transient primary failures", () => {
+    for (const code of ["HTTP_429", "HTTP_502", "HTTP_530", "TIMEOUT", "NETWORK_ERROR"]) {
+      expect(shouldUseOpenAIFallback({ primaryErrorCode: code, apiKey: "configured" })).toBe(true);
+    }
+  });
+
+  test("does not call OpenAI for permanent errors or without a key", () => {
+    expect(shouldUseOpenAIFallback({ primaryErrorCode: "HTTP_403", apiKey: "configured" })).toBe(false);
+    expect(shouldUseOpenAIFallback({ primaryErrorCode: "HTTP_502", apiKey: "" })).toBe(false);
   });
 });
