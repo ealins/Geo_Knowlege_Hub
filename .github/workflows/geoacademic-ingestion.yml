@@ -80,7 +80,7 @@ jobs:
             --connect-timeout 10 --max-time 45 \
             -H "Authorization: Bearer $INGESTION_HOOK_SECRET" \
             -H "Content-Type: application/json" \
-            --data '{"action":"refresh-due","limit":20,"trigger":"github-actions-due-source-refresh"}' \
+            --data '{"action":"refresh-due","limit":40,"trigger":"github-actions-due-source-refresh"}' \
             https://geoacademic.app/api/public/hooks/ingest-batch)"
           echo "$response"
           node -e '
