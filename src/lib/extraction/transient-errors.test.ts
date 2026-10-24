@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { isTransientExtractionError } from "./transient-errors";
+import { isTransientExtractionError, shouldUseOpenRouterFallback } from "./transient-errors";
 
 describe("isTransientExtractionError", () => {
   test("retries common transient provider failures", () => {
@@ -12,5 +12,36 @@ describe("isTransientExtractionError", () => {
     for (const code of ["HTTP_400", "HTTP_404", "HTTP_403", "NO_RESULT", "", undefined, null]) {
       expect(isTransientExtractionError(code)).toBe(false);
     }
+  });
+});
+
+
+describe("shouldUseOpenRouterFallback", () => {
+  test("uses an independent configured route for transient OmniRoute failures", () => {
+    for (const code of ["HTTP_429", "HTTP_502", "HTTP_530", "TIMEOUT", "NETWORK_ERROR"]) {
+      expect(shouldUseOpenRouterFallback({
+        primaryErrorCode: code,
+        apiKey: "configured",
+        model: "provider/model",
+      })).toBe(true);
+    }
+  });
+
+  test("does not fan out for permanent failures or incomplete fallback configuration", () => {
+    expect(shouldUseOpenRouterFallback({
+      primaryErrorCode: "HTTP_403",
+      apiKey: "configured",
+      model: "provider/model",
+    })).toBe(false);
+    expect(shouldUseOpenRouterFallback({
+      primaryErrorCode: "HTTP_502",
+      apiKey: "",
+      model: "provider/model",
+    })).toBe(false);
+    expect(shouldUseOpenRouterFallback({
+      primaryErrorCode: "HTTP_502",
+      apiKey: "configured",
+      model: "",
+    })).toBe(false);
   });
 });
