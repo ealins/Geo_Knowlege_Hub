@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { buildNormalizationTaskPayload, shouldHydrateLegacyPendingSnapshot } from "./normalization-task-payload";
+import { buildNormalizationTaskPayload, legacyNormalizationSnapshotTarget, shouldHydrateLegacyPendingSnapshot } from "./normalization-task-payload";
 
 describe("buildNormalizationTaskPayload", () => {
   test("preserves the selected raw snapshot for retry-safe normalization", () => {
@@ -36,5 +36,26 @@ describe("shouldHydrateLegacyPendingSnapshot", () => {
 
   test("does not guess a snapshot when classification is missing", () => {
     expect(shouldHydrateLegacyPendingSnapshot({ reason: "legacy-task" })).toBe(false);
+  });
+
+  test("pins semantic-failure-recovery-v7 tasks to the transient failed snapshot, not an older pending one", () => {
+    expect(legacyNormalizationSnapshotTarget({
+      classification: "PROGRAMME",
+      reason: "semantic-failure-recovery-v7",
+    })).toBe("FAILED_TRANSIENT_LATEST");
+  });
+
+  test("keeps generic legacy tasks on the oldest pending snapshot path", () => {
+    expect(legacyNormalizationSnapshotTarget({
+      classification: "PROGRAMME",
+    })).toBe("PENDING_OLDEST");
+  });
+
+  test("does not select a legacy target when an exact raw id is already present", () => {
+    expect(legacyNormalizationSnapshotTarget({
+      classification: "PROGRAMME",
+      raw_record_id: "raw-snapshot-123",
+      reason: "semantic-failure-recovery-v7",
+    })).toBe(null);
   });
 });
