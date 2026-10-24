@@ -1,5 +1,5 @@
-// Server-only AI provider client. OpenAI is preferred; OmniRoute is the controlled fallback. The API key is read inside the call,
-// never logged, never returned to callers, never written to the database.
+// Server-only AI provider client. OmniRoute is primary; OpenAI and OpenRouter are independent fallbacks.
+// API keys are read inside provider calls, never logged, returned to callers, or written to the database.
 import { supabaseAdmin } from "@/integrations/supabase/client.server";
 import {
   AI_PROVIDER,
@@ -357,15 +357,38 @@ export async function callNemotron(call: NemotronCall): Promise<NemotronResult> 
   const endpoint = process.env["OMNIROUTE_URL"]?.replace(/\/$/, "") ?? "https://omniroute.geoacademic.app/v1";
   const providerModel = model;
   if (!apiKey) {
+    // A missing primary key must not prevent use of the independently
+    // configured OpenAI credential. Try OpenAI first, then OpenRouter.
+    const openAIOnly = await callOpenAIFallback(call, tier);
+    if (openAIOnly?.ok) return openAIOnly;
+
     const openRouterOnly = await callOpenRouterFallback(call, tier);
-    if (openRouterOnly) return openRouterOnly;
+    if (openRouterOnly?.ok) return openRouterOnly;
+
+    const fallbackFailures = [
+      openAIOnly
+        ? `OpenAI fallback failed (${openAIOnly.errorCode ?? "unknown"}): ${openAIOnly.errorMessage ?? "no details"}`
+        : null,
+      openRouterOnly
+        ? `OpenRouter fallback failed (${openRouterOnly.errorCode ?? "unknown"}): ${openRouterOnly.errorMessage ?? "no details"}`
+        : null,
+    ].filter((value): value is string => Boolean(value));
+
+    if (openAIOnly || openRouterOnly) {
+      const failedResult = openAIOnly ?? openRouterOnly!;
+      return {
+        ...failedResult,
+        errorMessage: `OmniRoute is not configured; ${fallbackFailures.join("; ")}`.slice(0, 1200),
+      };
+    }
+
     const runId = await logRun({
       ...base,
       status: "FAILED",
       completed_at: new Date().toISOString(),
       latency_ms: 0,
       error_code: "AI_PROVIDER_NOT_CONFIGURED",
-      error_message: `No primary provider key is configured. Set OMNIROUTE_API_KEY or configure OPENROUTER_API_KEY with OPENROUTER_MODEL.`,
+      error_message: `No AI provider key is configured. Set OPENAI_API_KEY, OMNIROUTE_API_KEY, or OPENROUTER_API_KEY with OPENROUTER_MODEL.`,
     });
     return {
       ok: false,
@@ -376,7 +399,7 @@ export async function callNemotron(call: NemotronCall): Promise<NemotronResult> 
       provider: AI_PROVIDER,
       attempt: 0,
       errorCode: "AI_PROVIDER_NOT_CONFIGURED",
-      errorMessage: `No AI provider is configured. Set OPENAI_API_KEY or OMNIROUTE_API_KEY on the server.`,
+      errorMessage: `No AI provider is configured. Set OPENAI_API_KEY, OMNIROUTE_API_KEY, or OPENROUTER_API_KEY with OPENROUTER_MODEL on the server.`,
       runId,
     };
   }
