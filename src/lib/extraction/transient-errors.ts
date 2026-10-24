@@ -62,3 +62,21 @@ export function getNormalizationProviderDeferralMinutes(
   if (!/no independent fallback is configured/i.test(reason)) return null;
   return 30;
 }
+
+/**
+ * Avoid repeated requests to a provider during a confirmed outage when no
+ * independent route is configured. Only real HTTP_530 rows count toward the
+ * threshold; circuit-open telemetry uses a different error code so it cannot
+ * keep the circuit open indefinitely.
+ */
+export function shouldOpenOmniRouteCircuit(input: {
+  recentHttp530Failures: number;
+  independentFallbackConfigured: boolean;
+  threshold?: number;
+}): boolean {
+  if (input.independentFallbackConfigured) return false;
+  const threshold = Math.max(1, Math.floor(input.threshold ?? 3));
+  return Number.isFinite(input.recentHttp530Failures) &&
+    input.recentHttp530Failures >= threshold;
+}
+
