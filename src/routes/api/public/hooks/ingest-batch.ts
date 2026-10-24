@@ -389,23 +389,24 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
               .limit(1)
               .maybeSingle();
 
-            // A small queue should not be throttled indefinitely when its oldest
-            // due task is already aged. The age read is diagnostic-only: if it
+            // Measure age from task creation, not run_after: each retry advances
+            // run_after and would otherwise make an old task look newly queued.
+            // The run_after filter still respects retry cooldowns. If this read
             // fails, retain the ordinary steady-state throttle.
             if (recent && queueState.due_tasks > 0) {
               const { data: oldestDueTask, error: oldestDueTaskError } = await supabaseAdmin
                 .from("ingestion_tasks")
-                .select("run_after")
+                .select("created_at")
                 .in("status", ["QUEUED", "RETRY"])
                 .in("task_type", ["DISCOVER", "FETCH", "NORMALIZE"])
                 .lte("run_after", new Date().toISOString())
-                .order("run_after", { ascending: true })
+                .order("created_at", { ascending: true })
                 .limit(1)
                 .maybeSingle();
-              if (!oldestDueTaskError && oldestDueTask?.run_after) {
+              if (!oldestDueTaskError && oldestDueTask?.created_at) {
                 oldestDueAgeMinutes = Math.max(
                   0,
-                  (Date.now() - Date.parse(oldestDueTask.run_after)) / 60_000,
+                  (Date.now() - Date.parse(oldestDueTask.created_at)) / 60_000,
                 );
               }
             }
