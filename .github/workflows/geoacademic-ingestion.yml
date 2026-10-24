@@ -7,7 +7,9 @@ on:
     # expression is separate so the hourly discovery sweep can identify it
     # reliably even when GitHub starts the scheduled job late.
     - cron: "7 * * * *"
-    - cron: "22,37,52 * * * *"
+    - cron: "22 * * * *"
+    - cron: "37 * * * *"
+    - cron: "52 * * * *"
   workflow_run:
     # A successful scheduled fallback is also a watchdog for missed primary cron events.
     # The job condition below accepts only fallback runs whose original event was schedule,
@@ -18,9 +20,10 @@ on:
     types: [completed]
 
 concurrency:
-  # Keep one run per trigger type, but allow the post-deploy recovery run to
-  # proceed even if a scheduled batch is stalled on an external source.
-  group: geoacademic-ingestion-${{ github.event_name }}
+  # Isolate each scheduled cron expression so a slow :22 run cannot replace
+  # a pending :37/:52 run in the same GitHub concurrency group. Keep non-cron
+  # events serialized by event type, including workflow_run recovery events.
+  group: geoacademic-ingestion-${{ github.event_name == 'schedule' && github.event.schedule || github.event_name }}
   cancel-in-progress: false
 
 permissions:
