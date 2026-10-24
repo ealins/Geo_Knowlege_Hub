@@ -47,3 +47,18 @@ export function shouldRetryPrimaryProvider(input: {
   if (input.errorCode === "HTTP_530") return false;
   return input.attempt < input.retryLimit && isTransientExtractionError(input.errorCode);
 }
+
+
+/**
+ * Defer repeated normalization failures only for the observed provider-wide
+ * HTTP 530 case where no independent fallback is configured. The queue's
+ * retryAfterMinutes path preserves attempts and exact-snapshot payloads.
+ */
+export function getNormalizationProviderDeferralMinutes(
+  reason: string | null | undefined,
+): number | null {
+  if (!reason?.startsWith("TRANSIENT_EXTRACTION_FAILURE")) return null;
+  if (!/\bHTTP_530\b/.test(reason)) return null;
+  if (!/no independent fallback is configured/i.test(reason)) return null;
+  return 30;
+}
