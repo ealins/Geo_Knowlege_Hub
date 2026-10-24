@@ -287,6 +287,21 @@ jobs:
             echo "$response"
             count="$(node -e 'const v=JSON.parse(process.argv[1]); process.stdout.write(String(v.processed||0))' "$response")"
             processed=$((processed+count))
+            circuit_open="$(node -e '
+              const v = JSON.parse(process.argv[1]);
+              const text = JSON.stringify(v);
+              process.stdout.write(
+                text.includes("CIRCUIT_OPEN_GATEWAY_5XX") ||
+                text.includes("circuit open after repeated recent primary gateway")
+                  ? "1"
+                  : "0"
+              );
+            ' "$response")"
+            if [ "$circuit_open" -eq 1 ]; then
+              echo "::warning::Normalization drain stopped because the provider circuit is open; deferred work remains queued for a later run."
+              echo "GEOACADEMIC_GATEWAY_CIRCUIT_OPEN=true" >> "$GITHUB_ENV"
+              break
+            fi
             if [ "$count" -eq 0 ]; then
               # Draining can free sources that had pending snapshots skipped by
               # the first backfill pass. Requeue those exact snapshots and keep
@@ -321,14 +336,14 @@ jobs:
           done
           echo "NORMALIZE_DRAIN_PROCESSED=$processed"
       - name: Drain vacancy review backlog
-        if: ${{ env.OMNIROUTE_API_KEY != '' }}
+        if: ${{ env.OMNIROUTE_API_KEY != '' && env.GEOACADEMIC_GATEWAY_CIRCUIT_OPEN != 'true' }}
         env:
           REVIEW_RUNTIME_MS: "120000"
           REVIEW_LEASE_LIMIT: "6"
           REVIEW_CONCURRENCY: "4"
         run: node scripts/job-review-worker.mjs
       - name: Review newly fetched job pages
-        if: ${{ env.OMNIROUTE_API_KEY != '' }}
+        if: ${{ env.OMNIROUTE_API_KEY != '' && env.GEOACADEMIC_GATEWAY_CIRCUIT_OPEN != 'true' }}
         env:
           REVIEW_RUNTIME_MS: "45000"
           REVIEW_LEASE_LIMIT: "10"
