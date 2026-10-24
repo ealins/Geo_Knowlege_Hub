@@ -13,7 +13,7 @@ import {
   type LlmOperation,
   type NvidiaModelTier,
 } from "./llm-config.server";
-import { shouldUseOpenRouterFallback, shouldUseOpenAIFallback } from "./extraction/transient-errors";
+import { shouldUseOpenRouterFallback, shouldUseOpenAIFallback, shouldRetryPrimaryProvider } from "./extraction/transient-errors";
 
 export type NemotronCall = {
   system: string;
@@ -524,12 +524,8 @@ export async function callNemotron(call: NemotronCall): Promise<NemotronResult> 
 
     if (ok) return lastResult;
 
-    const retriable =
-      errorCode === "NETWORK_ERROR" ||
-      errorCode === "TIMEOUT" ||
-      httpStatus === 429 ||
-      (httpStatus !== null && httpStatus >= 500);
-    if (!retriable || attempt === retryLimit) {
+    const retryPrimary = shouldRetryPrimaryProvider({ errorCode, attempt, retryLimit });
+    if (!retryPrimary) {
       if (shouldUseOpenAIFallback({
         primaryErrorCode: errorCode,
         apiKey: process.env["OPENAI_API_KEY"],
@@ -560,6 +556,16 @@ export async function callNemotron(call: NemotronCall): Promise<NemotronResult> 
             errorMessage: `${lastResult.errorMessage ?? lastResult.errorCode ?? "OmniRoute failed"}; OpenRouter fallback failed (${fallback.errorCode ?? "unknown"}): ${fallback.errorMessage ?? "no details"}`.slice(0, 1200),
           };
         }
+      }
+      if (
+        errorCode === "HTTP_530" &&
+        !process.env["OPENAI_API_KEY"]?.trim() &&
+        !(process.env["OPENROUTER_API_KEY"]?.trim() && process.env["OPENROUTER_MODEL"]?.trim())
+      ) {
+        return {
+          ...lastResult,
+          errorMessage: `${lastResult.errorMessage ?? "Primary gateway failed"}; no independent fallback is configured (set OPENAI_API_KEY or OPENROUTER_API_KEY with OPENROUTER_MODEL)`.slice(0, 1200),
+        };
       }
       return lastResult;
     }
