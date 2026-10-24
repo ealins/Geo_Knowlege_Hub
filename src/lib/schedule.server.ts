@@ -2,7 +2,7 @@
 // Everything here is deterministic: no model call is ever needed to decide
 // whether a source is due or whether a deadline has passed.
 import { supabaseAdmin } from "@/integrations/supabase/client.server";
-import { shouldBackoffSourceAfterFailure } from "./source-refresh-policy";
+import { shouldBackoffSourceAfterFailure, shouldReprobeBlocked403Source } from "./source-refresh-policy";
 
 export type RefreshHours = Record<string, number>;
 
@@ -151,7 +151,6 @@ export async function enqueueDueRefreshes(
       supabaseAdmin
         .from("sources")
         .select("id, category, institution_id, last_success_at, last_failure_at, last_http_status, refresh_frequency_hours, status, active")
-        .neq("status", "BLOCKED")
         .eq("active", true)
         .order("last_success_at", { ascending: true, nullsFirst: true })
         .order("id", { ascending: true })
@@ -187,16 +186,31 @@ export async function enqueueDueRefreshes(
   );
 
   const now = Date.now();
+  let blockedReprobesQueued = 0;
+  const maxBlockedReprobesPerTick = 3;
   for (const s of sources ?? []) {
     if (queued >= limit) break;
     scanned += 1;
+    // A BLOCKED source is normally excluded by the lease RPC. Allow a tightly
+    // bounded re-probe only for a previously successful source whose later HTTP
+    // 403 has cooled down for 24 hours. Never-successful, 404/410 and robots-blocked
+    // sources remain excluded.
+    const blockedReprobe = shouldReprobeBlocked403Source({
+      status: s.status,
+      lastSuccessAt: s.last_success_at,
+      lastFailureAt: s.last_failure_at,
+      lastHttpStatus: s.last_http_status,
+      nowMs: now,
+    });
+    if (s.status === "BLOCKED" && !blockedReprobe) continue;
+    if (blockedReprobe && blockedReprobesQueued >= maxBlockedReprobesPerTick) continue;
     // Do not count already queued/in-flight/retrying fetches against this tick's
     // enqueue budget. Otherwise the same failing sources can consume all 40 slots
     // and prevent other due sources from ever entering the queue.
     if (pendingSourceIds.has(s.id)) continue;
     // Never-successful or recently failing sources must cool down before retrying.
     // Otherwise persistent 403/empty-text failures are re-enqueued on every tick.
-    if (shouldBackoffSourceAfterFailure({
+    if (!blockedReprobe && shouldBackoffSourceAfterFailure({
       lastSuccessAt: s.last_success_at,
       lastFailureAt: s.last_failure_at,
       lastHttpStatus: s.last_http_status,
@@ -209,7 +223,31 @@ export async function enqueueDueRefreshes(
     const hours = Math.min(Math.max(stored, base), base * config.adaptive_backoff_max);
     const last = s.last_success_at ? new Date(s.last_success_at).getTime() : 0;
     if (last && now - last < hours * 3_600_000) continue;
+
+    if (blockedReprobe) {
+      // The policy guarantees these timestamps exist; keep explicit guards so
+      // the database compare-and-set below is type-safe and fail-closed.
+      if (!s.last_success_at || !s.last_failure_at) continue;
+      // Re-enable only if the exact failure we evaluated is still current. If a
+      // concurrent success/failure changed the source, leave that newer state alone.
+      const cutoff = new Date(now - 24 * 3_600_000).toISOString();
+      const { data: reactivated, error: reactivationError } = await supabaseAdmin
+        .from("sources")
+        .update({ status: "FAILED" })
+        .eq("id", s.id)
+        .eq("status", "BLOCKED")
+        .eq("last_http_status", 403)
+        .eq("last_failure_at", s.last_failure_at)
+        .eq("last_success_at", s.last_success_at)
+        .lt("last_failure_at", cutoff)
+        .select("id")
+        .maybeSingle();
+      if (reactivationError) throw reactivationError;
+      if (!reactivated) continue;
+    }
+
     await enqueue("FETCH", { source_id: s.id, institution_id: s.institution_id ?? undefined });
+    if (blockedReprobe) blockedReprobesQueued += 1;
     queued += 1;
     const key = s.category ?? "default";
     by[key] = (by[key] ?? 0) + 1;

@@ -35,3 +35,33 @@ export function shouldBackoffSourceAfterFailure(
 
   return (input.nowMs ?? Date.now()) - failedAt < cooldownMs;
 }
+
+
+export type BlockedSourceReprobeInput = {
+  status: string | null | undefined;
+  lastSuccessAt?: string | null;
+  lastFailureAt?: string | null;
+  lastHttpStatus?: number | null;
+  nowMs?: number;
+};
+
+/**
+ * A 403 normally blocks a source from leasing. Re-probe only a source that
+ * previously fetched successfully and whose later 403 is at least 24 hours
+ * old. Never-successful sources, 404/410 sources, and robots-blocked sources
+ * without an HTTP status remain blocked. This lets temporary access failures
+ * recover without turning the blocked registry into an aggressive retry loop.
+ */
+export function shouldReprobeBlocked403Source(
+  input: BlockedSourceReprobeInput,
+): boolean {
+  if (input.status !== "BLOCKED" || input.lastHttpStatus !== 403) return false;
+  if (!input.lastSuccessAt || !input.lastFailureAt) return false;
+
+  const succeededAt = Date.parse(input.lastSuccessAt);
+  const failedAt = Date.parse(input.lastFailureAt);
+  if (!Number.isFinite(succeededAt) || !Number.isFinite(failedAt)) return false;
+  if (succeededAt >= failedAt) return false;
+
+  return (input.nowMs ?? Date.now()) - failedAt >= 24 * HOUR_MS;
+}
