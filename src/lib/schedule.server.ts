@@ -2,6 +2,7 @@
 // Everything here is deterministic: no model call is ever needed to decide
 // whether a source is due or whether a deadline has passed.
 import { supabaseAdmin } from "@/integrations/supabase/client.server";
+import { shouldBackoffSourceAfterFailure } from "./source-refresh-policy";
 
 export type RefreshHours = Record<string, number>;
 
@@ -149,7 +150,7 @@ export async function enqueueDueRefreshes(
     pageOffsets.map((offset) =>
       supabaseAdmin
         .from("sources")
-        .select("id, category, institution_id, last_success_at, refresh_frequency_hours, status, active")
+        .select("id, category, institution_id, last_success_at, last_failure_at, last_http_status, refresh_frequency_hours, status, active")
         .neq("status", "BLOCKED")
         .eq("active", true)
         .order("last_success_at", { ascending: true, nullsFirst: true })
@@ -193,6 +194,14 @@ export async function enqueueDueRefreshes(
     // enqueue budget. Otherwise the same failing sources can consume all 40 slots
     // and prevent other due sources from ever entering the queue.
     if (pendingSourceIds.has(s.id)) continue;
+    // Never-successful or recently failing sources must cool down before retrying.
+    // Otherwise persistent 403/empty-text failures are re-enqueued on every tick.
+    if (shouldBackoffSourceAfterFailure({
+      lastSuccessAt: s.last_success_at,
+      lastFailureAt: s.last_failure_at,
+      lastHttpStatus: s.last_http_status,
+      nowMs: now,
+    })) continue;
     const base = refreshHoursFor(config, s.category);
     // A source that keeps coming back unchanged carries a larger stored
     // interval; we honour it up to the configured backoff ceiling.
