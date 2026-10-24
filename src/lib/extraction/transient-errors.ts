@@ -32,3 +32,18 @@ export function shouldUseOpenAIFallback(input: {
 }): boolean {
   return Boolean(input.apiKey?.trim() && isTransientExtractionError(input.primaryErrorCode));
 }
+
+
+/**
+ * Avoid spending another retry on HTTP 530 from the primary gateway.
+ * In the observed outage, the response was Cloudflare error 1033; repeating
+ * the same route only delays independent-provider fallback.
+ */
+export function shouldRetryPrimaryProvider(input: {
+  errorCode: string | null | undefined;
+  attempt: number;
+  retryLimit: number;
+}): boolean {
+  if (input.errorCode === "HTTP_530") return false;
+  return input.attempt < input.retryLimit && isTransientExtractionError(input.errorCode);
+}
