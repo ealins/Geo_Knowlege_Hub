@@ -102,7 +102,7 @@ async function callOpenRouterFallback(
     ? "https://openrouter.ai/api/v1/chat/completions"
     : configuredUrl.endsWith("/chat/completions")
       ? configuredUrl
-      : `${configuredUrl.replace(/\\/$/, "")}/chat/completions`;
+      : `${(configuredUrl.endsWith("/") ? configuredUrl.slice(0, -1) : configuredUrl)}/chat/completions`;
   const startedAt = new Date();
   const t0 = Date.now();
   let httpStatus: number | null = null;
@@ -246,7 +246,7 @@ export async function callNemotron(call: NemotronCall): Promise<NemotronResult> 
       completed_at: new Date().toISOString(),
       latency_ms: 0,
       error_code: "AI_PROVIDER_NOT_CONFIGURED",
-      error_message: `OmniRoute is not configured. Set OMNIROUTE_API_KEY or OMNIROUTE_URL on the server.`,
+      error_message: `No primary provider key is configured. Set OMNIROUTE_API_KEY or configure OPENROUTER_API_KEY with OPENROUTER_MODEL.`,
     });
     return {
       ok: false,
