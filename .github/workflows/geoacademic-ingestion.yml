@@ -246,15 +246,16 @@ jobs:
           set -euo pipefail
           test -n "$INGESTION_HOOK_SECRET"
           deadline=$((SECONDS+180))
+          # Process up to four NORMALIZE tasks per request; the API uses bounded two-task waves.
           processed=0
           failures=0
           backfill_passes=0
           while [ "$SECONDS" -lt "$deadline" ]; do
             if ! response="$(curl --fail-with-body --silent --show-error \
-              --connect-timeout 10 --max-time 25 \
+              --connect-timeout 10 --max-time 35 \
               -H "Authorization: Bearer $INGESTION_HOOK_SECRET" \
               -H "Content-Type: application/json" \
-              --data '{"action":"drain","limit":1,"trigger":"github-actions-normalize-backlog"}' \
+              --data '{"action":"drain","limit":4,"trigger":"github-actions-normalize-backlog"}' \
               https://geoacademic.app/api/public/hooks/ingest-batch)"; then
               failures=$((failures+1))
               echo "::warning::Normalization drain timed out or failed (consecutive failures=$failures); continuing without blocking fresh fetches."
