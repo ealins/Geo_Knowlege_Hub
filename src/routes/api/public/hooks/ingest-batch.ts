@@ -376,6 +376,7 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
 
           // In steady state the processor only works every steady_interval_minutes
           // even though the scheduler wakes on the backlog cadence.
+          let oldestDueAgeMinutes: number | null = null;
           if (queueState.mode === "STEADY_STATE") {
             const cutoff = new Date(
               Date.now() - queueState.interval_minutes * 60_000,
@@ -387,21 +388,46 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
               .gt("tasks_processed", 0)
               .limit(1)
               .maybeSingle();
-            // Do not let a recent small batch throttle a larger sub-threshold backlog.
-            // If more than two steady-state waves (minimum eight tasks) are due,
-            // allow bounded catch-up; the existing batch size and worker budget still apply.
+
+            // A small queue should not be throttled indefinitely when its oldest
+            // due task is already aged. The age read is diagnostic-only: if it
+            // fails, retain the ordinary steady-state throttle.
+            if (recent && queueState.due_tasks > 0) {
+              const { data: oldestDueTask, error: oldestDueTaskError } = await supabaseAdmin
+                .from("ingestion_tasks")
+                .select("run_after")
+                .in("status", ["QUEUED", "RETRY"])
+                .in("task_type", ["DISCOVER", "FETCH", "NORMALIZE"])
+                .lte("run_after", new Date().toISOString())
+                .order("run_after", { ascending: true })
+                .limit(1)
+                .maybeSingle();
+              if (!oldestDueTaskError && oldestDueTask?.run_after) {
+                oldestDueAgeMinutes = Math.max(
+                  0,
+                  (Date.now() - Date.parse(oldestDueTask.run_after)) / 60_000,
+                );
+              }
+            }
+
+            // Permit bounded catch-up when due work is either larger than two
+            // steady-state waves or has waited at least 15 minutes past run_after.
+            // Batch size, concurrency, timeout, provider deferrals and quality gates
+            // remain unchanged.
             if (
               recent &&
               shouldThrottleSteadyStateDrain({
                 recentWork: true,
                 dueTasks: queueState.due_tasks,
                 batchSize: queueState.batch_size,
+                oldestDueAgeMinutes,
               })
             ) {
               const runId = await recordSkippedPipelineRun("steady-state interval not elapsed", {
                 mode: queueState.mode,
                 interval_minutes: queueState.interval_minutes,
                 due_tasks: queueState.due_tasks,
+                oldest_due_age_minutes: oldestDueAgeMinutes,
                 recent_run_id: recent.id,
               });
               return json({
@@ -409,6 +435,7 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
                 run_id: runId,
                 skipped: true,
                 reason: "steady-state interval not elapsed",
+                oldest_due_age_minutes: oldestDueAgeMinutes,
                 ...queueState,
               });
             }
@@ -428,6 +455,7 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
                 mode: queueState.mode,
                 batch_size: batch,
                 due_tasks: queueState.due_tasks,
+                oldest_due_age_minutes: oldestDueAgeMinutes,
               } as never,
             } as never)
             .select("id")
