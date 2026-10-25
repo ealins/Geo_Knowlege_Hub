@@ -1366,6 +1366,56 @@ function queuedClassification(task: { payload?: unknown }): string {
  * candidates before generic research/news pages without changing canonical
  * validation rules.
  */
+/**
+ * Recover stale queue leases, optionally scoped by task type. The drain preflight
+ * scopes this to application-owned DISCOVER/NORMALIZE work so it cannot interfere
+ * with the external FETCH worker. The started_at compare-and-set prevents a slow
+ * recovery scan from reclaiming a task whose lease was renewed during the scan.
+ */
+export async function recoverStaleQueueLeases(
+  taskTypes?: string[],
+): Promise<{ recovered: number; dead: number }> {
+  const now = new Date();
+  const staleBefore = new Date(now.getTime() - 15 * 60_000).toISOString();
+  let staleQuery = supabaseAdmin
+    .from("ingestion_tasks")
+    .select("id, attempts, max_attempts, started_at")
+    .eq("status", "PROCESSING")
+    .lt("started_at", staleBefore);
+  if (taskTypes && taskTypes.length > 0) staleQuery = staleQuery.in("task_type", taskTypes);
+
+  const { data: staleTasks, error: staleError } = await staleQuery.limit(200);
+  if (staleError) throw staleError;
+
+  let recovered = 0;
+  let deadCount = 0;
+  for (const task of staleTasks ?? []) {
+    if (!task.started_at) continue;
+    const dead = task.attempts >= task.max_attempts;
+    const { data: recoveredTask, error: recoveryError } = await supabaseAdmin
+      .from("ingestion_tasks")
+      .update({
+        status: dead ? "DEAD" : "RETRY",
+        started_at: null,
+        run_after: now.toISOString(),
+        updated_at: now.toISOString(),
+        last_error: "Queue worker lease expired before completion",
+      })
+      .eq("id", task.id)
+      .eq("status", "PROCESSING")
+      .eq("started_at", task.started_at)
+      .lt("started_at", staleBefore)
+      .select("id")
+      .maybeSingle();
+    if (recoveryError) throw recoveryError;
+    if (recoveredTask) {
+      recovered += 1;
+      if (dead) deadCount += 1;
+    }
+  }
+  return { recovered, dead: deadCount };
+}
+
 export async function runQueueBatch(
   limit = 8,
   taskTypes?: string[],
@@ -1379,32 +1429,7 @@ export async function runQueueBatch(
   skipped: number;
   details: string[];
 }> {
-  const now = new Date();
-  const staleBefore = new Date(now.getTime() - 15 * 60_000).toISOString();
-  let staleQuery = supabaseAdmin
-    .from("ingestion_tasks")
-    .select("id, attempts, max_attempts")
-    .eq("status", "PROCESSING")
-    .lt("started_at", staleBefore);
-  if (taskTypes && taskTypes.length > 0) staleQuery = staleQuery.in("task_type", taskTypes);
-
-  const { data: staleTasks, error: staleError } = await staleQuery.limit(200);
-  if (staleError) throw staleError;
-  for (const task of staleTasks ?? []) {
-    const dead = task.attempts >= task.max_attempts;
-    const { error: recoveryError } = await supabaseAdmin
-      .from("ingestion_tasks")
-      .update({
-        status: dead ? "DEAD" : "RETRY",
-        started_at: null,
-        run_after: now.toISOString(),
-        last_error: "Queue worker lease expired before completion",
-      })
-      .eq("id", task.id)
-      .eq("status", "PROCESSING")
-      .lt("started_at", staleBefore);
-    if (recoveryError) throw recoveryError;
-  }
+  await recoverStaleQueueLeases(taskTypes);
 
   let query = supabaseAdmin
     .from("ingestion_tasks")
