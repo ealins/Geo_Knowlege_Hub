@@ -14,7 +14,9 @@ on:
     types: [completed]
 
 concurrency:
-  group: geoacademic-freshness-fallback
+  # Isolate each scheduled expression so a pending cron tick cannot replace
+  # another tick. Keep manual and workflow_run events serialized by event type.
+  group: geoacademic-freshness-fallback-${{ github.event_name == 'schedule' && github.event.schedule || github.event_name }}
   cancel-in-progress: false
 
 permissions:
