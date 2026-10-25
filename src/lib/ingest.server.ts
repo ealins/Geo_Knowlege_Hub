@@ -1430,6 +1430,9 @@ export async function runQueueBatch(
   details: string[];
 }> {
   await recoverStaleQueueLeases(taskTypes);
+  // Keep the due-task cutoff local to this batch. Stale-lease recovery has its
+  // own clock; its local variable is not visible in this function.
+  const now = new Date();
 
   let query = supabaseAdmin
     .from("ingestion_tasks")
