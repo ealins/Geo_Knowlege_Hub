@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { hasProviderCircuitOpenSignal, hasProviderGatewayFailureSignal, normalizationWavePolicy, shouldRunNormalizationWave, shouldThrottleSteadyStateDrain } from "./queue-drain-policy";
+import { discoveryFallbackPolicy, hasProviderCircuitOpenSignal, hasProviderGatewayFailureSignal, normalizationWavePolicy, shouldRunNormalizationWave, shouldThrottleSteadyStateDrain } from "./queue-drain-policy";
 
 describe("shouldThrottleSteadyStateDrain", () => {
   test("keeps the interval for a small, recently due queue after recent work", () => {
@@ -126,5 +126,21 @@ describe("shouldRunNormalizationWave", () => {
       processed: 4,
       target: 4,
     })).toBe(false);
+  });
+});
+
+describe("discoveryFallbackPolicy", () => {
+  test("runs one bounded discovery task with a longer budget during provider circuit", () => {
+    expect(discoveryFallbackPolicy(true, 8)).toEqual({
+      limit: 1,
+      timeoutMs: 150_000,
+    });
+  });
+
+  test("preserves the ordinary discovery batch and timeout when the circuit is closed", () => {
+    expect(discoveryFallbackPolicy(false, 4)).toEqual({
+      limit: 4,
+      timeoutMs: 15_000,
+    });
   });
 });

@@ -273,7 +273,7 @@ jobs:
           backfill_passes=0
           while [ "$SECONDS" -lt "$deadline" ]; do
             if ! response="$(curl --fail-with-body --silent --show-error \
-              --connect-timeout 10 --max-time 35 \
+              --connect-timeout 10 --max-time 160 \
               -H "Authorization: Bearer $INGESTION_HOOK_SECRET" \
               -H "Content-Type: application/json" \
               --data '{"action":"drain","limit":4,"trigger":"github-actions-normalize-backlog"}' \

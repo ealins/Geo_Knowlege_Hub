@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type { ExternalFetchCompletion, ExternalReviewCompletion } from "@/lib/ingest.server";
-import { hasProviderCircuitOpenSignal, hasProviderGatewayFailureSignal, normalizationWavePolicy, shouldRunNormalizationWave, shouldThrottleSteadyStateDrain } from "@/lib/queue-drain-policy";
+import { discoveryFallbackPolicy, hasProviderCircuitOpenSignal, hasProviderGatewayFailureSignal, normalizationWavePolicy, shouldRunNormalizationWave, shouldThrottleSteadyStateDrain } from "@/lib/queue-drain-policy";
 
 type Body = {
   action?:
@@ -595,9 +595,13 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
               // production does not inherit the legacy Fly-only environment flag,
               // and a second consumer would invalidate the external worker lease.
               taskGroup = "DISCOVER";
+              // Discovery can perform several bounded network checks and serial
+              // source-registration writes. During a provider circuit, process one
+              // deterministic task with a longer but still bounded caller budget.
+              const discoveryPolicy = discoveryFallbackPolicy(providerCircuitOpen, batch);
               const collection = await withTimeout(
-                runQueueBatch(batch, ["DISCOVER"]),
-                15_000,
+                runQueueBatch(discoveryPolicy.limit, ["DISCOVER"], 1),
+                discoveryPolicy.timeoutMs,
                 "discovery batch",
               );
               result.processed = collection.processed;
