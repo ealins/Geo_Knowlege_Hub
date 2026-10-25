@@ -402,9 +402,9 @@ export async function callNemotron(call: NemotronCall): Promise<NemotronResult> 
 
   // A sustained primary gateway outage with no independent route can
   // otherwise cause every queued record to make another doomed network request.
-  // Use the same 30-minute window as normalization deferral so a still-deferred
-  // backlog does not immediately re-probe a known-bad primary gateway. Fail open
-  // if telemetry is unavailable; configured independent fallbacks bypass the circuit.
+  // Count gateway failures across the same 30-minute window used by normalization
+  // deferral, rather than the previous 5-minute window. Fail open if telemetry is
+  // unavailable; configured independent fallbacks bypass the circuit.
   const hasIndependentFallback = Boolean(
     process.env["OPENAI_API_KEY"]?.trim() ||
       (process.env["OPENROUTER_API_KEY"]?.trim() && process.env["OPENROUTER_MODEL"]?.trim()),
