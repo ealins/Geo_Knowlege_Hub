@@ -51,9 +51,17 @@ export function shouldRetryPrimaryProvider(input: {
 }): boolean {
   if (input.errorCode === "HTTP_530" || input.errorCode === "GATEWAY_5XX") return false;
 
-  // When a separate provider is configured, fail over on the first primary
-  // 5xx instead of spending another attempt against the same failing gateway.
-  // Without a fallback, preserve the existing bounded retry behavior.
+  // Do not repeat the same primary route after a confirmed gateway 502/503/504
+  // when no independent provider is configured. The queue will defer the task
+  // for the existing 30-minute circuit window instead of burning retries.
+  if (
+    !input.independentFallbackConfigured &&
+    /^(?:HTTP_(?:502|503|504)|GATEWAY_5XX)$/.test(input.errorCode ?? "")
+  ) {
+    return false;
+  }
+
+  // With a separate provider configured, fail over on the first primary 5xx.
   if (input.independentFallbackConfigured && /^HTTP_5\d{2}$/.test(input.errorCode ?? "")) {
     return false;
   }
@@ -71,7 +79,7 @@ export function getNormalizationProviderDeferralMinutes(
   reason: string | null | undefined,
 ): number | null {
   if (!reason?.startsWith("TRANSIENT_EXTRACTION_FAILURE")) return null;
-  if (!/\b(?:HTTP_530|GATEWAY_5XX)\b/.test(reason)) return null;
+  if (!/\b(?:HTTP_502|HTTP_503|HTTP_504|HTTP_530|GATEWAY_5XX)\b/.test(reason)) return null;
   if (!/no independent fallback is configured/i.test(reason)) return null;
   return 30;
 }
