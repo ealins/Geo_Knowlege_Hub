@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { hasProviderCircuitOpenSignal, hasProviderGatewayFailureSignal, normalizationWavePolicy, shouldThrottleSteadyStateDrain } from "./queue-drain-policy";
+import { hasProviderCircuitOpenSignal, hasProviderGatewayFailureSignal, normalizationWavePolicy, shouldRunNormalizationWave, shouldThrottleSteadyStateDrain } from "./queue-drain-policy";
 
 describe("shouldThrottleSteadyStateDrain", () => {
   test("keeps the interval for a small, recently due queue after recent work", () => {
@@ -103,5 +103,28 @@ describe("provider gateway failure signals", () => {
   test("does not classify ordinary extraction validation failures as gateway outages", () => {
     expect(hasProviderGatewayFailureSignal(["FAILED NORMALIZE: missing title"])).toBe(false);
     expect(hasProviderCircuitOpenSignal(["FAILED NORMALIZE: missing title"])).toBe(false);
+  });
+});
+
+describe("shouldRunNormalizationWave", () => {
+  test("does not claim normalization work while the provider circuit is open", () => {
+    expect(shouldRunNormalizationWave({
+      providerCircuitOpen: true,
+      processed: 0,
+      target: 4,
+    })).toBe(false);
+  });
+
+  test("continues bounded normalization waves when the circuit is closed", () => {
+    expect(shouldRunNormalizationWave({
+      providerCircuitOpen: false,
+      processed: 0,
+      target: 4,
+    })).toBe(true);
+    expect(shouldRunNormalizationWave({
+      providerCircuitOpen: false,
+      processed: 4,
+      target: 4,
+    })).toBe(false);
   });
 });
