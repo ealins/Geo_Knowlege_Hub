@@ -541,7 +541,7 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
             const result = emptyResult();
             if (providerCircuitReason) result.details.push(providerCircuitReason);
             let normalizeWaves = 0;
-            let taskGroup: "NORMALIZE" | "FETCH_DISCOVER" = "NORMALIZE";
+            let taskGroup: "NORMALIZE" | "DISCOVER" = "NORMALIZE";
 
             while (
               shouldRunNormalizationWave({
