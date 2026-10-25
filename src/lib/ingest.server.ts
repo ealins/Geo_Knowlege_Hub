@@ -1367,9 +1367,10 @@ function queuedClassification(task: { payload?: unknown }): string {
  * validation rules.
  */
 /**
- * Recover stale application-owned queue leases without touching external FETCH
- * leases unless the caller explicitly requests them. The started_at compare-and-set
- * prevents a slow recovery scan from reclaiming a task that a worker has renewed.
+ * Recover stale queue leases, optionally scoped by task type. The drain preflight
+ * scopes this to application-owned DISCOVER/NORMALIZE work so it cannot interfere
+ * with the external FETCH worker. The started_at compare-and-set prevents a slow
+ * recovery scan from reclaiming a task whose lease was renewed during the scan.
  */
 export async function recoverStaleQueueLeases(
   taskTypes?: string[],
