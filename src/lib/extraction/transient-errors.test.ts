@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { isTransientExtractionError, shouldUseOpenRouterFallback, shouldUseOpenAIFallback, shouldRetryPrimaryProvider, getNormalizationProviderDeferralMinutes, shouldOpenOmniRouteCircuit } from "./transient-errors";
+import { isTransientExtractionError, shouldUseOpenRouterFallback, shouldUseOpenAIFallback, shouldRetryPrimaryProvider, getNormalizationProviderDeferralMinutes, shouldOpenOmniRouteCircuit, OMNIROUTE_CIRCUIT_WINDOW_MS } from "./transient-errors";
 
 describe("isTransientExtractionError", () => {
   test("retries common transient provider failures", () => {
@@ -120,6 +120,17 @@ describe("getNormalizationProviderDeferralMinutes", () => {
     expect(getNormalizationProviderDeferralMinutes("missing title")).toBe(null);
   });
 });
+
+describe("OMNIROUTE_CIRCUIT_WINDOW_MS", () => {
+  test("matches the 30-minute normalization deferral window", () => {
+    const deferralMinutes = getNormalizationProviderDeferralMinutes(
+      "TRANSIENT_EXTRACTION_FAILURE GATEWAY_5XX: circuit open; no independent fallback is configured",
+    );
+    expect(deferralMinutes).toBe(30);
+    expect(OMNIROUTE_CIRCUIT_WINDOW_MS).toBe((deferralMinutes ?? 0) * 60_000);
+  });
+});
+
 
 describe("shouldOpenOmniRouteCircuit", () => {
   test("opens after repeated gateway 502/503/530 failures when no fallback is configured", () => {
