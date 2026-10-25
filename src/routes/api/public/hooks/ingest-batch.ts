@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type { ExternalFetchCompletion, ExternalReviewCompletion } from "@/lib/ingest.server";
-import { hasProviderCircuitOpenSignal, hasProviderGatewayFailureSignal, normalizationWavePolicy, shouldThrottleSteadyStateDrain } from "@/lib/queue-drain-policy";
+import { hasProviderCircuitOpenSignal, hasProviderGatewayFailureSignal, normalizationWavePolicy, shouldRunNormalizationWave, shouldThrottleSteadyStateDrain } from "@/lib/queue-drain-policy";
 
 type Body = {
   action?:
@@ -413,32 +413,12 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
             }
           }
 
-          if (providerCircuitOpen) {
-            const reason =
-              "CIRCUIT_OPEN_GATEWAY_5XX: drain skipped before claiming tasks; provider circuit is open and no independent fallback is configured";
-            const runId = await recordSkippedPipelineRun("provider circuit open", {
-              mode: queueState.mode,
-              due_tasks: queueState.due_tasks,
-              provider_circuit_open: true,
-              marker: reason,
-            });
-            return json({
-              action: "drain",
-              run_id: runId,
-              skipped: true,
-              reason,
-              provider_circuit_open: true,
-              processed: 0,
-              ok: 0,
-              failed: 0,
-              dead: 0,
-              normalized: 0,
-              details: [reason],
-              stale_leases_recovered: staleLeaseRecovery.recovered,
-              stale_leases_dead: staleLeaseRecovery.dead,
-              ...queueState,
-            });
-          }
+          // Keep the circuit guard scoped to model-dependent NORMALIZE work.
+          // The ordinary discovery fallback below is deterministic and should still
+          // progress while the AI provider is unavailable.
+          const providerCircuitReason = providerCircuitOpen
+            ? "CIRCUIT_OPEN_GATEWAY_5XX: normalization deferred before claiming tasks; deterministic discovery may continue and no independent fallback is configured"
+            : null;
 
           // In steady state the processor only works every steady_interval_minutes
           // even though the scheduler wakes on the backlog cadence.
@@ -558,11 +538,16 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
               details: [] as string[],
             });
             const result = emptyResult();
+            if (providerCircuitReason) result.details.push(providerCircuitReason);
             let normalizeWaves = 0;
             let taskGroup: "NORMALIZE" | "FETCH_DISCOVER" = "NORMALIZE";
 
             while (
-              result.processed < normalizeTarget &&
+              shouldRunNormalizationWave({
+                providerCircuitOpen,
+                processed: result.processed,
+                target: normalizeTarget,
+              }) &&
               Date.now() - startedAt.getTime() < normalizeBudgetMs
             ) {
               const remaining = normalizeTarget - result.processed;
