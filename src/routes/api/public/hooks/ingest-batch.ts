@@ -400,7 +400,7 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
               .select("id", { count: "exact", head: true })
               .eq("provider", AI_PROVIDER)
               .eq("status", "FAILED")
-              .in("http_status", [502, 503, 530])
+              .in("http_status", [502, 503, 504, 530])
               .gte("created_at", circuitWindowStart);
 
             // Fail open on telemetry-read errors; a database read issue must not

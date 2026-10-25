@@ -91,7 +91,7 @@ export function getNormalizationProviderDeferralMinutes(
 
 /**
  * Avoid repeated requests to a provider during a confirmed gateway outage when
- * no independent route is configured. Count only actual 502/503/530 responses;
+ * no independent route is configured. Count actual 502/503/504/530 responses;
  * circuit-open telemetry has no HTTP status and cannot extend the window.
  */
 export function shouldOpenOmniRouteCircuit(input: {
