@@ -595,9 +595,13 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
               // production does not inherit the legacy Fly-only environment flag,
               // and a second consumer would invalidate the external worker lease.
               taskGroup = "DISCOVER";
+              // Discovery checks up to three institution seed URLs serially and can
+              // exceed 15 seconds even before its bounded source-registration writes.
+              // Process one discovery task per circuit-open tick and leave margin under
+              // the workflow caller's 35-second request deadline.
               const collection = await withTimeout(
-                runQueueBatch(batch, ["DISCOVER"]),
-                15_000,
+                runQueueBatch(1, ["DISCOVER"], 1),
+                28_000,
                 "discovery batch",
               );
               result.processed = collection.processed;
