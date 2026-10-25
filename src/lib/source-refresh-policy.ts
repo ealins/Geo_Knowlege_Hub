@@ -1,5 +1,24 @@
 const HOUR_MS = 60 * 60 * 1000;
 
+/** Match the scheduler's stored refresh interval and adaptive-backoff ceiling. */
+export function effectiveSourceRefreshHours(
+  baseHours: number,
+  storedHours: number | null | undefined,
+  adaptiveBackoffMax: number,
+): number {
+  return Math.min(Math.max(storedHours ?? baseHours, baseHours), baseHours * adaptiveBackoffMax);
+}
+
+/** True when the source's effective refresh interval has elapsed. */
+export function isSourceRefreshDue(
+  lastSuccessAt: string | null | undefined,
+  effectiveHours: number,
+  nowMs = Date.now(),
+): boolean {
+  const last = lastSuccessAt ? Date.parse(lastSuccessAt) : 0;
+  return !last || nowMs - last >= effectiveHours * HOUR_MS;
+}
+
 export type SourceRefreshFailureInput = {
   lastSuccessAt?: string | null;
   lastFailureAt?: string | null;
