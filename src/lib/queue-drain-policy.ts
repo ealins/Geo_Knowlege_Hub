@@ -78,3 +78,16 @@ export function shouldRunNormalizationWave(input: {
 }): boolean {
   return !input.providerCircuitOpen && input.processed < input.target;
 }
+
+/**
+ * Keep ordinary discovery bounded, but allow one slow deterministic discovery
+ * task to finish during an AI-provider circuit without claiming NORMALIZE work.
+ * The circuit-open timeout is below the workflow caller's HTTP deadline.
+ */
+export function discoveryFallbackPolicy(
+  providerCircuitOpen: boolean,
+  batch: number,
+): { limit: number; timeoutMs: number } {
+  if (providerCircuitOpen) return { limit: 1, timeoutMs: 150_000 };
+  return { limit: Math.max(1, Math.floor(batch)), timeoutMs: 15_000 };
+}
