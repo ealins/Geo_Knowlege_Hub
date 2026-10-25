@@ -1,6 +1,7 @@
 import { createServerFn } from "@tanstack/react-start";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 import { effectiveSourceRefreshHours, isSourceRefreshDue } from "./source-refresh-policy";
+import { requirePipelineHealthCount } from "./pipeline-health-count";
 
 export type StageCounts = {
   sources_total: number;
@@ -92,8 +93,7 @@ export const getPipelineHealth = createServerFn({ method: "GET" })
         count: number | null;
         error: unknown;
       };
-      if (error) return 0;
-      return c ?? 0;
+      return requirePipelineHealthCount(table, c, error);
     };
 
     const [
