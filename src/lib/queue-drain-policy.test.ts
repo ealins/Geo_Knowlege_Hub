@@ -94,6 +94,12 @@ describe("provider gateway failure signals", () => {
     ])).toBe(true);
   });
 
+  test("detects HTTP 504 so the drain stops before claiming another normalization task", () => {
+    expect(hasProviderGatewayFailureSignal([
+      "DEFERRED NORMALIZE: TRANSIENT_EXTRACTION_FAILURE HTTP_504: gateway timeout",
+    ])).toBe(true);
+  });
+
   test("detects an explicit circuit-open response", () => {
     expect(hasProviderCircuitOpenSignal([
       "DEFERRED NORMALIZE: circuit open after repeated recent primary gateway HTTP 502/503/530 failures",
