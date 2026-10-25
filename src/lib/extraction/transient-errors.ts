@@ -1,6 +1,11 @@
 /** Keep preflight circuit checks aligned with the normalization retry deferral. */
 export const OMNIROUTE_CIRCUIT_WINDOW_MS = 30 * 60_000;
 
+/** Return the database preflight cutoff using the same window as queue deferral. */
+export function getOmniRouteCircuitWindowStart(nowMs = Date.now()): string {
+  return new Date(nowMs - OMNIROUTE_CIRCUIT_WINDOW_MS).toISOString();
+}
+
 /** Provider outages are retryable; business-rule and schema rejections are not. */
 export function isTransientExtractionError(errorCode: string | null | undefined): boolean {
   if (!errorCode) return false;

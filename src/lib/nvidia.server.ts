@@ -13,7 +13,7 @@ import {
   type LlmOperation,
   type NvidiaModelTier,
 } from "./llm-config.server";
-import { shouldUseOpenRouterFallback, shouldUseOpenAIFallback, shouldRetryPrimaryProvider, shouldOpenOmniRouteCircuit } from "./extraction/transient-errors";
+import { getOmniRouteCircuitWindowStart, shouldUseOpenRouterFallback, shouldUseOpenAIFallback, shouldRetryPrimaryProvider, shouldOpenOmniRouteCircuit } from "./extraction/transient-errors";
 import { hasConfiguredAiProvider } from "./ai-provider-config";
 
 export type NemotronCall = {
@@ -402,14 +402,15 @@ export async function callNemotron(call: NemotronCall): Promise<NemotronResult> 
 
   // A sustained primary gateway outage with no independent route can
   // otherwise cause every queued record to make another doomed network request.
-  // Open a short, database-backed circuit after three real 502/503/530 responses
-  // in five minutes. Fail open if telemetry is unavailable; configured fallbacks bypass it.
+  // Count gateway failures across the same 30-minute window used by normalization
+  // deferral, rather than the previous 5-minute window. Fail open if telemetry is
+  // unavailable; configured independent fallbacks bypass the circuit.
   const hasIndependentFallback = Boolean(
     process.env["OPENAI_API_KEY"]?.trim() ||
       (process.env["OPENROUTER_API_KEY"]?.trim() && process.env["OPENROUTER_MODEL"]?.trim()),
   );
   if (!hasIndependentFallback) {
-    const circuitWindowStart = new Date(Date.now() - 5 * 60_000).toISOString();
+    const circuitWindowStart = getOmniRouteCircuitWindowStart();
     const { count: recentGatewayFailures, error: circuitReadError } = await supabaseAdmin
       .from("llm_processing_runs")
       .select("id", { count: "exact", head: true })
