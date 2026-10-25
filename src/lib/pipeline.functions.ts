@@ -1,5 +1,6 @@
 import { createServerFn } from "@tanstack/react-start";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
+import { effectiveSourceRefreshHours, isSourceRefreshDue } from "./source-refresh-policy";
 
 export type StageCounts = {
   sources_total: number;
@@ -423,13 +424,14 @@ export const getOperationsSummary = createServerFn({ method: "GET" })
     const sourceRows: {
       category: string | null;
       last_success_at: string | null;
+      refresh_frequency_hours: number | null;
       status: string | null;
     }[] = [];
     const sourcePageSize = 1000;
     for (let offset = 0; ; offset += sourcePageSize) {
       const { data, error } = await supabaseAdmin
         .from("sources")
-        .select("category, last_success_at, status")
+        .select("category, last_success_at, refresh_frequency_hours, status")
         .eq("active", true)
         .order("id", { ascending: true })
         .range(offset, offset + sourcePageSize - 1);
@@ -445,8 +447,12 @@ export const getOperationsSummary = createServerFn({ method: "GET" })
       const rows = sourceRows.filter((s) => (s.category ?? "default") === category);
       const due = rows.filter((s) => {
         if (s.status === "BLOCKED") return false;
-        if (!s.last_success_at) return true;
-        return now - new Date(s.last_success_at).getTime() >= hours * 3_600_000;
+        const effectiveHours = effectiveSourceRefreshHours(
+          hours,
+          s.refresh_frequency_hours,
+          config.adaptive_backoff_max,
+        );
+        return isSourceRefreshDue(s.last_success_at, effectiveHours, now);
       }).length;
       return { category, label, refresh_hours: hours, sources: rows.length, due_now: due };
     });

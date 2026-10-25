@@ -1,7 +1,22 @@
 import { describe, expect, test } from "bun:test";
-import { getSourceRefreshSkipReason, shouldBackoffSourceAfterFailure, shouldReprobeBlocked403Source } from "./source-refresh-policy";
+import { effectiveSourceRefreshHours, getSourceRefreshSkipReason, isSourceRefreshDue, shouldBackoffSourceAfterFailure, shouldReprobeBlocked403Source } from "./source-refresh-policy";
 
 const now = Date.parse("2026-10-24T03:00:00.000Z");
+const hourMs = 60 * 60 * 1000;
+
+describe("effectiveSourceRefreshHours and isSourceRefreshDue", () => {
+  test("clamps stored intervals to the base cadence and adaptive ceiling", () => {
+    expect(effectiveSourceRefreshHours(24, 12, 2)).toBe(24);
+    expect(effectiveSourceRefreshHours(24, 72, 2)).toBe(48);
+    expect(effectiveSourceRefreshHours(24, null, 2)).toBe(24);
+  });
+
+  test("uses the effective interval and treats never-successful sources as due", () => {
+    expect(isSourceRefreshDue(new Date(now - 30 * hourMs).toISOString(), 48, now)).toBe(false);
+    expect(isSourceRefreshDue(new Date(now - 48 * hourMs).toISOString(), 48, now)).toBe(true);
+    expect(isSourceRefreshDue(null, 48, now)).toBe(true);
+  });
+});
 
 describe("shouldBackoffSourceAfterFailure", () => {
   test("backs off repeated forbidden responses for 24 hours", () => {
