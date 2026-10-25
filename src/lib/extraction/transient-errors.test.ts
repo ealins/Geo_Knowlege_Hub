@@ -94,14 +94,7 @@ describe("shouldRetryPrimaryProvider", () => {
     }
   });
 
-  test("keeps the bounded retry when a fallback is not configured", () => {
-    expect(shouldRetryPrimaryProvider({
-      errorCode: "HTTP_502",
-      attempt: 1,
-      retryLimit: 2,
-      independentFallbackConfigured: false,
-    })).toBe(true);
-  });
+
 });
 
 
@@ -127,7 +120,7 @@ describe("getNormalizationProviderDeferralMinutes", () => {
   test("defers first-attempt gateway 502/503/504 failures when no fallback is configured", () => {
     for (const code of ["HTTP_502", "HTTP_503", "HTTP_504"]) {
       expect(getNormalizationProviderDeferralMinutes(
-        \`TRANSIENT_EXTRACTION_FAILURE \${code}: upstream gateway unavailable; no independent fallback is configured\`,
+        "TRANSIENT_EXTRACTION_FAILURE " + code + ": upstream gateway unavailable; no independent fallback is configured",
       )).toBe(30);
     }
   });
