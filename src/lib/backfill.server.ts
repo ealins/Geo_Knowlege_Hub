@@ -3,7 +3,7 @@
 // here calls a model — it only enqueues tasks that the deployed autonomous
 // drain loop processes with the existing gates, cache and validators.
 import { supabaseAdmin } from "@/integrations/supabase/client.server";
-import { countUnsupportedPending } from "./backfill-coverage";
+import { countUnsupportedPending, getBackfillQueueDisposition } from "./backfill-coverage";
 import { shouldRetryInstitutionlessVacancy } from "./semantic-recovery-policy";
 
 /** Skip reasons written before the entity extractors existed — safe to retry. */
@@ -28,6 +28,10 @@ export type BackfillPlan = {
   raw_candidates: number;
   queued: number;
   already_queued: number;
+  /** Open tasks that target the exact selected raw snapshot. */
+  exact_snapshot_queued: number;
+  /** Candidates deferred because another snapshot already occupies the source's one-task slot. */
+  deferred_by_source: number;
   /** Pending raw rows whose classifications have no canonical backfill extractor. */
   unsupported_pending: number;
   by_classification: Record<string, number>;
@@ -42,6 +46,8 @@ export async function enqueueRawBackfill(limit = 400): Promise<BackfillPlan> {
     raw_candidates: 0,
     queued: 0,
     already_queued: 0,
+    exact_snapshot_queued: 0,
+    deferred_by_source: 0,
     unsupported_pending: 0,
     by_classification: {},
   };
@@ -151,12 +157,20 @@ export async function enqueueRawBackfill(limit = 400): Promise<BackfillPlan> {
 
   const { data: openTasks } = await supabaseAdmin
     .from("ingestion_tasks")
-    .select("source_id")
+    .select("source_id, payload")
     .eq("task_type", "NORMALIZE")
     .in("status", ["QUEUED", "PROCESSING", "RETRY"]);
-  const open = new Set(
-    (openTasks ?? []).map((t) => t.source_id).filter(Boolean) as string[],
-  );
+  const openBySource = new Map<string, Record<string, unknown>[]>();
+  for (const task of openTasks ?? []) {
+    if (!task.source_id) continue;
+    const payload =
+      task.payload && typeof task.payload === "object" && !Array.isArray(task.payload)
+        ? (task.payload as Record<string, unknown>)
+        : {};
+    const existing = openBySource.get(task.source_id) ?? [];
+    existing.push(payload);
+    openBySource.set(task.source_id, existing);
+  }
 
   const rows: {
     task_type: string;
@@ -167,8 +181,17 @@ export async function enqueueRawBackfill(limit = 400): Promise<BackfillPlan> {
     const { classification, rawRecordId } = candidate;
     plan.by_classification[classification] =
       (plan.by_classification[classification] ?? 0) + 1;
-    if (open.has(sourceId)) {
+    const openPayloads = openBySource.get(sourceId) ?? [];
+    if (openPayloads.length > 0) {
+      // Keep the legacy source-level counter for compatibility, but expose
+      // whether this exact raw snapshot is actually targeted by an open task.
       plan.already_queued += 1;
+      const disposition = getBackfillQueueDisposition(rawRecordId, openPayloads);
+      if (disposition === "EXACT_SNAPSHOT_OPEN") {
+        plan.exact_snapshot_queued += 1;
+      } else {
+        plan.deferred_by_source += 1;
+      }
       continue;
     }
     if (rows.length >= limit) continue;
