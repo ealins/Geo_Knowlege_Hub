@@ -14,6 +14,7 @@ import {
   type NvidiaModelTier,
 } from "./llm-config.server";
 import { shouldUseOpenRouterFallback, shouldUseOpenAIFallback, shouldRetryPrimaryProvider, shouldOpenOmniRouteCircuit } from "./extraction/transient-errors";
+import { hasConfiguredAiProvider } from "./ai-provider-config";
 
 export type NemotronCall = {
   system: string;
@@ -67,12 +68,7 @@ function release(): void {
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
 export function isAIConfigured(): boolean {
-  return Boolean(
-    process.env["OPENAI_API_KEY"]?.trim() ||
-    process.env["OMNIROUTE_API_KEY"] ||
-    process.env["OMNIROUTE_URL"] ||
-    (process.env["OPENROUTER_API_KEY"]?.trim() && process.env["OPENROUTER_MODEL"]?.trim()),
-  );
+  return hasConfiguredAiProvider(process.env);
 }
 export const isNvidiaConfigured = isAIConfigured;
 
@@ -353,7 +349,7 @@ export async function callNemotron(call: NemotronCall): Promise<NemotronResult> 
     input_characters: call.system.length + call.user.length,
   };
 
-  const apiKey = process.env["OMNIROUTE_API_KEY"];
+  const apiKey = process.env["OMNIROUTE_API_KEY"]?.trim();
   const endpoint = process.env["OMNIROUTE_URL"]?.replace(/\/$/, "") ?? "https://omniroute.geoacademic.app/v1";
   const providerModel = model;
   if (!apiKey) {
