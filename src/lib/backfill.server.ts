@@ -4,6 +4,7 @@
 // drain loop processes with the existing gates, cache and validators.
 import { supabaseAdmin } from "@/integrations/supabase/client.server";
 import { countUnsupportedPending, getBackfillQueueDisposition } from "./backfill-coverage";
+import { assertBackfillDbSuccess } from "./backfill-db-errors";
 import { shouldRetryInstitutionlessVacancy } from "./semantic-recovery-policy";
 
 /** Skip reasons written before the entity extractors existed — safe to retry. */
@@ -155,11 +156,13 @@ export async function enqueueRawBackfill(limit = 400): Promise<BackfillPlan> {
   }
   plan.raw_candidates = bySource.size;
 
-  const { data: openTasks } = await supabaseAdmin
+  const openTasksResult = await supabaseAdmin
     .from("ingestion_tasks")
     .select("source_id, payload")
     .eq("task_type", "NORMALIZE")
     .in("status", ["QUEUED", "PROCESSING", "RETRY"]);
+  assertBackfillDbSuccess("inspect open normalization tasks", openTasksResult.error);
+  const openTasks = openTasksResult.data ?? [];
   const openBySource = new Map<string, Record<string, unknown>[]>();
   for (const task of openTasks ?? []) {
     if (!task.source_id) continue;
@@ -207,7 +210,8 @@ export async function enqueueRawBackfill(limit = 400): Promise<BackfillPlan> {
     const { error } = await supabaseAdmin
       .from("ingestion_tasks")
       .insert(chunk as never);
-    if (!error) plan.queued += chunk.length;
+    assertBackfillDbSuccess(`insert normalization task batch ${Math.floor(i / 100) + 1}`, error);
+    plan.queued += chunk.length;
   }
   return plan;
 }
