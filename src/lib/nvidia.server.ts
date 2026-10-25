@@ -416,7 +416,7 @@ export async function callNemotron(call: NemotronCall): Promise<NemotronResult> 
       .select("id", { count: "exact", head: true })
       .eq("provider", AI_PROVIDER)
       .eq("status", "FAILED")
-      .in("http_status", [502, 503, 530])
+      .in("http_status", [502, 503, 504, 530])
       .gte("created_at", circuitWindowStart);
 
     // Telemetry read errors must not prevent a legitimate provider attempt.
@@ -429,7 +429,7 @@ export async function callNemotron(call: NemotronCall): Promise<NemotronResult> 
     ) {
       const circuitTime = new Date().toISOString();
       const circuitMessage =
-        "TRANSIENT_EXTRACTION_FAILURE GATEWAY_5XX: circuit open after repeated recent primary gateway HTTP 502/503/530 failures; no independent fallback is configured (set OPENAI_API_KEY or OPENROUTER_API_KEY with OPENROUTER_MODEL)";
+        "TRANSIENT_EXTRACTION_FAILURE GATEWAY_5XX: circuit open after repeated recent primary gateway HTTP 502/503/504/530 failures; no independent fallback is configured (set OPENAI_API_KEY or OPENROUTER_API_KEY with OPENROUTER_MODEL)";
       const runId = await logRun({
         ...base,
         started_at: circuitTime,
