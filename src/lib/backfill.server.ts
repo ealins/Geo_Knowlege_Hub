@@ -3,6 +3,7 @@
 // here calls a model — it only enqueues tasks that the deployed autonomous
 // drain loop processes with the existing gates, cache and validators.
 import { supabaseAdmin } from "@/integrations/supabase/client.server";
+import { countUnsupportedPending } from "./backfill-coverage";
 import { shouldRetryInstitutionlessVacancy } from "./semantic-recovery-policy";
 
 /** Skip reasons written before the entity extractors existed — safe to retry. */
@@ -27,6 +28,8 @@ export type BackfillPlan = {
   raw_candidates: number;
   queued: number;
   already_queued: number;
+  /** Pending raw rows whose classifications have no canonical backfill extractor. */
+  unsupported_pending: number;
   by_classification: Record<string, number>;
 };
 
@@ -39,6 +42,7 @@ export async function enqueueRawBackfill(limit = 400): Promise<BackfillPlan> {
     raw_candidates: 0,
     queued: 0,
     already_queued: 0,
+    unsupported_pending: 0,
     by_classification: {},
   };
 
@@ -48,7 +52,12 @@ export async function enqueueRawBackfill(limit = 400): Promise<BackfillPlan> {
   // Query pending rows independently and oldest-first. Previously we took the
   // newest 2,000 raw records and only then filtered in memory; a steady stream of
   // newer records could permanently hide older PENDING rows from backfill.
-  const [pendingResult, retryableResult] = await Promise.all([
+  const [
+    pendingResult,
+    retryableResult,
+    allPendingCountResult,
+    supportedPendingCountResult,
+  ] = await Promise.all([
     supabaseAdmin
       .from("raw_records")
       .select(rawFields)
@@ -63,9 +72,27 @@ export async function enqueueRawBackfill(limit = 400): Promise<BackfillPlan> {
       .in("normalization_status", ["FAILED", "SKIPPED"])
       .order("fetched_at", { ascending: false })
       .limit(2000),
+    supabaseAdmin
+      .from("raw_records")
+      .select("id", { count: "exact", head: true })
+      .eq("normalization_status", "PENDING"),
+    supabaseAdmin
+      .from("raw_records")
+      .select("id", { count: "exact", head: true })
+      .eq("normalization_status", "PENDING")
+      .in("classification", BACKFILL_CLASSIFICATIONS as unknown as string[]),
   ]);
   if (pendingResult.error) throw pendingResult.error;
   if (retryableResult.error) throw retryableResult.error;
+  if (allPendingCountResult.error) throw allPendingCountResult.error;
+  if (supportedPendingCountResult.error) throw supportedPendingCountResult.error;
+  if (allPendingCountResult.count == null || supportedPendingCountResult.count == null) {
+    throw new Error("Could not calculate pending raw-record backfill coverage");
+  }
+  plan.unsupported_pending = countUnsupportedPending(
+    allPendingCountResult.count,
+    supportedPendingCountResult.count,
+  );
   const raws = [...(pendingResult.data ?? []), ...(retryableResult.data ?? [])];
 
   const candidates = raws.filter((r) => {
