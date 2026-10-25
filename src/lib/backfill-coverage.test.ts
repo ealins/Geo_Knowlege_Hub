@@ -54,7 +54,7 @@ describe("assertBackfillDbSuccess", () => {
         message: "statement timeout",
         code: "57014",
       }),
-    ).toThrow("Raw-record backfill could not inspect open normalization tasks: statement timeout");
+    ).toThrow("Backfill could not inspect open normalization tasks: statement timeout");
   });
 
   test("surfaces failed insert batches instead of under-reporting queued tasks", () => {
@@ -62,11 +62,20 @@ describe("assertBackfillDbSuccess", () => {
       assertBackfillDbSuccess("insert normalization task batch 2", {
         message: "duplicate key value violates unique constraint",
       }),
-    ).toThrow("Raw-record backfill could not insert normalization task batch 2: duplicate key value violates unique constraint");
+    ).toThrow("Backfill could not insert normalization task batch 2: duplicate key value violates unique constraint");
+  });
+
+  test("surfaces structured-provider queue query failures with the operation context", () => {
+    expect(() =>
+      assertBackfillDbSuccess("inspect open structured-provider tasks", {
+        message: "statement timeout",
+        code: "57014",
+      }),
+    ).toThrow("Backfill could not inspect open structured-provider tasks: statement timeout");
   });
 
   test("uses the database error code when the message is empty", () => {
     expect(() => assertBackfillDbSuccess("inspect open normalization tasks", { code: "57014" }))
-      .toThrow("Raw-record backfill could not inspect open normalization tasks: 57014");
+      .toThrow("Backfill could not inspect open normalization tasks: 57014");
   });
 });

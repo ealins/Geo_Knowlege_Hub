@@ -235,7 +235,7 @@ export async function enqueueProviderBackfill(
     projects_queued: 0,
   };
 
-  const { data: openTasks } = await supabaseAdmin
+  const openTasksResult = await supabaseAdmin
     .from("ingestion_tasks")
     .select("task_type, institution_id")
     .in("task_type", [
@@ -244,6 +244,8 @@ export async function enqueueProviderBackfill(
       "IMPORT_PROJECTS",
     ])
     .in("status", ["QUEUED", "PROCESSING", "RETRY"]);
+  assertBackfillDbSuccess("inspect open structured-provider tasks", openTasksResult.error);
+
   const recentTerminalTasks = await supabaseAdmin
     .from("ingestion_tasks")
     .select("task_type, institution_id")
@@ -254,20 +256,23 @@ export async function enqueueProviderBackfill(
     ])
     .in("status", ["COMPLETE", "DEAD"])
     .gte("updated_at", new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString());
+  assertBackfillDbSuccess("inspect recently handled structured-provider tasks", recentTerminalTasks.error);
 
   // Do not repeatedly enqueue the same provider import every 15-minute tick.
   // A completed or exhausted task is considered recently handled for seven
   // days; queued/retry/processing tasks remain protected by openKey.
   const openKey = new Set([
-    ...(openTasks ?? []).map((t) => `${t.task_type}:${t.institution_id}`),
+    ...(openTasksResult.data ?? []).map((t) => `${t.task_type}:${t.institution_id}`),
     ...((recentTerminalTasks.data ?? []).map((t) => `${t.task_type}:${t.institution_id}`)),
   ]);
 
-  const { data: institutions } = await supabaseAdmin
+  const institutionsResult = await supabaseAdmin
     .from("institutions")
     .select("id, name, institution_identifier, is_demo")
     .order("is_demo", { ascending: false })
     .limit(500);
+  assertBackfillDbSuccess("list institutions for structured-provider backfill", institutionsResult.error);
+  const institutions = institutionsResult.data ?? [];
 
   const rows: {
     task_type: string;
@@ -318,9 +323,10 @@ export async function enqueueProviderBackfill(
   }
 
   for (let i = 0; i < rows.length; i += 100) {
-    await supabaseAdmin
+    const { error } = await supabaseAdmin
       .from("ingestion_tasks")
       .insert(rows.slice(i, i + 100) as never);
+    assertBackfillDbSuccess(`insert structured-provider task batch ${Math.floor(i / 100) + 1}`, error);
   }
   return out;
 }
