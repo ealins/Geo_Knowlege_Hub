@@ -618,7 +618,7 @@ export async function callNemotron(call: NemotronCall): Promise<NemotronResult> 
         }
       }
       if (
-        errorCode === "HTTP_530" &&
+        ["HTTP_502", "HTTP_503", "HTTP_504", "HTTP_530"].includes(errorCode ?? "") &&
         !process.env["OPENAI_API_KEY"]?.trim() &&
         !(process.env["OPENROUTER_API_KEY"]?.trim() && process.env["OPENROUTER_MODEL"]?.trim())
       ) {
