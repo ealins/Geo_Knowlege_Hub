@@ -4,6 +4,7 @@
 import { supabaseAdmin } from "@/integrations/supabase/client.server";
 import { effectiveSourceRefreshHours, getSourceRefreshSkipReason, isSourceRefreshDue, shouldBackoffSourceAfterFailure, shouldReprobeBlocked403Source } from "./source-refresh-policy";
 import type { SourceRefreshSkipReason } from "./source-refresh-policy";
+import { requireQueueStateCount } from "./queue-state-count";
 
 export type RefreshHours = Record<string, number>;
 
@@ -108,7 +109,7 @@ export type QueueState = {
 /** Cheap read used at the very start of every tick. */
 export async function readQueueState(config: ScheduleConfig): Promise<QueueState> {
   const nowIso = new Date().toISOString();
-  const [{ count: due }, { count: pending }] = await Promise.all([
+  const [dueResult, pendingResult] = await Promise.all([
     supabaseAdmin
       .from("ingestion_tasks")
       .select("id", { count: "exact", head: true })
@@ -121,12 +122,16 @@ export async function readQueueState(config: ScheduleConfig): Promise<QueueState
       .in("status", ["QUEUED", "RETRY"])
       .in("task_type", ["DISCOVER", "FETCH", "NORMALIZE"]),
   ]);
-  const dueTasks = due ?? 0;
+
+  // Do not turn a failed count query into an apparent empty queue. A false zero
+  // selects STEADY_STATE and can hide a real backlog; fail visibly instead.
+  const dueTasks = requireQueueStateCount("due", dueResult.count, dueResult.error);
+  const pendingTasks = requireQueueStateCount("pending", pendingResult.count, pendingResult.error);
   const mode: OperatingMode = dueTasks >= config.backlog_threshold ? "BACKLOG" : "STEADY_STATE";
   return {
     mode,
     due_tasks: dueTasks,
-    pending_tasks: pending ?? 0,
+    pending_tasks: pendingTasks,
     batch_size: mode === "BACKLOG" ? config.backlog_batch_size : config.steady_batch_size,
     interval_minutes:
       mode === "BACKLOG" ? config.backlog_interval_minutes : config.steady_interval_minutes,
