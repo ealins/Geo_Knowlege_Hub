@@ -55,6 +55,7 @@ export const CATEGORY_LABELS: { category: string; label: string }[] = [
   { category: "department", label: "Departments / leadership" },
   { category: "research_groups", label: "Research groups" },
   { category: "research", label: "Research pages / news" },
+  { category: "institution", label: "Institution profiles" },
 ];
 
 export async function loadSchedule(): Promise<ScheduleConfig> {
