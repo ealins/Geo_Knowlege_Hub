@@ -413,20 +413,36 @@ export const getOperationsSummary = createServerFn({ method: "GET" })
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
 
     const config = await loadSchedule();
-    const [state, efficiency, sources] = await Promise.all([
+    const [state, efficiency] = await Promise.all([
       readQueueState(config),
       readEfficiencyMetrics(24),
-      supabaseAdmin
-        .from("sources")
-        .select("category, last_success_at, active, status")
-        .eq("active", true)
-        .limit(2000),
     ]);
+
+    // Supabase's default row cap is lower than the live source registry. Page
+    // deterministically so the admin freshness summary counts every active source.
+    const sourceRows: {
+      category: string | null;
+      last_success_at: string | null;
+      status: string | null;
+    }[] = [];
+    const sourcePageSize = 1000;
+    for (let offset = 0; ; offset += sourcePageSize) {
+      const { data, error } = await supabaseAdmin
+        .from("sources")
+        .select("category, last_success_at, status")
+        .eq("active", true)
+        .order("id", { ascending: true })
+        .range(offset, offset + sourcePageSize - 1);
+      if (error) throw error;
+      const page = data ?? [];
+      sourceRows.push(...page);
+      if (page.length < sourcePageSize) break;
+    }
 
     const now = Date.now();
     const categories = CATEGORY_LABELS.map(({ category, label }) => {
       const hours = refreshHoursFor(config, category);
-      const rows = (sources.data ?? []).filter((s) => (s.category ?? "default") === category);
+      const rows = sourceRows.filter((s) => (s.category ?? "default") === category);
       const due = rows.filter((s) => {
         if (s.status === "BLOCKED") return false;
         if (!s.last_success_at) return true;
