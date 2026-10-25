@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { shouldBackoffSourceAfterFailure, shouldReprobeBlocked403Source } from "./source-refresh-policy";
+import { getSourceRefreshSkipReason, shouldBackoffSourceAfterFailure, shouldReprobeBlocked403Source } from "./source-refresh-policy";
 
 const now = Date.parse("2026-10-24T03:00:00.000Z");
 
@@ -103,5 +103,63 @@ describe("shouldReprobeBlocked403Source", () => {
       lastFailureAt: new Date(now - 48 * 60 * 60 * 1000).toISOString(),
       nowMs: now,
     })).toBe(false);
+  });
+});
+
+
+describe("getSourceRefreshSkipReason", () => {
+  const allowed = {
+    isDue: true,
+    status: "FETCHED",
+    blockedReprobe: false,
+    blockedReprobeLimitReached: false,
+    hasOpenFetchTask: false,
+    failureBackoff: false,
+  };
+
+  test("reports not-due before other exclusion conditions", () => {
+    expect(getSourceRefreshSkipReason({
+      ...allowed,
+      isDue: false,
+      status: "BLOCKED",
+      hasOpenFetchTask: true,
+    })).toBe("not_due");
+  });
+
+  test("keeps blocked sources excluded unless the bounded 403 re-probe policy allows them", () => {
+    expect(getSourceRefreshSkipReason({
+      ...allowed,
+      status: "BLOCKED",
+    })).toBe("blocked");
+    expect(getSourceRefreshSkipReason({
+      ...allowed,
+      status: "BLOCKED",
+      blockedReprobe: true,
+    })).toBeNull();
+  });
+
+  test("reports the per-tick re-probe cap without relaxing it", () => {
+    expect(getSourceRefreshSkipReason({
+      ...allowed,
+      status: "BLOCKED",
+      blockedReprobe: true,
+      blockedReprobeLimitReached: true,
+    })).toBe("blocked_reprobe_limit");
+  });
+
+  test("reports an existing open fetch task before cooldown", () => {
+    expect(getSourceRefreshSkipReason({
+      ...allowed,
+      hasOpenFetchTask: true,
+      failureBackoff: true,
+    })).toBe("open_fetch_task");
+  });
+
+  test("reports cooldown and allows eligible due sources", () => {
+    expect(getSourceRefreshSkipReason({
+      ...allowed,
+      failureBackoff: true,
+    })).toBe("failure_cooldown");
+    expect(getSourceRefreshSkipReason(allowed)).toBeNull();
   });
 });

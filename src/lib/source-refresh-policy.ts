@@ -65,3 +65,32 @@ export function shouldReprobeBlocked403Source(
 
   return (input.nowMs ?? Date.now()) - failedAt >= 24 * HOUR_MS;
 }
+
+
+export type SourceRefreshSkipReason =
+  | "not_due"
+  | "blocked"
+  | "blocked_reprobe_limit"
+  | "open_fetch_task"
+  | "failure_cooldown"
+  | "reprobe_state_changed";
+
+/**
+ * Explain why a due-source refresh candidate was not enqueued.
+ * This is diagnostic only: it does not change the source eligibility policy.
+ */
+export function getSourceRefreshSkipReason(input: {
+  isDue: boolean;
+  status: string | null | undefined;
+  blockedReprobe: boolean;
+  blockedReprobeLimitReached: boolean;
+  hasOpenFetchTask: boolean;
+  failureBackoff: boolean;
+}): Exclude<SourceRefreshSkipReason, "reprobe_state_changed"> | null {
+  if (!input.isDue) return "not_due";
+  if (input.status === "BLOCKED" && !input.blockedReprobe) return "blocked";
+  if (input.blockedReprobe && input.blockedReprobeLimitReached) return "blocked_reprobe_limit";
+  if (input.hasOpenFetchTask) return "open_fetch_task";
+  if (!input.blockedReprobe && input.failureBackoff) return "failure_cooldown";
+  return null;
+}
