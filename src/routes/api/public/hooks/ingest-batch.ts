@@ -354,9 +354,13 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
           }
 
           // Queue processing: waking up is cheap, working is not. Check first.
-          const { runQueueBatch } = await import("@/lib/ingest.server");
+          const { runQueueBatch, recoverStaleQueueLeases } = await import("@/lib/ingest.server");
           const { loadSchedule, readQueueState } = await import("@/lib/schedule.server");
           const schedule = await loadSchedule();
+          // Recover only application-owned DISCOVER/NORMALIZE leases before any
+          // early return. A provider-circuit skip must not strand a crashed task
+          // in PROCESSING indefinitely. External FETCH leases remain RPC-owned.
+          const staleLeaseRecovery = await recoverStaleQueueLeases(["DISCOVER", "NORMALIZE"]);
           const queueState = await readQueueState(schedule);
 
           if (queueState.due_tasks === 0) {
@@ -370,6 +374,8 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
               run_id: runId,
               skipped: true,
               reason: "queue empty",
+              stale_leases_recovered: staleLeaseRecovery.recovered,
+              stale_leases_dead: staleLeaseRecovery.dead,
               ...queueState,
             });
           }
@@ -428,6 +434,8 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
               dead: 0,
               normalized: 0,
               details: [reason],
+              stale_leases_recovered: staleLeaseRecovery.recovered,
+              stale_leases_dead: staleLeaseRecovery.dead,
               ...queueState,
             });
           }
@@ -655,6 +663,8 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
               task_group: taskGroup,
               provider_circuit_open: providerCircuitOpen,
               provider_gateway_failure: providerGatewayFailure,
+              stale_leases_recovered: staleLeaseRecovery.recovered,
+              stale_leases_dead: staleLeaseRecovery.dead,
               ...result,
             });
           } catch (e) {
