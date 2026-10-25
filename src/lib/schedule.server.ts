@@ -5,6 +5,7 @@ import { supabaseAdmin } from "@/integrations/supabase/client.server";
 import { effectiveSourceRefreshHours, getSourceRefreshSkipReason, isSourceRefreshDue, shouldBackoffSourceAfterFailure, shouldReprobeBlocked403Source } from "./source-refresh-policy";
 import type { SourceRefreshSkipReason } from "./source-refresh-policy";
 import { requireQueueStateCount } from "./queue-state-count";
+import { assertScheduleSettingsWrite, requireScheduleSettingsRead } from "./schedule-settings-errors";
 
 export type RefreshHours = Record<string, number>;
 
@@ -60,12 +61,13 @@ export const CATEGORY_LABELS: { category: string; label: string }[] = [
 ];
 
 export async function loadSchedule(): Promise<ScheduleConfig> {
-  const { data } = await supabaseAdmin
+  const { data, error } = await supabaseAdmin
     .from("pipeline_settings")
     .select("value")
     .eq("key", "schedule")
     .maybeSingle();
-  const stored = (data?.value ?? {}) as Partial<ScheduleConfig>;
+  const row = requireScheduleSettingsRead(data, error);
+  const stored = (row?.value ?? {}) as Partial<ScheduleConfig>;
   return {
     ...DEFAULT_SCHEDULE,
     ...stored,
@@ -83,11 +85,12 @@ export async function saveSchedule(
     ...patch,
     refresh_hours: { ...current.refresh_hours, ...(patch.refresh_hours ?? {}) },
   };
-  await supabaseAdmin
+  const { error } = await supabaseAdmin
     .from("pipeline_settings")
     .upsert({ key: "schedule", value: next as never, updated_by: userId } as never, {
       onConflict: "key",
     });
+  assertScheduleSettingsWrite(error);
   return next;
 }
 
