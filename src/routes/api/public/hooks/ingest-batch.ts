@@ -462,6 +462,7 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
             // Batch size, concurrency, timeout, provider deferrals and quality gates
             // remain unchanged.
             if (
+              !providerCircuitOpen &&
               recent &&
               shouldThrottleSteadyStateDrain({
                 recentWork: true,
