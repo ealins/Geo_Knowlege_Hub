@@ -66,12 +66,23 @@ describe("shouldRetryPrimaryProvider", () => {
     expect(shouldRetryPrimaryProvider({ errorCode: "HTTP_530", attempt: 1, retryLimit: 2 })).toBe(false);
   });
 
-  test("retries other transient errors only while attempts remain when no fallback is configured", () => {
-    expect(shouldRetryPrimaryProvider({ errorCode: "HTTP_502", attempt: 1, retryLimit: 2 })).toBe(true);
-    expect(shouldRetryPrimaryProvider({ errorCode: "HTTP_502", attempt: 2, retryLimit: 2 })).toBe(false);
+  test("keeps bounded retries for non-gateway transient errors without a fallback", () => {
+    expect(shouldRetryPrimaryProvider({ errorCode: "HTTP_429", attempt: 1, retryLimit: 2 })).toBe(true);
+    expect(shouldRetryPrimaryProvider({ errorCode: "HTTP_500", attempt: 1, retryLimit: 2 })).toBe(true);
+    expect(shouldRetryPrimaryProvider({ errorCode: "HTTP_429", attempt: 2, retryLimit: 2 })).toBe(false);
     expect(shouldRetryPrimaryProvider({ errorCode: "HTTP_403", attempt: 1, retryLimit: 2 })).toBe(false);
   });
 
+  test("fails fast on gateway 502/503/504 responses without an independent fallback", () => {
+    for (const errorCode of ["HTTP_502", "HTTP_503", "HTTP_504", "GATEWAY_5XX"]) {
+      expect(shouldRetryPrimaryProvider({
+        errorCode,
+        attempt: 1,
+        retryLimit: 3,
+        independentFallbackConfigured: false,
+      })).toBe(false);
+    }
+  });
   test("fails over immediately on primary 5xx when an independent fallback is configured", () => {
     for (const errorCode of ["HTTP_500", "HTTP_502", "HTTP_503", "HTTP_504", "HTTP_599"]) {
       expect(shouldRetryPrimaryProvider({
@@ -111,6 +122,14 @@ describe("getNormalizationProviderDeferralMinutes", () => {
     expect(getNormalizationProviderDeferralMinutes(
       "TRANSIENT_EXTRACTION_FAILURE GATEWAY_5XX: circuit open after repeated gateway failures; no independent fallback is configured",
     )).toBe(30);
+  });
+
+  test("defers first-attempt gateway 502/503/504 failures when no fallback is configured", () => {
+    for (const code of ["HTTP_502", "HTTP_503", "HTTP_504"]) {
+      expect(getNormalizationProviderDeferralMinutes(
+        \`TRANSIENT_EXTRACTION_FAILURE \${code}: upstream gateway unavailable; no independent fallback is configured\`,
+      )).toBe(30);
+    }
   });
 
   test("leaves unrelated transient provider errors on the existing bounded retry policy", () => {
