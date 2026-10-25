@@ -56,7 +56,7 @@ export function normalizationWavePolicy(input: {
 /** True when a completed task wave reports an actual provider gateway failure. */
 export function hasProviderGatewayFailureSignal(details: readonly string[]): boolean {
   return details.some((detail) =>
-    /\b(?:HTTP_502|HTTP_503|HTTP_530|GATEWAY_5XX|CIRCUIT_OPEN_GATEWAY_5XX)\b|circuit open after repeated recent primary gateway/i.test(detail)
+    /\b(?:HTTP_502|HTTP_503|HTTP_504|HTTP_530|GATEWAY_5XX|CIRCUIT_OPEN_GATEWAY_5XX)\b|circuit open after repeated recent primary gateway/i.test(detail)
   );
 }
 
