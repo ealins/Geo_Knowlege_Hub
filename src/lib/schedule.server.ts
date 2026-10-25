@@ -2,7 +2,7 @@
 // Everything here is deterministic: no model call is ever needed to decide
 // whether a source is due or whether a deadline has passed.
 import { supabaseAdmin } from "@/integrations/supabase/client.server";
-import { getSourceRefreshSkipReason, shouldBackoffSourceAfterFailure, shouldReprobeBlocked403Source } from "./source-refresh-policy";
+import { effectiveSourceRefreshHours, getSourceRefreshSkipReason, isSourceRefreshDue, shouldBackoffSourceAfterFailure, shouldReprobeBlocked403Source } from "./source-refresh-policy";
 import type { SourceRefreshSkipReason } from "./source-refresh-policy";
 
 export type RefreshHours = Record<string, number>;
@@ -204,10 +204,8 @@ export async function enqueueDueRefreshes(
     const base = refreshHoursFor(config, s.category);
     // A source that keeps coming back unchanged carries a larger stored
     // interval; we honour it up to the configured backoff ceiling.
-    const stored = s.refresh_frequency_hours ?? base;
-    const hours = Math.min(Math.max(stored, base), base * config.adaptive_backoff_max);
-    const last = s.last_success_at ? new Date(s.last_success_at).getTime() : 0;
-    const isDue = !last || now - last >= hours * 3_600_000;
+    const hours = effectiveSourceRefreshHours(base, s.refresh_frequency_hours, config.adaptive_backoff_max);
+    const isDue = isSourceRefreshDue(s.last_success_at, hours, now);
 
     // A BLOCKED source is normally excluded by the lease RPC. Allow a tightly
     // bounded re-probe only for a previously successful source whose later HTTP
