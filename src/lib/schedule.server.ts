@@ -2,7 +2,8 @@
 // Everything here is deterministic: no model call is ever needed to decide
 // whether a source is due or whether a deadline has passed.
 import { supabaseAdmin } from "@/integrations/supabase/client.server";
-import { shouldBackoffSourceAfterFailure, shouldReprobeBlocked403Source } from "./source-refresh-policy";
+import { getSourceRefreshSkipReason, shouldBackoffSourceAfterFailure, shouldReprobeBlocked403Source } from "./source-refresh-policy";
+import type { SourceRefreshSkipReason } from "./source-refresh-policy";
 
 export type RefreshHours = Record<string, number>;
 
@@ -138,7 +139,7 @@ export async function readQueueState(config: ScheduleConfig): Promise<QueueState
  */
 export async function enqueueDueRefreshes(
   limit = 40,
-): Promise<{ queued: number; by_category: Record<string, number>; scanned: number }> {
+): Promise<{ queued: number; by_category: Record<string, number>; scanned: number; blocked_reprobes_queued: number; skip_reasons: Record<SourceRefreshSkipReason, number> }> {
   const config = await loadSchedule();
   const { enqueue } = await import("./ingest.server");
   const by: Record<string, number> = {};
@@ -188,9 +189,26 @@ export async function enqueueDueRefreshes(
   const now = Date.now();
   let blockedReprobesQueued = 0;
   const maxBlockedReprobesPerTick = 3;
+  const skipReasons: Record<SourceRefreshSkipReason, number> = {
+    not_due: 0,
+    blocked: 0,
+    blocked_reprobe_limit: 0,
+    open_fetch_task: 0,
+    failure_cooldown: 0,
+    reprobe_state_changed: 0,
+  };
   for (const s of sources ?? []) {
     if (queued >= limit) break;
     scanned += 1;
+
+    const base = refreshHoursFor(config, s.category);
+    // A source that keeps coming back unchanged carries a larger stored
+    // interval; we honour it up to the configured backoff ceiling.
+    const stored = s.refresh_frequency_hours ?? base;
+    const hours = Math.min(Math.max(stored, base), base * config.adaptive_backoff_max);
+    const last = s.last_success_at ? new Date(s.last_success_at).getTime() : 0;
+    const isDue = !last || now - last >= hours * 3_600_000;
+
     // A BLOCKED source is normally excluded by the lease RPC. Allow a tightly
     // bounded re-probe only for a previously successful source whose later HTTP
     // 403 has cooled down for 24 hours. Never-successful, 404/410 and robots-blocked
@@ -202,32 +220,32 @@ export async function enqueueDueRefreshes(
       lastHttpStatus: s.last_http_status,
       nowMs: now,
     });
-    if (s.status === "BLOCKED" && !blockedReprobe) continue;
-    if (blockedReprobe && blockedReprobesQueued >= maxBlockedReprobesPerTick) continue;
-    // Do not count already queued/in-flight/retrying fetches against this tick's
-    // enqueue budget. Otherwise the same failing sources can consume all 40 slots
-    // and prevent other due sources from ever entering the queue.
-    if (pendingSourceIds.has(s.id)) continue;
-    // Never-successful or recently failing sources must cool down before retrying.
-    // Otherwise persistent 403/empty-text failures are re-enqueued on every tick.
-    if (!blockedReprobe && shouldBackoffSourceAfterFailure({
+    const failureBackoff = shouldBackoffSourceAfterFailure({
       lastSuccessAt: s.last_success_at,
       lastFailureAt: s.last_failure_at,
       lastHttpStatus: s.last_http_status,
       nowMs: now,
-    })) continue;
-    const base = refreshHoursFor(config, s.category);
-    // A source that keeps coming back unchanged carries a larger stored
-    // interval; we honour it up to the configured backoff ceiling.
-    const stored = s.refresh_frequency_hours ?? base;
-    const hours = Math.min(Math.max(stored, base), base * config.adaptive_backoff_max);
-    const last = s.last_success_at ? new Date(s.last_success_at).getTime() : 0;
-    if (last && now - last < hours * 3_600_000) continue;
+    });
+    const skipReason = getSourceRefreshSkipReason({
+      isDue,
+      status: s.status,
+      blockedReprobe,
+      blockedReprobeLimitReached: blockedReprobe && blockedReprobesQueued >= maxBlockedReprobesPerTick,
+      hasOpenFetchTask: pendingSourceIds.has(s.id),
+      failureBackoff,
+    });
+    if (skipReason) {
+      skipReasons[skipReason] += 1;
+      continue;
+    }
 
     if (blockedReprobe) {
       // The policy guarantees these timestamps exist; keep explicit guards so
       // the database compare-and-set below is type-safe and fail-closed.
-      if (!s.last_success_at || !s.last_failure_at) continue;
+      if (!s.last_success_at || !s.last_failure_at) {
+        skipReasons.reprobe_state_changed += 1;
+        continue;
+      }
       // Re-enable only if the exact failure we evaluated is still current. If a
       // concurrent success/failure changed the source, leave that newer state alone.
       const cutoff = new Date(now - 24 * 3_600_000).toISOString();
@@ -243,7 +261,10 @@ export async function enqueueDueRefreshes(
         .select("id")
         .maybeSingle();
       if (reactivationError) throw reactivationError;
-      if (!reactivated) continue;
+      if (!reactivated) {
+        skipReasons.reprobe_state_changed += 1;
+        continue;
+      }
     }
 
     await enqueue("FETCH", { source_id: s.id, institution_id: s.institution_id ?? undefined });
@@ -252,7 +273,7 @@ export async function enqueueDueRefreshes(
     const key = s.category ?? "default";
     by[key] = (by[key] ?? 0) + 1;
   }
-  return { queued, by_category: by, scanned };
+  return { queued, by_category: by, scanned, blocked_reprobes_queued: blockedReprobesQueued, skip_reasons: skipReasons };
 }
 
 /**
