@@ -66,3 +66,15 @@ export function hasProviderCircuitOpenSignal(details: readonly string[]): boolea
     /CIRCUIT_OPEN_GATEWAY_5XX|circuit open after repeated recent primary gateway/i.test(detail)
   );
 }
+
+/**
+ * Keep model-dependent work stopped while a confirmed provider circuit is open,
+ * without preventing the caller from falling through to deterministic discovery.
+ */
+export function shouldRunNormalizationWave(input: {
+  providerCircuitOpen: boolean;
+  processed: number;
+  target: number;
+}): boolean {
+  return !input.providerCircuitOpen && input.processed < input.target;
+}
