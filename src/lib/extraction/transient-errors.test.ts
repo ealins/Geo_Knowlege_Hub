@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { isTransientExtractionError, shouldUseOpenRouterFallback, shouldUseOpenAIFallback, shouldRetryPrimaryProvider, getNormalizationProviderDeferralMinutes, shouldOpenOmniRouteCircuit, OMNIROUTE_CIRCUIT_WINDOW_MS } from "./transient-errors";
+import { isTransientExtractionError, shouldUseOpenRouterFallback, shouldUseOpenAIFallback, shouldRetryPrimaryProvider, getNormalizationProviderDeferralMinutes, shouldOpenOmniRouteCircuit, OMNIROUTE_CIRCUIT_WINDOW_MS, getOmniRouteCircuitWindowStart } from "./transient-errors";
 
 describe("isTransientExtractionError", () => {
   test("retries common transient provider failures", () => {
@@ -134,6 +134,11 @@ describe("getNormalizationProviderDeferralMinutes", () => {
 });
 
 describe("OMNIROUTE_CIRCUIT_WINDOW_MS", () => {
+  test("uses the shared 30-minute cutoff for provider preflight", () => {
+    const now = Date.parse("2026-10-25T22:00:00.000Z");
+    expect(getOmniRouteCircuitWindowStart(now)).toBe("2026-10-25T21:30:00.000Z");
+  });
+
   test("matches the 30-minute normalization deferral window", () => {
     const deferralMinutes = getNormalizationProviderDeferralMinutes(
       "TRANSIENT_EXTRACTION_FAILURE GATEWAY_5XX: circuit open; no independent fallback is configured",
