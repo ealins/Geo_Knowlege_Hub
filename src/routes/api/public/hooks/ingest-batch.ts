@@ -386,8 +386,9 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
           );
           if (!independentFallbackConfigured) {
             const { AI_PROVIDER } = await import("@/lib/llm-config.server");
-            const { shouldOpenOmniRouteCircuit } = await import("@/lib/extraction/transient-errors");
-            const circuitWindowStart = new Date(Date.now() - 5 * 60_000).toISOString();
+            const { shouldOpenOmniRouteCircuit, OMNIROUTE_CIRCUIT_WINDOW_MS } = await import("@/lib/extraction/transient-errors");
+            // Match the 30-minute deferral applied to a task after a confirmed gateway outage.
+            const circuitWindowStart = new Date(Date.now() - OMNIROUTE_CIRCUIT_WINDOW_MS).toISOString();
             const { count: recentGatewayFailures, error: circuitReadError } = await supabaseAdmin
               .from("llm_processing_runs")
               .select("id", { count: "exact", head: true })
