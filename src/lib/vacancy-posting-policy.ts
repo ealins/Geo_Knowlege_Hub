@@ -24,6 +24,11 @@ const NON_POSTING =
 /** A real posting names a role in its title. */
 const ROLE_TITLE =
   /(phd|ph\.d|doctoral|doktorand|promotionsstelle|post ?doc|postdoctoral|professor|professur|juniorprofessur|lecturer|research(er)?|scientist|engineer|ingenieur|developer|analyst|technician|techniker|specialist|consultant|surveyor|geomatics|remote sensing|photogrammetr|gis\b|wissenschaftliche[rn]? mitarbeiter|w\/?m\/?d|m\/?w\/?d|f\/?m\/?d|assistant|associate|fellow|intern(ship)?|trainee|manager|lead|head of)/i;
+
+/** True when a vacancy-source link label names a role. */
+export function hasRoleTitle(value: string): boolean {
+  return ROLE_TITLE.test(value);
+}
 /** A real posting reads like a job ad. */
 const POSTING_BODY =
   /(application deadline|apply by|closing date|deadline for applications|bewerbungsfrist|bewerbungen? bis|reference number|kennziffer|ref\.? no|job id|requisition|full[- ]time|part[- ]time|vollzeit|teilzeit|fixed[- ]term|befristet|salary|remuneration|entgeltgruppe|verg[uü]tung|tv-?l|tv-?[oö]d|e ?13|start(ing)? date|eintrittstermin|your (tasks|profile|responsibilities)|ihre aufgaben|ihr profil|we offer|wir bieten|required qualifications|qualification[s]? required|how to apply|submit your application|bewerbungsunterlagen)/i;
