@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type { ExternalFetchCompletion, ExternalReviewCompletion } from "@/lib/ingest.server";
-import { discoveryFallbackPolicy, hasProviderCircuitOpenSignal, hasProviderGatewayFailureSignal, normalizationWavePolicy, selectPreferredDeterministicVacancyTaskIds, shouldRunNormalizationWave, shouldThrottleSteadyStateDrain } from "@/lib/queue-drain-policy";
+import { discoveryFallbackPolicy, hasProviderCircuitOpenSignal, hasProviderGatewayFailureSignal, normalizationWavePolicy, selectDeterministicResearchNewsTaskIds, selectPreferredDeterministicVacancyTaskIds, shouldRunNormalizationWave, shouldThrottleSteadyStateDrain } from "@/lib/queue-drain-policy";
 import { isDeterministicallyEligibleVacancySnapshot } from "@/lib/vacancy-posting-policy";
 
 type Body = {
@@ -565,11 +565,19 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
             // when each raw snapshot is still PENDING and belongs to the same source.
             if (providerCircuitOpen && !independentFallbackConfigured) {
               const nowIso = new Date().toISOString();
-              const [pendingVacancies, dueNormalizeTasks] = await Promise.all([
+              const [pendingVacancies, pendingResearchNews, dueNormalizeTasks] = await Promise.all([
                 supabaseAdmin
                   .from("raw_records")
                   .select("id, source_id, final_url, page_title, text_content")
                   .eq("classification", "VACANCY")
+                  .eq("normalization_status", "PENDING")
+                  .not("source_id", "is", null)
+                  .order("fetched_at", { ascending: true })
+                  .limit(2000),
+                supabaseAdmin
+                  .from("raw_records")
+                  .select("id, source_id, classification")
+                  .eq("classification", "RESEARCH_NEWS")
                   .eq("normalization_status", "PENDING")
                   .not("source_id", "is", null)
                   .order("fetched_at", { ascending: true })
@@ -584,6 +592,7 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
                   .limit(2000),
               ]);
               if (pendingVacancies.error) throw pendingVacancies.error;
+              if (pendingResearchNews.error) throw pendingResearchNews.error;
               if (dueNormalizeTasks.error) throw dueNormalizeTasks.error;
 
               const eligiblePendingVacancies = (pendingVacancies.data ?? [])
@@ -593,12 +602,23 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
                 eligiblePendingVacancies.map((raw) => raw.id),
               );
               const deterministicFallbackLimit = Math.min(3, normalizeTarget);
-              const deterministicTaskIds = selectPreferredDeterministicVacancyTaskIds(
+              const cleanupTaskIds = selectDeterministicResearchNewsTaskIds(
+                pendingResearchNews.data ?? [],
+                dueNormalizeTasks.data ?? [],
+                Math.min(1, deterministicFallbackLimit),
+              );
+              const cleanupSourceIds = (dueNormalizeTasks.data ?? [])
+                .filter((task) => cleanupTaskIds.includes(task.id))
+                .map((task) => task.source_id)
+                .filter((id): id is string => Boolean(id));
+              const vacancyTaskIds = selectPreferredDeterministicVacancyTaskIds(
                 pendingVacancies.data ?? [],
                 eligibleRawRecordIds,
                 dueNormalizeTasks.data ?? [],
-                deterministicFallbackLimit,
+                Math.max(0, deterministicFallbackLimit - cleanupTaskIds.length),
+                cleanupSourceIds,
               );
+              const deterministicTaskIds = [...cleanupTaskIds, ...vacancyTaskIds];
               if (deterministicTaskIds.length > 0) {
                 const deterministicWave = await withTimeout(
                   runQueueBatch(deterministicTaskIds.length, ["NORMALIZE"], 1, deterministicTaskIds),
@@ -614,10 +634,17 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
                 result.skipped += deterministicWave.skipped;
                 result.recordsCreated += deterministicWave.recordsCreated;
                 result.recordsUpdated += deterministicWave.recordsUpdated;
-                result.details.push(
-                  "DETERMINISTIC_VACANCY_FALLBACK: exact pending VACANCY snapshot selected during provider circuit",
-                  ...deterministicWave.details,
-                );
+                if (cleanupTaskIds.length > 0) {
+                  result.details.push(
+                    "DETERMINISTIC_CLEANUP_FALLBACK: exact pending RESEARCH_NEWS snapshot selected during provider circuit",
+                  );
+                }
+                if (vacancyTaskIds.length > 0) {
+                  result.details.push(
+                    "DETERMINISTIC_VACANCY_FALLBACK: exact pending VACANCY snapshot selected during provider circuit",
+                  );
+                }
+                result.details.push(...deterministicWave.details);
                 if (deterministicWave.processed > 0) taskGroup = "NORMALIZE";
               }
             }
