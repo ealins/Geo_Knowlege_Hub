@@ -1,5 +1,6 @@
 import { describe, expect, test } from "bun:test";
 import {
+  boundedHostRetryAfterSeconds,
   parseHostFetchDeferralSeconds,
   restoreAttemptsAfterUnstartedFetch,
 } from "./host-fetch-deferral-policy";
@@ -20,5 +21,20 @@ describe("host fetch deferral policy", () => {
     expect(restoreAttemptsAfterUnstartedFetch(1)).toBe(0);
     expect(restoreAttemptsAfterUnstartedFetch(4)).toBe(3);
     expect(restoreAttemptsAfterUnstartedFetch(-1)).toBe(0);
+  });
+});
+
+
+describe("persisted Retry-After hint", () => {
+  test("accepts positive numeric seconds and caps the value at 30 minutes", () => {
+    expect(boundedHostRetryAfterSeconds(90)).toBe(90);
+    expect(boundedHostRetryAfterSeconds(3600)).toBe(1800);
+  });
+
+  test("ignores missing, non-numeric, zero, and negative values", () => {
+    expect(boundedHostRetryAfterSeconds(undefined)).toBe(0);
+    expect(boundedHostRetryAfterSeconds("90")).toBe(0);
+    expect(boundedHostRetryAfterSeconds(0)).toBe(0);
+    expect(boundedHostRetryAfterSeconds(-2)).toBe(0);
   });
 });
