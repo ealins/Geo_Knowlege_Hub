@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { discoveryFallbackPolicy, hasProviderCircuitOpenSignal, hasProviderGatewayFailureSignal, normalizationWavePolicy, shouldRunNormalizationWave, shouldThrottleSteadyStateDrain } from "./queue-drain-policy";
+import { discoveryFallbackPolicy, hasProviderCircuitOpenSignal, hasProviderGatewayFailureSignal, normalizationWavePolicy, selectDeterministicVacancyTaskIds, shouldRunNormalizationWave, shouldThrottleSteadyStateDrain } from "./queue-drain-policy";
 
 describe("shouldThrottleSteadyStateDrain", () => {
   test("keeps the interval for a small, recently due queue after recent work", () => {
@@ -148,5 +148,50 @@ describe("discoveryFallbackPolicy", () => {
       limit: 4,
       timeoutMs: 15_000,
     });
+  });
+});
+
+
+describe("selectDeterministicVacancyTaskIds", () => {
+  test("selects only an exact pending vacancy snapshot for the same source", () => {
+    expect(selectDeterministicVacancyTaskIds(
+      [
+        { id: "raw-vacancy", source_id: "source-a" },
+        { id: "raw-other", source_id: "source-b" },
+      ],
+      [
+        { id: "task-exact", source_id: "source-a", payload: { raw_record_id: "raw-vacancy" } },
+        { id: "task-wrong-source", source_id: "source-a", payload: { raw_record_id: "raw-other" } },
+        { id: "task-legacy", source_id: "source-a", payload: { classification: "VACANCY" } },
+      ],
+      1,
+    )).toEqual(["task-exact"]);
+  });
+
+  test("does not select more than one task per source or exceed the limit", () => {
+    expect(selectDeterministicVacancyTaskIds(
+      [
+        { id: "raw-a", source_id: "source-a" },
+        { id: "raw-b", source_id: "source-a" },
+        { id: "raw-c", source_id: "source-c" },
+      ],
+      [
+        { id: "task-a1", source_id: "source-a", payload: { raw_record_id: "raw-a" } },
+        { id: "task-a2", source_id: "source-a", payload: { raw_record_id: "raw-b" } },
+        { id: "task-c1", source_id: "source-c", payload: { raw_record_id: "raw-c" } },
+      ],
+      2,
+    )).toEqual(["task-a1", "task-c1"]);
+  });
+
+  test("returns no candidates when exact snapshot IDs are missing or stale", () => {
+    expect(selectDeterministicVacancyTaskIds(
+      [{ id: "raw-vacancy", source_id: "source-a" }],
+      [
+        { id: "task-legacy", source_id: "source-a", payload: { classification: "VACANCY" } },
+        { id: "task-stale", source_id: "source-a", payload: { raw_record_id: "raw-deleted" } },
+      ],
+      1,
+    )).toEqual([]);
   });
 });
