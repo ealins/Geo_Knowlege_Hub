@@ -536,6 +536,8 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
               dead: 0,
               normalized: 0,
               skipped: 0,
+              recordsCreated: 0,
+              recordsUpdated: 0,
               details: [] as string[],
             });
             const result = emptyResult();
@@ -568,6 +570,8 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
               result.dead += wave.dead;
               result.normalized += wave.normalized;
               result.skipped += wave.skipped;
+              result.recordsCreated += wave.recordsCreated;
+              result.recordsUpdated += wave.recordsUpdated;
               result.details.push(...wave.details);
 
               if (hasProviderCircuitOpenSignal(wave.details)) {
@@ -610,6 +614,8 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
               result.dead = collection.dead;
               result.normalized = collection.normalized;
               result.skipped = collection.skipped;
+              result.recordsCreated = collection.recordsCreated;
+              result.recordsUpdated = collection.recordsUpdated;
               result.details.push(...collection.details);
             }
             const { data: llm } = await supabaseAdmin
@@ -627,6 +633,8 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
                   tasks_ok: result.ok,
                   tasks_failed: result.failed,
                   tasks_dead: result.dead,
+                  records_created: result.recordsCreated,
+                  records_updated: result.recordsUpdated,
                   nvidia_calls: calls.length,
                   nvidia_cached: calls.filter((c) => c.cached).length,
                   errors: result.failed + result.dead,
@@ -640,6 +648,8 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
                     provider_circuit_open: providerCircuitOpen,
                     provider_gateway_failure: providerGatewayFailure,
                     normalized: result.normalized,
+                    records_created: result.recordsCreated,
+                    records_updated: result.recordsUpdated,
                     skipped: result.skipped,
                     sample: result.details.slice(0, 20),
                   } as never,
@@ -653,6 +663,8 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
               task_group: taskGroup,
               provider_circuit_open: providerCircuitOpen,
               provider_gateway_failure: providerGatewayFailure,
+              records_created: result.recordsCreated,
+              records_updated: result.recordsUpdated,
               stale_leases_recovered: staleLeaseRecovery.recovered,
               stale_leases_dead: staleLeaseRecovery.dead,
               ...result,

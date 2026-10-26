@@ -29,6 +29,7 @@ export type StructuredCanonicalResult = {
   status: "NORMALIZED" | "SKIPPED" | "FAILED";
   reason?: string | undefined;
   entity_id?: string | undefined;
+  entity_action?: "created" | "updated" | undefined;
 };
 
 export type StructuredVacancy = {
@@ -483,12 +484,15 @@ export async function normalizeStructuredNonVacancy(
       is_demo: false,
     };
     let entityId = existing?.id;
-    if (entityId)
-      await supabaseAdmin
+    if (entityId) {
+      const { error: updateError } = await supabaseAdmin
         .from("events")
         .update(payload as never)
         .eq("id", entityId);
-    else
+      if (updateError) {
+        return { status: "FAILED", reason: `structured event update failed: ${updateError.message}` };
+      }
+    } else
       entityId = (
         await supabaseAdmin
           .from("events")
@@ -513,7 +517,7 @@ export async function normalizeStructuredNonVacancy(
       sourceType: "conference",
     });
     await linkExactTopics("event_topics", "event_id", entityId, keywordsFrom(node), false);
-    return { status: "NORMALIZED", entity_id: entityId, reason: "structured metadata fast path" };
+    return { status: "NORMALIZED", entity_id: entityId, entity_action: existing?.id ? "updated" : "created", reason: "structured metadata fast path" };
   }
 
   if (raw.classification === "RESEARCHER") {
@@ -563,12 +567,15 @@ export async function normalizeStructuredNonVacancy(
       is_demo: false,
     };
     let entityId = existingId;
-    if (entityId)
-      await supabaseAdmin
+    if (entityId) {
+      const { error: updateError } = await supabaseAdmin
         .from("researchers")
         .update(payload as never)
         .eq("id", entityId);
-    else
+      if (updateError) {
+        return { status: "FAILED", reason: `structured researcher update failed: ${updateError.message}` };
+      }
+    } else
       entityId = (
         await supabaseAdmin
           .from("researchers")
@@ -599,7 +606,7 @@ export async function normalizeStructuredNonVacancy(
       [...keywordsFrom(node), textValue(affiliation?.["name"]) ?? ""].filter(Boolean),
       true,
     );
-    return { status: "NORMALIZED", entity_id: entityId, reason: "structured metadata fast path" };
+    return { status: "NORMALIZED", entity_id: entityId, entity_action: existingId ? "updated" : "created", reason: "structured metadata fast path" };
   }
 
   if (raw.classification === "PROGRAMME" || raw.classification === "COURSE") {
@@ -634,12 +641,15 @@ export async function normalizeStructuredNonVacancy(
       is_demo: false,
     };
     let entityId = existing?.id;
-    if (entityId)
-      await supabaseAdmin
+    if (entityId) {
+      const { error: updateError } = await supabaseAdmin
         .from("courses")
         .update(payload as never)
         .eq("id", entityId);
-    else
+      if (updateError) {
+        return { status: "FAILED", reason: `structured programme update failed: ${updateError.message}` };
+      }
+    } else
       entityId = (
         await supabaseAdmin
           .from("courses")
@@ -670,7 +680,7 @@ export async function normalizeStructuredNonVacancy(
       [...keywordsFrom(node), textValue(provider?.["name"]) ?? ""].filter(Boolean),
       false,
     );
-    return { status: "NORMALIZED", entity_id: entityId, reason: "structured metadata fast path" };
+    return { status: "NORMALIZED", entity_id: entityId, entity_action: existing?.id ? "updated" : "created", reason: "structured metadata fast path" };
   }
 
   if (raw.classification === "PROJECT") {
@@ -719,12 +729,15 @@ export async function normalizeStructuredNonVacancy(
       is_demo: false,
     };
     let entityId = existing?.id;
-    if (entityId)
-      await supabaseAdmin
+    if (entityId) {
+      const { error: updateError } = await supabaseAdmin
         .from("projects")
         .update(payload as never)
         .eq("id", entityId);
-    else
+      if (updateError) {
+        return { status: "FAILED", reason: `structured project update failed: ${updateError.message}` };
+      }
+    } else
       entityId = (
         await supabaseAdmin
           .from("projects")
@@ -749,7 +762,7 @@ export async function normalizeStructuredNonVacancy(
       sourceType: "project",
     });
     await linkExactTopics("project_topics", "project_id", entityId, keywordsFrom(node), false);
-    return { status: "NORMALIZED", entity_id: entityId, reason: "structured metadata fast path" };
+    return { status: "NORMALIZED", entity_id: entityId, entity_action: existing?.id ? "updated" : "created", reason: "structured metadata fast path" };
   }
 
   return null;
