@@ -548,8 +548,8 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
 
             // A confirmed provider circuit blocks model-dependent extraction, but
             // exact-snapshot VACANCY normalization is deterministic and needs no LLM.
-            // Process at most one due task, and only when its raw snapshot is still
-            // PENDING, classified VACANCY, and belongs to the same source.
+            // Process a small sequential batch (at most three due tasks), and only
+            // when each raw snapshot is still PENDING and belongs to the same source.
             if (providerCircuitOpen && !independentFallbackConfigured) {
               const nowIso = new Date().toISOString();
               const [pendingVacancies, dueNormalizeTasks] = await Promise.all([
@@ -579,15 +579,16 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
               const eligibleRawRecordIds = new Set(
                 eligiblePendingVacancies.map((raw) => raw.id),
               );
+              const deterministicFallbackLimit = Math.min(3, normalizeTarget);
               const deterministicTaskIds = selectPreferredDeterministicVacancyTaskIds(
                 pendingVacancies.data ?? [],
                 eligibleRawRecordIds,
                 dueNormalizeTasks.data ?? [],
-                1,
+                deterministicFallbackLimit,
               );
               if (deterministicTaskIds.length > 0) {
                 const deterministicWave = await withTimeout(
-                  runQueueBatch(1, ["NORMALIZE"], 1, deterministicTaskIds),
+                  runQueueBatch(deterministicTaskIds.length, ["NORMALIZE"], 1, deterministicTaskIds),
                   25_000,
                   "deterministic vacancy normalization",
                 );
