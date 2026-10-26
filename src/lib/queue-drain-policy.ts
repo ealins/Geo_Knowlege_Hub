@@ -91,3 +91,53 @@ export function discoveryFallbackPolicy(
   if (providerCircuitOpen) return { limit: 1, timeoutMs: 150_000 };
   return { limit: Math.max(1, Math.floor(batch)), timeoutMs: 15_000 };
 }
+
+
+export type PendingVacancySnapshot = {
+  id: string;
+  source_id: string | null;
+};
+
+export type DueNormalizationTaskCandidate = {
+  id: string;
+  source_id: string | null;
+  payload: unknown;
+};
+
+/**
+ * Select only exact-snapshot NORMALIZE tasks whose raw record is still PENDING
+ * and classified VACANCY. The vacancy canonical writer is deterministic and
+ * does not require the unavailable AI provider. Callers must obtain these rows
+ * from the corresponding filtered database queries and keep the task batch bounded.
+ */
+export function selectDeterministicVacancyTaskIds(
+  pendingVacancies: readonly PendingVacancySnapshot[],
+  dueTasks: readonly DueNormalizationTaskCandidate[],
+  limit = 1,
+): string[] {
+  const maxTasks = Math.max(0, Math.floor(limit));
+  if (maxTasks === 0) return [];
+
+  const sourceByRawId = new Map<string, string>();
+  for (const raw of pendingVacancies) {
+    if (raw.id && raw.source_id) sourceByRawId.set(raw.id, raw.source_id);
+  }
+
+  const selectedIds: string[] = [];
+  const selectedSources = new Set<string>();
+  for (const task of dueTasks) {
+    if (!task.id || !task.source_id || selectedSources.has(task.source_id)) continue;
+    const payload =
+      task.payload && typeof task.payload === "object" && !Array.isArray(task.payload)
+        ? (task.payload as Record<string, unknown>)
+        : {};
+    const rawRecordId = payload.raw_record_id;
+    if (typeof rawRecordId !== "string" || !rawRecordId.trim()) continue;
+    if (sourceByRawId.get(rawRecordId) !== task.source_id) continue;
+
+    selectedIds.push(task.id);
+    selectedSources.add(task.source_id);
+    if (selectedIds.length >= maxTasks) break;
+  }
+  return selectedIds;
+}

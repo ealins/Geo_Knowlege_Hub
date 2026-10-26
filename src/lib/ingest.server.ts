@@ -1421,6 +1421,7 @@ export async function runQueueBatch(
   limit = 8,
   taskTypes?: string[],
   concurrency = 1,
+  taskIds?: string[],
 ): Promise<{
   processed: number;
   ok: number;
@@ -1443,6 +1444,17 @@ export async function runQueueBatch(
     .in("status", ["QUEUED", "RETRY"])
     .lte("run_after", now.toISOString());
   if (taskTypes && taskTypes.length > 0) query = query.in("task_type", taskTypes);
+  // Optional allow-list is used by the provider-circuit deterministic fallback.
+  // An empty list must never broaden the query to the full queue.
+  if (taskIds) {
+    if (taskIds.length === 0) {
+      return {
+        processed: 0, ok: 0, failed: 0, dead: 0, normalized: 0, skipped: 0,
+        recordsCreated: 0, recordsUpdated: 0, details: [],
+      };
+    }
+    query = query.in("id", taskIds);
+  }
 
   const normalizeOnly = taskTypes?.length === 1 && taskTypes[0] === "NORMALIZE";
   // Pull a wider candidate window for NORMALIZE so high-value academic pages

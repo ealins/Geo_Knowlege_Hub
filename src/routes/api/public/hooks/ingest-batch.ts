@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type { ExternalFetchCompletion, ExternalReviewCompletion } from "@/lib/ingest.server";
-import { discoveryFallbackPolicy, hasProviderCircuitOpenSignal, hasProviderGatewayFailureSignal, normalizationWavePolicy, shouldRunNormalizationWave, shouldThrottleSteadyStateDrain } from "@/lib/queue-drain-policy";
+import { discoveryFallbackPolicy, hasProviderCircuitOpenSignal, hasProviderGatewayFailureSignal, normalizationWavePolicy, selectDeterministicVacancyTaskIds, shouldRunNormalizationWave, shouldThrottleSteadyStateDrain } from "@/lib/queue-drain-policy";
 
 type Body = {
   action?:
@@ -544,6 +544,61 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
             if (providerCircuitReason) result.details.push(providerCircuitReason);
             let normalizeWaves = 0;
             let taskGroup: "NORMALIZE" | "DISCOVER" = "NORMALIZE";
+
+            // A confirmed provider circuit blocks model-dependent extraction, but
+            // exact-snapshot VACANCY normalization is deterministic and needs no LLM.
+            // Process at most one due task, and only when its raw snapshot is still
+            // PENDING, classified VACANCY, and belongs to the same source.
+            if (providerCircuitOpen && !independentFallbackConfigured) {
+              const nowIso = new Date().toISOString();
+              const [pendingVacancies, dueNormalizeTasks] = await Promise.all([
+                supabaseAdmin
+                  .from("raw_records")
+                  .select("id, source_id")
+                  .eq("classification", "VACANCY")
+                  .eq("normalization_status", "PENDING")
+                  .not("source_id", "is", null)
+                  .order("fetched_at", { ascending: true })
+                  .limit(2000),
+                supabaseAdmin
+                  .from("ingestion_tasks")
+                  .select("id, source_id, payload")
+                  .eq("task_type", "NORMALIZE")
+                  .in("status", ["QUEUED", "RETRY"])
+                  .lte("run_after", nowIso)
+                  .order("created_at", { ascending: true })
+                  .limit(2000),
+              ]);
+              if (pendingVacancies.error) throw pendingVacancies.error;
+              if (dueNormalizeTasks.error) throw dueNormalizeTasks.error;
+
+              const deterministicTaskIds = selectDeterministicVacancyTaskIds(
+                pendingVacancies.data ?? [],
+                dueNormalizeTasks.data ?? [],
+                1,
+              );
+              if (deterministicTaskIds.length > 0) {
+                const deterministicWave = await withTimeout(
+                  runQueueBatch(1, ["NORMALIZE"], 1, deterministicTaskIds),
+                  25_000,
+                  "deterministic vacancy normalization",
+                );
+                normalizeWaves += deterministicWave.processed > 0 ? 1 : 0;
+                result.processed += deterministicWave.processed;
+                result.ok += deterministicWave.ok;
+                result.failed += deterministicWave.failed;
+                result.dead += deterministicWave.dead;
+                result.normalized += deterministicWave.normalized;
+                result.skipped += deterministicWave.skipped;
+                result.recordsCreated += deterministicWave.recordsCreated;
+                result.recordsUpdated += deterministicWave.recordsUpdated;
+                result.details.push(
+                  "DETERMINISTIC_VACANCY_FALLBACK: exact pending VACANCY snapshot selected during provider circuit",
+                  ...deterministicWave.details,
+                );
+                if (deterministicWave.processed > 0) taskGroup = "NORMALIZE";
+              }
+            }
 
             while (
               shouldRunNormalizationWave({
