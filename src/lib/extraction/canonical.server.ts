@@ -19,6 +19,7 @@ export type CanonicalResult = {
   status: "NORMALIZED" | "SKIPPED" | "FAILED";
   reason?: string | undefined;
   entity_id?: string | undefined;
+  entity_action?: "created" | "updated" | undefined;
 };
 
 export type RawRecord = {
@@ -262,7 +263,7 @@ export async function normalizeNonVacancy(
         entityId,
         weighted: false,
       });
-      return { status: "NORMALIZED", entity_id: entityId };
+      return { status: "NORMALIZED", entity_id: entityId, entity_action: existing?.id ? "updated" : "created" };
     }
 
     case "PROGRAMME":
@@ -333,7 +334,7 @@ export async function normalizeNonVacancy(
         entityId,
         weighted: false,
       });
-      return { status: "NORMALIZED", entity_id: entityId };
+      return { status: "NORMALIZED", entity_id: entityId, entity_action: existing?.id ? "updated" : "created" };
     }
 
     case "RESEARCHER": {
@@ -415,7 +416,7 @@ export async function normalizeNonVacancy(
         entityId,
         weighted: true,
       });
-      return { status: "NORMALIZED", entity_id: entityId };
+      return { status: "NORMALIZED", entity_id: entityId, entity_action: existingId ? "updated" : "created" };
     }
 
     case "EVENT": {
@@ -525,7 +526,7 @@ export async function normalizeNonVacancy(
         entityId,
         weighted: false,
       });
-      return { status: "NORMALIZED", entity_id: entityId };
+      return { status: "NORMALIZED", entity_id: entityId, entity_action: existing?.id ? "updated" : "created" };
     }
 
     default:
