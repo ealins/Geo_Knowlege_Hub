@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type { ExternalFetchCompletion, ExternalReviewCompletion } from "@/lib/ingest.server";
-import { discoveryFallbackPolicy, hasProviderCircuitOpenSignal, hasProviderGatewayFailureSignal, normalizationWavePolicy, selectDeterministicVacancyTaskIds, shouldRunNormalizationWave, shouldThrottleSteadyStateDrain } from "@/lib/queue-drain-policy";
+import { discoveryFallbackPolicy, hasProviderCircuitOpenSignal, hasProviderGatewayFailureSignal, normalizationWavePolicy, selectPreferredDeterministicVacancyTaskIds, shouldRunNormalizationWave, shouldThrottleSteadyStateDrain } from "@/lib/queue-drain-policy";
 import { isDeterministicallyEligibleVacancySnapshot } from "@/lib/vacancy-posting-policy";
 
 type Body = {
@@ -576,8 +576,12 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
               const eligiblePendingVacancies = (pendingVacancies.data ?? [])
                 .filter(isDeterministicallyEligibleVacancySnapshot)
                 .map(({ id, source_id }) => ({ id, source_id }));
-              const deterministicTaskIds = selectDeterministicVacancyTaskIds(
-                eligiblePendingVacancies,
+              const eligibleRawRecordIds = new Set(
+                eligiblePendingVacancies.map((raw) => raw.id),
+              );
+              const deterministicTaskIds = selectPreferredDeterministicVacancyTaskIds(
+                pendingVacancies.data ?? [],
+                eligibleRawRecordIds,
                 dueNormalizeTasks.data ?? [],
                 1,
               );
