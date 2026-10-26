@@ -1,7 +1,7 @@
 // Server-only ingestion engine. Never imported by client code.
 // Pipeline: DISCOVER -> FETCH -> RAW STORAGE -> CLASSIFY -> EXTRACT/NORMALIZE -> CANONICAL -> PROVENANCE
 import { supabaseAdmin } from "@/integrations/supabase/client.server";
-import { buildNormalizationTaskPayload, legacyNormalizationSnapshotTarget } from "./normalization-task-payload";
+import { buildNormalizationTaskPayload, legacyNormalizationSnapshotTarget, shouldSkipLegacySnapshotFallback } from "./normalization-task-payload";
 import { getNormalizationProviderDeferralMinutes } from "./extraction/transient-errors";
 import {
   parseHostFetchDeferralSeconds,
@@ -1517,6 +1517,7 @@ export async function runQueueBatch(
         // snapshot type implied by their original producer so retries cannot drift
         // to another record from the same source.
         const legacyTarget = legacyNormalizationSnapshotTarget(payload);
+        let missingLegacySnapshotDetail: string | null = null;
         if (legacyTarget) {
           const classification = String(payload.classification).trim();
           const legacyLookup =
@@ -1542,7 +1543,14 @@ export async function runQueueBatch(
                   .maybeSingle();
           if (legacyLookup.error) throw legacyLookup.error;
 
-          if (legacyLookup.data?.id) {
+          if (shouldSkipLegacySnapshotFallback(payload, legacyLookup.data?.id)) {
+            // A classified legacy task must not drift to a different, newer raw
+            // page when its original snapshot intent can no longer be resolved.
+            // Complete this obsolete task without mutating raw rows; backfill can
+            // safely enqueue any still-pending snapshot with an explicit ID.
+            missingLegacySnapshotDetail =
+              `no matching ${legacyTarget} snapshot for ${classification}`;
+          } else if (legacyLookup.data?.id) {
             const { data: pinnedTask, error: pinError } = await supabaseAdmin
               .from("ingestion_tasks")
               .update({ payload: { ...payload, raw_record_id: legacyLookup.data.id } })
@@ -1562,21 +1570,26 @@ export async function runQueueBatch(
           }
         }
 
-        const r = await normalizeSource(task.source_id, undefined, rawRecordId);
-        if (r.status === "FAILED" && r.reason?.startsWith("TRANSIENT_EXTRACTION_FAILURE")) {
-          // During the confirmed OmniRoute HTTP 530 outage, no independent
-          // provider is configured. Defer without consuming task attempts so
-          // the queue does not burn through retries while configuration is blocked.
-          const deferMinutes = getNormalizationProviderDeferralMinutes(r.reason);
-          if (deferMinutes !== null) {
-            throw Object.assign(new Error(r.reason), { retryAfterMinutes: deferMinutes });
+        if (missingLegacySnapshotDetail) {
+          out.skipped += 1;
+          detail = `NORMALIZE skipped: ${missingLegacySnapshotDetail}; raw records left untouched`;
+        } else {
+          const r = await normalizeSource(task.source_id, undefined, rawRecordId);
+          if (r.status === "FAILED" && r.reason?.startsWith("TRANSIENT_EXTRACTION_FAILURE")) {
+            // During the confirmed OmniRoute HTTP 530 outage, no independent
+            // provider is configured. Defer without consuming task attempts so
+            // the queue does not burn through retries while configuration is blocked.
+            const deferMinutes = getNormalizationProviderDeferralMinutes(r.reason);
+            if (deferMinutes !== null) {
+              throw Object.assign(new Error(r.reason), { retryAfterMinutes: deferMinutes });
+            }
+            // Exact raw_record_id stays in the task payload across retries.
+            throw new Error(r.reason);
           }
-          // Exact raw_record_id stays in the task payload across retries.
-          throw new Error(r.reason);
+          if (r.status === "NORMALIZED") out.normalized += 1;
+          if (r.status === "SKIPPED") out.skipped += 1;
+          detail = `NORMALIZE ${r.status}${r.reason ? `: ${r.reason}` : ""}`;
         }
-        if (r.status === "NORMALIZED") out.normalized += 1;
-        if (r.status === "SKIPPED") out.skipped += 1;
-        detail = `NORMALIZE ${r.status}${r.reason ? `: ${r.reason}` : ""}`;
       } else if (task.task_type === "PROMOTE_INSTITUTION" && task.institution_id) {
         const { promoteInstitution } = await import("./openalex.server");
         const r = await promoteInstitution(task.institution_id);

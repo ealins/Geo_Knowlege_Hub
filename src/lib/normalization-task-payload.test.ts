@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { buildNormalizationTaskPayload, legacyNormalizationSnapshotTarget, shouldHydrateLegacyPendingSnapshot } from "./normalization-task-payload";
+import { buildNormalizationTaskPayload, legacyNormalizationSnapshotTarget, shouldHydrateLegacyPendingSnapshot, shouldSkipLegacySnapshotFallback } from "./normalization-task-payload";
 
 describe("buildNormalizationTaskPayload", () => {
   test("preserves the selected raw snapshot for retry-safe normalization", () => {
@@ -21,6 +21,27 @@ describe("buildNormalizationTaskPayload", () => {
   });
 });
 
+
+describe("shouldSkipLegacySnapshotFallback", () => {
+  test("does not fall through to the newest page when a generic legacy target is missing", () => {
+    expect(shouldSkipLegacySnapshotFallback({ classification: "PROGRAMME" }, null)).toBe(true);
+  });
+
+  test("does not fall through when a semantic-recovery snapshot is missing", () => {
+    expect(shouldSkipLegacySnapshotFallback({
+      classification: "COURSE",
+      reason: "semantic-failure-recovery-v7",
+    }, undefined)).toBe(true);
+  });
+
+  test("allows pinning when the expected legacy snapshot exists", () => {
+    expect(shouldSkipLegacySnapshotFallback({ classification: "PROGRAMME" }, "raw-123")).toBe(false);
+  });
+
+  test("preserves legacy latest-page compatibility when no classification intent exists", () => {
+    expect(shouldSkipLegacySnapshotFallback({ reason: "legacy-task" }, null)).toBe(false);
+  });
+});
 
 describe("shouldHydrateLegacyPendingSnapshot", () => {
   test("allows a legacy classified task with no raw snapshot id to be pinned", () => {
