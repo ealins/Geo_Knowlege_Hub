@@ -96,10 +96,20 @@ export function getNormalizationProviderDeferralMinutes(
  */
 export function shouldOpenOmniRouteCircuit(input: {
   recentGatewayFailures: number;
+  /** Recent HTTP 530/Cloudflare 1033 responses are route failures; one is sufficient. */
+  recentHttp530Failures?: number;
   independentFallbackConfigured: boolean;
   threshold?: number;
 }): boolean {
   if (input.independentFallbackConfigured) return false;
+
+  // HTTP 530/1033 is a route/tunnel failure. Unlike transient 502/503/504
+  // responses, it opens the cross-isolate circuit immediately.
+  const recentHttp530Failures = input.recentHttp530Failures ?? 0;
+  if (Number.isFinite(recentHttp530Failures) && recentHttp530Failures > 0) {
+    return true;
+  }
+
   const threshold = Math.max(1, Math.floor(input.threshold ?? 3));
   return Number.isFinite(input.recentGatewayFailures) &&
     input.recentGatewayFailures >= threshold;
