@@ -141,3 +141,28 @@ export function selectDeterministicVacancyTaskIds(
   }
   return selectedIds;
 }
+
+
+/**
+ * Prefer exact pending vacancy snapshots that pass the canonical posting gate.
+ * If none can be normalized, still select one exact pending snapshot so the
+ * deterministic normalizer can mark false-positive classifications SKIPPED.
+ * This keeps invalid rows from starving valid work while allowing the backlog
+ * of rejected snapshots to drain safely during a provider outage.
+ */
+export function selectPreferredDeterministicVacancyTaskIds(
+  pendingVacancies: readonly PendingVacancySnapshot[],
+  eligibleRawRecordIds: ReadonlySet<string>,
+  dueTasks: readonly DueNormalizationTaskCandidate[],
+  limit = 1,
+): string[] {
+  const preferredSnapshots = pendingVacancies.filter((raw) =>
+    eligibleRawRecordIds.has(raw.id),
+  );
+  const preferred = selectDeterministicVacancyTaskIds(preferredSnapshots, dueTasks, limit);
+  if (preferred.length > 0) return preferred;
+
+  // A deterministic rejection is still useful progress: normalizeSource marks
+  // the exact snapshot SKIPPED without calling the unavailable AI provider.
+  return selectDeterministicVacancyTaskIds(pendingVacancies, dueTasks, limit);
+}
