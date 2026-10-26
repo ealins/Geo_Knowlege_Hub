@@ -221,3 +221,17 @@ export function selectDeterministicResearchNewsTaskIds(
   }
   return selectedIds;
 }
+
+/**
+ * Permit bounded deterministic snapshot cleanup when the provider circuit was
+ * already open at preflight or the first model request confirms a gateway outage.
+ * Never use this fallback when an independent provider is configured.
+ */
+export function shouldRunDeterministicNormalizationFallback(input: {
+  providerCircuitOpen: boolean;
+  providerGatewayFailure: boolean;
+  independentFallbackConfigured: boolean;
+}): boolean {
+  return !input.independentFallbackConfigured &&
+    (input.providerCircuitOpen || input.providerGatewayFailure);
+}
