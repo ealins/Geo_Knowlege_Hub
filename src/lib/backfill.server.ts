@@ -62,6 +62,7 @@ export async function enqueueRawBackfill(limit = 400): Promise<BackfillPlan> {
   const [
     pendingResult,
     retryableResult,
+    cleanupPendingResult,
     allPendingCountResult,
     supportedPendingCountResult,
   ] = await Promise.all([
@@ -79,6 +80,15 @@ export async function enqueueRawBackfill(limit = 400): Promise<BackfillPlan> {
       .in("normalization_status", ["FAILED", "SKIPPED"])
       .order("fetched_at", { ascending: false })
       .limit(2000),
+    // RESEARCH_NEWS has no canonical writer. Queue its exact pending snapshot
+    // only for deterministic terminal cleanup; the normalizer returns SKIPPED without an LLM call.
+    supabaseAdmin
+      .from("raw_records")
+      .select(rawFields)
+      .eq("classification", "RESEARCH_NEWS")
+      .eq("normalization_status", "PENDING")
+      .order("fetched_at", { ascending: true })
+      .limit(2000),
     supabaseAdmin
       .from("raw_records")
       .select("id", { count: "exact", head: true })
@@ -91,6 +101,7 @@ export async function enqueueRawBackfill(limit = 400): Promise<BackfillPlan> {
   ]);
   if (pendingResult.error) throw pendingResult.error;
   if (retryableResult.error) throw retryableResult.error;
+  if (cleanupPendingResult.error) throw cleanupPendingResult.error;
   if (allPendingCountResult.error) throw allPendingCountResult.error;
   if (supportedPendingCountResult.error) throw supportedPendingCountResult.error;
   if (allPendingCountResult.count == null || supportedPendingCountResult.count == null) {
@@ -100,7 +111,11 @@ export async function enqueueRawBackfill(limit = 400): Promise<BackfillPlan> {
     allPendingCountResult.count,
     supportedPendingCountResult.count,
   );
-  const raws = [...(pendingResult.data ?? []), ...(retryableResult.data ?? [])];
+  const raws = [
+    ...(pendingResult.data ?? []),
+    ...(retryableResult.data ?? []),
+    ...(cleanupPendingResult.data ?? []),
+  ];
 
   const candidates = raws.filter((r) => {
     if (!r.source_id) return false;
@@ -201,7 +216,12 @@ export async function enqueueRawBackfill(limit = 400): Promise<BackfillPlan> {
     rows.push({
       task_type: "NORMALIZE",
       source_id: sourceId,
-      payload: { backfill: true, classification, raw_record_id: rawRecordId },
+      payload: {
+        backfill: true,
+        classification,
+        raw_record_id: rawRecordId,
+        ...(classification === "RESEARCH_NEWS" ? { deterministic_cleanup: true } : {}),
+      },
     });
   }
 
