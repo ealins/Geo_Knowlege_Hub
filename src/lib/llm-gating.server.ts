@@ -1,7 +1,7 @@
 // Deterministic candidate selection. No model request is made for pages that
 // obviously cannot yield a canonical record — this is the cost gate.
 // The model can reject a candidate but can NEVER overturn a rejection here.
-import { looksLikeSinglePosting } from "./ingest.server";
+import { looksLikeSinglePosting } from "./vacancy-posting-policy";
 
 export type Candidate =
   | "VACANCY_CANDIDATE"
