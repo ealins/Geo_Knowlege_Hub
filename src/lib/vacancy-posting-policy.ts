@@ -101,7 +101,6 @@ export type VacancySnapshotCandidate = {
 export function isDeterministicallyEligibleVacancySnapshot(
   raw: VacancySnapshotCandidate,
 ): boolean {
-  const rawTitle = (raw.page_title ?? "").trim();
   const title = normalizeVacancyTitle(raw.page_title);
   const url = raw.final_url ?? "";
   const text = raw.text_content ?? "";
@@ -111,6 +110,6 @@ export function isDeterministicallyEligibleVacancySnapshot(
   const vacancyLanding =
     /(?:^|\/)(?:jobs?|vacancies|careers)\/term(?:\/|$)/i.test(rawPath) ||
     /(?:^|\/)(?:jobs?|vacancies|careers)\/(?:search|listing|list|all)(?:\/|$)/i.test(rawPath) ||
-    /(?:\bvacancies?\b|\bjob listings?\b|\bcareer(?:s)?\b)\s*$/i.test(rawTitle);
+    /(?:\bvacancies?\b|\bjob listings?\b|\bcareer(?:s)?\b)\s*$/i.test(title);
   return !vacancyLanding;
 }
