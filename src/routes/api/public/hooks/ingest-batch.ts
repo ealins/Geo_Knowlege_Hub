@@ -559,10 +559,10 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
             let normalizeWaves = 0;
             let taskGroup: "NORMALIZE" | "DISCOVER" = "NORMALIZE";
 
-            // A confirmed provider circuit blocks model-dependent extraction, but
-            // exact-snapshot VACANCY normalization is deterministic and needs no LLM.
-            // Process a small sequential batch (at most three due tasks), and only
-            // when each raw snapshot is still PENDING and belongs to the same source.
+            // A confirmed provider outage blocks model-dependent extraction, but
+            // exact-snapshot VACANCY normalization and explicitly marked RESEARCH_NEWS
+            // cleanup are deterministic and need no LLM. Process at most three due tasks,
+            // only when each raw snapshot is still PENDING and belongs to the same source.
             let deterministicFallbackAttempted = false;
             const runDeterministicNormalizationFallback = async () => {
               const nowIso = new Date().toISOString();
@@ -637,12 +637,12 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
                 result.recordsUpdated += deterministicWave.recordsUpdated;
                 if (cleanupTaskIds.length > 0) {
                   result.details.push(
-                    "DETERMINISTIC_CLEANUP_FALLBACK: exact pending RESEARCH_NEWS snapshot selected during provider circuit",
+                    "DETERMINISTIC_CLEANUP_FALLBACK: exact pending RESEARCH_NEWS snapshot selected during provider outage",
                   );
                 }
                 if (vacancyTaskIds.length > 0) {
                   result.details.push(
-                    "DETERMINISTIC_VACANCY_FALLBACK: exact pending VACANCY snapshot selected during provider circuit",
+                    "DETERMINISTIC_VACANCY_FALLBACK: exact pending VACANCY snapshot selected during provider outage",
                   );
                 }
                 result.details.push(...deterministicWave.details);
