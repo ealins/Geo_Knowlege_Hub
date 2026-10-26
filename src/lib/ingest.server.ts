@@ -2951,7 +2951,7 @@ export async function normalizeSource(
   const vacancyLanding =
     /(?:^|\/)(?:jobs?|vacancies|careers)\/term(?:\/|$)/i.test(rawPath) ||
     /(?:^|\/)(?:jobs?|vacancies|careers)\/(?:search|listing|list|all)(?:\/|$)/i.test(rawPath) ||
-    /(?:\bvacancies?\b|\bjob listings?\b|\bcareer(?:s)?\b)\s*$/i.test(rawTitle);
+    /(?:\bvacancies?\b|\bjob listings?\b|\bcareer(?:s)?\b)\s*$/i.test(title);
   if (vacancyLanding) {
     await mark("SKIPPED", "vacancy directory page");
     return { status: "SKIPPED", reason: "vacancy directory page" };
