@@ -79,10 +79,10 @@ export function looksLikeSinglePosting(
 export function normalizeVacancyTitle(pageTitle: string | null | undefined): string {
   return (pageTitle ?? "")
     .replace(
-      /\\s*[|·–—-]\\s*[^|·–—-]*(university|universit\\u00e4t|hochschule|institut\\w*|careers?|karriere)[^|·–—-]*$/gi,
+      /\s*[|·–—-]\s*[^|·–—-]*(university|universit\u00e4t|hochschule|institut\w*|careers?|karriere)[^|·–—-]*$/gi,
       "",
     )
-    .replace(/\\s*(job\\s*details?|stellendetails|stellenanzeige|job\\s*description)\\s*$/i, "")
+    .replace(/\s*(job\s*details?|stellendetails|stellenanzeige|job\s*description)\s*$/i, "")
     .trim();
 }
 
@@ -109,8 +109,8 @@ export function isDeterministicallyEligibleVacancySnapshot(
 
   const rawPath = pathOf(url);
   const vacancyLanding =
-    /(?:^|\\/)(?:jobs?|vacancies|careers)\\/term(?:\\/|$)/i.test(rawPath) ||
-    /(?:^|\\/)(?:jobs?|vacancies|careers)\\/(?:search|listing|list|all)(?:\\/|$)/i.test(rawPath) ||
-    /(?:\\bvacancies?\\b|\\bjob listings?\\b|\\bcareer(?:s)?\\b)\\s*$/i.test(rawTitle);
+    /(?:^|\/)(?:jobs?|vacancies|careers)\/term(?:\/|$)/i.test(rawPath) ||
+    /(?:^|\/)(?:jobs?|vacancies|careers)\/(?:search|listing|list|all)(?:\/|$)/i.test(rawPath) ||
+    /(?:\bvacancies?\b|\bjob listings?\b|\bcareer(?:s)?\b)\s*$/i.test(rawTitle);
   return !vacancyLanding;
 }
