@@ -118,6 +118,18 @@ export function shouldOpenOmniRouteCircuit(input: {
 
 
 /**
+ * Model-tier escalation cannot repair a gateway/route outage. After callNemotron
+ * has attempted any configured independent fallback, stop the model ladder on
+ * these errors instead of sending the same extraction to more models.
+ */
+export function shouldTryNextExtractionModel(
+  errorCode: string | null | undefined,
+): boolean {
+  return !/^(?:HTTP_(?:502|503|504|530)|GATEWAY_5XX)$/.test(errorCode ?? "");
+}
+
+
+/**
  * Process-local half of the OmniRoute circuit breaker. The database preflight
  * protects across isolates, but concurrent calls can all pass that preflight
  * before the first failed response is recorded. This state stops later calls
