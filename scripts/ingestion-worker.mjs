@@ -325,7 +325,7 @@ export function parseRetryAfterMs(value, nowMs = Date.now(), maxMs = 30 * 60_000
   if (!header) return null;
 
   let delayMs;
-  if (/^\\d+$/.test(header)) {
+  if (/^\d+$/.test(header)) {
     delayMs = Number(header) * 1000;
   } else {
     const retryAtMs = Date.parse(header);
