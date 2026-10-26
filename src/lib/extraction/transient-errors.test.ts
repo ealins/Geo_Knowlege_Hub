@@ -150,17 +150,33 @@ describe("OMNIROUTE_CIRCUIT_WINDOW_MS", () => {
 
 
 describe("shouldOpenOmniRouteCircuit", () => {
-  test("opens after repeated gateway 502/503/530 failures when no fallback is configured", () => {
-    expect(shouldOpenOmniRouteCircuit({ recentGatewayFailures: 3, independentFallbackConfigured: false })).toBe(true);
-    expect(shouldOpenOmniRouteCircuit({ recentGatewayFailures: 60, independentFallbackConfigured: false })).toBe(true);
+  test("opens immediately after one recent HTTP 530/Cloudflare 1033 when no fallback is configured", () => {
+    expect(shouldOpenOmniRouteCircuit({
+      recentGatewayFailures: 1,
+      recentHttp530Failures: 1,
+      independentFallbackConfigured: false,
+    })).toBe(true);
   });
 
-  test("keeps the circuit closed below threshold", () => {
-    expect(shouldOpenOmniRouteCircuit({ recentGatewayFailures: 2, independentFallbackConfigured: false })).toBe(false);
+  test("keeps the circuit closed below the threshold for ordinary gateway 502/503/504 failures", () => {
+    expect(shouldOpenOmniRouteCircuit({
+      recentGatewayFailures: 2,
+      recentHttp530Failures: 0,
+      independentFallbackConfigured: false,
+    })).toBe(false);
+    expect(shouldOpenOmniRouteCircuit({
+      recentGatewayFailures: 3,
+      recentHttp530Failures: 0,
+      independentFallbackConfigured: false,
+    })).toBe(true);
   });
 
-  test("never blocks configured independent fallback routes", () => {
-    expect(shouldOpenOmniRouteCircuit({ recentGatewayFailures: 100, independentFallbackConfigured: true })).toBe(false);
+  test("never blocks a configured independent fallback route, even after HTTP 530", () => {
+    expect(shouldOpenOmniRouteCircuit({
+      recentGatewayFailures: 1,
+      recentHttp530Failures: 1,
+      independentFallbackConfigured: true,
+    })).toBe(false);
   });
 });
 
