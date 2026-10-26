@@ -114,6 +114,7 @@ export function selectDeterministicVacancyTaskIds(
   pendingVacancies: readonly PendingVacancySnapshot[],
   dueTasks: readonly DueNormalizationTaskCandidate[],
   limit = 1,
+  excludedSourceIds: readonly string[] = [],
 ): string[] {
   const maxTasks = Math.max(0, Math.floor(limit));
   if (maxTasks === 0) return [];
@@ -124,7 +125,7 @@ export function selectDeterministicVacancyTaskIds(
   }
 
   const selectedIds: string[] = [];
-  const selectedSources = new Set<string>();
+  const selectedSources = new Set<string>(excludedSourceIds.filter(Boolean));
   for (const task of dueTasks) {
     if (!task.id || !task.source_id || selectedSources.has(task.source_id)) continue;
     const payload =
@@ -155,14 +156,68 @@ export function selectPreferredDeterministicVacancyTaskIds(
   eligibleRawRecordIds: ReadonlySet<string>,
   dueTasks: readonly DueNormalizationTaskCandidate[],
   limit = 1,
+  excludedSourceIds: readonly string[] = [],
 ): string[] {
   const preferredSnapshots = pendingVacancies.filter((raw) =>
     eligibleRawRecordIds.has(raw.id),
   );
-  const preferred = selectDeterministicVacancyTaskIds(preferredSnapshots, dueTasks, limit);
+  const preferred = selectDeterministicVacancyTaskIds(preferredSnapshots, dueTasks, limit, excludedSourceIds);
   if (preferred.length > 0) return preferred;
 
   // A deterministic rejection is still useful progress: normalizeSource marks
   // the exact snapshot SKIPPED without calling the unavailable AI provider.
-  return selectDeterministicVacancyTaskIds(pendingVacancies, dueTasks, limit);
+  return selectDeterministicVacancyTaskIds(pendingVacancies, dueTasks, limit, excludedSourceIds);
+}
+
+
+export type PendingDeterministicCleanupSnapshot = {
+  id: string;
+  source_id: string | null;
+  classification: string | null;
+};
+
+/**
+ * Select exact pending RESEARCH_NEWS tasks explicitly enqueued for deterministic
+ * cleanup. The non-vacancy normalizer has no writer for this class and returns
+ * SKIPPED without an LLM request. Legacy tasks and source-mismatched snapshots
+ * must never be selected.
+ */
+export function selectDeterministicResearchNewsTaskIds(
+  pendingSnapshots: readonly PendingDeterministicCleanupSnapshot[],
+  dueTasks: readonly DueNormalizationTaskCandidate[],
+  limit = 1,
+): string[] {
+  const maxTasks = Math.max(0, Math.floor(limit));
+  if (maxTasks === 0) return [];
+
+  const sourceByRawId = new Map<string, string>();
+  for (const raw of pendingSnapshots) {
+    if (
+      raw.id &&
+      raw.source_id &&
+      raw.classification?.toUpperCase() === "RESEARCH_NEWS"
+    ) {
+      sourceByRawId.set(raw.id, raw.source_id);
+    }
+  }
+
+  const selectedIds: string[] = [];
+  const selectedSources = new Set<string>();
+  for (const task of dueTasks) {
+    if (!task.id || !task.source_id || selectedSources.has(task.source_id)) continue;
+    const payload =
+      task.payload && typeof task.payload === "object" && !Array.isArray(task.payload)
+        ? (task.payload as Record<string, unknown>)
+        : {};
+    if (payload.deterministic_cleanup !== true) continue;
+    if (String(payload.classification ?? "").toUpperCase() !== "RESEARCH_NEWS") continue;
+    const rawRecordId = payload.raw_record_id;
+    if (typeof rawRecordId !== "string" || !rawRecordId.trim()) continue;
+    if (sourceByRawId.get(rawRecordId) !== task.source_id) continue;
+
+    selectedIds.push(task.id);
+    selectedSources.add(task.source_id);
+    if (selectedIds.length >= maxTasks) break;
+  }
+  return selectedIds;
 }
