@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type { ExternalFetchCompletion, ExternalReviewCompletion } from "@/lib/ingest.server";
 import { discoveryFallbackPolicy, hasProviderCircuitOpenSignal, hasProviderGatewayFailureSignal, normalizationWavePolicy, selectDeterministicVacancyTaskIds, shouldRunNormalizationWave, shouldThrottleSteadyStateDrain } from "@/lib/queue-drain-policy";
+import { isDeterministicallyEligibleVacancySnapshot } from "@/lib/vacancy-posting-policy";
 
 type Body = {
   action?:
@@ -554,7 +555,7 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
               const [pendingVacancies, dueNormalizeTasks] = await Promise.all([
                 supabaseAdmin
                   .from("raw_records")
-                  .select("id, source_id")
+                  .select("id, source_id, final_url, page_title, text_content")
                   .eq("classification", "VACANCY")
                   .eq("normalization_status", "PENDING")
                   .not("source_id", "is", null)
@@ -572,8 +573,11 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
               if (pendingVacancies.error) throw pendingVacancies.error;
               if (dueNormalizeTasks.error) throw dueNormalizeTasks.error;
 
+              const eligiblePendingVacancies = (pendingVacancies.data ?? [])
+                .filter(isDeterministicallyEligibleVacancySnapshot)
+                .map(({ id, source_id }) => ({ id, source_id }));
               const deterministicTaskIds = selectDeterministicVacancyTaskIds(
-                pendingVacancies.data ?? [],
+                eligiblePendingVacancies,
                 dueNormalizeTasks.data ?? [],
                 1,
               );
