@@ -186,7 +186,7 @@ describe("process-local OmniRoute circuit", () => {
   test("does not count rate limits or failures outside the 30-minute window", () => {
     const old = recordLocalGatewayFailure(closed(), "HTTP_502", 1_000);
     const rateLimit = recordLocalGatewayFailure(old, "HTTP_429", 1_500);
-    expect(rateLimit.failureTimes).toHaveLength(0);
+    expect(rateLimit.failureTimes).toHaveLength(1); // preserve the prior 502 while ignoring the 429
     const recent = recordLocalGatewayFailure(old, "HTTP_503", 1_000 + OMNIROUTE_CIRCUIT_WINDOW_MS);
     expect(recent.failureTimes).toHaveLength(1);
     expect(isLocalGatewayCircuitOpen(recent, 1_000 + OMNIROUTE_CIRCUIT_WINDOW_MS + 1)).toBe(false);
