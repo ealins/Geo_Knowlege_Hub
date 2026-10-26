@@ -67,9 +67,23 @@ jobs:
             const v = JSON.parse(process.argv[1]);
             if (v.error) throw new Error(v.error);
             if (typeof v.queued !== "number") throw new Error("refresh-due returned no numeric queue count");
+            const skipReasons =
+              v.skip_reasons && typeof v.skip_reasons === "object" && !Array.isArray(v.skip_reasons)
+                ? v.skip_reasons
+                : null;
+            if (skipReasons) {
+              for (const [reason, count] of Object.entries(skipReasons)) {
+                if (typeof count !== "number") throw new Error(`refresh-due skip reason ${reason} is not numeric`);
+              }
+            } else {
+              console.log("::warning::refresh-due omitted skip_reasons; continuing with reduced diagnostics");
+            }
             console.log("FRESHNESS_FALLBACK_REFRESH", JSON.stringify({
               queued: v.queued,
-              skipped: v.skipped ?? 0
+              scanned: typeof v.scanned === "number" ? v.scanned : null,
+              by_category: v.by_category ?? {},
+              blocked_reprobes_queued: v.blocked_reprobes_queued ?? 0,
+              skip_reasons: skipReasons
             }));
           ' "$response"
 
