@@ -14,6 +14,7 @@ import {
 } from "../llm-config.server";
 import { callNemotron, isAIConfigured } from "../nvidia.server";
 import { findCachedResult, logCacheHit, recordValidatedResult } from "./validate.server";
+import { shouldTryNextExtractionModel } from "./transient-errors";
 import type { ValidationOutcome } from "./shared.server";
 
 export type ExtractionOutcome<T> = {
@@ -145,7 +146,23 @@ ${cleaned.text}
       if (!call.ok || !call.content) {
         const shrinkable = call.errorCode === "TIMEOUT" || call.errorCode === "OUTPUT_TRUNCATED";
         if (pass === 0 && shrinkable) continue;
-        break; // move to the next model tier
+        if (!shouldTryNextExtractionModel(call.errorCode)) {
+          // Changing model tiers cannot repair a gateway/route outage. callNemotron
+          // has already attempted any configured independent fallback; return now
+          // rather than issuing more primary-provider requests for the same page.
+          return {
+            used: true,
+            cached: false,
+            value: null,
+            errorCode: lastErrorCode ?? "NO_RESULT",
+            errorMessage: lastErrorMessage,
+            model: lastModel,
+            modelsTried,
+            finishReason: lastFinishReason,
+            outputTokens: lastOutputTokens,
+          };
+        }
+        break; // move to the next model tier for non-gateway failures
       }
 
       const validated = args.validate(call.content, cleaned.text);
