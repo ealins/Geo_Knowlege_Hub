@@ -12,6 +12,7 @@ import {
 import { buildNormalizationTaskPayload, legacyNormalizationSnapshotTarget, shouldSkipLegacySnapshotFallback } from "./normalization-task-payload";
 import { getNormalizationProviderDeferralMinutes } from "./extraction/transient-errors";
 import {
+  boundedHostRetryAfterSeconds,
   parseHostFetchDeferralSeconds,
   restoreAttemptsAfterUnstartedFetch,
 } from "./host-fetch-deferral-policy";
@@ -1804,6 +1805,8 @@ export type ExternalFetchCompletion = {
   error?: string;
   blocked?: boolean;
   response_time_ms?: number;
+  /** Bounded origin backoff for HTTP 429, persisted to the task retry schedule. */
+  retry_after_seconds?: number;
 };
 
 const EXTERNAL_FETCH_LEASE_MS = 15 * 60_000;
@@ -2033,12 +2036,16 @@ export async function completeExternalFetch(input: ExternalFetchCompletion): Pro
     // Keep the source and error history; terminalize only this task.
     const dead = blocked || permanentlyUnavailable || task.attempts >= task.max_attempts;
     const backoffMinutes = Math.min(60 * 12, 2 ** Math.max(1, task.attempts));
+    const retryAfterSeconds = statusCode === 429
+      ? boundedHostRetryAfterSeconds(input.retry_after_seconds)
+      : 0;
+    const retryDelayMs = Math.max(backoffMinutes * 60_000, retryAfterSeconds * 1000);
     const { data: updated } = await supabaseAdmin
       .from("ingestion_tasks")
       .update({
         status: dead ? "DEAD" : "RETRY",
         last_error: message,
-        run_after: new Date(Date.now() + backoffMinutes * 60_000).toISOString(),
+        run_after: new Date(Date.now() + retryDelayMs).toISOString(),
       })
       .eq("id", task.id)
       .eq("status", "PROCESSING")
