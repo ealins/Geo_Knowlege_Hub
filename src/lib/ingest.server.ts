@@ -17,6 +17,7 @@ import {
   restoreAttemptsAfterUnstartedFetch,
 } from "./host-fetch-deferral-policy";
 import { shouldRecoverSemanticFailure } from "./semantic-recovery-policy";
+import { shouldDowngradeBodyOnlyVacancy } from "./source-classification-policy";
 import {
   extractStructuredSnapshot,
   structuredVacancyFromPayload,
@@ -219,6 +220,13 @@ export function classifyUrlAndText(url: string, title: string, text: string): Cl
       best = { classification: rule.kind, confidence: Math.min(0.95, score) };
   }
   if (best.confidence < 0.2) return { classification: "GENERAL", confidence: 0.1 };
+
+  // Body-only vacancy keywords created false positives for unrelated NASA
+  // editorial pages (e.g. mission and research articles). Keep a VACANCY
+  // classification only when the URL path or title itself signals a posting.
+  if (shouldDowngradeBodyOnlyVacancy(best.classification, path, heading)) {
+    return { classification: "GENERAL", confidence: 0.1 };
+  }
   return best;
 }
 
