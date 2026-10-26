@@ -396,19 +396,32 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
             const { shouldOpenOmniRouteCircuit, OMNIROUTE_CIRCUIT_WINDOW_MS } = await import("@/lib/extraction/transient-errors");
             // Match the 30-minute deferral applied to a task after a confirmed gateway outage.
             const circuitWindowStart = new Date(Date.now() - OMNIROUTE_CIRCUIT_WINDOW_MS).toISOString();
-            const { count: recentGatewayFailures, error: circuitReadError } = await supabaseAdmin
-              .from("llm_processing_runs")
-              .select("id", { count: "exact", head: true })
-              .eq("provider", AI_PROVIDER)
-              .eq("status", "FAILED")
-              .in("http_status", [502, 503, 504, 530])
-              .gte("created_at", circuitWindowStart);
+            const [
+              { count: recentGatewayFailures, error: circuitReadError },
+              { count: recentHttp530Failures, error: circuit530ReadError },
+            ] = await Promise.all([
+              supabaseAdmin
+                .from("llm_processing_runs")
+                .select("id", { count: "exact", head: true })
+                .eq("provider", AI_PROVIDER)
+                .eq("status", "FAILED")
+                .in("http_status", [502, 503, 504, 530])
+                .gte("created_at", circuitWindowStart),
+              supabaseAdmin
+                .from("llm_processing_runs")
+                .select("id", { count: "exact", head: true })
+                .eq("provider", AI_PROVIDER)
+                .eq("status", "FAILED")
+                .eq("http_status", 530)
+                .gte("created_at", circuitWindowStart),
+            ]);
 
             // Fail open on telemetry-read errors; a database read issue must not
             // silently block legitimate normalization after the provider recovers.
-            if (!circuitReadError) {
+            if (!circuitReadError && !circuit530ReadError) {
               providerCircuitOpen = shouldOpenOmniRouteCircuit({
                 recentGatewayFailures: recentGatewayFailures ?? 0,
+                recentHttp530Failures: recentHttp530Failures ?? 0,
                 independentFallbackConfigured: false,
               });
             }
