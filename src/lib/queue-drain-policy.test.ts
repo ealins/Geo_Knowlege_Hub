@@ -195,3 +195,39 @@ describe("selectDeterministicVacancyTaskIds", () => {
     )).toEqual([]);
   });
 });
+
+
+describe("selectPreferredDeterministicVacancyTaskIds", () => {
+  test("prioritizes a gate-passing snapshot over an older rejected snapshot", () => {
+    expect(selectPreferredDeterministicVacancyTaskIds(
+      [
+        { id: "raw-rejected", source_id: "source-a" },
+        { id: "raw-eligible", source_id: "source-b" },
+      ],
+      new Set(["raw-eligible"]),
+      [
+        { id: "task-rejected", source_id: "source-a", payload: { raw_record_id: "raw-rejected" } },
+        { id: "task-eligible", source_id: "source-b", payload: { raw_record_id: "raw-eligible" } },
+      ],
+      1,
+    )).toEqual(["task-eligible"]);
+  });
+
+  test("drains one exact rejected snapshot when no gate-passing snapshot is available", () => {
+    expect(selectPreferredDeterministicVacancyTaskIds(
+      [{ id: "raw-rejected", source_id: "source-a" }],
+      new Set(),
+      [{ id: "task-rejected", source_id: "source-a", payload: { raw_record_id: "raw-rejected" } }],
+      1,
+    )).toEqual(["task-rejected"]);
+  });
+
+  test("never falls back to a legacy task without an exact raw_record_id", () => {
+    expect(selectPreferredDeterministicVacancyTaskIds(
+      [{ id: "raw-rejected", source_id: "source-a" }],
+      new Set(),
+      [{ id: "task-legacy", source_id: "source-a", payload: { classification: "VACANCY" } }],
+      1,
+    )).toEqual([]);
+  });
+});
