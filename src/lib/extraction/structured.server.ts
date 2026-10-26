@@ -29,6 +29,7 @@ export type StructuredCanonicalResult = {
   status: "NORMALIZED" | "SKIPPED" | "FAILED";
   reason?: string | undefined;
   entity_id?: string | undefined;
+  entity_action?: "created" | "updated" | undefined;
 };
 
 export type StructuredVacancy = {
@@ -513,7 +514,7 @@ export async function normalizeStructuredNonVacancy(
       sourceType: "conference",
     });
     await linkExactTopics("event_topics", "event_id", entityId, keywordsFrom(node), false);
-    return { status: "NORMALIZED", entity_id: entityId, reason: "structured metadata fast path" };
+    return { status: "NORMALIZED", entity_id: entityId, entity_action: existing?.id ? "updated" : "created", reason: "structured metadata fast path" };
   }
 
   if (raw.classification === "RESEARCHER") {
@@ -599,7 +600,7 @@ export async function normalizeStructuredNonVacancy(
       [...keywordsFrom(node), textValue(affiliation?.["name"]) ?? ""].filter(Boolean),
       true,
     );
-    return { status: "NORMALIZED", entity_id: entityId, reason: "structured metadata fast path" };
+    return { status: "NORMALIZED", entity_id: entityId, entity_action: existingId ? "updated" : "created", reason: "structured metadata fast path" };
   }
 
   if (raw.classification === "PROGRAMME" || raw.classification === "COURSE") {
@@ -670,7 +671,7 @@ export async function normalizeStructuredNonVacancy(
       [...keywordsFrom(node), textValue(provider?.["name"]) ?? ""].filter(Boolean),
       false,
     );
-    return { status: "NORMALIZED", entity_id: entityId, reason: "structured metadata fast path" };
+    return { status: "NORMALIZED", entity_id: entityId, entity_action: existing?.id ? "updated" : "created", reason: "structured metadata fast path" };
   }
 
   if (raw.classification === "PROJECT") {
@@ -749,7 +750,7 @@ export async function normalizeStructuredNonVacancy(
       sourceType: "project",
     });
     await linkExactTopics("project_topics", "project_id", entityId, keywordsFrom(node), false);
-    return { status: "NORMALIZED", entity_id: entityId, reason: "structured metadata fast path" };
+    return { status: "NORMALIZED", entity_id: entityId, entity_action: existing?.id ? "updated" : "created", reason: "structured metadata fast path" };
   }
 
   return null;
