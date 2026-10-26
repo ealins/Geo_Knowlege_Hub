@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { discoveryFallbackPolicy, hasProviderCircuitOpenSignal, hasProviderGatewayFailureSignal, normalizationWavePolicy, selectDeterministicVacancyTaskIds, shouldRunNormalizationWave, shouldThrottleSteadyStateDrain } from "./queue-drain-policy";
+import { discoveryFallbackPolicy, hasProviderCircuitOpenSignal, hasProviderGatewayFailureSignal, normalizationWavePolicy, selectDeterministicVacancyTaskIds, selectPreferredDeterministicVacancyTaskIds, shouldRunNormalizationWave, shouldThrottleSteadyStateDrain } from "./queue-drain-policy";
 
 describe("shouldThrottleSteadyStateDrain", () => {
   test("keeps the interval for a small, recently due queue after recent work", () => {
