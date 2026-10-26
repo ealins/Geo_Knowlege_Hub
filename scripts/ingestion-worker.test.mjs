@@ -70,6 +70,6 @@ test("Retry-After HTTP dates are parsed relative to the supplied clock", () => {
 
 test("invalid or expired Retry-After headers do not add delay", () => {
   assert.equal(parseRetryAfterMs("not-a-date", 1_000), null);
-  assert.equal(parseRetryAfterMs("Mon, 26 Oct 2026 08:33:00 GMT", Date.parse("Mon, 26 Oct 2026 08:34:00 GMT")), 0);
+  assert.equal(parseRetryAfterMs("Mon, 26 Oct 2026 08:33:00 GMT", Date.parse("Mon, 26 Oct 2026 08:34:00 GMT")), null);
   assert.equal(parseRetryAfterMs(null, 1_000), null);
 });
