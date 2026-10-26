@@ -1,6 +1,7 @@
 // Server-only ingestion engine. Never imported by client code.
 // Pipeline: DISCOVER -> FETCH -> RAW STORAGE -> CLASSIFY -> EXTRACT/NORMALIZE -> CANONICAL -> PROVENANCE
 import { supabaseAdmin } from "@/integrations/supabase/client.server";
+import { countCanonicalWrite } from "./canonical-write-metrics";
 import { buildNormalizationTaskPayload, legacyNormalizationSnapshotTarget, shouldSkipLegacySnapshotFallback } from "./normalization-task-payload";
 import { getNormalizationProviderDeferralMinutes } from "./extraction/transient-errors";
 import {
@@ -1427,6 +1428,8 @@ export async function runQueueBatch(
   dead: number;
   normalized: number;
   skipped: number;
+  recordsCreated: number;
+  recordsUpdated: number;
   details: string[];
 }> {
   await recoverStaleQueueLeases(taskTypes);
@@ -1473,6 +1476,8 @@ export async function runQueueBatch(
     dead: 0,
     normalized: 0,
     skipped: 0,
+    recordsCreated: 0,
+    recordsUpdated: 0,
     details: [] as string[],
   };
   const queue = selected;
@@ -1586,7 +1591,15 @@ export async function runQueueBatch(
             // Exact raw_record_id stays in the task payload across retries.
             throw new Error(r.reason);
           }
-          if (r.status === "NORMALIZED") out.normalized += 1;
+          if (r.status === "NORMALIZED") {
+            out.normalized += 1;
+            const counts = countCanonicalWrite(
+              { recordsCreated: out.recordsCreated, recordsUpdated: out.recordsUpdated },
+              r.entity_action,
+            );
+            out.recordsCreated = counts.recordsCreated;
+            out.recordsUpdated = counts.recordsUpdated;
+          }
           if (r.status === "SKIPPED") out.skipped += 1;
           detail = `NORMALIZE ${r.status}${r.reason ? `: ${r.reason}` : ""}`;
         }
@@ -2819,6 +2832,7 @@ export type NormalizeResult = {
   status: "NORMALIZED" | "SKIPPED" | "FAILED";
   reason?: string | undefined;
   entity_id?: string | undefined;
+  entity_action?: "created" | "updated" | undefined;
 };
 
 /* ------------------------------------------------------------------ */
@@ -3184,5 +3198,9 @@ export async function normalizeSource(
   }
 
   await mark("NORMALIZED", null);
-  return { status: "NORMALIZED", entity_id: entityId };
+  return {
+    status: "NORMALIZED",
+    entity_id: entityId,
+    entity_action: existing?.id ? "updated" : "created",
+  };
 }
