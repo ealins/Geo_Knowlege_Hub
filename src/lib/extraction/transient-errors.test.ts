@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { isTransientExtractionError, shouldUseOpenRouterFallback, shouldUseOpenAIFallback, shouldRetryPrimaryProvider, getNormalizationProviderDeferralMinutes, shouldOpenOmniRouteCircuit, isLocalGatewayCircuitOpen, recordLocalGatewayFailure, OMNIROUTE_CIRCUIT_WINDOW_MS, getOmniRouteCircuitWindowStart } from "./transient-errors";
+import { shouldTryNextExtractionModel, isTransientExtractionError, shouldUseOpenRouterFallback, shouldUseOpenAIFallback, shouldRetryPrimaryProvider, getNormalizationProviderDeferralMinutes, shouldOpenOmniRouteCircuit, isLocalGatewayCircuitOpen, recordLocalGatewayFailure, OMNIROUTE_CIRCUIT_WINDOW_MS, getOmniRouteCircuitWindowStart } from "./transient-errors";
 
 describe("isTransientExtractionError", () => {
   test("retries common transient provider failures", () => {
@@ -212,5 +212,20 @@ describe("process-local OmniRoute circuit", () => {
     const state = recordLocalGatewayFailure(closed(), "HTTP_530", 10_000);
     expect(isLocalGatewayCircuitOpen(state, 10_000 + OMNIROUTE_CIRCUIT_WINDOW_MS - 1)).toBe(true);
     expect(isLocalGatewayCircuitOpen(state, 10_000 + OMNIROUTE_CIRCUIT_WINDOW_MS)).toBe(false);
+  });
+});
+
+
+describe("shouldTryNextExtractionModel", () => {
+  test("stops the model ladder after gateway failures", () => {
+    for (const code of ["HTTP_502", "HTTP_503", "HTTP_504", "HTTP_530", "GATEWAY_5XX"]) {
+      expect(shouldTryNextExtractionModel(code)).toBe(false);
+    }
+  });
+
+  test("preserves model escalation for non-gateway outcomes", () => {
+    for (const code of ["TIMEOUT", "OUTPUT_TRUNCATED", "HTTP_429", "HTTP_500", "SCHEMA_FAILURE", null]) {
+      expect(shouldTryNextExtractionModel(code)).toBe(true);
+    }
   });
 });
