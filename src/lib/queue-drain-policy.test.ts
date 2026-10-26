@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { discoveryFallbackPolicy, hasProviderCircuitOpenSignal, hasProviderGatewayFailureSignal, normalizationWavePolicy, selectDeterministicVacancyTaskIds, selectPreferredDeterministicVacancyTaskIds, shouldRunNormalizationWave, shouldThrottleSteadyStateDrain } from "./queue-drain-policy";
+import { discoveryFallbackPolicy, hasProviderCircuitOpenSignal, hasProviderGatewayFailureSignal, normalizationWavePolicy, selectDeterministicVacancyTaskIds, selectPreferredDeterministicVacancyTaskIds, selectDeterministicResearchNewsTaskIds, shouldRunNormalizationWave, shouldThrottleSteadyStateDrain } from "./queue-drain-policy";
 
 describe("shouldThrottleSteadyStateDrain", () => {
   test("keeps the interval for a small, recently due queue after recent work", () => {
@@ -248,5 +248,82 @@ describe("selectPreferredDeterministicVacancyTaskIds", () => {
       [{ id: "task-legacy", source_id: "source-a", payload: { classification: "VACANCY" } }],
       1,
     )).toEqual([]);
+  });
+});
+
+
+describe("selectDeterministicResearchNewsTaskIds", () => {
+  test("selects only exact pending RESEARCH_NEWS snapshots marked for cleanup", () => {
+    const pending = [
+      { id: "news-1", source_id: "source-1", classification: "RESEARCH_NEWS" },
+      { id: "news-2", source_id: "source-2", classification: "RESEARCH_NEWS" },
+    ];
+    const tasks = [
+      {
+        id: "task-1",
+        source_id: "source-1",
+        payload: {
+          raw_record_id: "news-1",
+          classification: "RESEARCH_NEWS",
+          deterministic_cleanup: true,
+        },
+      },
+      {
+        id: "task-2",
+        source_id: "source-2",
+        payload: {
+          raw_record_id: "news-2",
+          classification: "RESEARCH_NEWS",
+          deterministic_cleanup: true,
+        },
+      },
+    ];
+    expect(selectDeterministicResearchNewsTaskIds(pending, tasks, 1)).toEqual(["task-1"]);
+    expect(selectDeterministicResearchNewsTaskIds(pending, tasks, 2)).toEqual(["task-1", "task-2"]);
+  });
+
+  test("rejects legacy tasks, wrong-source IDs, other classifications and unmarked tasks", () => {
+    const pending = [
+      { id: "news-1", source_id: "source-1", classification: "RESEARCH_NEWS" },
+    ];
+    const tasks = [
+      { id: "legacy", source_id: "source-1", payload: { classification: "RESEARCH_NEWS" } },
+      {
+        id: "wrong-source",
+        source_id: "source-2",
+        payload: {
+          raw_record_id: "news-1",
+          classification: "RESEARCH_NEWS",
+          deterministic_cleanup: true,
+        },
+      },
+      {
+        id: "not-marked",
+        source_id: "source-1",
+        payload: { raw_record_id: "news-1", classification: "RESEARCH_NEWS" },
+      },
+      {
+        id: "wrong-class",
+        source_id: "source-1",
+        payload: {
+          raw_record_id: "news-1",
+          classification: "VACANCY",
+          deterministic_cleanup: true,
+        },
+      },
+    ];
+    expect(selectDeterministicResearchNewsTaskIds(pending, tasks, 5)).toEqual([]);
+  });
+
+  test("does not select a vacancy task from a source already selected for cleanup", () => {
+    const pending = [
+      { id: "vac-1", source_id: "source-1" },
+      { id: "vac-2", source_id: "source-2" },
+    ];
+    const tasks = [
+      { id: "task-1", source_id: "source-1", payload: { raw_record_id: "vac-1" } },
+      { id: "task-2", source_id: "source-2", payload: { raw_record_id: "vac-2" } },
+    ];
+    expect(selectDeterministicVacancyTaskIds(pending, tasks, 2, ["source-1"])).toEqual(["task-2"]);
   });
 });
