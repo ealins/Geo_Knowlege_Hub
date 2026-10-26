@@ -2,6 +2,7 @@
 // Pipeline: DISCOVER -> FETCH -> RAW STORAGE -> CLASSIFY -> EXTRACT/NORMALIZE -> CANONICAL -> PROVENANCE
 import { supabaseAdmin } from "@/integrations/supabase/client.server";
 import { countCanonicalWrite } from "./canonical-write-metrics";
+import { assertNormalizationDbSuccess } from "./normalization-db-errors";
 import {
   hasRoleTitle,
   hasStrongGeospatialEvidence,
@@ -2870,21 +2871,27 @@ export async function normalizeSource(
   // Backfill tasks must process the snapshot they selected, not whichever page
   // happens to be newest for this source. Keep the source_id guard so a malformed
   // task payload cannot normalize a record belonging to another source.
-  const { data: raw } = rawRecordId
+  const rawResult = rawRecordId
     ? await rawQuery.eq("id", rawRecordId).eq("source_id", sourceId).maybeSingle()
     : await rawQuery
         .eq("source_id", sourceId)
         .order("fetched_at", { ascending: false })
         .limit(1)
         .maybeSingle();
+  // A database read failure is not evidence that the exact snapshot is absent.
+  // Throw so the queue can retry instead of completing the task as a false skip.
+  assertNormalizationDbSuccess("read raw snapshot for normalization", rawResult.error);
+  const raw = rawResult.data;
 
   if (!raw) return { status: "SKIPPED", reason: "no raw record for source" };
 
   const mark = async (status: string, error: string | null) => {
-    await supabaseAdmin
+    const { error: updateError } = await supabaseAdmin
       .from("raw_records")
       .update({ normalization_status: status, normalization_error: error })
       .eq("id", raw.id);
+    // Never report a terminal normalization result if its status was not saved.
+    assertNormalizationDbSuccess(`persist raw snapshot status ${status}`, updateError);
   };
 
   const rawTitle = (raw.page_title ?? "").trim();
