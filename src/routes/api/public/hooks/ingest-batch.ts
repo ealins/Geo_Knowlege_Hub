@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type { ExternalFetchCompletion, ExternalReviewCompletion } from "@/lib/ingest.server";
-import { discoveryFallbackPolicy, hasProviderCircuitOpenSignal, hasProviderGatewayFailureSignal, normalizationWavePolicy, selectDeterministicResearchNewsTaskIds, selectPreferredDeterministicVacancyTaskIds, shouldRunNormalizationWave, shouldThrottleSteadyStateDrain } from "@/lib/queue-drain-policy";
+import { discoveryFallbackPolicy, hasProviderCircuitOpenSignal, hasProviderGatewayFailureSignal, normalizationWavePolicy, selectDeterministicResearchNewsTaskIds, selectPreferredDeterministicVacancyTaskIds, shouldRunDeterministicNormalizationFallback, shouldRunNormalizationWave, shouldThrottleSteadyStateDrain } from "@/lib/queue-drain-policy";
 import { isDeterministicallyEligibleVacancySnapshot } from "@/lib/vacancy-posting-policy";
 
 type Body = {
@@ -563,7 +563,8 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
             // exact-snapshot VACANCY normalization is deterministic and needs no LLM.
             // Process a small sequential batch (at most three due tasks), and only
             // when each raw snapshot is still PENDING and belongs to the same source.
-            if (providerCircuitOpen && !independentFallbackConfigured) {
+            let deterministicFallbackAttempted = false;
+            const runDeterministicNormalizationFallback = async () => {
               const nowIso = new Date().toISOString();
               const [pendingVacancies, pendingResearchNews, dueNormalizeTasks] = await Promise.all([
                 supabaseAdmin
@@ -601,7 +602,7 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
               const eligibleRawRecordIds = new Set(
                 eligiblePendingVacancies.map((raw) => raw.id),
               );
-              const deterministicFallbackLimit = Math.min(3, normalizeTarget);
+              const deterministicFallbackLimit = Math.min(3, Math.max(0, normalizeTarget - result.processed));
               const cleanupTaskIds = selectDeterministicResearchNewsTaskIds(
                 pendingResearchNews.data ?? [],
                 dueNormalizeTasks.data ?? [],
@@ -623,7 +624,7 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
                 const deterministicWave = await withTimeout(
                   runQueueBatch(deterministicTaskIds.length, ["NORMALIZE"], 1, deterministicTaskIds),
                   25_000,
-                  "deterministic vacancy normalization",
+                  "deterministic normalization fallback",
                 );
                 normalizeWaves += deterministicWave.processed > 0 ? 1 : 0;
                 result.processed += deterministicWave.processed;
@@ -647,6 +648,15 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
                 result.details.push(...deterministicWave.details);
                 if (deterministicWave.processed > 0) taskGroup = "NORMALIZE";
               }
+              deterministicFallbackAttempted = true;
+            };
+
+            if (shouldRunDeterministicNormalizationFallback({
+              providerCircuitOpen,
+              providerGatewayFailure,
+              independentFallbackConfigured,
+            })) {
+              await runDeterministicNormalizationFallback();
             }
 
             while (
@@ -695,6 +705,20 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
               // If a wave ends with multiple hard failures, stop this tick and let
               // exponential retry/backoff cool the provider down before the next wake.
               if (wave.failed + wave.dead >= 2) break;
+            }
+
+            if (
+              !deterministicFallbackAttempted &&
+              shouldRunDeterministicNormalizationFallback({
+                providerCircuitOpen,
+                providerGatewayFailure,
+                independentFallbackConfigured,
+              })
+            ) {
+              // If the first provider request in this invocation discovers a gateway
+              // outage, still drain bounded exact-snapshot deterministic work now.
+              // Do not wait for the next scheduled invocation to open the preflight circuit.
+              await runDeterministicNormalizationFallback();
             }
 
             if (result.processed === 0) {
