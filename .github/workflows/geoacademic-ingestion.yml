@@ -107,7 +107,20 @@ jobs:
             const v = JSON.parse(process.argv[1]);
             if (v.error) throw new Error(v.error);
             if (typeof v.queued !== "number") throw new Error("refresh-due returned no queue count");
-            console.log("DUE_SOURCE_REFRESH", JSON.stringify({queued:v.queued, skipped:v.skipped ?? 0}));
+            if (typeof v.scanned !== "number") throw new Error("refresh-due returned no scanned count");
+            if (!v.skip_reasons || typeof v.skip_reasons !== "object" || Array.isArray(v.skip_reasons)) {
+              throw new Error("refresh-due returned no skip_reasons object");
+            }
+            for (const [reason, count] of Object.entries(v.skip_reasons)) {
+              if (typeof count !== "number") throw new Error(`refresh-due skip reason ${reason} is not numeric`);
+            }
+            console.log("DUE_SOURCE_REFRESH", JSON.stringify({
+              queued: v.queued,
+              scanned: v.scanned,
+              by_category: v.by_category ?? {},
+              blocked_reprobes_queued: v.blocked_reprobes_queued ?? 0,
+              skip_reasons: v.skip_reasons
+            }));
           ' "$response"
 
       - name: Fetch fresh source data first
