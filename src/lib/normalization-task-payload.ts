@@ -45,6 +45,20 @@ export function legacyNormalizationSnapshotTarget(
  * Kept as a small compatibility predicate for callers/tests that only need to
  * know whether the generic legacy pending-snapshot path applies.
  */
+/**
+ * A classified legacy task has an explicit snapshot-selection intent. If no
+ * row matches that intent, do not let normalizeSource fall back to the newest
+ * raw page for the source; leave raw rows untouched so backfill can re-evaluate.
+ */
+export function shouldSkipLegacySnapshotFallback(
+  payload: Record<string, unknown>,
+  matchedRawRecordId: string | null | undefined,
+): boolean {
+  const hasMatchedId =
+    typeof matchedRawRecordId === "string" && matchedRawRecordId.trim().length > 0;
+  return legacyNormalizationSnapshotTarget(payload) !== null && !hasMatchedId;
+}
+
 export function shouldHydrateLegacyPendingSnapshot(
   payload: Record<string, unknown>,
 ): boolean {
