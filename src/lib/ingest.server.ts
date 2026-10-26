@@ -2,7 +2,12 @@
 // Pipeline: DISCOVER -> FETCH -> RAW STORAGE -> CLASSIFY -> EXTRACT/NORMALIZE -> CANONICAL -> PROVENANCE
 import { supabaseAdmin } from "@/integrations/supabase/client.server";
 import { countCanonicalWrite } from "./canonical-write-metrics";
-import { hasStrongGeospatialEvidence, looksLikeSinglePosting, normalizeVacancyTitle } from "./vacancy-posting-policy";
+import {
+  hasRoleTitle,
+  hasStrongGeospatialEvidence,
+  looksLikeSinglePosting,
+  normalizeVacancyTitle,
+} from "./vacancy-posting-policy";
 import { buildNormalizationTaskPayload, legacyNormalizationSnapshotTarget, shouldSkipLegacySnapshotFallback } from "./normalization-task-payload";
 import { getNormalizationProviderDeferralMinutes } from "./extraction/transient-errors";
 import {
@@ -709,7 +714,7 @@ async function registerVacancySources(input: {
       /(?:\/(?:job|jobs|vacanc(?:y|ies)|position|stelle|stellenangebot|requisition)(?:\/|[-_]))|(?:[?&](?:jobid|job_id|job|reqid|req_id|requisitionid|positionid|postingid)=)|(?:\/(?:job|requisition)\/\d{3,})/i.test(
         signal,
       );
-    const roleLabel = label.length >= 8 && !genericLabel.test(label) && ROLE_TITLE.test(label);
+    const roleLabel = label.length >= 8 && !genericLabel.test(label) && hasRoleTitle(label);
     if ((!sameHost && !atsHost) || (!detailSignal && !roleLabel)) return [];
     return [{ url: canonical, label }];
   });
