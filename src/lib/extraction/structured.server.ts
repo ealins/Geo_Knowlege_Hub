@@ -484,12 +484,15 @@ export async function normalizeStructuredNonVacancy(
       is_demo: false,
     };
     let entityId = existing?.id;
-    if (entityId)
-      await supabaseAdmin
+    if (entityId) {
+      const { error: updateError } = await supabaseAdmin
         .from("events")
         .update(payload as never)
         .eq("id", entityId);
-    else
+      if (updateError) {
+        return { status: "FAILED", reason: `structured event update failed: ${updateError.message}` };
+      }
+    } else
       entityId = (
         await supabaseAdmin
           .from("events")
@@ -564,12 +567,15 @@ export async function normalizeStructuredNonVacancy(
       is_demo: false,
     };
     let entityId = existingId;
-    if (entityId)
-      await supabaseAdmin
+    if (entityId) {
+      const { error: updateError } = await supabaseAdmin
         .from("researchers")
         .update(payload as never)
         .eq("id", entityId);
-    else
+      if (updateError) {
+        return { status: "FAILED", reason: `structured researcher update failed: ${updateError.message}` };
+      }
+    } else
       entityId = (
         await supabaseAdmin
           .from("researchers")
@@ -635,12 +641,15 @@ export async function normalizeStructuredNonVacancy(
       is_demo: false,
     };
     let entityId = existing?.id;
-    if (entityId)
-      await supabaseAdmin
+    if (entityId) {
+      const { error: updateError } = await supabaseAdmin
         .from("courses")
         .update(payload as never)
         .eq("id", entityId);
-    else
+      if (updateError) {
+        return { status: "FAILED", reason: `structured programme update failed: ${updateError.message}` };
+      }
+    } else
       entityId = (
         await supabaseAdmin
           .from("courses")
@@ -720,12 +729,15 @@ export async function normalizeStructuredNonVacancy(
       is_demo: false,
     };
     let entityId = existing?.id;
-    if (entityId)
-      await supabaseAdmin
+    if (entityId) {
+      const { error: updateError } = await supabaseAdmin
         .from("projects")
         .update(payload as never)
         .eq("id", entityId);
-    else
+      if (updateError) {
+        return { status: "FAILED", reason: `structured project update failed: ${updateError.message}` };
+      }
+    } else
       entityId = (
         await supabaseAdmin
           .from("projects")
