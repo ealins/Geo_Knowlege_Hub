@@ -1,5 +1,6 @@
 import { describe, expect, test } from "bun:test";
 import {
+  hasRoleTitle,
   isDeterministicallyEligibleVacancySnapshot,
   looksLikeSinglePosting,
   normalizeVacancyTitle,
@@ -14,6 +15,10 @@ const validPostingText = [
 ].join(" ").repeat(3);
 
 describe("vacancy posting policy", () => {
+  test("recognizes role-bearing link labels through the shared policy helper", () => {
+    expect(hasRoleTitle("Doctoral Researcher in Photogrammetry")).toBe(true);
+    expect(hasRoleTitle("Careers and Opportunities")).toBe(false);
+  });
   test("uses the same site-chrome title cleanup as normalization", () => {
     expect(normalizeVacancyTitle("Doctoral Researcher in Photogrammetry | ETH Zurich Careers"))
       .toBe("Doctoral Researcher in Photogrammetry");
