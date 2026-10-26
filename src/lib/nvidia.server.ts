@@ -13,7 +13,16 @@ import {
   type LlmOperation,
   type NvidiaModelTier,
 } from "./llm-config.server";
-import { getOmniRouteCircuitWindowStart, shouldUseOpenRouterFallback, shouldUseOpenAIFallback, shouldRetryPrimaryProvider, shouldOpenOmniRouteCircuit } from "./extraction/transient-errors";
+import {
+  getOmniRouteCircuitWindowStart,
+  isLocalGatewayCircuitOpen,
+  recordLocalGatewayFailure,
+  shouldUseOpenRouterFallback,
+  shouldUseOpenAIFallback,
+  shouldRetryPrimaryProvider,
+  shouldOpenOmniRouteCircuit,
+  type LocalGatewayCircuitState,
+} from "./extraction/transient-errors";
 import { hasConfiguredAiProvider } from "./ai-provider-config";
 
 export type NemotronCall = {
@@ -67,6 +76,8 @@ function release(): void {
 
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
+let localGatewayCircuitState: LocalGatewayCircuitState = { failureTimes: [], openUntil: 0 };
+
 export function isAIConfigured(): boolean {
   return hasConfiguredAiProvider(process.env);
 }
@@ -79,6 +90,39 @@ async function logRun(row: Record<string, unknown>): Promise<string | null> {
     .select("id")
     .maybeSingle();
   return data?.id ?? null;
+}
+
+const LOCAL_GATEWAY_CIRCUIT_MESSAGE =
+  "TRANSIENT_EXTRACTION_FAILURE GATEWAY_5XX: circuit open after repeated recent primary gateway HTTP 502/503/504/530 failures; no independent fallback is configured (set OPENAI_API_KEY or OPENROUTER_API_KEY with OPENROUTER_MODEL)";
+
+async function circuitOpenResult(
+  base: Record<string, unknown>,
+  model: string,
+): Promise<NemotronResult> {
+  const circuitTime = new Date().toISOString();
+  const runId = await logRun({
+    ...base,
+    started_at: circuitTime,
+    completed_at: circuitTime,
+    status: "FAILED",
+    latency_ms: 0,
+    attempt: 0,
+    http_status: null,
+    error_code: "CIRCUIT_OPEN_GATEWAY_5XX",
+    error_message: LOCAL_GATEWAY_CIRCUIT_MESSAGE,
+  });
+  return {
+    ok: false,
+    content: null,
+    httpStatus: null,
+    latencyMs: 0,
+    model,
+    provider: AI_PROVIDER,
+    attempt: 0,
+    errorCode: "GATEWAY_5XX",
+    errorMessage: LOCAL_GATEWAY_CIRCUIT_MESSAGE,
+    runId,
+  };
 }
 
 
@@ -409,6 +453,10 @@ export async function callNemotron(call: NemotronCall): Promise<NemotronResult> 
     process.env["OPENAI_API_KEY"]?.trim() ||
       (process.env["OPENROUTER_API_KEY"]?.trim() && process.env["OPENROUTER_MODEL"]?.trim()),
   );
+  if (!hasIndependentFallback && isLocalGatewayCircuitOpen(localGatewayCircuitState)) {
+    return circuitOpenResult(base, model);
+  }
+
   if (!hasIndependentFallback) {
     const circuitWindowStart = getOmniRouteCircuitWindowStart();
     const { count: recentGatewayFailures, error: circuitReadError } = await supabaseAdmin
@@ -427,32 +475,7 @@ export async function callNemotron(call: NemotronCall): Promise<NemotronResult> 
         independentFallbackConfigured: false,
       })
     ) {
-      const circuitTime = new Date().toISOString();
-      const circuitMessage =
-        "TRANSIENT_EXTRACTION_FAILURE GATEWAY_5XX: circuit open after repeated recent primary gateway HTTP 502/503/504/530 failures; no independent fallback is configured (set OPENAI_API_KEY or OPENROUTER_API_KEY with OPENROUTER_MODEL)";
-      const runId = await logRun({
-        ...base,
-        started_at: circuitTime,
-        completed_at: circuitTime,
-        status: "FAILED",
-        latency_ms: 0,
-        attempt: 0,
-        http_status: null,
-        error_code: "CIRCUIT_OPEN_GATEWAY_5XX",
-        error_message: circuitMessage,
-      });
-      return {
-        ok: false,
-        content: null,
-        httpStatus: null,
-        latencyMs: 0,
-        model,
-        provider: AI_PROVIDER,
-        attempt: 0,
-        errorCode: "GATEWAY_5XX",
-        errorMessage: circuitMessage,
-        runId,
-      };
+      return circuitOpenResult(base, model);
     }
   }
 
@@ -462,6 +485,12 @@ export async function callNemotron(call: NemotronCall): Promise<NemotronResult> 
     const startedAt = new Date();
     const t0 = Date.now();
     await acquire();
+    // A concurrent call may have opened the local circuit while this request
+    // waited for capacity. Re-check after acquiring the slot, before network I/O.
+    if (!hasIndependentFallback && isLocalGatewayCircuitOpen(localGatewayCircuitState)) {
+      release();
+      return circuitOpenResult(base, model);
+    }
     let httpStatus: number | null = null;
     let content: string | null = null;
     let errorCode: string | null = null;
@@ -512,6 +541,14 @@ export async function callNemotron(call: NemotronCall): Promise<NemotronResult> 
       if (!response.ok) {
         errorCode = `HTTP_${response.status}`;
         errorMessage = bodyText.slice(0, 800);
+        // Update local state before releasing the concurrency slot so waiting
+        // requests can observe the circuit opening after a gateway failure.
+        if (!hasIndependentFallback) {
+          localGatewayCircuitState = recordLocalGatewayFailure(
+            localGatewayCircuitState,
+            errorCode,
+          );
+        }
       } else {
         try {
           const parsed = JSON.parse(bodyText) as {
@@ -574,7 +611,10 @@ export async function callNemotron(call: NemotronCall): Promise<NemotronResult> 
       outputTokens,
     };
 
-    if (ok) return lastResult;
+    if (ok) {
+      localGatewayCircuitState = { failureTimes: [], openUntil: 0 };
+      return lastResult;
+    }
 
     const retryPrimary = shouldRetryPrimaryProvider({
       errorCode,

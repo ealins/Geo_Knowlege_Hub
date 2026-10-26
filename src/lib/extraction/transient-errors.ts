@@ -105,3 +105,48 @@ export function shouldOpenOmniRouteCircuit(input: {
     input.recentGatewayFailures >= threshold;
 }
 
+
+
+/**
+ * Process-local half of the OmniRoute circuit breaker. The database preflight
+ * protects across isolates, but concurrent calls can all pass that preflight
+ * before the first failed response is recorded. This state stops later calls
+ * in the same warm isolate; it never replaces the cross-isolate DB circuit.
+ */
+export type LocalGatewayCircuitState = {
+  failureTimes: number[];
+  openUntil: number;
+};
+
+export function recordLocalGatewayFailure(
+  state: LocalGatewayCircuitState,
+  errorCode: string | null | undefined,
+  nowMs = Date.now(),
+  threshold = 3,
+): LocalGatewayCircuitState {
+  const failureTimes = state.failureTimes.filter(
+    (at) => Number.isFinite(at) && at <= nowMs && nowMs - at < OMNIROUTE_CIRCUIT_WINDOW_MS,
+  );
+  if (!/^(?:HTTP_(?:502|503|504|530)|GATEWAY_5XX)$/.test(errorCode ?? "")) {
+    return { ...state, failureTimes };
+  }
+
+  failureTimes.push(nowMs);
+  const safeThreshold = Number.isFinite(threshold) ? Math.max(1, Math.floor(threshold)) : 3;
+  // Cloudflare 530/1033 is a route/tunnel failure, so stop this isolate's
+  // queued calls immediately. Other gateway failures retain the 3-failure rule.
+  const shouldOpen = errorCode === "HTTP_530" || failureTimes.length >= safeThreshold;
+  return {
+    failureTimes,
+    openUntil: shouldOpen
+      ? Math.max(state.openUntil, nowMs + OMNIROUTE_CIRCUIT_WINDOW_MS)
+      : state.openUntil,
+  };
+}
+
+export function isLocalGatewayCircuitOpen(
+  state: LocalGatewayCircuitState,
+  nowMs = Date.now(),
+): boolean {
+  return state.openUntil > nowMs;
+}

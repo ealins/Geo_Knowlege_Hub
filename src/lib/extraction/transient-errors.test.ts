@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { isTransientExtractionError, shouldUseOpenRouterFallback, shouldUseOpenAIFallback, shouldRetryPrimaryProvider, getNormalizationProviderDeferralMinutes, shouldOpenOmniRouteCircuit, OMNIROUTE_CIRCUIT_WINDOW_MS, getOmniRouteCircuitWindowStart } from "./transient-errors";
+import { isTransientExtractionError, shouldUseOpenRouterFallback, shouldUseOpenAIFallback, shouldRetryPrimaryProvider, getNormalizationProviderDeferralMinutes, shouldOpenOmniRouteCircuit, isLocalGatewayCircuitOpen, recordLocalGatewayFailure, OMNIROUTE_CIRCUIT_WINDOW_MS, getOmniRouteCircuitWindowStart } from "./transient-errors";
 
 describe("isTransientExtractionError", () => {
   test("retries common transient provider failures", () => {
@@ -164,3 +164,37 @@ describe("shouldOpenOmniRouteCircuit", () => {
   });
 });
 
+
+
+describe("process-local OmniRoute circuit", () => {
+  const closed = () => ({ failureTimes: [] as number[], openUntil: 0 });
+
+  test("opens immediately on HTTP 530 so later queued calls can be short-circuited", () => {
+    const state = recordLocalGatewayFailure(closed(), "HTTP_530", 1_000);
+    expect(isLocalGatewayCircuitOpen(state, 1_001)).toBe(true);
+    expect(state.openUntil).toBe(1_000 + OMNIROUTE_CIRCUIT_WINDOW_MS);
+  });
+
+  test("opens after three recent 502/503/504 failures", () => {
+    const first = recordLocalGatewayFailure(closed(), "HTTP_502", 1_000);
+    const second = recordLocalGatewayFailure(first, "HTTP_503", 2_000);
+    expect(isLocalGatewayCircuitOpen(second, 2_001)).toBe(false);
+    const third = recordLocalGatewayFailure(second, "HTTP_504", 3_000);
+    expect(isLocalGatewayCircuitOpen(third, 3_001)).toBe(true);
+  });
+
+  test("does not count rate limits or failures outside the 30-minute window", () => {
+    const old = recordLocalGatewayFailure(closed(), "HTTP_502", 1_000);
+    const rateLimit = recordLocalGatewayFailure(old, "HTTP_429", 1_500);
+    expect(rateLimit.failureTimes).toHaveLength(0);
+    const recent = recordLocalGatewayFailure(old, "HTTP_503", 1_000 + OMNIROUTE_CIRCUIT_WINDOW_MS);
+    expect(recent.failureTimes).toHaveLength(1);
+    expect(isLocalGatewayCircuitOpen(recent, 1_000 + OMNIROUTE_CIRCUIT_WINDOW_MS + 1)).toBe(false);
+  });
+
+  test("circuit expires after its bounded window", () => {
+    const state = recordLocalGatewayFailure(closed(), "HTTP_530", 10_000);
+    expect(isLocalGatewayCircuitOpen(state, 10_000 + OMNIROUTE_CIRCUIT_WINDOW_MS - 1)).toBe(true);
+    expect(isLocalGatewayCircuitOpen(state, 10_000 + OMNIROUTE_CIRCUIT_WINDOW_MS)).toBe(false);
+  });
+});
