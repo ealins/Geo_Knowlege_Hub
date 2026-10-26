@@ -319,10 +319,33 @@ const hostNextStart = new Map();
 // the normal retry cycle. A successful fetch resets the backoff.
 const hostRateLimit = new Map();
 
-function recordRateLimit(host) {
+export function parseRetryAfterMs(value, nowMs = Date.now(), maxMs = 30 * 60_000) {
+  if (typeof value !== "string") return null;
+  const header = value.trim();
+  if (!header) return null;
+
+  let delayMs;
+  if (/^\\d+$/.test(header)) {
+    delayMs = Number(header) * 1000;
+  } else {
+    const retryAtMs = Date.parse(header);
+    if (!Number.isFinite(retryAtMs)) return null;
+    delayMs = retryAtMs - nowMs;
+  }
+
+  if (!Number.isFinite(delayMs) || delayMs < 0) return null;
+  return Math.min(Math.max(0, maxMs), Math.ceil(delayMs));
+}
+
+function recordRateLimit(host, retryAfterHeader) {
   const prev = hostRateLimit.get(host);
   const consecutive = (prev?.consecutive || 0) + 1;
-  const backoffMs = Math.min(30 * 60_000, 60_000 * 2 ** (consecutive - 1));
+  const exponentialMs = Math.min(30 * 60_000, 60_000 * 2 ** (consecutive - 1));
+  const serverDelayMs = parseRetryAfterMs(retryAfterHeader);
+  const backoffMs = Math.min(
+    30 * 60_000,
+    Math.max(exponentialMs, serverDelayMs ?? 0),
+  );
   hostRateLimit.set(host, {
     consecutive,
     until: Date.now() + backoffMs,
@@ -556,7 +579,7 @@ async function fetchLease(lease) {
         const host = new URL(lease.url).host;
         let error = `HTTP ${response.status}`;
         if (response.status === 429) {
-          const backoffMs = recordRateLimit(host);
+          const backoffMs = recordRateLimit(host, response.headers.get("retry-after"));
           error = `HTTP 429 (rate limited, backing off ${Math.round(backoffMs / 60000)}m)`;
         } else if (response.status < 500) {
           // Non-transient client errors won't improve on retry; don't
