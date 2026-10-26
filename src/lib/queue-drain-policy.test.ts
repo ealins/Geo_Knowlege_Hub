@@ -222,6 +222,25 @@ describe("selectPreferredDeterministicVacancyTaskIds", () => {
     )).toEqual(["task-rejected"]);
   });
 
+  test("drains up to three rejected snapshots from distinct sources during provider outage", () => {
+    expect(selectPreferredDeterministicVacancyTaskIds(
+      [
+        { id: "raw-a", source_id: "source-a" },
+        { id: "raw-b", source_id: "source-b" },
+        { id: "raw-c", source_id: "source-c" },
+        { id: "raw-d", source_id: "source-d" },
+      ],
+      new Set(),
+      [
+        { id: "task-a", source_id: "source-a", payload: { raw_record_id: "raw-a" } },
+        { id: "task-b", source_id: "source-b", payload: { raw_record_id: "raw-b" } },
+        { id: "task-c", source_id: "source-c", payload: { raw_record_id: "raw-c" } },
+        { id: "task-d", source_id: "source-d", payload: { raw_record_id: "raw-d" } },
+      ],
+      3,
+    )).toEqual(["task-a", "task-b", "task-c"]);
+  });
+
   test("never falls back to a legacy task without an exact raw_record_id", () => {
     expect(selectPreferredDeterministicVacancyTaskIds(
       [{ id: "raw-rejected", source_id: "source-a" }],
