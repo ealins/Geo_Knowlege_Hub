@@ -235,3 +235,20 @@ export function shouldRunDeterministicNormalizationFallback(input: {
   return !input.independentFallbackConfigured &&
     (input.providerCircuitOpen || input.providerGatewayFailure);
 }
+
+/**
+ * Reserve bounded deterministic cleanup capacity when a provider failure
+ * consumed the last normalization slot. The failed model-dependent task is
+ * deferred for retry, so it must not prevent one exact-snapshot, no-model
+ * cleanup task from running in the same invocation.
+ */
+export function deterministicNormalizationFallbackLimit(input: {
+  target: number;
+  processed: number;
+  providerGatewayFailure: boolean;
+}): number {
+  const target = Number.isFinite(input.target) ? Math.max(0, Math.floor(input.target)) : 0;
+  const processed = Number.isFinite(input.processed) ? Math.max(0, Math.floor(input.processed)) : 0;
+  const deferredFailureCredit = input.providerGatewayFailure ? 1 : 0;
+  return Math.min(3, Math.max(0, target - processed + deferredFailureCredit));
+}
