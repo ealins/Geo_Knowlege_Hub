@@ -32,6 +32,23 @@ describe("vacancy posting policy", () => {
     })).toBe(true);
   });
 
+  test("accepts geospatial evidence from strict JobPosting JSON-LD when page text is sparse", () => {
+    const structuredPostingText = [
+      "Doctoral Researcher in Photogrammetry",
+      "The role develops remote sensing methods and processes LiDAR point clouds for environmental monitoring.",
+      "Tasks include validating geospatial datasets and documenting reproducible workflows.",
+      "Required qualifications include GIS, geomatics, and spatial data analysis.",
+      "Application deadline: 30 November 2026. This is a full-time fixed-term research position.",
+    ].join(" ").repeat(3);
+
+    expect(isDeterministicallyEligibleVacancySnapshot({
+      final_url: "https://example.edu/jobs/doctoral-researcher",
+      page_title: "Doctoral Researcher | Example University",
+      text_content: "Apply online",
+      structured_posting_text: structuredPostingText,
+    })).toBe(true);
+  });
+
   test("rejects a careers index even when its body is long", () => {
     expect(isDeterministicallyEligibleVacancySnapshot({
       final_url: "https://jobs.ethz.ch/site/index",
