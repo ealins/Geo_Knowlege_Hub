@@ -158,14 +158,14 @@ describe("shouldOpenOmniRouteCircuit", () => {
     })).toBe(true);
   });
 
-  test("keeps the circuit closed below the threshold for ordinary gateway 502/503/504 failures", () => {
+  test("opens after two ordinary gateway 502/503/504 failures in the shared window", () => {
     expect(shouldOpenOmniRouteCircuit({
-      recentGatewayFailures: 2,
+      recentGatewayFailures: 1,
       recentHttp530Failures: 0,
       independentFallbackConfigured: false,
     })).toBe(false);
     expect(shouldOpenOmniRouteCircuit({
-      recentGatewayFailures: 3,
+      recentGatewayFailures: 2,
       recentHttp530Failures: 0,
       independentFallbackConfigured: false,
     })).toBe(true);
@@ -191,12 +191,11 @@ describe("process-local OmniRoute circuit", () => {
     expect(state.openUntil).toBe(1_000 + OMNIROUTE_CIRCUIT_WINDOW_MS);
   });
 
-  test("opens after three recent 502/503/504 failures", () => {
+  test("opens after two recent 502/503/504 failures", () => {
     const first = recordLocalGatewayFailure(closed(), "HTTP_502", 1_000);
+    expect(isLocalGatewayCircuitOpen(first, 1_001)).toBe(false);
     const second = recordLocalGatewayFailure(first, "HTTP_503", 2_000);
-    expect(isLocalGatewayCircuitOpen(second, 2_001)).toBe(false);
-    const third = recordLocalGatewayFailure(second, "HTTP_504", 3_000);
-    expect(isLocalGatewayCircuitOpen(third, 3_001)).toBe(true);
+    expect(isLocalGatewayCircuitOpen(second, 2_001)).toBe(true);
   });
 
   test("does not count rate limits or failures outside the 30-minute window", () => {
