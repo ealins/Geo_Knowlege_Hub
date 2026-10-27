@@ -43,8 +43,9 @@ describe("vacancy posting policy", () => {
 
     expect(isDeterministicallyEligibleVacancySnapshot({
       final_url: "https://example.edu/jobs/doctoral-researcher",
-      page_title: "Doctoral Researcher | Example University",
+      page_title: "Current job",
       text_content: "Apply online",
+      structured_posting_title: "Doctoral Researcher in Photogrammetry",
       structured_posting_text: structuredPostingText,
     })).toBe(true);
   });
