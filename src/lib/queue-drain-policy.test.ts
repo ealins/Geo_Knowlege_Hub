@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { deterministicNormalizationFallbackLimit, discoveryFallbackPolicy, hasProviderCircuitOpenSignal, hasProviderGatewayFailureSignal, normalizationWavePolicy, selectDeterministicVacancyTaskIds, selectPreferredDeterministicVacancyTaskIds, selectDeterministicResearchNewsTaskIds, shouldRunDeterministicNormalizationFallback, shouldRunNormalizationWave, shouldThrottleSteadyStateDrain } from "./queue-drain-policy";
+import { deterministicMediaSnapshotReason, deterministicNormalizationFallbackLimit, discoveryFallbackPolicy, hasProviderCircuitOpenSignal, hasProviderGatewayFailureSignal, normalizationWavePolicy, selectDeterministicMediaTaskIds, selectDeterministicVacancyTaskIds, selectPreferredDeterministicVacancyTaskIds, selectDeterministicResearchNewsTaskIds, shouldRunDeterministicNormalizationFallback, shouldRunNormalizationWave, shouldThrottleSteadyStateDrain } from "./queue-drain-policy";
 
 describe("shouldThrottleSteadyStateDrain", () => {
   test("keeps the interval for a small, recently due queue after recent work", () => {
@@ -395,5 +395,77 @@ describe("deterministicNormalizationFallbackLimit", () => {
       processed: 0,
       providerGatewayFailure: false,
     })).toBe(3);
+  });
+});
+
+
+describe("deterministicMediaSnapshotReason", () => {
+  test("recognizes legacy ESA multimedia pages misclassified as courses", () => {
+    expect(deterministicMediaSnapshotReason({
+      classification: "COURSE",
+      finalUrl: "https://www.esa.int/ESA_Multimedia/Videos/2026/04/Artemis_II",
+    })).toBe("ESA multimedia item is not a course");
+    expect(deterministicMediaSnapshotReason({
+      classification: "COURSE",
+      finalUrl: "https://www.esa.int/ESA_Multimedia/Images/2026/07/Artemis_crew",
+    })).toBe("ESA multimedia item is not a course");
+  });
+
+  test("does not skip non-ESA URLs, other classifications, or unrelated ESA pages", () => {
+    expect(deterministicMediaSnapshotReason({
+      classification: "COURSE",
+      finalUrl: "https://example.org/ESA_Multimedia/Videos/2026/course",
+    })).toBeNull();
+    expect(deterministicMediaSnapshotReason({
+      classification: "VACANCY",
+      finalUrl: "https://www.esa.int/ESA_Multimedia/Videos/2026/04/Artemis_II",
+    })).toBeNull();
+    expect(deterministicMediaSnapshotReason({
+      classification: "COURSE",
+      finalUrl: "https://www.esa.int/education/courses/geospatial",
+    })).toBeNull();
+  });
+});
+
+describe("selectDeterministicMediaTaskIds", () => {
+  test("selects only exact ESA media COURSE snapshots for the same source", () => {
+    expect(selectDeterministicMediaTaskIds(
+      [
+        { id: "raw-media", source_id: "source-a", classification: "COURSE", final_url: "https://www.esa.int/ESA_Multimedia/Videos/2026/04/Artemis_II" },
+        { id: "raw-course", source_id: "source-b", classification: "COURSE", final_url: "https://www.esa.int/education/courses/geospatial" },
+      ],
+      [
+        { id: "task-exact", source_id: "source-a", payload: { classification: "COURSE", raw_record_id: "raw-media" } },
+        { id: "task-wrong-source", source_id: "source-b", payload: { classification: "COURSE", raw_record_id: "raw-media" } },
+        { id: "task-wrong-class", source_id: "source-a", payload: { classification: "VACANCY", raw_record_id: "raw-media" } },
+        { id: "task-legacy", source_id: "source-a", payload: { classification: "COURSE" } },
+      ],
+      3,
+    )).toEqual(["task-exact"]);
+  });
+
+  test("respects the cleanup limit and one task per source", () => {
+    expect(selectDeterministicMediaTaskIds(
+      [
+        { id: "raw-a1", source_id: "source-a", classification: "COURSE", final_url: "https://www.esa.int/ESA_Multimedia/Videos/2026/a" },
+        { id: "raw-a2", source_id: "source-a", classification: "COURSE", final_url: "https://www.esa.int/ESA_Multimedia/Images/2026/b" },
+        { id: "raw-b", source_id: "source-b", classification: "COURSE", final_url: "https://www.esa.int/ESA_Multimedia/Images/2026/c" },
+      ],
+      [
+        { id: "task-a1", source_id: "source-a", payload: { classification: "COURSE", raw_record_id: "raw-a1" } },
+        { id: "task-a2", source_id: "source-a", payload: { classification: "COURSE", raw_record_id: "raw-a2" } },
+        { id: "task-b", source_id: "source-b", payload: { classification: "COURSE", raw_record_id: "raw-b" } },
+      ],
+      2,
+    )).toEqual(["task-a1", "task-b"]);
+  });
+
+  test("honours sources already selected by another deterministic fallback", () => {
+    expect(selectDeterministicMediaTaskIds(
+      [{ id: "raw-a", source_id: "source-a", classification: "COURSE", final_url: "https://www.esa.int/ESA_Multimedia/Videos/2026/a" }],
+      [{ id: "task-a", source_id: "source-a", payload: { classification: "COURSE", raw_record_id: "raw-a" } }],
+      1,
+      ["source-a"],
+    )).toEqual([]);
   });
 });
