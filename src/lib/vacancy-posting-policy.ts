@@ -23,7 +23,7 @@ const NON_POSTING =
   /(meet [a-z]|faces|blog|news|resources?|contact|use ?cases?|products?|solutions?|api\b|webinar|podcast|events?|privacy|imprint|impressum|cookie|newsletter|about us|our story|benefits|culture|diversity|academy|careers? in|working at|employee stor(?:y|ies)|learning (?:&|and) development|leadership track|u[.]?gro programme|talent community|graduate programme|programme careers?|internship programme overview|how we hire|hiring process|candidate privacy|applicant privacy|privacy policy|search for your career|job alerts?|equal opportunity|accommodation request)/i;
 /** A real posting names a role in its title. */
 const ROLE_TITLE =
-  /(phd|ph\.d|doctoral|doktorand|promotionsstelle|post ?doc|postdoctoral|professor|professur|juniorprofessur|lecturer|research(er)?|scientist|engineer|ingenieur|developer|analyst|technician|techniker|specialist|consultant|surveyor|geomatics|remote sensing|photogrammetr|gis\b|wissenschaftliche[rn]? mitarbeiter|w\/?m\/?d|m\/?w\/?d|f\/?m\/?d|assistant|associate|fellow|intern(ship)?|trainee|manager|lead|head of)/i;
+  /(\bphd\b|\bph\.d\b|\bdoctoral\b|\bdoktorand\b|\bpromotionsstelle\b|\bpost ?doc\b|\bpostdoctoral\b|\bprofessor\b|\bprofessur\b|\bjuniorprofessur\b|\blecturer\b|\bresearch(er)?\b|\bscientist\b|\bengineer\b|\bingenieur\b|\bdeveloper\b|\banalyst\b|\btechnician\b|\btechniker\b|\bspecialist\b|\bconsultant\b|\bsurveyor\b|\bgeomatics\b|\bremote sensing\b|\bphotogrammetr\w*\b|\bgis\b|\bwissenschaftliche[rn]?\s+mitarbeiter\b|\bw\/?m\/?d\b|\bm\/?w\/?d\b|\bf\/?m\/?d\b|\bassistant\b|\bassociate\b|\bfellow\b|\bintern(ship)?\b|\btrainee\b|\bmanager\b|\blead\b|\bhead of\b)/i;
 
 /** True when a vacancy-source link label names a role. */
 export function hasRoleTitle(value: string): boolean {
@@ -40,6 +40,34 @@ export function hasStrongGeospatialEvidence(title: string, text: string): boolea
 }
 
 /**
+ * Geospatial words in site navigation, related links, or footer chrome must not
+ * make an unrelated vacancy look relevant. Without a structured JobPosting
+ * description, require the geospatial signal near a job-specific signal; a
+ * strict structured posting may instead use its own title/description.
+ */
+function hasPostingSpecificGeospatialEvidence(
+  title: string,
+  body: string,
+  postingText?: string,
+): boolean {
+  if (STRONG_GEOSPATIAL.test(title)) return true;
+  if (postingText !== undefined) {
+    return STRONG_GEOSPATIAL.test(postingText.slice(0, 12_000));
+  }
+
+  const excerpt = body.slice(0, 12_000);
+  const signalPattern = new RegExp(POSTING_BODY.source, "ig");
+  let match: RegExpExecArray | null;
+  while ((match = signalPattern.exec(excerpt)) !== null) {
+    const start = Math.max(0, match.index - 2_000);
+    const end = Math.min(excerpt.length, match.index + match[0].length + 2_000);
+    if (STRONG_GEOSPATIAL.test(excerpt.slice(start, end))) return true;
+    if (match[0].length === 0) signalPattern.lastIndex += 1;
+  }
+  return false;
+}
+
+/**
  * True only when a fetched page really is ONE vacancy posting.
  * Careers hubs, marketing and resource pages under a /careers/ path must never
  * become an opportunity row — that is how the domain loses credibility.
@@ -48,9 +76,12 @@ export function looksLikeSinglePosting(
   url: string,
   title: string,
   text: string,
+  postingText?: string,
 ): { ok: boolean; reason?: string } {
   const t = (title || "").trim();
   const body = text || "";
+  const structuredPosting = postingText !== undefined;
+  const postingEvidence = postingText ?? body;
   const path = pathOf(url);
   if (!t) return { ok: false, reason: "no title" };
   if (LISTING_TITLE.test(t)) return { ok: false, reason: "careers listing/landing page title" };
@@ -65,14 +96,19 @@ export function looksLikeSinglePosting(
   ) {
     return { ok: false, reason: "policy or hiring-information path" };
   }
-  if (body.length < 600) return { ok: false, reason: "page too thin to be a posting" };
+  if (Math.max(body.length, postingEvidence.length) < 600) {
+    return { ok: false, reason: "page too thin to be a posting" };
+  }
   if (!ROLE_TITLE.test(t)) return { ok: false, reason: "title does not name a role" };
-  if (!POSTING_BODY.test(body))
+  // A parsed single schema.org JobPosting is itself strong posting evidence.
+  // For ordinary HTML pages, job-ad signals must be present in the fetched text.
+  if (!structuredPosting && !POSTING_BODY.test(body)) {
     return {
       ok: false,
       reason: "no job-ad signals (deadline, contract, tasks, salary)",
     };
-  if (!STRONG_GEOSPATIAL.test(t + "\n" + body.slice(0, 12000))) {
+  }
+  if (!hasPostingSpecificGeospatialEvidence(t, body, postingText)) {
     return { ok: false, reason: "no strong geospatial relevance evidence" };
   }
   return { ok: true };
