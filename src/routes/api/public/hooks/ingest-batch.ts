@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type { ExternalFetchCompletion, ExternalReviewCompletion } from "@/lib/ingest.server";
-import { deterministicNormalizationFallbackLimit, discoveryFallbackPolicy, hasProviderCircuitOpenSignal, hasProviderGatewayFailureSignal, normalizationWavePolicy, selectDeterministicResearchNewsTaskIds, selectPreferredDeterministicVacancyTaskIds, shouldRunDeterministicNormalizationFallback, shouldRunNormalizationWave, shouldThrottleSteadyStateDrain } from "@/lib/queue-drain-policy";
+import { deterministicNormalizationFallbackLimit, discoveryFallbackPolicy, hasProviderCircuitOpenSignal, hasProviderGatewayFailureSignal, normalizationWavePolicy, selectDeterministicMediaTaskIds, selectDeterministicResearchNewsTaskIds, selectDeterministicVacancyTaskIds, shouldRunDeterministicNormalizationFallback, shouldRunNormalizationWave, shouldThrottleSteadyStateDrain } from "@/lib/queue-drain-policy";
 import { isDeterministicallyEligibleVacancySnapshot } from "@/lib/vacancy-posting-policy";
 import { structuredVacancyFromPayload } from "@/lib/extraction/structured.server";
 
@@ -567,7 +567,7 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
             let deterministicFallbackAttempted = false;
             const runDeterministicNormalizationFallback = async () => {
               const nowIso = new Date().toISOString();
-              const [pendingVacancies, pendingStructuredVacancies, pendingResearchNews, dueNormalizeTasks] = await Promise.all([
+              const [pendingVacancies, pendingStructuredVacancies, pendingResearchNews, pendingMediaCourses, dueNormalizeTasks] = await Promise.all([
                 // Keep the large pending-snapshot scan lean. Fetch JSON-LD payloads
                 // separately so up to 2,000 page bodies do not carry up to 50 KB of
                 // structured metadata each into a single Worker invocation.
@@ -597,6 +597,14 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
                   .order("fetched_at", { ascending: true })
                   .limit(2000),
                 supabaseAdmin
+                  .from("raw_records")
+                  .select("id, source_id, classification, final_url")
+                  .eq("classification", "COURSE")
+                  .eq("normalization_status", "PENDING")
+                  .not("source_id", "is", null)
+                  .order("fetched_at", { ascending: true })
+                  .limit(2000),
+                supabaseAdmin
                   .from("ingestion_tasks")
                   .select("id, source_id, payload")
                   .eq("task_type", "NORMALIZE")
@@ -608,6 +616,7 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
               if (pendingVacancies.error) throw pendingVacancies.error;
               if (pendingStructuredVacancies.error) throw pendingStructuredVacancies.error;
               if (pendingResearchNews.error) throw pendingResearchNews.error;
+              if (pendingMediaCourses.error) throw pendingMediaCourses.error;
               if (dueNormalizeTasks.error) throw dueNormalizeTasks.error;
 
               const structuredPayloadById = new Map(
@@ -656,14 +665,40 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
                 .filter((task) => cleanupTaskIds.includes(task.id))
                 .map((task) => task.source_id)
                 .filter((id): id is string => Boolean(id));
-              const vacancyTaskIds = selectPreferredDeterministicVacancyTaskIds(
-                pendingVacancies.data ?? [],
-                eligibleRawRecordIds,
+              const remainingAfterCleanup = Math.max(0, deterministicFallbackLimit - cleanupTaskIds.length);
+              const eligibleVacancyTaskIds = selectDeterministicVacancyTaskIds(
+                eligiblePendingVacancies,
                 dueNormalizeTasks.data ?? [],
-                Math.max(0, deterministicFallbackLimit - cleanupTaskIds.length),
+                remainingAfterCleanup,
                 cleanupSourceIds,
               );
-              const deterministicTaskIds = [...cleanupTaskIds, ...vacancyTaskIds];
+              const eligibleVacancySourceIds = (dueNormalizeTasks.data ?? [])
+                .filter((task) => eligibleVacancyTaskIds.includes(task.id))
+                .map((task) => task.source_id)
+                .filter((id): id is string => Boolean(id));
+              const mediaTaskIds = selectDeterministicMediaTaskIds(
+                pendingMediaCourses.data ?? [],
+                dueNormalizeTasks.data ?? [],
+                Math.max(0, remainingAfterCleanup - eligibleVacancyTaskIds.length),
+                [...cleanupSourceIds, ...eligibleVacancySourceIds],
+              );
+              const mediaSourceIds = (dueNormalizeTasks.data ?? [])
+                .filter((task) => mediaTaskIds.includes(task.id))
+                .map((task) => task.source_id)
+                .filter((id): id is string => Boolean(id));
+              const rejectedVacancyTaskIds = selectDeterministicVacancyTaskIds(
+                (pendingVacancies.data ?? []).filter((raw) => !eligibleRawRecordIds.has(raw.id)),
+                dueNormalizeTasks.data ?? [],
+                Math.max(0, remainingAfterCleanup - eligibleVacancyTaskIds.length - mediaTaskIds.length),
+                [...cleanupSourceIds, ...eligibleVacancySourceIds, ...mediaSourceIds],
+              );
+              const vacancyTaskIds = [...eligibleVacancyTaskIds, ...rejectedVacancyTaskIds];
+              const deterministicTaskIds = [
+                ...cleanupTaskIds,
+                ...eligibleVacancyTaskIds,
+                ...mediaTaskIds,
+                ...rejectedVacancyTaskIds,
+              ];
               if (deterministicTaskIds.length > 0) {
                 const deterministicWave = await withTimeout(
                   runQueueBatch(deterministicTaskIds.length, ["NORMALIZE"], 1, deterministicTaskIds),
@@ -687,6 +722,11 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
                 if (vacancyTaskIds.length > 0) {
                   result.details.push(
                     "DETERMINISTIC_VACANCY_FALLBACK: exact pending VACANCY snapshot selected during provider outage",
+                  );
+                }
+                if (mediaTaskIds.length > 0) {
+                  result.details.push(
+                    "DETERMINISTIC_MEDIA_CLEANUP: exact pending ESA multimedia COURSE snapshot selected without AI",
                   );
                 }
                 result.details.push(...deterministicWave.details);
