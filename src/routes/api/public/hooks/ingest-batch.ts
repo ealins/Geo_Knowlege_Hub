@@ -567,13 +567,25 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
             let deterministicFallbackAttempted = false;
             const runDeterministicNormalizationFallback = async () => {
               const nowIso = new Date().toISOString();
-              const [pendingVacancies, pendingResearchNews, dueNormalizeTasks] = await Promise.all([
+              const [pendingVacancies, pendingStructuredVacancies, pendingResearchNews, dueNormalizeTasks] = await Promise.all([
+                // Keep the large pending-snapshot scan lean. Fetch JSON-LD payloads
+                // separately so up to 2,000 page bodies do not carry up to 50 KB of
+                // structured metadata each into a single Worker invocation.
                 supabaseAdmin
                   .from("raw_records")
-                  .select("id, source_id, final_url, page_title, text_content, payload")
+                  .select("id, source_id, final_url, page_title, text_content")
                   .eq("classification", "VACANCY")
                   .eq("normalization_status", "PENDING")
                   .not("source_id", "is", null)
+                  .order("fetched_at", { ascending: true })
+                  .limit(2000),
+                supabaseAdmin
+                  .from("raw_records")
+                  .select("id, payload")
+                  .eq("classification", "VACANCY")
+                  .eq("normalization_status", "PENDING")
+                  .not("source_id", "is", null)
+                  .not("payload->structured->jsonld", "is", null)
                   .order("fetched_at", { ascending: true })
                   .limit(2000),
                 supabaseAdmin
@@ -594,15 +606,22 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
                   .limit(2000),
               ]);
               if (pendingVacancies.error) throw pendingVacancies.error;
+              if (pendingStructuredVacancies.error) throw pendingStructuredVacancies.error;
               if (pendingResearchNews.error) throw pendingResearchNews.error;
               if (dueNormalizeTasks.error) throw dueNormalizeTasks.error;
 
+              const structuredPayloadById = new Map(
+                (pendingStructuredVacancies.data ?? []).map((raw) => [raw.id, raw.payload]),
+              );
               const eligiblePendingVacancies = (pendingVacancies.data ?? [])
                 .filter((raw) => {
-                  const structuredJob = structuredVacancyFromPayload(
-                    raw.payload,
-                    raw.final_url ?? "",
-                  );
+                  const structuredPayload = structuredPayloadById.get(raw.id);
+                  const structuredJob = structuredPayload
+                    ? structuredVacancyFromPayload(
+                        structuredPayload,
+                        raw.final_url ?? "",
+                      )
+                    : null;
                   const structuredPostingText = structuredJob
                     ? [
                         structuredJob.title,
