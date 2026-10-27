@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { discoveryFallbackPolicy, hasProviderCircuitOpenSignal, hasProviderGatewayFailureSignal, normalizationWavePolicy, selectDeterministicVacancyTaskIds, selectPreferredDeterministicVacancyTaskIds, selectDeterministicResearchNewsTaskIds, shouldRunDeterministicNormalizationFallback, shouldRunNormalizationWave, shouldThrottleSteadyStateDrain } from "./queue-drain-policy";
+import { deterministicNormalizationFallbackLimit, discoveryFallbackPolicy, hasProviderCircuitOpenSignal, hasProviderGatewayFailureSignal, normalizationWavePolicy, selectDeterministicVacancyTaskIds, selectPreferredDeterministicVacancyTaskIds, selectDeterministicResearchNewsTaskIds, shouldRunDeterministicNormalizationFallback, shouldRunNormalizationWave, shouldThrottleSteadyStateDrain } from "./queue-drain-policy";
 
 describe("shouldThrottleSteadyStateDrain", () => {
   test("keeps the interval for a small, recently due queue after recent work", () => {
@@ -360,5 +360,40 @@ describe("shouldRunDeterministicNormalizationFallback", () => {
       providerGatewayFailure: false,
       independentFallbackConfigured: false,
     })).toBe(false);
+  });
+});
+
+
+describe("deterministicNormalizationFallbackLimit", () => {
+  test("reserves one cleanup slot when a gateway failure consumes the target", () => {
+    expect(deterministicNormalizationFallbackLimit({
+      target: 4,
+      processed: 4,
+      providerGatewayFailure: true,
+    })).toBe(1);
+  });
+
+  test("caps fallback work at three when the first provider request fails", () => {
+    expect(deterministicNormalizationFallbackLimit({
+      target: 4,
+      processed: 1,
+      providerGatewayFailure: true,
+    })).toBe(3);
+  });
+
+  test("does not grant a failure credit while the provider is healthy", () => {
+    expect(deterministicNormalizationFallbackLimit({
+      target: 4,
+      processed: 4,
+      providerGatewayFailure: false,
+    })).toBe(0);
+  });
+
+  test("keeps preflight circuit cleanup within the existing target and cap", () => {
+    expect(deterministicNormalizationFallbackLimit({
+      target: 4,
+      processed: 0,
+      providerGatewayFailure: false,
+    })).toBe(3);
   });
 });
