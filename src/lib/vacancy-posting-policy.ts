@@ -131,6 +131,9 @@ export type VacancySnapshotCandidate = {
   final_url?: string | null;
   page_title?: string | null;
   text_content?: string | null;
+  /** Strict JobPosting title/description already extracted from JSON-LD. */
+  structured_posting_title?: string | null;
+  structured_posting_text?: string | null;
 };
 
 /**
@@ -142,10 +145,18 @@ export type VacancySnapshotCandidate = {
 export function isDeterministicallyEligibleVacancySnapshot(
   raw: VacancySnapshotCandidate,
 ): boolean {
-  const title = normalizeVacancyTitle(raw.page_title);
+  // The final canonical writer prefers the strict JobPosting title over page chrome.
+  const title = normalizeVacancyTitle(raw.structured_posting_title ?? raw.page_title);
   const url = raw.final_url ?? "";
   const text = raw.text_content ?? "";
-  if (!title || !looksLikeSinglePosting(url, title, text).ok) return false;
+  // Keep outage-fallback selection aligned with normalizeSource's final gate:
+  // strict JobPosting JSON-LD may contain the posting evidence omitted by page chrome.
+  if (!title || !looksLikeSinglePosting(
+    url,
+    title,
+    text,
+    raw.structured_posting_text ?? undefined,
+  ).ok) return false;
 
   const rawPath = pathOf(url);
   const vacancyLanding =
