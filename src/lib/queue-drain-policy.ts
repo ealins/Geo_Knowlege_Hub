@@ -252,3 +252,86 @@ export function deterministicNormalizationFallbackLimit(input: {
   const deferredFailureCredit = input.providerGatewayFailure ? 1 : 0;
   return Math.min(3, Math.max(0, target - processed + deferredFailureCredit));
 }
+
+
+export type PendingDeterministicMediaSnapshot = {
+  id: string;
+  source_id: string | null;
+  classification: string | null;
+  final_url: string | null;
+};
+
+/**
+ * Recognize only a proven legacy false-positive class: ESA multimedia video/image
+ * pages that were stored as COURSE before the classifier's media-path guard.
+ * Keep the host, path, and classification checks strict to avoid skipping real courses.
+ */
+export function deterministicMediaSnapshotReason(input: {
+  classification: string | null | undefined;
+  finalUrl: string | null | undefined;
+}): string | null {
+  if (input.classification?.toUpperCase() !== "COURSE" || !input.finalUrl) return null;
+  try {
+    const url = new URL(input.finalUrl);
+    const host = url.hostname.toLowerCase();
+    const path = decodeURIComponent(url.pathname).toLowerCase();
+    if (
+      (host === "esa.int" || host.endsWith(".esa.int")) &&
+      /^\/esa_multimedia\/(?:videos|images)\//i.test(path)
+    ) {
+      return "ESA multimedia item is not a course";
+    }
+  } catch {
+    return null;
+  }
+  return null;
+}
+
+/**
+ * Select bounded cleanup tasks only when a queued NORMALIZE task points to the
+ * exact pending ESA media snapshot from the same source. The caller's query must
+ * already restrict snapshots to normalization_status=PENDING and tasks to due,
+ * open NORMALIZE work.
+ */
+export function selectDeterministicMediaTaskIds(
+  pendingSnapshots: readonly PendingDeterministicMediaSnapshot[],
+  dueTasks: readonly DueNormalizationTaskCandidate[],
+  limit = 1,
+  excludedSourceIds: readonly string[] = [],
+): string[] {
+  const maxTasks = Math.max(0, Math.floor(limit));
+  if (maxTasks === 0) return [];
+
+  const sourceByRawId = new Map<string, string>();
+  for (const raw of pendingSnapshots) {
+    if (
+      raw.id &&
+      raw.source_id &&
+      deterministicMediaSnapshotReason({
+        classification: raw.classification,
+        finalUrl: raw.final_url,
+      })
+    ) {
+      sourceByRawId.set(raw.id, raw.source_id);
+    }
+  }
+
+  const selectedIds: string[] = [];
+  const selectedSources = new Set<string>(excludedSourceIds.filter(Boolean));
+  for (const task of dueTasks) {
+    if (!task.id || !task.source_id || selectedSources.has(task.source_id)) continue;
+    const payload =
+      task.payload && typeof task.payload === "object" && !Array.isArray(task.payload)
+        ? (task.payload as Record<string, unknown>)
+        : {};
+    if (String(payload.classification ?? "").toUpperCase() !== "COURSE") continue;
+    const rawRecordId = payload.raw_record_id;
+    if (typeof rawRecordId !== "string" || !rawRecordId.trim()) continue;
+    if (sourceByRawId.get(rawRecordId) !== task.source_id) continue;
+
+    selectedIds.push(task.id);
+    selectedSources.add(task.source_id);
+    if (selectedIds.length >= maxTasks) break;
+  }
+  return selectedIds;
+}
