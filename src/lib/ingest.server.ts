@@ -1618,29 +1618,34 @@ export async function runQueueBatch(
             .eq("source_id", task.source_id)
             .maybeSingle();
           if (rawSnapshotError) throw rawSnapshotError;
-          if (rawSnapshot?.normalization_status === "PENDING") {
+          if (rawSnapshot) {
             const reason = deterministicMediaSnapshotReason({
               classification: rawSnapshot.classification,
               finalUrl: rawSnapshot.final_url,
             });
             if (reason) {
-              const { data: skippedRaw, error: skipError } = await supabaseAdmin
-                .from("raw_records")
-                .update({
-                  normalization_status: "SKIPPED",
-                  normalization_error: `DETERMINISTIC_SKIP: ${reason}`,
-                  processed_at: new Date().toISOString(),
-                } as never)
-                .eq("id", rawRecordId)
-                .eq("source_id", task.source_id)
-                .eq("normalization_status", "PENDING")
-                .select("id")
-                .maybeSingle();
-              if (skipError) throw skipError;
+              if (rawSnapshot.normalization_status === "PENDING") {
+                const { data: skippedRaw, error: skipError } = await supabaseAdmin
+                  .from("raw_records")
+                  .update({
+                    normalization_status: "SKIPPED",
+                    normalization_error: `DETERMINISTIC_SKIP: ${reason}`,
+                    processed_at: new Date().toISOString(),
+                  } as never)
+                  .eq("id", rawRecordId)
+                  .eq("source_id", task.source_id)
+                  .eq("normalization_status", "PENDING")
+                  .select("id")
+                  .maybeSingle();
+                if (skipError) throw skipError;
+                deterministicMediaSkipDetail = skippedRaw
+                  ? `NORMALIZE SKIPPED: ${reason}`
+                  : "NORMALIZE skipped: exact media snapshot changed before cleanup; raw record left untouched";
+              } else {
+                deterministicMediaSkipDetail =
+                  "NORMALIZE skipped: exact media snapshot no longer pending; raw record left untouched";
+              }
               deterministicMediaSkipHandled = true;
-              deterministicMediaSkipDetail = skippedRaw
-                ? `NORMALIZE SKIPPED: ${reason}`
-                : "NORMALIZE skipped: exact media snapshot changed before cleanup; raw record left untouched";
             }
           }
         }
