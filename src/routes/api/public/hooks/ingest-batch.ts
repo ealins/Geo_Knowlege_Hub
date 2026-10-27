@@ -615,6 +615,7 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
                     : undefined;
                   return isDeterministicallyEligibleVacancySnapshot({
                     ...raw,
+                    structured_posting_title: structuredJob?.title ?? null,
                     structured_posting_text: structuredPostingText,
                   });
                 })
