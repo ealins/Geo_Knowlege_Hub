@@ -110,7 +110,7 @@ export function shouldOpenOmniRouteCircuit(input: {
     return true;
   }
 
-  const threshold = Math.max(1, Math.floor(input.threshold ?? 3));
+  const threshold = Math.max(1, Math.floor(input.threshold ?? 2));
   return Number.isFinite(input.recentGatewayFailures) &&
     input.recentGatewayFailures >= threshold;
 }
@@ -144,7 +144,7 @@ export function recordLocalGatewayFailure(
   state: LocalGatewayCircuitState,
   errorCode: string | null | undefined,
   nowMs = Date.now(),
-  threshold = 3,
+  threshold = 2,
 ): LocalGatewayCircuitState {
   const failureTimes = state.failureTimes.filter(
     (at) => Number.isFinite(at) && at <= nowMs && nowMs - at < OMNIROUTE_CIRCUIT_WINDOW_MS,
@@ -154,9 +154,9 @@ export function recordLocalGatewayFailure(
   }
 
   failureTimes.push(nowMs);
-  const safeThreshold = Number.isFinite(threshold) ? Math.max(1, Math.floor(threshold)) : 3;
+  const safeThreshold = Number.isFinite(threshold) ? Math.max(1, Math.floor(threshold)) : 2;
   // Cloudflare 530/1033 is a route/tunnel failure, so stop this isolate's
-  // queued calls immediately. Other gateway failures retain the 3-failure rule.
+  // queued calls immediately. Other gateway failures retain the 2-failure rule.
   const shouldOpen = errorCode === "HTTP_530" || failureTimes.length >= safeThreshold;
   return {
     failureTimes,
