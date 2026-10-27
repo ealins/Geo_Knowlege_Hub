@@ -93,3 +93,46 @@ jobs:
 
       - name: Fetch leased due sources
         run: node scripts/ingestion-worker.mjs
+
+      - name: Drain bounded normalization work
+        # The scheduled fallback must also drain normalization when the primary
+        # workflow is missed. Avoid duplicate work after a successful primary run;
+        # still drain after a failed/timed-out primary invocation.
+        if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion != 'success'
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "$INGESTION_HOOK_SECRET"
+          response="$(curl --fail-with-body --silent --show-error \\
+            --connect-timeout 10 --max-time 160 \\
+            -H "Authorization: Bearer $INGESTION_HOOK_SECRET" \\
+            -H "Content-Type: application/json" \\
+            --data '{"action":"drain","limit":4,"trigger":"github-actions-freshness-fallback-normalize"}' \\
+            https://geoacademic.app/api/public/hooks/ingest-batch)"
+          echo "$response"
+          node -e '
+            const v = JSON.parse(process.argv[1]);
+            if (v.error) throw new Error(v.error);
+            if (typeof v.processed !== "number") {
+              throw new Error("normalization drain returned no numeric processed count");
+            }
+            const responseText = JSON.stringify(v);
+            const providerGatewayFailure =
+              v.provider_gateway_failure === true ||
+              responseText.includes("CIRCUIT_OPEN_GATEWAY_5XX") ||
+              responseText.includes("circuit open after repeated recent primary gateway");
+            console.log("FRESHNESS_FALLBACK_NORMALIZE", JSON.stringify({
+              processed: v.processed,
+              ok: v.ok ?? null,
+              failed: v.failed ?? null,
+              dead: v.dead ?? null,
+              normalized: v.normalized ?? null,
+              skipped: v.skipped ?? null,
+              records_created: v.recordsCreated ?? v.records_created ?? null,
+              records_updated: v.recordsUpdated ?? v.records_updated ?? null,
+              provider_gateway_failure: providerGatewayFailure
+            }));
+            if (providerGatewayFailure) {
+              console.log("::warning::Provider gateway unavailable; bounded deterministic fallback may have run, and model-dependent work remains queued.");
+            }
+          '
