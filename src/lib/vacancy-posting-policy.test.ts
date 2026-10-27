@@ -60,4 +60,58 @@ describe("vacancy posting policy", () => {
       text_content: validPostingText,
     })).toBe(false);
   });
+  test("rejects geospatial keywords found only in unrelated page chrome", () => {
+    const body =
+      "How to apply and university navigation. ".repeat(25) +
+      "closing date " +
+      "unrelated page chrome and generic links. ".repeat(90) +
+      "mapping resources";
+    const structuredDescription = [
+      "A funded PhD studentship in molecular biology and peptide engineering.",
+      "The project focuses on ribosome profiling, cell biology, and biotechnology.",
+      "The student will work on protein engineering and co-translational separation.",
+    ].join(" ").repeat(5);
+
+    expect(looksLikeSinglePosting(
+      "https://www.cam.ac.uk/jobs/astrazeneca-funded-non-clinical-phd-studentship",
+      "AstraZeneca funded Non-clinical PhD Studentship",
+      body,
+      structuredDescription,
+    )).toEqual({
+      ok: false,
+      reason: "no strong geospatial relevance evidence",
+    });
+  });
+
+  test("rejects a NASA editorial when job-like and geospatial words are far apart", () => {
+    const body =
+      "NASA site navigation and general content. ".repeat(100) +
+      "E 13" +
+      " unrelated page text and footer links. ".repeat(110) +
+      "Lidar resources";
+
+    expect(looksLikeSinglePosting(
+      "https://www.nasa.gov/centers-and-facilities/armstrong/nasa-intern-took-career-from-car-engines-to-cockpits/",
+      "NASA Intern Took Career from Car Engines to Cockpits - NASA",
+      body,
+    )).toEqual({
+      ok: false,
+      reason: "no strong geospatial relevance evidence",
+    });
+  });
+
+  test("accepts geospatial evidence near job-specific text for a generic role title", () => {
+    const body = [
+      "Your tasks include processing LiDAR point clouds and validating spatial datasets.",
+      "Required qualifications include GIS, photogrammetry, or geomatics experience.",
+      "This is a full-time, fixed-term position. Application deadline: 30 November 2026.",
+    ].join(" ").repeat(4);
+
+    expect(looksLikeSinglePosting(
+      "https://example.edu/jobs/doctoral-researcher",
+      "Doctoral Researcher",
+      body,
+    ).ok).toBe(true);
+  });
+
 });

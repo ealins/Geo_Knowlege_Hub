@@ -7,6 +7,7 @@ import {
   PUBLIC_VERIFICATION_STATUSES,
   canonicalCountry,
   countryVariants,
+  isPublicOpportunityEvidence,
 } from "@/lib/public-data";
 
 export const LIVE_STATUSES = LIVE_OPPORTUNITY_STATUSES;
@@ -196,8 +197,8 @@ export const topPicksQuery = queryOptions({
         .from("opportunities")
         .select(
           `id, title, slug, sector, seniority, employer_name, country, status, opportunity_type,
-           application_deadline, official_source_url, institutions ( name, slug ),
-           opportunity_topics(topic_id)`,
+           application_deadline, description, official_source_url, confidence, verification_status, is_demo,
+           institutions ( name, slug ), opportunity_topics(topic_id)`,
         )
         .eq("sector", "academic")
         .eq("is_demo", false)
@@ -209,13 +210,13 @@ export const topPicksQuery = queryOptions({
           LIVE_STATUSES as unknown as ("open" | "closing_soon" | "rolling" | "possibly_open")[],
         )
         .order("application_deadline", { ascending: true, nullsFirst: false })
-        .limit(8),
+        .limit(40),
       supabase
         .from("opportunities")
         .select(
           `id, title, slug, sector, seniority, employer_name, country, status, opportunity_type,
-           application_deadline, official_source_url, institutions ( name, slug ),
-           opportunity_topics(topic_id)`,
+           application_deadline, description, official_source_url, confidence, verification_status, is_demo,
+           institutions ( name, slug ), opportunity_topics(topic_id)`,
         )
         .eq("sector", "industry")
         .eq("is_demo", false)
@@ -227,7 +228,7 @@ export const topPicksQuery = queryOptions({
           LIVE_STATUSES as unknown as ("open" | "closing_soon" | "rolling" | "possibly_open")[],
         )
         .order("application_deadline", { ascending: true, nullsFirst: false })
-        .limit(8),
+        .limit(40),
       supabase
         .from("topic_momentum")
         .select(
@@ -268,7 +269,7 @@ export const topPicksQuery = queryOptions({
     // Rank courses by how much live activity their host institution has.
     const { data: liveCalls } = await supabase
       .from("opportunities")
-      .select("institution_id, opportunity_topics(topic_id)")
+      .select("institution_id, title, description, country, city, sector, employer_name, seniority, status, application_deadline, official_source_url, confidence, verification_status, is_demo, opportunity_topics(topic_id)")
       .in(
         "status",
         LIVE_STATUSES as unknown as ("open" | "closing_soon" | "rolling" | "possibly_open")[],
@@ -279,7 +280,7 @@ export const topPicksQuery = queryOptions({
       .not("official_source_url", "is", null)
       .limit(1000);
     const callCount = new Map<string, number>();
-    for (const c of liveCalls ?? []) {
+    for (const c of (liveCalls ?? []).filter(isPublicOpportunityEvidence)) {
       if (!c.institution_id) continue;
       callCount.set(c.institution_id, (callCount.get(c.institution_id) ?? 0) + 1);
     }
@@ -294,8 +295,8 @@ export const topPicksQuery = queryOptions({
     topCourses.sort((a, b) => b.hostCalls - a.hostCalls || a.title.localeCompare(b.title));
 
     return {
-      academicJobs: (academic.data ?? []) as unknown as TopJob[],
-      industryJobs: (industry.data ?? []) as unknown as TopJob[],
+      academicJobs: (academic.data ?? []).filter(isPublicOpportunityEvidence).slice(0, 8) as unknown as TopJob[],
+      industryJobs: (industry.data ?? []).filter(isPublicOpportunityEvidence).slice(0, 8) as unknown as TopJob[],
       areas: areas.data ?? [],
       courses: topCourses.slice(0, 8),
       events: events.data ?? [],
