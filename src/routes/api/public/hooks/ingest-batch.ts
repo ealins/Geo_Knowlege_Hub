@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import type { ExternalFetchCompletion, ExternalReviewCompletion } from "@/lib/ingest.server";
 import { discoveryFallbackPolicy, hasProviderCircuitOpenSignal, hasProviderGatewayFailureSignal, normalizationWavePolicy, selectDeterministicResearchNewsTaskIds, selectPreferredDeterministicVacancyTaskIds, shouldRunDeterministicNormalizationFallback, shouldRunNormalizationWave, shouldThrottleSteadyStateDrain } from "@/lib/queue-drain-policy";
 import { isDeterministicallyEligibleVacancySnapshot } from "@/lib/vacancy-posting-policy";
+import { structuredVacancyFromPayload } from "@/lib/extraction/structured.server";
 
 type Body = {
   action?:
@@ -569,7 +570,7 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
               const [pendingVacancies, pendingResearchNews, dueNormalizeTasks] = await Promise.all([
                 supabaseAdmin
                   .from("raw_records")
-                  .select("id, source_id, final_url, page_title, text_content")
+                  .select("id, source_id, final_url, page_title, text_content, payload")
                   .eq("classification", "VACANCY")
                   .eq("normalization_status", "PENDING")
                   .not("source_id", "is", null)
@@ -597,7 +598,26 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
               if (dueNormalizeTasks.error) throw dueNormalizeTasks.error;
 
               const eligiblePendingVacancies = (pendingVacancies.data ?? [])
-                .filter(isDeterministicallyEligibleVacancySnapshot)
+                .filter((raw) => {
+                  const structuredJob = structuredVacancyFromPayload(
+                    raw.payload,
+                    raw.final_url ?? "",
+                  );
+                  const structuredPostingText = structuredJob
+                    ? [
+                        structuredJob.title,
+                        structuredJob.description,
+                        structuredJob.application_deadline ? "Application deadline" : null,
+                        structuredJob.employment_type ? "Employment type" : null,
+                      ]
+                        .filter((value): value is string => Boolean(value))
+                        .join("\n")
+                    : undefined;
+                  return isDeterministicallyEligibleVacancySnapshot({
+                    ...raw,
+                    structured_posting_text: structuredPostingText,
+                  });
+                })
                 .map(({ id, source_id }) => ({ id, source_id }));
               const eligibleRawRecordIds = new Set(
                 eligiblePendingVacancies.map((raw) => raw.id),
