@@ -2950,19 +2950,35 @@ export async function normalizeSource(
         .maybeSingle()
     : { data: null };
   const institution = institutionResult.data;
-  const title = normalizeVacancyTitle(raw.page_title);
+  const structuredJob = structuredVacancyFromPayload(raw.payload, raw.final_url ?? "");
+  const title = normalizeVacancyTitle(structuredJob?.title ?? raw.page_title);
   if (!title) {
     await mark("FAILED", "missing title");
     return { status: "FAILED", reason: "missing title" };
   }
 
   const text = raw.text_content ?? "";
+  const structuredPostingText = structuredJob
+    ? [
+        structuredJob.title,
+        structuredJob.description,
+        structuredJob.application_deadline ? "Application deadline" : null,
+        structuredJob.employment_type ? "Employment type" : null,
+      ].filter((value): value is string => Boolean(value)).join("\n")
+    : undefined;
 
   // Never let a source classification bypass the same single-posting gate used
   // by candidate selection. This is the final write barrier for legacy and
   // requeued tasks, so listing pages, career hubs and unrelated roles cannot
-  // become canonical opportunities.
-  const postingGate = looksLikeSinglePosting(raw.final_url ?? "", title, text);
+  // become canonical opportunities. When strict JobPosting JSON-LD exists,
+  // evaluate relevance against its posting-specific title/description rather
+  // than unrelated keywords elsewhere in the site's navigation or footer.
+  const postingGate = looksLikeSinglePosting(
+    raw.final_url ?? "",
+    title,
+    text,
+    structuredPostingText,
+  );
   if (!postingGate.ok) {
     await mark("SKIPPED", postingGate.reason ?? "not a single relevant vacancy");
     return { status: "SKIPPED", reason: postingGate.reason ?? "not a single relevant vacancy" };
@@ -2986,7 +3002,6 @@ export async function normalizeSource(
 
   const rolling = /(rolling|laufend|jederzeit|until filled|bis zur besetzung)/i.test(text);
   const deterministicDeadline = parseDeadline(text);
-  const structuredJob = structuredVacancyFromPayload(raw.payload, raw.final_url ?? "");
   const structuredDeadline = structuredJob?.application_deadline ?? null;
   const isPhd = /(phd|ph\.d|doctoral researcher|doktorand|promotionsstelle)/i.test(title);
   const slug = slugify(title) || slugify(raw.final_url ?? raw.id);
