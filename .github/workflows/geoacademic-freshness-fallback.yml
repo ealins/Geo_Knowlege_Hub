@@ -135,4 +135,4 @@ jobs:
             if (providerGatewayFailure) {
               console.log("::warning::Provider gateway unavailable; bounded deterministic fallback may have run, and model-dependent work remains queued.");
             }
-          '
+          ' "$response"
