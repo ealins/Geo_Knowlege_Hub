@@ -210,7 +210,7 @@ export const topPicksQuery = queryOptions({
           LIVE_STATUSES as unknown as ("open" | "closing_soon" | "rolling" | "possibly_open")[],
         )
         .order("application_deadline", { ascending: true, nullsFirst: false })
-        .limit(8),
+        .limit(40),
       supabase
         .from("opportunities")
         .select(
@@ -228,7 +228,7 @@ export const topPicksQuery = queryOptions({
           LIVE_STATUSES as unknown as ("open" | "closing_soon" | "rolling" | "possibly_open")[],
         )
         .order("application_deadline", { ascending: true, nullsFirst: false })
-        .limit(8),
+        .limit(40),
       supabase
         .from("topic_momentum")
         .select(
@@ -295,8 +295,8 @@ export const topPicksQuery = queryOptions({
     topCourses.sort((a, b) => b.hostCalls - a.hostCalls || a.title.localeCompare(b.title));
 
     return {
-      academicJobs: (academic.data ?? []).filter(isPublicOpportunityEvidence) as unknown as TopJob[],
-      industryJobs: (industry.data ?? []).filter(isPublicOpportunityEvidence) as unknown as TopJob[],
+      academicJobs: (academic.data ?? []).filter(isPublicOpportunityEvidence).slice(0, 8) as unknown as TopJob[],
+      industryJobs: (industry.data ?? []).filter(isPublicOpportunityEvidence).slice(0, 8) as unknown as TopJob[],
       areas: areas.data ?? [],
       courses: topCourses.slice(0, 8),
       events: events.data ?? [],
