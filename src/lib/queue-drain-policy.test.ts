@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { discoveryFallbackPolicy, hasProviderCircuitOpenSignal, hasProviderGatewayFailureSignal, normalizationWavePolicy, selectDeterministicVacancyTaskIds, selectPreferredDeterministicVacancyTaskIds, selectDeterministicResearchNewsTaskIds, shouldRunNormalizationWave, shouldThrottleSteadyStateDrain } from "./queue-drain-policy";
+import { discoveryFallbackPolicy, hasProviderCircuitOpenSignal, hasProviderGatewayFailureSignal, normalizationWavePolicy, selectDeterministicVacancyTaskIds, selectPreferredDeterministicVacancyTaskIds, selectDeterministicResearchNewsTaskIds, shouldRunDeterministicNormalizationFallback, shouldRunNormalizationWave, shouldThrottleSteadyStateDrain } from "./queue-drain-policy";
 
 describe("shouldThrottleSteadyStateDrain", () => {
   test("keeps the interval for a small, recently due queue after recent work", () => {
@@ -325,5 +325,40 @@ describe("selectDeterministicResearchNewsTaskIds", () => {
       { id: "task-2", source_id: "source-2", payload: { raw_record_id: "vac-2" } },
     ];
     expect(selectDeterministicVacancyTaskIds(pending, tasks, 2, ["source-1"])).toEqual(["task-2"]);
+  });
+});
+
+
+describe("shouldRunDeterministicNormalizationFallback", () => {
+  test("runs deterministic cleanup when the circuit was already open", () => {
+    expect(shouldRunDeterministicNormalizationFallback({
+      providerCircuitOpen: true,
+      providerGatewayFailure: false,
+      independentFallbackConfigured: false,
+    })).toBe(true);
+  });
+
+  test("runs bounded cleanup after the first gateway failure in this invocation", () => {
+    expect(shouldRunDeterministicNormalizationFallback({
+      providerCircuitOpen: false,
+      providerGatewayFailure: true,
+      independentFallbackConfigured: false,
+    })).toBe(true);
+  });
+
+  test("does not run outage fallback when an independent provider is configured", () => {
+    expect(shouldRunDeterministicNormalizationFallback({
+      providerCircuitOpen: true,
+      providerGatewayFailure: true,
+      independentFallbackConfigured: true,
+    })).toBe(false);
+  });
+
+  test("does not run outage fallback when the provider is healthy", () => {
+    expect(shouldRunDeterministicNormalizationFallback({
+      providerCircuitOpen: false,
+      providerGatewayFailure: false,
+      independentFallbackConfigured: false,
+    })).toBe(false);
   });
 });
