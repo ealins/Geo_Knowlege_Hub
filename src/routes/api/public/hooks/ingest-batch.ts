@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type { ExternalFetchCompletion, ExternalReviewCompletion } from "@/lib/ingest.server";
-import { discoveryFallbackPolicy, hasProviderCircuitOpenSignal, hasProviderGatewayFailureSignal, normalizationWavePolicy, selectDeterministicResearchNewsTaskIds, selectPreferredDeterministicVacancyTaskIds, shouldRunDeterministicNormalizationFallback, shouldRunNormalizationWave, shouldThrottleSteadyStateDrain } from "@/lib/queue-drain-policy";
+import { deterministicNormalizationFallbackLimit, discoveryFallbackPolicy, hasProviderCircuitOpenSignal, hasProviderGatewayFailureSignal, normalizationWavePolicy, selectDeterministicResearchNewsTaskIds, selectPreferredDeterministicVacancyTaskIds, shouldRunDeterministicNormalizationFallback, shouldRunNormalizationWave, shouldThrottleSteadyStateDrain } from "@/lib/queue-drain-policy";
 import { isDeterministicallyEligibleVacancySnapshot } from "@/lib/vacancy-posting-policy";
 import { structuredVacancyFromPayload } from "@/lib/extraction/structured.server";
 
@@ -642,7 +642,11 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
               const eligibleRawRecordIds = new Set(
                 eligiblePendingVacancies.map((raw) => raw.id),
               );
-              const deterministicFallbackLimit = Math.min(3, Math.max(0, normalizeTarget - result.processed));
+              const deterministicFallbackLimit = deterministicNormalizationFallbackLimit({
+                target: normalizeTarget,
+                processed: result.processed,
+                providerGatewayFailure,
+              });
               const cleanupTaskIds = selectDeterministicResearchNewsTaskIds(
                 pendingResearchNews.data ?? [],
                 dueNormalizeTasks.data ?? [],
