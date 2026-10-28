@@ -256,5 +256,11 @@ describe("shouldSupersedeTransientRetryForNewerPendingSnapshot", () => {
     expect(shouldSupersedeTransientRetryForNewerPendingSnapshot(
       task({ last_error: "transient error without provider marker" }), target(), candidate(), now,
     )).toBe(false);
+    expect(shouldSupersedeTransientRetryForNewerPendingSnapshot(
+      task(),
+      target({ normalization_error: "TRANSIENT_EXTRACTION_FAILURE HTTP_502 without outage marker" }),
+      candidate(),
+      now,
+    )).toBe(false);
   });
 });
