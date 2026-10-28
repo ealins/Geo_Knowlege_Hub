@@ -531,13 +531,15 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
             // Use bounded parallelism on the paid Workers plan while keeping each
             // invocation below the six simultaneous outgoing-connection limit.
             // Throughput tuned for the Cloudflare Workers Paid plan (30s CPU
-            // per invocation): up to 4 normalizations per tick in BACKLOG
-            // mode, 3 in steady state, 2 concurrent. The wave timeout and
-            // budget below still guard against overruns.
+            // per invocation): model-dependent backlog work stays at 4 per tick;
+            // when the provider circuit is already open, the strict deterministic
+            // exact-snapshot path may use up to 8 slots. Steady state remains 3.
+            // The wave timeout and budget below still guard against overruns.
             const normalizePolicy = normalizationWavePolicy({
               mode: queueState.mode,
               batch,
               independentFallbackConfigured,
+              providerCircuitOpen,
             });
             const normalizeTarget = normalizePolicy.target;
             // When no independent provider is configured, process one task at
@@ -668,6 +670,7 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
                 target: normalizeTarget,
                 processed: result.processed,
                 providerGatewayFailure,
+                providerCircuitOpen,
               });
               const cleanupTaskIds = selectDeterministicResearchNewsTaskIds(
                 pendingResearchNews.data ?? [],

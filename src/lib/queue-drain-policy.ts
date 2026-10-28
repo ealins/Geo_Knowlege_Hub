@@ -58,9 +58,17 @@ export function normalizationWavePolicy(input: {
   mode: NormalizationQueueMode;
   batch: number;
   independentFallbackConfigured: boolean;
+  providerCircuitOpen?: boolean;
 }): { target: number; waveSize: number; concurrency: number } {
+  // Only widen the target when the circuit is already open before this drain.
+  // Normal model-dependent work remains at four per backlog invocation; the
+  // larger target is consumed solely by the separately gated deterministic path.
+  const deterministicCatchUp =
+    input.mode === "BACKLOG" &&
+    input.providerCircuitOpen === true &&
+    !input.independentFallbackConfigured;
   const target = input.mode === "BACKLOG"
-    ? Math.min(4, input.batch)
+    ? Math.min(deterministicCatchUp ? 8 : 4, input.batch)
     : Math.min(3, input.batch);
   if (!input.independentFallbackConfigured) {
     return { target, waveSize: 1, concurrency: 1 };
@@ -265,17 +273,20 @@ export function deterministicNormalizationFallbackLimit(input: {
   target: number;
   processed: number;
   providerGatewayFailure: boolean;
+  providerCircuitOpen?: boolean;
 }): number {
   const target = Number.isFinite(input.target) ? Math.max(0, Math.floor(input.target)) : 0;
   const processed = Number.isFinite(input.processed) ? Math.max(0, Math.floor(input.processed)) : 0;
   const deferredFailureCredit = input.providerGatewayFailure ? 1 : 0;
-  // When the circuit is already open at preflight, use the full four-task
-  // bounded target for deterministic-only work. If a model request failed in
-  // this invocation, keep the fallback cap at three so the failed attempt plus
-  // deterministic cleanup stays within the ordinary four-task target. The
-  // existing one-task credit still permits cleanup when the failed attempt
-  // consumed the target completely.
-  const fallbackCap = input.providerGatewayFailure ? 3 : 4;
+  // When the circuit was already open at preflight, allow up to eight
+  // strictly gated deterministic tasks. If a model request fails during this
+  // invocation, keep the fallback cap at three so ordinary failure handling
+  // stays conservative and does not expand the same tick after a new outage.
+  const fallbackCap = input.providerGatewayFailure
+    ? 3
+    : input.providerCircuitOpen
+      ? 8
+      : 4;
   return Math.min(fallbackCap, Math.max(0, target - processed + deferredFailureCredit));
 }
 
