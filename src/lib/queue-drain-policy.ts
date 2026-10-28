@@ -269,7 +269,14 @@ export function deterministicNormalizationFallbackLimit(input: {
   const target = Number.isFinite(input.target) ? Math.max(0, Math.floor(input.target)) : 0;
   const processed = Number.isFinite(input.processed) ? Math.max(0, Math.floor(input.processed)) : 0;
   const deferredFailureCredit = input.providerGatewayFailure ? 1 : 0;
-  return Math.min(3, Math.max(0, target - processed + deferredFailureCredit));
+  // When the circuit is already open at preflight, use the full four-task
+  // bounded target for deterministic-only work. If a model request failed in
+  // this invocation, keep the fallback cap at three so the failed attempt plus
+  // deterministic cleanup stays within the ordinary four-task target. The
+  // existing one-task credit still permits cleanup when the failed attempt
+  // consumed the target completely.
+  const fallbackCap = input.providerGatewayFailure ? 3 : 4;
+  return Math.min(fallbackCap, Math.max(0, target - processed + deferredFailureCredit));
 }
 
 
