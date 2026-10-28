@@ -160,7 +160,7 @@ export async function enqueueDueRefreshes(
     pageOffsets.map((offset) =>
       supabaseAdmin
         .from("sources")
-        .select("id, category, institution_id, last_success_at, last_failure_at, last_http_status, refresh_frequency_hours, status, active")
+        .select("id, category, institution_id, last_success_at, last_failure_at, last_http_status, last_error, refresh_frequency_hours, status, active")
         .eq("active", true)
         .order("last_success_at", { ascending: true, nullsFirst: true })
         .order("id", { ascending: true })
@@ -231,6 +231,7 @@ export async function enqueueDueRefreshes(
       lastSuccessAt: s.last_success_at,
       lastFailureAt: s.last_failure_at,
       lastHttpStatus: s.last_http_status,
+      lastError: s.last_error,
       nowMs: now,
     });
     const skipReason = getSourceRefreshSkipReason({

@@ -23,6 +23,7 @@ export type SourceRefreshFailureInput = {
   lastSuccessAt?: string | null;
   lastFailureAt?: string | null;
   lastHttpStatus?: number | null;
+  lastError?: string | null;
   nowMs?: number;
 };
 
@@ -43,8 +44,16 @@ export function shouldBackoffSourceAfterFailure(
   if (Number.isFinite(succeededAt) && succeededAt >= failedAt) return false;
 
   const status = input.lastHttpStatus ?? null;
-  const cooldownMs =
-    status === 401 || status === 403 || status === 404 || status === 410
+  // ETHZ job-detail URLs that resolve to the generic index are structurally
+  // unusable snapshots, not transient HTTP-200 successes. Retry them daily
+  // rather than allowing the six-hour generic-failure cadence to crowd out
+  // other due sources. A later success still clears this cooldown above.
+  const structuralRedirect = /ETHZ job detail redirected to generic \/site\/index/i.test(
+    input.lastError ?? "",
+  );
+  const cooldownMs = structuralRedirect
+    ? 24 * HOUR_MS
+    : status === 401 || status === 403 || status === 404 || status === 410
       ? 24 * HOUR_MS
       : status === 429
         ? HOUR_MS
