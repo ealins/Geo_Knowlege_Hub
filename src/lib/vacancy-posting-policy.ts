@@ -165,3 +165,32 @@ export function isDeterministicallyEligibleVacancySnapshot(
     /(?:\bvacancies?\b|\bjob listings?\b|\bcareer(?:s)?\b)\s*$/i.test(title);
   return !vacancyLanding;
 }
+
+
+/**
+ * Adapter metadata is a hint, not proof that a generic vacancy URL is one real
+ * posting. The legacy `html-vacancy` adapter also exists on older false-positive
+ * sources; only force VACANCY for it when the same canonical posting gate passes.
+ * More specific detail adapters retain their existing behavior.
+ */
+export function shouldApplyAdapterClassificationOverride(input: {
+  adapterKey: string | null;
+  classification: string;
+  confidence: number;
+  url: string;
+  title: string;
+  text: string;
+  structuredPostingTitle?: string | null;
+  structuredPostingText?: string | null;
+}): boolean {
+  const needsOverride =
+    input.classification === "GENERAL" ||
+    input.classification === "UNKNOWN" ||
+    input.confidence < 0.5;
+  if (!needsOverride || !input.adapterKey) return false;
+  if (input.adapterKey !== "html-vacancy") return true;
+
+  const title = input.structuredPostingTitle?.trim() || input.title;
+  const postingText = input.structuredPostingText?.trim();
+  return looksLikeSinglePosting(input.url, title, input.text, postingText || undefined).ok;
+}
