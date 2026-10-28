@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { canPinLegacyNormalizationTaskToPendingSnapshot, countUnsupportedPending, getBackfillQueueDisposition, staleNormalizationTargetReason } from "./backfill-coverage";
+import { canPinLegacyNormalizationTaskToPendingSnapshot, countUnsupportedPending, getBackfillQueueDisposition, shouldSupersedeTransientRetryForNewerPendingSnapshot, staleNormalizationTargetReason } from "./backfill-coverage";
 import { assertBackfillDbSuccess } from "./backfill-db-errors";
 
 describe("countUnsupportedPending", () => {
@@ -150,5 +150,70 @@ describe("canPinLegacyNormalizationTaskToPendingSnapshot", () => {
     expect(canPinLegacyNormalizationTaskToPendingSnapshot(task("RETRY"), candidate("FAILED"))).toBe(false);
     expect(canPinLegacyNormalizationTaskToPendingSnapshot(task("RETRY"), candidate("PENDING", "COURSE"))).toBe(false);
     expect(canPinLegacyNormalizationTaskToPendingSnapshot(task("RETRY"), candidate("PENDING", "PROGRAMME", "source-2"))).toBe(false);
+  });
+});
+
+
+describe("shouldSupersedeTransientRetryForNewerPendingSnapshot", () => {
+  const now = Date.parse("2026-10-28T07:00:00.000Z");
+  const outage = "TRANSIENT_EXTRACTION_FAILURE HTTP_502; no independent fallback is configured";
+  const task = (overrides: Record<string, unknown> = {}) => ({
+    status: "RETRY",
+    source_id: "source-1",
+    payload: { raw_record_id: "raw-old", classification: "PROJECT", reason: "semantic-failure-recovery-v8" },
+    created_at: "2026-10-24T05:00:00.000Z",
+    run_after: "2026-10-28T06:00:00.000Z",
+    last_error: outage,
+    ...overrides,
+  });
+  const target = (overrides: Record<string, unknown> = {}) => ({
+    id: "raw-old",
+    source_id: "source-1",
+    classification: "PROJECT",
+    normalization_status: "FAILED",
+    normalization_error: outage,
+    fetched_at: "2026-10-13T00:00:00.000Z",
+    ...overrides,
+  });
+  const candidate = (overrides: Record<string, unknown> = {}) => ({
+    source_id: "source-1",
+    classification: "PROJECT",
+    normalization_status: "PENDING",
+    fetched_at: "2026-10-26T00:00:00.000Z",
+    ...overrides,
+  });
+
+  test("lets a newer same-class pending snapshot take the slot from an old due outage retry", () => {
+    expect(shouldSupersedeTransientRetryForNewerPendingSnapshot(task(), target(), candidate(), now)).toBe(true);
+  });
+
+  test("preserves the failed retry when its snapshot is newer than the pending row", () => {
+    expect(shouldSupersedeTransientRetryForNewerPendingSnapshot(
+      task(), target({ fetched_at: "2026-10-27T00:00:00.000Z" }), candidate(), now,
+    )).toBe(false);
+  });
+
+  test("preserves retries for another classification or a different source", () => {
+    expect(shouldSupersedeTransientRetryForNewerPendingSnapshot(
+      task(), target(), candidate({ classification: "EVENT" }), now,
+    )).toBe(false);
+    expect(shouldSupersedeTransientRetryForNewerPendingSnapshot(
+      task(), target(), candidate({ source_id: "source-2" }), now,
+    )).toBe(false);
+  });
+
+  test("does not supersede recent, not-yet-due, non-retry, or non-provider failures", () => {
+    expect(shouldSupersedeTransientRetryForNewerPendingSnapshot(
+      task({ created_at: "2026-10-27T12:00:00.000Z" }), target(), candidate(), now,
+    )).toBe(false);
+    expect(shouldSupersedeTransientRetryForNewerPendingSnapshot(
+      task({ run_after: "2026-10-28T08:00:00.000Z" }), target(), candidate(), now,
+    )).toBe(false);
+    expect(shouldSupersedeTransientRetryForNewerPendingSnapshot(
+      task({ status: "PROCESSING" }), target(), candidate(), now,
+    )).toBe(false);
+    expect(shouldSupersedeTransientRetryForNewerPendingSnapshot(
+      task({ last_error: "transient error without provider marker" }), target(), candidate(), now,
+    )).toBe(false);
   });
 });

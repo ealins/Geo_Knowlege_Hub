@@ -124,6 +124,7 @@ jobs:
               deferred_by_source: v.deferred_by_source,
               stale_tasks_retired: typeof v.stale_tasks_retired === "number" ? v.stale_tasks_retired : null,
               legacy_tasks_pinned: typeof v.legacy_tasks_pinned === "number" ? v.legacy_tasks_pinned : null,
+              transient_retries_superseded: typeof v.transient_retries_superseded === "number" ? v.transient_retries_superseded : null,
               by_classification: v.by_classification ?? {}
             }));
           ' "$response"

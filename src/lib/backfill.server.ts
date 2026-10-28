@@ -3,7 +3,7 @@
 // here calls a model — it only enqueues tasks that the deployed autonomous
 // drain loop processes with the existing gates, cache and validators.
 import { supabaseAdmin } from "@/integrations/supabase/client.server";
-import { canPinLegacyNormalizationTaskToPendingSnapshot, countUnsupportedPending, staleNormalizationTargetReason } from "./backfill-coverage";
+import { canPinLegacyNormalizationTaskToPendingSnapshot, countUnsupportedPending, shouldSupersedeTransientRetryForNewerPendingSnapshot, staleNormalizationTargetReason } from "./backfill-coverage";
 import { assertBackfillDbSuccess } from "./backfill-db-errors";
 import { shouldRetryInstitutionlessVacancy } from "./semantic-recovery-policy";
 
@@ -39,6 +39,8 @@ export type BackfillPlan = {
   stale_tasks_retired: number;
   /** Legacy PENDING_OLDEST tasks pinned to the exact snapshot selected by backfill. */
   legacy_tasks_pinned: number;
+  /** Old provider-outage retries yielded to newer pending snapshots; raw failures are retained. */
+  transient_retries_superseded: number;
   by_classification: Record<string, number>;
 };
 
@@ -56,6 +58,7 @@ export async function enqueueRawBackfill(limit = 400): Promise<BackfillPlan> {
     unsupported_pending: 0,
     stale_tasks_retired: 0,
     legacy_tasks_pinned: 0,
+    transient_retries_superseded: 0,
     by_classification: {},
   };
 
@@ -166,13 +169,14 @@ export async function enqueueRawBackfill(limit = 400): Promise<BackfillPlan> {
   // One task per source, but carry the exact selected raw snapshot. Without
   // raw_record_id the normalizer falls back to the newest page, which can leave
   // this older PENDING/eligible row untouched forever.
-  const bySource = new Map<string, { classification: string; rawRecordId: string; normalizationStatus: string }>();
+  const bySource = new Map<string, { classification: string; rawRecordId: string; normalizationStatus: string; fetchedAt: string | null }>();
   for (const r of candidates) {
     if (!bySource.has(r.source_id as string)) {
       bySource.set(r.source_id as string, {
         classification: r.classification ?? "UNKNOWN",
         rawRecordId: r.id,
         normalizationStatus: r.normalization_status ?? "PENDING",
+        fetchedAt: r.fetched_at ?? null,
       });
     }
   }
@@ -180,7 +184,7 @@ export async function enqueueRawBackfill(limit = 400): Promise<BackfillPlan> {
 
   const openTasksResult = await supabaseAdmin
     .from("ingestion_tasks")
-    .select("id, status, source_id, payload")
+    .select("id, status, source_id, payload, created_at, updated_at, run_after, last_error")
     .eq("task_type", "NORMALIZE")
     .in("status", ["QUEUED", "PROCESSING", "RETRY"]);
   assertBackfillDbSuccess("inspect open normalization tasks", openTasksResult.error);
@@ -190,6 +194,10 @@ export async function enqueueRawBackfill(limit = 400): Promise<BackfillPlan> {
     status: string;
     source_id: string;
     payload: Record<string, unknown>;
+    created_at: string;
+    updated_at: string;
+    run_after: string | null;
+    last_error: string | null;
   };
   const openTasks: OpenNormalizeTask[] = (openTasksResult.data ?? []).flatMap((task) => {
     if (!task.source_id) return [];
@@ -197,7 +205,7 @@ export async function enqueueRawBackfill(limit = 400): Promise<BackfillPlan> {
       task.payload && typeof task.payload === "object" && !Array.isArray(task.payload)
         ? (task.payload as Record<string, unknown>)
         : {};
-    return [{ id: task.id, status: task.status, source_id: task.source_id, payload }];
+    return [{ id: task.id, status: task.status, source_id: task.source_id, payload, created_at: task.created_at, updated_at: task.updated_at, run_after: task.run_after, last_error: task.last_error }];
   });
 
   const isUuid = (value: unknown): value is string =>
@@ -212,11 +220,12 @@ export async function enqueueRawBackfill(limit = 400): Promise<BackfillPlan> {
     classification: string | null;
     normalization_status: string | null;
     normalization_error: string | null;
+    fetched_at: string | null;
   }>();
   if (rawTargetIds.length > 0) {
     const rawTargetsResult = await supabaseAdmin
       .from("raw_records")
-      .select("id, source_id, classification, normalization_status, normalization_error")
+      .select("id, source_id, classification, normalization_status, normalization_error, fetched_at")
       .in("id", rawTargetIds);
     assertBackfillDbSuccess("inspect open normalization raw targets", rawTargetsResult.error);
     for (const raw of rawTargetsResult.data ?? []) rawTargetsById.set(raw.id, raw);
@@ -275,10 +284,83 @@ export async function enqueueRawBackfill(limit = 400): Promise<BackfillPlan> {
               classification,
               normalization_status: candidate.normalizationStatus,
               normalization_error: null,
+              fetched_at: candidate.fetchedAt,
             });
             plan.legacy_tasks_pinned += 1;
           }
         }
+      }
+
+      // A long-waiting provider-outage retry can otherwise occupy this source's
+      // only task slot indefinitely and prevent a newer pending snapshot from
+      // being processed first. Retire it only when every open task for the source
+      // is an exact RETRY of an older same-class FAILED snapshot with the explicit
+      // missing-provider marker. The raw FAILED row is not modified and remains
+      // eligible for backfill after the pending snapshot drains.
+      const supersedableRetries = openForSource.filter((task) => {
+        const targetId = typeof task.payload.raw_record_id === "string"
+          ? task.payload.raw_record_id
+          : "";
+        const target = targetId ? rawTargetsById.get(targetId) : null;
+        return shouldSupersedeTransientRetryForNewerPendingSnapshot(
+          task,
+          target,
+          {
+            source_id: sourceId,
+            classification,
+            normalization_status: candidate.normalizationStatus,
+            fetched_at: candidate.fetchedAt,
+          },
+        );
+      });
+      if (supersedableRetries.length > 0 && supersedableRetries.length === openForSource.length) {
+        const supersededAt = new Date().toISOString();
+        let supersededAll = true;
+        for (const task of supersedableRetries) {
+          const failedRawId = String(task.payload.raw_record_id);
+          const { data: supersededTask, error: supersedeError } = await supabaseAdmin
+            .from("ingestion_tasks")
+            .update({
+              status: "DEAD",
+              completed_at: supersededAt,
+              started_at: null,
+              updated_at: supersededAt,
+              last_error: `SUPERSEDED_TRANSIENT_RETRY_BY_NEWER_PENDING_SNAPSHOT: retained failed raw snapshot ${failedRawId}; newer pending snapshot ${rawRecordId} takes the source slot`,
+              payload: {
+                ...task.payload,
+                superseded_by_raw_record_id: rawRecordId,
+                superseded_reason: "older_transient_failed_snapshot_deferred_for_newer_pending",
+              },
+            })
+            .eq("id", task.id)
+            .eq("source_id", sourceId)
+            .eq("status", "RETRY")
+            .eq("updated_at", task.updated_at)
+            .select("id")
+            .maybeSingle();
+          assertBackfillDbSuccess(`supersede old transient retry ${task.id}`, supersedeError);
+          if (!supersededTask) {
+            supersededAll = false;
+            break;
+          }
+          plan.transient_retries_superseded += 1;
+        }
+        if (!supersededAll) {
+          plan.deferred_by_source += 1;
+          continue;
+        }
+        plan.already_queued = Math.max(0, plan.already_queued - 1);
+        rows.push({
+          task_type: "NORMALIZE",
+          source_id: sourceId,
+          payload: {
+            backfill: true,
+            classification,
+            raw_record_id: rawRecordId,
+            ...(classification === "RESEARCH_NEWS" ? { deterministic_cleanup: true } : {}),
+          },
+        });
+        continue;
       }
 
       const staleReasons = openForSource.map((task) => ({
