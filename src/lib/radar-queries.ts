@@ -7,6 +7,11 @@ import {
   canonicalCountry,
   isPublicOpportunityEvidence,
 } from "@/lib/public-data";
+import {
+  isOpportunityOnlyBackedByDeadSources,
+  type OpportunitySourceLink,
+  type PublicSourceHealth,
+} from "@/lib/public-source-health";
 
 export type OpportunityRow = {
   id: string;
@@ -45,7 +50,7 @@ export function isPlausibleOpportunity(row: OpportunityRow): boolean {
 async function fetchPublicOpportunities(): Promise<OpportunityRow[]> {
   const { data: evidence, error: evidenceError } = await supabase
     .from("opportunities")
-    .select("id, title, description, official_source_url, confidence, verification_status, status, application_deadline, is_demo")
+    .select("id, title, description, official_source_url, confidence, verification_status, status, application_deadline, last_checked_at, is_demo")
     .eq("is_demo", false)
     .in("status", LIVE_OPPORTUNITY_STATUSES)
     .in("verification_status", PUBLIC_VERIFICATION_STATUSES)
@@ -53,11 +58,59 @@ async function fetchPublicOpportunities(): Promise<OpportunityRow[]> {
     .not("official_source_url", "is", null);
   if (evidenceError) throw evidenceError;
 
-  const publicIds = (evidence ?? [])
-    .filter((row) => isPublicOpportunityEvidence(row))
-    .map((row) => row.id);
-
+  const publicEvidence = (evidence ?? []).filter((row) => isPublicOpportunityEvidence(row));
+  const publicIds = publicEvidence.map((row) => row.id);
   if (publicIds.length === 0) return [];
+
+  // A stale public listing must not remain "possibly open" after its only
+  // official source has since returned a terminal 404/410 and been disabled.
+  // Keep an opportunity if any linked source is healthy or its health is unknown.
+  const { data: sourceLinks, error: sourceLinksError } = await supabase
+    .from("record_sources")
+    .select("entity_id, source_id, last_checked_at")
+    .eq("entity_type", "opportunity")
+    .in("entity_id", publicIds);
+  if (sourceLinksError) throw sourceLinksError;
+
+  const linksByOpportunity = new Map<string, OpportunitySourceLink[]>();
+  for (const link of sourceLinks ?? []) {
+    const links = linksByOpportunity.get(link.entity_id) ?? [];
+    links.push({
+      source_id: link.source_id,
+      last_checked_at: link.last_checked_at,
+    });
+    linksByOpportunity.set(link.entity_id, links);
+  }
+
+  const sourceIds = [...new Set(
+    (sourceLinks ?? [])
+      .map((link) => link.source_id)
+      .filter((id): id is string => Boolean(id)),
+  )];
+  const sourceHealthById = new Map<string, PublicSourceHealth>();
+  if (sourceIds.length > 0) {
+    const { data: sourceHealth, error: sourceHealthError } = await supabase
+      .from("sources")
+      .select("id, active, status, last_http_status, last_success_at, last_failure_at")
+      .in("id", sourceIds);
+    if (sourceHealthError) throw sourceHealthError;
+    for (const source of sourceHealth ?? []) {
+      sourceHealthById.set(source.id, source as PublicSourceHealth);
+    }
+  }
+
+  const checkedAtByOpportunity = new Map(
+    publicEvidence.map((row) => [row.id, row.last_checked_at as string | null]),
+  );
+  const livePublicIds = publicIds.filter((id) => {
+    const links = linksByOpportunity.get(id) ?? [];
+    return !isOpportunityOnlyBackedByDeadSources(
+      links,
+      sourceHealthById,
+      checkedAtByOpportunity.get(id),
+    );
+  });
+  if (livePublicIds.length === 0) return [];
 
   const { data, error } = await supabase
     .from("opportunities")
@@ -70,7 +123,7 @@ async function fetchPublicOpportunities(): Promise<OpportunityRow[]> {
        institutions ( name, slug, abbreviation ),
        opportunity_topics ( research_topics ( name, slug ) )`,
     )
-    .in("id", publicIds)
+    .in("id", livePublicIds)
     .order("application_deadline", { ascending: true, nullsFirst: false });
   if (error) throw error;
 
