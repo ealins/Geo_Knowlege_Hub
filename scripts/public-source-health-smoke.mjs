@@ -1,7 +1,7 @@
 export const CONFIRMED_DEAD_LISTING_PATTERN =
-  /Research Assistant\\s*\\/\\s*Research Associate in three dimensional forest ecology \\(Fixed Term\\)/i;
+  /Research Assistant\s*\/\s*Research Associate in three dimensional forest ecology \(Fixed Term\)/i;
 
-const JOBS_PAGE_MARKER = /Academic\\s*(?:&amp;|&|&#38;)\\s*industry jobs|Career radar/i;
+const JOBS_PAGE_MARKER = /Academic\s*(?:&amp;|&|&#38;)\s*industry jobs|Career radar/i;
 
 /** Pure response check so the production smoke gate has deterministic unit coverage. */
 export function inspectPublicJobsResponse(status, html) {
@@ -39,13 +39,13 @@ async function runProductionSmoke() {
       const check = inspectPublicJobsResponse(response.status, html);
       if (check.ok) {
         console.log(
-          `Public source-health smoke passed (HTTP ${response.status}); confirmed-dead Cambridge listing is absent.`,
+          \`Public source-health smoke passed (HTTP \${response.status}); confirmed-dead Cambridge listing is absent.\`,
         );
         return;
       }
       lastFailure = check.confirmedDeadListingPresent
         ? "The confirmed-dead Cambridge forest-ecology listing is still present in public HTML."
-        : `Expected jobs page not verified (HTTP ${response.status}, page marker: ${check.pageDetected}).`;
+        : \`Expected jobs page not verified (HTTP \${response.status}, page marker: \${check.pageDetected}).\`;
     } catch (error) {
       lastFailure = error instanceof Error ? error.message : String(error);
     }
@@ -53,7 +53,7 @@ async function runProductionSmoke() {
     if (attempt < 8) await delay(5_000);
   }
 
-  console.error(`::error::Public source-health smoke failed after 8 attempts: ${lastFailure}`);
+  console.error(\`::error::Public source-health smoke failed after 8 attempts: \${lastFailure}\`);
   process.exitCode = 1;
 }
 
