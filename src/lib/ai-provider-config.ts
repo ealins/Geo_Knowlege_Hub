@@ -10,6 +10,9 @@ export function hasConfiguredAiProvider(env: AiProviderEnvironment): boolean {
   const omniRouteKey = env["OMNIROUTE_API_KEY"]?.trim();
   const openRouterKey = env["OPENROUTER_API_KEY"]?.trim();
   const openRouterModel = env["OPENROUTER_MODEL"]?.trim();
+  // Direct NVIDIA is a one-shot independent route using the configured model
+  // or the server's safe default model tier.
+  const nvidiaKey = env["NVIDIA_API_KEY"]?.trim();
 
-  return Boolean(openAiKey || omniRouteKey || (openRouterKey && openRouterModel));
+  return Boolean(openAiKey || omniRouteKey || nvidiaKey || (openRouterKey && openRouterModel));
 }

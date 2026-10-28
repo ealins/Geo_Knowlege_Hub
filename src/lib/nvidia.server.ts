@@ -1,4 +1,4 @@
-// Server-only AI provider client. OmniRoute is primary; OpenAI and OpenRouter are independent fallbacks.
+// Server-only AI provider client. OmniRoute is primary; OpenAI, OpenRouter, and direct NVIDIA are independent fallbacks.
 // API keys are read inside provider calls, never logged, returned to callers, or written to the database.
 import { supabaseAdmin } from "@/integrations/supabase/client.server";
 import {
@@ -19,6 +19,7 @@ import {
   recordLocalGatewayFailure,
   shouldUseOpenRouterFallback,
   shouldUseOpenAIFallback,
+  shouldUseNvidiaFallback,
   shouldRetryPrimaryProvider,
   shouldOpenOmniRouteCircuit,
   type LocalGatewayCircuitState,
@@ -93,7 +94,7 @@ async function logRun(row: Record<string, unknown>): Promise<string | null> {
 }
 
 const LOCAL_GATEWAY_CIRCUIT_MESSAGE =
-  "TRANSIENT_EXTRACTION_FAILURE GATEWAY_5XX: circuit open after repeated recent primary gateway HTTP 502/503/504/530 failures; no independent fallback is configured (set OPENAI_API_KEY or OPENROUTER_API_KEY with OPENROUTER_MODEL)";
+  "TRANSIENT_EXTRACTION_FAILURE GATEWAY_5XX: circuit open after repeated recent primary gateway HTTP 502/503/504/530 failures; no independent fallback is configured (set OPENAI_API_KEY, OPENROUTER_API_KEY with OPENROUTER_MODEL, or NVIDIA_API_KEY)";
 
 async function circuitOpenResult(
   base: Record<string, unknown>,
@@ -372,6 +373,135 @@ async function callOpenAIFallback(
  * Every attempt — success, failure or missing secret — is recorded in
  * llm_processing_runs. Retries only on 429 / 5xx / network errors.
  */
+
+
+/**
+ * One-shot direct NVIDIA fallback for transient OmniRoute gateway failures.
+ * No request is made unless NVIDIA_API_KEY exists. The timeout is bounded so
+ * fallback work cannot monopolize a queue-drain tick.
+ */
+async function callNvidiaFallback(
+  call: NemotronCall,
+  tier: NvidiaModelTier,
+): Promise<NemotronResult | null> {
+  const apiKey = process.env["NVIDIA_API_KEY"]?.trim();
+  if (!apiKey) return null;
+
+  const model =
+    process.env["NVIDIA_MODEL"]?.trim() ||
+    process.env["NVIDIA_FALLBACK_MODEL"]?.trim() ||
+    NVIDIA_MODEL_BY_TIER[tier] ||
+    NVIDIA_MODEL;
+  const configuredUrl = process.env["NVIDIA_URL"]?.trim();
+  const endpoint = !configuredUrl
+    ? "https://integrate.api.nvidia.com/v1/chat/completions"
+    : configuredUrl.endsWith("/chat/completions")
+      ? configuredUrl
+      : `${(configuredUrl.endsWith("/") ? configuredUrl.slice(0, -1) : configuredUrl)}/chat/completions`;
+  const startedAt = new Date();
+  const t0 = Date.now();
+  let httpStatus: number | null = null;
+  let content: string | null = null;
+  let errorCode: string | null = null;
+  let errorMessage: string | null = null;
+  let finishReason: string | null = null;
+  let outputTokens: number | null = null;
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), Math.min(NVIDIA_TIMEOUT_BY_TIER[tier], 20_000));
+
+  try {
+    const response = await fetch(endpoint, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        model,
+        temperature: call.temperature ?? LLM_DEFAULT_TEMPERATURE,
+        max_tokens: call.maxTokens ?? LLM_DEFAULT_MAX_TOKENS,
+        chat_template_kwargs: { enable_thinking: false },
+        messages: [
+          { role: "system", content: call.system },
+          { role: "user", content: call.user },
+        ],
+      }),
+      signal: controller.signal,
+    });
+    httpStatus = response.status;
+    const bodyText = await response.text();
+    if (!response.ok) {
+      errorCode = `HTTP_${response.status}`;
+      errorMessage = bodyText.slice(0, 800);
+    } else {
+      try {
+        const parsed = JSON.parse(bodyText) as {
+          choices?: { message?: { content?: string }; finish_reason?: string }[];
+          usage?: { completion_tokens?: number };
+        };
+        content = parsed.choices?.[0]?.message?.content ?? null;
+        finishReason = parsed.choices?.[0]?.finish_reason ?? null;
+        outputTokens = parsed.usage?.completion_tokens ?? null;
+        if (!content) {
+          errorCode = finishReason === "length" ? "OUTPUT_TRUNCATED" : "EMPTY_COMPLETION";
+          errorMessage = `finish_reason=${finishReason ?? "unknown"} completion_tokens=${outputTokens ?? "?"} ${bodyText.slice(0, 300)}`;
+        } else if (finishReason === "length" && !content.trimEnd().endsWith("}")) {
+          errorCode = "OUTPUT_TRUNCATED";
+          errorMessage = `finish_reason=length completion_tokens=${outputTokens ?? "?"}`;
+          content = null;
+        }
+      } catch {
+        errorCode = "UNPARSEABLE_RESPONSE";
+        errorMessage = bodyText.slice(0, 400);
+      }
+    }
+  } catch (e) {
+    const message = e instanceof Error ? e.message : String(e);
+    errorCode = message.toLowerCase().includes("abort") ? "TIMEOUT" : "NETWORK_ERROR";
+    errorMessage = message.slice(0, 500);
+  } finally {
+    clearTimeout(timer);
+  }
+
+  const latencyMs = Date.now() - t0;
+  const ok = Boolean(content) && !errorCode;
+  const runId = await logRun({
+    provider: "NVIDIA",
+    model,
+    operation: call.operation,
+    source_id: call.sourceId ?? null,
+    raw_page_id: call.rawRecordId ?? null,
+    content_hash: call.contentHash ?? null,
+    content_reduced: call.contentReduced ?? false,
+    input_characters: call.system.length + call.user.length,
+    started_at: startedAt.toISOString(),
+    completed_at: new Date().toISOString(),
+    status: ok ? "SUCCESS" : "FAILED",
+    latency_ms: latencyMs,
+    attempt: 1,
+    http_status: httpStatus,
+    output_characters: content?.length ?? 0,
+    error_code: errorCode,
+    error_message: errorMessage,
+  });
+
+  return {
+    ok,
+    content,
+    httpStatus,
+    latencyMs,
+    model,
+    provider: "NVIDIA",
+    attempt: 1,
+    errorCode,
+    errorMessage,
+    runId,
+    finishReason,
+    outputTokens,
+  };
+}
+
 export async function callNemotron(call: NemotronCall): Promise<NemotronResult> {
   const model = call.model ?? (call.modelTier ? NVIDIA_MODEL_BY_TIER[call.modelTier] : (process.env["OMNIROUTE_MODEL"] ?? "auto"));
   const tier: NvidiaModelTier =
@@ -397,13 +527,16 @@ export async function callNemotron(call: NemotronCall): Promise<NemotronResult> 
   const endpoint = process.env["OMNIROUTE_URL"]?.replace(/\/$/, "") ?? "https://omniroute.geoacademic.app/v1";
   const providerModel = model;
   if (!apiKey) {
-    // A missing primary key must not prevent use of the independently
-    // configured OpenAI credential. Try OpenAI first, then OpenRouter.
+    // A missing primary key must not prevent independent extraction. Try the
+    // configured OpenAI, OpenRouter, then direct NVIDIA routes in that order.
     const openAIOnly = await callOpenAIFallback(call, tier);
     if (openAIOnly?.ok) return openAIOnly;
 
     const openRouterOnly = await callOpenRouterFallback(call, tier);
     if (openRouterOnly?.ok) return openRouterOnly;
+
+    const nvidiaOnly = await callNvidiaFallback(call, tier);
+    if (nvidiaOnly?.ok) return nvidiaOnly;
 
     const fallbackFailures = [
       openAIOnly
@@ -412,10 +545,13 @@ export async function callNemotron(call: NemotronCall): Promise<NemotronResult> 
       openRouterOnly
         ? `OpenRouter fallback failed (${openRouterOnly.errorCode ?? "unknown"}): ${openRouterOnly.errorMessage ?? "no details"}`
         : null,
+      nvidiaOnly
+        ? `NVIDIA fallback failed (${nvidiaOnly.errorCode ?? "unknown"}): ${nvidiaOnly.errorMessage ?? "no details"}`
+        : null,
     ].filter((value): value is string => Boolean(value));
 
-    if (openAIOnly || openRouterOnly) {
-      const failedResult = openAIOnly ?? openRouterOnly!;
+    if (openAIOnly || openRouterOnly || nvidiaOnly) {
+      const failedResult = openAIOnly ?? openRouterOnly ?? nvidiaOnly!;
       return {
         ...failedResult,
         errorMessage: `OmniRoute is not configured; ${fallbackFailures.join("; ")}`.slice(0, 1200),
@@ -428,7 +564,7 @@ export async function callNemotron(call: NemotronCall): Promise<NemotronResult> 
       completed_at: new Date().toISOString(),
       latency_ms: 0,
       error_code: "AI_PROVIDER_NOT_CONFIGURED",
-      error_message: `No AI provider key is configured. Set OPENAI_API_KEY, OMNIROUTE_API_KEY, or OPENROUTER_API_KEY with OPENROUTER_MODEL.`,
+      error_message: `No AI provider key is configured. Set OPENAI_API_KEY, OMNIROUTE_API_KEY, NVIDIA_API_KEY, or OPENROUTER_API_KEY with OPENROUTER_MODEL.`,
     });
     return {
       ok: false,
@@ -439,7 +575,7 @@ export async function callNemotron(call: NemotronCall): Promise<NemotronResult> 
       provider: AI_PROVIDER,
       attempt: 0,
       errorCode: "AI_PROVIDER_NOT_CONFIGURED",
-      errorMessage: `No AI provider is configured. Set OPENAI_API_KEY, OMNIROUTE_API_KEY, or OPENROUTER_API_KEY with OPENROUTER_MODEL on the server.`,
+      errorMessage: `No AI provider is configured. Set OPENAI_API_KEY, OMNIROUTE_API_KEY, NVIDIA_API_KEY, or OPENROUTER_API_KEY with OPENROUTER_MODEL on the server.`,
       runId,
     };
   }
@@ -451,7 +587,8 @@ export async function callNemotron(call: NemotronCall): Promise<NemotronResult> 
   // unavailable; configured independent fallbacks bypass the circuit.
   const hasIndependentFallback = Boolean(
     process.env["OPENAI_API_KEY"]?.trim() ||
-      (process.env["OPENROUTER_API_KEY"]?.trim() && process.env["OPENROUTER_MODEL"]?.trim()),
+      (process.env["OPENROUTER_API_KEY"]?.trim() && process.env["OPENROUTER_MODEL"]?.trim()) ||
+      process.env["NVIDIA_API_KEY"]?.trim(),
   );
   if (!hasIndependentFallback && isLocalGatewayCircuitOpen(localGatewayCircuitState)) {
     return circuitOpenResult(base, model);
@@ -632,9 +769,14 @@ export async function callNemotron(call: NemotronCall): Promise<NemotronResult> 
         if (fallback) {
           const openRouterFallback = await callOpenRouterFallback(call, tier);
           if (openRouterFallback?.ok) return openRouterFallback;
+          const nvidiaFallback = shouldUseNvidiaFallback({
+            primaryErrorCode: errorCode,
+            apiKey: process.env["NVIDIA_API_KEY"],
+          }) ? await callNvidiaFallback(call, tier) : null;
+          if (nvidiaFallback?.ok) return nvidiaFallback;
           return {
             ...lastResult,
-            errorMessage: `${lastResult.errorMessage ?? lastResult.errorCode ?? "OmniRoute failed"}; OpenAI fallback failed (${fallback.errorCode ?? "unknown"}): ${fallback.errorMessage ?? "no details"}${openRouterFallback ? `; OpenRouter fallback failed (${openRouterFallback.errorCode ?? "unknown"}): ${openRouterFallback.errorMessage ?? "no details"}` : ""}`.slice(0, 1200),
+            errorMessage: `${lastResult.errorMessage ?? lastResult.errorCode ?? "OmniRoute failed"}; OpenAI fallback failed (${fallback.errorCode ?? "unknown"}): ${fallback.errorMessage ?? "no details"}${openRouterFallback ? `; OpenRouter fallback failed (${openRouterFallback.errorCode ?? "unknown"}): ${openRouterFallback.errorMessage ?? "no details"}` : ""}${nvidiaFallback ? `; NVIDIA fallback failed (${nvidiaFallback.errorCode ?? "unknown"}): ${nvidiaFallback.errorMessage ?? "no details"}` : ""}`.slice(0, 1200),
           };
         }
       }
@@ -646,22 +788,41 @@ export async function callNemotron(call: NemotronCall): Promise<NemotronResult> 
         const fallback = await callOpenRouterFallback(call, tier);
         if (fallback?.ok) return fallback;
         if (fallback) {
+          const nvidiaFallback = shouldUseNvidiaFallback({
+            primaryErrorCode: errorCode,
+            apiKey: process.env["NVIDIA_API_KEY"],
+          }) ? await callNvidiaFallback(call, tier) : null;
+          if (nvidiaFallback?.ok) return nvidiaFallback;
           // Preserve the primary transient code so queue policy still retries
-          // if the independent provider is also temporarily unavailable.
+          // if every independent provider is temporarily unavailable.
           return {
             ...lastResult,
-            errorMessage: `${lastResult.errorMessage ?? lastResult.errorCode ?? "OmniRoute failed"}; OpenRouter fallback failed (${fallback.errorCode ?? "unknown"}): ${fallback.errorMessage ?? "no details"}`.slice(0, 1200),
+            errorMessage: `${lastResult.errorMessage ?? lastResult.errorCode ?? "OmniRoute failed"}; OpenRouter fallback failed (${fallback.errorCode ?? "unknown"}): ${fallback.errorMessage ?? "no details"}${nvidiaFallback ? `; NVIDIA fallback failed (${nvidiaFallback.errorCode ?? "unknown"}): ${nvidiaFallback.errorMessage ?? "no details"}` : ""}`.slice(0, 1200),
+          };
+        }
+      }
+      if (shouldUseNvidiaFallback({
+        primaryErrorCode: errorCode,
+        apiKey: process.env["NVIDIA_API_KEY"],
+      })) {
+        const fallback = await callNvidiaFallback(call, tier);
+        if (fallback?.ok) return fallback;
+        if (fallback) {
+          return {
+            ...lastResult,
+            errorMessage: `${lastResult.errorMessage ?? lastResult.errorCode ?? "OmniRoute failed"}; NVIDIA fallback failed (${fallback.errorCode ?? "unknown"}): ${fallback.errorMessage ?? "no details"}`.slice(0, 1200),
           };
         }
       }
       if (
         ["HTTP_502", "HTTP_503", "HTTP_504", "HTTP_530"].includes(errorCode ?? "") &&
         !process.env["OPENAI_API_KEY"]?.trim() &&
-        !(process.env["OPENROUTER_API_KEY"]?.trim() && process.env["OPENROUTER_MODEL"]?.trim())
+        !(process.env["OPENROUTER_API_KEY"]?.trim() && process.env["OPENROUTER_MODEL"]?.trim()) &&
+        !process.env["NVIDIA_API_KEY"]?.trim()
       ) {
         return {
           ...lastResult,
-          errorMessage: `${lastResult.errorMessage ?? "Primary gateway failed"}; no independent fallback is configured (set OPENAI_API_KEY or OPENROUTER_API_KEY with OPENROUTER_MODEL)`.slice(0, 1200),
+          errorMessage: `${lastResult.errorMessage ?? "Primary gateway failed"}; no independent fallback is configured (set OPENAI_API_KEY, OPENROUTER_API_KEY with OPENROUTER_MODEL, or NVIDIA_API_KEY)`.slice(0, 1200),
         };
       }
       return lastResult;
