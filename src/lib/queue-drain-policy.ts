@@ -335,3 +335,101 @@ export function selectDeterministicMediaTaskIds(
   }
   return selectedIds;
 }
+
+
+export type PendingDeterministicProgrammeSnapshot = {
+  id: string;
+  source_id: string | null;
+  classification: string | null;
+  final_url: string | null;
+  page_title: string | null;
+};
+
+/**
+ * Recognize only known institutional navigation/resource pages that were
+ * misclassified as PROGRAMME opportunities. Both the exact page-title family
+ * and a structural URL path must match; a real programme title or an unrelated
+ * page under the same institution is never selected for deterministic cleanup.
+ */
+export function deterministicProgrammeSnapshotReason(input: {
+  classification: string | null | undefined;
+  finalUrl: string | null | undefined;
+  pageTitle: string | null | undefined;
+}): string | null {
+  if (input.classification?.toUpperCase() !== "PROGRAMME" || !input.finalUrl || !input.pageTitle) {
+    return null;
+  }
+
+  let path: string;
+  try {
+    path = new URL(input.finalUrl).pathname.toLowerCase();
+  } catch {
+    return null;
+  }
+
+  const structuralPath =
+    /^\/internal-resources(?:\/|$)/i.test(path) ||
+    /^\/(?:about\/(?:core-values|annual-reports|make-gift|equity-inclusion|department-chairs-letter|contact-us)|people\/faculty|education\/for-current-students|research\/postdoctoral-training\/postdoc-resources|about-us\/find-us|student-resources\/contact-student-services-advisors)(?:\/|$)/i.test(path);
+  if (!structuralPath) return null;
+
+  const title = input.pageTitle
+    .replace(/&#0*39;|&apos;/gi, "'")
+    .replace(/&amp;/gi, "&")
+    .replace(/&nbsp;/gi, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+  const navigationTitle =
+    /^(?:department policies|postdoc resources|for current students|our core values|faculty \+ senior researchers|faculty resources|annual reports|make a gift|equity\s*&\s*inclusion|department chair['’]?s letter|contact us|visit\s*&\s*contact us|labs\s*-\s*environment,\s*health\s*\+\s*safety|contact student services advisors)(?:\s*(?:\||[-–—])\s*.+)?$/i;
+  if (!navigationTitle.test(title)) return null;
+
+  return "institutional navigation/resource page is not a programme opportunity";
+}
+
+/**
+ * Select exact pending PROGRAMME snapshots that match the strict navigation
+ * cleanup rule. Preserve the one-task-per-source rule and never select legacy
+ * tasks without an explicit raw_record_id.
+ */
+export function selectDeterministicProgrammeTaskIds(
+  pendingSnapshots: readonly PendingDeterministicProgrammeSnapshot[],
+  dueTasks: readonly DueNormalizationTaskCandidate[],
+  limit = 1,
+  excludedSourceIds: readonly string[] = [],
+): string[] {
+  const maxTasks = Math.max(0, Math.floor(limit));
+  if (maxTasks === 0) return [];
+
+  const sourceByRawId = new Map<string, string>();
+  for (const raw of pendingSnapshots) {
+    if (
+      raw.id &&
+      raw.source_id &&
+      deterministicProgrammeSnapshotReason({
+        classification: raw.classification,
+        finalUrl: raw.final_url,
+        pageTitle: raw.page_title,
+      })
+    ) {
+      sourceByRawId.set(raw.id, raw.source_id);
+    }
+  }
+
+  const selectedIds: string[] = [];
+  const selectedSources = new Set<string>(excludedSourceIds.filter(Boolean));
+  for (const task of dueTasks) {
+    if (!task.id || !task.source_id || selectedSources.has(task.source_id)) continue;
+    const payload =
+      task.payload && typeof task.payload === "object" && !Array.isArray(task.payload)
+        ? (task.payload as Record<string, unknown>)
+        : {};
+    if (String(payload.classification ?? "").toUpperCase() !== "PROGRAMME") continue;
+    const rawRecordId = payload.raw_record_id;
+    if (typeof rawRecordId !== "string" || !rawRecordId.trim()) continue;
+    if (sourceByRawId.get(rawRecordId) !== task.source_id) continue;
+
+    selectedIds.push(task.id);
+    selectedSources.add(task.source_id);
+    if (selectedIds.length >= maxTasks) break;
+  }
+  return selectedIds;
+}
