@@ -20,6 +20,12 @@ describe("hasConfiguredAiProvider", () => {
     })).toBe(true);
   });
 
+  test("accepts a configured direct NVIDIA fallback", () => {
+    expect(hasConfiguredAiProvider({
+      NVIDIA_API_KEY: " nvidia-key ",
+    })).toBe(true);
+  });
+
   test("requires both OpenRouter key and model", () => {
     expect(hasConfiguredAiProvider({ OPENROUTER_API_KEY: "router-key" })).toBe(false);
     expect(hasConfiguredAiProvider({ OPENROUTER_MODEL: "provider/model" })).toBe(false);
@@ -34,6 +40,7 @@ describe("hasConfiguredAiProvider", () => {
       OMNIROUTE_API_KEY: "   ",
       OPENAI_API_KEY: " ",
       OPENROUTER_API_KEY: " ",
+      NVIDIA_API_KEY: " ",
       OPENROUTER_MODEL: "provider/model",
     })).toBe(false);
   });
