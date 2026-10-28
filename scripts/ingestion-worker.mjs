@@ -98,13 +98,24 @@ function clamp(value, min, max, fallback) {
     : fallback;
 }
 
+const TRANSIENT_WORKER_ERROR_PATTERNS = [
+  /\bfetch failed\b/i,
+  /\bECONNRESET\b/i,
+  /\bECONNREFUSED\b/i,
+  /\bETIMEDOUT\b/i,
+  /\bEAI_AGAIN\b/i,
+  /\bENOTFOUND\b/i,
+  /UND_ERR_(?:CONNECT_TIMEOUT|SOCKET|HEADERS_TIMEOUT|BODY_TIMEOUT)/i,
+  /\bHTTP (?:408|425|429|500|502|503|504)\b/i,
+];
+
 export function isTransientWorkerError(error) {
   const causeMessage =
     error instanceof Error && error.cause instanceof Error
       ? error.cause.message
       : "";
-  const message = `${error instanceof Error ? error.message : String(error)} ${causeMessage}`;
-  return /\\bfetch failed\\b|\\bECONNRESET\\b|\\bECONNREFUSED\\b|\\bETIMEDOUT\\b|\\bEAI_AGAIN\\b|\\bENOTFOUND\\b|UND_ERR_(?:CONNECT_TIMEOUT|SOCKET|HEADERS_TIMEOUT|BODY_TIMEOUT)|\\bHTTP (?:408|425|429|500|502|503|504)\\b/i.test(message);
+  const message = (error instanceof Error ? error.message : String(error)) + " " + causeMessage;
+  return TRANSIENT_WORKER_ERROR_PATTERNS.some((pattern) => pattern.test(message));
 }
 
 export function shouldRetryTransientWorkerError({
