@@ -165,7 +165,14 @@ export function shouldSupersedeTransientRetryForNewerPendingSnapshot(
     ? task.payload
     : {};
   const rawRecordId = payload.raw_record_id;
-  if (typeof rawRecordId !== "string" || rawRecordId.trim() !== target.id) return false;
+  const hasExplicitTarget =
+    typeof rawRecordId === "string" && rawRecordId.trim() === target.id;
+  // Legacy v7 recovery tasks deliberately target the latest FAILED transient
+  // snapshot. The caller must resolve that exact row before using this path.
+  const isLegacySemanticFailureRetry =
+    (typeof rawRecordId !== "string" || !rawRecordId.trim()) &&
+    payload.reason === "semantic-failure-recovery-v7";
+  if (!hasExplicitTarget && !isLegacySemanticFailureRetry) return false;
 
   const taskClass = typeof payload.classification === "string"
     ? payload.classification.trim().toUpperCase()
@@ -196,4 +203,22 @@ export function shouldSupersedeTransientRetryForNewerPendingSnapshot(
   if (!Number.isFinite(runAfter) || runAfter > nowMs) return false;
   if (!Number.isFinite(failedFetchedAt) || !Number.isFinite(pendingFetchedAt)) return false;
   return pendingFetchedAt > failedFetchedAt;
+}
+
+/**
+ * Select the oldest pending snapshot that can safely replace a legacy v7
+ * provider-outage retry. This avoids an older, different-class pending row
+ * hiding a newer same-class row that can safely take the source's task slot.
+ */
+export function selectNewerPendingSnapshotForTransientRetry<
+  T extends NewerPendingSnapshotCandidate & { id: string },
+>(
+  candidates: readonly T[],
+  task: TransientRetrySupersessionTask,
+  target: NormalizationRawTarget | null | undefined,
+  nowMs = Date.now(),
+): T | null {
+  return candidates.find((candidate) =>
+    shouldSupersedeTransientRetryForNewerPendingSnapshot(task, target, candidate, nowMs)
+  ) ?? null;
 }
