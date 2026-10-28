@@ -62,7 +62,8 @@ const RESEED_INTERVAL_MS = clamp(
   60 * 60_000,
   7 * 24 * 60 * 60_000,
   6 * 60 * 60_000,
-);const RESEED_RETRY_INTERVAL_MS = clamp(
+);
+const RESEED_RETRY_INTERVAL_MS = clamp(
   process.env.INGESTION_RESEED_RETRY_MS,
   60_000,
   60 * 60_000,
