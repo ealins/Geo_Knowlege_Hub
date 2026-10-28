@@ -79,3 +79,44 @@ describe("assertBackfillDbSuccess", () => {
       .toThrow("Backfill could not inspect open normalization tasks: 57014");
   });
 });
+
+
+import { staleNormalizationTargetReason } from "./backfill-coverage";
+
+describe("staleNormalizationTargetReason", () => {
+  const task = (status: string, payload: Record<string, unknown> = { raw_record_id: "raw-1", classification: "VACANCY" }) => ({
+    status,
+    source_id: "source-1",
+    payload,
+  });
+  const raw = (normalization_status: string, classification = "VACANCY", source_id = "source-1") => ({
+    id: "raw-1",
+    source_id,
+    classification,
+    normalization_status,
+    normalization_error: null,
+  });
+
+  test("retires a queued target that was already normalized", () => {
+    expect(staleNormalizationTargetReason(task("QUEUED"), raw("NORMALIZED"))).toBe("raw_snapshot_normalized");
+  });
+
+  test("retires a queued target that was skipped", () => {
+    expect(staleNormalizationTargetReason(task("QUEUED"), raw("SKIPPED"))).toBe("raw_snapshot_skipped");
+  });
+
+  test("retires a pending snapshot whose queued classification no longer matches", () => {
+    expect(staleNormalizationTargetReason(task("RETRY"), raw("PENDING", "PROGRAMME"))).toBe("raw_snapshot_classification_mismatch");
+  });
+
+  test("retires a target missing from storage or belonging to another source", () => {
+    expect(staleNormalizationTargetReason(task("QUEUED"), null)).toBe("raw_snapshot_missing");
+    expect(staleNormalizationTargetReason(task("QUEUED"), raw("PENDING", "VACANCY", "source-2"))).toBe("raw_snapshot_source_mismatch");
+  });
+
+  test("preserves processing, legacy, pending-exact, and failed retry tasks", () => {
+    expect(staleNormalizationTargetReason(task("PROCESSING"), raw("NORMALIZED"))).toBeNull();
+    expect(staleNormalizationTargetReason(task("RETRY", { classification: "VACANCY" }), raw("PENDING"))).toBeNull();
+    expect(staleNormalizationTargetReason(task("RETRY"), raw("FAILED", "PROGRAMME"))).toBeNull();
+  });
+});
