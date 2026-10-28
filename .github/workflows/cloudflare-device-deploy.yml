@@ -83,5 +83,26 @@ jobs:
             echo "::warning::OpenRouter fallback is not configured: set OPENROUTER_API_KEY and OPENROUTER_MODEL as a repository secret/variable or configure them directly on the Worker."
           fi
 
+      - name: Configure direct NVIDIA Worker fallback when available
+        shell: bash
+        env:
+          NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+          NVIDIA_MODEL: ${{ vars.NVIDIA_MODEL || secrets.NVIDIA_MODEL }}
+          NVIDIA_URL: ${{ vars.NVIDIA_URL || secrets.NVIDIA_URL }}
+        run: |
+          set -euo pipefail
+          if [[ -n "${NVIDIA_API_KEY:-}" ]]; then
+            printf '%s' "$NVIDIA_API_KEY" | ./node_modules/.bin/wrangler versions secret put NVIDIA_API_KEY --name research-pulse-global
+            if [[ -n "${NVIDIA_MODEL:-}" ]]; then
+              printf '%s' "$NVIDIA_MODEL" | ./node_modules/.bin/wrangler versions secret put NVIDIA_MODEL --name research-pulse-global
+            fi
+            if [[ -n "${NVIDIA_URL:-}" ]]; then
+              printf '%s' "$NVIDIA_URL" | ./node_modules/.bin/wrangler versions secret put NVIDIA_URL --name research-pulse-global
+            fi
+            echo "NVIDIA_FALLBACK_SECRET_CONFIGURED=true"
+          else
+            echo "::warning::NVIDIA_API_KEY GitHub Actions secret is not configured; direct NVIDIA fallback remains unavailable."
+          fi
+
       - name: Deploy active Worker
         run: ./node_modules/.bin/wrangler deploy
