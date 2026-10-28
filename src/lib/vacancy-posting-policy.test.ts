@@ -172,6 +172,19 @@ describe("adapter classification override quality gate", () => {
     })).toBe(true);
   });
 
+  test("does not force a listing path to VACANCY even when it contains structured JobPosting data", () => {
+    expect(shouldApplyAdapterClassificationOverride({
+      adapterKey: "html-vacancy",
+      classification: "GENERAL",
+      confidence: 0.95,
+      url: "https://www.cam.ac.uk/jobs/term/Yusuf-Hamied-Department-of-Chemistry",
+      title: "Yusuf Hamied Department of Chemistry vacancies | University of Cambridge",
+      text: validPostingText,
+      structuredPostingTitle: "Research Engineer in Geospatial AI",
+      structuredPostingText: validPostingText,
+    })).toBe(false);
+  });
+
   test("preserves specific detail-adapter overrides", () => {
     expect(shouldApplyAdapterClassificationOverride({
       adapterKey: "html-programmes-detail",
