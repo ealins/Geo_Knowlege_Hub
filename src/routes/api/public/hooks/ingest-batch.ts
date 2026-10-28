@@ -564,8 +564,10 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
 
             // A confirmed provider outage blocks model-dependent extraction, but
             // exact-snapshot VACANCY normalization and explicitly marked RESEARCH_NEWS
-            // cleanup are deterministic and need no LLM. Process at most three due tasks,
-            // only when each raw snapshot is still PENDING and belongs to the same source.
+            // cleanup are deterministic and need no LLM. Use up to four bounded
+            // fallback slots when the circuit is already open; after a first gateway
+            // failure, keep the fallback cap lower so total work stays within the target.
+            // Every selected raw snapshot must still be PENDING and match its source.
             let deterministicFallbackAttempted = false;
             const runDeterministicNormalizationFallback = async () => {
               const nowIso = new Date().toISOString();

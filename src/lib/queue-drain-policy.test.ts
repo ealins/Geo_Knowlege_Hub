@@ -401,7 +401,7 @@ describe("deterministicNormalizationFallbackLimit", () => {
     })).toBe(1);
   });
 
-  test("caps fallback work at three when the first provider request fails", () => {
+  test("keeps fallback work at three after a provider failure so total work stays bounded", () => {
     expect(deterministicNormalizationFallbackLimit({
       target: 4,
       processed: 1,
@@ -417,12 +417,20 @@ describe("deterministicNormalizationFallbackLimit", () => {
     })).toBe(0);
   });
 
-  test("keeps preflight circuit cleanup within the existing target and cap", () => {
+  test("uses all four bounded slots when the circuit is already open at preflight", () => {
     expect(deterministicNormalizationFallbackLimit({
       target: 4,
       processed: 0,
       providerGatewayFailure: false,
-    })).toBe(3);
+    })).toBe(4);
+  });
+
+  test("keeps preflight cleanup capped at four even if the requested target is larger", () => {
+    expect(deterministicNormalizationFallbackLimit({
+      target: 20,
+      processed: 0,
+      providerGatewayFailure: false,
+    })).toBe(4);
   });
 });
 
