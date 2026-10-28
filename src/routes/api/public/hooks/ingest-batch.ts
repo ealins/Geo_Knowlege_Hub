@@ -567,7 +567,7 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
             let deterministicFallbackAttempted = false;
             const runDeterministicNormalizationFallback = async () => {
               const nowIso = new Date().toISOString();
-              const [pendingVacancies, pendingStructuredVacancies, pendingResearchNews, pendingMediaCourses, dueNormalizeTasks] = await Promise.all([
+              const [pendingVacancies, pendingStructuredVacancies, pendingResearchNews, pendingMediaCourses, pendingProgrammes, dueNormalizeTasks] = await Promise.all([
                 // Keep the large pending-snapshot scan lean. Fetch JSON-LD payloads
                 // separately so up to 2,000 page bodies do not carry up to 50 KB of
                 // structured metadata each into a single Worker invocation.
