@@ -618,9 +618,9 @@ export function isEthzJobDetailRedirectToListing(requestedUrl, finalUrl) {
     const final = new URL(finalUrl);
     return (
       requested.hostname.toLowerCase() === "jobs.ethz.ch" &&
-      /^\\/job\\/view\\/JOPG_ethz_[A-Za-z0-9_-]+\\/?$/i.test(requested.pathname) &&
+      /^\/job\/view\/JOPG_ethz_[A-Za-z0-9_-]+\\/?$/i.test(requested.pathname) &&
       final.hostname.toLowerCase() === "jobs.ethz.ch" &&
-      /^\\/site\\/index\\/?$/i.test(final.pathname)
+      /^\/site\/index\/?$/i.test(final.pathname)
     );
   } catch {
     return false;
