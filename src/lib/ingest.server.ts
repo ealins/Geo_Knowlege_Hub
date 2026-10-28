@@ -18,7 +18,7 @@ import {
   restoreAttemptsAfterUnstartedFetch,
 } from "./host-fetch-deferral-policy";
 import { shouldRecoverSemanticFailure } from "./semantic-recovery-policy";
-import { shouldDowngradeBodyOnlyVacancy } from "./source-classification-policy";
+import { classifyExplicitVacancyDetailPath, shouldDowngradeBodyOnlyVacancy } from "./source-classification-policy";
 import {
   extractStructuredSnapshot,
   structuredVacancyFromPayload,
@@ -182,8 +182,14 @@ export function classifyUrlAndText(url: string, title: string, text: string): Cl
     /(?:^|\/)(?:jobs?|vacancies|careers)\/(?:search|listing|list|all)(?:\/|$)/i.test(path) ||
     /(?:\bvacancies?\b|\bjob listings?\b|\bcareer(?:s)?\b)\s*$/i.test(heading);
   if (vacancyLanding) return { classification: "GENERAL", confidence: 0.95 };
-  if (/(?:^|\/)(?:jobs?|vacancies|careers)\/[^/]+/i.test(path)) {
+  const explicitVacancyPathClassification = classifyExplicitVacancyDetailPath(path, title);
+  if (explicitVacancyPathClassification === "VACANCY") {
     return { classification: "VACANCY", confidence: 0.95 };
+  }
+  if (explicitVacancyPathClassification === "GENERAL") {
+    // Do not let generic career-resource URLs bypass the later posting-quality
+    // gates solely because their path contains /careers/<slug>.
+    return { classification: "GENERAL", confidence: 0.85 };
   }
 
   // Programme/course classification is deliberately stricter than a generic
@@ -2819,9 +2825,31 @@ export async function fetchSource(sourceId: string): Promise<FetchOutcome> {
   const hash = await sha256(text);
   let { classification, confidence } = classifyUrlAndText(finalUrl, title ?? "", text);
   const detailKind = detailKindFromAdapter(source.adapter_key);
+  const structuredJob = source.adapter_key === "html-vacancy"
+    ? structuredVacancyFromPayload(structured, finalUrl)
+    : null;
+  const structuredPostingText = structuredJob
+    ? [
+        structuredJob.title,
+        structuredJob.description,
+        structuredJob.application_deadline ? "Application deadline" : null,
+        structuredJob.employment_type ? "Employment type" : null,
+      ]
+        .filter((value): value is string => Boolean(value))
+        .join("\n")
+    : undefined;
   if (
     detailKind &&
-    (classification === "GENERAL" || classification === "UNKNOWN" || confidence < 0.5)
+    shouldApplyAdapterClassificationOverride({
+      adapterKey: source.adapter_key,
+      classification,
+      confidence,
+      url: finalUrl,
+      title: title ?? "",
+      text,
+      structuredPostingTitle: structuredJob?.title ?? null,
+      structuredPostingText,
+    })
   ) {
     classification = detailKind;
     confidence = Math.max(confidence, 0.72);
