@@ -33,6 +33,7 @@ const ERROR_DELAY_MS = clamp(
   10 * 60_000,
   30_000,
 );
+const MAX_TRANSIENT_LOOP_RETRIES = 2;
 const FETCH_TIMEOUT_MS = clamp(
   process.env.INGESTION_FETCH_TIMEOUT_MS,
   5_000,
@@ -95,6 +96,31 @@ function clamp(value, min, max, fallback) {
   return Number.isFinite(parsed)
     ? Math.min(max, Math.max(min, Math.floor(parsed)))
     : fallback;
+}
+
+export function isTransientWorkerError(error) {
+  const causeMessage =
+    error instanceof Error && error.cause instanceof Error
+      ? error.cause.message
+      : "";
+  const message = `${error instanceof Error ? error.message : String(error)} ${causeMessage}`;
+  return /\\bfetch failed\\b|\\bECONNRESET\\b|\\bECONNREFUSED\\b|\\bETIMEDOUT\\b|\\bEAI_AGAIN\\b|\\bENOTFOUND\\b|UND_ERR_(?:CONNECT_TIMEOUT|SOCKET|HEADERS_TIMEOUT|BODY_TIMEOUT)|\\bHTTP (?:408|425|429|500|502|503|504)\\b/i.test(message);
+}
+
+export function shouldRetryTransientWorkerError({
+  error,
+  consecutiveErrors,
+  maxRetries = MAX_TRANSIENT_LOOP_RETRIES,
+  remainingMs,
+  retryDelayMs,
+}) {
+  return (
+    isTransientWorkerError(error) &&
+    consecutiveErrors < maxRetries &&
+    Number.isFinite(remainingMs) &&
+    Number.isFinite(retryDelayMs) &&
+    remainingMs > retryDelayMs
+  );
 }
 
 export function shouldQueueMaintenance({
@@ -814,6 +840,7 @@ if (shouldRunDirectly) {
   let lastReseedAttemptAt = 0;
   let lastProgrammeDiscoveryAt = 0;
   let lastProgrammeDiscoveryAttemptAt = 0;
+  let consecutiveTransientLoopErrors = 0;
   const stopAt = RUNTIME_MS ? Date.now() + RUNTIME_MS : Number.POSITIVE_INFINITY;
   while (!stopping && Date.now() < stopAt) {
     try {
@@ -879,6 +906,7 @@ if (shouldRunDirectly) {
         { limit: LEASE_LIMIT },
         20_000,
       );
+      consecutiveTransientLoopErrors = 0;
       let leases = Array.isArray(leased.leases) ? leased.leases : [];
       const maintenanceNow = shouldQueueMaintenance({
         burstMode: BURST_MODE,
@@ -972,6 +1000,22 @@ if (shouldRunDirectly) {
         error instanceof Error ? error.message : String(error),
       );
       if (RUNTIME_MS) {
+        const remainingMs = stopAt - Date.now();
+        if (
+          shouldRetryTransientWorkerError({
+            error,
+            consecutiveErrors: consecutiveTransientLoopErrors,
+            remainingMs,
+            retryDelayMs: ERROR_DELAY_MS,
+          })
+        ) {
+          consecutiveTransientLoopErrors += 1;
+          console.warn(
+            `${new Date().toISOString()} TRANSIENT_WORKER_ERROR retry=${consecutiveTransientLoopErrors}/${MAX_TRANSIENT_LOOP_RETRIES} delay_ms=${ERROR_DELAY_MS} remaining_ms=${remainingMs}`,
+          );
+          await sleep(ERROR_DELAY_MS);
+          continue;
+        }
         fatalError = error instanceof Error ? error : new Error(String(error));
         break;
       }
