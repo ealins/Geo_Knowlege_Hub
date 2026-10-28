@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { canPinLegacyNormalizationTaskToPendingSnapshot, countUnsupportedPending, getBackfillQueueDisposition, selectNewerPendingSnapshotForTransientRetry, shouldSupersedeTransientRetryForNewerPendingSnapshot, staleNormalizationTargetReason } from "./backfill-coverage";
+import { canPinLegacyNormalizationTaskToPendingSnapshot, countUnsupportedPending, getBackfillQueueDisposition, selectLegacyTransientFailureTarget, selectNewerPendingSnapshotForTransientRetry, shouldSupersedeTransientRetryForNewerPendingSnapshot, staleNormalizationTargetReason } from "./backfill-coverage";
 import { assertBackfillDbSuccess } from "./backfill-db-errors";
 
 describe("countUnsupportedPending", () => {
@@ -150,6 +150,59 @@ describe("canPinLegacyNormalizationTaskToPendingSnapshot", () => {
     expect(canPinLegacyNormalizationTaskToPendingSnapshot(task("RETRY"), candidate("FAILED"))).toBe(false);
     expect(canPinLegacyNormalizationTaskToPendingSnapshot(task("RETRY"), candidate("PENDING", "COURSE"))).toBe(false);
     expect(canPinLegacyNormalizationTaskToPendingSnapshot(task("RETRY"), candidate("PENDING", "PROGRAMME", "source-2"))).toBe(false);
+  });
+});
+
+
+describe("selectLegacyTransientFailureTarget", () => {
+  const task = (overrides: Record<string, unknown> = {}) => ({
+    status: "RETRY",
+    source_id: "source-1",
+    payload: { classification: "PROGRAMME" },
+    created_at: "2026-10-23T00:07:35.896Z",
+    run_after: "2026-10-24T16:23:59.159Z",
+    last_error: "TRANSIENT_EXTRACTION_FAILURE GATEWAY_5XX: no independent fallback is configured",
+    ...overrides,
+  });
+  const raw = (overrides: Record<string, unknown> = {}) => ({
+    id: "raw-1",
+    source_id: "source-1",
+    classification: "PROGRAMME",
+    normalization_status: "FAILED",
+    normalization_error: "TRANSIENT_EXTRACTION_FAILURE GATEWAY_5XX: no independent fallback is configured",
+    fetched_at: "2026-10-23T00:07:35.275Z",
+    ...overrides,
+  });
+
+  test("pins to the same-class failed snapshot fetched immediately before task creation", () => {
+    expect(selectLegacyTransientFailureTarget(task() as never, [raw() as never])?.id).toBe("raw-1");
+  });
+
+  test("chooses the closest eligible snapshot and rejects snapshots fetched after task creation", () => {
+    expect(selectLegacyTransientFailureTarget(task() as never, [
+      raw({ id: "older", fetched_at: "2026-10-23T00:06:00.000Z" }) as never,
+      raw({ id: "future", fetched_at: "2026-10-23T00:07:36.000Z" }) as never,
+      raw({ id: "closest", fetched_at: "2026-10-23T00:07:35.500Z" }) as never,
+    ])?.id).toBe("closest");
+  });
+
+  test("does not guess across source, classification, or time-window mismatches", () => {
+    expect(selectLegacyTransientFailureTarget(task() as never, [
+      raw({ source_id: "source-2" }) as never,
+      raw({ classification: "EVENT" }) as never,
+      raw({ fetched_at: "2026-10-23T00:00:00.000Z" }) as never,
+    ])).toBeNull();
+  });
+
+  test("requires a failed transient outage and excludes v7 or already-pinned tasks", () => {
+    expect(selectLegacyTransientFailureTarget(task() as never, [
+      raw({ normalization_status: "PENDING" }) as never,
+    ])).toBeNull();
+    expect(selectLegacyTransientFailureTarget(task() as never, [
+      raw({ normalization_error: "semantic validation failed" }) as never,
+    ])).toBeNull();
+    expect(selectLegacyTransientFailureTarget(task({ payload: { classification: "PROGRAMME", reason: "semantic-failure-recovery-v7" } }) as never, [raw() as never])).toBeNull();
+    expect(selectLegacyTransientFailureTarget(task({ payload: { classification: "PROGRAMME", raw_record_id: "raw-1" } }) as never, [raw() as never])).toBeNull();
   });
 });
 
