@@ -541,7 +541,7 @@ export function extractStructuredFallbackText(structured) {
   ]);
   const clean = (value) =>
     typeof value === "string"
-      ? decodeEntities(value.replace(/<[^>]*>/g, " ")).replace(/\\s+/g, " ").trim()
+      ? decodeEntities(value.replace(/<[^>]*>/g, " ")).replace(/\s+/g, " ").trim()
       : "";
 
   for (const node of structured.jsonld) {
@@ -558,7 +558,7 @@ export function extractStructuredFallbackText(structured) {
     // name, navigation label, or tiny metadata snippet must not count as text.
     if (!title || description.length < 40) continue;
 
-    const text = `${title} — ${description}`.replace(/\\s+/g, " ").trim();
+    const text = `${title} — ${description}`.replace(/\s+/g, " ").trim();
     if (text.length >= 60) return text.slice(0, 20_000);
   }
   return "";
