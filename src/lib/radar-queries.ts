@@ -64,7 +64,7 @@ async function fetchPublicOpportunities(): Promise<OpportunityRow[]> {
   // the function returns only IDs that are already public and confirmed dead.
   const livePublicIds = await filterPublicOpportunityIdsByServerHealth(
     publicIds,
-    getPublicOpportunitySourceHealth,
+    (opportunityIds) => getPublicOpportunitySourceHealth({ data: { opportunityIds } }),
   );
   if (livePublicIds.length === 0) return [];
 
