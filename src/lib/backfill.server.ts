@@ -3,7 +3,7 @@
 // here calls a model — it only enqueues tasks that the deployed autonomous
 // drain loop processes with the existing gates, cache and validators.
 import { supabaseAdmin } from "@/integrations/supabase/client.server";
-import { canPinLegacyNormalizationTaskToPendingSnapshot, countUnsupportedPending, shouldSupersedeTransientRetryForNewerPendingSnapshot, staleNormalizationTargetReason } from "./backfill-coverage";
+import { canPinLegacyNormalizationTaskToPendingSnapshot, countUnsupportedPending, selectNewerPendingSnapshotForTransientRetry, shouldSupersedeTransientRetryForNewerPendingSnapshot, staleNormalizationTargetReason } from "./backfill-coverage";
 import { assertBackfillDbSuccess } from "./backfill-db-errors";
 import { shouldRetryInstitutionlessVacancy } from "./semantic-recovery-policy";
 
@@ -231,11 +231,89 @@ export async function enqueueRawBackfill(limit = 400): Promise<BackfillPlan> {
     for (const raw of rawTargetsResult.data ?? []) rawTargetsById.set(raw.id, raw);
   }
 
+  // Older semantic-failure-recovery-v7 tasks predate raw_record_id but have a
+  // defined target intent: the latest FAILED transient snapshot of their class.
+  // Resolve those targets read-only so a newer same-class PENDING snapshot can
+  // safely take the source slot during provider outages.
+  const legacySemanticRetries = openTasks.filter((task) =>
+    task.status.toUpperCase() === "RETRY" &&
+    task.payload.reason === "semantic-failure-recovery-v7" &&
+    !(typeof task.payload.raw_record_id === "string" && task.payload.raw_record_id.trim()) &&
+    typeof task.payload.classification === "string" &&
+    (task.last_error ?? "").toLowerCase().includes("no independent fallback is configured")
+  );
+  const legacySourceIds = [...new Set(legacySemanticRetries.map((task) => task.source_id))];
+  const legacyFailedTargetsBySourceClass = new Map<string, {
+    id: string;
+    source_id: string | null;
+    classification: string | null;
+    normalization_status: string | null;
+    normalization_error: string | null;
+    fetched_at: string | null;
+  }>();
+  if (legacySourceIds.length > 0) {
+    const legacyFailedTargetsResult = await supabaseAdmin
+      .from("raw_records")
+      .select("id, source_id, classification, normalization_status, normalization_error, fetched_at")
+      .in("source_id", legacySourceIds)
+      .eq("normalization_status", "FAILED")
+      .like("normalization_error", "TRANSIENT_EXTRACTION_FAILURE%")
+      .order("fetched_at", { ascending: false })
+      .limit(2000);
+    assertBackfillDbSuccess("inspect legacy transient retry targets", legacyFailedTargetsResult.error);
+    for (const raw of legacyFailedTargetsResult.data ?? []) {
+      if (!raw.source_id || !raw.classification) continue;
+      if (!(raw.normalization_error ?? "").toLowerCase().includes("no independent fallback is configured")) continue;
+      const key = `${raw.source_id}:${raw.classification.trim().toUpperCase()}`;
+      if (!legacyFailedTargetsBySourceClass.has(key)) legacyFailedTargetsBySourceClass.set(key, raw);
+    }
+  }
+
   const openBySource = new Map<string, OpenNormalizeTask[]>();
   for (const task of openTasks) {
     const existing = openBySource.get(task.source_id) ?? [];
     existing.push(task);
     openBySource.set(task.source_id, existing);
+  }
+
+  // Prefer a newer same-class pending row when a sole legacy v7 provider retry
+  // would otherwise be pinned behind an older pending row of a different class.
+  // The normal supersession gate still requires a due, old retry and a resolved
+  // FAILED transient target with the explicit missing-provider marker.
+  for (const [sourceId, openForSource] of openBySource) {
+    if (openForSource.length !== 1) continue;
+    const task = openForSource[0];
+    if (
+      task.status.toUpperCase() !== "RETRY" ||
+      task.payload.reason !== "semantic-failure-recovery-v7" ||
+      (typeof task.payload.raw_record_id === "string" && task.payload.raw_record_id.trim()) ||
+      typeof task.payload.classification !== "string"
+    ) continue;
+    const taskClass = task.payload.classification.trim().toUpperCase();
+    const target = legacyFailedTargetsBySourceClass.get(`${sourceId}:${taskClass}`);
+    if (!target) continue;
+    const matchingPending = candidates
+      .filter((raw) =>
+        raw.source_id === sourceId &&
+        (raw.normalization_status ?? "PENDING").toUpperCase() === "PENDING" &&
+        (raw.classification ?? "").trim().toUpperCase() === taskClass
+      )
+      .map((raw) => ({
+        id: raw.id,
+        source_id: raw.source_id,
+        classification: raw.classification,
+        normalization_status: raw.normalization_status ?? "PENDING",
+        fetched_at: raw.fetched_at ?? null,
+      }));
+    const selected = selectNewerPendingSnapshotForTransientRetry(matchingPending, task, target);
+    if (selected) {
+      bySource.set(sourceId, {
+        classification: selected.classification ?? "UNKNOWN",
+        rawRecordId: selected.id,
+        normalizationStatus: selected.normalization_status ?? "PENDING",
+        fetchedAt: selected.fetched_at ?? null,
+      });
+    }
   }
 
   const rows: {
@@ -301,7 +379,14 @@ export async function enqueueRawBackfill(limit = 400): Promise<BackfillPlan> {
         const targetId = typeof task.payload.raw_record_id === "string"
           ? task.payload.raw_record_id
           : "";
-        const target = targetId ? rawTargetsById.get(targetId) : null;
+        const legacyClass = typeof task.payload.classification === "string"
+          ? task.payload.classification.trim().toUpperCase()
+          : "";
+        const target = targetId
+          ? rawTargetsById.get(targetId)
+          : task.payload.reason === "semantic-failure-recovery-v7"
+            ? legacyFailedTargetsBySourceClass.get(`${task.source_id}:${legacyClass}`)
+            : null;
         return shouldSupersedeTransientRetryForNewerPendingSnapshot(
           task,
           target,
@@ -317,7 +402,17 @@ export async function enqueueRawBackfill(limit = 400): Promise<BackfillPlan> {
         const supersededAt = new Date().toISOString();
         let supersededAll = true;
         for (const task of supersedableRetries) {
-          const failedRawId = String(task.payload.raw_record_id);
+          const explicitFailedRawId = typeof task.payload.raw_record_id === "string"
+            ? task.payload.raw_record_id
+            : "";
+          const legacyClass = typeof task.payload.classification === "string"
+            ? task.payload.classification.trim().toUpperCase()
+            : "";
+          const failedRawId = explicitFailedRawId || legacyFailedTargetsBySourceClass.get(`${task.source_id}:${legacyClass}`)?.id;
+          if (!failedRawId) {
+            supersededAll = false;
+            break;
+          }
           const { data: supersededTask, error: supersedeError } = await supabaseAdmin
             .from("ingestion_tasks")
             .update({
@@ -329,6 +424,7 @@ export async function enqueueRawBackfill(limit = 400): Promise<BackfillPlan> {
               payload: {
                 ...task.payload,
                 superseded_by_raw_record_id: rawRecordId,
+                superseded_failed_raw_record_id: failedRawId,
                 superseded_reason: "older_transient_failed_snapshot_deferred_for_newer_pending",
               },
             })
