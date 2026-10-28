@@ -263,8 +263,10 @@ export async function enqueueRawBackfill(limit = 400): Promise<BackfillPlan> {
     assertBackfillDbSuccess("inspect legacy transient retry targets", legacyFailedTargetsResult.error);
     for (const raw of legacyFailedTargetsResult.data ?? []) {
       if (!raw.source_id || !raw.classification) continue;
-      if (!(raw.normalization_error ?? "").toLowerCase().includes("no independent fallback is configured")) continue;
       const key = `${raw.source_id}:${raw.classification.trim().toUpperCase()}`;
+      // Keep the latest failed transient target even when it lacks the outage
+      // marker; the shared predicate must reject it rather than falling back to
+      // an older failure that the legacy task did not actually target.
       if (!legacyFailedTargetsBySourceClass.has(key)) legacyFailedTargetsBySourceClass.set(key, raw);
     }
   }
