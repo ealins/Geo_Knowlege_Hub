@@ -42,6 +42,14 @@ export function shouldUseOpenAIFallback(input: {
   return Boolean(input.apiKey?.trim() && isTransientExtractionError(input.primaryErrorCode));
 }
 
+/** Use direct NVIDIA only when configured and the primary route failed transiently. */
+export function shouldUseNvidiaFallback(input: {
+  primaryErrorCode: string | null | undefined;
+  apiKey: string | null | undefined;
+}): boolean {
+  return Boolean(input.apiKey?.trim() && isTransientExtractionError(input.primaryErrorCode));
+}
+
 
 /**
  * Avoid spending another retry on HTTP 530 from the primary gateway.
