@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { shouldTryNextExtractionModel, isTransientExtractionError, shouldUseOpenRouterFallback, shouldUseOpenAIFallback, shouldRetryPrimaryProvider, getNormalizationProviderDeferralMinutes, shouldOpenOmniRouteCircuit, isLocalGatewayCircuitOpen, recordLocalGatewayFailure, OMNIROUTE_CIRCUIT_WINDOW_MS, getOmniRouteCircuitWindowStart } from "./transient-errors";
+import { shouldTryNextExtractionModel, isTransientExtractionError, shouldUseOpenRouterFallback, shouldUseOpenAIFallback, shouldUseNvidiaFallback, shouldRetryPrimaryProvider, getNormalizationProviderDeferralMinutes, shouldOpenOmniRouteCircuit, isLocalGatewayCircuitOpen, recordLocalGatewayFailure, OMNIROUTE_CIRCUIT_WINDOW_MS, getOmniRouteCircuitWindowStart } from "./transient-errors";
 
 describe("isTransientExtractionError", () => {
   test("retries common transient provider failures", () => {
@@ -43,6 +43,20 @@ describe("shouldUseOpenRouterFallback", () => {
       apiKey: "configured",
       model: "",
     })).toBe(false);
+  });
+});
+
+
+describe("shouldUseNvidiaFallback", () => {
+  test("uses the direct NVIDIA route for transient gateway failures when configured", () => {
+    for (const code of ["HTTP_429", "HTTP_502", "HTTP_530", "TIMEOUT", "NETWORK_ERROR"]) {
+      expect(shouldUseNvidiaFallback({ primaryErrorCode: code, apiKey: "configured" })).toBe(true);
+    }
+  });
+
+  test("does not fan out for permanent failures or without a key", () => {
+    expect(shouldUseNvidiaFallback({ primaryErrorCode: "HTTP_403", apiKey: "configured" })).toBe(false);
+    expect(shouldUseNvidiaFallback({ primaryErrorCode: "HTTP_502", apiKey: "" })).toBe(false);
   });
 });
 
