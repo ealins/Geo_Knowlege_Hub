@@ -3,8 +3,9 @@ import { hasRoleTitle } from "./vacancy-posting-policy";
 /**
  * A URL under /jobs/, /vacancies/, or /careers/ is not by itself proof of a
  * single posting. Generic career resources such as /careers/peacecorps/ must
- * not become vacancy snapshots merely because of the path. A structured
- * JobPosting can still promote a generic adapter later in the ingestion path.
+ * not become vacancy snapshots merely because of the path. The later legacy
+ * html-vacancy adapter override still requires structured JobPosting evidence
+ * to pass the existing deterministic quality gate.
  */
 export function classifyExplicitVacancyDetailPath(
   path: string,
