@@ -596,19 +596,35 @@ export async function callNemotron(call: NemotronCall): Promise<NemotronResult> 
 
   if (!hasIndependentFallback) {
     const circuitWindowStart = getOmniRouteCircuitWindowStart();
-    const { count: recentGatewayFailures, error: circuitReadError } = await supabaseAdmin
-      .from("llm_processing_runs")
-      .select("id", { count: "exact", head: true })
-      .eq("provider", AI_PROVIDER)
-      .eq("status", "FAILED")
-      .in("http_status", [502, 503, 504, 530])
-      .gte("created_at", circuitWindowStart);
+    const [
+      { count: recentGatewayFailures, error: circuitReadError },
+      { count: recentHttp530Failures, error: circuit530ReadError },
+    ] = await Promise.all([
+      supabaseAdmin
+        .from("llm_processing_runs")
+        .select("id", { count: "exact", head: true })
+        .eq("provider", AI_PROVIDER)
+        .eq("status", "FAILED")
+        .in("http_status", [502, 503, 504])
+        .gte("created_at", circuitWindowStart),
+      supabaseAdmin
+        .from("llm_processing_runs")
+        .select("id", { count: "exact", head: true })
+        .eq("provider", AI_PROVIDER)
+        .eq("status", "FAILED")
+        .eq("http_status", 530)
+        .gte("created_at", circuitWindowStart),
+    ]);
 
     // Telemetry read errors must not prevent a legitimate provider attempt.
+    // Keep 530 separate: one Cloudflare 1033/tunnel failure is enough to open
+    // the circuit, while ordinary 502/503/504 failures use the count threshold.
     if (
       !circuitReadError &&
+      !circuit530ReadError &&
       shouldOpenOmniRouteCircuit({
         recentGatewayFailures: recentGatewayFailures ?? 0,
+        recentHttp530Failures: recentHttp530Failures ?? 0,
         independentFallbackConfigured: false,
       })
     ) {
