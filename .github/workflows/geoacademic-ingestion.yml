@@ -253,10 +253,23 @@ jobs:
             for (const key of ["raw_candidates", "queued", "already_queued"]) {
               if (typeof v[key] !== "number") throw new Error(`backfill-raw returned no numeric ${key}`);
             }
+            const coverage = {
+              exact_snapshot_queued: v.exact_snapshot_queued,
+              deferred_by_source: v.deferred_by_source,
+              unsupported_pending: v.unsupported_pending,
+              stale_tasks_retired: v.stale_tasks_retired,
+              legacy_tasks_pinned: v.legacy_tasks_pinned
+            };
+            for (const [key, value] of Object.entries(coverage)) {
+              if (typeof value !== "number") {
+                console.log(`::warning::backfill-raw omitted optional coverage metric ${key}`);
+              }
+            }
             console.log("RAW_NORMALIZATION_BACKFILL", JSON.stringify({
               raw_candidates: v.raw_candidates,
               queued: v.queued,
               already_queued: v.already_queued,
+              ...Object.fromEntries(Object.entries(coverage).map(([key, value]) => [key, typeof value === "number" ? value : null])),
               by_classification: v.by_classification ?? {}
             }));
           ' "$response"
