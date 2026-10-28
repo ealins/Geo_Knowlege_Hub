@@ -3,7 +3,7 @@
 // here calls a model — it only enqueues tasks that the deployed autonomous
 // drain loop processes with the existing gates, cache and validators.
 import { supabaseAdmin } from "@/integrations/supabase/client.server";
-import { canPinLegacyNormalizationTaskToPendingSnapshot, countUnsupportedPending, selectNewerPendingSnapshotForTransientRetry, shouldSupersedeTransientRetryForNewerPendingSnapshot, staleNormalizationTargetReason } from "./backfill-coverage";
+import { canPinLegacyNormalizationTaskToPendingSnapshot, countUnsupportedPending, selectLegacyTransientFailureTarget, selectNewerPendingSnapshotForTransientRetry, shouldSupersedeTransientRetryForNewerPendingSnapshot, staleNormalizationTargetReason } from "./backfill-coverage";
 import { assertBackfillDbSuccess } from "./backfill-db-errors";
 import { shouldRetryInstitutionlessVacancy } from "./semantic-recovery-policy";
 
@@ -242,15 +242,29 @@ export async function enqueueRawBackfill(limit = 400): Promise<BackfillPlan> {
     typeof task.payload.classification === "string" &&
     (task.last_error ?? "").toLowerCase().includes("no independent fallback is configured")
   );
-  const legacySourceIds = [...new Set(legacySemanticRetries.map((task) => task.source_id))];
-  const legacyFailedTargetsBySourceClass = new Map<string, {
+  // Older transient retries predate both raw_record_id and the v7 reason tag.
+  // Pin only when a same-source, same-class FAILED raw snapshot was fetched
+  // within five minutes before task creation; otherwise leave the task untouched.
+  const legacyTransientRetries = openTasks.filter((task) =>
+    task.status.toUpperCase() === "RETRY" &&
+    task.payload.reason !== "semantic-failure-recovery-v7" &&
+    !(typeof task.payload.raw_record_id === "string" && task.payload.raw_record_id.trim()) &&
+    typeof task.payload.classification === "string" &&
+    (task.last_error ?? "").toLowerCase().includes("transient_extraction_failure") &&
+    (task.last_error ?? "").toLowerCase().includes("no independent fallback is configured")
+  );
+  const legacyTargetTasks = [...legacySemanticRetries, ...legacyTransientRetries];
+  const legacySourceIds = [...new Set(legacyTargetTasks.map((task) => task.source_id))];
+  type LegacyFailedTarget = {
     id: string;
     source_id: string | null;
     classification: string | null;
     normalization_status: string | null;
     normalization_error: string | null;
     fetched_at: string | null;
-  }>();
+  };
+  const legacyFailedTargetsBySourceClass = new Map<string, LegacyFailedTarget>();
+  const legacyFailedTargetsCandidatesBySourceClass = new Map<string, LegacyFailedTarget[]>();
   if (legacySourceIds.length > 0) {
     const legacyFailedTargetsResult = await supabaseAdmin
       .from("raw_records")
@@ -264,10 +278,37 @@ export async function enqueueRawBackfill(limit = 400): Promise<BackfillPlan> {
     for (const raw of legacyFailedTargetsResult.data ?? []) {
       if (!raw.source_id || !raw.classification) continue;
       const key = `${raw.source_id}:${raw.classification.trim().toUpperCase()}`;
-      // Keep the latest failed transient target even when it lacks the outage
-      // marker; the shared predicate must reject it rather than falling back to
-      // an older failure that the legacy task did not actually target.
+      // Keep the latest failed transient target for v7 tasks, whose historical
+      // intent is class-level. Older generic tasks use the tighter timestamp match below.
       if (!legacyFailedTargetsBySourceClass.has(key)) legacyFailedTargetsBySourceClass.set(key, raw);
+      const candidatesForKey = legacyFailedTargetsCandidatesBySourceClass.get(key) ?? [];
+      candidatesForKey.push(raw);
+      legacyFailedTargetsCandidatesBySourceClass.set(key, candidatesForKey);
+    }
+  }
+
+  for (const task of legacyTransientRetries) {
+    const taskClass = typeof task.payload.classification === "string"
+      ? task.payload.classification.trim().toUpperCase()
+      : "";
+    const candidates = legacyFailedTargetsCandidatesBySourceClass.get(`${task.source_id}:${taskClass}`) ?? [];
+    const target = selectLegacyTransientFailureTarget(task, candidates);
+    if (!target) continue;
+    const pinnedPayload = { ...task.payload, raw_record_id: target.id };
+    const { data: pinnedTask, error: pinError } = await supabaseAdmin
+      .from("ingestion_tasks")
+      .update({ payload: pinnedPayload })
+      .eq("id", task.id)
+      .eq("source_id", task.source_id)
+      .eq("status", "RETRY")
+      .eq("updated_at", task.updated_at)
+      .select("id")
+      .maybeSingle();
+    assertBackfillDbSuccess(`pin legacy transient retry ${task.id} to its exact failed raw snapshot`, pinError);
+    if (pinnedTask) {
+      task.payload = pinnedPayload;
+      rawTargetsById.set(target.id, target);
+      plan.legacy_tasks_pinned += 1;
     }
   }
 
