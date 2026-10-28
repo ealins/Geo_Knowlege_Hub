@@ -170,7 +170,14 @@ export const countsQuery = queryOptions({
     // richer jobs query must not turn every homepage count into "Unavailable".
     let opportunityCount = Number(counts["opportunities"] ?? 0);
     try {
-      opportunityCount = (await client.fetchQuery(opportunitiesQuery)).length;
+      const publicOpportunities = await client.fetchQuery(opportunitiesQuery);
+      // Recheck source health instead of trusting a possibly cached jobs result;
+      // the homepage count must agree with the live jobs catalogue.
+      const liveIds = await filterPublicOpportunityIdsByServerHealth(
+        publicOpportunities.map((row) => row.id),
+        (opportunityIds) => getPublicOpportunitySourceHealth({ data: { opportunityIds } }),
+      );
+      opportunityCount = liveIds.length;
     } catch (opportunityError) {
       console.error("[counts-query] Using public SQL position count because the detailed jobs query failed", opportunityError);
     }
