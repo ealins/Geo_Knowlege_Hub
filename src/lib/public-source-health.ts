@@ -73,3 +73,25 @@ export function isOpportunityOnlyBackedByDeadSources(
     );
   });
 }
+
+/**
+ * Apply terminal-source suppression only when both source-link and source-health
+ * lookups completed. These reads are an availability enhancement: if Supabase
+ * times out, preserve the existing public evidence-filtered catalogue instead
+ * of turning the entire jobs route into a 500 response.
+ */
+export function filterPublicOpportunityIdsBySourceHealth(input: {
+  publicIds: readonly string[];
+  linksByOpportunity: ReadonlyMap<string, readonly OpportunitySourceLink[]>;
+  sourcesById: ReadonlyMap<string, PublicSourceHealth>;
+  checkedAtByOpportunity: ReadonlyMap<string, string | null>;
+  healthLookupSucceeded: boolean;
+}): string[] {
+  if (!input.healthLookupSucceeded) return [...input.publicIds];
+
+  return input.publicIds.filter((id) => !isOpportunityOnlyBackedByDeadSources(
+    input.linksByOpportunity.get(id) ?? [],
+    input.sourcesById,
+    input.checkedAtByOpportunity.get(id),
+  ));
+}

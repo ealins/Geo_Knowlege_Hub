@@ -1,5 +1,6 @@
 import { describe, expect, test } from "bun:test";
 import {
+  filterPublicOpportunityIdsBySourceHealth,
   isConfirmedDeadOpportunitySource,
   isOpportunityOnlyBackedByDeadSources,
   type PublicSourceHealth,
@@ -105,5 +106,43 @@ describe("isOpportunityOnlyBackedByDeadSources", () => {
 
   test("preserves an opportunity without source links", () => {
     expect(isOpportunityOnlyBackedByDeadSources([], new Map(), checkedAt)).toBe(false);
+  });
+});
+
+describe("filterPublicOpportunityIdsBySourceHealth", () => {
+  test("fails open to the already evidence-filtered catalogue when health lookup fails", () => {
+    const dead = source();
+    const ids = ["dead-listing", "unknown-listing"];
+    const linksByOpportunity = new Map([
+      ["dead-listing", [{ source_id: dead.id, last_checked_at: checkedAt }]],
+    ]);
+    const sourcesById = new Map([[dead.id, dead]]);
+    const checkedAtByOpportunity = new Map([["dead-listing", checkedAt]]);
+
+    expect(filterPublicOpportunityIdsBySourceHealth({
+      publicIds: ids,
+      linksByOpportunity,
+      sourcesById,
+      checkedAtByOpportunity,
+      healthLookupSucceeded: false,
+    })).toEqual(ids);
+  });
+
+  test("suppresses confirmed dead-only listings when health lookup succeeds", () => {
+    const dead = source();
+    const ids = ["dead-listing", "unknown-listing"];
+    const linksByOpportunity = new Map([
+      ["dead-listing", [{ source_id: dead.id, last_checked_at: checkedAt }]],
+    ]);
+    const sourcesById = new Map([[dead.id, dead]]);
+    const checkedAtByOpportunity = new Map([["dead-listing", checkedAt]]);
+
+    expect(filterPublicOpportunityIdsBySourceHealth({
+      publicIds: ids,
+      linksByOpportunity,
+      sourcesById,
+      checkedAtByOpportunity,
+      healthLookupSucceeded: true,
+    })).toEqual(["unknown-listing"]);
   });
 });
