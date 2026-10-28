@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { countUnsupportedPending, getBackfillQueueDisposition } from "./backfill-coverage";
+import { countUnsupportedPending, getBackfillQueueDisposition, staleNormalizationTargetReason } from "./backfill-coverage";
 import { assertBackfillDbSuccess } from "./backfill-db-errors";
 
 describe("countUnsupportedPending", () => {
@@ -81,7 +81,6 @@ describe("assertBackfillDbSuccess", () => {
 });
 
 
-import { staleNormalizationTargetReason } from "./backfill-coverage";
 
 describe("staleNormalizationTargetReason", () => {
   const task = (status: string, payload: Record<string, unknown> = { raw_record_id: "raw-1", classification: "VACANCY" }) => ({
