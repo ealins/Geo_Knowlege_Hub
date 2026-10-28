@@ -515,6 +515,55 @@ function structuredTypes(node) {
     : [];
 }
 
+/**
+ * Recover meaningful source text from content-bearing JSON-LD when a page's
+ * visible HTML is empty (for example, a server-rendered shell with embedded
+ * JobPosting/Article data). This is only a fetch-stage fallback: downstream
+ * classification and canonical-write gates still decide whether the record
+ * is publishable.
+ */
+export function extractStructuredFallbackText(structured) {
+  if (!structured || !Array.isArray(structured.jsonld)) return "";
+
+  const allowedTypes = new Set([
+    "jobposting",
+    "article",
+    "newsarticle",
+    "blogposting",
+    "scholarlyarticle",
+    "event",
+    "course",
+    "researchproject",
+    "dataset",
+    "report",
+    "creativework",
+    "webpage",
+  ]);
+  const clean = (value) =>
+    typeof value === "string"
+      ? decodeEntities(value.replace(/<[^>]*>/g, " ")).replace(/\s+/g, " ").trim()
+      : "";
+
+  for (const node of structured.jsonld) {
+    if (!node || typeof node !== "object" || Array.isArray(node)) continue;
+    const types = structuredTypes(node).map((type) =>
+      type.split("/").pop().toLowerCase(),
+    );
+    if (!types.some((type) => allowedTypes.has(type))) continue;
+
+    const title = clean(node.title) || clean(node.headline) || clean(node.name);
+    const description =
+      clean(node.description) || clean(node.articleBody) || clean(node.text);
+    // Require both a title and substantial descriptive content. A bare site
+    // name, navigation label, or tiny metadata snippet must not count as text.
+    if (!title || description.length < 40) continue;
+
+    const text = `${title} — ${description}`.replace(/\s+/g, " ").trim();
+    if (text.length >= 60) return text.slice(0, 20_000);
+  }
+  return "";
+}
+
 function extractStructured(html, pageUrl) {
   const jsonld = [];
   const expression =
@@ -612,7 +661,9 @@ async function fetchLease(lease) {
         }
         const html = await readTextLimited(response);
         const finalUrl = response.url || lease.url;
-        const text = extractText(html);
+        const structured = extractStructured(html, finalUrl);
+        const visibleText = extractText(html);
+        const text = visibleText || extractStructuredFallbackText(structured);
         if (!text) throw new Error("Fetched page contains no usable text");
         completion = {
           success: true,
@@ -621,7 +672,7 @@ async function fetchLease(lease) {
           page_title: extractTitle(html),
           text_content: text,
           links: extractLinks(html, finalUrl),
-          structured: extractStructured(html, finalUrl),
+          structured,
         };
       }
     }
