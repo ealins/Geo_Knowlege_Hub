@@ -23,7 +23,7 @@ import {
   structuredVacancyFromPayload,
 } from "./extraction/structured.server";
 import type { VacancyExtraction } from "./extraction/vacancy.server";
-import { deterministicMediaSnapshotReason } from "./queue-drain-policy";
+import { deterministicMediaSnapshotReason, deterministicProgrammeSnapshotReason } from "./queue-drain-policy";
 
 const UA = "GeoAcademicRadarBot/1.0 (+https://geoacademic.app; academic source indexing)";
 const FETCH_TIMEOUT_MS = 20_000;
@@ -1650,12 +1650,62 @@ export async function runQueueBatch(
           }
         }
 
+        let deterministicProgrammeSkipHandled = false;
+        let deterministicProgrammeSkipDetail = "";
+        if (
+          !missingLegacySnapshotDetail &&
+          rawRecordId &&
+          String(payload.classification ?? "").toUpperCase() === "PROGRAMME"
+        ) {
+          const { data: rawSnapshot, error: rawSnapshotError } = await supabaseAdmin
+            .from("raw_records")
+            .select("id, source_id, classification, normalization_status, final_url, page_title")
+            .eq("id", rawRecordId)
+            .eq("source_id", task.source_id)
+            .maybeSingle();
+          if (rawSnapshotError) throw rawSnapshotError;
+          if (rawSnapshot) {
+            const reason = deterministicProgrammeSnapshotReason({
+              classification: rawSnapshot.classification,
+              finalUrl: rawSnapshot.final_url,
+              pageTitle: rawSnapshot.page_title,
+            });
+            if (reason) {
+              if (rawSnapshot.normalization_status === "PENDING") {
+                const { data: skippedRaw, error: skipError } = await supabaseAdmin
+                  .from("raw_records")
+                  .update({
+                    normalization_status: "SKIPPED",
+                    normalization_error: `DETERMINISTIC_SKIP: ${reason}`,
+                    processed_at: new Date().toISOString(),
+                  } as never)
+                  .eq("id", rawRecordId)
+                  .eq("source_id", task.source_id)
+                  .eq("normalization_status", "PENDING")
+                  .select("id")
+                  .maybeSingle();
+                if (skipError) throw skipError;
+                deterministicProgrammeSkipDetail = skippedRaw
+                  ? `NORMALIZE SKIPPED: ${reason}`
+                  : "NORMALIZE skipped: exact programme snapshot changed before cleanup; raw record left untouched";
+              } else {
+                deterministicProgrammeSkipDetail =
+                  "NORMALIZE skipped: exact programme snapshot no longer pending; raw record left untouched";
+              }
+              deterministicProgrammeSkipHandled = true;
+            }
+          }
+        }
+
         if (missingLegacySnapshotDetail) {
           out.skipped += 1;
           detail = `NORMALIZE skipped: ${missingLegacySnapshotDetail}; raw records left untouched`;
         } else if (deterministicMediaSkipHandled) {
           out.skipped += 1;
           detail = deterministicMediaSkipDetail;
+        } else if (deterministicProgrammeSkipHandled) {
+          out.skipped += 1;
+          detail = deterministicProgrammeSkipDetail;
         } else {
           const r = await normalizeSource(task.source_id, undefined, rawRecordId);
           if (r.status === "FAILED" && r.reason?.startsWith("TRANSIENT_EXTRACTION_FAILURE")) {
