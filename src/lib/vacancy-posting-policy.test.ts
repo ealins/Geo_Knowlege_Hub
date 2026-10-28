@@ -2,6 +2,7 @@ import { describe, expect, test } from "bun:test";
 import {
   hasRoleTitle,
   isDeterministicallyEligibleVacancySnapshot,
+  shouldApplyAdapterClassificationOverride,
   looksLikeSinglePosting,
   normalizeVacancyTitle,
 } from "./vacancy-posting-policy";
@@ -132,4 +133,64 @@ describe("vacancy posting policy", () => {
     ).ok).toBe(true);
   });
 
+});
+
+
+describe("adapter classification override quality gate", () => {
+  test("does not force a legacy generic vacancy adapter onto an editorial NASA page", () => {
+    expect(shouldApplyAdapterClassificationOverride({
+      adapterKey: "html-vacancy",
+      classification: "GENERAL",
+      confidence: 0.1,
+      url: "https://www.nasa.gov/langley/history/",
+      title: "The History of NASA Langley Research Center",
+      text: ("NASA research history and information about careers and opportunities. ").repeat(20),
+    })).toBe(false);
+  });
+
+  test("keeps a real geospatial posting discovered from a generic vacancy URL", () => {
+    expect(shouldApplyAdapterClassificationOverride({
+      adapterKey: "html-vacancy",
+      classification: "GENERAL",
+      confidence: 0.1,
+      url: "https://example.edu/opportunities/123",
+      title: "Research Engineer in Geospatial AI",
+      text: validPostingText,
+    })).toBe(true);
+  });
+
+  test("uses structured JobPosting title and description instead of generic page chrome", () => {
+    expect(shouldApplyAdapterClassificationOverride({
+      adapterKey: "html-vacancy",
+      classification: "GENERAL",
+      confidence: 0.1,
+      url: "https://example.edu/careers/role-123",
+      title: "Stellenangebote",
+      text: "Career page navigation and links.".repeat(20),
+      structuredPostingTitle: "Research Engineer in Geospatial AI",
+      structuredPostingText: validPostingText,
+    })).toBe(true);
+  });
+
+  test("preserves specific detail-adapter overrides", () => {
+    expect(shouldApplyAdapterClassificationOverride({
+      adapterKey: "html-programmes-detail",
+      classification: "GENERAL",
+      confidence: 0.1,
+      url: "https://example.edu/programmes/geoinformatics",
+      title: "Geoinformatics MSc",
+      text: "Programme details.",
+    })).toBe(true);
+  });
+
+  test("does not override an already-specific classification", () => {
+    expect(shouldApplyAdapterClassificationOverride({
+      adapterKey: "html-vacancy",
+      classification: "EVENT",
+      confidence: 0.9,
+      url: "https://example.edu/events/",
+      title: "Geospatial Workshop",
+      text: "Event page.",
+    })).toBe(false);
+  });
 });

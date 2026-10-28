@@ -8,6 +8,7 @@ import {
   hasStrongGeospatialEvidence,
   looksLikeSinglePosting,
   normalizeVacancyTitle,
+  shouldApplyAdapterClassificationOverride,
 } from "./vacancy-posting-policy";
 import { buildNormalizationTaskPayload, legacyNormalizationSnapshotTarget, shouldSkipLegacySnapshotFallback } from "./normalization-task-payload";
 import { getNormalizationProviderDeferralMinutes } from "./extraction/transient-errors";
@@ -2170,9 +2171,31 @@ export async function completeExternalFetch(input: ExternalFetchCompletion): Pro
   const hash = await sha256(text);
   let { classification, confidence } = classifyUrlAndText(finalUrl, title ?? "", text);
   const detailKind = detailKindFromAdapter(source.adapter_key);
+  const structuredJob = source.adapter_key === "html-vacancy"
+    ? structuredVacancyFromPayload(input.structured, finalUrl)
+    : null;
+  const structuredPostingText = structuredJob
+    ? [
+        structuredJob.title,
+        structuredJob.description,
+        structuredJob.application_deadline ? "Application deadline" : null,
+        structuredJob.employment_type ? "Employment type" : null,
+      ]
+        .filter((value): value is string => Boolean(value))
+        .join("\n")
+    : undefined;
   if (
     detailKind &&
-    (classification === "GENERAL" || classification === "UNKNOWN" || confidence < 0.5)
+    shouldApplyAdapterClassificationOverride({
+      adapterKey: source.adapter_key,
+      classification,
+      confidence,
+      url: finalUrl,
+      title: title ?? "",
+      text,
+      structuredPostingTitle: structuredJob?.title ?? null,
+      structuredPostingText,
+    })
   ) {
     classification = detailKind;
     confidence = Math.max(confidence, 0.72);
