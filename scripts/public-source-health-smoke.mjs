@@ -38,14 +38,12 @@ async function runProductionSmoke() {
       const html = await response.text();
       const check = inspectPublicJobsResponse(response.status, html);
       if (check.ok) {
-        console.log(
-          \`Public source-health smoke passed (HTTP \${response.status}); confirmed-dead Cambridge listing is absent.\`,
-        );
+        console.log("Public source-health smoke passed (HTTP " + response.status + "); confirmed-dead Cambridge listing is absent.");
         return;
       }
       lastFailure = check.confirmedDeadListingPresent
         ? "The confirmed-dead Cambridge forest-ecology listing is still present in public HTML."
-        : \`Expected jobs page not verified (HTTP \${response.status}, page marker: \${check.pageDetected}).\`;
+        : "Expected jobs page not verified (HTTP " + response.status + ", page marker: " + check.pageDetected + ").";
     } catch (error) {
       lastFailure = error instanceof Error ? error.message : String(error);
     }
@@ -53,7 +51,7 @@ async function runProductionSmoke() {
     if (attempt < 8) await delay(5_000);
   }
 
-  console.error(\`::error::Public source-health smoke failed after 8 attempts: \${lastFailure}\`);
+  console.error("::error::Public source-health smoke failed after 8 attempts: " + lastFailure);
   process.exitCode = 1;
 }
 
