@@ -76,7 +76,7 @@ jobs:
       - name: Build frontend and test transient extraction retry policy
         run: |
           bun install --frozen-lockfile
-          node --test scripts/ingestion-worker.test.mjs scripts/public-source-health-smoke.test.mjs
+          node --test scripts/ingestion-worker.test.mjs scripts/public-source-health-smoke.test.mjs scripts/normalization-drain-workflow.test.mjs
           bun test src/lib/canonical-write-metrics.test.ts src/lib/ai-provider-config.test.ts src/lib/extraction/transient-errors.test.ts src/lib/normalization-task-payload.test.ts src/lib/semantic-recovery-policy.test.ts src/lib/host-fetch-deferral-policy.test.ts src/lib/fetch-failure-policy.test.ts scripts/ingestion-worker-policy.test.mjs src/lib/source-refresh-policy.test.ts src/lib/source-classification-policy.test.ts src/lib/queue-drain-policy.test.ts src/lib/vacancy-posting-policy.test.ts src/lib/backfill-coverage.test.ts src/lib/normalization-db-errors.test.ts src/lib/schedule-settings-errors.test.ts src/lib/public-source-health.test.ts src/lib/public-source-health-client.test.ts src/lib/pipeline-llm-metrics.test.ts
           bun run build
 
