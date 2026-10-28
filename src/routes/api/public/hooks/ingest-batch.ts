@@ -760,6 +760,63 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
               deterministicFallbackAttempted = true;
             };
 
+            // Run the narrow, no-AI programme-navigation cleanup before ordinary
+            // queue claims. These pages can otherwise sit behind deterministic
+            // vacancy skips and never exercise the provider circuit-breaker path.
+            // The helper requires both a known navigation title and structural URL,
+            // and the task selector requires an exact raw_record_id/source_id match.
+            const runDeterministicProgrammePreflight = async () => {
+              const nowIso = new Date().toISOString();
+              const [pendingProgrammes, dueNormalizeTasks] = await Promise.all([
+                supabaseAdmin
+                  .from("raw_records")
+                  .select("id, source_id, classification, final_url, page_title")
+                  .eq("classification", "PROGRAMME")
+                  .eq("normalization_status", "PENDING")
+                  .not("source_id", "is", null)
+                  .order("fetched_at", { ascending: true })
+                  .limit(500),
+                supabaseAdmin
+                  .from("ingestion_tasks")
+                  .select("id, source_id, payload")
+                  .eq("task_type", "NORMALIZE")
+                  .in("status", ["QUEUED", "RETRY"])
+                  .lte("run_after", nowIso)
+                  .order("created_at", { ascending: true })
+                  .limit(2000),
+              ]);
+              if (pendingProgrammes.error) throw pendingProgrammes.error;
+              if (dueNormalizeTasks.error) throw dueNormalizeTasks.error;
+
+              const programmeTaskIds = selectDeterministicProgrammeTaskIds(
+                pendingProgrammes.data ?? [],
+                dueNormalizeTasks.data ?? [],
+                Math.min(1, Math.max(0, normalizeTarget - result.processed)),
+              );
+              if (programmeTaskIds.length === 0) return;
+
+              const preflight = await withTimeout(
+                runQueueBatch(programmeTaskIds.length, ["NORMALIZE"], 1, programmeTaskIds),
+                25_000,
+                "deterministic programme cleanup preflight",
+              );
+              normalizeWaves += preflight.processed > 0 ? 1 : 0;
+              result.processed += preflight.processed;
+              result.ok += preflight.ok;
+              result.failed += preflight.failed;
+              result.dead += preflight.dead;
+              result.normalized += preflight.normalized;
+              result.skipped += preflight.skipped;
+              result.recordsCreated += preflight.recordsCreated;
+              result.recordsUpdated += preflight.recordsUpdated;
+              result.details.push(
+                "DETERMINISTIC_PROGRAMME_CLEANUP_PRECHECK: exact pending institutional navigation snapshot selected before model-dependent work",
+              );
+              result.details.push(...preflight.details);
+            };
+
+            await runDeterministicProgrammePreflight();
+
             if (shouldRunDeterministicNormalizationFallback({
               providerCircuitOpen,
               providerGatewayFailure,
