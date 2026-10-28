@@ -164,7 +164,7 @@ describe("adapter classification override quality gate", () => {
       adapterKey: "html-vacancy",
       classification: "GENERAL",
       confidence: 0.1,
-      url: "https://example.edu/careers/",
+      url: "https://example.edu/careers/role-123",
       title: "Stellenangebote",
       text: "Career page navigation and links.".repeat(20),
       structuredPostingTitle: "Research Engineer in Geospatial AI",
