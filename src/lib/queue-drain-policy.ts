@@ -28,6 +28,25 @@ export function shouldThrottleSteadyStateDrain(input: {
 }
 
 
+/**
+ * Report whether normalization has an independent extraction provider available.
+ * Keep this gate aligned with the fallback chain in nvidia.server.ts: NVIDIA is
+ * independent of OmniRoute and must prevent the primary-gateway circuit from
+ * pausing model work when NVIDIA_API_KEY is configured.
+ */
+export function isIndependentProviderConfigured(input: {
+  openAIKey?: string | null;
+  openRouterKey?: string | null;
+  openRouterModel?: string | null;
+  nvidiaKey?: string | null;
+}): boolean {
+  return Boolean(
+    input.openAIKey?.trim() ||
+      (input.openRouterKey?.trim() && input.openRouterModel?.trim()) ||
+      input.nvidiaKey?.trim(),
+  );
+}
+
 export type NormalizationQueueMode = "BACKLOG" | "STEADY_STATE";
 
 /**

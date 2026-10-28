@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type { ExternalFetchCompletion, ExternalReviewCompletion } from "@/lib/ingest.server";
-import { deterministicNormalizationFallbackLimit, discoveryFallbackPolicy, hasProviderCircuitOpenSignal, hasProviderGatewayFailureSignal, normalizationWavePolicy, selectDeterministicMediaTaskIds, selectDeterministicProgrammeTaskIds, selectDeterministicResearchNewsTaskIds, selectDeterministicVacancyTaskIds, shouldRunDeterministicNormalizationFallback, shouldRunNormalizationWave, shouldThrottleSteadyStateDrain } from "@/lib/queue-drain-policy";
+import { deterministicNormalizationFallbackLimit, discoveryFallbackPolicy, hasProviderCircuitOpenSignal, hasProviderGatewayFailureSignal, isIndependentProviderConfigured, normalizationWavePolicy, selectDeterministicMediaTaskIds, selectDeterministicProgrammeTaskIds, selectDeterministicResearchNewsTaskIds, selectDeterministicVacancyTaskIds, shouldRunDeterministicNormalizationFallback, shouldRunNormalizationWave, shouldThrottleSteadyStateDrain } from "@/lib/queue-drain-policy";
 import { isDeterministicallyEligibleVacancySnapshot } from "@/lib/vacancy-posting-policy";
 import { structuredVacancyFromPayload } from "@/lib/extraction/structured.server";
 
@@ -387,11 +387,12 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
           // and exact-snapshot payloads untouched. Other deterministic queue work can run.
           let providerCircuitOpen = false;
           let providerGatewayFailure = false;
-          const independentFallbackConfigured = Boolean(
-            process.env["OPENAI_API_KEY"]?.trim() ||
-              (process.env["OPENROUTER_API_KEY"]?.trim() &&
-                process.env["OPENROUTER_MODEL"]?.trim()),
-          );
+          const independentFallbackConfigured = isIndependentProviderConfigured({
+            openAIKey: process.env["OPENAI_API_KEY"],
+            openRouterKey: process.env["OPENROUTER_API_KEY"],
+            openRouterModel: process.env["OPENROUTER_MODEL"],
+            nvidiaKey: process.env["NVIDIA_API_KEY"],
+          });
           if (!independentFallbackConfigured) {
             const { AI_PROVIDER } = await import("@/lib/llm-config.server");
             const { shouldOpenOmniRouteCircuit, OMNIROUTE_CIRCUIT_WINDOW_MS } = await import("@/lib/extraction/transient-errors");

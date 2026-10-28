@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { deterministicMediaSnapshotReason, deterministicProgrammeSnapshotReason, deterministicNormalizationFallbackLimit, discoveryFallbackPolicy, hasProviderCircuitOpenSignal, hasProviderGatewayFailureSignal, normalizationWavePolicy, selectDeterministicMediaTaskIds, selectDeterministicProgrammeTaskIds, selectDeterministicVacancyTaskIds, selectPreferredDeterministicVacancyTaskIds, selectDeterministicResearchNewsTaskIds, shouldRunDeterministicNormalizationFallback, shouldRunNormalizationWave, shouldThrottleSteadyStateDrain } from "./queue-drain-policy";
+import { deterministicMediaSnapshotReason, deterministicProgrammeSnapshotReason, deterministicNormalizationFallbackLimit, discoveryFallbackPolicy, hasProviderCircuitOpenSignal, hasProviderGatewayFailureSignal, isIndependentProviderConfigured, normalizationWavePolicy, selectDeterministicMediaTaskIds, selectDeterministicProgrammeTaskIds, selectDeterministicVacancyTaskIds, selectPreferredDeterministicVacancyTaskIds, selectDeterministicResearchNewsTaskIds, shouldRunDeterministicNormalizationFallback, shouldRunNormalizationWave, shouldThrottleSteadyStateDrain } from "./queue-drain-policy";
 
 describe("shouldThrottleSteadyStateDrain", () => {
   test("keeps the interval for a small, recently due queue after recent work", () => {
@@ -63,6 +63,34 @@ describe("shouldThrottleSteadyStateDrain", () => {
   });
 });
 
+
+
+describe("isIndependentProviderConfigured", () => {
+  test("recognizes NVIDIA as an independent provider", () => {
+    expect(isIndependentProviderConfigured({ nvidiaKey: "nvidia-secret" })).toBe(true);
+  });
+
+  test("recognizes an OpenAI key", () => {
+    expect(isIndependentProviderConfigured({ openAIKey: "openai-secret" })).toBe(true);
+  });
+
+  test("requires both OpenRouter key and model", () => {
+    expect(isIndependentProviderConfigured({ openRouterKey: "router-secret" })).toBe(false);
+    expect(isIndependentProviderConfigured({
+      openRouterKey: "router-secret",
+      openRouterModel: "model-id",
+    })).toBe(true);
+  });
+
+  test("treats whitespace-only keys as absent", () => {
+    expect(isIndependentProviderConfigured({
+      nvidiaKey: "  ",
+      openAIKey: "",
+      openRouterKey: " ",
+      openRouterModel: "model-id",
+    })).toBe(false);
+  });
+});
 
 describe("normalizationWavePolicy", () => {
   test("serializes normalization when no independent provider is configured", () => {
