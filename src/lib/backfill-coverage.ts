@@ -149,6 +149,62 @@ export type NewerPendingSnapshotCandidate = {
  * snapshot remains FAILED and eligible for a later retry after the pending row
  * drains; this does not discard the older record or run tasks concurrently.
  */
+/**
+ * Resolve a pre-exact-snapshot RETRY task to the failed raw row it was created
+ * for. Only pin when source/classification match and the failed snapshot was
+ * fetched immediately before task creation; this avoids guessing across later
+ * snapshots while preserving the original FAILED raw record.
+ */
+export function selectLegacyTransientFailureTarget(
+  task: TransientRetrySupersessionTask,
+  candidates: readonly NormalizationRawTarget[],
+  maxSkewMs = 5 * 60 * 1000,
+): NormalizationRawTarget | null {
+  if (task.status.toUpperCase() !== "RETRY" || !task.source_id) return null;
+
+  const payload = task.payload && typeof task.payload === "object" && !Array.isArray(task.payload)
+    ? task.payload
+    : {};
+  const rawRecordId = payload.raw_record_id;
+  if (typeof rawRecordId === "string" && rawRecordId.trim()) return null;
+  if (payload.reason === "semantic-failure-recovery-v7") return null;
+
+  const taskClass = typeof payload.classification === "string"
+    ? payload.classification.trim().toUpperCase()
+    : "";
+  if (!taskClass) return null;
+
+  const taskError = (task.last_error ?? "").toLowerCase();
+  if (
+    !taskError.includes("transient_extraction_failure") ||
+    !taskError.includes("no independent fallback is configured")
+  ) return null;
+
+  const createdAt = Date.parse(task.created_at ?? "");
+  if (!Number.isFinite(createdAt)) return null;
+  const allowedSkew = Number.isFinite(maxSkewMs) ? Math.max(0, maxSkewMs) : 0;
+
+  const matches = candidates.flatMap((candidate) => {
+    if (
+      candidate.source_id !== task.source_id ||
+      (candidate.classification ?? "").trim().toUpperCase() !== taskClass ||
+      (candidate.normalization_status ?? "").toUpperCase() !== "FAILED"
+    ) return [];
+    const error = candidate.normalization_error ?? "";
+    if (
+      !error.startsWith("TRANSIENT_EXTRACTION_FAILURE") ||
+      !error.toLowerCase().includes("no independent fallback is configured")
+    ) return [];
+    const fetchedAt = Date.parse(candidate.fetched_at ?? "");
+    const skew = createdAt - fetchedAt;
+    if (!Number.isFinite(fetchedAt) || skew < 0 || skew > allowedSkew) return [];
+    return [{ candidate, skew }];
+  }).sort((a, b) => a.skew - b.skew);
+
+  return matches[0]?.candidate ?? null;
+}
+
+
 export function shouldSupersedeTransientRetryForNewerPendingSnapshot(
   task: TransientRetrySupersessionTask,
   target: NormalizationRawTarget | null | undefined,
