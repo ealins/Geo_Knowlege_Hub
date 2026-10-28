@@ -3,6 +3,7 @@ import test from "node:test";
 
 import {
   extractStructuredFallbackText,
+  isEthzJobDetailRedirectToListing,
   parseRetryAfterMs,
   shouldQueueMaintenance,
 } from "./ingestion-worker.mjs";
@@ -97,4 +98,42 @@ test("does not treat short or non-content JSON-LD metadata as usable text", () =
   assert.equal(extractStructuredFallbackText({
     jsonld: [{ "@type": "JobPosting", title: "Researcher", description: "Join our team." }],
   }), "");
+});
+
+
+test("rejects an ETHZ job detail that redirects to the generic site index", () => {
+  assert.equal(
+    isEthzJobDetailRedirectToListing(
+      "https://jobs.ethz.ch/job/view/JOPG_ethz_xGjw10x7EZ9dklNfEB",
+      "https://jobs.ethz.ch/site/index",
+    ),
+    true,
+  );
+});
+
+test("does not reject an ETHZ detail page that remains on its requested path", () => {
+  assert.equal(
+    isEthzJobDetailRedirectToListing(
+      "https://jobs.ethz.ch/job/view/JOPG_ethz_xGjw10x7EZ9dklNfEB",
+      "https://jobs.ethz.ch/job/view/JOPG_ethz_xGjw10x7EZ9dklNfEB",
+    ),
+    false,
+  );
+});
+
+test("keeps the redirect guard narrow to ETHZ detail-to-index redirects", () => {
+  assert.equal(
+    isEthzJobDetailRedirectToListing(
+      "https://jobs.ethz.ch/site/index",
+      "https://jobs.ethz.ch/site/index",
+    ),
+    false,
+  );
+  assert.equal(
+    isEthzJobDetailRedirectToListing(
+      "https://jobs.example.edu/job/view/JOPG_ethz_xGjw10x7EZ9dklNfEB",
+      "https://jobs.example.edu/site/index",
+    ),
+    false,
+  );
 });
