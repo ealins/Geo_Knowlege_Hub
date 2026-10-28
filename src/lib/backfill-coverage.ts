@@ -48,6 +48,7 @@ export type NormalizationRawTarget = {
   classification: string | null;
   normalization_status: string | null;
   normalization_error: string | null;
+  fetched_at?: string | null;
 };
 
 /**
@@ -122,4 +123,77 @@ export function canPinLegacyNormalizationTaskToPendingSnapshot(
     : "";
   const candidateClass = (candidate.classification ?? "").trim().toUpperCase();
   return taskClass.length > 0 && candidateClass.length > 0 && taskClass === candidateClass;
+}
+
+
+export type TransientRetrySupersessionTask = {
+  status: string;
+  source_id: string | null;
+  payload: Record<string, unknown> | null | undefined;
+  created_at: string | null;
+  run_after: string | null;
+  last_error: string | null;
+};
+
+export type NewerPendingSnapshotCandidate = {
+  source_id: string;
+  classification: string | null;
+  normalization_status: string | null;
+  fetched_at: string | null;
+};
+
+/**
+ * Let fresh pending data take the one-task-per-source slot only when the
+ * existing RETRY is an old, due, exact-target retry of an older FAILED snapshot
+ * that failed because no independent AI provider was configured. The failed raw
+ * snapshot remains FAILED and eligible for a later retry after the pending row
+ * drains; this does not discard the older record or run tasks concurrently.
+ */
+export function shouldSupersedeTransientRetryForNewerPendingSnapshot(
+  task: TransientRetrySupersessionTask,
+  target: NormalizationRawTarget | null | undefined,
+  candidate: NewerPendingSnapshotCandidate,
+  nowMs = Date.now(),
+): boolean {
+  if (task.status.toUpperCase() !== "RETRY") return false;
+  if (!task.source_id || task.source_id !== candidate.source_id) return false;
+  if ((candidate.normalization_status ?? "").toUpperCase() !== "PENDING") return false;
+  if (!target || target.source_id !== task.source_id) return false;
+  if ((target.normalization_status ?? "").toUpperCase() !== "FAILED") return false;
+
+  const payload = task.payload && typeof task.payload === "object" && !Array.isArray(task.payload)
+    ? task.payload
+    : {};
+  const rawRecordId = payload.raw_record_id;
+  if (typeof rawRecordId !== "string" || rawRecordId.trim() !== target.id) return false;
+
+  const taskClass = typeof payload.classification === "string"
+    ? payload.classification.trim().toUpperCase()
+    : "";
+  const targetClass = (target.classification ?? "").trim().toUpperCase();
+  const candidateClass = (candidate.classification ?? "").trim().toUpperCase();
+  if (!taskClass || !targetClass || taskClass !== targetClass || targetClass !== candidateClass) {
+    return false;
+  }
+
+  const outageMarker = "no independent fallback is configured";
+  const rawError = target.normalization_error ?? "";
+  const taskError = task.last_error ?? "";
+  if (
+    !rawError.startsWith("TRANSIENT_EXTRACTION_FAILURE") ||
+    !rawError.toLowerCase().includes(outageMarker) ||
+    !taskError.toLowerCase().includes(outageMarker)
+  ) {
+    return false;
+  }
+
+  const taskCreatedAt = Date.parse(task.created_at ?? "");
+  const runAfter = Date.parse(task.run_after ?? "");
+  const failedFetchedAt = Date.parse(target.fetched_at ?? "");
+  const pendingFetchedAt = Date.parse(candidate.fetched_at ?? "");
+  const minAgeMs = 24 * 60 * 60 * 1000;
+  if (!Number.isFinite(taskCreatedAt) || taskCreatedAt > nowMs - minAgeMs) return false;
+  if (!Number.isFinite(runAfter) || runAfter > nowMs) return false;
+  if (!Number.isFinite(failedFetchedAt) || !Number.isFinite(pendingFetchedAt)) return false;
+  return pendingFetchedAt > failedFetchedAt;
 }

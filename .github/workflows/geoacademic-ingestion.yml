@@ -258,7 +258,8 @@ jobs:
               deferred_by_source: v.deferred_by_source,
               unsupported_pending: v.unsupported_pending,
               stale_tasks_retired: v.stale_tasks_retired,
-              legacy_tasks_pinned: v.legacy_tasks_pinned
+              legacy_tasks_pinned: v.legacy_tasks_pinned,
+              transient_retries_superseded: v.transient_retries_superseded
             };
             for (const [key, value] of Object.entries(coverage)) {
               if (typeof value !== "number") {
