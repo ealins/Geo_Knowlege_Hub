@@ -192,5 +192,14 @@ export function shouldApplyAdapterClassificationOverride(input: {
 
   const title = input.structuredPostingTitle?.trim() || input.title;
   const postingText = input.structuredPostingText?.trim();
-  return looksLikeSinglePosting(input.url, title, input.text, postingText || undefined).ok;
+  // Reuse the full deterministic vacancy eligibility policy, not only the
+  // single-posting gate: listing paths such as /jobs/term/ can contain embedded
+  // JobPosting cards but must not themselves be classified as one vacancy.
+  return isDeterministicallyEligibleVacancySnapshot({
+    final_url: input.url,
+    page_title: title,
+    text_content: input.text,
+    structured_posting_title: input.structuredPostingTitle ?? null,
+    structured_posting_text: postingText || undefined,
+  });
 }
