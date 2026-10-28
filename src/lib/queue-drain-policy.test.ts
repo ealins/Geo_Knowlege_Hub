@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { deterministicMediaSnapshotReason, deterministicNormalizationFallbackLimit, discoveryFallbackPolicy, hasProviderCircuitOpenSignal, hasProviderGatewayFailureSignal, normalizationWavePolicy, selectDeterministicMediaTaskIds, selectDeterministicVacancyTaskIds, selectPreferredDeterministicVacancyTaskIds, selectDeterministicResearchNewsTaskIds, shouldRunDeterministicNormalizationFallback, shouldRunNormalizationWave, shouldThrottleSteadyStateDrain } from "./queue-drain-policy";
+import { deterministicMediaSnapshotReason, deterministicProgrammeSnapshotReason, deterministicNormalizationFallbackLimit, discoveryFallbackPolicy, hasProviderCircuitOpenSignal, hasProviderGatewayFailureSignal, normalizationWavePolicy, selectDeterministicMediaTaskIds, selectDeterministicProgrammeTaskIds, selectDeterministicVacancyTaskIds, selectPreferredDeterministicVacancyTaskIds, selectDeterministicResearchNewsTaskIds, shouldRunDeterministicNormalizationFallback, shouldRunNormalizationWave, shouldThrottleSteadyStateDrain } from "./queue-drain-policy";
 
 describe("shouldThrottleSteadyStateDrain", () => {
   test("keeps the interval for a small, recently due queue after recent work", () => {
@@ -467,5 +467,81 @@ describe("selectDeterministicMediaTaskIds", () => {
       1,
       ["source-a"],
     )).toEqual([]);
+  });
+});
+
+
+describe("deterministicProgrammeSnapshotReason", () => {
+  test("recognizes only known institutional navigation pages misclassified as programmes", () => {
+    expect(deterministicProgrammeSnapshotReason({
+      classification: "PROGRAMME",
+      finalUrl: "https://eaps.mit.edu/internal-resources/department-policies/",
+      pageTitle: "Department Policies - MIT EAPS",
+    })).toBe("institutional navigation/resource page is not a programme opportunity");
+    expect(deterministicProgrammeSnapshotReason({
+      classification: "PROGRAMME",
+      finalUrl: "https://eps.berkeley.edu/about/department-chairs-letter",
+      pageTitle: "Department Chair&#039;s Letter | Earth & Planetary Science",
+    })).toBe("institutional navigation/resource page is not a programme opportunity");
+    expect(deterministicProgrammeSnapshotReason({
+      classification: "PROGRAMME",
+      finalUrl: "https://www.esc.cam.ac.uk/about-us/find-us",
+      pageTitle: "Visit & Contact Us | Department of Earth Sciences",
+    })).toBe("institutional navigation/resource page is not a programme opportunity");
+  });
+
+  test("preserves real programmes and avoids title-only or path-only matches", () => {
+    expect(deterministicProgrammeSnapshotReason({
+      classification: "PROGRAMME",
+      finalUrl: "https://www.nasa.gov/learning-resources/internship-programs/nasa-fellowships/",
+      pageTitle: "NASA Fellowships - NASA",
+    })).toBeNull();
+    expect(deterministicProgrammeSnapshotReason({
+      classification: "PROGRAMME",
+      finalUrl: "https://example.org/programmes/department-policies",
+      pageTitle: "Department Policies",
+    })).toBeNull();
+    expect(deterministicProgrammeSnapshotReason({
+      classification: "VACANCY",
+      finalUrl: "https://eaps.mit.edu/internal-resources/department-policies/",
+      pageTitle: "Department Policies - MIT EAPS",
+    })).toBeNull();
+  });
+});
+
+describe("selectDeterministicProgrammeTaskIds", () => {
+  const pending = [
+    {
+      id: "raw-admin",
+      source_id: "source-a",
+      classification: "PROGRAMME",
+      final_url: "https://eaps.mit.edu/internal-resources/department-policies/",
+      page_title: "Department Policies - MIT EAPS",
+    },
+    {
+      id: "raw-real",
+      source_id: "source-b",
+      classification: "PROGRAMME",
+      final_url: "https://www.nasa.gov/learning-resources/internship-programs/nasa-fellowships/",
+      page_title: "NASA Fellowships - NASA",
+    },
+  ];
+
+  test("selects only exact matching programme tasks from distinct sources", () => {
+    expect(selectDeterministicProgrammeTaskIds(pending, [
+      { id: "task-admin", source_id: "source-a", payload: { raw_record_id: "raw-admin", classification: "PROGRAMME" } },
+      { id: "task-wrong-source", source_id: "source-c", payload: { raw_record_id: "raw-admin", classification: "PROGRAMME" } },
+      { id: "task-real", source_id: "source-b", payload: { raw_record_id: "raw-real", classification: "PROGRAMME" } },
+      { id: "task-legacy", source_id: "source-a", payload: { classification: "PROGRAMME" } },
+    ], 3)).toEqual(["task-admin"]);
+  });
+
+  test("honors limit and excludes sources already selected for higher-priority cleanup", () => {
+    expect(selectDeterministicProgrammeTaskIds(pending, [
+      { id: "task-admin", source_id: "source-a", payload: { raw_record_id: "raw-admin", classification: "PROGRAMME" } },
+    ], 2, ["source-a"])).toEqual([]);
+    expect(selectDeterministicProgrammeTaskIds(pending, [
+      { id: "task-admin", source_id: "source-a", payload: { raw_record_id: "raw-admin", classification: "PROGRAMME" } },
+    ], 0)).toEqual([]);
   });
 });
