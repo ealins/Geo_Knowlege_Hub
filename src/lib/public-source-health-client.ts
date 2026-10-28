@@ -9,7 +9,7 @@ export type PublicOpportunitySourceHealthLookup = (
 /**
  * Apply server-verified dead-source suppression without granting the browser
  * role direct access to source provenance tables. Fail open only on lookup
- * failure so a transient health-check outage cannot break the jobs catalogue.
+ * failure so a transient health-check outage cannot break public surfaces.
  */
 export async function filterPublicOpportunityIdsByServerHealth(
   publicIds: readonly string[],
@@ -36,4 +36,44 @@ export async function filterPublicOpportunityIdsByServerHealth(
     );
     return [...publicIds];
   }
+}
+
+
+export type PublicPulseOpportunityReference = {
+  entity_type: string | null;
+  entity_id: string | null;
+};
+
+/**
+ * Filter opportunity-linked pulse rows against the public jobs IDs and a fresh
+ * source-health lookup. This second check is intentional: a cached opportunities
+ * query must not reintroduce a dead-source row into the homepage pulse feed.
+ */
+export async function filterPublicPulseRowsByServerHealth<T extends PublicPulseOpportunityReference>(
+  pulseRows: readonly T[],
+  publicOpportunityIds: ReadonlySet<string>,
+  lookup: PublicOpportunitySourceHealthLookup,
+): Promise<T[]> {
+  const candidateIds = [
+    ...new Set(
+      pulseRows
+        .filter(
+          (row) =>
+            row.entity_type === "opportunity" &&
+            typeof row.entity_id === "string" &&
+            publicOpportunityIds.has(row.entity_id),
+        )
+        .map((row) => row.entity_id as string),
+    ),
+  ];
+  const liveIds = new Set(await filterPublicOpportunityIdsByServerHealth(candidateIds, lookup));
+
+  return pulseRows.filter((row) => {
+    if (row.entity_type !== "opportunity") return true;
+    return (
+      typeof row.entity_id === "string" &&
+      publicOpportunityIds.has(row.entity_id) &&
+      liveIds.has(row.entity_id)
+    );
+  });
 }

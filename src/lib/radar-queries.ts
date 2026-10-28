@@ -7,7 +7,7 @@ import {
   canonicalCountry,
   isPublicOpportunityEvidence,
 } from "@/lib/public-data";
-import { filterPublicOpportunityIdsByServerHealth } from "@/lib/public-source-health-client";
+import { filterPublicOpportunityIdsByServerHealth, filterPublicPulseRowsByServerHealth } from "@/lib/public-source-health-client";
 import { getPublicOpportunitySourceHealth } from "@/lib/public-source-health.functions";
 
 export type OpportunityRow = {
@@ -145,14 +145,15 @@ export const pulseQuery = queryOptions({
     if (error) throw error;
 
     const publicOpportunityIds = new Set(opportunityResult.rows.map((row) => row.id));
-    return (data ?? [])
-      .filter((event) =>
-        event.entity_type === "opportunity"
-          ? publicOpportunityIds.has(event.entity_id)
-          : true,
-      )
-      .filter(isRelevantPublicationPulse)
-      .slice(0, 60);
+    // Recheck pulse-linked opportunity IDs directly instead of relying only on
+    // the cached jobs query. A stale query cache must not reintroduce a confirmed
+    // dead-source position into the homepage's Latest signals feed.
+    const publicPulseRows = await filterPublicPulseRowsByServerHealth(
+      data ?? [],
+      publicOpportunityIds,
+      (opportunityIds) => getPublicOpportunitySourceHealth({ data: { opportunityIds } }),
+    );
+    return publicPulseRows.filter(isRelevantPublicationPulse).slice(0, 60);
   },
 });
 
@@ -169,7 +170,14 @@ export const countsQuery = queryOptions({
     // richer jobs query must not turn every homepage count into "Unavailable".
     let opportunityCount = Number(counts["opportunities"] ?? 0);
     try {
-      opportunityCount = (await client.fetchQuery(opportunitiesQuery)).length;
+      const publicOpportunities = await client.fetchQuery(opportunitiesQuery);
+      // Recheck source health instead of trusting a possibly cached jobs result;
+      // the homepage count must agree with the live jobs catalogue.
+      const liveIds = await filterPublicOpportunityIdsByServerHealth(
+        publicOpportunities.map((row) => row.id),
+        (opportunityIds) => getPublicOpportunitySourceHealth({ data: { opportunityIds } }),
+      );
+      opportunityCount = liveIds.length;
     } catch (opportunityError) {
       console.error("[counts-query] Using public SQL position count because the detailed jobs query failed", opportunityError);
     }

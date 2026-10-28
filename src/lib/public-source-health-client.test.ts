@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { filterPublicOpportunityIdsByServerHealth } from "./public-source-health-client";
+import { filterPublicOpportunityIdsByServerHealth, filterPublicPulseRowsByServerHealth } from "./public-source-health-client";
 
 describe("filterPublicOpportunityIdsByServerHealth", () => {
   test("removes only IDs returned as confirmed dead by the server", async () => {
@@ -42,4 +42,38 @@ describe("filterPublicOpportunityIdsByServerHealth", () => {
 
     expect(result).toEqual(ids);
   });
+
+  test("filters stale cached opportunity IDs from homepage pulse rows with a fresh health lookup", async () => {
+    const rows = [
+      { id: "pulse-dead", entity_type: "opportunity", entity_id: "dead-1" },
+      { id: "pulse-live", entity_type: "opportunity", entity_id: "live-1" },
+      { id: "pulse-paper", entity_type: "publication", entity_id: null },
+    ];
+    const result = await filterPublicPulseRowsByServerHealth(
+      rows,
+      new Set(["dead-1", "live-1"]),
+      async (ids) => {
+        expect(ids).toEqual(["dead-1", "live-1"]);
+        return { suppressed_opportunity_ids: ["dead-1"] };
+      },
+    );
+
+    expect(result.map((row) => row.id)).toEqual(["pulse-live", "pulse-paper"]);
+  });
+
+  test("hides opportunity pulse rows not present in the public jobs ID set", async () => {
+    const rows = [
+      { id: "pulse-private", entity_type: "opportunity", entity_id: "private-1" },
+      { id: "pulse-paper", entity_type: "publication", entity_id: null },
+    ];
+    let called = false;
+    const result = await filterPublicPulseRowsByServerHealth(rows, new Set(), async () => {
+      called = true;
+      return { suppressed_opportunity_ids: [] };
+    });
+
+    expect(result.map((row) => row.id)).toEqual(["pulse-paper"]);
+    expect(called).toBe(false);
+  });
+
 });
