@@ -4,7 +4,9 @@ import test from "node:test";
 import {
   extractStructuredFallbackText,
   isEthzJobDetailRedirectToListing,
+  isTransientWorkerError,
   parseRetryAfterMs,
+  shouldRetryTransientWorkerError,
   shouldQueueMaintenance,
   shouldRunReseed,
 } from "./ingestion-worker.mjs";
@@ -166,4 +168,32 @@ test("successful reseeding follows the long refresh interval", () => {
     intervalMs: 6 * 60 * 60_000,
     retryIntervalMs: 10 * 60_000,
   }), true);
+});
+
+test("recognizes transient network and upstream failures for bounded retry", () => {
+  assert.equal(isTransientWorkerError(new Error("fetch failed")), true);
+  assert.equal(isTransientWorkerError(new Error("Hook lease-fetch HTTP 503: upstream unavailable")), true);
+  assert.equal(isTransientWorkerError(new Error("UND_ERR_CONNECT_TIMEOUT")), true);
+});
+
+test("does not retry authentication or contract failures as transient", () => {
+  assert.equal(isTransientWorkerError(new Error("Hook lease-fetch HTTP 401: unauthorized")), false);
+  assert.equal(isTransientWorkerError(new Error("Missing INGESTION_HOOK_SECRET")), false);
+});
+
+test("retries transient loop errors only while retry budget and runtime remain", () => {
+  const error = new Error("fetch failed");
+  assert.equal(shouldRetryTransientWorkerError({
+    error, consecutiveErrors: 0, remainingMs: 60_000, retryDelayMs: 30_000,
+  }), true);
+  assert.equal(shouldRetryTransientWorkerError({
+    error, consecutiveErrors: 2, remainingMs: 60_000, retryDelayMs: 30_000,
+  }), false);
+  assert.equal(shouldRetryTransientWorkerError({
+    error, consecutiveErrors: 0, remainingMs: 30_000, retryDelayMs: 30_000,
+  }), false);
+  assert.equal(shouldRetryTransientWorkerError({
+    error: new Error("Hook lease-fetch HTTP 401: unauthorized"),
+    consecutiveErrors: 0, remainingMs: 60_000, retryDelayMs: 30_000,
+  }), false);
 });
