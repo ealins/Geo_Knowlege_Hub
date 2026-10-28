@@ -106,3 +106,11 @@ jobs:
 
       - name: Deploy active Worker
         run: ./node_modules/.bin/wrangler deploy
+
+      # Treat the public catalogue as the product-level freshness check: CI/deploy
+      # success alone is not proof that confirmed-dead listings disappeared.
+      - name: Verify public source-health suppression after deployment
+        env:
+          GEOACADEMIC_PUBLIC_SOURCE_HEALTH_SMOKE: "1"
+          GITHUB_SHA: ${{ github.sha }}
+        run: node scripts/public-source-health-smoke.mjs
