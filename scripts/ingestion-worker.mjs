@@ -606,6 +606,27 @@ function extractStructured(html, pageUrl) {
     : null;
 }
 
+/**
+ * ETH Zurich's individual job links can return HTTP 200 after redirecting to
+ * the generic /site/index page. That response is not the requested vacancy and
+ * must not be persisted as a successful raw snapshot for the individual job.
+ * Keep this guard narrow to the observed JOPG detail URL -> index redirect.
+ */
+export function isEthzJobDetailRedirectToListing(requestedUrl, finalUrl) {
+  try {
+    const requested = new URL(requestedUrl);
+    const final = new URL(finalUrl);
+    return (
+      requested.hostname.toLowerCase() === "jobs.ethz.ch" &&
+      /^\\/job\\/view\\/JOPG_ethz_[A-Za-z0-9_-]+\\/?$/i.test(requested.pathname) &&
+      final.hostname.toLowerCase() === "jobs.ethz.ch" &&
+      /^\\/site\\/index\\/?$/i.test(final.pathname)
+    );
+  } catch {
+    return false;
+  }
+}
+
 async function fetchLease(lease) {
   const startedAt = Date.now();
   let completion;
@@ -659,21 +680,29 @@ async function fetchLease(lease) {
             `Unsupported content type: ${contentType.slice(0, 120)}`,
           );
         }
-        const html = await readTextLimited(response);
         const finalUrl = response.url || lease.url;
-        const structured = extractStructured(html, finalUrl);
-        const visibleText = extractText(html);
-        const text = visibleText || extractStructuredFallbackText(structured);
-        if (!text) throw new Error("Fetched page contains no usable text");
-        completion = {
-          success: true,
-          http_status: response.status,
-          final_url: finalUrl,
-          page_title: extractTitle(html),
-          text_content: text,
-          links: extractLinks(html, finalUrl),
-          structured,
-        };
+        if (isEthzJobDetailRedirectToListing(lease.url, finalUrl)) {
+          completion = {
+            success: false,
+            http_status: response.status,
+            error: "ETHZ job detail redirected to generic /site/index; refusing to persist the listing shell as an individual vacancy snapshot",
+          };
+        } else {
+          const html = await readTextLimited(response);
+          const structured = extractStructured(html, finalUrl);
+          const visibleText = extractText(html);
+          const text = visibleText || extractStructuredFallbackText(structured);
+          if (!text) throw new Error("Fetched page contains no usable text");
+          completion = {
+            success: true,
+            http_status: response.status,
+            final_url: finalUrl,
+            page_title: extractTitle(html),
+            text_content: text,
+            links: extractLinks(html, finalUrl),
+            structured,
+          };
+        }
       }
     }
   } catch (error) {
