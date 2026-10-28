@@ -8,7 +8,7 @@ import {
   isPublicOpportunityEvidence,
 } from "@/lib/public-data";
 import {
-  isOpportunityOnlyBackedByDeadSources,
+  filterPublicOpportunityIdsBySourceHealth,
   type OpportunitySourceLink,
   type PublicSourceHealth,
 } from "@/lib/public-source-health";
@@ -64,51 +64,70 @@ async function fetchPublicOpportunities(): Promise<OpportunityRow[]> {
 
   // A stale public listing must not remain "possibly open" after its only
   // official source has since returned a terminal 404/410 and been disabled.
-  // Keep an opportunity if any linked source is healthy or its health is unknown.
-  const { data: sourceLinks, error: sourceLinksError } = await supabase
+  // These are secondary health lookups: on transient Supabase errors, fail open
+  // to the already evidence-filtered catalogue rather than returning HTTP 500.
+  const linksByOpportunity = new Map<string, OpportunitySourceLink[]>();
+  const sourceHealthById = new Map<string, PublicSourceHealth>();
+  let healthLookupSucceeded = true;
+
+  const sourceLinksResult = await supabase
     .from("record_sources")
     .select("entity_id, source_id, last_checked_at")
     .eq("entity_type", "opportunity")
     .in("entity_id", publicIds);
-  if (sourceLinksError) throw sourceLinksError;
 
-  const linksByOpportunity = new Map<string, OpportunitySourceLink[]>();
-  for (const link of sourceLinks ?? []) {
-    const links = linksByOpportunity.get(link.entity_id) ?? [];
-    links.push({
-      source_id: link.source_id,
-      last_checked_at: link.last_checked_at,
-    });
-    linksByOpportunity.set(link.entity_id, links);
-  }
+  if (sourceLinksResult.error) {
+    healthLookupSucceeded = false;
+    console.warn(
+      "[jobs] source-link health lookup failed; preserving evidence-filtered listings",
+      sourceLinksResult.error.message,
+    );
+  } else {
+    const sourceLinks = sourceLinksResult.data ?? [];
+    for (const link of sourceLinks) {
+      const links = linksByOpportunity.get(link.entity_id) ?? [];
+      links.push({
+        source_id: link.source_id,
+        last_checked_at: link.last_checked_at,
+      });
+      linksByOpportunity.set(link.entity_id, links);
+    }
 
-  const sourceIds = [...new Set(
-    (sourceLinks ?? [])
-      .map((link) => link.source_id)
-      .filter((id): id is string => Boolean(id)),
-  )];
-  const sourceHealthById = new Map<string, PublicSourceHealth>();
-  if (sourceIds.length > 0) {
-    const { data: sourceHealth, error: sourceHealthError } = await supabase
-      .from("sources")
-      .select("id, active, status, last_http_status, last_success_at, last_failure_at")
-      .in("id", sourceIds);
-    if (sourceHealthError) throw sourceHealthError;
-    for (const source of sourceHealth ?? []) {
-      sourceHealthById.set(source.id, source as PublicSourceHealth);
+    const sourceIds = [...new Set(
+      sourceLinks
+        .map((link) => link.source_id)
+        .filter((id): id is string => Boolean(id)),
+    )];
+
+    if (sourceIds.length > 0) {
+      const sourceHealthResult = await supabase
+        .from("sources")
+        .select("id, active, status, last_http_status, last_success_at, last_failure_at")
+        .in("id", sourceIds);
+
+      if (sourceHealthResult.error) {
+        healthLookupSucceeded = false;
+        console.warn(
+          "[jobs] source-health lookup failed; preserving evidence-filtered listings",
+          sourceHealthResult.error.message,
+        );
+      } else {
+        for (const source of sourceHealthResult.data ?? []) {
+          sourceHealthById.set(source.id, source as PublicSourceHealth);
+        }
+      }
     }
   }
 
   const checkedAtByOpportunity = new Map(
     publicEvidence.map((row) => [row.id, row.last_checked_at as string | null]),
   );
-  const livePublicIds = publicIds.filter((id) => {
-    const links = linksByOpportunity.get(id) ?? [];
-    return !isOpportunityOnlyBackedByDeadSources(
-      links,
-      sourceHealthById,
-      checkedAtByOpportunity.get(id),
-    );
+  const livePublicIds = filterPublicOpportunityIdsBySourceHealth({
+    publicIds,
+    linksByOpportunity,
+    sourcesById: sourceHealthById,
+    checkedAtByOpportunity,
+    healthLookupSucceeded,
   });
   if (livePublicIds.length === 0) return [];
 
