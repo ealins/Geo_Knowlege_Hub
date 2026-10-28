@@ -94,6 +94,38 @@ jobs:
       - name: Fetch leased due sources
         run: node scripts/ingestion-worker.mjs
 
+      - name: Queue pending raw snapshots for normalization
+        # The fallback can run after a failed/timed-out primary workflow, including
+        # failures before the primary had a chance to queue stored raw snapshots.
+        # Keep the pass bounded and skip duplicate work after a successful primary run.
+        if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion != 'success'
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "$INGESTION_HOOK_SECRET"
+          response="$(curl --fail-with-body --silent --show-error \
+            --connect-timeout 10 --max-time 45 \
+            -H "Authorization: Bearer $INGESTION_HOOK_SECRET" \
+            -H "Content-Type: application/json" \
+            --data '{"action":"backfill-raw","limit":20,"trigger":"github-actions-freshness-fallback-raw-backfill"}' \
+            https://geoacademic.app/api/public/hooks/ingest-batch)"
+          echo "$response"
+          node -e '
+            const v = JSON.parse(process.argv[1]);
+            if (v.error) throw new Error(v.error);
+            for (const key of ["raw_candidates", "queued", "already_queued", "exact_snapshot_queued", "deferred_by_source"]) {
+              if (typeof v[key] !== "number") throw new Error(`backfill-raw returned no numeric ${key}`);
+            }
+            console.log("FRESHNESS_FALLBACK_RAW_BACKFILL", JSON.stringify({
+              raw_candidates: v.raw_candidates,
+              queued: v.queued,
+              already_queued: v.already_queued,
+              exact_snapshot_queued: v.exact_snapshot_queued,
+              deferred_by_source: v.deferred_by_source,
+              by_classification: v.by_classification ?? {}
+            }));
+          ' "$response"
+
       - name: Drain bounded normalization work
         # The scheduled fallback must also drain normalization when the primary
         # workflow is missed. Avoid duplicate work after a successful primary run;
