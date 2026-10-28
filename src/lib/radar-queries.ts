@@ -7,7 +7,7 @@ import {
   canonicalCountry,
   isPublicOpportunityEvidence,
 } from "@/lib/public-data";
-import { filterPublicOpportunityIdsByServerHealth } from "@/lib/public-source-health-client";
+import { filterPublicOpportunityIdsByServerHealth, filterPublicPulseRowsByServerHealth } from "@/lib/public-source-health-client";
 import { getPublicOpportunitySourceHealth } from "@/lib/public-source-health.functions";
 
 export type OpportunityRow = {
@@ -145,14 +145,15 @@ export const pulseQuery = queryOptions({
     if (error) throw error;
 
     const publicOpportunityIds = new Set(opportunityResult.rows.map((row) => row.id));
-    return (data ?? [])
-      .filter((event) =>
-        event.entity_type === "opportunity"
-          ? publicOpportunityIds.has(event.entity_id)
-          : true,
-      )
-      .filter(isRelevantPublicationPulse)
-      .slice(0, 60);
+    // Recheck pulse-linked opportunity IDs directly instead of relying only on
+    // the cached jobs query. A stale query cache must not reintroduce a confirmed
+    // dead-source position into the homepage's Latest signals feed.
+    const publicPulseRows = await filterPublicPulseRowsByServerHealth(
+      data ?? [],
+      publicOpportunityIds,
+      (opportunityIds) => getPublicOpportunitySourceHealth({ data: { opportunityIds } }),
+    );
+    return publicPulseRows.filter(isRelevantPublicationPulse).slice(0, 60);
   },
 });
 
