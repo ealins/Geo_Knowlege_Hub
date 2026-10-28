@@ -225,13 +225,13 @@ export async function enqueueDueRefreshes(
       lastSuccessAt: s.last_success_at,
       lastFailureAt: s.last_failure_at,
       lastHttpStatus: s.last_http_status,
-      lastError: s.last_error,
       nowMs: now,
     });
     const failureBackoff = shouldBackoffSourceAfterFailure({
       lastSuccessAt: s.last_success_at,
       lastFailureAt: s.last_failure_at,
       lastHttpStatus: s.last_http_status,
+      lastError: s.last_error,
       nowMs: now,
     });
     const skipReason = getSourceRefreshSkipReason({
