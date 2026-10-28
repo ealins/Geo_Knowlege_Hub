@@ -300,7 +300,7 @@ export async function enqueueRawBackfill(limit = 400): Promise<BackfillPlan> {
       )
       .map((raw) => ({
         id: raw.id,
-        source_id: raw.source_id,
+        source_id: sourceId,
         classification: raw.classification,
         normalization_status: raw.normalization_status ?? "PENDING",
         fetched_at: raw.fetched_at ?? null,
