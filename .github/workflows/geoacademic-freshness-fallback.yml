@@ -122,6 +122,7 @@ jobs:
               already_queued: v.already_queued,
               exact_snapshot_queued: v.exact_snapshot_queued,
               deferred_by_source: v.deferred_by_source,
+              stale_tasks_retired: typeof v.stale_tasks_retired === "number" ? v.stale_tasks_retired : null,
               by_classification: v.by_classification ?? {}
             }));
           ' "$response"
