@@ -1,3 +1,19 @@
+import { hasRoleTitle } from "./vacancy-posting-policy";
+
+/**
+ * A URL under /jobs/, /vacancies/, or /careers/ is not by itself proof of a
+ * single posting. Generic career resources such as /careers/peacecorps/ must
+ * not become vacancy snapshots merely because of the path. A structured
+ * JobPosting can still promote a generic adapter later in the ingestion path.
+ */
+export function classifyExplicitVacancyDetailPath(
+  path: string,
+  title: string,
+): "VACANCY" | "GENERAL" | null {
+  if (!/(?:^|\/)(?:jobs?|vacancies|careers)\/[^/]+/i.test(path)) return null;
+  return hasRoleTitle(title) ? "VACANCY" : "GENERAL";
+}
+
 const VACANCY_PATH_TITLE_TERMS = [
   "vacanc",
   "job",
