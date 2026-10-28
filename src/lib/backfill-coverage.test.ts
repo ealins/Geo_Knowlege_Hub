@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { canPinLegacyNormalizationTaskToPendingSnapshot, countUnsupportedPending, getBackfillQueueDisposition, shouldSupersedeTransientRetryForNewerPendingSnapshot, staleNormalizationTargetReason } from "./backfill-coverage";
+import { canPinLegacyNormalizationTaskToPendingSnapshot, countUnsupportedPending, getBackfillQueueDisposition, selectNewerPendingSnapshotForTransientRetry, shouldSupersedeTransientRetryForNewerPendingSnapshot, staleNormalizationTargetReason } from "./backfill-coverage";
 import { assertBackfillDbSuccess } from "./backfill-db-errors";
 
 describe("countUnsupportedPending", () => {
@@ -185,6 +185,47 @@ describe("shouldSupersedeTransientRetryForNewerPendingSnapshot", () => {
 
   test("lets a newer same-class pending snapshot take the slot from an old due outage retry", () => {
     expect(shouldSupersedeTransientRetryForNewerPendingSnapshot(task(), target(), candidate(), now)).toBe(true);
+  });
+
+  test("allows a legacy v7 task only when its resolved failed target is superseded by newer same-class pending data", () => {
+    const legacyTask = task({
+      payload: { reason: "semantic-failure-recovery-v7", classification: "PROGRAMME" },
+    });
+    expect(shouldSupersedeTransientRetryForNewerPendingSnapshot(
+      legacyTask,
+      target({ classification: "PROGRAMME" }),
+      candidate({ classification: "PROGRAMME" }),
+      now,
+    )).toBe(true);
+    expect(shouldSupersedeTransientRetryForNewerPendingSnapshot(
+      task({ payload: { reason: "semantic-failure-recovery-v8", classification: "PROGRAMME" } }),
+      target({ classification: "PROGRAMME" }),
+      candidate({ classification: "PROGRAMME" }),
+      now,
+    )).toBe(false);
+  });
+
+  test("selects a newer matching-class pending row when an older row has another class", () => {
+    const legacyTask = task({
+      payload: { reason: "semantic-failure-recovery-v7", classification: "PROGRAMME" },
+    });
+    const selected = selectNewerPendingSnapshotForTransientRetry([
+      {
+        id: "raw-event",
+        source_id: "source-1",
+        classification: "EVENT",
+        normalization_status: "PENDING",
+        fetched_at: "2026-10-24T01:00:00.000Z",
+      },
+      {
+        id: "raw-programme",
+        source_id: "source-1",
+        classification: "PROGRAMME",
+        normalization_status: "PENDING",
+        fetched_at: "2026-10-27T01:00:00.000Z",
+      },
+    ], legacyTask, target({ classification: "PROGRAMME" }), now);
+    expect(selected?.id).toBe("raw-programme");
   });
 
   test("preserves the failed retry when its snapshot is newer than the pending row", () => {
