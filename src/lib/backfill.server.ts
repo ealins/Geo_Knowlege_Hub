@@ -3,7 +3,7 @@
 // here calls a model — it only enqueues tasks that the deployed autonomous
 // drain loop processes with the existing gates, cache and validators.
 import { supabaseAdmin } from "@/integrations/supabase/client.server";
-import { countUnsupportedPending, getBackfillQueueDisposition, staleNormalizationTargetReason } from "./backfill-coverage";
+import { countUnsupportedPending, staleNormalizationTargetReason } from "./backfill-coverage";
 import { assertBackfillDbSuccess } from "./backfill-db-errors";
 import { shouldRetryInstitutionlessVacancy } from "./semantic-recovery-policy";
 
