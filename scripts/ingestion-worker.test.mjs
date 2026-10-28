@@ -6,6 +6,7 @@ import {
   isEthzJobDetailRedirectToListing,
   parseRetryAfterMs,
   shouldQueueMaintenance,
+  shouldRunReseed,
 } from "./ingestion-worker.mjs";
 
 test("burst mode refreshes the queue when no fetch lease is available", () => {
@@ -136,4 +137,33 @@ test("keeps the redirect guard narrow to ETHZ detail-to-index redirects", () => 
     ),
     false,
   );
+});
+
+test("a failed reseed hook is throttled briefly without delaying the fetch loop", () => {
+  const input = {
+    lastSuccessAtMs: 0,
+    lastAttemptAtMs: 50_000,
+    nowMs: 80_000,
+    intervalMs: 6 * 60 * 60_000,
+    retryIntervalMs: 10 * 60_000,
+  };
+  assert.equal(shouldRunReseed(input), false);
+  assert.equal(shouldRunReseed({ ...input, nowMs: 50_000 + 10 * 60_000 }), true);
+});
+
+test("successful reseeding follows the long refresh interval", () => {
+  assert.equal(shouldRunReseed({
+    lastSuccessAtMs: 10_000,
+    lastAttemptAtMs: 10_000,
+    nowMs: 60_000,
+    intervalMs: 6 * 60 * 60_000,
+    retryIntervalMs: 10 * 60_000,
+  }), false);
+  assert.equal(shouldRunReseed({
+    lastSuccessAtMs: 10_000,
+    lastAttemptAtMs: 10_000,
+    nowMs: 10_000 + 6 * 60 * 60_000,
+    intervalMs: 6 * 60 * 60_000,
+    retryIntervalMs: 10 * 60_000,
+  }), true);
 });
