@@ -101,6 +101,24 @@ describe("normalizationWavePolicy", () => {
     })).toEqual({ target: 4, waveSize: 1, concurrency: 1 });
   });
 
+  test("allows eight deterministic-only slots when the circuit is already open", () => {
+    expect(normalizationWavePolicy({
+      mode: "BACKLOG",
+      batch: 20,
+      independentFallbackConfigured: false,
+      providerCircuitOpen: true,
+    })).toEqual({ target: 8, waveSize: 1, concurrency: 1 });
+  });
+
+  test("does not widen the target when the circuit is closed", () => {
+    expect(normalizationWavePolicy({
+      mode: "BACKLOG",
+      batch: 20,
+      independentFallbackConfigured: false,
+      providerCircuitOpen: false,
+    })).toEqual({ target: 4, waveSize: 1, concurrency: 1 });
+  });
+
   test("preserves bounded parallel waves when an independent provider is configured", () => {
     expect(normalizationWavePolicy({
       mode: "BACKLOG",
@@ -425,12 +443,30 @@ describe("deterministicNormalizationFallbackLimit", () => {
     })).toBe(4);
   });
 
-  test("keeps preflight cleanup capped at four even if the requested target is larger", () => {
+  test("keeps ordinary cleanup capped at four even if the requested target is larger", () => {
     expect(deterministicNormalizationFallbackLimit({
       target: 20,
       processed: 0,
       providerGatewayFailure: false,
     })).toBe(4);
+  });
+
+  test("allows eight slots only when the circuit was already open at preflight", () => {
+    expect(deterministicNormalizationFallbackLimit({
+      target: 8,
+      processed: 0,
+      providerGatewayFailure: false,
+      providerCircuitOpen: true,
+    })).toBe(8);
+  });
+
+  test("keeps the stricter cap after a gateway failure in the current invocation", () => {
+    expect(deterministicNormalizationFallbackLimit({
+      target: 8,
+      processed: 1,
+      providerGatewayFailure: true,
+      providerCircuitOpen: true,
+    })).toBe(3);
   });
 });
 
