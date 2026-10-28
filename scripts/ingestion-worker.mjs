@@ -63,6 +63,12 @@ const RESEED_INTERVAL_MS = clamp(
   7 * 24 * 60 * 60_000,
   6 * 60 * 60_000,
 );
+const RESEED_RETRY_INTERVAL_MS = clamp(
+  process.env.INGESTION_RESEED_RETRY_MS,
+  60_000,
+  60 * 60_000,
+  10 * 60_000,
+);
 
 const PROGRAMME_DISCOVERY_INTERVAL_MS = clamp(
   process.env.PROGRAMME_DISCOVERY_INTERVAL_MS,
@@ -116,6 +122,19 @@ export function shouldRunProgrammeDiscovery({
 }) {
   // Keep this on the persistent worker, not bounded GitHub Actions bursts.
   if (burstMode) return false;
+  if (lastAttemptAtMs > 0 && nowMs - lastAttemptAtMs < retryIntervalMs) {
+    return false;
+  }
+  if (lastSuccessAtMs === 0) return true;
+  return nowMs - lastSuccessAtMs >= intervalMs;
+}
+export function shouldRunReseed({
+  lastSuccessAtMs,
+  lastAttemptAtMs,
+  nowMs,
+  intervalMs,
+  retryIntervalMs,
+}) {
   if (lastAttemptAtMs > 0 && nowMs - lastAttemptAtMs < retryIntervalMs) {
     return false;
   }
@@ -792,6 +811,7 @@ if (shouldRunDirectly) {
 
   let lastMaintenanceAt = 0;
   let lastReseedAt = 0;
+  let lastReseedAttemptAt = 0;
   let lastProgrammeDiscoveryAt = 0;
   let lastProgrammeDiscoveryAttemptAt = 0;
   const stopAt = RUNTIME_MS ? Date.now() + RUNTIME_MS : Number.POSITIVE_INFINITY;
@@ -801,12 +821,29 @@ if (shouldRunDirectly) {
         await runMaintenance();
         lastMaintenanceAt = Date.now();
       }
-      if (!BURST_MODE && Date.now() - lastReseedAt >= RESEED_INTERVAL_MS) {
-        const reseed = await callHook("reseed-high-value", { limit: 100 });
-        lastReseedAt = Date.now();
-        console.log(
-          `${new Date().toISOString()} RESEED queued=${reseed.queued ?? 0}`,
-        );
+      if (!BURST_MODE && shouldRunReseed({
+        lastSuccessAtMs: lastReseedAt,
+        lastAttemptAtMs: lastReseedAttemptAt,
+        nowMs: Date.now(),
+        intervalMs: RESEED_INTERVAL_MS,
+        retryIntervalMs: RESEED_RETRY_INTERVAL_MS,
+      })) {
+        lastReseedAttemptAt = Date.now();
+        try {
+          const reseed = await callHook("reseed-high-value", { limit: 100 });
+          if (reseed.error) throw new Error(String(reseed.error));
+          lastReseedAt = Date.now();
+          console.log(
+            `${new Date().toISOString()} RESEED queued=${reseed.queued ?? 0}`,
+          );
+        } catch (error) {
+          // Reseeding is optional maintenance. A transient failure here must not
+          // abort the same worker invocation before it leases due FETCH work.
+          console.error(
+            `${new Date().toISOString()} RESEED_FAILED`,
+            error instanceof Error ? error.message : String(error),
+          );
+        }
       }
 
       if (shouldRunProgrammeDiscovery({
