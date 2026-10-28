@@ -1,14 +1,16 @@
 # GeoAcademic Production Runbook — Complete Execution
 
-**Last Updated**: 2026-08-31 02:20 UTC
-**Status**: ACTIVE — Ready for Peak Performance
+**Last Updated**: 2026-10-28 UTC
+**Status**: Operational runbook; verify live health before each recovery action
+
+> **Credential handling:** Never commit ingestion-hook credentials. Export `INGESTION_HOOK_SECRET` in the shell before running the examples below. A credential was previously present in this public file and must be rotated because deleting it from the current version does not remove it from Git history.
 
 ## System Architecture (Complete Stack)
 
 ### Components Running
 ```
 ✅ GitHub Actions      - Orchestration layer
-✅ Fly.dev            - Application server (geoacademic-web.fly.dev)
+✅ Cloudflare         - Public application and ingestion API (geoacademic.app)
 ✅ Supabase Postgres  - Main database (rqalvagtdcqurubrsdnc)
 ✅ NVIDIA Nemotron    - AI extraction (nvapi-*)
 ✅ All 7 Secrets      - Configured and verified
@@ -42,8 +44,8 @@
 
 **Command 1: Enqueue Discovery (find sources)**
 ```bash
-curl -X POST https://geoacademic-web.fly.dev/api/public/hooks/ingest-batch \
-  -H "x-ingestion-secret: a1906a4c280fc73cac7916f4e5e117a6a56069dc093999ea82722eab77eb96e2" \
+curl -X POST https://geoacademic.app/api/public/hooks/ingest-batch \
+  -H "Authorization: Bearer ${INGESTION_HOOK_SECRET}" \
   -H "Content-Type: application/json" \
   -d '{"action":"enqueue-discovery","limit":100}'
 ```
@@ -51,8 +53,8 @@ curl -X POST https://geoacademic-web.fly.dev/api/public/hooks/ingest-batch \
 
 **Command 2: Drain Queue (process all work)**
 ```bash
-curl -X POST https://geoacademic-web.fly.dev/api/public/hooks/ingest-batch \
-  -H "x-ingestion-secret: a1906a4c280fc73cac7916f4e5e117a6a56069dc093999ea82722eab77eb96e2" \
+curl -X POST https://geoacademic.app/api/public/hooks/ingest-batch \
+  -H "Authorization: Bearer ${INGESTION_HOOK_SECRET}" \
   -H "Content-Type: application/json" \
   -d '{"action":"drain","limit":50}'
 ```
@@ -60,8 +62,8 @@ curl -X POST https://geoacademic-web.fly.dev/api/public/hooks/ingest-batch \
 
 **Command 3: Refresh Due Sources (scheduled crawls)**
 ```bash
-curl -X POST https://geoacademic-web.fly.dev/api/public/hooks/ingest-batch \
-  -H "x-ingestion-secret: a1906a4c280fc73cac7916f4e5e117a6a56069dc093999ea82722eab77eb96e2" \
+curl -X POST https://geoacademic.app/api/public/hooks/ingest-batch \
+  -H "Authorization: Bearer ${INGESTION_HOOK_SECRET}" \
   -H "Content-Type: application/json" \
   -d '{"action":"refresh-due","limit":80}'
 ```
@@ -69,7 +71,7 @@ curl -X POST https://geoacademic-web.fly.dev/api/public/hooks/ingest-batch \
 
 **Command 4: Verify Data Population**
 ```bash
-curl -s https://geoacademic-web.fly.dev/api/public/data-health | jq .
+curl -s https://geoacademic.app/api/public/data-health | jq .
 ```
 **Expected**: 
 ```json
@@ -109,7 +111,7 @@ Expected output: 50-100 records/cycle
 gh run list -w geoacademic-ingestion.yml -L 1
 
 # Restart
-flyctl restart -a geoacademic-web
+# Redeploy through the repository's Cloudflare deployment workflow after reviewing its status
 
 # Re-trigger
 gh workflow run geoacademic-ingestion.yml
@@ -118,8 +120,8 @@ gh workflow run geoacademic-ingestion.yml
 ### If Data Stops Growing
 ```bash
 # Check queue depth
-curl -X POST https://geoacademic-web.fly.dev/api/public/hooks/ingest-batch \
-  -H "x-ingestion-secret: a1906a4c280fc73cac7916f4e5e117a6a56069dc093999ea82722eab77eb96e2" \
+curl -X POST https://geoacademic.app/api/public/hooks/ingest-batch \
+  -H "Authorization: Bearer ${INGESTION_HOOK_SECRET}" \
   -H "Content-Type: application/json" \
   -d '{"action":"worker-status"}'
 
@@ -127,8 +129,8 @@ curl -X POST https://geoacademic-web.fly.dev/api/public/hooks/ingest-batch \
 gh workflow run geoacademic-seed-sources.yml
 
 # If queue full: drain manually
-curl -X POST https://geoacademic-web.fly.dev/api/public/hooks/ingest-batch \
-  -H "x-ingestion-secret: a1906a4c280fc73cac7916f4e5e117a6a56069dc093999ea82722eab77eb96e2" \
+curl -X POST https://geoacademic.app/api/public/hooks/ingest-batch \
+  -H "Authorization: Bearer ${INGESTION_HOOK_SECRET}" \
   -H "Content-Type: application/json" \
   -d '{"action":"drain","limit":200}'
 ```
@@ -148,7 +150,7 @@ curl -X POST https://geoacademic-web.fly.dev/api/public/hooks/ingest-batch \
 
 ```
 GitHub Actions:     FREE (2000 min/mo, using ~360/mo)
-Fly.dev:            FREE (3 shared instances included)
+Cloudflare:         See current deployment configuration
 Supabase:           FREE (500MB DB included)
 NVIDIA API:         FREE (100 calls/mo) → $50/mo (unlimited)
 Total:              $0-50/month
