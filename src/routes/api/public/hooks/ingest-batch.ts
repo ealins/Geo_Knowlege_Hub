@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type { ExternalFetchCompletion, ExternalReviewCompletion } from "@/lib/ingest.server";
-import { deterministicNormalizationFallbackLimit, discoveryFallbackPolicy, hasProviderCircuitOpenSignal, hasProviderGatewayFailureSignal, normalizationWavePolicy, selectDeterministicMediaTaskIds, selectDeterministicResearchNewsTaskIds, selectDeterministicVacancyTaskIds, shouldRunDeterministicNormalizationFallback, shouldRunNormalizationWave, shouldThrottleSteadyStateDrain } from "@/lib/queue-drain-policy";
+import { deterministicNormalizationFallbackLimit, discoveryFallbackPolicy, hasProviderCircuitOpenSignal, hasProviderGatewayFailureSignal, normalizationWavePolicy, selectDeterministicMediaTaskIds, selectDeterministicProgrammeTaskIds, selectDeterministicResearchNewsTaskIds, selectDeterministicVacancyTaskIds, shouldRunDeterministicNormalizationFallback, shouldRunNormalizationWave, shouldThrottleSteadyStateDrain } from "@/lib/queue-drain-policy";
 import { isDeterministicallyEligibleVacancySnapshot } from "@/lib/vacancy-posting-policy";
 import { structuredVacancyFromPayload } from "@/lib/extraction/structured.server";
 
@@ -605,6 +605,14 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
                   .order("fetched_at", { ascending: true })
                   .limit(2000),
                 supabaseAdmin
+                  .from("raw_records")
+                  .select("id, source_id, classification, final_url, page_title")
+                  .eq("classification", "PROGRAMME")
+                  .eq("normalization_status", "PENDING")
+                  .not("source_id", "is", null)
+                  .order("fetched_at", { ascending: true })
+                  .limit(2000),
+                supabaseAdmin
                   .from("ingestion_tasks")
                   .select("id, source_id, payload")
                   .eq("task_type", "NORMALIZE")
@@ -617,6 +625,7 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
               if (pendingStructuredVacancies.error) throw pendingStructuredVacancies.error;
               if (pendingResearchNews.error) throw pendingResearchNews.error;
               if (pendingMediaCourses.error) throw pendingMediaCourses.error;
+              if (pendingProgrammes.error) throw pendingProgrammes.error;
               if (dueNormalizeTasks.error) throw dueNormalizeTasks.error;
 
               const structuredPayloadById = new Map(
@@ -686,17 +695,28 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
                 .filter((task) => mediaTaskIds.includes(task.id))
                 .map((task) => task.source_id)
                 .filter((id): id is string => Boolean(id));
-              const rejectedVacancyTaskIds = selectDeterministicVacancyTaskIds(
-                (pendingVacancies.data ?? []).filter((raw) => !eligibleRawRecordIds.has(raw.id)),
+              const programmeTaskIds = selectDeterministicProgrammeTaskIds(
+                pendingProgrammes.data ?? [],
                 dueNormalizeTasks.data ?? [],
                 Math.max(0, remainingAfterCleanup - eligibleVacancyTaskIds.length - mediaTaskIds.length),
                 [...cleanupSourceIds, ...eligibleVacancySourceIds, ...mediaSourceIds],
+              );
+              const programmeSourceIds = (dueNormalizeTasks.data ?? [])
+                .filter((task) => programmeTaskIds.includes(task.id))
+                .map((task) => task.source_id)
+                .filter((id): id is string => Boolean(id));
+              const rejectedVacancyTaskIds = selectDeterministicVacancyTaskIds(
+                (pendingVacancies.data ?? []).filter((raw) => !eligibleRawRecordIds.has(raw.id)),
+                dueNormalizeTasks.data ?? [],
+                Math.max(0, remainingAfterCleanup - eligibleVacancyTaskIds.length - mediaTaskIds.length - programmeTaskIds.length),
+                [...cleanupSourceIds, ...eligibleVacancySourceIds, ...mediaSourceIds, ...programmeSourceIds],
               );
               const vacancyTaskIds = [...eligibleVacancyTaskIds, ...rejectedVacancyTaskIds];
               const deterministicTaskIds = [
                 ...cleanupTaskIds,
                 ...eligibleVacancyTaskIds,
                 ...mediaTaskIds,
+                ...programmeTaskIds,
                 ...rejectedVacancyTaskIds,
               ];
               if (deterministicTaskIds.length > 0) {
@@ -727,6 +747,11 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
                 if (mediaTaskIds.length > 0) {
                   result.details.push(
                     "DETERMINISTIC_MEDIA_CLEANUP: exact pending ESA multimedia COURSE snapshot selected without AI",
+                  );
+                }
+                if (programmeTaskIds.length > 0) {
+                  result.details.push(
+                    "DETERMINISTIC_PROGRAMME_CLEANUP: exact pending institutional navigation snapshot selected without AI",
                   );
                 }
                 result.details.push(...deterministicWave.details);
