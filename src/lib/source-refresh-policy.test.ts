@@ -45,6 +45,22 @@ describe("shouldBackoffSourceAfterFailure", () => {
     })).toBe(false);
   });
 
+  test("backs off ETHZ generic-index redirects for 24 hours despite HTTP 200", () => {
+    const lastError = "ETHZ job detail redirected to generic /site/index; refusing to persist the listing shell";
+    expect(shouldBackoffSourceAfterFailure({
+      lastFailureAt: new Date(now - 23 * hourMs).toISOString(),
+      lastHttpStatus: 200,
+      lastError,
+      nowMs: now,
+    })).toBe(true);
+    expect(shouldBackoffSourceAfterFailure({
+      lastFailureAt: new Date(now - 25 * hourMs).toISOString(),
+      lastHttpStatus: 200,
+      lastError,
+      nowMs: now,
+    })).toBe(false);
+  });
+
   test("backs off missing-text/network failures for six hours", () => {
     expect(shouldBackoffSourceAfterFailure({
       lastFailureAt: new Date(now - 5 * 60 * 60 * 1000).toISOString(),
