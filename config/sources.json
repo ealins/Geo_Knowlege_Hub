@@ -1,0 +1,33 @@
+{
+  "_comment": "One entry per source. type: rss (RSS/Atom feed, preferred) or html (links on a page). kind: job | course | event | news | auto. Set enabled to true once the URL is confirmed. Sources that disallow us in robots.txt are skipped automatically.",
+  "sources": [
+    {
+      "id": "example-rss",
+      "name": "Replace with a real feed",
+      "url": "https://example.org/feed.xml",
+      "type": "rss",
+      "kind": "auto",
+      "enabled": false,
+      "notes": "Placeholder. Confirm the URL before enabling."
+    },
+    {
+      "id": "arxiv-eess-iv",
+      "name": "arXiv: Image and Video Processing (eess.IV)",
+      "url": "https://export.arxiv.org/rss/eess.IV",
+      "type": "rss",
+      "kind": "paper",
+      "enabled": false,
+      "notes": "arXiv category feed. Verify the URL before enabling; add cs.CV and other categories the same way."
+    },
+    {
+      "id": "example-html",
+      "name": "Replace with a real listing page",
+      "url": "https://example.org/jobs",
+      "type": "html",
+      "kind": "job",
+      "include": "/jobs?/",
+      "enabled": false,
+      "notes": "Placeholder. include is an optional regex that the link URL or text must match."
+    }
+  ]
+}

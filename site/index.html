@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Geo Radar</title>
+<meta name="description" content="Fresh jobs, courses and events for photogrammetry, remote sensing and geoinformatics.">
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--text:#14181f;--muted:#5b6472;--line:#dfe3ea;--accent:#0b6e4f;--new:#e8f5ef;--newtext:#0b6e4f}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0e1116;--card:#161b22;--text:#e6e9ef;--muted:#9aa4b2;--line:#263040;--accent:#4fd1a5;--new:#133227;--newtext:#4fd1a5}}
+:root[data-theme="dark"]{--bg:#0e1116;--card:#161b22;--text:#e6e9ef;--muted:#9aa4b2;--line:#263040;--accent:#4fd1a5;--new:#133227;--newtext:#4fd1a5}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:860px;margin:0 auto;padding:24px 16px 48px}
+h1{margin:0 0 4px;font-size:26px}
+.sub{color:var(--muted);margin:0 0 16px}
+.bar{margin-bottom:12px}
+input[type=search]{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--text);font:inherit}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.tab{border:1px solid var(--line);background:var(--card);color:var(--text);padding:6px 12px;border-radius:999px;cursor:pointer;font:inherit}
+.tab[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.meta{color:var(--muted);font-size:13px;margin:8px 0 16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin-bottom:10px}
+.card a{color:var(--text);font-weight:600;text-decoration:none;overflow-wrap:anywhere}
+.card a:hover{text-decoration:underline}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-size:13px;color:var(--muted);margin-top:6px}
+.badge{padding:1px 8px;border-radius:999px;border:1px solid var(--line);font-size:12px}
+.new{background:var(--new);color:var(--newtext);border-color:transparent;font-weight:600}
+.chip{font-size:12px;color:var(--accent)}
+details{margin-top:24px;color:var(--muted);font-size:13px}
+.tablewrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:13px}
+td,th{text-align:left;padding:6px;border-bottom:1px solid var(--line);vertical-align:top}
+.empty{color:var(--muted);padding:24px;text-align:center}
+</style>
+</head>
+<body>
+<main>
+  <h1>Geo Radar</h1>
+  <p class="sub">Fresh jobs, courses and events for photogrammetry, remote sensing and geoinformatics. Only recently seen items are kept.</p>
+  <div class="bar"><input id="q" type="search" placeholder="Filter by title, source or topic" aria-label="Filter items"></div>
+  <div class="tabs" id="tabs"></div>
+  <div class="meta" id="meta">Loading…</div>
+  <div id="list"></div>
+  <details><summary>Sources and health</summary><div class="tablewrap" id="sources"></div></details>
+</main>
+<script>
+const KINDS = [["all","All"],["job","Jobs"],["paper","Papers"],["course","Courses"],["event","Events"],["news","News"]];
+let feed = { items: [] }, status = {}, kind = "all", query = "";
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const fmtDate = iso => iso ? new Date(iso).toLocaleDateString(undefined, {day:"numeric", month:"short", year:"numeric"}) : "";
+const fmtTime = iso => iso ? new Date(iso).toLocaleString() : "";
+const isNew = it => Date.now() - Date.parse(it.first_seen) < 7 * 864e5;
+
+function render() {
+  const q = query.trim().toLowerCase();
+  const items = feed.items.filter(it =>
+    (kind === "all" || it.kind === kind) &&
+    (!q || [it.title, it.source_name, (it.matched || []).join(" ")].join(" ").toLowerCase().includes(q)));
+  document.getElementById("tabs").innerHTML = KINDS.map(([k, label]) => {
+    const n = k === "all" ? feed.items.length : feed.items.filter(i => i.kind === k).length;
+    return `<button class="tab" data-k="${k}" aria-pressed="${k === kind}">${label} (${n})</button>`;
+  }).join("");
+  document.getElementById("list").innerHTML = items.length ? items.map(it => `
+    <article class="card">
+      <a href="${esc(it.url)}" target="_blank" rel="noopener">${esc(it.title)}</a>
+      <div class="row">
+        ${isNew(it) ? '<span class="badge new">New</span>' : ""}
+        <span class="badge">${esc(it.kind)}</span>
+        <span>${esc(it.source_name)}</span>
+        <span>${fmtDate(it.published) || "first seen " + fmtDate(it.first_seen)}</span>
+      </div>
+      ${it.matched && it.matched.length ? `<div class="row chip">${it.matched.slice(0, 5).map(esc).join(" · ")}</div>` : ""}
+    </article>`).join("") : '<div class="empty">Nothing matches right now.</div>';
+}
+
+document.getElementById("tabs").addEventListener("click", e => {
+  const b = e.target.closest("[data-k]");
+  if (b) { kind = b.dataset.k; render(); }
+});
+document.getElementById("q").addEventListener("input", e => { query = e.target.value; render(); });
+
+Promise.all([
+  fetch("data/feed.json", { cache: "no-store" }).then(r => r.json()),
+  fetch("data/status.json", { cache: "no-store" }).then(r => r.json()).catch(() => ({})),
+]).then(([f, s]) => {
+  feed = f; status = s;
+  document.getElementById("meta").textContent =
+    `Updated ${fmtTime(feed.generated_at)} · ${feed.items.length} items · kept for ${feed.retain_days} days`;
+  render();
+  const rows = Object.entries(status).map(([id, st]) => `
+    <tr><td>${esc(id)}</td><td>${esc(st.state)}</td><td>${esc(fmtTime(st.last_checked))}</td>
+    <td>${st.items_matched ?? 0}</td><td>${esc(st.last_error || st.note || "")}</td></tr>`).join("");
+  document.getElementById("sources").innerHTML = rows
+    ? `<table><tr><th>Source</th><th>State</th><th>Checked</th><th>Matched</th><th>Note</th></tr>${rows}</table>`
+    : "No sources enabled yet.";
+}).catch(() => {
+  document.getElementById("meta").textContent = "Feed not available yet.";
+});
+</script>
+</body>
+</html>
