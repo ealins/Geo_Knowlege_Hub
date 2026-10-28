@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type { ExternalFetchCompletion, ExternalReviewCompletion } from "@/lib/ingest.server";
+import { summarizeNvidiaCallMetrics } from "@/lib/pipeline-llm-metrics";
 import { deterministicNormalizationFallbackLimit, discoveryFallbackPolicy, hasProviderCircuitOpenSignal, hasProviderGatewayFailureSignal, isIndependentProviderConfigured, normalizationWavePolicy, selectDeterministicMediaTaskIds, selectDeterministicProgrammeTaskIds, selectDeterministicResearchNewsTaskIds, selectDeterministicVacancyTaskIds, shouldRunDeterministicNormalizationFallback, shouldRunNormalizationWave, shouldThrottleSteadyStateDrain } from "@/lib/queue-drain-policy";
 import { isDeterministicallyEligibleVacancySnapshot } from "@/lib/vacancy-posting-policy";
 import { structuredVacancyFromPayload } from "@/lib/extraction/structured.server";
@@ -915,9 +916,10 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
             }
             const { data: llm } = await supabaseAdmin
               .from("llm_processing_runs")
-              .select("cached")
+              .select("provider, cached")
               .gte("created_at", startedAt.toISOString());
             const calls = llm ?? [];
+            const nvidiaMetrics = summarizeNvidiaCallMetrics(calls);
             if (run?.id) {
               await supabaseAdmin
                 .from("pipeline_runs")
@@ -930,8 +932,8 @@ export const Route = createFileRoute("/api/public/hooks/ingest-batch")({
                   tasks_dead: result.dead,
                   records_created: result.recordsCreated,
                   records_updated: result.recordsUpdated,
-                  nvidia_calls: calls.length,
-                  nvidia_cached: calls.filter((c) => c.cached).length,
+                  nvidia_calls: nvidiaMetrics.nvidia_calls,
+                  nvidia_cached: nvidiaMetrics.nvidia_cached,
                   errors: result.failed + result.dead,
                   details: {
                     mode: queueState.mode,
