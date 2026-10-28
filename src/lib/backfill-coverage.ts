@@ -87,3 +87,39 @@ export function staleNormalizationTargetReason(
 
   return null;
 }
+
+
+export type LegacyNormalizationPinCandidate = {
+  source_id: string;
+  classification: string | null;
+  normalization_status: string | null;
+};
+
+/**
+ * A classified legacy task with no explicit raw ID means "oldest pending
+ * snapshot of this classification", except semantic-failure recovery, which
+ * intentionally targets a transient FAILED snapshot. Pin only the former when
+ * the backfill planner has selected that exact pending snapshot for the source.
+ */
+export function canPinLegacyNormalizationTaskToPendingSnapshot(
+  task: OpenNormalizationTaskTarget,
+  candidate: LegacyNormalizationPinCandidate,
+): boolean {
+  const status = task.status.toUpperCase();
+  if (status !== "QUEUED" && status !== "RETRY") return false;
+  if (!task.source_id || task.source_id !== candidate.source_id) return false;
+  if ((candidate.normalization_status ?? "").toUpperCase() !== "PENDING") return false;
+
+  const payload = task.payload && typeof task.payload === "object" && !Array.isArray(task.payload)
+    ? task.payload
+    : {};
+  const rawRecordId = payload.raw_record_id;
+  if (typeof rawRecordId === "string" && rawRecordId.trim()) return false;
+  if (payload.reason === "semantic-failure-recovery-v7") return false;
+
+  const taskClass = typeof payload.classification === "string"
+    ? payload.classification.trim().toUpperCase()
+    : "";
+  const candidateClass = (candidate.classification ?? "").trim().toUpperCase();
+  return taskClass.length > 0 && candidateClass.length > 0 && taskClass === candidateClass;
+}

@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { countUnsupportedPending, getBackfillQueueDisposition, staleNormalizationTargetReason } from "./backfill-coverage";
+import { canPinLegacyNormalizationTaskToPendingSnapshot, countUnsupportedPending, getBackfillQueueDisposition, staleNormalizationTargetReason } from "./backfill-coverage";
 import { assertBackfillDbSuccess } from "./backfill-db-errors";
 
 describe("countUnsupportedPending", () => {
@@ -117,5 +117,38 @@ describe("staleNormalizationTargetReason", () => {
     expect(staleNormalizationTargetReason(task("PROCESSING"), raw("NORMALIZED"))).toBeNull();
     expect(staleNormalizationTargetReason(task("RETRY", { classification: "VACANCY" }), raw("PENDING"))).toBeNull();
     expect(staleNormalizationTargetReason(task("RETRY"), raw("FAILED", "PROGRAMME"))).toBeNull();
+  });
+});
+
+
+describe("canPinLegacyNormalizationTaskToPendingSnapshot", () => {
+  const task = (status: string, payload: Record<string, unknown> = { classification: "PROGRAMME" }) => ({
+    status,
+    source_id: "source-1",
+    payload,
+  });
+  const candidate = (normalization_status = "PENDING", classification = "PROGRAMME", source_id = "source-1") => ({
+    normalization_status,
+    classification,
+    source_id,
+  });
+
+  test("pins a generic legacy task to its matching oldest pending snapshot", () => {
+    expect(canPinLegacyNormalizationTaskToPendingSnapshot(task("RETRY"), candidate())).toBe(true);
+  });
+
+  test("does not pin semantic-failure recovery to a pending snapshot", () => {
+    expect(canPinLegacyNormalizationTaskToPendingSnapshot(
+      task("RETRY", { classification: "PROGRAMME", reason: "semantic-failure-recovery-v7" }),
+      candidate(),
+    )).toBe(false);
+  });
+
+  test("preserves exact-target, processing, failed, and mismatched tasks", () => {
+    expect(canPinLegacyNormalizationTaskToPendingSnapshot(task("PROCESSING"), candidate())).toBe(false);
+    expect(canPinLegacyNormalizationTaskToPendingSnapshot(task("RETRY", { classification: "PROGRAMME", raw_record_id: "raw-1" }), candidate())).toBe(false);
+    expect(canPinLegacyNormalizationTaskToPendingSnapshot(task("RETRY"), candidate("FAILED"))).toBe(false);
+    expect(canPinLegacyNormalizationTaskToPendingSnapshot(task("RETRY"), candidate("PENDING", "COURSE"))).toBe(false);
+    expect(canPinLegacyNormalizationTaskToPendingSnapshot(task("RETRY"), candidate("PENDING", "PROGRAMME", "source-2"))).toBe(false);
   });
 });

@@ -3,7 +3,7 @@
 // here calls a model — it only enqueues tasks that the deployed autonomous
 // drain loop processes with the existing gates, cache and validators.
 import { supabaseAdmin } from "@/integrations/supabase/client.server";
-import { countUnsupportedPending, staleNormalizationTargetReason } from "./backfill-coverage";
+import { canPinLegacyNormalizationTaskToPendingSnapshot, countUnsupportedPending, staleNormalizationTargetReason } from "./backfill-coverage";
 import { assertBackfillDbSuccess } from "./backfill-db-errors";
 import { shouldRetryInstitutionlessVacancy } from "./semantic-recovery-policy";
 
@@ -37,6 +37,8 @@ export type BackfillPlan = {
   unsupported_pending: number;
   /** Queued/retry tasks retired because their explicit raw target was terminal or mismatched. */
   stale_tasks_retired: number;
+  /** Legacy PENDING_OLDEST tasks pinned to the exact snapshot selected by backfill. */
+  legacy_tasks_pinned: number;
   by_classification: Record<string, number>;
 };
 
@@ -53,6 +55,7 @@ export async function enqueueRawBackfill(limit = 400): Promise<BackfillPlan> {
     deferred_by_source: 0,
     unsupported_pending: 0,
     stale_tasks_retired: 0,
+    legacy_tasks_pinned: 0,
     by_classification: {},
   };
 
@@ -163,12 +166,13 @@ export async function enqueueRawBackfill(limit = 400): Promise<BackfillPlan> {
   // One task per source, but carry the exact selected raw snapshot. Without
   // raw_record_id the normalizer falls back to the newest page, which can leave
   // this older PENDING/eligible row untouched forever.
-  const bySource = new Map<string, { classification: string; rawRecordId: string }>();
+  const bySource = new Map<string, { classification: string; rawRecordId: string; normalizationStatus: string }>();
   for (const r of candidates) {
     if (!bySource.has(r.source_id as string)) {
       bySource.set(r.source_id as string, {
         classification: r.classification ?? "UNKNOWN",
         rawRecordId: r.id,
+        normalizationStatus: r.normalization_status ?? "PENDING",
       });
     }
   }
@@ -239,6 +243,44 @@ export async function enqueueRawBackfill(limit = 400): Promise<BackfillPlan> {
     const openForSource = openBySource.get(sourceId) ?? [];
     if (openForSource.length > 0) {
       plan.already_queued += 1;
+
+      // Legacy generic backfill tasks intentionally meant "oldest pending
+      // snapshot of this classification". When the provider circuit prevents
+      // the worker from claiming them, they can block exact backfill forever.
+      // Pin only a sole QUEUED/RETRY legacy task to the same-source, same-class
+      // PENDING snapshot already selected oldest-first above. Semantic-failure
+      // recovery tasks target FAILED snapshots and must never be pinned here.
+      if (openForSource.length === 1) {
+        const legacyTask = openForSource[0];
+        if (canPinLegacyNormalizationTaskToPendingSnapshot(legacyTask, {
+          source_id: sourceId,
+          classification,
+          normalization_status: candidate.normalizationStatus,
+        })) {
+          const pinnedPayload = { ...legacyTask.payload, raw_record_id: rawRecordId };
+          const { data: pinnedTask, error: pinError } = await supabaseAdmin
+            .from("ingestion_tasks")
+            .update({ payload: pinnedPayload })
+            .eq("id", legacyTask.id)
+            .eq("source_id", sourceId)
+            .in("status", ["QUEUED", "RETRY"])
+            .select("id")
+            .maybeSingle();
+          assertBackfillDbSuccess(`pin legacy normalization task ${legacyTask.id} to exact raw snapshot`, pinError);
+          if (pinnedTask) {
+            legacyTask.payload = pinnedPayload;
+            rawTargetsById.set(rawRecordId, {
+              id: rawRecordId,
+              source_id: sourceId,
+              classification,
+              normalization_status: candidate.normalizationStatus,
+              normalization_error: null,
+            });
+            plan.legacy_tasks_pinned += 1;
+          }
+        }
+      }
+
       const staleReasons = openForSource.map((task) => ({
         task,
         reason: staleNormalizationTargetReason(
