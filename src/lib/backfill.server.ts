@@ -3,7 +3,7 @@
 // here calls a model — it only enqueues tasks that the deployed autonomous
 // drain loop processes with the existing gates, cache and validators.
 import { supabaseAdmin } from "@/integrations/supabase/client.server";
-import { countUnsupportedPending, getBackfillQueueDisposition } from "./backfill-coverage";
+import { countUnsupportedPending, staleNormalizationTargetReason } from "./backfill-coverage";
 import { assertBackfillDbSuccess } from "./backfill-db-errors";
 import { shouldRetryInstitutionlessVacancy } from "./semantic-recovery-policy";
 
@@ -35,6 +35,8 @@ export type BackfillPlan = {
   deferred_by_source: number;
   /** Pending raw rows whose classifications have no canonical backfill extractor. */
   unsupported_pending: number;
+  /** Queued/retry tasks retired because their explicit raw target was terminal or mismatched. */
+  stale_tasks_retired: number;
   by_classification: Record<string, number>;
 };
 
@@ -50,6 +52,7 @@ export async function enqueueRawBackfill(limit = 400): Promise<BackfillPlan> {
     exact_snapshot_queued: 0,
     deferred_by_source: 0,
     unsupported_pending: 0,
+    stale_tasks_retired: 0,
     by_classification: {},
   };
 
@@ -173,20 +176,52 @@ export async function enqueueRawBackfill(limit = 400): Promise<BackfillPlan> {
 
   const openTasksResult = await supabaseAdmin
     .from("ingestion_tasks")
-    .select("source_id, payload")
+    .select("id, status, source_id, payload")
     .eq("task_type", "NORMALIZE")
     .in("status", ["QUEUED", "PROCESSING", "RETRY"]);
   assertBackfillDbSuccess("inspect open normalization tasks", openTasksResult.error);
-  const openTasks = openTasksResult.data ?? [];
-  const openBySource = new Map<string, Record<string, unknown>[]>();
-  for (const task of openTasks ?? []) {
-    if (!task.source_id) continue;
+
+  type OpenNormalizeTask = {
+    id: string;
+    status: string;
+    source_id: string;
+    payload: Record<string, unknown>;
+  };
+  const openTasks: OpenNormalizeTask[] = (openTasksResult.data ?? []).flatMap((task) => {
+    if (!task.source_id) return [];
     const payload =
       task.payload && typeof task.payload === "object" && !Array.isArray(task.payload)
         ? (task.payload as Record<string, unknown>)
         : {};
+    return [{ id: task.id, status: task.status, source_id: task.source_id, payload }];
+  });
+
+  const isUuid = (value: unknown): value is string =>
+    typeof value === "string" &&
+    /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(value);
+  const rawTargetIds = [...new Set(openTasks
+    .map((task) => task.payload.raw_record_id)
+    .filter(isUuid))];
+  const rawTargetsById = new Map<string, {
+    id: string;
+    source_id: string | null;
+    classification: string | null;
+    normalization_status: string | null;
+    normalization_error: string | null;
+  }>();
+  if (rawTargetIds.length > 0) {
+    const rawTargetsResult = await supabaseAdmin
+      .from("raw_records")
+      .select("id, source_id, classification, normalization_status, normalization_error")
+      .in("id", rawTargetIds);
+    assertBackfillDbSuccess("inspect open normalization raw targets", rawTargetsResult.error);
+    for (const raw of rawTargetsResult.data ?? []) rawTargetsById.set(raw.id, raw);
+  }
+
+  const openBySource = new Map<string, OpenNormalizeTask[]>();
+  for (const task of openTasks) {
     const existing = openBySource.get(task.source_id) ?? [];
-    existing.push(payload);
+    existing.push(task);
     openBySource.set(task.source_id, existing);
   }
 
@@ -199,20 +234,76 @@ export async function enqueueRawBackfill(limit = 400): Promise<BackfillPlan> {
     const { classification, rawRecordId } = candidate;
     plan.by_classification[classification] =
       (plan.by_classification[classification] ?? 0) + 1;
-    const openPayloads = openBySource.get(sourceId) ?? [];
-    if (openPayloads.length > 0) {
-      // Keep the legacy source-level counter for compatibility, but expose
-      // whether this exact raw snapshot is actually targeted by an open task.
-      plan.already_queued += 1;
-      const disposition = getBackfillQueueDisposition(rawRecordId, openPayloads);
-      if (disposition === "EXACT_SNAPSHOT_OPEN") {
-        plan.exact_snapshot_queued += 1;
-      } else {
-        plan.deferred_by_source += 1;
-      }
-      continue;
-    }
     if (rows.length >= limit) continue;
+
+    const openForSource = openBySource.get(sourceId) ?? [];
+    if (openForSource.length > 0) {
+      plan.already_queued += 1;
+      const staleReasons = openForSource.map((task) => ({
+        task,
+        reason: staleNormalizationTargetReason(
+          task,
+          typeof task.payload.raw_record_id === "string"
+            ? rawTargetsById.get(task.payload.raw_record_id)
+            : null,
+        ),
+      }));
+      const exactSnapshotStillOpen = staleReasons.some(({ task, reason }) =>
+        reason === null && task.payload.raw_record_id === rawRecordId
+      );
+      if (exactSnapshotStillOpen) {
+        plan.exact_snapshot_queued += 1;
+        continue;
+      }
+
+      // Do not let an obsolete QUEUED/RETRY task block the one-task-per-source
+      // slot forever. Retire only when every open task for this source has an
+      // explicit target proven terminal/missing/mismatched; PROCESSING, legacy,
+      // PENDING and FAILED targets remain blockers. The status CAS prevents
+      // racing a worker that has already claimed one of these tasks.
+      if (staleReasons.some(({ reason }) => reason === null)) {
+        plan.deferred_by_source += 1;
+        continue;
+      }
+
+      const retiredAt = new Date().toISOString();
+      let retiredAll = true;
+      for (const { task, reason } of staleReasons) {
+        if (!reason) {
+          retiredAll = false;
+          break;
+        }
+        const { data: retiredTask, error: retireError } = await supabaseAdmin
+          .from("ingestion_tasks")
+          .update({
+            status: "DEAD",
+            completed_at: retiredAt,
+            started_at: null,
+            updated_at: retiredAt,
+            last_error: `SUPERSEDED_STALE_RAW_TARGET: ${reason}; replacement pending snapshot ${rawRecordId}`,
+            payload: {
+              ...task.payload,
+              superseded_by_raw_record_id: rawRecordId,
+              superseded_reason: reason,
+            },
+          })
+          .eq("id", task.id)
+          .in("status", ["QUEUED", "RETRY"])
+          .select("id")
+          .maybeSingle();
+        assertBackfillDbSuccess(`retire stale normalization task ${task.id}`, retireError);
+        if (!retiredTask) {
+          retiredAll = false;
+          break;
+        }
+        plan.stale_tasks_retired += 1;
+      }
+      if (!retiredAll) {
+        plan.deferred_by_source += 1;
+        continue;
+      }
+    }
+
     rows.push({
       task_type: "NORMALIZE",
       source_id: sourceId,
