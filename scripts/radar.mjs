@@ -272,8 +272,13 @@ for (const it of fresh) {
   const p = prevById.get(it.id);
   merged.set(it.id, { ...it, first_seen: p?.first_seen ?? nowIso, last_seen: nowIso });
 }
+// Listing pages (html) show only what is currently open: if such a source was
+// read successfully and an item is no longer on it, the item is gone. Feeds
+// and APIs roll over quickly, so their items keep the per-kind window instead.
+const htmlOk = new Set(enabled.filter((s) => s.type === "html" && statusOut[s.id]?.state === "ok").map((s) => s.id));
 for (const it of previous.items ?? []) {
-  if (!merged.has(it.id)) merged.set(it.id, it);
+  if (merged.has(it.id) || htmlOk.has(it.source)) continue;
+  merged.set(it.id, it);
 }
 const items = [...merged.values()]
   .filter(isLive)
