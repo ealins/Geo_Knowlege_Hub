@@ -1,8 +1,45 @@
 {
-  "generated_at": "2026-10-29T20:58:37.370Z",
+  "generated_at": "2026-10-29T22:47:38.598Z",
   "retain_days": 45,
-  "count": 211,
+  "count": 208,
   "items": [
+    {
+      "id": "e1ebd227763752a8",
+      "title": "Certificate in Geomatics for Environmental Management",
+      "url": "https://forestry.ubc.ca/future-students/undergraduate/certificate-in-geomatics-for-environmental-management/",
+      "kind": "course",
+      "source": "discovered-programmes",
+      "source_name": "University departments (auto-discovered)",
+      "published": null,
+      "summary": "This undergraduate certificate prepares students to apply spatial data to real-world environmental and planning challenges. University of British Columbia",
+      "deadline": null,
+      "location": "University of British Columbia, CA",
+      "matched": [
+        "geomatics",
+        "spatial data"
+      ],
+      "first_seen": "2026-10-29T22:47:38.598Z",
+      "last_seen": "2026-10-29T22:47:38.598Z",
+      "deadline_checked": "2026-10-29T22:47:38.598Z"
+    },
+    {
+      "id": "08efbcb392ae7e82",
+      "title": "Undergraduate Certificate in Geospatial Information Science",
+      "url": "https://geography.manoa.hawaii.edu/gis-certificate/",
+      "kind": "course",
+      "source": "discovered-programmes",
+      "source_name": "University departments (auto-discovered)",
+      "published": null,
+      "summary": "Undergraduate Certificate in Geospatial Information Science This certificate program provides practical geospatial information science skills that are highly so University of Hawaiʻi at Mānoa",
+      "deadline": null,
+      "location": "University of Hawaiʻi at Mānoa, US",
+      "matched": [
+        "geospatial"
+      ],
+      "first_seen": "2026-10-29T22:47:38.598Z",
+      "last_seen": "2026-10-29T22:47:38.598Z",
+      "deadline_checked": "2026-10-29T22:47:38.598Z"
+    },
     {
       "id": "ee256c39cdbf65f9",
       "title": "Master’s in Geographical Information Management and Applications",
@@ -18,8 +55,8 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:58:37.370Z",
-      "last_seen": "2026-10-29T20:58:37.370Z",
-      "deadline_checked": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z",
+      "deadline_checked": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "ac9dbb729583b7ff",
@@ -36,8 +73,8 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:58:37.370Z",
-      "last_seen": "2026-10-29T20:58:37.370Z",
-      "deadline_checked": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z",
+      "deadline_checked": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "e6dfbd849a36d016",
@@ -54,8 +91,8 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:58:37.370Z",
-      "last_seen": "2026-10-29T20:58:37.370Z",
-      "deadline_checked": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z",
+      "deadline_checked": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "2dee3cb31b9b2b17",
@@ -73,8 +110,8 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:58:37.370Z",
-      "last_seen": "2026-10-29T20:58:37.370Z",
-      "deadline_checked": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z",
+      "deadline_checked": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "33cf28fb6188f51c",
@@ -91,8 +128,8 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:58:37.370Z",
-      "last_seen": "2026-10-29T20:58:37.370Z",
-      "deadline_checked": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z",
+      "deadline_checked": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "345e923d1cbbd5ba",
@@ -109,8 +146,8 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:58:37.370Z",
-      "last_seen": "2026-10-29T20:58:37.370Z",
-      "deadline_checked": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z",
+      "deadline_checked": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "e25bfb61bbae562e",
@@ -127,8 +164,8 @@
         "geoinformation"
       ],
       "first_seen": "2026-10-29T20:58:37.370Z",
-      "last_seen": "2026-10-29T20:58:37.370Z",
-      "deadline_checked": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z",
+      "deadline_checked": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "3d0d512dbbcbca3c",
@@ -145,8 +182,8 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T20:58:37.370Z",
-      "last_seen": "2026-10-29T20:58:37.370Z",
-      "deadline_checked": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z",
+      "deadline_checked": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "3acaf7ff7851cb43",
@@ -163,8 +200,8 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:58:37.370Z",
-      "last_seen": "2026-10-29T20:58:37.370Z",
-      "deadline_checked": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z",
+      "deadline_checked": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "d1f67afdf63d896a",
@@ -181,8 +218,8 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:58:37.370Z",
-      "last_seen": "2026-10-29T20:58:37.370Z",
-      "deadline_checked": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z",
+      "deadline_checked": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "bbe9d1df210264fe",
@@ -199,7 +236,7 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:58:37.370Z",
-      "last_seen": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "199ddce1008548bb",
@@ -216,7 +253,7 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:58:37.370Z",
-      "last_seen": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "ab4c69c33735e5cb",
@@ -233,8 +270,8 @@
         "earth observation"
       ],
       "first_seen": "2026-10-29T20:34:23.721Z",
-      "last_seen": "2026-10-29T20:58:37.370Z",
-      "deadline_checked": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z",
+      "deadline_checked": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "ca70f7293de937d0",
@@ -251,8 +288,8 @@
         "earth observation"
       ],
       "first_seen": "2026-10-29T20:34:23.721Z",
-      "last_seen": "2026-10-29T20:58:37.370Z",
-      "deadline_checked": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z",
+      "deadline_checked": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "4767487f44eb67b2",
@@ -270,8 +307,8 @@
         "GeoAI"
       ],
       "first_seen": "2026-10-29T20:34:23.721Z",
-      "last_seen": "2026-10-29T20:58:37.370Z",
-      "deadline_checked": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z",
+      "deadline_checked": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "264f38a788641b82",
@@ -288,7 +325,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T20:34:23.721Z",
-      "last_seen": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "469d93e681df733d",
@@ -305,26 +342,8 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:34:23.721Z",
-      "last_seen": "2026-10-29T20:58:37.370Z",
-      "deadline_checked": "2026-10-29T20:58:37.370Z"
-    },
-    {
-      "id": "6bf846021532acf9",
-      "title": "Postgraduate study",
-      "url": "https://www.gla.ac.uk/postgraduate/taught/geoinformation-technology-cartography/",
-      "kind": "course",
-      "source": "discovered-programmes",
-      "source_name": "University departments (auto-discovered)",
-      "published": null,
-      "summary": "Find out more about the MSc Geoinformation Technology and Cartography in the School of Geographical and Earth Sciences at the University of Glasgow, UK, This Masters in Geoinformation Technology & Cartography focuses on  University of Glasgow",
-      "deadline": "2027-09-20T23:59:59.000Z",
-      "location": "University of Glasgow, GB",
-      "matched": [
-        "geoinformation",
-        "cartography"
-      ],
-      "first_seen": "2026-10-29T20:34:23.721Z",
-      "last_seen": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z",
+      "deadline_checked": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "5581ab37b729309e",
@@ -341,8 +360,8 @@
         "cartography"
       ],
       "first_seen": "2026-10-29T20:34:23.721Z",
-      "last_seen": "2026-10-29T20:58:37.370Z",
-      "deadline_checked": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z",
+      "deadline_checked": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "35213b181cd9a506",
@@ -359,8 +378,8 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:34:23.721Z",
-      "last_seen": "2026-10-29T20:58:37.370Z",
-      "deadline_checked": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z",
+      "deadline_checked": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "3246ac10ce22b087",
@@ -377,8 +396,8 @@
         "earth observation"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:58:37.370Z",
-      "deadline_checked": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z",
+      "deadline_checked": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "7aed83a1fec1b1d3",
@@ -395,8 +414,8 @@
         "earth observation"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:58:37.370Z",
-      "deadline_checked": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z",
+      "deadline_checked": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "f5034de4ee1a8b0d",
@@ -413,8 +432,8 @@
         "geomatics"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:58:37.370Z",
-      "deadline_checked": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z",
+      "deadline_checked": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "2f7c6d17bcd0324d",
@@ -431,8 +450,8 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:58:37.370Z",
-      "deadline_checked": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z",
+      "deadline_checked": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "2a4c3abbff3574fc",
@@ -449,8 +468,8 @@
         "earth observation"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:58:37.370Z",
-      "deadline_checked": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z",
+      "deadline_checked": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "c10bce7084060db8",
@@ -467,8 +486,8 @@
         "geomatics"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:58:37.370Z",
-      "deadline_checked": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z",
+      "deadline_checked": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "8a523d21bed9bdf1",
@@ -485,8 +504,8 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:58:37.370Z",
-      "deadline_checked": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z",
+      "deadline_checked": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "288884113b94640f",
@@ -504,7 +523,7 @@
         "Geodäsie"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "10743dde5862c986",
@@ -521,7 +540,7 @@
         "Geoinformatik"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "3fa916738ead9ce2",
@@ -539,7 +558,7 @@
         "geoinformatics"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "d33374c9e8f1266f",
@@ -557,7 +576,7 @@
         "cartography"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "411049cee1945e41",
@@ -574,7 +593,7 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "e8349083af01789b",
@@ -591,7 +610,7 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "0c15130b08f6440a",
@@ -611,7 +630,7 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "dafa26edf7de107c",
@@ -628,8 +647,8 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:58:37.370Z",
-      "deadline_checked": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z",
+      "deadline_checked": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "5bdabf501dfe4613",
@@ -646,8 +665,8 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:58:37.370Z",
-      "deadline_checked": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z",
+      "deadline_checked": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "120a655697ce4ab1",
@@ -664,26 +683,8 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:58:37.370Z",
-      "deadline_checked": "2026-10-29T20:58:37.370Z"
-    },
-    {
-      "id": "8ec4f2bec0764ef5",
-      "title": "Replicating terrestrial laser scanning point clouds with low cost photogrammetry techniques on small UK streams",
-      "url": "https://www.bristol.ac.uk/cabot/postgraduate-opportunities/cabot-masters/project-photogrammetry-techniques-on-uk-streams/",
-      "kind": "course",
-      "source": "discovered-programmes",
-      "source_name": "University departments (auto-discovered)",
-      "published": null,
-      "summary": " University of Bristol",
-      "deadline": null,
-      "location": "University of Bristol, GB",
-      "matched": [
-        "photogrammetry"
-      ],
-      "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:58:37.370Z",
-      "deadline_checked": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z",
+      "deadline_checked": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "e6e5150a7d2ff872",
@@ -701,8 +702,26 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:58:37.370Z",
-      "deadline_checked": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z",
+      "deadline_checked": "2026-10-29T22:47:38.598Z"
+    },
+    {
+      "id": "8ec4f2bec0764ef5",
+      "title": "Replicating terrestrial laser scanning point clouds with low cost photogrammetry techniques on small UK streams",
+      "url": "https://www.bristol.ac.uk/cabot/postgraduate-opportunities/cabot-masters/project-photogrammetry-techniques-on-uk-streams/",
+      "kind": "course",
+      "source": "discovered-programmes",
+      "source_name": "University departments (auto-discovered)",
+      "published": null,
+      "summary": " University of Bristol",
+      "deadline": null,
+      "location": "University of Bristol, GB",
+      "matched": [
+        "photogrammetry"
+      ],
+      "first_seen": "2026-10-29T20:24:37.392Z",
+      "last_seen": "2026-10-29T22:47:38.598Z",
+      "deadline_checked": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "360b1c9e340a33c6",
@@ -719,7 +738,7 @@
         "geoinformatics"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "58d886b52ed92748",
@@ -736,8 +755,8 @@
         "Geoinformatik"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:58:37.370Z",
-      "deadline_checked": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z",
+      "deadline_checked": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "f0d9c47ce963d65d",
@@ -755,8 +774,8 @@
         "spatial data"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:58:37.370Z",
-      "deadline_checked": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z",
+      "deadline_checked": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "a931e49fbf255381",
@@ -773,8 +792,8 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:58:37.370Z",
-      "deadline_checked": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z",
+      "deadline_checked": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "6955ae1170bc25cc",
@@ -791,8 +810,8 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:58:37.370Z",
-      "deadline_checked": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z",
+      "deadline_checked": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "8e778132696b0103",
@@ -809,8 +828,8 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:58:37.370Z",
-      "deadline_checked": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z",
+      "deadline_checked": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "ddadcf7cadfe3aaf",
@@ -827,8 +846,8 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:58:37.370Z",
-      "deadline_checked": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z",
+      "deadline_checked": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "24d1bdb1cb72e6e9",
@@ -845,8 +864,8 @@
         "geoinformation"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:58:37.370Z",
-      "deadline_checked": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z",
+      "deadline_checked": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "03fe987cc1713575",
@@ -863,8 +882,8 @@
         "cartography"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:58:37.370Z",
-      "deadline_checked": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z",
+      "deadline_checked": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "ad43287b983553a9",
@@ -882,26 +901,8 @@
         "geodesy"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:58:37.370Z",
-      "deadline_checked": "2026-10-29T20:58:37.370Z"
-    },
-    {
-      "id": "7bd9a3a13e74eeca",
-      "title": "GIS and Geospatial Online Degree and Certificate Programs",
-      "url": "https://www.worldcampus.psu.edu/degrees-and-certificates/topics/gis-and-geospatial",
-      "kind": "course",
-      "source": "discovered-programmes",
-      "source_name": "University departments (auto-discovered)",
-      "published": null,
-      "summary": "Earn a respected and recognized degree or certificate through Penn State's geospatial intelligence and GIS programs. Choose the one that fits your needs. Pennsylvania State University",
-      "deadline": "2026-11-01T23:59:59.000Z",
-      "location": "Pennsylvania State University, US",
-      "matched": [
-        "geospatial",
-        "GIS"
-      ],
-      "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z",
+      "deadline_checked": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "4bccac543e23b28f",
@@ -919,24 +920,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:58:37.370Z"
-    },
-    {
-      "id": "4ffc96da09b497f2",
-      "title": "Master of Professional Studies in Homeland Security – Intelligence and Geospatial Analysis Option",
-      "url": "https://www.worldcampus.psu.edu/degrees-and-certificates/penn-state-online-homeland-security-intelligence-and-geospatial-analysis-masters-degree",
-      "kind": "course",
-      "source": "discovered-programmes",
-      "source_name": "University departments (auto-discovered)",
-      "published": null,
-      "summary": "Combine intelligence analysis with geospatial science and technology to gain situational awareness and provide a decisive advantage in preventing and responding to homeland security threats. This online degree program ca Pennsylvania State University",
-      "deadline": "2026-11-01T00:00:00.000Z",
-      "location": "Pennsylvania State University, US",
-      "matched": [
-        "geospatial"
-      ],
-      "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "ec3e01820b98574a",
@@ -955,7 +939,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "944c23cc06ad5cfc",
@@ -972,7 +956,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "9610df26a438e5e4",
@@ -991,7 +975,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "4bef21eb97783e43",
@@ -1012,7 +996,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "c2cc91bf2f8f4a4e",
@@ -1030,8 +1014,8 @@
         "geoinformation"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:58:37.370Z",
-      "deadline_checked": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z",
+      "deadline_checked": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "c65ba0228a65244e",
@@ -1048,7 +1032,7 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "08f1cfadf71d3855",
@@ -1065,7 +1049,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "1c5f0ff2c0a8a91a",
@@ -1082,41 +1066,7 @@
         "Geoinformatik"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:58:37.370Z"
-    },
-    {
-      "id": "9c3ddbc2cfec1cfe",
-      "title": "Abschluss-Arbeiten im Bachelor Vermessung und Geoinformatik und Master Vermessung",
-      "url": "https://www.hft-stuttgart.de/vermessung/projekte/abschluss-arbeiten-im-bachelor-vermessung-und-geoinformatik-und-master-vermessung",
-      "kind": "course",
-      "source": "discovered-programmes",
-      "source_name": "University departments (auto-discovered)",
-      "published": null,
-      "summary": " HFT Stuttgart",
-      "deadline": "2027-10-20T23:59:59.000Z",
-      "location": "HFT Stuttgart, DE",
-      "matched": [
-        "Geoinformatik"
-      ],
-      "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:58:37.370Z"
-    },
-    {
-      "id": "0104a0606aaa4d33",
-      "title": "Digitale Studienberatung Bachelor Vermessung und Geoinformatik",
-      "url": "https://www.hft-stuttgart.de/vermessung/veranstaltung/digitale-studienberatung-bachelor-vermessung-und-geoinformatik-3",
-      "kind": "course",
-      "source": "discovered-programmes",
-      "source_name": "University departments (auto-discovered)",
-      "published": null,
-      "summary": " HFT Stuttgart",
-      "deadline": "2027-10-20T23:59:59.000Z",
-      "location": "HFT Stuttgart, DE",
-      "matched": [
-        "Geoinformatik"
-      ],
-      "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "054fcc4b3d43d0eb",
@@ -1134,7 +1084,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "36cb8f4c08cfcdc4",
@@ -1153,8 +1103,8 @@
         "earth observation"
       ],
       "first_seen": "2026-10-29T18:58:52.431Z",
-      "last_seen": "2026-10-29T20:58:37.370Z",
-      "deadline_checked": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z",
+      "deadline_checked": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "8f1f5483b5845d64",
@@ -1174,7 +1124,7 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "cde00011bbd8320d",
@@ -1192,7 +1142,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "4176dad734180f16",
@@ -1210,7 +1160,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "0d90dd299bc23dd4",
@@ -1227,7 +1177,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "ed81ad5c57d46f6b",
@@ -1245,7 +1195,7 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "aff4aadb279cfbcc",
@@ -1262,7 +1212,7 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "944e1d4f5a491b43",
@@ -1279,7 +1229,7 @@
         "earth observation"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "50985f99b904f4c9",
@@ -1297,7 +1247,7 @@
         "earth observation"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "2bd7a6eadbc26756",
@@ -1314,7 +1264,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "46fbf07b97301623",
@@ -1332,7 +1282,7 @@
         "multispectral"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "ea01c23534de41e3",
@@ -1349,7 +1299,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "7d2c947a752105d8",
@@ -1366,7 +1316,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "0a9a629f7a24d74d",
@@ -1383,7 +1333,7 @@
         "InSAR"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "cb18bf86e5b61506",
@@ -1400,7 +1350,7 @@
         "GNSS"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "12297e8de28b2b0b",
@@ -1417,7 +1367,7 @@
         "geomatics"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "892cd4dc077a5e3f",
@@ -1435,7 +1385,7 @@
         "geodesy"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "b92d96690763671d",
@@ -1454,7 +1404,7 @@
         "geodetic"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "994ed6fb91ba7db9",
@@ -1472,8 +1422,8 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-29T20:58:37.370Z",
-      "deadline_checked": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z",
+      "deadline_checked": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "cd547b75999045f8",
@@ -1492,8 +1442,8 @@
         "geomatics"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-29T20:58:37.370Z",
-      "deadline_checked": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z",
+      "deadline_checked": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "fac3f0bb41de634f",
@@ -1510,8 +1460,8 @@
         "geoinformatics"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-29T20:58:37.370Z",
-      "deadline_checked": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z",
+      "deadline_checked": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "bd044a0c91931eaf",
@@ -1529,8 +1479,8 @@
         "geodesy"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-29T20:58:37.370Z",
-      "deadline_checked": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z",
+      "deadline_checked": "2026-10-29T22:47:38.598Z"
     },
     {
       "impact": 58,
@@ -3414,8 +3364,8 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T04:19:19.776Z",
-      "last_seen": "2026-10-29T20:58:37.370Z",
-      "deadline_checked": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z",
+      "deadline_checked": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "1e3f3b82b65024d1",
@@ -3432,8 +3382,155 @@
         "GeoAI"
       ],
       "first_seen": "2026-10-29T04:19:19.776Z",
-      "last_seen": "2026-10-29T20:58:37.370Z",
-      "deadline_checked": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z",
+      "deadline_checked": "2026-10-29T22:47:38.598Z"
+    },
+    {
+      "id": "4927843db256c3e8",
+      "title": "Geodesy and Geoinformatics Engineering Bachelor of Science Winter Semester German",
+      "url": "https://www.uni-stuttgart.de/en/study/bachelor-programs/geodesy-and-geoinformatics-engineering-b.sc./",
+      "kind": "course",
+      "source": "unistuttgart-programs",
+      "source_name": "University of Stuttgart study programmes",
+      "published": null,
+      "summary": "",
+      "deadline": "2027-09-15T23:59:59.000Z",
+      "location": null,
+      "matched": [
+        "geoinformatics",
+        "geodesy"
+      ],
+      "first_seen": "2026-10-29T04:19:19.776Z",
+      "last_seen": "2026-10-29T22:47:38.598Z",
+      "deadline_checked": "2026-10-29T22:47:38.598Z"
+    },
+    {
+      "id": "a3ef2b385d3719fa",
+      "title": "Geodesy and Geoinformatics Engineering Master of Science Winter and Summer Semester German",
+      "url": "https://www.uni-stuttgart.de/en/study/study-programs/Geodesy-and-Geoinformatics-Engineering-M.Sc./",
+      "kind": "course",
+      "source": "unistuttgart-programs",
+      "source_name": "University of Stuttgart study programmes",
+      "published": null,
+      "summary": "",
+      "deadline": "2026-12-01T23:59:59.000Z",
+      "location": null,
+      "matched": [
+        "geoinformatics",
+        "geodesy"
+      ],
+      "first_seen": "2026-10-29T04:19:19.776Z",
+      "last_seen": "2026-10-29T22:47:38.598Z",
+      "deadline_checked": "2026-10-29T22:47:38.598Z"
+    },
+    {
+      "id": "337104e404693ce4",
+      "title": "Geomatics for Environmental Monitoring (GEM) Master of Science Winter and Summer Semester English",
+      "url": "https://www.uni-stuttgart.de/en/study/study-programs/Geomatics-for-Environmental-Monitoring-M.Sc./",
+      "kind": "course",
+      "source": "unistuttgart-programs",
+      "source_name": "University of Stuttgart study programmes",
+      "published": null,
+      "summary": "",
+      "deadline": "2026-11-15T23:59:59.000Z",
+      "location": null,
+      "matched": [
+        "geomatics"
+      ],
+      "first_seen": "2026-10-29T04:19:19.776Z",
+      "last_seen": "2026-10-29T22:47:38.598Z",
+      "deadline_checked": "2026-10-29T22:47:38.598Z"
+    },
+    {
+      "id": "ae2c648270944de1",
+      "title": "English | 2 years | Full-time MSc Geomatics for the Built Environment",
+      "url": "https://www.tudelft.nl/en/education/programmes/masters/gm/msc-geomatics",
+      "kind": "course",
+      "source": "tudelft-masters",
+      "source_name": "TU Delft master programmes",
+      "published": null,
+      "summary": "",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "geomatics"
+      ],
+      "first_seen": "2026-10-29T04:19:19.776Z",
+      "last_seen": "2026-10-29T22:47:38.598Z",
+      "deadline_checked": "2026-10-29T22:47:38.598Z"
+    },
+    {
+      "id": "d9043e010239ecfe",
+      "title": "Erasmus Mundus “Master in Geospatial Technologies” Secures New EU Funding",
+      "url": "https://www.uni-muenster.de/Geoinformatics/en/news/erasmus_mundus_funding.shtml",
+      "kind": "course",
+      "source": "muenster-programs",
+      "source_name": "University of Münster Geoinformatics",
+      "published": null,
+      "summary": "",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "geospatial"
+      ],
+      "first_seen": "2026-10-29T04:19:19.776Z",
+      "last_seen": "2026-10-29T22:47:38.598Z",
+      "deadline_checked": "2026-10-29T22:47:38.598Z"
+    },
+    {
+      "id": "a66be833ab478efa",
+      "title": "\"BSc Geoinformatics\" program",
+      "url": "https://bachelor-geoinformatik.de/",
+      "kind": "course",
+      "source": "muenster-programs",
+      "source_name": "University of Münster Geoinformatics",
+      "published": null,
+      "summary": "",
+      "deadline": "2027-10-08T23:59:59.000Z",
+      "location": null,
+      "matched": [
+        "geoinformatics"
+      ],
+      "first_seen": "2026-10-29T04:19:19.776Z",
+      "last_seen": "2026-10-29T22:47:38.598Z",
+      "deadline_checked": "2026-10-29T22:47:38.598Z"
+    },
+    {
+      "id": "514511bfb5cc6757",
+      "title": "MSc Geoinformatics and Spatial Data Science",
+      "url": "https://master-geoinformatics.com/",
+      "kind": "course",
+      "source": "muenster-programs",
+      "source_name": "University of Münster Geoinformatics",
+      "published": null,
+      "summary": "",
+      "deadline": "2026-11-30T23:59:59.000Z",
+      "location": null,
+      "matched": [
+        "geoinformatics",
+        "spatial data"
+      ],
+      "first_seen": "2026-10-29T04:19:19.776Z",
+      "last_seen": "2026-10-29T22:47:38.598Z",
+      "deadline_checked": "2026-10-29T22:47:38.598Z"
+    },
+    {
+      "id": "958f34a77b6506ea",
+      "title": "Master in Geospatial Technologies (Erasmus Mundus)",
+      "url": "http://mastergeotech.info/",
+      "kind": "course",
+      "source": "muenster-programs",
+      "source_name": "University of Münster Geoinformatics",
+      "published": null,
+      "summary": "",
+      "deadline": "2027-01-31T23:59:59.000Z",
+      "location": null,
+      "matched": [
+        "geospatial"
+      ],
+      "first_seen": "2026-10-29T04:19:19.776Z",
+      "last_seen": "2026-10-29T22:47:38.598Z",
+      "deadline_checked": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "b6a6426da06fb935",
@@ -3490,151 +3587,55 @@
       "deadline_checked": "2026-10-29T20:58:37.370Z"
     },
     {
-      "id": "4927843db256c3e8",
-      "title": "Geodesy and Geoinformatics Engineering Bachelor of Science Winter Semester German",
-      "url": "https://www.uni-stuttgart.de/en/study/bachelor-programs/geodesy-and-geoinformatics-engineering-b.sc./",
-      "kind": "course",
-      "source": "unistuttgart-programs",
-      "source_name": "University of Stuttgart study programmes",
-      "published": null,
-      "summary": "",
-      "deadline": "2027-09-15T23:59:59.000Z",
-      "location": null,
+      "id": "45d618b2500ce0d7",
+      "title": "IEEE GRSS WEST AFRICA SUMMER SCHOOL 2026",
+      "url": "https://www.grss-ieee.org/event/ieee-grss-west-africa-summer-school-2026/",
+      "kind": "event",
+      "source": "grss-events",
+      "source_name": "IEEE GRSS events",
+      "published": "2026-10-29T04:00:00.000Z",
+      "summary": "IEEE GRSS WEST AFRICA SUMMER SCHOOL 2026WASS 2026 Schools/Workshop 29 October - 04 November 2026 Lagos, Nigeria Hybrid Sponsored by IEEE GRSS Educational Committee, IEEE GRSS Publicity Committee Learn More About the WorkshopThe IEEE GRSS West Africa Summer School on GeoAI and Intelligent Earth Syste",
+      "deadline": "2026-11-05T03:59:59.000Z",
+      "location": "Lagos, Nigeria",
       "matched": [
-        "geoinformatics",
-        "geodesy"
+        "GeoAI"
       ],
-      "first_seen": "2026-10-29T04:19:19.776Z",
-      "last_seen": "2026-10-29T20:58:37.370Z",
-      "deadline_checked": "2026-10-29T20:58:37.370Z"
+      "first_seen": "2026-10-29T04:13:04.453Z",
+      "last_seen": "2026-10-29T22:47:38.598Z"
     },
     {
-      "id": "a3ef2b385d3719fa",
-      "title": "Geodesy and Geoinformatics Engineering Master of Science Winter and Summer Semester German",
-      "url": "https://www.uni-stuttgart.de/en/study/study-programs/Geodesy-and-Geoinformatics-Engineering-M.Sc./",
-      "kind": "course",
-      "source": "unistuttgart-programs",
-      "source_name": "University of Stuttgart study programmes",
-      "published": null,
-      "summary": "",
-      "deadline": "2026-12-01T23:59:59.000Z",
+      "id": "f02f8db04338cd21",
+      "title": "Spatio-temporal analysis in semantic Earth Observation Data Cubes",
+      "url": "https://www.grss-ieee.org/event/spatio-temporal-analysis-in-semantic-earth-observation-data-cubes/",
+      "kind": "event",
+      "source": "grss-events",
+      "source_name": "IEEE GRSS events",
+      "published": "2026-11-11T15:00:00.000Z",
+      "summary": "This webinar will explore recent advances, methods, and applications of semantic Earth Observation data cubes. \\n",
+      "deadline": "2026-11-11T16:00:00.000Z",
       "location": null,
       "matched": [
-        "geoinformatics",
-        "geodesy"
+        "earth observation"
       ],
-      "first_seen": "2026-10-29T04:19:19.776Z",
-      "last_seen": "2026-10-29T20:58:37.370Z",
-      "deadline_checked": "2026-10-29T20:58:37.370Z"
+      "first_seen": "2026-10-29T04:13:04.453Z",
+      "last_seen": "2026-10-29T22:47:38.598Z"
     },
     {
-      "id": "337104e404693ce4",
-      "title": "Geomatics for Environmental Monitoring (GEM) Master of Science Winter and Summer Semester English",
-      "url": "https://www.uni-stuttgart.de/en/study/study-programs/Geomatics-for-Environmental-Monitoring-M.Sc./",
-      "kind": "course",
-      "source": "unistuttgart-programs",
-      "source_name": "University of Stuttgart study programmes",
-      "published": null,
-      "summary": "",
-      "deadline": "2026-11-15T23:59:59.000Z",
-      "location": null,
+      "id": "8e908c6174f04113",
+      "title": "2027 IEEE Radio and Wireless Symposium (RWS)",
+      "url": "https://www.grss-ieee.org/event/2027-ieee-radio-and-wireless-symposium-rws/",
+      "kind": "event",
+      "source": "grss-events",
+      "source_name": "IEEE GRSS events",
+      "published": "2027-01-17T04:00:00.000Z",
+      "summary": "2027 IEEE Radio and Wireless Symposium (RWS) RWS Conference 17- 20 January 2027 Tampa, Florida In Person IEEE Aerospace and Electronic Systems Society; IEEE Antennas and Propagation Society; IEEE Geoscience and Remote Sensing Society; IEEE Microwave Theory and Technology Society Learn more About the",
+      "deadline": "2027-01-21T03:59:59.000Z",
+      "location": "Tampa, Fl",
       "matched": [
-        "geomatics"
+        "remote sensing"
       ],
-      "first_seen": "2026-10-29T04:19:19.776Z",
-      "last_seen": "2026-10-29T20:58:37.370Z",
-      "deadline_checked": "2026-10-29T20:58:37.370Z"
-    },
-    {
-      "id": "ae2c648270944de1",
-      "title": "English | 2 years | Full-time MSc Geomatics for the Built Environment",
-      "url": "https://www.tudelft.nl/en/education/programmes/masters/gm/msc-geomatics",
-      "kind": "course",
-      "source": "tudelft-masters",
-      "source_name": "TU Delft master programmes",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "geomatics"
-      ],
-      "first_seen": "2026-10-29T04:19:19.776Z",
-      "last_seen": "2026-10-29T20:58:37.370Z",
-      "deadline_checked": "2026-10-29T20:58:37.370Z"
-    },
-    {
-      "id": "d9043e010239ecfe",
-      "title": "Erasmus Mundus “Master in Geospatial Technologies” Secures New EU Funding",
-      "url": "https://www.uni-muenster.de/Geoinformatics/en/news/erasmus_mundus_funding.shtml",
-      "kind": "course",
-      "source": "muenster-programs",
-      "source_name": "University of Münster Geoinformatics",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "geospatial"
-      ],
-      "first_seen": "2026-10-29T04:19:19.776Z",
-      "last_seen": "2026-10-29T20:58:37.370Z",
-      "deadline_checked": "2026-10-29T20:58:37.370Z"
-    },
-    {
-      "id": "a66be833ab478efa",
-      "title": "\"BSc Geoinformatics\" program",
-      "url": "https://bachelor-geoinformatik.de/",
-      "kind": "course",
-      "source": "muenster-programs",
-      "source_name": "University of Münster Geoinformatics",
-      "published": null,
-      "summary": "",
-      "deadline": "2027-10-08T23:59:59.000Z",
-      "location": null,
-      "matched": [
-        "geoinformatics"
-      ],
-      "first_seen": "2026-10-29T04:19:19.776Z",
-      "last_seen": "2026-10-29T20:58:37.370Z",
-      "deadline_checked": "2026-10-29T20:58:37.370Z"
-    },
-    {
-      "id": "514511bfb5cc6757",
-      "title": "MSc Geoinformatics and Spatial Data Science",
-      "url": "https://master-geoinformatics.com/",
-      "kind": "course",
-      "source": "muenster-programs",
-      "source_name": "University of Münster Geoinformatics",
-      "published": null,
-      "summary": "",
-      "deadline": "2026-11-30T23:59:59.000Z",
-      "location": null,
-      "matched": [
-        "geoinformatics",
-        "spatial data"
-      ],
-      "first_seen": "2026-10-29T04:19:19.776Z",
-      "last_seen": "2026-10-29T20:58:37.370Z",
-      "deadline_checked": "2026-10-29T20:58:37.370Z"
-    },
-    {
-      "id": "958f34a77b6506ea",
-      "title": "Master in Geospatial Technologies (Erasmus Mundus)",
-      "url": "http://mastergeotech.info/",
-      "kind": "course",
-      "source": "muenster-programs",
-      "source_name": "University of Münster Geoinformatics",
-      "published": null,
-      "summary": "",
-      "deadline": "2027-01-31T23:59:59.000Z",
-      "location": null,
-      "matched": [
-        "geospatial"
-      ],
-      "first_seen": "2026-10-29T04:19:19.776Z",
-      "last_seen": "2026-10-29T20:58:37.370Z",
-      "deadline_checked": "2026-10-29T20:58:37.370Z"
+      "first_seen": "2026-10-29T04:13:04.453Z",
+      "last_seen": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "ce34efc682a336f6",
@@ -3653,57 +3654,6 @@
       "first_seen": "2026-10-29T04:13:04.453Z",
       "last_seen": "2026-10-29T20:58:37.370Z",
       "deadline_checked": "2026-10-29T20:58:37.370Z"
-    },
-    {
-      "id": "45d618b2500ce0d7",
-      "title": "IEEE GRSS WEST AFRICA SUMMER SCHOOL 2026",
-      "url": "https://www.grss-ieee.org/event/ieee-grss-west-africa-summer-school-2026/",
-      "kind": "event",
-      "source": "grss-events",
-      "source_name": "IEEE GRSS events",
-      "published": "2026-10-29T04:00:00.000Z",
-      "summary": "IEEE GRSS WEST AFRICA SUMMER SCHOOL 2026WASS 2026 Schools/Workshop 29 October - 04 November 2026 Lagos, Nigeria Hybrid Sponsored by IEEE GRSS Educational Committee, IEEE GRSS Publicity Committee Learn More About the WorkshopThe IEEE GRSS West Africa Summer School on GeoAI and Intelligent Earth Syste",
-      "deadline": "2026-11-05T03:59:59.000Z",
-      "location": "Lagos, Nigeria",
-      "matched": [
-        "GeoAI"
-      ],
-      "first_seen": "2026-10-29T04:13:04.453Z",
-      "last_seen": "2026-10-29T20:58:37.370Z"
-    },
-    {
-      "id": "f02f8db04338cd21",
-      "title": "Spatio-temporal analysis in semantic Earth Observation Data Cubes",
-      "url": "https://www.grss-ieee.org/event/spatio-temporal-analysis-in-semantic-earth-observation-data-cubes/",
-      "kind": "event",
-      "source": "grss-events",
-      "source_name": "IEEE GRSS events",
-      "published": "2026-11-11T15:00:00.000Z",
-      "summary": "This webinar will explore recent advances, methods, and applications of semantic Earth Observation data cubes. \\n",
-      "deadline": "2026-11-11T16:00:00.000Z",
-      "location": null,
-      "matched": [
-        "earth observation"
-      ],
-      "first_seen": "2026-10-29T04:13:04.453Z",
-      "last_seen": "2026-10-29T20:58:37.370Z"
-    },
-    {
-      "id": "8e908c6174f04113",
-      "title": "2027 IEEE Radio and Wireless Symposium (RWS)",
-      "url": "https://www.grss-ieee.org/event/2027-ieee-radio-and-wireless-symposium-rws/",
-      "kind": "event",
-      "source": "grss-events",
-      "source_name": "IEEE GRSS events",
-      "published": "2027-01-17T04:00:00.000Z",
-      "summary": "2027 IEEE Radio and Wireless Symposium (RWS) RWS Conference 17- 20 January 2027 Tampa, Florida In Person IEEE Aerospace and Electronic Systems Society; IEEE Antennas and Propagation Society; IEEE Geoscience and Remote Sensing Society; IEEE Microwave Theory and Technology Society Learn more About the",
-      "deadline": "2027-01-21T03:59:59.000Z",
-      "location": "Tampa, Fl",
-      "matched": [
-        "remote sensing"
-      ],
-      "first_seen": "2026-10-29T04:13:04.453Z",
-      "last_seen": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "d84c9c35ddcd5726",
@@ -3825,7 +3775,7 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T04:06:44.492Z",
-      "last_seen": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "f6da0afec50fe9b5",
@@ -3843,7 +3793,7 @@
         "hyperspectral"
       ],
       "first_seen": "2026-10-29T04:06:44.492Z",
-      "last_seen": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "ce98ca00ca0fb410",
@@ -3860,7 +3810,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T04:06:44.492Z",
-      "last_seen": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "1097ac7ea2bdd433",
@@ -3877,7 +3827,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T04:06:44.492Z",
-      "last_seen": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "a7a43dfbc2126e9d",
@@ -3894,7 +3844,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T04:06:44.492Z",
-      "last_seen": "2026-10-29T20:58:37.370Z"
+      "last_seen": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "be299c7d3ab959c4",
@@ -3913,6 +3863,25 @@
       "first_seen": "2026-10-29T04:06:44.492Z",
       "last_seen": "2026-10-29T20:58:37.370Z",
       "deadline_checked": "2026-10-29T20:58:37.370Z"
+    },
+    {
+      "id": "b1fcd9f7b257d719",
+      "title": "Research Scientist (f_m_x) - Hyperspectral Remote Sensing – EnMAP",
+      "url": "https://www.gfz-potsdam.de/en/career/job-offers/details/11571",
+      "kind": "job",
+      "source": "gfz-jobs",
+      "source_name": "GFZ Potsdam job offers",
+      "published": null,
+      "summary": "",
+      "deadline": "2026-11-04T22:59:59.000Z",
+      "location": null,
+      "matched": [
+        "remote sensing",
+        "hyperspectral"
+      ],
+      "first_seen": "2026-10-29T04:01:30.109Z",
+      "last_seen": "2026-10-29T22:47:38.598Z",
+      "deadline_checked": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "dbc5f9322e86f8c8",
@@ -3951,23 +3920,55 @@
       "deadline_checked": "2026-10-29T20:58:37.370Z"
     },
     {
-      "id": "b1fcd9f7b257d719",
-      "title": "Research Scientist (f_m_x) - Hyperspectral Remote Sensing – EnMAP",
-      "url": "https://www.gfz-potsdam.de/en/career/job-offers/details/11571",
-      "kind": "job",
-      "source": "gfz-jobs",
-      "source_name": "GFZ Potsdam job offers",
+      "id": "c7e8882b0de54a3f",
+      "title": "Announcement | 2026 EuroSDR PhD Awards for the best PhD thesis related to geoinformation science",
+      "url": "https://www.eurosdr.net/news/announcement-2026-eurosdr-phd-awards-best-phd-thesis-related-geoinformation-science",
+      "kind": "news",
+      "source": "eurosdr-news",
+      "source_name": "EuroSDR news",
       "published": null,
       "summary": "",
-      "deadline": "2026-11-04T22:59:59.000Z",
+      "deadline": null,
       "location": null,
       "matched": [
-        "remote sensing",
-        "hyperspectral"
+        "geoinformation"
       ],
-      "first_seen": "2026-10-29T04:01:30.109Z",
-      "last_seen": "2026-10-29T20:58:37.370Z",
-      "deadline_checked": "2026-10-29T20:58:37.370Z"
+      "first_seen": "2026-10-29T03:51:19.323Z",
+      "last_seen": "2026-10-29T22:47:38.598Z"
+    },
+    {
+      "id": "7e177aaf1f357629",
+      "title": "The ways to build Sustainable Business Models for National Mapping Cadastral Agencies",
+      "url": "https://www.eurosdr.net/news/ways-build-sustainable-business-models-national-mapping-cadastral-agencies",
+      "kind": "news",
+      "source": "eurosdr-news",
+      "source_name": "EuroSDR news",
+      "published": null,
+      "summary": "",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "mapping"
+      ],
+      "first_seen": "2026-10-29T03:51:19.323Z",
+      "last_seen": "2026-10-29T22:47:38.598Z"
+    },
+    {
+      "id": "4d815944b42510e6",
+      "title": "The way forward for 3D Mapping at National and Regional Mapping Agencies",
+      "url": "https://www.eurosdr.net/news/way-forward-3d-mapping-national-and-regional-mapping-agencies",
+      "kind": "news",
+      "source": "eurosdr-news",
+      "source_name": "EuroSDR news",
+      "published": null,
+      "summary": "",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "mapping"
+      ],
+      "first_seen": "2026-10-29T03:51:19.323Z",
+      "last_seen": "2026-10-29T22:47:38.598Z"
     },
     {
       "id": "343fd6657d41eb5e",
@@ -4004,57 +4005,6 @@
       "first_seen": "2026-10-29T03:51:19.323Z",
       "last_seen": "2026-10-29T20:58:37.370Z",
       "deadline_checked": "2026-10-29T20:58:37.370Z"
-    },
-    {
-      "id": "c7e8882b0de54a3f",
-      "title": "Announcement | 2026 EuroSDR PhD Awards for the best PhD thesis related to geoinformation science",
-      "url": "https://www.eurosdr.net/news/announcement-2026-eurosdr-phd-awards-best-phd-thesis-related-geoinformation-science",
-      "kind": "news",
-      "source": "eurosdr-news",
-      "source_name": "EuroSDR news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "geoinformation"
-      ],
-      "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T20:58:37.370Z"
-    },
-    {
-      "id": "7e177aaf1f357629",
-      "title": "The ways to build Sustainable Business Models for National Mapping Cadastral Agencies",
-      "url": "https://www.eurosdr.net/news/ways-build-sustainable-business-models-national-mapping-cadastral-agencies",
-      "kind": "news",
-      "source": "eurosdr-news",
-      "source_name": "EuroSDR news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "mapping"
-      ],
-      "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T20:58:37.370Z"
-    },
-    {
-      "id": "4d815944b42510e6",
-      "title": "The way forward for 3D Mapping at National and Regional Mapping Agencies",
-      "url": "https://www.eurosdr.net/news/way-forward-3d-mapping-national-and-regional-mapping-agencies",
-      "kind": "news",
-      "source": "eurosdr-news",
-      "source_name": "EuroSDR news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "mapping"
-      ],
-      "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T20:58:37.370Z"
     },
     {
       "impact": 43,
