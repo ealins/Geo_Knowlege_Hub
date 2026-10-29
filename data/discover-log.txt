@@ -6,149 +6,150 @@ Sapienza University of Rome (IT): pages 16, programmes 0, with deadline 0
    rejected: https://www.uniroma1.it/it/offerta-formativa/summer-and-winter-school/2021/summer-school-g => Summer School in GIS And BIM for a digital integrated design ;; https://www.uniroma1.it/it/offerta-formativa/summer-and-winter-school/2023/summer-school-g => Summer School in GIS And BIM for a digital integrated design ;; https://www.uniroma1.it/en/offerta-formativa/summer-and-winter-school/2021/summer-school-g => Summer School in GIS And BIM for a digital integrated design ;; https://www.uniroma1.it/en/offerta-formativa/summer-and-winter-school/2023/summer-school-g => Summer School in GIS And BIM for a digital integrated design
 University of Bologna (IT): pages 1, programmes 0, with deadline 0
 University of Lisbon (PT): pages 12, programmes 0, with deadline 0
-University of Colorado Boulder (US): pages 45, programmes 0, with deadline 0 [HTTP 404]
 Politecnico di Torino (IT): pages 6, programmes 0, with deadline 0
+University of Colorado Boulder (US): pages 45, programmes 0, with deadline 0 [HTTP 404]
 University of Twente (NL): pages 45, programmes 12, with deadline 1
-University of Cambridge (GB): pages 45, programmes 0, with deadline 0
+University of Cambridge (GB): pages 45, programmes 0, with deadline 0 [HTTP 403]
    rejected: https://www.undergraduate.study.cam.ac.uk/fees-funding/scholarships-bursaries/geography-sc => Geography Scholarship | Undergraduate Study ;; https://www.undergraduate.study.cam.ac.uk/courses/geography-ba-hons => Geography, BA (Hons) | Undergraduate Study ;; https://www.christs.cam.ac.uk/study-here/undergraduate-study/subjects/geography => Geography | Christs College Cambridge ;; https://www.chu.cam.ac.uk/undergraduate-courses/biology/geography/ => Geography - Churchill College
-University of Padua (IT): pages 2, programmes 0, with deadline 0
 Delft University of Technology (NL): pages 33, programmes 2, with deadline 0
 Technical University of Munich (DE): pages 45, programmes 0, with deadline 0
    rejected: https://www.cit.tum.de/cit/studienbeginn/mathematik-vorkurse/management-technology-aerospa => Vorkurs Mathematik für Management and Technology, Aerospace,
 Wageningen University & Research (NL): pages 45, programmes 2, with deadline 0
+University of Padua (IT): pages 2, programmes 0, with deadline 0
+University College London (GB): pages 1, programmes 0, with deadline 0 [The operation was aborted due to timeout]
 Sorbonne Université (FR): pages 11, programmes 0, with deadline 0
    rejected: https://www.sorbonne-universite.fr/pgp-geosciences => PGP Géosciences | Sorbonne Université| Sorbonne université ;; https://www.sorbonne-universite.fr/evenements/les-paris-des-jeux-geographie-olympique-et-s => Les paris des Jeux ! Géographie olympique et sportive | Sorb
-University College London (GB): pages 1, programmes 0, with deadline 0 [The operation was aborted due to timeout]
 Université de Toulouse (FR): pages 1, programmes 0, with deadline 0
 University of Maryland, College Park (US): pages 45, programmes 2, with deadline 0
 The University of Melbourne (AU): pages 1, programmes 0, with deadline 0
-University of Washington (US): pages 45, programmes 0, with deadline 0 [robots.txt]
+University of Washington (US): pages 45, programmes 0, with deadline 0 [HTTP 429]
    rejected: https://geography.washington.edu/ => Home | Department of Geography | University of Washington ;; https://geography.washington.edu/undergraduate-programs => Undergraduate Programs | Department of Geography | Universit ;; https://geography.washington.edu/degree-options => Degree Options | Department of Geography | University of Was ;; https://geography.washington.edu/declare-geography-major => Declare the Geography Major | Department of Geography | Univ
+Ghent University (BE): pages 7, programmes 0, with deadline 0
 University of Helsinki (FI): pages 29, programmes 0, with deadline 0
    rejected: https://www.helsinki.fi/en/degree-programmes/geography-masters-programme => Geography | Master's programme | University of Helsinki ;; https://www.helsinki.fi/en/science-education-and-academic-outreach/teachers/geopiste-scien => Geopiste: Science lab for Geography and Geosciences | Scienc ;; https://www.helsinki.fi/en/degree-programmes/geography-masters-programme/studying => Studying | Geography | Master's programme | University of He ;; https://www.helsinki.fi/en/degree-programmes/geography-masters-programme/career => Career | Geography | Master's programme | University of Hels
-University of Florida (US): pages 45, programmes 2, with deadline 0
-Ghent University (BE): pages 7, programmes 0, with deadline 0
-Texas A&M University (US): pages 45, programmes 1, with deadline 1
-Aarhus University (DK): pages 1, programmes 0, with deadline 0
-University of Florence (IT): pages 2, programmes 0, with deadline 0
-University of Michigan (US): pages 1, programmes 0, with deadline 0
 University of Leeds (GB): pages 45, programmes 0, with deadline 0 [HTTP 404]
+University of Florence (IT): pages 2, programmes 0, with deadline 0
+Université Paris-Saclay (FR): pages 45, programmes 0, with deadline 0 [robots.txt]
+   rejected: https://www.universite-paris-saclay.fr/en/summer-schools-geosciences-and-astrophysics => Summer Schools - Geosciences and Astrophysics | Université P ;; https://www.universite-paris-saclay.fr/climat-environnement-geosciences => Climat - Environnement - Géosciences | Université Paris-Sacl ;; https://www.universite-paris-saclay.fr/en/climate-environment-geosciences => Climate - Environment - Geosciences | Université Paris-Sacla ;; https://www.universite-paris-saclay.fr/programme-doctoral-geosciences-climat-environnement => Programme doctoral Géosciences, Climat, Environnement, Planè
+Aarhus University (DK): pages 1, programmes 0, with deadline 0
+Texas A&M University (US): pages 45, programmes 1, with deadline 1
+University of Michigan (US): pages 1, programmes 0, with deadline 0
+University of Florida (US): pages 45, programmes 2, with deadline 0
+Université de Montpellier (FR): pages 7, programmes 0, with deadline 0
+   rejected: https://www.umontpellier.fr/campus/vie-associative/vie-associative-etudiante/association-g => Association Géosciences Montpellier (AGM) – Université de Mo ;; https://www.umontpellier.fr/recherche/poles-de-recherche/pole-aeb-presentation/geosciences => Géosciences Montpellier (GM) – Université de Montpellier ;; https://www.umontpellier.fr/en/campus/vie-associative/vie-associative-etudiante/associatio => Montpellier Geosciences Association (AGM) – University of Mo ;; https://www.umontpellier.fr/en/recherche/poles-de-recherche/pole-aeb-presentation/geoscien => Montpellier Geosciences (GM) – University of Montpellier
 Karlsruhe Institute of Technology (DE): pages 45, programmes 3, with deadline 3
+KU Leuven (BE): pages 1, programmes 0, with deadline 0
+Massachusetts Institute of Technology (US): pages 45, programmes 0, with deadline 0
 University of Wisconsin–Madison (US): pages 45, programmes 1, with deadline 1
 University of Toronto (CA): pages 45, programmes 0, with deadline 0 [HTTP 403]
    rejected: https://sgs.calendar.utoronto.ca/degree/Geography-and-Planning => Geography and Planning | Graduate Calendar 2026-27 ;; https://www.geography.utoronto.ca/graduate-geography/prospective/phd-program-study =>  ;; https://www.geography.utoronto.ca/graduate-planning/current/phd-handbook =>  ;; https://www.geography.utoronto.ca/graduate-planning/prospective/phd-program-study => 
-KU Leuven (BE): pages 1, programmes 0, with deadline 0
 UNSW Sydney (AU): pages 45, programmes 0, with deadline 0
    rejected: https://www.unsw.edu.au/study/undergraduate/bachelor-of-engineering-honours-civil-surveyin => Bachelor of Engineering (Honours) (Civil) / Surveying | UNSW ;; https://www.unsw.edu.au/study/undergraduate/bachelor-of-engineering-honours-surveying => Bachelor of Engineering (Honours) (Surveying) | UNSW Sydney ;; https://www.unsw.edu.au/arts-design-architecture/study-with-us/study-areas/geographical-st => Geographical studies | Arts, Design & Architecture - UNSW Sy
-Université Paris-Saclay (FR): pages 45, programmes 0, with deadline 0 [robots.txt]
-   rejected: https://www.universite-paris-saclay.fr/en/summer-schools-geosciences-and-astrophysics => Summer Schools - Geosciences and Astrophysics | Université P ;; https://www.universite-paris-saclay.fr/climat-environnement-geosciences => Climat - Environnement - Géosciences | Université Paris-Sacl ;; https://www.universite-paris-saclay.fr/en/climate-environment-geosciences => Climate - Environment - Geosciences | Université Paris-Sacla ;; https://www.universite-paris-saclay.fr/programme-doctoral-geosciences-climat-environnement => Programme doctoral Géosciences, Climat, Environnement, Planè
-Colorado State University (US): pages 45, programmes 0, with deadline 0
-   rejected: https://www.libarts.colostate.edu/areas/anthropology-geography/ => Anthropology and Geography - College of Liberal Arts | Color ;; https://anthgr.colostate.edu/undergraduate-programs/geography-undergraduate-programs/ => Geography Undergraduate Programs - Anthropology and Geograph ;; https://www.libarts.colostate.edu/programs/geographic-information-science-and-geographic-a => Undergraduate Programs - College of Liberal Arts | Colorado  ;; https://www.libarts.colostate.edu/programs/geography/ => Undergraduate Programs - College of Liberal Arts | Colorado 
-Massachusetts Institute of Technology (US): pages 45, programmes 0, with deadline 0
 Harvard University (US): pages 45, programmes 0, with deadline 0 [HTTP 403]
    rejected: https://www.gsd.harvard.edu/2024/11/a-new-way-of-seeing-the-laboratory-for-computer-graphi => A New Way of Seeing: The Laboratory for Computer Graphics an
-University of Exeter (GB): pages 45, programmes 2, with deadline 2
-The University of Queensland (AU): pages 45, programmes 0, with deadline 0 [HTTP 405]
+Colorado State University (US): pages 45, programmes 0, with deadline 0
+   rejected: https://www.libarts.colostate.edu/areas/anthropology-geography/ => Anthropology and Geography - College of Liberal Arts | Color ;; https://anthgr.colostate.edu/undergraduate-programs/geography-undergraduate-programs/ => Geography Undergraduate Programs - Anthropology and Geograph ;; https://www.libarts.colostate.edu/programs/geographic-information-science-and-geographic-a => Undergraduate Programs - College of Liberal Arts | Colorado  ;; https://www.libarts.colostate.edu/programs/geography/ => Undergraduate Programs - College of Liberal Arts | Colorado 
 Universitat de València (ES): pages 1, programmes 0, with deadline 0
+The University of Queensland (AU): pages 45, programmes 0, with deadline 0 [HTTP 405]
 University of California, Berkeley (US): pages 45, programmes 0, with deadline 0 [robots.txt]
    rejected: https://geography.berkeley.edu/ => Home Page | Berkeley Geography ;; https://geography.berkeley.edu/academics/undergraduate-studies => Undergraduate Studies | Berkeley Geography ;; https://geography.berkeley.edu/home => Home Page | Berkeley Geography ;; https://geography.berkeley.edu/about => About UC Berkeley Geography | Berkeley Geography
+University of Exeter (GB): pages 45, programmes 2, with deadline 2
 Imperial College London (GB): pages 45, programmes 0, with deadline 0
    rejected: https://www.imperial.ac.uk/study/subjects/geosciences/ => Geosciences | Study | Imperial College London
-University of British Columbia (CA): pages 45, programmes 1, with deadline 1
 Columbia University (US): pages 1, programmes 0, with deadline 0
 University of Illinois Urbana-Champaign (US): pages 45, programmes 1, with deadline 0
+University of British Columbia (CA): pages 45, programmes 2, with deadline 1
 Purdue University West Lafayette (US): pages 48, programmes 4, with deadline 1
+Arizona State University (US): pages 45, programmes 0, with deadline 0 [HTTP 429]
+Utrecht University (NL): pages 45, programmes 1, with deadline 1
+University of Arizona (US): pages 45, programmes 4, with deadline 0
 University of Edinburgh (GB): pages 45, programmes 0, with deadline 0 [HTTP 404]
    rejected: http://www.ed.ac.uk/research-innovation/latest-research-news/new-centre-for-future-leaders => New centre for future leaders in Earth observation | Researc ;; https://www.ed.ac.uk/geosciences => School of GeoSciences | GeoSciences
-California Institute of Technology (US): pages 45, programmes 0, with deadline 0 [robots.txt]
-Arizona State University (US): pages 45, programmes 0, with deadline 0
-Utrecht University (NL): pages 45, programmes 1, with deadline 1
 Université Grenoble Alpes (FR): pages 6, programmes 0, with deadline 0 [HTTP 404]
    rejected: https://www.univ-grenoble-alpes.fr/formation/orientation-insertion-stage-emploi/reussir-sa => Service d'authentification aux services numeriques de l'Univ ;; https://www.univ-grenoble-alpes.fr/recherche/laboratoires-de-recherche/le-pole-physique-de => Service d'authentification aux services numeriques de l'Univ ;; https://www.univ-grenoble-alpes.fr/rayonnement/l-uga-et-ses-territoires/l-uga-et-l-experim => L'Institut d'urbanisme et de géographie alpine (IUGA) récomp
-University of Arizona (US): pages 45, programmes 4, with deadline 0
 Lund University (SE): pages 2, programmes 0, with deadline 0
-University of Bristol (GB): pages 45, programmes 1, with deadline 0
+California Institute of Technology (US): pages 45, programmes 0, with deadline 0 [robots.txt]
 University of California, Los Angeles (US): pages 45, programmes 2, with deadline 0
 Oregon State University (US): pages 45, programmes 0, with deadline 0 [HTTP 503]
    rejected: https://gradschool.oregonstate.edu/programs/5455/geography-and-geospatial-science-phd-ms-m => Geography and Geospatial Science (Ph.D., M.S., minor) | Offi ;; https://gradschool.oregonstate.edu/programs/cg03/geographic-information-science-cert => Geographic Information Science (CERT) | Office of Graduate E
-Stanford University (US): pages 45, programmes 0, with deadline 0
-University of Bern (CH): pages 3, programmes 0, with deadline 0
+Stanford University (US): pages 45, programmes 0, with deadline 0 [HTTP 403]
 Universidade do Porto (PT): pages 2, programmes 0, with deadline 0
-Université de Montpellier (FR): pages 8, programmes 0, with deadline 0
-   rejected: https://www.umontpellier.fr/recherche/poles-de-recherche/pole-aeb-presentation/geosciences => Géosciences Montpellier (GM) – Université de Montpellier ;; https://www.umontpellier.fr/en/recherche/poles-de-recherche/pole-aeb-presentation/geoscien => Montpellier Geosciences (GM) – University of Montpellier
+University of Bern (CH): pages 3, programmes 0, with deadline 0
+University of Bristol (GB): pages 45, programmes 1, with deadline 0
 University of Reading (GB): pages 45, programmes 0, with deadline 0
    rejected: https://www.reading.ac.uk/ready-to-study/study/2026/building-and-surveying-ug => Building and surveying undergraduate degree courses - 2026/2 ;; https://www.reading.ac.uk/ready-to-study/study/2026/international-foundation-pathways-ug/b => BSc Building Surveying with International Foundation Year, U ;; https://www.reading.ac.uk/ready-to-study/study/2026/international-foundation-pathways-ug/b => BSc Construction Management and Surveying with International ;; https://www.reading.ac.uk/ready-to-study/study/2026/international-foundation-pathways-ug/b => BSc Quantity Surveying with International Foundation Year - 
-University of Liège (BE): pages 45, programmes 0, with deadline 0 [HTTP 500]
-Universidad Politécnica de Madrid (ES): pages 1, programmes 0, with deadline 0
-Christian Business School (US): pages 1, programmes 0, with deadline 0
-University of Coimbra (PT): pages 1, programmes 0, with deadline 0
-AGH University of Krakow (PL): pages 1, programmes 0, with deadline 0
 Université de Versailles Saint-Quentin-en-Yvelines (FR): pages 31, programmes 0, with deadline 0 [fetch failed]
    rejected: https://www.uvsq.fr/objectifs-climatiques-de-paris-une-cartographie-precise-des-inegalites => Objectifs climatiques de Paris : une cartographie précise de ;; https://www.uvsq.fr/earth-observation-for-water-cycle-science-2020 => Earth Observation for Water Cycle Science 2020 - UVSQ ;; https://www.uvsq.fr/«interaction-climat-calottes-durant-la-greenhouse-du-cretace-paleogene => «Interaction climat-calottes durant la greenhouse du Crétacé ;; https://www.uvsq.fr/la-medaille-arthur-holmes-de-leuropean-geosciences-union-egu-decernee- => La Médaille Arthur Holmes de l’European Geosciences Union (E
+Universidad Politécnica de Madrid (ES): pages 1, programmes 0, with deadline 0
+Christian Business School (US): pages 1, programmes 0, with deadline 0
 Cornell University (US): pages 45, programmes 0, with deadline 0 [HTTP 403]
+University of Liège (BE): pages 45, programmes 0, with deadline 0 [HTTP 500]
+AGH University of Krakow (PL): pages 1, programmes 0, with deadline 0
+University of Coimbra (PT): pages 1, programmes 0, with deadline 0
 University of California, Davis (US): pages 45, programmes 0, with deadline 0 [HTTP 403]
    rejected: https://www.ucdavis.edu/graduate-programs/geography => Geography | UC Davis ;; https://www.ucdavis.edu/one-health/exploring-geography-disease-susceptibility => Exploring the Geography of Disease Susceptibility | UC Davis ;; https://www.ucdavis.edu/one-health/national-geographic-features-uc-davis-gorilla-doctors => National Geographic Features UC Davis Gorilla Doctors | UC D ;; https://www.ucdavis.edu/uc-davis-books/ganges-geography-politics-and-religion => Culture, Legends, Politics and Religion Along the Ganges | U
-Michigan State University (US): pages 45, programmes 0, with deadline 0 [HTTP 503]
-Warsaw University of Technology (PL): pages 1, programmes 0, with deadline 0
 University of Copenhagen (DK): pages 45, programmes 2, with deadline 1
-Swedish University of Agricultural Sciences (SE): pages 45, programmes 7, with deadline 0
+Warsaw University of Technology (PL): pages 1, programmes 0, with deadline 0
+University of California San Diego (US): pages 45, programmes 0, with deadline 0 [HTTP 404]
 Universitat Politècnica de Catalunya (ES): pages 1, programmes 0, with deadline 0
-University of Bonn (DE): pages 6, programmes 0, with deadline 0
+Swedish University of Agricultural Sciences (SE): pages 45, programmes 7, with deadline 0
+University of Palermo (IT): pages 3, programmes 0, with deadline 0 [fetch failed]
 University of Turin (IT): pages 5, programmes 0, with deadline 0
 Universidad Europea del Atlántico (ES): pages 1, programmes 0, with deadline 0
+Michigan State University (US): pages 45, programmes 0, with deadline 0 [HTTP 503]
+University of Bonn (DE): pages 6, programmes 0, with deadline 0
 Universitat Politècnica de València (ES): pages 1, programmes 0, with deadline 0
-University of Palermo (IT): pages 9, programmes 0, with deadline 0
-Universidad Complutense de Madrid (ES): pages 5, programmes 0, with deadline 0
 Veni Creator Christian University (US): pages 0, programmes 0, with deadline 0 [robots.txt]
+Universidad Complutense de Madrid (ES): pages 5, programmes 0, with deadline 0
 École Polytechnique Fédérale de Lausanne (CH): pages 8, programmes 0, with deadline 0
    rejected: https://www.epfl.ch/schools/enac/education/fr/projeter-ensemble-fr/cours/unites-denseignem => Cartographies Cognitives ‒ Formation ENAC ‐ EPFL ;; https://www.epfl.ch/schools/enac/education/fr/projeter-ensemble-fr/cours/unites-denseignem => Cartographies Cognitives ‒ Formation ENAC ‐ EPFL
 Technische Universität Dresden (DE): pages 9, programmes 0, with deadline 0
-University of Zurich (CH): pages 1, programmes 0, with deadline 0
 University of Naples Federico II (IT): pages 2, programmes 0, with deadline 0
+University of Zurich (CH): pages 1, programmes 0, with deadline 0
 Universidad de Granada (ES): pages 13, programmes 0, with deadline 0 [HTTP 404]
    rejected: https://www.ugr.es/en/study/undergraduate/programmes/geography-and-land-management => Undergraduate Degree in Geography and Land Management | Univ
-University of Glasgow (GB): pages 45, programmes 1, with deadline 1
 University of Freiburg (DE): pages 5, programmes 0, with deadline 0
 TU Wien (AT): pages 21, programmes 3, with deadline 0
+University of Glasgow (GB): pages 45, programmes 0, with deadline 0
+   rejected: https://www.gla.ac.uk/undergraduate/degrees/environmentalgeoscience/ => University of Glasgow - Undergraduate study - 2027 Degree pr ;; https://www.gla.ac.uk/undergraduate/degrees/environmental-geoscience-faster-route/ => University of Glasgow - Undergraduate study - 2027 Degree pr ;; https://www.gla.ac.uk/undergraduate/degrees/geography/ => University of Glasgow - Undergraduate study - 2027 Degree pr ;; https://www.gla.ac.uk/undergraduate/degrees/geography-faster-route/ => University of Glasgow - Undergraduate study - 2027 Degree pr
 AgroParisTech (FR): pages 9, programmes 0, with deadline 0
-   rejected: https://www.agroparistech.fr/recherche/unites-recherche/pole-recherche-pour-lorganisation- => Pôle de recherche pour l’organisation et la diffusion de l’i
-Leibniz University Hannover (DE): pages 33, programmes 0, with deadline 0
+   rejected: https://www.agroparistech.fr/recherche/unites-recherche/pole-recherche-pour-lorganisation- => Pôle de recherche pour l’organisation et la diffusion de l’i ;; https://www.agroparistech.fr/information-geographique-territoires-environnement => Information géographique, territoires et environnement | Agr ;; https://www.agroparistech.fr/lecole/departements-formation-recherche/sciences-ingenierie-a => UFR Information géographique, territoires et environnement -
 Wrocław University of Science and Technology (PL): pages 25, programmes 0, with deadline 0 [HTTP 404]
    rejected: https://pwr.edu.pl/en/university/interdisciplinary-scientific-seminar/prof-don-dingwell--f => How we will build on the moon? ;; https://pwr.edu.pl/uczelnia/aktualnosci/druzyna-z-w6-zwyciezyla-w-akademickich-mistrzostwa => Drużyna z W6 zwyciężyła w Akademickich Mistrzostwach Geoinfo ;; https://pwr.edu.pl/uczelnia/aktualnosci/w-kole-naukowym-gis-powstala-nowa-interaktywna-map => W kole naukowym GIS powstała nowa interaktywna mapa kampusu  ;; https://pwr.edu.pl/uczelnia/aktualnosci/sukces-reprezentantek-pwr-na-akademickich-mistrzos => Sukces reprezentantek PWr na Akademickich Mistrzostwach Geoi
-University of California San Diego (US): pages 45, programmes 0, with deadline 0 [HTTP 404]
-Pennsylvania State University (US): pages 45, programmes 7, with deadline 7
-Humboldt-Universität zu Berlin (DE): pages 1, programmes 0, with deadline 0
-The Ohio State University (US): pages 45, programmes 3, with deadline 1
+Leibniz University Hannover (DE): pages 33, programmes 0, with deadline 0
 Technische Universität Berlin (DE): pages 45, programmes 0, with deadline 0 [HTTP 404]
    rejected: https://www.tu.berlin/igg/einrichtungen-services/gis-labor => GIS - Labor - TU Berlin ;; https://www.tu.berlin/geoinformation => Geoinformationsverarbeitung in der Umweltplanung - TU Berlin ;; https://www.tu.berlin/geoinformation/veranstaltungsdetails => Veranstaltungsdetails - TU Berlin ;; https://www.tu.berlin/geoinformation/ueber-uns => Über uns - TU Berlin
-University of Trento (IT): pages 15, programmes 0, with deadline 0
+Humboldt-Universität zu Berlin (DE): pages 1, programmes 0, with deadline 0
+Pennsylvania State University (US): pages 45, programmes 5, with deadline 5
+The Ohio State University (US): pages 45, programmes 3, with deadline 1
 University of Agriculture in Krakow (PL): pages 45, programmes 0, with deadline 0 [HTTP 404]
    rejected: https://urk.edu.pl/en/aktualnosci-1/nagrody-ministra-w-dziedzinie-geoinformacji-47.html => Nagrody Ministra w dziedzinie geoinformacji ;; https://urk.edu.pl/en/aktualnosci-1/malopolski-gis-day-217.html => MAŁOPOLSKI GIS DAY ;; https://urk.edu.pl/en/aktualnosci-1/kierunki-inzynieria-i-gospodarka-wodna-i-st-lesnictwo- => KIERUNKI INŻYNIERIA I GOSPODARKA WODNA (I st.), LEŚNICTWO (I ;; https://urk.edu.pl/en/aktualnosci-1/nagrody-ministra-rozwoju-pracy-i-technologii-za-najlep => NAGRODY MINISTRA ROZWOJU, PRACY I TECHNOLOGII ZA NAJLEPSZE P
+University of Trento (IT): pages 15, programmes 0, with deadline 0
 University of Potsdam (DE): pages 45, programmes 1, with deadline 0
-University of Georgia (US): pages 6, programmes 0, with deadline 0
 University of Birmingham (GB): pages 45, programmes 0, with deadline 0
    rejected: https://www.birmingham.ac.uk/about/our-campus/build-higher-frameworks/construction-surveyi => Surveying Consultancy: Building Surveyor & QS - University o ;; https://www.birmingham.ac.uk/about/our-campus/build-higher-frameworks/geometric-surveying => Geometric Surveying - University of Birmingham ;; https://www.birmingham.ac.uk/about/college-of-life-and-environmental-sciences/school-of-ge => School of Geography, Earth and Environmental Sciences - Univ ;; https://www.birmingham.ac.uk/about/college-of-life-and-environmental-sciences/school-of-ge => About the School of Geography, Earth and Environmental Scien
+University of Georgia (US): pages 6, programmes 0, with deadline 0
 Marche Polytechnic University (IT): pages 11, programmes 0, with deadline 0
-The University of Texas at Austin (US): pages 45, programmes 0, with deadline 0 [HTTP 404]
-   rejected: https://www.jsg.utexas.edu/academics/undergraduate/why-geosciences/ => Why Geosciences? | Jackson School of Geosciences | The Unive ;; https://jsg.utexas.edu/academics/undergraduate/degrees-offered/computational-geosciences-m => Jackson School of Geosciences | The University of Texas at A ;; https://jsg.utexas.edu/academics/undergraduate/degrees-offered/geosciences-minor/ => Jackson School of Geosciences | The University of Texas at A ;; https://liberalarts.utexas.edu/geography/graduate-program/ => Graduate Program | Geography and the Environment | Liberal A
 University of Manchester (GB): pages 45, programmes 0, with deadline 0
 Czech Technical University in Prague (CZ): pages 6, programmes 0, with deadline 0 [fetch failed]
+University of Calgary (CA): pages 45, programmes 3, with deadline 3
+The University of Texas at Austin (US): pages 45, programmes 0, with deadline 0 [HTTP 404]
+   rejected: https://www.jsg.utexas.edu/academics/undergraduate/why-geosciences/ => Why Geosciences? | Jackson School of Geosciences | The Unive ;; https://jsg.utexas.edu/academics/undergraduate/degrees-offered/computational-geosciences-m => Jackson School of Geosciences | The University of Texas at A ;; https://jsg.utexas.edu/academics/undergraduate/degrees-offered/geosciences-minor/ => Jackson School of Geosciences | The University of Texas at A ;; https://liberalarts.utexas.edu/geography/graduate-program/ => Graduate Program | Geography and the Environment | Liberal A
+Monash University (AU): pages 1, programmes 0, with deadline 0
 Université de Strasbourg (FR): pages 7, programmes 0, with deadline 0
    rejected: https://www.unistra.fr/fr/evenements/2024/12/mise-en-reseau-des-manuscrits-et-des-imprimes => Conférence - « Mise en réseau des manuscrits et des imprimés ;; https://www.unistra.fr/fr/entites/institut-thematique-interdisciplinaire/geosciences-la-tr => Géosciences pour la transition énergétique | Université de S ;; https://www.unistra.fr/fr/entites/faculte-ecole-institut/faculte-geographie-et-damenagemen => Faculté de géographie et d'aménagement | Université de Stras ;; https://geographie.unistra.fr/ => Faculté de géographie et d'aménagement
-Monash University (AU): pages 1, programmes 0, with deadline 0
-Technical University of Denmark (DK): pages 1, programmes 0, with deadline 0
 Universitat de Barcelona (ES): pages 1, programmes 0, with deadline 0
-University of Calgary (CA): pages 45, programmes 3, with deadline 3
+Technical University of Denmark (DK): pages 1, programmes 0, with deadline 0
 University of Warmia and Mazury in Olsztyn (PL): pages 1, programmes 0, with deadline 0 [fetch failed]
 Universitat Autònoma de Barcelona (ES): pages 48, programmes 2, with deadline 0
-University of Minnesota (US): pages 45, programmes 0, with deadline 0 [HTTP 404]
 Vrije Universiteit Amsterdam (NL): pages 30, programmes 2, with deadline 0
-North Carolina State University (US): pages 45, programmes 0, with deadline 0 [HTTP 404]
 Czech University of Life Sciences Prague (CZ): pages 45, programmes 0, with deadline 0
    rejected: https://www.czu.cz/cs/r-7214-mezinarodni-vztahy/r-7252-studium-v-aj-na-czu/r-8254-msc-envi => FŽP - Fakulta životního prostředí ČZU v Praze ;; https://www.czu.cz/cs/r-7584-projekty-a-spoluprace-s-praxi/r-21027-projekty-na-czu/r-12913 => Česká zemědělská univerzita v Praze Projekty a spolupráce s  ;; https://www.czu.cz/en/r-9190-international-relations/r-9288-study-in-english/r-10876-envir => Environmental Geosciences - Faculty of Environmental Science ;; https://www.czu.cz/en/r-9191-projects-and-partnerships/r-9279-projects-at-czu/r-19390-issu => Czech University of Life Sciences Prague
-University of Milan (IT): pages 45, programmes 3, with deadline 0
-HFT Stuttgart (DE): pages 39, programmes 4, with deadline 4
-University of Maine (US): pages 45, programmes 3, with deadline 3
+HFT Stuttgart (DE): pages 34, programmes 2, with deadline 2
+North Carolina State University (US): pages 45, programmes 0, with deadline 0 [HTTP 404]
+University of Minnesota (US): pages 45, programmes 0, with deadline 0 [HTTP 404]
 Curtin University (AU): pages 45, programmes 1, with deadline 1
-University of Hawaiʻi at Mānoa (US): pages 1, programmes 0, with deadline 0 [fetch failed]
-programmes: 83, with deadline: 32
+University of Hawaiʻi at Mānoa (US): pages 45, programmes 1, with deadline 0
+University of Milan (IT): pages 45, programmes 3, with deadline 0
+University of Maine (US): pages 45, programmes 3, with deadline 3
+programmes: 80, with deadline: 27
