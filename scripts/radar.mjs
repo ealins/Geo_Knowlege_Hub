@@ -6,6 +6,7 @@ import { readFile, writeFile, mkdir } from "node:fs/promises";
 import { createHash } from "node:crypto";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { getEnabledSources } from "./source-config.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const DATA_DIR = path.join(ROOT, "data");
@@ -226,7 +227,7 @@ async function runSource(src, statusOut) {
 }
 
 // ---------- main ----------
-const enabled = (sourcesCfg.sources ?? []).filter((s) => s.enabled);
+const enabled = getEnabledSources(sourcesCfg);
 const statusOut = {};
 const batches = await Promise.all(enabled.map((s) => runSource(s, statusOut)));
 const fresh = batches.flat();
@@ -263,4 +264,3 @@ await writeFile(
 console.log(
   `sources enabled: ${enabled.length}, matched this run: ${fresh.length}, items kept: ${items.length}`,
 );
-if (!enabled.length) console.log("No sources are enabled yet. Add them in config/sources.json.");
