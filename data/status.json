@@ -1,8 +1,8 @@
 {
   "arxiv-eess-sp": {
     "state": "ok",
-    "last_checked": "2026-10-29T00:32:17.699Z",
-    "last_success": "2026-10-29T00:32:17.699Z",
+    "last_checked": "2026-10-29T00:51:01.871Z",
+    "last_success": "2026-10-29T00:51:01.871Z",
     "items_found": 43,
     "items_matched": 3,
     "consecutive_failures": 0,
@@ -10,8 +10,8 @@
   },
   "arxiv-eess-iv": {
     "state": "ok",
-    "last_checked": "2026-10-29T00:32:17.699Z",
-    "last_success": "2026-10-29T00:32:17.699Z",
+    "last_checked": "2026-10-29T00:51:01.871Z",
+    "last_success": "2026-10-29T00:51:01.871Z",
     "items_found": 11,
     "items_matched": 2,
     "consecutive_failures": 0,
@@ -19,8 +19,8 @@
   },
   "arxiv-cs-cv": {
     "state": "ok",
-    "last_checked": "2026-10-29T00:32:17.699Z",
-    "last_success": "2026-10-29T00:32:17.699Z",
+    "last_checked": "2026-10-29T00:51:01.871Z",
+    "last_success": "2026-10-29T00:51:01.871Z",
     "items_found": 245,
     "items_matched": 12,
     "consecutive_failures": 0,
