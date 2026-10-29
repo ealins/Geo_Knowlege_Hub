@@ -1,22 +1,2613 @@
 {
-  "generated_at": "2026-10-29T00:51:01.871Z",
+  "generated_at": "2026-10-29T02:30:38.369Z",
   "retain_days": 45,
-  "count": 15,
+  "count": 180,
   "items": [
+    {
+      "id": "d6f40966d7f962d0",
+      "title": "Climate-Based Modeling of Invasive Species Impact on Urban Green Infrastructure Using CLIMEX and Remote Sensing Data",
+      "url": "https://openalex.org/W7220239168",
+      "kind": "paper",
+      "source": "openalex-photogrammetry",
+      "source_name": "OpenAlex: photogrammetry",
+      "published": "2026-11-06T00:00:00.000Z",
+      "summary": "invasive species, urban green infrastructure, CLIMEX, species distribution modeling, climate suitability, urban heat island, land cover dynamics, vegetation indices, multi-criteria decision making, urban biodiversity conservation, climate change impacts, urban planning, Urban ecosystem, Environmenta",
+      "matched": [
+        "remote sensing"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "6f3d851049e0595e",
+      "title": "3D models of terracotta figurines from Tall Damiyah (Jordan)",
+      "url": "https://doi.org/10.5281/zenodo.23229527",
+      "kind": "paper",
+      "source": "openalex-photogrammetry",
+      "source_name": "OpenAlex: photogrammetry",
+      "published": "2026-11-01T00:00:00.000Z",
+      "summary": "terracotta figurines, female figurines, 3D photogrammetry, synchrotron X-ray tomography, Jordan Valley, non-destructive analysis, volume rendering, Terracotta, Archaeology, Excavation, Art, Ancient history, 3d model, Pottery, Geology",
+      "matched": [
+        "photogrammetry"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "5ad1031aa1f81c8b",
+      "title": "Bridging poultry pathology and meat inspection: development of interactive photogrammetry-based learning resources from abattoir specimens",
+      "url": "https://doi.org/10.13140/rg.2.2.31405.65769",
+      "kind": "paper",
+      "source": "openalex-photogrammetry",
+      "source_name": "OpenAlex: photogrammetry",
+      "published": "2026-10-27T00:00:00.000Z",
+      "summary": "Bridging (networking), Poultry meat, Engineering, Computer science, Medicine, Medical education, Biotechnology, Biology",
+      "matched": [
+        "photogrammetry"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "cbed74f2ccb3370a",
+      "title": "GOING DIGITAL: A COMPARATIVE ANALYSIS OF TRADITIONAL AND STRUCTURE-FROM-MOTION PHOTOGRAMMETRY DOCUMENTATION METHODS",
+      "url": "https://doi.org/10.13016/jsid-esre",
+      "kind": "paper",
+      "source": "openalex-photogrammetry",
+      "source_name": "OpenAlex: photogrammetry",
+      "published": "2026-10-27T00:00:00.000Z",
+      "summary": "Photogrammetry, Documentation, Computer science, Automatic identification and data capture, Bridge (graph theory), Remote sensing, Structure from motion, Computer graphics (images)",
+      "matched": [
+        "photogrammetry",
+        "remote sensing"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "a6b7ff3fdcb44ee2",
+      "title": "Digital Twin Technologies for Structural Health Monitoring",
+      "url": "https://doi.org/10.54254/2755-2721/2026.38069",
+      "kind": "paper",
+      "source": "openalex-photogrammetry",
+      "source_name": "OpenAlex: photogrammetry",
+      "published": "2026-10-27T00:00:00.000Z",
+      "summary": "Structural health monitoring, Identification (biology), Predictive maintenance, Condition monitoring, Risk analysis (engineering), Maintenance actions, Engineering, Computer science",
+      "matched": [
+        "digital twin"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "0ce86a6e2758f203",
+      "title": "Integration of GPS, Drone Mapping, and Total Station Technologies with GIS and CAD Tools in Modern Land Surveying",
+      "url": "https://doi.org/10.70315/uloap.ulete.2026.0304005",
+      "kind": "paper",
+      "source": "openalex-photogrammetry",
+      "source_name": "OpenAlex: photogrammetry",
+      "published": "2026-10-27T00:00:00.000Z",
+      "summary": "Total station, Drone, CAD, Geospatial analysis, Unit (ring theory), Aerial photography, Field (mathematics), Terrain",
+      "matched": [
+        "geospatial",
+        "GIS",
+        "drone mapping"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "ffd48478a1d44dc3",
+      "title": "Object Surface-Based Predictive View Planning for Scan-to-BIM: A Cost-Effective Method for Generating BIM of Existing Buildings from Point Cloud Data",
+      "url": "https://doi.org/10.1061/jccee5.cpeng-7811",
+      "kind": "paper",
+      "source": "openalex-photogrammetry",
+      "source_name": "OpenAlex: photogrammetry",
+      "published": "2026-10-27T00:00:00.000Z",
+      "summary": "Point cloud, Photogrammetry, Computer science, Computer vision, Object (grammar), Building information modeling, Field (mathematics), Artificial intelligence",
+      "matched": [
+        "photogrammetry",
+        "point cloud",
+        "BIM"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "5b80a093f2bddf95",
+      "title": "Bibliometric Analysis of the Research Progress on Cloud Removal of Optical Remote Sensing Images",
+      "url": "https://doi.org/10.54254/2753-8818/2026.gl38091",
+      "kind": "paper",
+      "source": "openalex-photogrammetry",
+      "source_name": "OpenAlex: photogrammetry",
+      "published": "2026-10-27T00:00:00.000Z",
+      "summary": "Cloud computing, Remote sensing, Context (archaeology), Computer science, Field (mathematics), Software, Data science, Remote sensing application",
+      "matched": [
+        "remote sensing"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "ebdcb5063b5fbfb6",
+      "title": "A Literature Review on Automated Construction Progress Verification Based on BIM and UAV Vision",
+      "url": "https://doi.org/10.54254/2755-2721/2026.38201",
+      "kind": "paper",
+      "source": "openalex-photogrammetry",
+      "source_name": "OpenAlex: photogrammetry",
+      "published": "2026-10-27T00:00:00.000Z",
+      "summary": "Bridge (graph theory), Task (project management), Field (mathematics), Systems engineering, Computer science, Engineering, Work (physics), Data integration",
+      "matched": [
+        "BIM",
+        "UAV"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "346c4cf54fe91831",
+      "title": "Photogrammetry-Reconstructed 3D Head Meshes for Accessible Individual Head-Related Transfer Functions",
+      "url": "https://doi.org/10.1051/aacus/2026115",
+      "kind": "paper",
+      "source": "openalex-photogrammetry",
+      "source_name": "OpenAlex: photogrammetry",
+      "published": "2026-10-26T00:00:00.000Z",
+      "summary": "head-related transfer functions, photogrammetry, binaural rendering, spatial audio, sound localization, interaural time difference, interaural level difference, pinna morphology, auditory model, consumer hardware, Binaural recording, Monaural, Transfer function, Rendering (computer graphics), Comput",
+      "matched": [
+        "photogrammetry"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "b57461c88fcd502f",
+      "title": "From articles to canopies: Knowledge-driven pseudo-labelling for tree species classification using LLM experts",
+      "url": "https://doi.org/10.1016/j.isprsjprs.2026.10.007",
+      "kind": "paper",
+      "source": "openalex-photogrammetry",
+      "source_name": "OpenAlex: photogrammetry",
+      "published": "2026-10-26T00:00:00.000Z",
+      "summary": "tree species classification, hyperspectral imaging, pseudo-labeling, semi-supervised learning, large language models, airborne laser scanning, spectral mixing, canopy structure, forest classification, Hyperspectral imaging, Prior probability, Computer science, Artificial intelligence, Machine learni",
+      "matched": [
+        "hyperspectral"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "dd24a538cbefe23e",
+      "title": "Baltic: A benchmark and cross-domain strategy for 3D reconstruction across air and underwater domains under varying illumination",
+      "url": "https://doi.org/10.1177/02783649261494624",
+      "kind": "paper",
+      "source": "openalex-photogrammetry",
+      "source_name": "OpenAlex: photogrammetry",
+      "published": "2026-10-26T00:00:00.000Z",
+      "summary": "3D reconstruction, underwater imaging, air-water transition, benchmark dataset, illumination variation, structure from motion, COLMAP, neural radiance fields, 3D Gaussian Splatting, color restoration, white balance correction, radiometric consistency, monocular camera, pose estimation, robot percept",
+      "matched": [
+        "3D reconstruction"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "dc8e062a91da3467",
+      "title": "Field Photogrammetry in 4D: Using AI to Monitor Coral Seeding Devices in TagLab. Reef Restoration and Adaptation Program & Pilot Deployment Program (EcoRRAP-PDP). Standard Operational Procedure Number 18 Version 2 (No. 4 of series).",
+      "url": "https://doi.org/10.25845/3ahj-jn27",
+      "kind": "paper",
+      "source": "openalex-photogrammetry",
+      "source_name": "OpenAlex: photogrammetry",
+      "published": "2026-10-26T00:00:00.000Z",
+      "summary": "coral reef restoration, AI image analysis, Software deployment, Photogrammetry, Field (mathematics), Adaptation (eye), Remote sensing, Environmental science, Computer science, Coral reef",
+      "matched": [
+        "photogrammetry",
+        "remote sensing"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "019e9f7e3e76338f",
+      "title": "Rooftop Photovoltaic Panel Segmentation in UAV Imagery Using Attention U-Net with a ResNet34 Encoder",
+      "url": "https://doi.org/10.17714/gumusfenbil.1940007",
+      "kind": "paper",
+      "source": "openalex-photogrammetry",
+      "source_name": "OpenAlex: photogrammetry",
+      "published": "2026-10-26T00:00:00.000Z",
+      "summary": "UAV imagery, Attention U-Net, dense conditional random fields, image segmentation, solar potential assessment, Segmentation, Computer science, Artificial intelligence, Photovoltaic system, Encoder, Satellite, Computer vision, Energy (signal processing)",
+      "matched": [
+        "UAV"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "e7cb22e10dd0c87e",
+      "title": "How Much Does the Classifier Matter? A Cluster-Aware Comparison of Six Machine Learning Algorithms for Land Use Land Cover Mapping of Taipei, Taiwan, Using Google Earth Engine and Python",
+      "url": "https://doi.org/10.62762/jiap.2026.490298",
+      "kind": "paper",
+      "source": "openalex-photogrammetry",
+      "source_name": "OpenAlex: photogrammetry",
+      "published": "2026-10-26T00:00:00.000Z",
+      "summary": "land use and land cover mapping, classifier comparison, design effect, effective sample size, built-up area mapping, Sentinel-2, Taipei, computational cost, Artificial intelligence, Gradient boosting, Machine learning, Support vector machine, Pairwise comparison, Algorithm, Computer science, Land co",
+      "matched": [
+        "Sentinel-2"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "0ee5faaaf73c70c3",
+      "title": "Lightweight SAR building segmentation via enhanced multi-scale context modeling and bidirectional guided feature fusion",
+      "url": "https://doi.org/10.1038/s41598-026-76312-3",
+      "kind": "paper",
+      "source": "openalex-photogrammetry",
+      "source_name": "OpenAlex: photogrammetry",
+      "published": "2026-10-26T00:00:00.000Z",
+      "summary": "synthetic aperture radar images, lightweight neural networks, MobileNetV3, atrous spatial pyramid pooling, DeepLabV3+, speckle noise, radar shadow, building boundary detection, edge deployment, urban cartography, Computer science, Pyramid (geometry), Segmentation, Artificial intelligence, Context (a",
+      "matched": [
+        "SAR"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "11c918db72a95c05",
+      "title": "Integrating UAV-based multispectral imagery and machine learning to classify glyphosate-resistant palmer amaranth and assess herbicide program efficacy in soybean",
+      "url": "https://doi.org/10.3389/fpls.2026.1913999",
+      "kind": "paper",
+      "source": "openalex-photogrammetry",
+      "source_name": "OpenAlex: photogrammetry",
+      "published": "2026-10-26T00:00:00.000Z",
+      "summary": "Amaranthus palmeri, soybean, UAV multispectral imagery, weed mapping, pre-emergence herbicides, post-emergence herbicides, weed classification, object-based image analysis, random forest, weed density, Amaranth, Multispectral image, Weed, Support vector machine, Artificial intelligence, Machine lear",
+      "matched": [
+        "UAV",
+        "multispectral"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "ebf927d59ad4a710",
+      "title": "G-Frames: overlap-driven video frame selection for photogrammetry",
+      "url": "https://doi.org/10.5281/zenodo.23674119",
+      "kind": "paper",
+      "source": "openalex-photogrammetry",
+      "source_name": "OpenAlex: photogrammetry",
+      "published": "2026-10-26T00:00:00.000Z",
+      "summary": "video frame selection, photogrammetry, 360-degree video, camera motion estimation, optical flow, image sharpness, frame overlap, COLMAP, macOS application, Computer vision, Artificial intelligence, Computer science, Perspective (graphical), Frame (networking), Set (abstract data type), Computer grap",
+      "matched": [
+        "photogrammetry"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "9d35d65951fac681",
+      "title": "Fine-Grained Remote Sensing Semantic Segmentation via Optical–DSM Collaborative Enhancement and Frequency-Guided Decoding",
+      "url": "https://doi.org/10.21203/rs.3.rs-11470010/v1",
+      "kind": "paper",
+      "source": "openalex-photogrammetry",
+      "source_name": "OpenAlex: photogrammetry",
+      "published": "2026-10-26T00:00:00.000Z",
+      "summary": "remote sensing semantic segmentation, digital surface model, cross-modal attention, small object detection, multi-scale feature fusion, Vaihingen, Potsdam, Computer science, Discriminative model, Decoding methods, Upsampling, Remote sensing, Artificial intelligence, Segmentation, Feature (linguistic",
+      "matched": [
+        "remote sensing"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "c17d21c5c4aa3b16",
+      "title": "VIP Treatment: Curiosity-Led Virtual Production Methodologies from an Innovation and Research- Driven Production Studio",
+      "url": "https://doi.org/10.24135/ijcmr.v14i2.185",
+      "kind": "paper",
+      "source": "openalex-photogrammetry",
+      "source_name": "OpenAlex: photogrammetry",
+      "published": "2026-10-26T00:00:00.000Z",
+      "summary": "virtual production, immersive theatre, augmented reality, volumetric video, digital twin, holograms, projection mapping, low-budget production, access to technology, Studio, Augmented reality, Multimedia, The arts, Virtual reality, Creativity, Production (economics), Engineering",
+      "matched": [
+        "digital twin"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "33421856fbb6bb2b",
+      "title": "Smartphone-based 3D reconstruction for surface condition evaluation of large-scale cylindrical structures",
+      "url": "https://doi.org/10.1007/s13349-026-01132-y",
+      "kind": "paper",
+      "source": "openalex-photogrammetry",
+      "source_name": "OpenAlex: photogrammetry",
+      "published": "2026-10-26T00:00:00.000Z",
+      "summary": "cylindrical structures, large-scale structure, structural health monitoring, Surface (topology), Surface reconstruction, Geometry, Iterative reconstruction, Structural engineering, Geology, Mathematics, Finite element method",
+      "matched": [
+        "3D reconstruction"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "c32d8b4ca52d9da3",
+      "title": "Real-time Integrated Safety-security Risk Assessment in the Framework of Circular Economy",
+      "url": "https://doi.org/10.5281/zenodo.23677770",
+      "kind": "paper",
+      "source": "openalex-photogrammetry",
+      "source_name": "OpenAlex: photogrammetry",
+      "published": "2026-10-26T00:00:00.000Z",
+      "summary": "domino effect, Seveso sites, chemical plants, real-time risk assessment, 3D plant reconstruction, aerial photogrammetry, hazardous substances, explosion, fire risk, security threats, circular economy, vulnerability mapping, Risk analysis (engineering), Domino effect, Process (computing), Risk assess",
+      "matched": [
+        "photogrammetry"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "0621da0f4516862c",
+      "title": "Resúmenes de trabajos presentados en el Congreso Internacional de Ciencias de Información Geoespacial 2026",
+      "url": "https://doi.org/10.5281/zenodo.23673349",
+      "kind": "paper",
+      "source": "openalex-photogrammetry",
+      "source_name": "OpenAlex: photogrammetry",
+      "published": "2026-10-26T00:00:00.000Z",
+      "summary": "geographic information science, remote sensing, photogrammetry, geodesy, geographic information systems, cartography, artificial intelligence, socio-spatial vulnerability, climate change, ecosystem conservation, natural resource management, urban expansion, territorial issues, Humanities, Political ",
+      "matched": [
+        "photogrammetry",
+        "remote sensing",
+        "geodesy"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "13e5ab6186ca4ea5",
+      "title": "Joint Datum–Form Decomposition for Photogrammetric Acceptance of Large Precision Assemblies",
+      "url": "https://doi.org/10.3390/s26216761",
+      "kind": "paper",
+      "source": "openalex-photogrammetry",
+      "source_name": "OpenAlex: photogrammetry",
+      "published": "2026-10-26T00:00:00.000Z",
+      "summary": "Residual, Geodetic datum, Monte Carlo method, Photogrammetry, Metrology, Algorithm, Computer science, Engineering drawing",
+      "matched": [
+        "photogrammetry",
+        "photogrammetric"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "6c8a74456a53a845",
+      "title": "Comparison of Window Scan and Digital Outcrop Model Approaches for Fracture Characterisation Along the Lampung–Panjang Fault Zone",
+      "url": "https://doi.org/10.70561/geocelebes.v10i2.52858",
+      "kind": "paper",
+      "source": "openalex-photogrammetry",
+      "source_name": "OpenAlex: photogrammetry",
+      "published": "2026-10-26T00:00:00.000Z",
+      "summary": "Outcrop, Geology, Fracture (geology), Photogrammetry, Window (computing), Digital elevation model, Fault (geology), Seismology",
+      "matched": [
+        "photogrammetry"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "ad0aed524e519d74",
+      "title": "Remote sensing applications in solid waste monitoring and management",
+      "url": "https://doi.org/10.1177/0734242x261484718",
+      "kind": "paper",
+      "source": "openalex-photogrammetry",
+      "source_name": "OpenAlex: photogrammetry",
+      "published": "2026-10-25T00:00:00.000Z",
+      "summary": "solid waste management, waste volume estimation, thermal anomaly detection, hyperspectral imaging, synthetic aperture radar, LiDAR, machine learning, Internet of Things, GIS integration, satellite remote sensing, Remote sensing, Environmental science, Municipal solid waste, Waste management, Remote ",
+      "matched": [
+        "remote sensing",
+        "GIS",
+        "LiDAR",
+        "hyperspectral"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "63573f367edd3ad7",
+      "title": "Remote sensing of Diamer district for forest change overtime",
+      "url": "https://doi.org/10.5281/zenodo.22843534",
+      "kind": "paper",
+      "source": "openalex-remote-sensing",
+      "source_name": "OpenAlex: remote sensing",
+      "published": "2027-09-19T00:00:00.000Z",
+      "summary": "forest change, forest cover change, remote sensing, deforestation, forest monitoring, Remote sensing, Environmental science, Climate change, Overtime, Meteorology, Work (physics), Remote sensing application, Geography",
+      "matched": [
+        "remote sensing"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "814d2913d3e700a9",
+      "title": "FARCOD: A Method of Wildfire False Alarm Removal using Fractional Cover Distribution Retrieved by Satellite Remote Sensing",
+      "url": "https://doi.org/10.17632/4hv676w6mf",
+      "kind": "paper",
+      "source": "openalex-remote-sensing",
+      "source_name": "OpenAlex: remote sensing",
+      "published": "2027-06-15T00:00:00.000Z",
+      "summary": "satellite remote sensing, forest fire detection, burned area mapping, Remote sensing, Environmental science, Satellite, Distribution (mathematics), False alarm, Cover (algebra), Meteorology, Noise (video)",
+      "matched": [
+        "remote sensing"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "39f35f375ce0e018",
+      "title": "Synergy of SAR and Optical Remote Sensing for Inundated Landscape Monitoring in Wet-Dry Tropics, Australia: the Daly River Case",
+      "url": "https://doi.org/10.17632/wb6936gwrr",
+      "kind": "paper",
+      "source": "openalex-remote-sensing",
+      "source_name": "OpenAlex: remote sensing",
+      "published": "2027-01-01T00:00:00.000Z",
+      "summary": "satellite remote sensing, optical remote sensing, wet-dry tropics, Daly River, flood mapping, landscape monitoring, Remote sensing, Environmental science, Synthetic aperture radar, Geology, Remote sensing application, Radar, Satellite, Meteorology",
+      "matched": [
+        "remote sensing",
+        "SAR"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "371d981b8e7a42e0",
+      "title": "3D Forest Structure Mapping Using BIOMASS Tomography: Challenges, Potentials and Ways Forward",
+      "url": "https://openalex.org/W7223423349",
+      "kind": "paper",
+      "source": "openalex-remote-sensing",
+      "source_name": "OpenAlex: remote sensing",
+      "published": "2026-11-01T00:00:00.000Z",
+      "summary": "BIOMASS mission, SAR tomography, P-band SAR, L-band SAR, range resolution, revisit time, vegetation water content, global forest monitoring, SAR interferometry, polarimetric SAR, Remote sensing, Forest structure, Lidar, Synthetic aperture radar, Vegetation (pathology), Biomass (ecology), Environment",
+      "matched": [
+        "remote sensing",
+        "SAR",
+        "LiDAR"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "1b6fb08e00b585e5",
+      "title": "Assessment of Fully Polarimetric Biomass Data for Soil Moisture Retrieval",
+      "url": "https://openalex.org/W7223425981",
+      "kind": "paper",
+      "source": "openalex-remote-sensing",
+      "source_name": "OpenAlex: remote sensing",
+      "published": "2026-11-01T00:00:00.000Z",
+      "summary": "soil moisture retrieval, BIOMASS mission, P-band SAR, differential SAR interferometry, vegetation penetration, bare soil, ground response, polarimetric decomposition, coherence, SAOCOM, L-band SAR, water management, ground truth measurements, Environmental science, Water content, Soil science, Infil",
+      "matched": [
+        "remote sensing",
+        "SAR"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "68173c1e1453af7b",
+      "title": "Lands of Northern Benin. Landscapes, Agriculture and Transformations.",
+      "url": "https://openalex.org/W7223430030",
+      "kind": "paper",
+      "source": "openalex-remote-sensing",
+      "source_name": "OpenAlex: remote sensing",
+      "published": "2026-11-01T00:00:00.000Z",
+      "summary": "northern Benin, agricultural landscapes, agriculture, land use change, remote sensing, spatial indicators, agricultural dynamics, land transformation, Forestry, Political science, Geography, Humanities, Agricultural development, Rural development, Technology transfer, Agriculture",
+      "matched": [
+        "remote sensing"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "66d5e3c47c6664de",
+      "title": "Assessment of Fully Polarimetric Biomass Data Over Permafrost",
+      "url": "https://openalex.org/W7223432087",
+      "kind": "paper",
+      "source": "openalex-remote-sensing",
+      "source_name": "OpenAlex: remote sensing",
+      "published": "2026-11-01T00:00:00.000Z",
+      "summary": "permafrost, BIOMASS mission, P-band SAR, quad-polarimetric SAR, SAR interferometry, soil organic carbon, permafrost carbon feedback, retrogressive thaw slumps, thermokarst, Taimyr Peninsula, Arctic amplification, soil moisture retrieval, carbon mobilization, SAR tomography, Permafrost, Environmental",
+      "matched": [
+        "remote sensing",
+        "SAR"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "da90cde40cfa755c",
+      "title": "Western U.S. rivers carry water accounted as evapotranspired by satellite remote sensing",
+      "url": "https://doi.org/10.5281/zenodo.23630840",
+      "kind": "paper",
+      "source": "openalex-remote-sensing",
+      "source_name": "OpenAlex: remote sensing",
+      "published": "2026-10-28T00:00:00.000Z",
+      "summary": "evapotranspiration, river discharge, water balance, satellite remote sensing, Oregon coast, Washington coast, Table (database), Remote sensing, Environmental science, Satellite, Carry (investment), Scripting language, Meteorology, Data file",
+      "matched": [
+        "remote sensing"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "a67fc76e583173ef",
+      "title": "A new method for detecting aerosols: combining atmospheric detection LiDAR technology with intelligent driving technology",
+      "url": "https://doi.org/10.5194/amt-19-6743-2026",
+      "kind": "paper",
+      "source": "openalex-remote-sensing",
+      "source_name": "OpenAlex: remote sensing",
+      "published": "2026-10-27T00:00:00.000Z",
+      "summary": "aerosol detection, atmospheric lidar, intelligent driving, unmanned aerial vehicles, mobile detection system, path planning, obstacle avoidance, aerosol vertical distribution, 3D scanning, pollution monitoring, real-time alerts, Lidar, Remote sensing, Environmental science, Computer science, Meteoro",
+      "matched": [
+        "remote sensing",
+        "LiDAR"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "673b2f0462cf70cc",
+      "title": "A self-supervised and distillation-guided framework for robust cloud-layer identification in multi-channel Raman lidar networks",
+      "url": "https://doi.org/10.5194/amt-19-6757-2026",
+      "kind": "paper",
+      "source": "openalex-remote-sensing",
+      "source_name": "OpenAlex: remote sensing",
+      "published": "2026-10-27T00:00:00.000Z",
+      "summary": "self-supervised pre-training, knowledge distillation, cloud top height retrieval, volume depolarization ratio, label efficiency, Lidar, Remote sensing, Robustness (evolution), Computer science, Radiosonde, Probabilistic logic, Polarization (electrochemistry), Calibration",
+      "matched": [
+        "remote sensing",
+        "LiDAR"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "ca2f36de83154554",
+      "title": "Even harmonic generation from the air-based femtosecond plasma for remote sensing applications",
+      "url": "https://doi.org/10.24412/cl-35039-2026-26-287",
+      "kind": "paper",
+      "source": "openalex-remote-sensing",
+      "source_name": "OpenAlex: remote sensing",
+      "published": "2026-10-27T00:00:00.000Z",
+      "summary": "even harmonic generation, remote sensing, high harmonic generation, atmospheric pressure plasma, Remote sensing, Femtosecond, Materials science, Optics, Harmonic, Plasma, Remote sensing application, Laser",
+      "matched": [
+        "remote sensing"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "0524be15509e95db",
+      "title": "Firn-Line Altitude Changes as Indicators of Climate Variability and Atmospheric Moisture Conditions in the Mountain Regions of Uzbekistan Using Radar and Optical Remote Sensing Data",
+      "url": "https://doi.org/10.24412/cl-35039-2026-26-332",
+      "kind": "paper",
+      "source": "openalex-remote-sensing",
+      "source_name": "OpenAlex: remote sensing",
+      "published": "2026-10-27T00:00:00.000Z",
+      "summary": "firn line, elevation change, climate variability, air humidity, mountainous terrain, Uzbekistan, radar remote sensing, optical remote sensing, snow and ice, Remote sensing, Environmental science, Altitude (triangle), Radar, Moisture, Meteorology, Atmospheric temperature, Climate change",
+      "matched": [
+        "remote sensing"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "a43f26b3eb445fcf",
+      "title": "Femtosecond Filament Remote Sensing",
+      "url": "https://doi.org/10.24412/cl-35039-2026-26-7",
+      "kind": "paper",
+      "source": "openalex-remote-sensing",
+      "source_name": "OpenAlex: remote sensing",
+      "published": "2026-10-27T00:00:00.000Z",
+      "summary": "femtosecond filaments, remote sensing, atmospheric sensing, laser-produced plasma",
+      "matched": [
+        "remote sensing"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "df082ef8ec8d5810",
+      "title": "Remote sensing of lake surface water temperature reveals divergent hydroclimatic associations with lake ice phenology across China",
+      "url": "https://doi.org/10.1016/j.jag.2026.105633",
+      "kind": "paper",
+      "source": "openalex-remote-sensing",
+      "source_name": "OpenAlex: remote sensing",
+      "published": "2026-10-27T00:00:00.000Z",
+      "summary": "lake surface temperature, lake ice phenology, hydroclimate, remote sensing, lake ice cover, China lakes, Phenology, Remote sensing, Environmental science, China, Climatology, Surface water, Sea surface temperature, Air temperature",
+      "matched": [
+        "remote sensing"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "fd9060d99391668a",
+      "title": "SAR-Based Monitoring of Glacial Lake Dynamics at Chorabari Tal and Vasuki Tal, Uttarakhand Himalaya: Temporal Analysis and Anomaly Detection (2019–2024)",
+      "url": "https://doi.org/10.21203/rs.3.rs-11495245/v1",
+      "kind": "paper",
+      "source": "openalex-remote-sensing",
+      "source_name": "OpenAlex: remote sensing",
+      "published": "2026-10-27T00:00:00.000Z",
+      "summary": "glacial lake outburst floods, Kedarnath, anomaly detection, lake area change, Geology, Glacial period, Baseline (sea), Polygon (computer graphics), Remote sensing, Anomaly (physics), Meltwater, Snow",
+      "matched": [
+        "remote sensing",
+        "SAR"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "e705417b03323acb",
+      "title": "A dataset (1987–2020) of aquaculture ponds in Hainan Island based on Landsat data",
+      "url": "https://doi.org/10.11922/sciencedb.j00001.00400",
+      "kind": "paper",
+      "source": "openalex-remote-sensing",
+      "source_name": "OpenAlex: remote sensing",
+      "published": "2026-10-27T00:00:00.000Z",
+      "summary": "aquaculture ponds, Hainan Island, Landsat imagery, remote sensing, land use change, coastal aquaculture, Environmental science, Aquaculture, Remote sensing, Geography, Fishery, Fishing, Normalized Difference Vegetation Index, Vegetation (pathology)",
+      "matched": [
+        "remote sensing",
+        "Landsat"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "14135fe897dc227a",
+      "title": "Evaluation of bioclimatic comfort conditions in Hatay using the tourism climate index: a spatial analysis for sustainable tourism planning",
+      "url": "https://doi.org/10.3389/fenvs.2026.1962497",
+      "kind": "paper",
+      "source": "openalex-remote-sensing",
+      "source_name": "OpenAlex: remote sensing",
+      "published": "2026-10-27T00:00:00.000Z",
+      "summary": "Geography, Tourism, Climate change, Thermal comfort, Environmental resource management, Geospatial analysis, Mediterranean climate, Environmental science",
+      "matched": [
+        "geospatial"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "af75031169e4132f",
+      "title": "Quantifying aleatoric and epistemic uncertainty in remote sensing spectral super-resolution via Bayesian deep learning",
+      "url": "https://doi.org/10.1016/j.isprsjprs.2026.10.031",
+      "kind": "paper",
+      "source": "openalex-remote-sensing",
+      "source_name": "OpenAlex: remote sensing",
+      "published": "2026-10-27T00:00:00.000Z",
+      "summary": "Hyperspectral imaging, Uncertainty quantification, Computer science, Remote sensing, Artificial intelligence, Resampling, Bayesian probability, Reliability (semiconductor)",
+      "matched": [
+        "remote sensing",
+        "hyperspectral"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "a070c7069cf987c6",
+      "title": "Two-Level Spectral Adaptation and Multilevel Spectral Evidence Diagnostics for Hyperspectral Remote Sensing Salient Object Detection with a Wavelength-Conditioned Foundation Model",
+      "url": "https://doi.org/10.3390/rs18213694",
+      "kind": "paper",
+      "source": "openalex-remote-sensing",
+      "source_name": "OpenAlex: remote sensing",
+      "published": "2026-10-27T00:00:00.000Z",
+      "summary": "Hyperspectral imaging, Remote sensing, Salient, Computer science, Full spectral imaging, Spectral bands, Spectral shape analysis, Artificial intelligence",
+      "matched": [
+        "remote sensing",
+        "hyperspectral"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "2f295d1e72c92f7b",
+      "title": "Remote Sensing-Based Assessment of Lake Surface and Phytoplankton Dynamics in Transboundary Lake Prespa",
+      "url": "https://doi.org/10.13140/rg.2.2.12426.43202",
+      "kind": "paper",
+      "source": "openalex-remote-sensing",
+      "source_name": "OpenAlex: remote sensing",
+      "published": "2026-10-27T00:00:00.000Z",
+      "summary": "Phytoplankton, Environmental science, Oceanography, Remote sensing, Surface water, Plankton, Algal bloom, Geology",
+      "matched": [
+        "remote sensing"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "a95ba91c8a8d5aa0",
+      "title": "Spatio-Temporal Storage Dynamics of Alluvial Aquifers Using Remote Sensing Indicators: A Case Study of the Enguli Sand River, Kenya",
+      "url": "https://doi.org/10.33803/4jterz",
+      "kind": "paper",
+      "source": "openalex-remote-sensing",
+      "source_name": "OpenAlex: remote sensing",
+      "published": "2026-10-27T00:00:00.000Z",
+      "summary": "Normalized Difference Vegetation Index, Environmental science, Vegetation (pathology), Hydrology (agriculture), Aquifer, Alluvial plain, Drainage, Irrigation",
+      "matched": [
+        "remote sensing"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "2b45b5e72ed92669",
+      "title": "groundTruther: A statistical approach to accounting for uncertainty in side-scan sonar classification",
+      "url": "https://doi.org/10.1093/najfmt/vqag101",
+      "kind": "paper",
+      "source": "openalex-remote-sensing",
+      "source_name": "OpenAlex: remote sensing",
+      "published": "2026-10-27T00:00:00.000Z",
+      "summary": "Sonar, Computer science, Synthetic aperture sonar, Point (geometry), Data mining, Digital elevation model, Remote sensing, Acipenser",
+      "matched": [
+        "remote sensing"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "78431fa0f736975c",
+      "title": "InSAR observations from multiple tracks reveal rainfall modulation of post-failure reactivation of the Xiongwadashan landslide",
+      "url": "https://doi.org/10.1038/s41598-026-76885-z",
+      "kind": "paper",
+      "source": "openalex-remote-sensing",
+      "source_name": "OpenAlex: remote sensing",
+      "published": "2026-10-27T00:00:00.000Z",
+      "summary": "Landslide, Geology, Interferometric synthetic aperture radar, Displacement (psychology), Deformation (meteorology), Plateau (mathematics), Kinematics, Geodesy",
+      "matched": [
+        "geodesy",
+        "InSAR"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "ee30e753b2c5f899",
+      "title": "Prediction-Constrained Multimodal Temporal Fusion of Satellite Microwave and Infrared Observations for Continuous Snow Temperature Profile Estimation",
+      "url": "https://doi.org/10.3390/app162110609",
+      "kind": "paper",
+      "source": "openalex-remote-sensing",
+      "source_name": "OpenAlex: remote sensing",
+      "published": "2026-10-27T00:00:00.000Z",
+      "summary": "Snow, Satellite, Remote sensing, Environmental science, Brightness temperature, Fusion, Microwave, Meteorology",
+      "matched": [
+        "remote sensing"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "6f528f7167a59a63",
+      "title": "Tracking lightning-induced mangrove canopy gaps in Panama using multi-temporal remote sensing",
+      "url": "https://doi.org/10.6084/m9.figshare.34806646",
+      "kind": "paper",
+      "source": "openalex-remote-sensing",
+      "source_name": "OpenAlex: remote sensing",
+      "published": "2026-10-27T00:00:00.000Z",
+      "summary": "Remote sensing, Canopy, Environmental science, Mangrove, Normalized Difference Vegetation Index, Satellite, Satellite imagery, Vegetation (pathology)",
+      "matched": [
+        "remote sensing"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "372915d8acf4d9b4",
+      "title": "Large-scale high-resolution coastal subsidence mapping in Jiangsu, China with Sentinel-1",
+      "url": "https://doi.org/10.17632/wwy5t6rw5m",
+      "kind": "paper",
+      "source": "openalex-insar",
+      "source_name": "OpenAlex: InSAR",
+      "published": "2027-10-18T00:00:00.000Z",
+      "summary": "coastal subsidence, subsidence mapping, high-resolution mapping, large-scale mapping, Sentinel-1, InSAR, Jiangsu coast, Geology, Subsidence, China, Geomorphology, Remote sensing, Shore, Sinkhole, Ground subsidence",
+      "matched": [
+        "remote sensing",
+        "InSAR",
+        "Sentinel-1"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "daeef57a30fbaa4a",
+      "title": "Präzise Bestimmung des Ursprungortes von Störquellen in SAR Bildern mithilfe von bistatischen TanDEM-X Daten",
+      "url": "https://openalex.org/W7155461334",
+      "kind": "paper",
+      "source": "openalex-insar",
+      "source_name": "OpenAlex: InSAR",
+      "published": "2026-11-14T00:00:00.000Z",
+      "summary": "SAR interferometry, bistatic SAR, TanDEM-X, interferometric phase, interferometric phase unwrapping, synthetic aperture radar, Remote sensing, Computer science, Physics, Geology, Environmental science, Noise (video), Synthetic aperture radar, Signal processing",
+      "matched": [
+        "remote sensing",
+        "SAR"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "d2d912ce92f9913a",
+      "title": "Deep Learning-Based Soil Moisture Retrieval from Short Sentinel-1 Time Series",
+      "url": "https://openalex.org/W7223436127",
+      "kind": "paper",
+      "source": "openalex-insar",
+      "source_name": "OpenAlex: InSAR",
+      "published": "2026-11-01T00:00:00.000Z",
+      "summary": "soil moisture retrieval, Sentinel-1, synthetic aperture radar, SAR interferometry, backscattering, short time series, fine-tuning, drought early warning, flood forecasting, vadose zone, Environmental science, Remote sensing, Water content, Synthetic aperture radar, Backscatter (email), Moisture, Flo",
+      "matched": [
+        "remote sensing",
+        "SAR",
+        "Sentinel-1"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "c4d08a2bcc119c60",
+      "title": "Dynamic Digital Elevation Model of the Green Heart: regional time-dependent elevation models",
+      "url": "https://doi.org/10.4121/25648ac5-31b9-4e24-9019-c59fa3f2167c.v1",
+      "kind": "paper",
+      "source": "openalex-insar",
+      "source_name": "OpenAlex: InSAR",
+      "published": "2026-10-27T00:00:00.000Z",
+      "summary": "Elevation (ballistics), Digital elevation model, Geodetic datum, Geodesy, Geology, Parametrization (atmospheric modeling), Interferometric synthetic aperture radar, Reference frame",
+      "matched": [
+        "geodesy"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "3bf179bde5ac7f3b",
+      "title": "Landslide Susceptibility Mapping for Railway Slopes Using Comparative Models and InSAR-Based Validation",
+      "url": "https://doi.org/10.1007/s40515-026-01094-0",
+      "kind": "paper",
+      "source": "openalex-insar",
+      "source_name": "OpenAlex: InSAR",
+      "published": "2026-10-27T00:00:00.000Z",
+      "summary": "Geology, Interferometric synthetic aperture radar, Remote sensing, Multilayer perceptron, Synthetic aperture radar, Landslide, Gradient boosting, Interferometry",
+      "matched": [
+        "remote sensing",
+        "InSAR"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "7dcd3f3b51914c4d",
+      "title": "Dynamic Digital Elevation Model of the Green Heart: regional time-dependent elevation models",
+      "url": "https://doi.org/10.4121/25648ac5-31b9-4e24-9019-c59fa3f2167c",
+      "kind": "paper",
+      "source": "openalex-insar",
+      "source_name": "OpenAlex: InSAR",
+      "published": "2026-10-27T00:00:00.000Z",
+      "summary": "Elevation (ballistics), Digital elevation model, Geodetic datum, Geodesy, Geology, Parametrization (atmospheric modeling), Interferometric synthetic aperture radar, Reference frame",
+      "matched": [
+        "geodesy"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "aafe0ecb3e4107e1",
+      "title": "SBAS-InSAR-ML Dynamic-static coupling for landslide susceptibility in Xinyuan’s ecologically sensitive mountains",
+      "url": "https://doi.org/10.1007/s10064-026-05365-5",
+      "kind": "paper",
+      "source": "openalex-insar",
+      "source_name": "OpenAlex: InSAR",
+      "published": "2026-10-27T00:00:00.000Z",
+      "summary": "Geology, Landslide, Identification (biology), Remote sensing, Geomorphology, Kernel density estimation, Physical geography, Kernel (algebra)",
+      "matched": [
+        "remote sensing",
+        "InSAR"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "6a82953843cbcbce",
+      "title": "A novel model for effective erosion rate (EER) in debris flow susceptibility assessment: integrating InSAR and hydrological connectivity",
+      "url": "https://doi.org/10.1016/j.catena.2026.110692",
+      "kind": "paper",
+      "source": "openalex-insar",
+      "source_name": "OpenAlex: InSAR",
+      "published": "2026-10-27T00:00:00.000Z",
+      "summary": "Interferometric synthetic aperture radar, Debris flow, Geology, Erosion, Remote sensing, Environmental science, Hydrology (agriculture), Flow (mathematics)",
+      "matched": [
+        "remote sensing",
+        "InSAR"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "6369e9d20e7c2ec5",
+      "title": "InSAR deformation data of the 2024-2025 Ethiopian dike intrusion event.",
+      "url": "https://doi.org/10.5281/zenodo.23684163",
+      "kind": "paper",
+      "source": "openalex-insar",
+      "source_name": "OpenAlex: InSAR",
+      "published": "2026-10-27T00:00:00.000Z",
+      "summary": "Geology, Interferometric synthetic aperture radar, Deformation (meteorology), Intrusion, Dike, Seismology, Deformation monitoring, Geodesy",
+      "matched": [
+        "geodesy",
+        "InSAR"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "842a10eceb96b3e6",
+      "title": "Pemodelan Potensi Bencana Banjir Berdasarkan Perubahan Penggunaan Lahan dan Land Subsidence di DAS Air Dingin",
+      "url": "https://doi.org/10.58812/jgws.v4i03.3830",
+      "kind": "paper",
+      "source": "openalex-insar",
+      "source_name": "OpenAlex: InSAR",
+      "published": "2026-10-26T00:00:00.000Z",
+      "summary": "flood potential, land use change, land subsidence, Padang, DInSAR, cellular automata, MOLUSCE, flood hazard mapping, land surface deformation, urbanization impacts on flooding, river buffer zones, soil type, climate adaptation planning, Physics, Forestry, Geomorphology, MiniBooNE, Geology, Hydrology",
+      "matched": [
+        "DInSAR"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "d161d77ffd0435f5",
+      "title": "Skrip dan data indikasi perubahan permukaan Sentinel-1 untuk Palu, Sulawesi Tengah, sesudah gempa 28 September 2018",
+      "url": "https://doi.org/10.5281/zenodo.23670486",
+      "kind": "paper",
+      "source": "openalex-insar",
+      "source_name": "OpenAlex: InSAR",
+      "published": "2026-10-26T00:00:00.000Z",
+      "summary": "2018 Sulawesi earthquake, surface change detection, SAR interferometry, post-earthquake damage, Palu, Geology, Physics, Geography, Geomorphology, Statistical analysis, Seismology, Alunite, Cave",
+      "matched": [
+        "SAR",
+        "Sentinel-1"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "348dc9df41fb0079",
+      "title": "Coherence-based prediction of multi-temporal InSAR measurement availability for infrastructure monitoring - research data",
+      "url": "https://doi.org/10.5281/zenodo.23675826",
+      "kind": "paper",
+      "source": "openalex-insar",
+      "source_name": "OpenAlex: InSAR",
+      "published": "2026-10-26T00:00:00.000Z",
+      "summary": "multi-temporal InSAR, infrastructure monitoring, U-Net, Sentinel-1, European Ground Motion Service, transfer learning, ground motion, Netherlands, Silesia, Rome, subsidence monitoring, Computer science, Interferometric synthetic aperture radar, Coherence (philosophical gambling strategy), Remote sen",
+      "matched": [
+        "remote sensing",
+        "InSAR",
+        "Sentinel-1"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "e85b96fbf69129ff",
+      "title": "Accelerating Open-Source InSAR Time-Series Analysis on Consumer GPUs: A PyTorch-Based Network Inversion Solver for MintPy",
+      "url": "https://doi.org/10.5281/zenodo.23669874",
+      "kind": "paper",
+      "source": "openalex-insar",
+      "source_name": "OpenAlex: InSAR",
+      "published": "2026-10-26T00:00:00.000Z",
+      "summary": "InSAR time-series analysis, MintPy, network inversion, GPU acceleration, consumer GPUs, PyTorch, normal equations, single precision, small baseline interferometry, ground deformation, open source software, Solver, Computer science, Porting, Single-precision floating-point format, Algorithm, Pixel, C",
+      "matched": [
+        "InSAR"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "5114eb561e8c2b4f",
+      "title": "Lagos coastal subsidence from Sentinel-1 InSAR: ISCE2 multi-burst processing scripts",
+      "url": "https://doi.org/10.5281/zenodo.23672546",
+      "kind": "paper",
+      "source": "openalex-insar",
+      "source_name": "OpenAlex: InSAR",
+      "published": "2026-10-26T00:00:00.000Z",
+      "summary": "land subsidence, Sentinel-1, InSAR, phase unwrapping errors, MintPy, Geology, Subsidence, Process (computing), Ground subsidence, Data processing, Geomorphology, Geotechnical engineering, Remote sensing",
+      "matched": [
+        "remote sensing",
+        "InSAR",
+        "Sentinel-1"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "216647d6d01fe415",
+      "title": "Integrating structural and social vulnerability for equitable bridge maintenance prioritisation - code release (v1.0.0)",
+      "url": "https://doi.org/10.5281/zenodo.23675331",
+      "kind": "paper",
+      "source": "openalex-insar",
+      "source_name": "OpenAlex: InSAR",
+      "published": "2026-10-26T00:00:00.000Z",
+      "summary": "structural vulnerability, social vulnerability, Social Vulnerability Index, National Bridge Inventory, InSAR monitoring, economic resilience, adaptive capacity, California bridges, principal component factor analysis, Monte Carlo sensitivity analysis, OpenStreetMap, zonal statistics, disaster risk r",
+      "matched": [
+        "geospatial",
+        "InSAR"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "717c4071edd6e615",
+      "title": "2021 Fin Earthquake",
+      "url": "https://doi.org/10.5281/zenodo.23661593",
+      "kind": "paper",
+      "source": "openalex-insar",
+      "source_name": "OpenAlex: InSAR",
+      "published": "2026-10-26T00:00:00.000Z",
+      "summary": "InSAR, Sentinel-1, ALOS-2, earthquake deformation",
+      "matched": [
+        "InSAR",
+        "Sentinel-1"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "f4835e8de6791711",
+      "title": "A First Look at the NISAR Geocoded Polarimetric Covariance (GCOV) Product",
+      "url": "https://doi.org/10.48577/jpl.k2mzu5",
+      "kind": "paper",
+      "source": "openalex-insar",
+      "source_name": "OpenAlex: InSAR",
+      "published": "2026-10-25T00:00:00.000Z",
+      "summary": "NISAR, polarimetric SAR, SAR interferometry, Geocoding, Product (mathematics), Remote sensing, Covariance, Noise (video), Geology, Computer science, Covariance matrix",
+      "matched": [
+        "remote sensing",
+        "SAR"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "7f92d71a815072aa",
+      "title": "Post-disaster Scene and Damage Assessment",
+      "url": "https://doi.org/10.1007/978-3-032-11832-5_7",
+      "kind": "paper",
+      "source": "openalex-insar",
+      "source_name": "OpenAlex: InSAR",
+      "published": "2026-10-25T00:00:00.000Z",
+      "summary": "damage assessment, disaster response, satellite imagery, UAV imagery, unmanned aerial vehicles, emergency response, remote sensing, Drone, Computer science, Data science, Computer security, Remote sensing, Value (mathematics), Engineering, Satellite",
+      "matched": [
+        "remote sensing",
+        "UAV"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "fabca0b96f18609d",
+      "title": "Remote sensing and the EU nature restoration Regulation: monitoring biodiversity indicators for integrated forest management",
+      "url": "https://doi.org/10.1016/j.ecolind.2026.115636",
+      "kind": "paper",
+      "source": "openalex-insar",
+      "source_name": "OpenAlex: InSAR",
+      "published": "2026-10-24T00:00:00.000Z",
+      "summary": "EU Nature Restoration Regulation, biodiversity indicators, forest management, remote sensing, forest restoration, biodiversity monitoring, nature-based solutions, Remote sensing, Environmental resource management, Biodiversity, Environmental science, Forest management, Geography, Biodiversity conser",
+      "matched": [
+        "remote sensing"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "223fdf094dde6d40",
+      "title": "Spatial organization of InSAR deformation-rate extremes across permafrost-transition and thermokarst contexts on the Tibetan Plateau",
+      "url": "https://doi.org/10.1093/pnasnexus/pgag366",
+      "kind": "paper",
+      "source": "openalex-insar",
+      "source_name": "OpenAlex: InSAR",
+      "published": "2026-10-24T00:00:00.000Z",
+      "summary": "permafrost thaw, ground deformation, thermokarst, Qinghai-Tibet Engineering Corridor, Tibetan Plateau, thaw slumps, line-of-sight displacement, Thermokarst, Permafrost, Pixel, Terrain, Remote sensing, Geology, Plateau (mathematics), Interferometric synthetic aperture radar",
+      "matched": [
+        "remote sensing",
+        "InSAR"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "205221a3c74fb04a",
+      "title": "Distribution model of fault locking and slip rate in the northeastern Tibetan Plateau under joint constraints of GNSS, InSAR, and leveling data",
+      "url": "https://doi.org/10.1016/j.epsl.2026.120414",
+      "kind": "paper",
+      "source": "openalex-insar",
+      "source_name": "OpenAlex: InSAR",
+      "published": "2026-10-24T00:00:00.000Z",
+      "summary": "fault locking, slip rate, northeastern Tibetan Plateau, active faults, GNSS, InSAR, leveling, joint inversion, crustal deformation, fault slip distribution, Geology, Joint (building), Slip (aerodynamics), Seismology, Geodesy, Plateau (mathematics), Fault (geology), Distribution (mathematics)",
+      "matched": [
+        "geodesy",
+        "InSAR"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "e8ace7a08d397e3e",
+      "title": "Secondary Compression of Deep Foundations in Carbonate Soils: An InSAR Study of Sunny Isles, Florida",
+      "url": "https://doi.org/10.1061/jggefk.gteng-15394",
+      "kind": "paper",
+      "source": "openalex-insar",
+      "source_name": "OpenAlex: InSAR",
+      "published": "2026-10-24T00:00:00.000Z",
+      "summary": "secondary compression, deep foundations, carbonate soils, high-rise buildings, serviceability assessment, stress redistribution, Interferometric synthetic aperture radar, Serviceability (structure), Geology, Creep, Geotechnical engineering, Consolidation (business), Carbonate, Synthetic aperture rad",
+      "matched": [
+        "InSAR"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "395fdfe979ef4cfc",
+      "title": "An approach to revealing landslide reactivation mechanisms through integration of remote sensing, field data, and numerical modeling",
+      "url": "https://doi.org/10.1016/j.enggeo.2026.109142",
+      "kind": "paper",
+      "source": "openalex-insar",
+      "source_name": "OpenAlex: InSAR",
+      "published": "2026-10-24T00:00:00.000Z",
+      "summary": "landslide reactivation, landslide stability, remote sensing, field data, numerical modeling, integrative analysis, Numerical modeling, Geology, Landslide, Field (mathematics), Numerical models, Geotechnical engineering, Remote sensing, Computer simulation",
+      "matched": [
+        "remote sensing"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "23f56739e2e5b5db",
+      "title": "Code, derived data and ArcMap maps for: Stable-terrain error estimates overstate the noise of satellite remote sensing velocities of glaciers and periglacial rock glaciers in the western Himalaya by a factor of three",
+      "url": "https://doi.org/10.5281/zenodo.23615060",
+      "kind": "paper",
+      "source": "openalex-insar",
+      "source_name": "OpenAlex: InSAR",
+      "published": "2026-10-24T00:00:00.000Z",
+      "summary": "glacier velocity, rock glaciers, periglacial landforms, Sentinel-2, SAR interferometry, permafrost creep, Western Himalaya, redundant networks, loop closure, Geology, Remote sensing, Glacier, Geodesy, Permafrost, Satellite, Python (programming language), Arctic",
+      "matched": [
+        "remote sensing",
+        "geodesy",
+        "SAR",
+        "Sentinel-2"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "5ac6e6c964c9dcfe",
+      "title": "Perceptions and recommendations: exploring the ethics of using satellite data to understand, monitor, and publish research on international geohazards",
+      "url": "https://doi.org/10.5194/gc-9-489-2026",
+      "kind": "paper",
+      "source": "openalex-insar",
+      "source_name": "OpenAlex: InSAR",
+      "published": "2026-10-23T00:00:00.000Z",
+      "summary": "research ethics, Earth observation satellite data, open data, disaster risk reduction, geoethics, decolonial research, North-South divide, community consultation, Sendai Framework, social vulnerability, Publication, Politics, Satellite, Political science, Research ethics, Computer science, Data scie",
+      "matched": [
+        "remote sensing",
+        "earth observation"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "1a50a290ac8cec16",
+      "title": "Controls on urban land subsidence at the block scale in Tehran, Iran: Prediction and interpretation using explainable machine learning",
+      "url": "https://doi.org/10.1016/j.jseaes.2026.107388",
+      "kind": "paper",
+      "source": "openalex-insar",
+      "source_name": "OpenAlex: InSAR",
+      "published": "2026-10-23T00:00:00.000Z",
+      "summary": "urban subsidence, subsidence prediction, explainable machine learning, groundwater depletion, land consolidation, Geology, Block (permutation group theory), Subsidence, Scale (ratio), Interpretation (philosophy), Artificial intelligence, Machine learning, Remote sensing",
+      "matched": [
+        "remote sensing"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "3fec2ae2cfcee728",
+      "title": "Continental-scale Sentinel-1 InSAR deformation rate mosaics of central North America",
+      "url": "https://doi.org/10.1016/j.rse.2026.115721",
+      "kind": "paper",
+      "source": "openalex-insar",
+      "source_name": "OpenAlex: InSAR",
+      "published": "2026-10-23T00:00:00.000Z",
+      "summary": "ground deformation, InSAR, Sentinel-1, central North America, line-of-sight deformation, anthropogenic deformation, natural deformation, Interferometric synthetic aperture radar, Geology, Remote sensing, Synthetic aperture radar, Deformation (meteorology), Deformation monitoring, Geodesy, Interferom",
+      "matched": [
+        "remote sensing",
+        "geodesy",
+        "InSAR",
+        "Sentinel-1"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "7d0c08241a64d192",
+      "title": "Agreement between Sentinel-1 C-band backscatter change and Sentinel-2 burn severity indices across land-cover types in a low-biomass transitional eco-region",
+      "url": "https://doi.org/10.21203/rs.3.rs-11461959/v1",
+      "kind": "paper",
+      "source": "openalex-insar",
+      "source_name": "OpenAlex: InSAR",
+      "published": "2026-10-23T00:00:00.000Z",
+      "summary": "burn severity, wildfire damage assessment, Sentinel-1 C-band SAR, Sentinel-2, dNBR, Southern Great Plains, land cover types, Backscatter (email), Remote sensing, Environmental science, Evergreen, Synthetic aperture radar, Climate change, Radar, Change detection",
+      "matched": [
+        "remote sensing",
+        "SAR",
+        "Sentinel-1",
+        "Sentinel-2"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "d0a0bf4c0cd5e58c",
+      "title": "Global flood extent mapping from Sentinel-1 SAR imagery using a UNet ++ deep learning framework with permanent-water-augmented input: evaluation across geographically diverse flood events",
+      "url": "https://doi.org/10.2166/hydro.2026.185",
+      "kind": "paper",
+      "source": "openalex-insar",
+      "source_name": "OpenAlex: InSAR",
+      "published": "2026-10-23T00:00:00.000Z",
+      "summary": "flood mapping, Sentinel-1 SAR, U-Net, EfficientNet-B4, SAR backscatter, pixel-level segmentation, class imbalance, focal loss, Dice loss, disaster response, braided channels, Flood myth, Synthetic aperture radar, Remote sensing, Terrain, Deep learning, Macro, Segmentation, Environmental science",
+      "matched": [
+        "remote sensing",
+        "SAR",
+        "Sentinel-1"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "4fd203a50d54f482",
+      "title": "Horizontal Strain Rate estimation from InSAR Observations and the Strapdown Method",
+      "url": "https://doi.org/10.31223/x59z30",
+      "kind": "paper",
+      "source": "openalex-insar",
+      "source_name": "OpenAlex: InSAR",
+      "published": "2026-10-23T00:00:00.000Z",
+      "summary": "horizontal strain rate, InSAR, ground deformation, finite element inversion, strain rate tensor, differential deformation, infrastructure risk, uncertainty quantification, Interferometric synthetic aperture radar, Geodesy, Geology, Deformation (meteorology), Displacement (psychology), Geodetic datum",
+      "matched": [
+        "geodesy",
+        "InSAR"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "14bacdb11a8f8c83",
+      "title": "Natural Hazard Assessment",
+      "url": "https://doi.org/10.1201/9781003750383-18",
+      "kind": "paper",
+      "source": "openalex-insar",
+      "source_name": "OpenAlex: InSAR",
+      "published": "2026-10-23T00:00:00.000Z",
+      "summary": "natural hazards, hazard assessment, risk assessment, disaster risk, Remote sensing, Synthetic aperture radar, Environmental science, Interferometric synthetic aperture radar, Radar, Moderate-resolution imaging spectroradiometer, Natural hazard, Meteorology",
+      "matched": [
+        "remote sensing"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "3aed3ebec56845e4",
+      "title": "InSAR Tools",
+      "url": "https://doi.org/10.5281/zenodo.23595801",
+      "kind": "paper",
+      "source": "openalex-insar",
+      "source_name": "OpenAlex: InSAR",
+      "published": "2026-10-23T00:00:00.000Z",
+      "summary": "InSAR, QGIS plugin, ground deformation, landslide monitoring",
+      "matched": [
+        "InSAR"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "17b18a200013c5bb",
+      "title": "Les données auxiliaires contextuelles contribuent-elles à améliorer l'estimation des attributs forestiers sur des acquisitions LiDAR hétérogènes ? Évaluation par gating adaptatif et ablation de l'apport des données contextuelles dans FLORA",
+      "url": "https://openalex.org/W7172360698",
+      "kind": "paper",
+      "source": "openalex-lidar",
+      "source_name": "OpenAlex: LiDAR point cloud",
+      "published": "2026-11-18T00:00:00.000Z",
+      "summary": "contextual information, forest attribute estimation, adaptive gating, flora, airborne laser scanning, forest structure, Medicine, Geography, Forestry, Context (archaeology), Vegetation (pathology), Flora (microbiology), Biology, Vitis vinifera",
+      "matched": [
+        "LiDAR"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "e76f8a85bde0220f",
+      "title": "A LiDAR–IMU tightly coupled and adaptive loop closure optimization method",
+      "url": "https://doi.org/10.1108/sr-04-2026-0365",
+      "kind": "paper",
+      "source": "openalex-lidar",
+      "source_name": "OpenAlex: LiDAR point cloud",
+      "published": "2026-10-27T00:00:00.000Z",
+      "summary": "Odometry, Simultaneous localization and mapping, Artificial intelligence, Computer vision, Computer science, Trajectory, Histogram, Inertial measurement unit",
+      "matched": [
+        "LiDAR"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "e7ee3378e5065e46",
+      "title": "Terrestrial LiDAR and Fuels Data for the 2025 Garnet Fire in the Sierra National Forest, CA, Collected in 2026",
+      "url": "https://doi.org/10.5066/p137fgts",
+      "kind": "paper",
+      "source": "openalex-lidar",
+      "source_name": "OpenAlex: LiDAR point cloud",
+      "published": "2026-10-27T00:00:00.000Z",
+      "summary": "Lidar, Remote sensing, Environmental science, Georeference, Point cloud, Meteorology, Perimeter, Forestry",
+      "matched": [
+        "remote sensing",
+        "LiDAR",
+        "point cloud"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "90ed7518c8f29274",
+      "title": "BIM-Priori — Integrating semantic–geometric BIM priors as knowledge constraints for robot localization and mapping",
+      "url": "https://doi.org/10.1016/j.aei.2026.105390",
+      "kind": "paper",
+      "source": "openalex-lidar",
+      "source_name": "OpenAlex: LiDAR point cloud",
+      "published": "2026-10-27T00:00:00.000Z",
+      "summary": "Simultaneous localization and mapping, Trajectory, Computer science, Consistency (knowledge bases), Prior probability, Computer vision, Graph, Building information modeling",
+      "matched": [
+        "BIM"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "0bd1b50312b81c86",
+      "title": "An Interpretable and Transferable Allometric Model for Remote Sensing-Based Estimation of Forest Aboveground Biomass",
+      "url": "https://doi.org/10.3390/rs18213691",
+      "kind": "paper",
+      "source": "openalex-lidar",
+      "source_name": "OpenAlex: LiDAR point cloud",
+      "published": "2026-10-27T00:00:00.000Z",
+      "summary": "Mean squared error, Allometry, Random forest, Environmental science, Calibration, Mathematics, Remote sensing, Leaf area index",
+      "matched": [
+        "remote sensing"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "c3968d30f74e35f6",
+      "title": "Choosing the season for estimating elevated canopy cover from Sentinel 2 NDVI using UAV LiDAR as a reference",
+      "url": "https://doi.org/10.5281/zenodo.23696294",
+      "kind": "paper",
+      "source": "openalex-lidar",
+      "source_name": "OpenAlex: LiDAR point cloud",
+      "published": "2026-10-27T00:00:00.000Z",
+      "summary": "Normalized Difference Vegetation Index, Canopy, Lidar, Remote sensing, Environmental science, Forest cover, Cover (algebra), Growing season",
+      "matched": [
+        "remote sensing",
+        "LiDAR",
+        "UAV"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "51dc4d7e43441b6d",
+      "title": "\"Global giant tree distribution areas dataset\"",
+      "url": "https://doi.org/10.21227/1158-3z37",
+      "kind": "paper",
+      "source": "openalex-lidar",
+      "source_name": "OpenAlex: LiDAR point cloud",
+      "published": "2026-10-27T00:00:00.000Z",
+      "summary": "Canopy, Remote sensing, Lidar, Tree canopy, Environmental science, Range (aeronautics), Geography, Global Map",
+      "matched": [
+        "remote sensing",
+        "LiDAR"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "3f08f7a8c5fad71e",
+      "title": "Digital Twin-Enabled Laboratory Asset Management for Smart Campus Applications",
+      "url": "https://doi.org/10.20944/preprints202610.2638.v1",
+      "kind": "paper",
+      "source": "openalex-lidar",
+      "source_name": "OpenAlex: LiDAR point cloud",
+      "published": "2026-10-27T00:00:00.000Z",
+      "summary": "Asset management, Workflow, Facility management, Asset (computer security), Computer science, Usability, Building information modeling, Workaround",
+      "matched": [
+        "digital twin"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "cc25824cae0f52ad",
+      "title": "Multisource remote sensing and geospatial analysis of vineyard wildfire impacts and exposure: the 2019 Kincade Fire",
+      "url": "https://doi.org/10.3389/frsus.2026.1997548",
+      "kind": "paper",
+      "source": "openalex-lidar",
+      "source_name": "OpenAlex: LiDAR point cloud",
+      "published": "2026-10-27T00:00:00.000Z",
+      "summary": "Vineyard, Remote sensing, Environmental science, Geospatial analysis, Pixel, Boundary (topology), Agricultural land, Hydrology (agriculture)",
+      "matched": [
+        "remote sensing",
+        "geospatial"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "83e20084cdf261ee",
+      "title": "Evaluating Human Thermal Comfort Impact of Urban Tree Pruning through Solar Radiation Simulation using Quantitative Structure Model",
+      "url": "https://doi.org/10.21203/rs.3.rs-11276657/v1",
+      "kind": "paper",
+      "source": "openalex-lidar",
+      "source_name": "OpenAlex: LiDAR point cloud",
+      "published": "2026-10-27T00:00:00.000Z",
+      "summary": "Pruning, Canopy, Environmental science, Thermal comfort, Remote sensing, Tree (set theory), Leaf area index, Point cloud",
+      "matched": [
+        "remote sensing",
+        "point cloud"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "7ff1d56baf2612b2",
+      "title": "\"Discovering Giant Tree Communities Using LiDAR and Sentinel-2 Data Training code\"",
+      "url": "https://doi.org/10.21227/p8vt-p167",
+      "kind": "paper",
+      "source": "openalex-lidar",
+      "source_name": "OpenAlex: LiDAR point cloud",
+      "published": "2026-10-27T00:00:00.000Z",
+      "summary": "Lidar, Remote sensing, Computer science, Canopy, Tree (set theory), Pyramid (geometry), Environmental science, Reference data",
+      "matched": [
+        "remote sensing",
+        "LiDAR",
+        "Sentinel-2"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "04dbdb8e9fd74868",
+      "title": "Relationships between deep convective clouds, cirrus clouds, and the tropical easterly jet over the Indian region observed with Aeolus spaceborne Doppler wind lidar",
+      "url": "https://doi.org/10.5194/acp-26-15017-2026",
+      "kind": "paper",
+      "source": "openalex-lidar",
+      "source_name": "OpenAlex: LiDAR point cloud",
+      "published": "2026-10-26T00:00:00.000Z",
+      "summary": "tropical easterly jet, thin clouds, Arabian Sea, Bay of Bengal, Indian summer monsoon, deep convection, convective outflow, thermal wind, cloud advection, Geology, Monsoon, Climatology, Deep convection, Convection, Bay, African easterly jet, Atmospheric sciences",
+      "matched": [
+        "LiDAR"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "dc1676ebc340845f",
+      "title": "Uncertainty quantification and estimating the behavior of corroded steel structural members using lidar point cloud-generated section properties",
+      "url": "https://doi.org/10.1016/j.jcsr.2026.110772",
+      "kind": "paper",
+      "source": "openalex-lidar",
+      "source_name": "OpenAlex: LiDAR point cloud",
+      "published": "2026-10-26T00:00:00.000Z",
+      "summary": "uncertainty quantification, corroded steel, steel members, LiDAR point cloud, section properties, Section (typography), Uncertainty quantification, Point (geometry), Structural engineering, Uncertainty analysis, Lidar, Cross section (physics), Structural health monitoring",
+      "matched": [
+        "LiDAR",
+        "point cloud"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "e6eff27808e83568",
+      "title": "Looking up, looking down: zenith-to-nadir lidar comparisons for cloud scenes (IPRAL and ATLID/EarthCARE)",
+      "url": "https://doi.org/10.5194/egusphere-2026-6375",
+      "kind": "paper",
+      "source": "openalex-lidar",
+      "source_name": "OpenAlex: LiDAR point cloud",
+      "published": "2026-10-26T00:00:00.000Z",
+      "summary": "cloud lidar, attenuated backscatter, scattering ratio, cross-correlation matching, false discovery rate, multi-layer clouds, thin clouds, 355 nm lidar, Lidar, Remote sensing, Backscatter (email), Zenith, Environmental science, Collocation (remote sensing), Computer science, Cloud height",
+      "matched": [
+        "remote sensing",
+        "LiDAR"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "8a928fb7c5abcec6",
+      "title": "Simulation of a spaceborne metastable helium lidar",
+      "url": "https://doi.org/10.5194/egusphere-2026-6508",
+      "kind": "paper",
+      "source": "openalex-lidar",
+      "source_name": "OpenAlex: LiDAR point cloud",
+      "published": "2026-10-26T00:00:00.000Z",
+      "summary": "spaceborne lidar, thermosphere, radial velocity, thermospheric dynamics, thermospheric models, Lidar, Thermosphere, Remote sensing, Environmental science, Exosphere, Meteorology, Helium, Altitude (triangle)",
+      "matched": [
+        "remote sensing",
+        "LiDAR"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "c842914b847fce4b",
+      "title": "Region-wide shrubification of Betula glandulosa inferred from combined ground and satellite observations in Nunavik",
+      "url": "https://doi.org/10.22541/authorea.15011052/v1",
+      "kind": "paper",
+      "source": "openalex-lidar",
+      "source_name": "OpenAlex: LiDAR point cloud",
+      "published": "2026-10-26T00:00:00.000Z",
+      "summary": "Betula glandulosa, shrubification, Arctic greening, Nunavik, NDVI trends, Landsat, species mapping, treeline dynamics, soil moisture, albedo, permafrost, Greening, Normalized Difference Vegetation Index, Vegetation (pathology), Betula pubescens, Physical geography, Environmental science, Satellite, ",
+      "matched": [
+        "Landsat"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "c54b5999337e0a28",
+      "title": "DFL-YOLO: Density-Guided Frequency Decoupling and Large Selective Kernels improve dense multi-class tree crown detection",
+      "url": "https://doi.org/10.3389/ffgc.2026.1964673",
+      "kind": "paper",
+      "source": "openalex-lidar",
+      "source_name": "OpenAlex: LiDAR point cloud",
+      "published": "2026-10-26T00:00:00.000Z",
+      "summary": "tree crown detection, multi-class object detection, YOLOv11, bounding box regression, crown overlap, UAV imagery, forest monitoring, VisDrone2019, Minimum bounding box, Artificial intelligence, Pattern recognition (psychology), Computer science, Tree (set theory), Bounding overwatch, Mathematics, Fe",
+      "matched": [
+        "UAV"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "cfd812fd3a5600c8",
+      "title": "Editorial: Computational multimodal sensing and perception for robotic systems",
+      "url": "https://doi.org/10.3389/frobt.2026.1967986",
+      "kind": "paper",
+      "source": "openalex-lidar",
+      "source_name": "OpenAlex: LiDAR point cloud",
+      "published": "2026-10-26T00:00:00.000Z",
+      "summary": "multimodal sensing, sensor fusion, robot perception, tactile sensing, auditory sensing, event-based sensing, dynamic environments, Computer science, Artificial intelligence, Perception, Computer vision, Robot, Modalities, Lidar, Human–robot interaction",
+      "matched": [
+        "LiDAR"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "01d996ec8f6427d9",
+      "title": "Quantization signatures of coordinate processing in LiDAR point clouds: research archive",
+      "url": "https://doi.org/10.5281/zenodo.23660444",
+      "kind": "paper",
+      "source": "openalex-lidar",
+      "source_name": "OpenAlex: LiDAR point cloud",
+      "published": "2026-10-26T00:00:00.000Z",
+      "summary": "LiDAR point cloud, point cloud processing, positional accuracy, data integrity verification, injection-recovery tests, Python (programming language), Computer science, Computer graphics (images), Point cloud, Header, Byte, Lidar, Hash function",
+      "matched": [
+        "LiDAR",
+        "point cloud"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "2fe6cf74c8cc4d56",
+      "title": "Raindrop Size Distributions Retrieved from Vertically Staring Coherent Doppler Lidar",
+      "url": "https://doi.org/10.5194/egusphere-2026-5647",
+      "kind": "paper",
+      "source": "openalex-lidar",
+      "source_name": "OpenAlex: LiDAR point cloud",
+      "published": "2026-10-26T00:00:00.000Z",
+      "summary": "raindrop size distribution, coherent Doppler lidar, convective precipitation, laser disdrometer, atmospheric boundary layer, Southern Great Plains, Lidar, Disdrometer, Doppler effect, Backscatter (email), Environmental science, Wind speed, Correlation coefficient, Remote sensing",
+      "matched": [
+        "remote sensing",
+        "LiDAR"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "12d74efdc6ae0798",
+      "title": "Quantifying Topographic Change and Sediment Export After a Debris-Flow Event Using Multi-Temporal LiDAR DEMs",
+      "url": "https://doi.org/10.5281/zenodo.23655217",
+      "kind": "paper",
+      "source": "openalex-lidar",
+      "source_name": "OpenAlex: LiDAR point cloud",
+      "published": "2026-10-26T00:00:00.000Z",
+      "summary": "topographic change, sediment export, DEM of Difference, erosion and deposition, sediment redistribution, Typhoon Hagibis, UAV LiDAR, airborne laser scanning, sediment volume estimation, Digital elevation model, Lidar, Remote sensing, Geology, Python (programming language), Elevation (ballistics), Ty",
+      "matched": [
+        "remote sensing",
+        "LiDAR",
+        "UAV"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "18a01e725ff497c6",
+      "title": "Uncertainty Evaluation to Support Safety of the Intended Functionality Analysis for Determining the Applicability of Performance Targets Across Triggering Conditions in ML-Based LiDAR Object Detection",
+      "url": "https://doi.org/10.48550/arxiv.2610.35092",
+      "kind": "paper",
+      "source": "openalex-lidar",
+      "source_name": "OpenAlex: LiDAR point cloud",
+      "published": "2026-10-26T00:00:00.000Z",
+      "summary": "Computer science, Limit (mathematics), Object detection, Detector, Lidar, Object (grammar), Ranging, Outcome (game theory)",
+      "matched": [
+        "LiDAR"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "181b1d7a2859d850",
+      "title": "Resolving primitive-sharing ambiguity in long-tailed TLS-based industrial MEP point cloud segmentation via spatial context constraints",
+      "url": "https://doi.org/10.1016/j.aei.2026.105394",
+      "kind": "paper",
+      "source": "openalex-lidar",
+      "source_name": "OpenAlex: LiDAR point cloud",
+      "published": "2026-10-25T00:00:00.000Z",
+      "summary": "point cloud segmentation, mechanical, electrical and plumbing systems, terrestrial laser scanning, class imbalance, long-tailed learning, class-balanced loss, boundary-aware loss, scan-to-BIM, digital twin, Point cloud, Ambiguity, Leverage (statistics), Segmentation, Computer science, Context (archa",
+      "matched": [
+        "point cloud",
+        "digital twin",
+        "BIM"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "2571e53b3ce9851b",
+      "title": "Reliability-aware conflict calibration for generalized few-shot point cloud segmentation",
+      "url": "https://doi.org/10.1007/s00371-026-04621-9",
+      "kind": "paper",
+      "source": "openalex-lidar",
+      "source_name": "OpenAlex: LiDAR point cloud",
+      "published": "2026-10-25T00:00:00.000Z",
+      "summary": "novel class segmentation, ambiguous regions, 3D scene understanding, Complement (music), Point cloud, Base (topology), Segmentation, Calibration, Computer science, Point (geometry), Artificial intelligence",
+      "matched": [
+        "point cloud"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "0c6ce703c9abede8",
+      "title": "Comment on essd-2026-719",
+      "url": "https://doi.org/10.5194/essd-2026-719-rc1",
+      "kind": "paper",
+      "source": "openalex-lidar",
+      "source_name": "OpenAlex: LiDAR point cloud",
+      "published": "2026-10-25T00:00:00.000Z",
+      "summary": "Wetland, Environmental science, Remote sensing, Vegetation (pathology), Ecosystem, Environmental resource management, Entropy (arrow of time), Lidar",
+      "matched": [
+        "remote sensing",
+        "LiDAR"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "58f7e095f4917db3",
+      "title": "Massive debris flow activity and connectivity shift in the 1980s deciphered by combined terrestrial and lacustrine record in a changing climate",
+      "url": "https://doi.org/10.5194/egusphere-2026-4303",
+      "kind": "paper",
+      "source": "openalex-lidar",
+      "source_name": "OpenAlex: LiDAR point cloud",
+      "published": "2026-10-25T00:00:00.000Z",
+      "summary": "debris flows, sediment transfer, debris fans, climate change, precipitation intensity, rainstorm, debris flow volume, land cover change, Northern Calcareous Alps, alpine catchments, natural hazards, historical aerial photographs, photogrammetry, Debris, Debris flow, Sediment, Geology, Erosion, Hydro",
+      "matched": [
+        "photogrammetry"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "5e45eb3bfbdd82e6",
+      "title": "Graph-Based Spatial-Velocity Clustering and Tracking of Unlabeled Radar Point Clouds for Autonomous Vehicles with a Novel Temporal Precision Metric",
+      "url": "https://doi.org/10.1177/03611981261480106",
+      "kind": "paper",
+      "source": "openalex-lidar",
+      "source_name": "OpenAlex: LiDAR point cloud",
+      "published": "2026-10-25T00:00:00.000Z",
+      "summary": "radar point clouds, object tracking, graph clustering, connected component analysis, autonomous driving perception, Doppler velocity, radar cross section, occlusion handling, multi-camera tracking, nuScenes, Computer science, Robustness (evolution), Computer vision, Artificial intelligence, Radar, P",
+      "matched": [
+        "point cloud"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "c301f24fef3462e7",
+      "title": "EMIT Reveals Elevated Calcite Signatures in Shorelines of Lake Powell and Lake Mead Exposed by Drought and Colorado River Management",
+      "url": "https://doi.org/10.1029/2026gl122195",
+      "kind": "paper",
+      "source": "openalex-lidar",
+      "source_name": "OpenAlex: LiDAR point cloud",
+      "published": "2026-10-25T00:00:00.000Z",
+      "summary": "calcite, Lake Powell, Lake Mead, reservoirs, hyperspectral remote sensing, EMIT, carbonate mineralogy, drought, recreation impacts, calcium carbonate precipitation, water level fluctuations, Calcite, Shore, Geology, Carbonate, Hydrology (agriculture), Mineral, Calcium carbonate, Surface water",
+      "matched": [
+        "remote sensing",
+        "hyperspectral"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "4f10de5cb3b55543",
+      "title": "LiDAR-Assisted Marker Tracking for Operators of Camera-Based Follow Systems",
+      "url": "https://doi.org/10.5281/zenodo.23649460",
+      "kind": "paper",
+      "source": "openalex-lidar",
+      "source_name": "OpenAlex: LiDAR point cloud",
+      "published": "2026-10-25T00:00:00.000Z",
+      "summary": "stage positioning, point clouds, heatmaps, human-robot interaction, Computer vision, Artificial intelligence, Offset (computer science), Operator (biology), Computer science, Tracking (education), Image (mathematics), Background image",
+      "matched": [
+        "LiDAR"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "062b4a6c674df8f6",
+      "title": "Integrating Social Innovation and Geoinformatics for Community-Based Disaster Risk Reduction: A Sandbox Approach in Mueang Tak District, Thailand",
+      "url": "https://doi.org/10.55766/sjss285803",
+      "kind": "paper",
+      "source": "openalex-geoai",
+      "source_name": "OpenAlex: GeoAI / geoinformatics",
+      "published": "2026-10-27T00:00:00.000Z",
+      "summary": "Geoinformatics, Environmental resource management, Geographic information system, Stakeholder, Natural hazard, Environmental planning, Sociotechnical system, Sandbox (software development)",
+      "matched": [
+        "geoinformatics"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "cea983dcc79731a1",
+      "title": "Developments in cartography and GIS in Albania – the contribution of Prof. Dr. Pal Nikolli",
+      "url": "https://doi.org/10.3846/gac.2026.23914",
+      "kind": "paper",
+      "source": "openalex-geoai",
+      "source_name": "OpenAlex: GeoAI / geoinformatics",
+      "published": "2026-10-23T00:00:00.000Z",
+      "summary": "thematic mapping, satellite imagery, aerial photography, spatial planning, environmental studies, spatial data infrastructure, cartography education, academic mentorship, Thematic map, Geography, Field (mathematics), Cartography, Curriculum, Aerial photography, Photography, Work (physics)",
+      "matched": [
+        "GIS"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "2016b67be9041b98",
+      "title": "Integrating GIS and BIM for Novel 3D Site Plans Within the Framework of Digital Building-Permits",
+      "url": "https://doi.org/10.1201/9781042025374-21",
+      "kind": "paper",
+      "source": "openalex-geoai",
+      "source_name": "OpenAlex: GeoAI / geoinformatics",
+      "published": "2026-10-23T00:00:00.000Z",
+      "summary": "building permits, BIM-GIS integration, geographic information systems, building information modeling, IFC, CityGML, georeferencing, building code compliance, open data standards, Building information modeling, Geospatial analysis, Computer science, Zoning, Geographic information system, CityGML, Sys",
+      "matched": [
+        "geospatial",
+        "GIS",
+        "CityGML",
+        "IFC",
+        "BIM"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "bf2ed4b51bba34cb",
+      "title": "Analysis of spatiotemporal dynamics of land use land cover pattern and Urban thermal environment in Cuttack City based on remote sensing data",
+      "url": "https://doi.org/10.1007/s44327-026-00386-x",
+      "kind": "paper",
+      "source": "openalex-geoai",
+      "source_name": "OpenAlex: GeoAI / geoinformatics",
+      "published": "2026-10-22T00:00:00.000Z",
+      "summary": "land use and land cover change, urban thermal environment, spatiotemporal dynamics, urban heat island, Cuttack, urban land cover, Remote sensing, Land cover, Environmental science, Land use, Satellite, Urban heat island, Cover (algebra), Meteorology",
+      "matched": [
+        "remote sensing"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "85188b652ac808f6",
+      "title": "Comparative exploration of continuum-removed absorption features from spaceborne EnMAP HSI and ground-based spectroscopy for characterizing senescent grass quality across different velds",
+      "url": "https://doi.org/10.1080/01431161.2026.2750411",
+      "kind": "paper",
+      "source": "openalex-geoai",
+      "source_name": "OpenAlex: GeoAI / geoinformatics",
+      "published": "2026-10-22T00:00:00.000Z",
+      "summary": "continuum removal, absorption features, forage quality, ground-based spectroscopy, Remote sensing, Environmental science, Hyperspectral imaging, Spectroscopy, Absorption (acoustics), Absorption spectroscopy, Quality (philosophy), Materials science",
+      "matched": [
+        "remote sensing",
+        "hyperspectral"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "dfa665a726127d21",
+      "title": "Landscape Evolution and Slope Dynamics in Arid and Semi-Arid Regions: A GIS and DEM-Based Assessment of the Abu Hadair Catchment in Southern Iraq",
+      "url": "https://doi.org/10.21203/rs.3.rs-11176296/v1",
+      "kind": "paper",
+      "source": "openalex-geoai",
+      "source_name": "OpenAlex: GeoAI / geoinformatics",
+      "published": "2026-10-22T00:00:00.000Z",
+      "summary": "landscape evolution, slope dynamics, arid and semi-arid watersheds, slope classification, slope aspect, slope stability, soil erosion, SRTM DEM, Landsat imagery, erosion risk assessment, catchment geomorphology, southern Iraq, Terrain, Arid, Structural basin, Vegetation (pathology), Geology, Drainag",
+      "matched": [
+        "GIS",
+        "Landsat"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "d906c6576d62d19d",
+      "title": "Dynamic thermal imaging for crop water stress detection across phenological stages: Enhancing irrigation scheduling precision",
+      "url": "https://doi.org/10.14719/pst.17728",
+      "kind": "paper",
+      "source": "openalex-geoai",
+      "source_name": "OpenAlex: GeoAI / geoinformatics",
+      "published": "2026-10-21T00:00:00.000Z",
+      "summary": "crop water stress index, crop phenology, irrigation scheduling, canopy-air temperature difference, grapevine, wheat, maize, potato, canopy closure, digital twin, Internet of Things, FAO-56, machine learning, data fusion, crop water status, Phenology, Irrigation scheduling, Environmental science, Bas",
+      "matched": [
+        "digital twin"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "02c9950e5bc2027e",
+      "title": "Gis–Ahp Groundwater Potential Mapping and Sensitivity Analysis for Public Borehole Planning in Ikorodu, Lagos State, Nigeria",
+      "url": "https://doi.org/10.21203/rs.3.rs-11154501/v1",
+      "kind": "paper",
+      "source": "openalex-geoai",
+      "source_name": "OpenAlex: GeoAI / geoinformatics",
+      "published": "2026-10-20T00:00:00.000Z",
+      "summary": "groundwater potential mapping, borehole siting, groundwater resource assessment, Ikorodu, lineament density, rainfall, slope, land use/land cover, sensitivity analysis, analytic hierarchy process, multi-criteria decision making, decision support, urban water supply, coastal urbanization, land subsid",
+      "matched": [
+        "GIS"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "d082b43f1023138e",
+      "title": "Dynamic three-dimensional model of underground mining space",
+      "url": "https://doi.org/10.21440/0536-1028-2026-5-89-99",
+      "kind": "paper",
+      "source": "openalex-geoai",
+      "source_name": "OpenAlex: GeoAI / geoinformatics",
+      "published": "2026-10-20T00:00:00.000Z",
+      "summary": "3D modeling, digital twin, gradient descent, laser scanning, potash mines, ventilation calculation, Representation (politics), Underground mining (soft rock), Gradient descent, Algorithm, Trajectory, Geometric modeling, Function (biology), Volume (thermodynamics)",
+      "matched": [
+        "digital twin"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "973cc67f368d3bab",
+      "title": "Automated drilling and blasting passport formation using machine vision and neural networks",
+      "url": "https://doi.org/10.21440/0536-1028-2026-5-78-88",
+      "kind": "paper",
+      "source": "openalex-geoai",
+      "source_name": "OpenAlex: GeoAI / geoinformatics",
+      "published": "2026-10-20T00:00:00.000Z",
+      "summary": "design automation, machine vision, artificial neural networks, laser radar, point clouds, facial scanning, RANSAC, Voronoi tessellation, mining excavation, surface segmentation, noise reduction, Artificial neural network, Drilling, Point cloud, Data mining, Computer science, Process (computing), Mac",
+      "matched": [
+        "point cloud"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "514bccdef84c01c5",
+      "title": "An Accurate Land Cover Classification Map in China Integrating High-resolution Satellite Imagery and Planning Data with Deep Learning",
+      "url": "https://doi.org/10.1038/s41597-026-08583-4",
+      "kind": "paper",
+      "source": "openalex-geoai",
+      "source_name": "OpenAlex: GeoAI / geoinformatics",
+      "published": "2026-10-19T00:00:00.000Z",
+      "summary": "land cover classification, high-resolution satellite imagery, semantic segmentation, ConvNeXt, territorial spatial planning, built-up areas, cropland, road network extraction, planning maps, China, land accounting, Land cover, Satellite imagery, Deep learning, Baseline (sea), Remote sensing, Consist",
+      "matched": [
+        "remote sensing"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "be159cb7924e9271",
+      "title": "Development of specifications for geospatial datasets of topographic maps at scales of 1:25 000 – 1:1 000 0005",
+      "url": "https://doi.org/10.23939/istcgcap2026.104.005",
+      "kind": "paper",
+      "source": "openalex-geoai",
+      "source_name": "OpenAlex: GeoAI / geoinformatics",
+      "published": "2026-10-19T00:00:00.000Z",
+      "summary": "topographic map, object-oriented modeling, hydrographic features, settlement, utility, INSPIRE directive, ISO 19100, topographic database, Geospatial analysis, Computer science, Architecture, Data mining, Selection (genetic algorithm), Geomatics, Development (topology), Cartographic generalization",
+      "matched": [
+        "geospatial",
+        "geomatics"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "127638fcbcf0f56d",
+      "title": "Spatio-temporal analysis and forecasting of land use/land cover change in East Medinipur district, India using CA-Markov model",
+      "url": "https://doi.org/10.3846/gac.2026.23669",
+      "kind": "paper",
+      "source": "openalex-geoai",
+      "source_name": "OpenAlex: GeoAI / geoinformatics",
+      "published": "2026-10-19T00:00:00.000Z",
+      "summary": "land use and land cover change, CA-Markov model, aquaculture expansion, built-up area expansion, agricultural land loss, vegetation loss, water body loss, spatio-temporal change, Landsat imagery, Geography, Land cover, Satellite imagery, Physical geography, Aquaculture, Land use, Satellite, Change a",
+      "matched": [
+        "Landsat"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "39b53e4a4401f219",
+      "title": "Seeing the hidden reservoir: Earth observation and geoinformatics for assessing sand dam impacts in dryland rivers",
+      "url": "https://doi.org/10.1080/17538947.2026.2749197",
+      "kind": "paper",
+      "source": "openalex-geoai",
+      "source_name": "OpenAlex: GeoAI / geoinformatics",
+      "published": "2026-10-17T00:00:00.000Z",
+      "summary": "sand dams, dryland rivers, groundwater recharge, reservoirs, Earth observation, geoinformatics, remote sensing, water resources management, arid regions, Geoinformatics, Earth observation, Geology, Remote sensing, Vegetation (pathology), Earth (classical element), Geography, Hydrology (agriculture)",
+      "matched": [
+        "remote sensing",
+        "geoinformatics",
+        "earth observation"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "68d7ec567ab37b42",
+      "title": "Implications, Benefits, Challenges, and Future Perspective of GIS-Farming Machinery Integration in Precision Agriculture: A Review",
+      "url": "https://doi.org/10.56201/ijemt.vol.11.no4.2025.pg70.80",
+      "kind": "paper",
+      "source": "openalex-geoai",
+      "source_name": "OpenAlex: GeoAI / geoinformatics",
+      "published": "2026-10-16T00:00:00.000Z",
+      "summary": "geographic information systems, agricultural machinery, precision agriculture, agricultural decision-making, resource management, crop yield, sustainable agriculture, technology adoption barriers, agricultural data analysis, Precision agriculture, Context (archaeology), Sustainability, Data integrat",
+      "matched": [
+        "GIS"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "3a3bb0d64cfe9f9b",
+      "title": "Mapping rainfed cereals and olive groves using Sentinel-1, Sentinel-2, and topographic data in northern Morocco",
+      "url": "https://doi.org/10.3389/frsen.2026.1880806",
+      "kind": "paper",
+      "source": "openalex-geoai",
+      "source_name": "OpenAlex: GeoAI / geoinformatics",
+      "published": "2026-10-16T00:00:00.000Z",
+      "summary": "olive groves, crop mapping, Sentinel-2, Sentinel-1, radar backscatter, red-edge indices, topographic variables, elevation and slope, random forest, SHAP, northern Morocco, agricultural monitoring, Mediterranean climate, Vegetation (pathology), Synthetic aperture radar, Phenology, Remote sensing, Red",
+      "matched": [
+        "remote sensing",
+        "Sentinel-1",
+        "Sentinel-2"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "b6eac339b7d94429",
+      "title": "Domain-specific constraints for localisation and mapping in sewer systems: algorithms and validation in laboratory and field tests",
+      "url": "https://doi.org/10.1007/s41315-026-00603-1",
+      "kind": "paper",
+      "source": "openalex-geoai",
+      "source_name": "OpenAlex: GeoAI / geoinformatics",
+      "published": "2026-10-16T00:00:00.000Z",
+      "summary": "sewer pipe inspection, SLAM, LiDAR-based SLAM, domain-specific constraints, sewer pipe networks, loop closure, repetitive structures, pipe defect detection, trajectory error, Sanitary sewer, Algorithm, Simultaneous localization and mapping, Pigging, Computer science, Bounded function, Field (mathema",
+      "matched": [
+        "LiDAR"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "108a54662398ab27",
+      "title": "Principles of Good Scientific Practice in Geoinformatics: From Data Management to Reproducible Code",
+      "url": "https://doi.org/10.5281/zenodo.23335009",
+      "kind": "paper",
+      "source": "openalex-geoai",
+      "source_name": "OpenAlex: GeoAI / geoinformatics",
+      "published": "2026-10-15T00:00:00.000Z",
+      "summary": "reproducibility, spatial data science, geoinformatics, data management, literate programming, reproducible code, FAIR data, ELSA, Docker containerization, GitLab CI/CD, large language models, geovisual analytics, spatial planning, GRASS GIS, Computer science, Scripting language, Data science, Workfl",
+      "matched": [
+        "geoinformatics",
+        "GIS"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "0baa5deb598507cd",
+      "title": "Monotone Piecewise-Linear Harmonization of Multitemporal Multispectral Surface Reflectance With Unsupervised Deep Multiview Pseudoinvariant Features Learning",
+      "url": "https://doi.org/10.48550/arxiv.2610.21183",
+      "kind": "paper",
+      "source": "openalex-geoai",
+      "source_name": "OpenAlex: GeoAI / geoinformatics",
+      "published": "2026-10-15T00:00:00.000Z",
+      "summary": "generalized canonical correlation analysis, multivariate alteration detection, atmospheric correction, Landsat 8/9, Sentinel-2, convolutional encoder, unsupervised learning, Artificial intelligence, Multispectral image, Computer science, Hyperspectral imaging, Deep learning, Canonical correlation, R",
+      "matched": [
+        "remote sensing",
+        "hyperspectral",
+        "multispectral",
+        "Sentinel-2",
+        "Landsat"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "ae133dd40adbcb61",
+      "title": "An Investigation of Built-up Area Expansion in the Syrian Coastal Mountain Environment",
+      "url": "https://doi.org/10.14246/irspsd.14.4_109",
+      "kind": "paper",
+      "source": "openalex-geoai",
+      "source_name": "OpenAlex: GeoAI / geoinformatics",
+      "published": "2026-10-14T00:00:00.000Z",
+      "summary": "built-up area expansion, urban expansion, Syrian coast, urbanization, land use change, Environmental science, Hydrology (agriculture), Geology, Urban heat island, Physical geography, Urban expansion, Water resource management, Remote sensing",
+      "matched": [
+        "remote sensing"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "0df0154a482a0cbb",
+      "title": "UNMANNED AERIAL SYSTEMS IN MSW LANDFILL MONITORING: JUSTIFICATION BASED ON SPATIAL ANALYSIS OF OPEN GEODATA",
+      "url": "https://doi.org/10.58168/tsmstto2026_48-54",
+      "kind": "paper",
+      "source": "openalex-geoai",
+      "source_name": "OpenAlex: GeoAI / geoinformatics",
+      "published": "2026-10-14T00:00:00.000Z",
+      "summary": "unmanned aerial systems, municipal solid waste landfill, landfill monitoring, open geospatial data, spatial analysis, digital elevation model, NDVI, flight path planning, Central Chernozem region, Digital elevation model, Geographic information system, Remote sensing, Environmental science, Spatial ",
+      "matched": [
+        "remote sensing",
+        "geospatial"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "25042b16f275cee5",
+      "title": "Direct Translation Versus Semantic Reinterpretation in IFC-to-CityGML 3.0 Conversion: Assessing Traceability and Quantity Preservation Through RDF Knowledge Graphs",
+      "url": "https://doi.org/10.3390/ijgi15110483",
+      "kind": "paper",
+      "source": "openalex-citygml-bim",
+      "source_name": "OpenAlex: CityGML / BIM",
+      "published": "2026-10-25T00:00:00.000Z",
+      "summary": "semantic reinterpretation, direct translation, building information model, urban digital twins, RDF knowledge graphs, GeoSPARQL, PROV-O, polygon reconstruction, volume loss, geometric simplification, CityGML, 3D city models, Interpretability, Reinterpretation, Computer science, Vocabulary, Traceabil",
+      "matched": [
+        "CityGML",
+        "IFC"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "c32c06c77338d637",
+      "title": "Geometry-aware fine-grained decomposition of Chinese-style buildings from aerial photogrammetric 3D models",
+      "url": "https://doi.org/10.1038/s40494-026-03054-w",
+      "kind": "paper",
+      "source": "openalex-citygml-bim",
+      "source_name": "OpenAlex: CityGML / BIM",
+      "published": "2026-10-24T00:00:00.000Z",
+      "summary": "aerial photogrammetry, multi-view images, architectural heritage documentation, Photogrammetry, Decomposition, Computer science, Aerial image, Artificial intelligence, Benchmark (surveying), 3D modeling, Roof",
+      "matched": [
+        "photogrammetry",
+        "photogrammetric"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "154a5b6d858b8e50",
+      "title": "A 3D Site Plan Data Model: Bridging BIM and GIS for German Building Permit Jurisdictions",
+      "url": "https://doi.org/10.1201/9781042025374-1",
+      "kind": "paper",
+      "source": "openalex-citygml-bim",
+      "source_name": "OpenAlex: CityGML / BIM",
+      "published": "2026-10-23T00:00:00.000Z",
+      "summary": "building permits, BIM-GIS integration, semantic data model, IFC, CityGML, land surveyors, spatial data quality, data exchange, Plan (archaeology), Bridging (networking), Key (lock), German, Building information modeling, Computer science, Foundation (evidence), Information model",
+      "matched": [
+        "GIS",
+        "CityGML",
+        "IFC",
+        "BIM"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "44d58073d978071f",
+      "title": "A Semi-Automatic Roof Type-Driven Workflow for LoD2 Building Reconstruction from Orthophotos and Photogrammetric Point Clouds",
+      "url": "https://doi.org/10.21203/rs.3.rs-10192259/v1",
+      "kind": "paper",
+      "source": "openalex-citygml-bim",
+      "source_name": "OpenAlex: CityGML / BIM",
+      "published": "2026-10-23T00:00:00.000Z",
+      "summary": "roof type classification, building reconstruction, orthophotos, photogrammetric point clouds, boundary representation, CityJSON, CityGML, digital terrain model, digital surface model, 3D city model, Orthophoto, Roof, Point cloud, Computer science, Photogrammetry, 3D city models, Digital surface, Cit",
+      "matched": [
+        "photogrammetry",
+        "photogrammetric",
+        "point cloud",
+        "CityGML"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "54eee08a6e4c13f0",
+      "title": "City Information Modeling (CIM): aplicações, dados de entrada e resultados gerados",
+      "url": "https://doi.org/10.46421/entac.v21i1.8785",
+      "kind": "paper",
+      "source": "openalex-citygml-bim",
+      "source_name": "OpenAlex: CityGML / BIM",
+      "published": "2026-10-20T00:00:00.000Z",
+      "summary": "City Information Modeling, urban digital twins, interoperability, building information modeling, geospatial data, file formats, data flow, urban environmental management, visualization, urban indicators, Interoperability, Geospatial analysis, Computer science, Identification (biology), Data science,",
+      "matched": [
+        "geospatial"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "d009f140eec36357",
+      "title": "Seeing cities in depth: subsurface urban expansion and the case for volumetric monitoring and accountability",
+      "url": "https://doi.org/10.3389/frsc.2026.1878583",
+      "kind": "paper",
+      "source": "openalex-citygml-bim",
+      "source_name": "OpenAlex: CityGML / BIM",
+      "published": "2026-10-20T00:00:00.000Z",
+      "summary": "underground space, accountability, urban governance, underground monitoring, Earth observation, deformation detection, evidence system, underground infrastructure, urban change detection, Accountability, Process (computing), Corporate governance, Environmental planning, Perspective (graphical), Defo",
+      "matched": [
+        "earth observation"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "1fb1ab171f54e0ff",
+      "title": "Digital twin for IoT-based smart city applications: modelling, communication and analysis perspectives",
+      "url": "https://doi.org/10.17869/enu.2026.5286220",
+      "kind": "paper",
+      "source": "openalex-citygml-bim",
+      "source_name": "OpenAlex: CityGML / BIM",
+      "published": "2026-10-19T00:00:00.000Z",
+      "summary": "digital twin, Internet of Things, smart cities, graph-based modeling, generative AI, quality of service, what-if analysis, real-time monitoring, energy efficiency, heterogeneous devices, Computer science, Interdependence, Quality of service, Smart city, Key (lock), Service (business), Internet of Th",
+      "matched": [
+        "digital twin"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "32017684dc053f46",
+      "title": "Integrated architectures for IFC interoperability and legacy BIM migration with a deterministic IFC2X3 data-quality pilot",
+      "url": "https://doi.org/10.1038/s41598-026-76784-3",
+      "kind": "paper",
+      "source": "openalex-citygml-bim",
+      "source_name": "OpenAlex: CityGML / BIM",
+      "published": "2026-10-18T00:00:00.000Z",
+      "summary": "Industry Foundation Classes, data quality, property extraction, BIM coordination, blockchain provenance, machine learning validation, Interoperability, Consistency (knowledge bases), Computer science, Identifier, Software engineering, Legacy system, Bridge (graph theory), Workflow",
+      "matched": [
+        "IFC",
+        "BIM"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "69e73b26bdb6e906",
+      "title": "A Database-Centered Geospatial Infrastructure for Autonomous Vehicle Digital Twins: A Framework Integrating Semantic ODD Layers, Runtime Telemetry, and 3D Urban Context",
+      "url": "https://doi.org/10.3390/geomatics6050123",
+      "kind": "paper",
+      "source": "openalex-citygml-bim",
+      "source_name": "OpenAlex: CityGML / BIM",
+      "published": "2026-10-16T00:00:00.000Z",
+      "summary": "geospatial infrastructure, operational design domain, PostGIS, CityGML, CARLA, telemetry, vehicle-to-vehicle communication, mission control, cesium, traceability, Geospatial analysis, Computer science, Context (archaeology), Traceability, Domain (mathematical analysis), Population, Latency (audio), ",
+      "matched": [
+        "geospatial",
+        "CityGML"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "8a83c41233a71101",
+      "title": "Multi-scale integration of smart technologies for climate-resilient urban road infrastructure: a systematic literature review and conceptual framework",
+      "url": "https://doi.org/10.1108/sasbe-06-2025-0350",
+      "kind": "paper",
+      "source": "openalex-citygml-bim",
+      "source_name": "OpenAlex: CityGML / BIM",
+      "published": "2026-10-16T00:00:00.000Z",
+      "summary": "smart technologies, climate resilience, urban road infrastructure, digital twin, building information modeling, geographic information systems, Internet of Things, artificial intelligence, big data, remote sensing, multiscale integration, data interoperability, infrastructure monitoring, conceptual ",
+      "matched": [
+        "remote sensing",
+        "digital twin"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "a79aefc3a3769d29",
+      "title": "Digital Sustainability Assessment:A Platform-Based Approach for Transport Infrastructure",
+      "url": "https://doi.org/10.66408/dfbi.2026.26352",
+      "kind": "paper",
+      "source": "openalex-citygml-bim",
+      "source_name": "OpenAlex: CityGML / BIM",
+      "published": "2026-10-12T00:00:00.000Z",
+      "summary": "sustainability assessment, transport infrastructure, key performance indicators, EnVision, BREEAM, WebGIS, data integration, digital twin, building information modeling, Internet of Things, life cycle management, asset management, railway infrastructure, sustainability governance, data traceability,",
+      "matched": [
+        "digital twin"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "d56e731152f4e98c",
+      "title": "Toward an Amazonian digital twin",
+      "url": "https://doi.org/10.46421/entac.v21i1.8572",
+      "kind": "paper",
+      "source": "openalex-citygml-bim",
+      "source_name": "OpenAlex: CityGML / BIM",
+      "published": "2026-10-12T00:00:00.000Z",
+      "summary": "digital twin architecture, urban environmental management, indigenous knowledge, Indigenous data sovereignty, climate crisis, urban flooding, forest fires, drought, urban hydrology, governance, Amazonian, Amazon rainforest, Indigenous, Geography, Corporate governance, Environmental resource manageme",
+      "matched": [
+        "digital twin"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "b5b8517b7c7c4038",
+      "title": "Semantic–geography integrated spatiotemporal safety mapping for urban low-altitude airspace environments",
+      "url": "https://doi.org/10.1016/j.aap.2026.108792",
+      "kind": "paper",
+      "source": "openalex-citygml-bim",
+      "source_name": "OpenAlex: CityGML / BIM",
+      "published": "2026-10-11T00:00:00.000Z",
+      "summary": "UAV safety, semantic mapping, digital surface model, digital terrain model, pedestrian exposure, weather conditions, UAV operations, Computer science, Terrain, Risk management, Function (biology), Field (mathematics), Transport engineering, Pedestrian, Service (business)",
+      "matched": [
+        "UAV"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "4b03d83ad3194371",
+      "title": "Deriving floor space of real estates from CityGML LOD2 models in Germany",
+      "url": "https://doi.org/10.1080/09613218.2026.2730945",
+      "kind": "paper",
+      "source": "openalex-citygml-bim",
+      "source_name": "OpenAlex: CityGML / BIM",
+      "published": "2026-10-09T00:00:00.000Z",
+      "summary": "floor area, real estate, CityGML, 3D building model, building footprint extraction, building height estimation, CityGML, Computer science, Space (punctuation), Architectural engineering, Engineering, Key (lock), Engineering drawing, Point (geometry)",
+      "matched": [
+        "CityGML"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "3d578d4fc1be34c9",
+      "title": "Reliable Natural-Language Interaction with CityGML Through Hybrid Retrieval and Spatial Integrity Verification",
+      "url": "https://doi.org/10.1007/978-3-032-41864-7_25",
+      "kind": "paper",
+      "source": "openalex-citygml-bim",
+      "source_name": "OpenAlex: CityGML / BIM",
+      "published": "2026-10-08T00:00:00.000Z",
+      "summary": "CityGML, natural language interaction, hybrid retrieval, 3D city model, semantic search, Computer science, CityGML, Data mining, Artificial intelligence, Data integrity, Reliability (semiconductor), Information retrieval, Field (mathematics)",
+      "matched": [
+        "CityGML"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "0d3a527b6f9c4521",
+      "title": "CityGML-Based Scene Graphs for Spatially Grounded Sensor-Aware Building Digital Twins",
+      "url": "https://doi.org/10.1007/978-3-032-41867-8_22",
+      "kind": "paper",
+      "source": "openalex-citygml-bim",
+      "source_name": "OpenAlex: CityGML / BIM",
+      "published": "2026-10-07T00:00:00.000Z",
+      "summary": "building digital twins, CityGML, scene graph, environmental sensors, sensor observations, SensorThings API, 3D building model, smart cities, graph traversal, Computer science, Graph, Spatial contextual awareness, Context (archaeology), Scene graph, Visualization, Relation (database), Spatial relatio",
+      "matched": [
+        "CityGML"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "128f6aeabe4cdc5d",
+      "title": "DELFT-UBEM: An automated database-driven pipeline for district-scale building energy modeling, demonstrated on Dutch district retrofit",
+      "url": "https://doi.org/10.1016/j.enbuild.2026.118345",
+      "kind": "paper",
+      "source": "openalex-citygml-bim",
+      "source_name": "OpenAlex: CityGML / BIM",
+      "published": "2026-10-05T00:00:00.000Z",
+      "summary": "urban building energy modeling, building archetypes, residential heating demand, gas consumption, building retrofit, electrification, marginal abatement cost curves, digital twin, Pipeline (software), Downstream (manufacturing), Workflow, Modular design, Energy modeling, Upgrade, Archetype, Computer",
+      "matched": [
+        "digital twin"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "94800adb29e3eb84",
+      "title": "Discretization-based reconstruction of watertight building geometry from raw GIS data for urban CFD simulation",
+      "url": "https://doi.org/10.1016/j.dibe.2026.101064",
+      "kind": "paper",
+      "source": "openalex-citygml-bim",
+      "source_name": "OpenAlex: CityGML / BIM",
+      "published": "2026-10-05T00:00:00.000Z",
+      "summary": "surface sampling, geometric simplification, Seoul, Footprint, Workflow, Preprocessor, Visualization, Computer science, Data pre-processing, Geographic information system, Pipeline (software)",
+      "matched": [
+        "GIS"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "9de15733c56749fc",
+      "title": "Empirical Urban Growth Dynamics (2000–2025) and A Conceptual Architectural Framework for Spatial Digital Twins in Secondary African Cities: A Case Study of Owerri, Nigeria",
+      "url": "https://doi.org/10.14419/66ab3y55",
+      "kind": "paper",
+      "source": "openalex-citygml-bim",
+      "source_name": "OpenAlex: CityGML / BIM",
+      "published": "2026-10-05T00:00:00.000Z",
+      "summary": "urban growth dynamics, secondary cities, Owerri, land use and land cover change, urban growth monitoring, digital twin architecture, SDG 11, urban planning, sub-Saharan Africa, Blueprint, Geographic information system, Conceptual framework, Urban planning, Land use, Environmental resource management",
+      "matched": [
+        "digital twin"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "ca7ea5e9f4f0089b",
+      "title": "ASSESSING SUSTAINABLE URBAN DIGITAL TWIN READINESS: CASE STUDIES OF SINGAPORE, TOKYO, AND DUBAI",
+      "url": "https://doi.org/10.70269/10.70269/7695356881",
+      "kind": "paper",
+      "source": "openalex-citygml-bim",
+      "source_name": "OpenAlex: CityGML / BIM",
+      "published": "2026-10-01T00:00:00.000Z",
+      "summary": "urban digital twins, sustainability, urban planning, Singapore, Tokyo, Dubai, smart cities, Environmental planning, Business, Geography, Sustainability, Work (physics), Regional science, Field (mathematics), Urban planning",
+      "matched": [
+        "digital twin"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "aa06edd79bdefa54",
+      "title": "Konceptualna izhodišča za vzpostavitev nacionalnega geoprostorskega digitalnega dvojčka",
+      "url": "https://doi.org/10.3986/9789610511670_13",
+      "kind": "paper",
+      "source": "openalex-citygml-bim",
+      "source_name": "OpenAlex: CityGML / BIM",
+      "published": "2026-09-30T00:00:00.000Z",
+      "summary": "conceptual framework, spatial data infrastructure, digital twin, Product (mathematics), Work (physics), Computer science, Identification (biology), Process (computing), Interpretation (philosophy), Relation (database), Context (archaeology)",
+      "matched": [
+        "digital twin"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "d4f4a30e07ea1d32",
+      "title": "High-Precision Archaeological Recording of Jiajiang Thousand-Buddha Cliff Grottoes Using UAV Close-Range Photogrammetry",
+      "url": "https://doi.org/10.1016/j.rineng.2026.113287",
+      "kind": "paper",
+      "source": "openalex-citygml-bim",
+      "source_name": "OpenAlex: CityGML / BIM",
+      "published": "2026-09-30T00:00:00.000Z",
+      "summary": "Buddhist cave temples, archaeological documentation, UAV photogrammetry, close-range photogrammetry, 3D digital reconstruction, cultural heritage preservation, Photogrammetry, Geology, Cliff, Remote sensing, Archaeology, Aerial photography, Excavation, Prospection",
+      "matched": [
+        "photogrammetry",
+        "remote sensing",
+        "UAV"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "28a350d0007c75e2",
+      "title": "A digital design framework for wellness tourism spaces based on local knowledge graphs",
+      "url": "https://doi.org/10.1038/s41598-026-70475-9",
+      "kind": "paper",
+      "source": "openalex-citygml-bim",
+      "source_name": "OpenAlex: CityGML / BIM",
+      "published": "2026-09-30T00:00:00.000Z",
+      "summary": "wellness tourism, parametric design, cultural fit, graph attention mechanism, multi-objective optimization, cultural identification, restorative experience, place-based design, data provenance, semantic mapping, Computer science, Graph, Geospatial analysis, Data science, Information retrieval, Citiz",
+      "matched": [
+        "geospatial"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "ccc868a86ee83757",
+      "title": "Geographic Information Science and Earth Surface Processes",
+      "url": "https://doi.org/10.70593/978-81-6632-100-9",
+      "kind": "paper",
+      "source": "openalex-citygml-bim",
+      "source_name": "OpenAlex: CityGML / BIM",
+      "published": "2026-09-30T00:00:00.000Z",
+      "summary": "earth surface processes, GeoAI, geomorphology, erosion, floods, shoreline change, glaciers, permafrost, aeolian activity, remote sensing, sensor fusion, SAR interferometry, LiDAR, generative AI, hydrological modeling, watershed delineation, sediment transport, landslide susceptibility, hazard predic",
+      "matched": [
+        "remote sensing",
+        "GeoAI",
+        "SAR",
+        "LiDAR",
+        "digital twin"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "282da9bb5a184ce4",
+      "title": "Implementation of 3D Cadastre in Kazakhstan: International Experience, Challenges, Priorities",
+      "url": "https://doi.org/10.46666/2026-3.2708-9991.15",
+      "kind": "paper",
+      "source": "openalex-citygml-bim",
+      "source_name": "OpenAlex: CityGML / BIM",
+      "published": "2026-09-30T00:00:00.000Z",
+      "summary": "3D cadastre, land cadastre, Kazakhstan, cadastral legislation, spatial data integration, agricultural land, land accounting, cadastral registration, SWOT analysis, international experience, Cadastre, Geospatial analysis, SWOT analysis, Process (computing), Geography, Frame (networking), Computer sci",
+      "matched": [
+        "geospatial"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "3dc34f21842d4514",
+      "title": "Computational Formalisation of Constructability: A GIS-Based Spatial Conflict Framework for Low-Voltage Utility Network Design",
+      "url": "https://doi.org/10.5194/isprs-annals-xii-4-w2-2026-179-2026",
+      "kind": "paper",
+      "source": "openalex-citygml-bim",
+      "source_name": "OpenAlex: CityGML / BIM",
+      "published": "2026-09-29T00:00:00.000Z",
+      "summary": "decision support system, Constructability, Workflow, Geospatial analysis, Decision support system, Geomatics, Risk analysis (engineering), Systems engineering, Sociotechnical system",
+      "matched": [
+        "geospatial",
+        "geomatics",
+        "GIS"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "448cb2bb16ac5f08",
+      "title": "A Glimpse of the CityGML Scenario Application Domain Extension",
+      "url": "https://doi.org/10.5194/isprs-archives-l-4-w3-2026-17-2026",
+      "kind": "paper",
+      "source": "openalex-citygml-bim",
+      "source_name": "OpenAlex: CityGML / BIM",
+      "published": "2026-09-29T00:00:00.000Z",
+      "summary": "scenario management, urban simulation, energy simulation, urban modeling, data model design, CityGML, Computer science, Semantics (computer science), XML, Domain (mathematical analysis), Extension (predicate logic), 3D city models, Object (grammar)",
+      "matched": [
+        "CityGML"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "225a0dccb1f6136f",
+      "title": "A Data Model for Geometric, Semantic and Spatial Topology Validation of CityGML Datasets",
+      "url": "https://doi.org/10.5194/isprs-archives-l-4-w3-2026-145-2026",
+      "kind": "paper",
+      "source": "openalex-citygml-bim",
+      "source_name": "OpenAlex: CityGML / BIM",
+      "published": "2026-09-29T00:00:00.000Z",
+      "summary": "CityGML, 3D city model, data model, semantic validation, geometric validation, spatial indexing, in-memory cache, data quality, CityGML, Computer science, 3D city models, Data mining, Consistency (knowledge bases), Spatial analysis, Parsing, Data model (GIS)",
+      "matched": [
+        "GIS",
+        "CityGML"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "b2555c8e7fddecd1",
+      "title": "Integrating GIS and Urban Informatics for Urban Air Mobility (UAM) Infrastructure Planning",
+      "url": "https://doi.org/10.5194/isprs-annals-xii-4-w2-2026-171-2026",
+      "kind": "paper",
+      "source": "openalex-citygml-bim",
+      "source_name": "OpenAlex: CityGML / BIM",
+      "published": "2026-09-29T00:00:00.000Z",
+      "summary": "urban air mobility, eVTOL aircraft, urban informatics, spatial accessibility, multi-objective optimization, stated preference survey, building height, background noise, population density, passenger demand, urban morphology, regulatory compliance, Metropolitan area, Geographic information system, Tr",
+      "matched": [
+        "GIS"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "5de847d39fe1a370",
+      "title": "Geospatial Week",
+      "url": "https://www.isprs.org/society/gsw.aspx",
+      "kind": "event",
+      "source": "isprs-calendar",
+      "source_name": "ISPRS event calendar",
+      "published": null,
+      "summary": "",
+      "matched": [
+        "geospatial"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "f900c5f7dad2b060",
+      "title": "Geospatial Week",
+      "url": "https://www.isprs.org/documents/geoweek.aspx",
+      "kind": "event",
+      "source": "isprs-calendar",
+      "source_name": "ISPRS event calendar",
+      "published": null,
+      "summary": "",
+      "matched": [
+        "geospatial"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
+    {
+      "id": "657136a340d2d1f3",
+      "title": "Geospatial Week 2023",
+      "url": "https://www.gsw2019.org/",
+      "kind": "event",
+      "source": "isprs-calendar",
+      "source_name": "ISPRS event calendar",
+      "published": null,
+      "summary": "",
+      "matched": [
+        "geospatial"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T02:30:38.369Z"
+    },
     {
       "id": "5541b38dc8a37da4",
       "title": "Any3R: Feedforward 3D Reconstruction from Any Camera Type",
       "url": "https://arxiv.org/abs/2610.36150",
       "kind": "paper",
       "source": "arxiv-cs-cv",
-      "source_name": "arXiv Computer Vision and Pattern Recognition (cs.CV)",
+      "source_name": "arXiv cs.CV",
       "published": "2026-10-28T04:00:00.000Z",
       "summary": "arXiv:2610.36150v1 Announce Type: new Abstract: Geometry foundation models recover camera poses and dense geometry from a set of images with a feed-forward network, but they expect pinhole images. That assumption is inside the backbone too: the positional encoding and the training loss both bind an ",
       "matched": [
         "3D reconstruction"
       ],
       "first_seen": "2026-10-29T00:27:27.880Z",
-      "last_seen": "2026-10-29T00:51:01.871Z"
+      "last_seen": "2026-10-29T02:30:38.369Z"
     },
     {
       "id": "ff50c46b4e171add",
@@ -24,14 +2615,14 @@
       "url": "https://arxiv.org/abs/2610.36658",
       "kind": "paper",
       "source": "arxiv-cs-cv",
-      "source_name": "arXiv Computer Vision and Pattern Recognition (cs.CV)",
+      "source_name": "arXiv cs.CV",
       "published": "2026-10-28T04:00:00.000Z",
       "summary": "arXiv:2610.36658v1 Announce Type: new Abstract: Point cloud registration is an essential task for scene reconstruction, requiring the alignment of partially overlapping point clouds. Under low-overlap conditions, this task remains challenging because existing geometry-only methods cannot distinguish",
       "matched": [
         "point cloud"
       ],
       "first_seen": "2026-10-29T00:27:27.880Z",
-      "last_seen": "2026-10-29T00:51:01.871Z"
+      "last_seen": "2026-10-29T02:30:38.369Z"
     },
     {
       "id": "29a785c94ba0c2de",
@@ -39,14 +2630,14 @@
       "url": "https://arxiv.org/abs/2610.36756",
       "kind": "paper",
       "source": "arxiv-cs-cv",
-      "source_name": "arXiv Computer Vision and Pattern Recognition (cs.CV)",
+      "source_name": "arXiv cs.CV",
       "published": "2026-10-28T04:00:00.000Z",
       "summary": "arXiv:2610.36756v1 Announce Type: new Abstract: Remote sensing (RS) image-text retrieval plays a critical role in understanding massive RS imagery. However, the dense multi-object distribution and complex backgrounds in RS imagery make it difficult to simultaneously achieve fine-grained cross-modal ",
       "matched": [
         "remote sensing"
       ],
       "first_seen": "2026-10-29T00:27:27.880Z",
-      "last_seen": "2026-10-29T00:51:01.871Z"
+      "last_seen": "2026-10-29T02:30:38.369Z"
     },
     {
       "id": "5313e01af66d01b7",
@@ -54,7 +2645,7 @@
       "url": "https://arxiv.org/abs/2610.36857",
       "kind": "paper",
       "source": "arxiv-cs-cv",
-      "source_name": "arXiv Computer Vision and Pattern Recognition (cs.CV)",
+      "source_name": "arXiv cs.CV",
       "published": "2026-10-28T04:00:00.000Z",
       "summary": "arXiv:2610.36857v1 Announce Type: new Abstract: Earth Observation (EO)-based agricultural monitoring is shifting from pixel-level spectral analysis toward representation-driven modeling, yet systematic evaluation of learned representations across spatial, temporal, and domain-generalization dimensio",
       "matched": [
@@ -62,7 +2653,7 @@
         "earth observation"
       ],
       "first_seen": "2026-10-29T00:27:27.880Z",
-      "last_seen": "2026-10-29T00:51:01.871Z"
+      "last_seen": "2026-10-29T02:30:38.369Z"
     },
     {
       "id": "50603a05cf46f01d",
@@ -70,14 +2661,14 @@
       "url": "https://arxiv.org/abs/2610.37046",
       "kind": "paper",
       "source": "arxiv-cs-cv",
-      "source_name": "arXiv Computer Vision and Pattern Recognition (cs.CV)",
+      "source_name": "arXiv cs.CV",
       "published": "2026-10-28T04:00:00.000Z",
       "summary": "arXiv:2610.37046v1 Announce Type: new Abstract: Reconstructing editable and compositional 3D scenes from a real image requires jointly reasoning about geometry, object structure, and spatial relationships. We introduce SceneEvolve, a framework that represents 3D scenes as executable code and improve",
       "matched": [
         "3D reconstruction"
       ],
       "first_seen": "2026-10-29T00:27:27.880Z",
-      "last_seen": "2026-10-29T00:51:01.871Z"
+      "last_seen": "2026-10-29T02:30:38.369Z"
     },
     {
       "id": "5f5205d0f69a599f",
@@ -85,14 +2676,14 @@
       "url": "https://arxiv.org/abs/2610.37153",
       "kind": "paper",
       "source": "arxiv-cs-cv",
-      "source_name": "arXiv Computer Vision and Pattern Recognition (cs.CV)",
+      "source_name": "arXiv cs.CV",
       "published": "2026-10-28T04:00:00.000Z",
       "summary": "arXiv:2610.37153v1 Announce Type: new Abstract: Reliable real-time 3D object detection based on LiDAR and camera data is critical for safety in autonomous driving, where systems must accurately perceive their surroundings with minimal latency. Many state-of-the-art systems achieve high-quality detec",
       "matched": [
         "LiDAR"
       ],
       "first_seen": "2026-10-29T00:27:27.880Z",
-      "last_seen": "2026-10-29T00:51:01.871Z"
+      "last_seen": "2026-10-29T02:30:38.369Z"
     },
     {
       "id": "3ed0b89e483b9e58",
@@ -100,14 +2691,14 @@
       "url": "https://arxiv.org/abs/2610.37668",
       "kind": "paper",
       "source": "arxiv-cs-cv",
-      "source_name": "arXiv Computer Vision and Pattern Recognition (cs.CV)",
+      "source_name": "arXiv cs.CV",
       "published": "2026-10-28T04:00:00.000Z",
       "summary": "arXiv:2610.37668v1 Announce Type: new Abstract: Novel view synthesis and 3D reconstruction have advanced rapidly with radiance fields and splatting, yet their memory and computational demands limit their use in resource-constrained settings. We introduce Hexels: novel planar hexagonal surface elemen",
       "matched": [
         "3D reconstruction"
       ],
       "first_seen": "2026-10-29T00:27:27.880Z",
-      "last_seen": "2026-10-29T00:51:01.871Z"
+      "last_seen": "2026-10-29T02:30:38.369Z"
     },
     {
       "id": "48111a12161cad49",
@@ -115,7 +2706,7 @@
       "url": "https://arxiv.org/abs/2610.37056",
       "kind": "paper",
       "source": "arxiv-cs-cv",
-      "source_name": "arXiv Computer Vision and Pattern Recognition (cs.CV)",
+      "source_name": "arXiv cs.CV",
       "published": "2026-10-28T04:00:00.000Z",
       "summary": "arXiv:2610.37056v1 Announce Type: cross Abstract: Self-supervised vision transformers are increasingly used as reusable encoders for Earth observation, but their inference cost on the hardware available in the field is rarely characterized. We deploy a pretrained SAR-optical masked-autoencoder encod",
       "matched": [
@@ -123,7 +2714,7 @@
         "SAR"
       ],
       "first_seen": "2026-10-29T00:27:27.880Z",
-      "last_seen": "2026-10-29T00:51:01.871Z"
+      "last_seen": "2026-10-29T02:30:38.369Z"
     },
     {
       "id": "39a8c97d65591069",
@@ -131,14 +2722,14 @@
       "url": "https://arxiv.org/abs/2508.04236",
       "kind": "paper",
       "source": "arxiv-cs-cv",
-      "source_name": "arXiv Computer Vision and Pattern Recognition (cs.CV)",
+      "source_name": "arXiv cs.CV",
       "published": "2026-10-28T04:00:00.000Z",
       "summary": "arXiv:2508.04236v4 Announce Type: replace Abstract: Image stitching aim to align two images taken from different viewpoints into one seamless, wider image. However, when the 3D scene contains depth variations and the camera baseline is significant, noticeable parallax occurs-meaning the relative pos",
       "matched": [
         "3D reconstruction"
       ],
       "first_seen": "2026-10-29T00:27:27.880Z",
-      "last_seen": "2026-10-29T00:51:01.871Z"
+      "last_seen": "2026-10-29T02:30:38.369Z"
     },
     {
       "id": "d8bc3a4cd1d84b0f",
@@ -146,14 +2737,14 @@
       "url": "https://arxiv.org/abs/2601.13401",
       "kind": "paper",
       "source": "arxiv-cs-cv",
-      "source_name": "arXiv Computer Vision and Pattern Recognition (cs.CV)",
+      "source_name": "arXiv cs.CV",
       "published": "2026-10-28T04:00:00.000Z",
       "summary": "arXiv:2601.13401v2 Announce Type: replace Abstract: Vision-Language Models (VLMs) describe satellite images fluently but struggle with the quantitative spatial reasoning that remote sensing (RS) analysts perform routinely, such as counting buildings, measuring forest area in hectares and computing d",
       "matched": [
         "remote sensing"
       ],
       "first_seen": "2026-10-29T00:27:27.880Z",
-      "last_seen": "2026-10-29T00:51:01.871Z"
+      "last_seen": "2026-10-29T02:30:38.369Z"
     },
     {
       "id": "8cb42454a5c177ce",
@@ -161,14 +2752,14 @@
       "url": "https://arxiv.org/abs/2605.18541",
       "kind": "paper",
       "source": "arxiv-cs-cv",
-      "source_name": "arXiv Computer Vision and Pattern Recognition (cs.CV)",
+      "source_name": "arXiv cs.CV",
       "published": "2026-10-28T04:00:00.000Z",
       "summary": "arXiv:2605.18541v2 Announce Type: replace Abstract: Modeling hyperspectral imagery (HSI) across different sensors presents a fundamental challenge due to variations in wavelength coverage, band sampling, and channel dimensionality. As a result, models trained under a fixed spectral configuration oft",
       "matched": [
         "hyperspectral"
       ],
       "first_seen": "2026-10-29T00:27:27.880Z",
-      "last_seen": "2026-10-29T00:51:01.871Z"
+      "last_seen": "2026-10-29T02:30:38.369Z"
     },
     {
       "id": "7157baed14581c66",
@@ -176,14 +2767,14 @@
       "url": "https://arxiv.org/abs/2606.25312",
       "kind": "paper",
       "source": "arxiv-cs-cv",
-      "source_name": "arXiv Computer Vision and Pattern Recognition (cs.CV)",
+      "source_name": "arXiv cs.CV",
       "published": "2026-10-28T04:00:00.000Z",
       "summary": "arXiv:2606.25312v3 Announce Type: replace Abstract: Remote sensing object detection has advanced rapidly with the development of large-scale benchmarks and modern detection architectures. However, existing datasets and detectors remain fragmented. Most benchmarks focus on limited categories, fixed s",
       "matched": [
         "remote sensing"
       ],
       "first_seen": "2026-10-29T00:27:27.880Z",
-      "last_seen": "2026-10-29T00:51:01.871Z"
+      "last_seen": "2026-10-29T02:30:38.369Z"
     },
     {
       "id": "f9019b3fe0998457",
@@ -191,14 +2782,14 @@
       "url": "https://arxiv.org/abs/2610.37400",
       "kind": "paper",
       "source": "arxiv-eess-iv",
-      "source_name": "arXiv Image and Video Processing (eess.IV)",
+      "source_name": "arXiv eess.IV",
       "published": "2026-10-28T04:00:00.000Z",
       "summary": "arXiv:2610.37400v1 Announce Type: cross Abstract: Monitoring the relative radiometric stability of the European Space Agency's BIOMASS P-band synthetic aperture radar (SAR) requires separating instrumental and processing effects from temporal changes in the scene backscatter. This study investigates",
       "matched": [
         "SAR"
       ],
       "first_seen": "2026-10-29T00:27:27.880Z",
-      "last_seen": "2026-10-29T00:51:01.871Z"
+      "last_seen": "2026-10-29T02:30:38.369Z"
     },
     {
       "id": "d0322dfa789d6d50",
@@ -206,14 +2797,14 @@
       "url": "https://arxiv.org/abs/2610.36905",
       "kind": "paper",
       "source": "arxiv-eess-sp",
-      "source_name": "arXiv Signal Processing (eess.SP)",
+      "source_name": "arXiv eess.SP",
       "published": "2026-10-28T04:00:00.000Z",
       "summary": "arXiv:2610.36905v1 Announce Type: cross Abstract: This work investigates how site-specific digital twins (DTs) can support wireless localization using simplified distributed infrastructure. We propose PRISM (Probabilistic Refinement using Inverse learning and a Site-specific Model), a DT-guided prob",
       "matched": [
         "digital twin"
       ],
       "first_seen": "2026-10-29T00:27:27.880Z",
-      "last_seen": "2026-10-29T00:51:01.871Z"
+      "last_seen": "2026-10-29T02:30:38.369Z"
     },
     {
       "id": "424f34c6c5983820",
@@ -221,14 +2812,14 @@
       "url": "https://arxiv.org/abs/2610.37403",
       "kind": "paper",
       "source": "arxiv-eess-sp",
-      "source_name": "arXiv Signal Processing (eess.SP)",
+      "source_name": "arXiv eess.SP",
       "published": "2026-10-28T04:00:00.000Z",
       "summary": "arXiv:2610.37403v1 Announce Type: cross Abstract: Modern simulators can generate synthetic camera and LiDAR data with accurate annotations for downstream tasks. In contrast, automotive radar simulation remains less mature because it requires not only a 3D engine to model dynamic objects in the scene",
       "matched": [
         "LiDAR"
       ],
       "first_seen": "2026-10-29T00:27:27.880Z",
-      "last_seen": "2026-10-29T00:51:01.871Z"
+      "last_seen": "2026-10-29T02:30:38.369Z"
     }
   ]
 }
