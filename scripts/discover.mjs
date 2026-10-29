@@ -8,7 +8,7 @@
 import { readFile, writeFile, mkdir } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { fetchText, robotsAllows, sitemapsOf } from "./net.mjs";
+import { UA, fetchText, robotsAllows, sitemapsOf } from "./net.mjs";
 import { findDeadline } from "./deadline.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -24,6 +24,7 @@ const STRONG = new RegExp(`(?<!\\p{L})(?:${domain.terms.filter((t) => !WEAK.has(
 const URL_KEY = /(geomatic|geodes|geoinform|geospatial|remote[-_ ]?sensing|photogramm|earth[-_ ]?observ|[-_/]gis[-_/.]|lidar|cartograph|geograph|geoscien|surveying|spatial[-_ ]?(data|analysis|science))/i;
 const NAV = /(graduate|master|msc|m\.s\.|programs?|programmes?|degrees?|admission|apply|academics|study|studies|department|school|college|faculty|fachbereich|studium|studiengang)/i;
 const PROG = /\b(M\.?\s?Sc\.?|M\.?\s?S\.?|M\.?\s?A\.?|MEng|Master|Masters|Master['’]s|graduate certificate|graduate program(me)?|PhD|Ph\.D\.|doctoral|degree|program(me)?|major|certificate|Studiengang|Bachelor|B\.?\s?Sc\.?|undergraduate)\b/i;
+const GENERIC = /^(contact|faq|how to apply|apply|admission|admissions|application|applying|requirements|factsheet|timeline|courses?( and timeline)?|career|careers|research|overview|home|laptop|fees|tuition|scholarships?|news|stories|story|events?|people|staff|about|welcome|department of .*|school of .*|college of .*)\b/i;
 const SKIP_PATH = /(\/news|\/events?\/|\/people|\/person|\/faculty\/|\/staff|\/directory|\/profile|\/publications?|\/blog|\/seminar|\/colloquium|\/calendar|\/jobs|\/careers|\/alumni|\/research-?groups?|\/labs?\/|\/projects?\/|\.pdf$|\.(jpg|png|zip)$)/i;
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -64,12 +65,31 @@ const baseOf = (host) => {
   return /^(ac|co|edu|org|gov)$/.test(p.at(-2)) && p.length >= 3 ? p.slice(-3).join(".") : p.slice(-2).join(".");
 };
 
-async function get(url, host, state) {
+let browserPromise = null;
+async function render(url) {
+  const { chromium } = await import("playwright");
+  browserPromise ??= chromium.launch();
+  const page = await (await browserPromise).newPage({ userAgent: UA });
+  try {
+    await page.goto(url, { waitUntil: "domcontentloaded", timeout: 30_000 });
+    await page.waitForTimeout(2500);
+    return await page.content();
+  } finally { await page.close(); }
+}
+
+async function get(url, host, state, { allowRender = false } = {}) {
   if (state.fetched >= cfg.max_pages_per_university + 15) return null;
-  if (!(await robotsAllows(url))) return null;
+  if (!(await robotsAllows(url))) { state.err ??= "robots.txt"; return null; }
   await sleep(350);
   state.fetched++;
-  try { return await fetchText(url); } catch { return null; }
+  let html = null;
+  try { html = await fetchText(url); } catch (e) { state.err ??= e.message; }
+  // JavaScript-built or bot-shy pages: one headless-browser attempt per university.
+  if ((!html || links(html, url).length < 8) && allowRender && !state.rendered) {
+    state.rendered = true;
+    try { html = await render(url); state.err = null; } catch (e) { state.err ??= "render: " + e.message; }
+  }
+  return html;
 }
 
 function links(html, from) {
@@ -105,7 +125,7 @@ function programmeOf(html, url) {
   const desc = clean(html.match(/<meta[^>]+name=["']description["'][^>]+content=["']([^"']+)/i)?.[1] ?? "");
   const title = (h1.length >= 8 && h1.length <= 140 ? h1 : ogt || ttl).replace(/\s*[|–—-]\s*[^|–—-]{0,60}$/, (m) => (/univers|college|school|institute|hochschule/i.test(m) ? "" : m));
   const head = `${h1} ${ogt} ${ttl}`;
-  if (!STRONG.test(`${head} ${desc}`) || !PROG.test(`${head} ${url}`) || SKIP_PATH.test(url) || title.length < 8) return null;
+  if (!STRONG.test(head) || !PROG.test(`${head} ${url}`) || SKIP_PATH.test(url) || title.length < 8 || GENERIC.test(title) || /\b(minor|day|seminar|stories|story)\b/i.test(title) || /studeert|stories?\//i.test(`${title} ${url}`)) return null;
   return { title: title.slice(0, 140), summary: desc.slice(0, 220) };
 }
 
@@ -119,6 +139,7 @@ async function crawl(u) {
   const seen = new Set();
   const queue = [];
   const push = (href, depth, prio) => { if (!seen.has(href) && sameSite(href) && !SKIP_PATH.test(href)) { seen.add(href); queue.push({ href, depth, prio }); } };
+  const aux = new Map(); // any page of the site that states a deadline, for programmes whose own page has none
   for (const s of (await sitemapUrls(origin)).slice(0, 60)) push(s, 2, 0);
   push(u.home, 0, 1);
 
@@ -126,8 +147,9 @@ async function crawl(u) {
   while (queue.length && state.fetched < cfg.max_pages_per_university) {
     queue.sort((a, b) => a.prio - b.prio || a.depth - b.depth);
     const { href, depth } = queue.shift();
-    const html = await get(href, host, state);
+    const html = await get(href, host, state, { allowRender: depth === 0 });
     if (!html) continue;
+    if (URL_KEY.test(href)) { const d = findDeadline(html); if (d) aux.set(href, d); }
     const prog = programmeOf(html, href);
     if (prog) {
       let deadline = findDeadline(html);
@@ -143,13 +165,22 @@ async function crawl(u) {
     }
     if (depth < 3) {
       for (const l of links(html, href)) {
-        if (URL_KEY.test(l.href + " " + l.text)) push(l.href, depth + 1, 0);
-        else if (depth < 2 && NAV.test(l.text) && l.text.length < 40) push(l.href, depth + 1, 2);
+        const hit = URL_KEY.test(l.href + " " + l.text);
+        const prog = PROG.test(l.text + " " + l.href);
+        if (hit && prog) push(l.href, depth + 1, 0);       // e.g. "MSc Geomatics"
+        else if (hit) push(l.href, depth + 1, 1);
+        else if (depth < 3 && NAV.test(l.text) && l.text.length < 40) push(l.href, depth + 1, 2 + depth);
       }
     }
   }
+  for (const it of found.values()) {
+    if (it.deadline) continue;
+    const root = it.url.replace(/[?#].*$/, "").replace(/\/$/, "");
+    const hit = [...aux].find(([u]) => u.startsWith(root + "/") || (root.startsWith(u.replace(/\/$/, "") + "/") && u.length > origin.length + 12));
+    if (hit) it.deadline = hit[1];
+  }
   const items = [...found.values()].sort((a, b) => Number(Boolean(b.deadline)) - Number(Boolean(a.deadline))).slice(0, cfg.max_programmes_per_university);
-  return { items, fetched: state.fetched };
+  return { items, fetched: state.fetched, err: state.err ?? null };
 }
 
 // ---------- main ----------
@@ -162,7 +193,7 @@ await Promise.all(Array.from({ length: 8 }, async () => {
     const u = list[next++];
     try {
       const r = await crawl(u);
-      console.log(`${u.name} (${u.country}): pages ${r.fetched}, programmes ${r.items.length}, with deadline ${r.items.filter((i) => i.deadline).length}`);
+      console.log(`${u.name} (${u.country}): pages ${r.fetched}, programmes ${r.items.length}, with deadline ${r.items.filter((i) => i.deadline).length}${r.items.length ? "" : r.err ? " [" + r.err + "]" : ""}`);
       // A site that could not be read keeps last week's entries instead of vanishing.
       results.push(...(r.fetched === 0 ? prevFile.items.filter((i) => i.university === u.name) : r.items));
     } catch (e) {
@@ -172,6 +203,7 @@ await Promise.all(Array.from({ length: 8 }, async () => {
   }
 }));
 
+if (browserPromise) await (await browserPromise).close();
 await mkdir(path.dirname(OUT), { recursive: true });
 await writeFile(OUT, JSON.stringify({ generated_at: nowIso, universities: list.length, count: results.length, items: results }, null, 1) + "\n");
 console.log(`programmes: ${results.length}, with deadline: ${results.filter((i) => i.deadline).length}`);

@@ -25,6 +25,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+      - name: Install headless browser for JavaScript-built sites
+        run: |
+          npm install --no-save playwright@1.48.2
+          npx playwright install --with-deps chromium
       - name: Find programmes at top universities
         run: node scripts/discover.mjs | tee discover.log
       - name: Commit result

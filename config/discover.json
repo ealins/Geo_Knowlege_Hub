@@ -1,18 +1,74 @@
 {
   "_comment": "Weekly discovery of degree programmes. Universities come from OpenAlex: the institutions that publish most in these topics. Add your own under 'extra'.",
-  "queries": ["remote sensing", "photogrammetry", "geoinformatics", "geographic information system", "lidar", "geodesy", "earth observation", "geomatics"],
+  "queries": [
+    "remote sensing",
+    "photogrammetry",
+    "geoinformatics",
+    "geographic information system",
+    "lidar",
+    "geodesy",
+    "earth observation",
+    "geomatics"
+  ],
   "since_days": 730,
   "top": 120,
-  "countries": ["US", "CA", "GB", "IE", "DE", "NL", "CH", "AT", "BE", "LU", "FR", "IT", "ES", "PT", "SE", "NO", "DK", "FI", "PL", "CZ", "AU", "NZ"],
-  "max_pages_per_university": 30,
+  "countries": [
+    "US",
+    "CA",
+    "GB",
+    "IE",
+    "DE",
+    "NL",
+    "CH",
+    "AT",
+    "BE",
+    "LU",
+    "FR",
+    "IT",
+    "ES",
+    "PT",
+    "SE",
+    "NO",
+    "DK",
+    "FI",
+    "PL",
+    "CZ",
+    "AU",
+    "NZ"
+  ],
+  "max_pages_per_university": 45,
   "max_programmes_per_university": 12,
   "extra": [
-    { "name": "HFT Stuttgart", "home": "https://www.hft-stuttgart.de", "country": "DE" },
-    { "name": "University of Maine", "home": "https://umaine.edu", "country": "US" },
-    { "name": "Ohio State University", "home": "https://www.osu.edu", "country": "US" },
-    { "name": "Penn State University", "home": "https://www.psu.edu", "country": "US" },
-    { "name": "University of Twente", "home": "https://www.utwente.nl", "country": "NL" },
-    { "name": "TU Delft", "home": "https://www.tudelft.nl", "country": "NL" }
+    {
+      "name": "HFT Stuttgart",
+      "home": "https://www.hft-stuttgart.de",
+      "country": "DE"
+    },
+    {
+      "name": "University of Maine",
+      "home": "https://umaine.edu",
+      "country": "US"
+    },
+    {
+      "name": "Ohio State University",
+      "home": "https://www.osu.edu",
+      "country": "US"
+    },
+    {
+      "name": "Penn State University",
+      "home": "https://www.psu.edu",
+      "country": "US"
+    },
+    {
+      "name": "University of Twente",
+      "home": "https://www.utwente.nl",
+      "country": "NL"
+    },
+    {
+      "name": "TU Delft",
+      "home": "https://www.tudelft.nl",
+      "country": "NL"
+    }
   ],
   "skip_hosts": []
 }
