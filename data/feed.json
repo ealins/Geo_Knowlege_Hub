@@ -1,75 +1,75 @@
 {
-  "generated_at": "2026-10-29T04:08:43.810Z",
+  "generated_at": "2026-10-29T04:09:33.693Z",
   "retain_days": 45,
-  "count": 473,
+  "count": 467,
   "items": [
     {
       "id": "d84c9c35ddcd5726",
       "title": "Thematic SAR data collections fuel research across key regions ESA has curated and released a series of off-the-shelf Synthetic Aperture Radar (SAR) data collections grouped by thematic domains. They off…",
       "url": "https://earth.esa.int/eogateway/success-story/thematic-sar-data-collections-fuel-research-across-key-regions",
-      "kind": "event",
+      "kind": "news",
       "source": "esa-eo-events",
-      "source_name": "ESA Earth Observation events",
+      "source_name": "ESA Earth Observation news",
       "published": null,
       "summary": "",
       "matched": [
         "SAR"
       ],
       "first_seen": "2026-10-29T04:08:43.810Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "62f6b4eeaf05a901",
       "title": "Chilean rock glaciers tracked in high resolution Scientists have used the Pléiades Neo satellite constellation to monitor large tongue-shaped deposits of ice and debris as they creep down t…",
       "url": "https://earth.esa.int/eogateway/success-story/chilean-rock-glaciers-tracked-in-high-resolution",
-      "kind": "event",
+      "kind": "news",
       "source": "esa-eo-events",
-      "source_name": "ESA Earth Observation events",
+      "source_name": "ESA Earth Observation news",
       "published": null,
       "summary": "",
       "matched": [
         "satellite"
       ],
       "first_seen": "2026-10-29T04:08:43.810Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "4c8d8b0b0aa43e7c",
       "title": "EarthCARE spots birth of rare fire cloud over Europe Climate change means wildfires are becoming a more common threat in Europe. Thanks to EarthCARE’s multispectral imager, we can track their w…",
       "url": "https://earth.esa.int/eogateway/success-story/earthcare-spots-birth-of-rare-fire-cloud-over-europe",
-      "kind": "event",
+      "kind": "news",
       "source": "esa-eo-events",
-      "source_name": "ESA Earth Observation events",
+      "source_name": "ESA Earth Observation news",
       "published": null,
       "summary": "",
       "matched": [
         "multispectral"
       ],
       "first_seen": "2026-10-29T04:08:43.810Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "8e01ba0ea80b56e7",
       "title": "Aeolus comes home to forge a lasting lidar legacy The islands of Aeolia, the home of Aeolus, keeper of the winds in Greek mythology, were a fitting location to explore the legacy of the Euro…",
       "url": "https://earth.esa.int/eogateway/news/aeolus-comes-home-to-forge-a-lasting-lidar-legacy",
-      "kind": "event",
+      "kind": "news",
       "source": "esa-eo-events",
-      "source_name": "ESA Earth Observation events",
+      "source_name": "ESA Earth Observation news",
       "published": null,
       "summary": "",
       "matched": [
         "LiDAR"
       ],
       "first_seen": "2026-10-29T04:08:43.810Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "bbc5f0e3b87cd782",
       "title": "Earth observation community spotlight: Saturnalia Italy-based Saturnalia is a geospatial intelligence company that harnesses the power of Earth observation data to improve decision-making an…",
       "url": "https://earth.esa.int/eogateway/spotlight-on-eo-community/earth-observation-community-spotlight-saturnalia",
-      "kind": "event",
+      "kind": "news",
       "source": "esa-eo-events",
-      "source_name": "ESA Earth Observation events",
+      "source_name": "ESA Earth Observation news",
       "published": null,
       "summary": "",
       "matched": [
@@ -77,112 +77,22 @@
         "earth observation"
       ],
       "first_seen": "2026-10-29T04:08:43.810Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "c07fa44ba97e3cc2",
       "title": "General News Discover the latest news on the European Space Agency&#x27;s Earth Observation activities. Learn all about new data availability and how ESA&#x27;s mi...",
       "url": "https://earth.esa.int/eogateway/search?category=News&amp;news_type=general+news&amp;sortby=RELEVANCE",
-      "kind": "event",
+      "kind": "news",
       "source": "esa-eo-events",
-      "source_name": "ESA Earth Observation events",
+      "source_name": "ESA Earth Observation news",
       "published": null,
       "summary": "",
       "matched": [
         "earth observation"
       ],
       "first_seen": "2026-10-29T04:08:43.810Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
-    },
-    {
-      "id": "d993427ed347967e",
-      "title": "About Copernicus",
-      "url": "https://www.copernicus.eu/en/about-copernicus",
-      "kind": "event",
-      "source": "copernicus-events",
-      "source_name": "Copernicus events",
-      "published": null,
-      "summary": "",
-      "matched": [
-        "Copernicus"
-      ],
-      "first_seen": "2026-10-29T04:08:43.810Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
-    },
-    {
-      "id": "887af82ae69e6b63",
-      "title": "Copernicus Services",
-      "url": "https://www.copernicus.eu/en/copernicus-services",
-      "kind": "event",
-      "source": "copernicus-events",
-      "source_name": "Copernicus events",
-      "published": null,
-      "summary": "",
-      "matched": [
-        "Copernicus"
-      ],
-      "first_seen": "2026-10-29T04:08:43.810Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
-    },
-    {
-      "id": "2e0167e492da17c5",
-      "title": "Copernicus Services",
-      "url": "https://www.copernicus.eu/en/services",
-      "kind": "event",
-      "source": "copernicus-events",
-      "source_name": "Copernicus events",
-      "published": null,
-      "summary": "",
-      "matched": [
-        "Copernicus"
-      ],
-      "first_seen": "2026-10-29T04:08:43.810Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
-    },
-    {
-      "id": "4ed9c136b5a6d5e4",
-      "title": "Copernicus Data Access",
-      "url": "https://www.copernicus.eu/en/access-data",
-      "kind": "event",
-      "source": "copernicus-events",
-      "source_name": "Copernicus events",
-      "published": null,
-      "summary": "",
-      "matched": [
-        "Copernicus"
-      ],
-      "first_seen": "2026-10-29T04:08:43.810Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
-    },
-    {
-      "id": "ed78b8b37f8c3607",
-      "title": "Copernicus services catalogue",
-      "url": "https://www.copernicus.eu/en/access-data/copernicus-services-catalogue",
-      "kind": "event",
-      "source": "copernicus-events",
-      "source_name": "Copernicus events",
-      "published": null,
-      "summary": "",
-      "matched": [
-        "Copernicus"
-      ],
-      "first_seen": "2026-10-29T04:08:43.810Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
-    },
-    {
-      "id": "74b0136c7c4ebaec",
-      "title": "www.copernicus.eu",
-      "url": "https://www.copernicus.eu/",
-      "kind": "event",
-      "source": "copernicus-events",
-      "source_name": "Copernicus events",
-      "published": null,
-      "summary": "",
-      "matched": [
-        "Copernicus"
-      ],
-      "first_seen": "2026-10-29T04:08:43.810Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "8dacbfe3f121216c",
@@ -197,7 +107,7 @@
         "SAR"
       ],
       "first_seen": "2026-10-29T04:06:44.492Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "f6da0afec50fe9b5",
@@ -213,7 +123,7 @@
         "hyperspectral"
       ],
       "first_seen": "2026-10-29T04:06:44.492Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "ce98ca00ca0fb410",
@@ -228,7 +138,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T04:06:44.492Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "1097ac7ea2bdd433",
@@ -243,7 +153,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T04:06:44.492Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "a7a43dfbc2126e9d",
@@ -258,7 +168,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T04:06:44.492Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "be299c7d3ab959c4",
@@ -273,7 +183,7 @@
         "point cloud"
       ],
       "first_seen": "2026-10-29T04:06:44.492Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "dbc5f9322e86f8c8",
@@ -288,7 +198,7 @@
         "Geomatik"
       ],
       "first_seen": "2026-10-29T04:01:30.109Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "2f1eb20509bef025",
@@ -303,7 +213,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T04:01:30.109Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "b1fcd9f7b257d719",
@@ -319,7 +229,7 @@
         "hyperspectral"
       ],
       "first_seen": "2026-10-29T04:01:30.109Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "85c38e71eb850ef3",
@@ -334,7 +244,7 @@
         "photogrammetry"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "193d0be21938534c",
@@ -351,7 +261,7 @@
         "UAV"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "d904b90c51a82516",
@@ -367,7 +277,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "91c807068ef122b8",
@@ -383,7 +293,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "e34b1317dc6884f3",
@@ -399,7 +309,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "ebc0ee1867343bfd",
@@ -414,7 +324,7 @@
         "photogrammetry"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "9814b0bef29e7f31",
@@ -430,7 +340,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "519749ae5a9ffe64",
@@ -445,7 +355,7 @@
         "photogrammetry"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "8ece9ffaf73b8b95",
@@ -460,7 +370,7 @@
         "photogrammetry"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "b9c162ca289cfb44",
@@ -475,7 +385,7 @@
         "photogrammetry"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "18d579f32327c492",
@@ -490,7 +400,7 @@
         "photogrammetry"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "94c985a10dd5d32a",
@@ -509,7 +419,7 @@
         "cartography"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "0d31e3ea06dd1d1d",
@@ -524,7 +434,7 @@
         "photogrammetry"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "45343aceb0828f9b",
@@ -541,7 +451,7 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "2044b471b6cf3c41",
@@ -557,7 +467,7 @@
         "3D reconstruction"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "6a4118cfbc81b045",
@@ -572,7 +482,7 @@
         "photogrammetry"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "016d896bdefe65b5",
@@ -587,7 +497,7 @@
         "photogrammetry"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "8df089138a6cd916",
@@ -603,7 +513,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "a3d6e6430f0e51aa",
@@ -619,7 +529,7 @@
         "3D reconstruction"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "cf85010831a8718c",
@@ -635,7 +545,7 @@
         "digital twin"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "90f2d032e7a039ac",
@@ -652,7 +562,7 @@
         "3D reconstruction"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "071571bf658237e5",
@@ -668,7 +578,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "c4f1ed218404c9d8",
@@ -686,7 +596,7 @@
         "geodetic"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "98ff548abec0e3b4",
@@ -701,7 +611,7 @@
         "photogrammetry"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "2efff45f5a0e845c",
@@ -716,7 +626,7 @@
         "photogrammetry"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "c996638dd0ed96c7",
@@ -731,7 +641,7 @@
         "photogrammetry"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "70e48f01c170f3b6",
@@ -747,7 +657,7 @@
         "3D reconstruction"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "c3da14b8bb9150f4",
@@ -762,7 +672,7 @@
         "photogrammetry"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "d2f54c19ca2d0cbd",
@@ -777,7 +687,7 @@
         "photogrammetry"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "ed3239fd34b9693d",
@@ -793,7 +703,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "4b05b23589c23646",
@@ -808,7 +718,7 @@
         "photogrammetry"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "f0135e4a870db92d",
@@ -829,7 +739,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "68e3235af9fd74e4",
@@ -849,7 +759,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "fb173e5f9033aeb4",
@@ -866,7 +776,7 @@
         "UAV"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "46f1b3aea260f52e",
@@ -881,7 +791,7 @@
         "photogrammetry"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "382161e928d7e294",
@@ -897,7 +807,7 @@
         "UAV"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "ebdfd450064b658f",
@@ -913,7 +823,7 @@
         "UAV"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "774e1ed0f9e31a46",
@@ -928,7 +838,7 @@
         "photogrammetry"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "be5346a7a766edab",
@@ -945,7 +855,7 @@
         "point cloud"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "b3dfae68df197b73",
@@ -960,7 +870,7 @@
         "photogrammetry"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "01f40b9bf32bdeca",
@@ -975,7 +885,7 @@
         "photogrammetry"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "e2f8c687c36e18ac",
@@ -990,7 +900,7 @@
         "photogrammetry"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "2ff1f819a738b521",
@@ -1005,7 +915,7 @@
         "photogrammetry"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "64442b7e85cdddd4",
@@ -1021,7 +931,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "2c6c382f2cd30712",
@@ -1036,7 +946,7 @@
         "photogrammetry"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "1d1a70787009c43d",
@@ -1052,7 +962,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "e39e26c54cbc0c29",
@@ -1069,7 +979,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "2f827b6efa48f451",
@@ -1084,7 +994,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "f76eeb237aed4a7b",
@@ -1101,7 +1011,7 @@
         "hyperspectral"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "862052450dc12b56",
@@ -1116,7 +1026,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "a0b71850441589bb",
@@ -1132,7 +1042,7 @@
         "UAV"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "233a0d0643034a22",
@@ -1149,7 +1059,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "911db3db26333e9e",
@@ -1164,7 +1074,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "1893a9a13a270326",
@@ -1179,7 +1089,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "6e528748a35e0b83",
@@ -1194,7 +1104,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "b8ede9e1e36297bd",
@@ -1209,7 +1119,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "7cf5eb0de808b6d1",
@@ -1225,7 +1135,7 @@
         "geodetic"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "d525e33456b9a10c",
@@ -1242,7 +1152,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "0b217b4f48f4c879",
@@ -1258,7 +1168,7 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "2a62e94ac7af1f3d",
@@ -1273,7 +1183,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "21dcb0d987f10838",
@@ -1289,7 +1199,7 @@
         "hyperspectral"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "848517157f06b0ab",
@@ -1305,7 +1215,7 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "2cf2da00801d1b28",
@@ -1320,7 +1230,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "ac0ff8d116466219",
@@ -1335,7 +1245,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "c7bcc87f687172fd",
@@ -1350,7 +1260,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "ac09ba2791490847",
@@ -1365,7 +1275,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "89e77ca55dd6a910",
@@ -1380,7 +1290,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "cb6a11dd2124e0aa",
@@ -1395,7 +1305,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "10ab6a35e29fc227",
@@ -1411,7 +1321,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "955ecfafb173c456",
@@ -1427,7 +1337,7 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "c1b1027e471579d4",
@@ -1442,7 +1352,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "058c23aef33c7c0b",
@@ -1457,7 +1367,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "52b84bbfb58dddba",
@@ -1473,7 +1383,7 @@
         "spatial data"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "530b3e9e109308f7",
@@ -1490,7 +1400,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "ec26f21baa80f6bd",
@@ -1505,7 +1415,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "40862ede296f1949",
@@ -1520,7 +1430,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "9f37b69673f2c85d",
@@ -1535,7 +1445,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "ed31e1d994210c1f",
@@ -1550,7 +1460,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "8d571ee0abe8b879",
@@ -1566,7 +1476,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "7345f18873a8cf3d",
@@ -1582,7 +1492,7 @@
         "earth observation"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "5f984fb617366739",
@@ -1599,7 +1509,7 @@
         "earth observation"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "2c4be43a6d772b88",
@@ -1615,7 +1525,7 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "569d1936e61a9ffc",
@@ -1630,7 +1540,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "a5011396c27f90f8",
@@ -1646,7 +1556,7 @@
         "hyperspectral"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "8d4b3fed50b25688",
@@ -1664,7 +1574,7 @@
         "SAR"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "bc88a0f7a801609b",
@@ -1681,7 +1591,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "26bc4e6d7157d092",
@@ -1699,7 +1609,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "c1909da8f93b28c7",
@@ -1714,7 +1624,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "3e26874d271b2be0",
@@ -1730,7 +1640,7 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "209c0079f3f5d0d5",
@@ -1746,7 +1656,7 @@
         "digital twin"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "e95efea6138b5ab5",
@@ -1761,7 +1671,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "2aa4455e67b078b9",
@@ -1778,7 +1688,7 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "b6563cbbe203db2a",
@@ -1793,7 +1703,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "8ffb569b9bd6ad17",
@@ -1808,7 +1718,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "99352c45d14849f9",
@@ -1824,7 +1734,7 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "b804ee86afd132a2",
@@ -1839,7 +1749,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "890d1f004aa05bf9",
@@ -1855,7 +1765,7 @@
         "Sentinel-1"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "28ca2a36eda5a409",
@@ -1872,7 +1782,7 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "cfd99986329ecf4f",
@@ -1887,7 +1797,7 @@
         "InSAR"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "14a4db82a00df134",
@@ -1902,7 +1812,7 @@
         "InSAR"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "29ba55895f30ed21",
@@ -1919,7 +1829,7 @@
         "InSAR"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "3f30de3292c72f5d",
@@ -1934,7 +1844,7 @@
         "InSAR"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "634b810887c875e5",
@@ -1951,7 +1861,7 @@
         "InSAR"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "f0103b6024ed0afe",
@@ -1966,7 +1876,7 @@
         "InSAR"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "1f865262c03caae5",
@@ -1984,7 +1894,7 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "3e597a33a5b5de6f",
@@ -2000,7 +1910,7 @@
         "InSAR"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "67dbf5f2d3b19241",
@@ -2015,7 +1925,7 @@
         "InSAR"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "d7a733c1daef05bb",
@@ -2032,7 +1942,7 @@
         "digital twin"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "74ff2d7c1c6191e9",
@@ -2047,7 +1957,7 @@
         "InSAR"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "8f097d4132abb642",
@@ -2067,7 +1977,7 @@
         "Sentinel-1"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "265f663bb8c25590",
@@ -2084,7 +1994,7 @@
         "geodetic"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "ae13f8314a7c9ebc",
@@ -2101,7 +2011,7 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "af9fad2cc6a12f67",
@@ -2118,7 +2028,7 @@
         "Sentinel-1"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "556f290d894a52c6",
@@ -2137,7 +2047,7 @@
         "Sentinel-1"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "d12ae77e5a72f04a",
@@ -2153,7 +2063,7 @@
         "InSAR"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "9c8ef4847841ee7c",
@@ -2172,7 +2082,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "9e4b04d56438868b",
@@ -2188,7 +2098,7 @@
         "InSAR"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "b165bf72265804fe",
@@ -2205,7 +2115,7 @@
         "GNSS"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "28dcd73a31c32f9a",
@@ -2223,7 +2133,7 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "f009e0143cb1bfff",
@@ -2239,7 +2149,7 @@
         "InSAR"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "9868cb0d8e8d9374",
@@ -2255,7 +2165,7 @@
         "InSAR"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "6ecd40101bd20500",
@@ -2270,7 +2180,7 @@
         "InSAR"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "80d5b6432ae57e8d",
@@ -2289,7 +2199,7 @@
         "GNSS"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "843ffb8291eaaaaa",
@@ -2305,7 +2215,7 @@
         "InSAR"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "8df47f86090fd093",
@@ -2323,7 +2233,7 @@
         "GNSS"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "9f9f56e79e692870",
@@ -2340,7 +2250,7 @@
         "Sentinel-1"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "8e61ab413be0d704",
@@ -2359,7 +2269,7 @@
         "GNSS"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "3f64fe6afa3c7061",
@@ -2374,7 +2284,7 @@
         "InSAR"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "4662f326957740da",
@@ -2394,7 +2304,7 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "9a9bae4f9bcea17e",
@@ -2415,7 +2325,7 @@
         "Earth system"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "3f00d2aec076e62b",
@@ -2430,7 +2340,7 @@
         "InSAR"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "24c33671b2d3b61f",
@@ -2446,7 +2356,7 @@
         "InSAR"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "3433fe1a40871fbc",
@@ -2462,7 +2372,7 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "6b69c0de1cee06de",
@@ -2478,7 +2388,7 @@
         "cartography"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "94300a3c0eb54343",
@@ -2494,7 +2404,7 @@
         "Sentinel-1"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "91db6aec5fa3d549",
@@ -2513,7 +2423,7 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "fc9acd5c3bf0ba95",
@@ -2531,7 +2441,7 @@
         "Sentinel-1"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "a7f671a4df952a15",
@@ -2547,7 +2457,7 @@
         "InSAR"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "fa46d293623a1a90",
@@ -2564,7 +2474,7 @@
         "InSAR"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "b96b59621f84a9fc",
@@ -2583,7 +2493,7 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "3c5ab20665f55981",
@@ -2599,7 +2509,7 @@
         "GNSS"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "bbe69284bab80a45",
@@ -2614,7 +2524,7 @@
         "InSAR"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "7c5bd35f7526823f",
@@ -2630,7 +2540,7 @@
         "DInSAR"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "d55799c979afbfee",
@@ -2647,7 +2557,7 @@
         "point cloud"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "916826e28fc8dfe5",
@@ -2663,7 +2573,7 @@
         "point cloud"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "21784f0ba04d43ea",
@@ -2680,7 +2590,7 @@
         "point cloud"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "43deef7b94e2282d",
@@ -2698,7 +2608,7 @@
         "point cloud"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "3437da5adc8b11d8",
@@ -2715,7 +2625,7 @@
         "point cloud"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "5e6f3dbe3f1f58a4",
@@ -2731,7 +2641,7 @@
         "point cloud"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "e265ca02b93b0a47",
@@ -2747,7 +2657,7 @@
         "point cloud"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "a661d41760cd8163",
@@ -2764,7 +2674,7 @@
         "point cloud"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "6582a4f235d8719c",
@@ -2781,7 +2691,7 @@
         "digital twin"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "de11fdf369f10754",
@@ -2798,7 +2708,7 @@
         "point cloud"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "71291ed7d76f8a95",
@@ -2815,7 +2725,7 @@
         "BIM"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "82af74e10317377b",
@@ -2833,7 +2743,7 @@
         "UAV"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "562ae3409ce05787",
@@ -2850,7 +2760,7 @@
         "point cloud"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "91748de42ad1619d",
@@ -2866,7 +2776,7 @@
         "point cloud"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "e2c1c77515e1481e",
@@ -2882,7 +2792,7 @@
         "point cloud"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "189eab43ca29bf1b",
@@ -2900,7 +2810,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "44b8883e887cec3a",
@@ -2916,7 +2826,7 @@
         "point cloud"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "07326b4eb35018c0",
@@ -2933,7 +2843,7 @@
         "point cloud"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "f45f62b6fdc82265",
@@ -2949,7 +2859,7 @@
         "point cloud"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "710ab0aa153bb841",
@@ -2966,7 +2876,7 @@
         "point cloud"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "2eac7179ba38196c",
@@ -2982,7 +2892,7 @@
         "point cloud"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "9032dd7ec2d39ab5",
@@ -2999,7 +2909,7 @@
         "point cloud"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "7dd0af2d788de581",
@@ -3017,7 +2927,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "70dc53a1e8ca5607",
@@ -3037,7 +2947,7 @@
         "geodetic"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "184780ea5c065d17",
@@ -3054,7 +2964,7 @@
         "point cloud"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "4ca74f382bbcba8c",
@@ -3071,7 +2981,7 @@
         "point cloud"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "3822b2efe4ba0337",
@@ -3088,7 +2998,7 @@
         "point cloud"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "15ac58f10a306fc3",
@@ -3105,7 +3015,7 @@
         "point cloud"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "2b63be5007d8ca9d",
@@ -3121,7 +3031,7 @@
         "point cloud"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "69a0af2a514b071c",
@@ -3138,7 +3048,7 @@
         "point cloud"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "50de68f15e07d597",
@@ -3156,7 +3066,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "bedf93cb7354b688",
@@ -3173,7 +3083,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "9eb3e4256f674d8e",
@@ -3191,7 +3101,7 @@
         "3D reconstruction"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "893f3016ca722ecb",
@@ -3210,7 +3120,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "f53f7be8398f4005",
@@ -3227,7 +3137,7 @@
         "point cloud"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "856a8f8765442b02",
@@ -3245,7 +3155,7 @@
         "multispectral"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "66864fb6b873f763",
@@ -3263,7 +3173,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "5b03f3d51c4d6ef0",
@@ -3281,7 +3191,7 @@
         "UAV"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "35a26964eeb4bd00",
@@ -3298,7 +3208,7 @@
         "point cloud"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "950d4210c6552481",
@@ -3316,7 +3226,7 @@
         "UAV"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "36532c7b67e3f85f",
@@ -3334,7 +3244,7 @@
         "UAV"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "deec4eb15356fa31",
@@ -3350,7 +3260,7 @@
         "point cloud"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "df38576626695c05",
@@ -3367,7 +3277,7 @@
         "point cloud"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "c07af33c6582916f",
@@ -3383,7 +3293,7 @@
         "point cloud"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "d3152588f8584182",
@@ -3400,7 +3310,7 @@
         "point cloud"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "3e25f3b9787b8b08",
@@ -3417,7 +3327,7 @@
         "point cloud"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "fb8fa329d898e436",
@@ -3434,7 +3344,7 @@
         "point cloud"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "30a0bfd75773d404",
@@ -3450,7 +3360,7 @@
         "point cloud"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "bd40ebc27646acaa",
@@ -3466,7 +3376,7 @@
         "Earth system"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "2f22d0a681ee3107",
@@ -3481,7 +3391,7 @@
         "geoinformatics"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "08deea3ffbaf013e",
@@ -3498,7 +3408,7 @@
         "multispectral"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "436cc6115ffe7743",
@@ -3518,7 +3428,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "2edfa081ce8a1e59",
@@ -3534,7 +3444,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "86133c4f9eadca50",
@@ -3549,7 +3459,7 @@
         "geoinformatics"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "4673197a9ad943dd",
@@ -3564,7 +3474,7 @@
         "geoinformatics"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "ebaad49e0599fd43",
@@ -3579,7 +3489,7 @@
         "geoinformatics"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "0c3931d6df46c4cb",
@@ -3594,7 +3504,7 @@
         "geoinformatics"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "348a13acb924ab54",
@@ -3612,7 +3522,7 @@
         "point cloud"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "ce40a9b0a08fc541",
@@ -3627,7 +3537,7 @@
         "geoinformatics"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "d65c6d394576ab24",
@@ -3643,7 +3553,7 @@
         "geomatics"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "3e60ac3a15f6dfb1",
@@ -3658,7 +3568,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "df43e43ab23f3f94",
@@ -3676,7 +3586,7 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "0fa7141699566aa2",
@@ -3692,7 +3602,7 @@
         "Landsat"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "85809512f0da67ad",
@@ -3707,7 +3617,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "b944cfa5f95e7448",
@@ -3722,7 +3632,7 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "5aacb19d6509966d",
@@ -3737,7 +3647,7 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "f576d7381d93942c",
@@ -3752,7 +3662,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "5ec892ac6ef5c863",
@@ -3771,7 +3681,7 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "e76340cf3cd8e2ad",
@@ -3786,7 +3696,7 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "9691bf90ec9f8d30",
@@ -3803,7 +3713,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "f61678cd53559a3b",
@@ -3818,7 +3728,7 @@
         "point cloud"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "9daf974142ac89e9",
@@ -3833,7 +3743,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "b7578fe3cdc962e1",
@@ -3848,7 +3758,7 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "9c09d4ccd4e31ee2",
@@ -3863,7 +3773,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "9d6733726bbb853e",
@@ -3880,7 +3790,7 @@
         "cartography"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "425ba664f37bbaa8",
@@ -3896,7 +3806,7 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "056a0b7cb38a8c4f",
@@ -3914,7 +3824,7 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "1449bca7f1d5d64e",
@@ -3932,7 +3842,7 @@
         "BIM"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "b70aac775f209b22",
@@ -3951,7 +3861,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "3fd43172859a113a",
@@ -3967,7 +3877,7 @@
         "CityGML"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "53a13ca548077806",
@@ -3983,7 +3893,7 @@
         "CityGML"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "f0fac41beb19e537",
@@ -3999,7 +3909,7 @@
         "CityGML"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "42cb7aa1d1efdb8a",
@@ -4015,7 +3925,7 @@
         "CityGML"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "290783aa14094877",
@@ -4030,7 +3940,7 @@
         "CityGML"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "2571da8fc3d2911c",
@@ -4045,7 +3955,7 @@
         "CityGML"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "b03ce8467bbc7398",
@@ -4061,7 +3971,7 @@
         "CityGML"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "66e041da9467ca9b",
@@ -4077,7 +3987,7 @@
         "CityGML"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "f14567259f6148db",
@@ -4092,7 +4002,7 @@
         "CityGML"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "fb59a987f56c063c",
@@ -4109,7 +4019,7 @@
         "IFC"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "b8734a689288a804",
@@ -4126,7 +4036,7 @@
         "spatial data"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "db7c23cb9bc11d5e",
@@ -4141,7 +4051,7 @@
         "CityGML"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "86bf7e9ec8cf81c3",
@@ -4156,7 +4066,7 @@
         "CityGML"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "b8dda83eb4562b2d",
@@ -4171,7 +4081,7 @@
         "CityGML"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "41ed43fded7594ab",
@@ -4188,7 +4098,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "302f82f7933a9a32",
@@ -4203,7 +4113,7 @@
         "CityGML"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "35bbde9bce0f127c",
@@ -4218,7 +4128,7 @@
         "CityGML"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "c71a58c92486633c",
@@ -4234,7 +4144,7 @@
         "CityGML"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "7025cb25f974c066",
@@ -4249,7 +4159,7 @@
         "CityGML"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "71cbb6c508179fee",
@@ -4264,7 +4174,7 @@
         "CityGML"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "d2ab7b1a4e5b56bf",
@@ -4279,7 +4189,7 @@
         "CityGML"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "644f3ad3d209ee01",
@@ -4294,7 +4204,7 @@
         "CityGML"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "9740f0f00b55abd1",
@@ -4310,7 +4220,7 @@
         "CityGML"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "89328058127d69d7",
@@ -4327,7 +4237,7 @@
         "UAV"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "16686ff161fd3470",
@@ -4344,7 +4254,7 @@
         "IFC"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "bda975a969944424",
@@ -4359,7 +4269,7 @@
         "CityGML"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "b4c596ddc9c97374",
@@ -4377,7 +4287,7 @@
         "UAV"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "91d15abf9cff894f",
@@ -4395,7 +4305,7 @@
         "CityGML"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "754ced611e5fddc6",
@@ -4410,7 +4320,7 @@
         "CityGML"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "49eceed9581041a9",
@@ -4427,7 +4337,7 @@
         "CityGML"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "be5f13a0a3167159",
@@ -4442,7 +4352,7 @@
         "LiDAR"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "c7468ef5823ae973",
@@ -4457,7 +4367,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "343fd6657d41eb5e",
@@ -4472,7 +4382,7 @@
         "earth observation"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "1b11115bfe65805d",
@@ -4487,7 +4397,7 @@
         "geomatics"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "6988bf8725c2b34d",
@@ -4502,7 +4412,7 @@
         "geomatics"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "d0440e521339cfa9",
@@ -4517,7 +4427,7 @@
         "geomatics"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "1f0de0a1421d555d",
@@ -4532,7 +4442,7 @@
         "geoinformatics"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "c7e8882b0de54a3f",
@@ -4547,7 +4457,7 @@
         "geoinformation"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "7e177aaf1f357629",
@@ -4562,7 +4472,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "4d815944b42510e6",
@@ -4577,7 +4487,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "79f953e581c14c61",
@@ -4592,7 +4502,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "2629de50a3c4f6d6",
@@ -4743,7 +4653,7 @@
         "photogrammetry"
       ],
       "first_seen": "2026-10-29T02:30:38.369Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "346c4cf54fe91831",
@@ -4758,7 +4668,7 @@
         "photogrammetry"
       ],
       "first_seen": "2026-10-29T02:30:38.369Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "cbed74f2ccb3370a",
@@ -4774,7 +4684,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T02:30:38.369Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "a43f26b3eb445fcf",
@@ -4789,7 +4699,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T02:30:38.369Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "3aed3ebec56845e4",
@@ -4804,7 +4714,7 @@
         "InSAR"
       ],
       "first_seen": "2026-10-29T02:30:38.369Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "4fd203a50d54f482",
@@ -4821,7 +4731,7 @@
         "geodetic"
       ],
       "first_seen": "2026-10-29T02:30:38.369Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "3fec2ae2cfcee728",
@@ -4839,7 +4749,7 @@
         "Sentinel-1"
       ],
       "first_seen": "2026-10-29T02:30:38.369Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "01d996ec8f6427d9",
@@ -4855,7 +4765,7 @@
         "point cloud"
       ],
       "first_seen": "2026-10-29T02:30:38.369Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "dc1676ebc340845f",
@@ -4871,7 +4781,7 @@
         "point cloud"
       ],
       "first_seen": "2026-10-29T02:30:38.369Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "108a54662398ab27",
@@ -4888,7 +4798,7 @@
         "spatial data"
       ],
       "first_seen": "2026-10-29T02:30:38.369Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "39b53e4a4401f219",
@@ -4905,7 +4815,7 @@
         "earth observation"
       ],
       "first_seen": "2026-10-29T02:30:38.369Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "062b4a6c674df8f6",
@@ -4920,7 +4830,7 @@
         "geoinformatics"
       ],
       "first_seen": "2026-10-29T02:30:38.369Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "0df0154a482a0cbb",
@@ -4936,7 +4846,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T02:30:38.369Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "282da9bb5a184ce4",
@@ -4952,7 +4862,7 @@
         "spatial data"
       ],
       "first_seen": "2026-10-29T02:30:38.369Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "448cb2bb16ac5f08",
@@ -4967,7 +4877,7 @@
         "CityGML"
       ],
       "first_seen": "2026-10-29T02:30:38.369Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "225a0dccb1f6136f",
@@ -4983,7 +4893,7 @@
         "CityGML"
       ],
       "first_seen": "2026-10-29T02:30:38.369Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "3d578d4fc1be34c9",
@@ -4998,7 +4908,7 @@
         "CityGML"
       ],
       "first_seen": "2026-10-29T02:30:38.369Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "0d3a527b6f9c4521",
@@ -5013,7 +4923,7 @@
         "CityGML"
       ],
       "first_seen": "2026-10-29T02:30:38.369Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "4b03d83ad3194371",
@@ -5028,7 +4938,7 @@
         "CityGML"
       ],
       "first_seen": "2026-10-29T02:30:38.369Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "25042b16f275cee5",
@@ -5044,7 +4954,7 @@
         "IFC"
       ],
       "first_seen": "2026-10-29T02:30:38.369Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "44d58073d978071f",
@@ -5062,7 +4972,7 @@
         "CityGML"
       ],
       "first_seen": "2026-10-29T02:30:38.369Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "2016b67be9041b98",
@@ -5081,7 +4991,7 @@
         "BIM"
       ],
       "first_seen": "2026-10-29T02:30:38.369Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "154a5b6d858b8e50",
@@ -5100,7 +5010,7 @@
         "spatial data"
       ],
       "first_seen": "2026-10-29T02:30:38.369Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "69e73b26bdb6e906",
@@ -5116,7 +5026,7 @@
         "CityGML"
       ],
       "first_seen": "2026-10-29T02:30:38.369Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "aa06edd79bdefa54",
@@ -5132,7 +5042,7 @@
         "spatial data"
       ],
       "first_seen": "2026-10-29T02:30:38.369Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "3dc34f21842d4514",
@@ -5149,7 +5059,7 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T02:30:38.369Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "94800adb29e3eb84",
@@ -5164,52 +5074,52 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T02:30:38.369Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "5de847d39fe1a370",
       "title": "Geospatial Week",
       "url": "https://www.isprs.org/society/gsw.aspx",
-      "kind": "event",
-      "source": "isprs-calendar",
-      "source_name": "ISPRS event calendar",
+      "kind": "news",
+      "source": "isprs-news",
+      "source_name": "ISPRS news",
       "published": null,
       "summary": "",
       "matched": [
         "geospatial"
       ],
       "first_seen": "2026-10-29T02:30:38.369Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "f900c5f7dad2b060",
       "title": "Geospatial Week",
       "url": "https://www.isprs.org/documents/geoweek.aspx",
-      "kind": "event",
-      "source": "isprs-calendar",
-      "source_name": "ISPRS event calendar",
+      "kind": "news",
+      "source": "isprs-news",
+      "source_name": "ISPRS news",
       "published": null,
       "summary": "",
       "matched": [
         "geospatial"
       ],
       "first_seen": "2026-10-29T02:30:38.369Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "657136a340d2d1f3",
       "title": "Geospatial Week 2023",
       "url": "https://www.gsw2019.org/",
-      "kind": "event",
-      "source": "isprs-calendar",
-      "source_name": "ISPRS event calendar",
+      "kind": "news",
+      "source": "isprs-news",
+      "source_name": "ISPRS news",
       "published": null,
       "summary": "",
       "matched": [
         "geospatial"
       ],
       "first_seen": "2026-10-29T02:30:38.369Z",
-      "last_seen": "2026-10-29T04:08:43.810Z"
+      "last_seen": "2026-10-29T04:09:33.693Z"
     },
     {
       "id": "d6f40966d7f962d0",
