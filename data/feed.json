@@ -1,30 +1,226 @@
 {
-  "generated_at": "2026-10-29T20:42:29.938Z",
+  "generated_at": "2026-10-29T20:58:37.370Z",
   "retain_days": 45,
-  "count": 201,
+  "count": 211,
   "items": [
     {
-      "id": "e1ebd227763752a8",
-      "title": "Certificate in Geomatics for Environmental Management",
-      "url": "https://forestry.ubc.ca/future-students/undergraduate/certificate-in-geomatics-for-environmental-management/",
+      "id": "ee256c39cdbf65f9",
+      "title": "Master’s in Geographical Information Management and Applications",
+      "url": "https://www.wur.nl/en/education/master/masters-geographical-information-management-and-applications",
       "kind": "course",
       "source": "discovered-programmes",
       "source_name": "University departments (auto-discovered)",
       "published": null,
-      "summary": "This undergraduate certificate prepares students to apply spatial data to real-world environmental and planning challenges. University of British Columbia",
+      "summary": "The Master&#x27;s in Geographical Information Management and Applications combines GIS and management. Learn how to apply geo-information and visit the Open Day! Wageningen University & Research",
       "deadline": null,
-      "location": "University of British Columbia, CA",
+      "location": "Wageningen University & Research, NL",
       "matched": [
-        "geomatics",
-        "spatial data"
+        "GIS"
       ],
-      "first_seen": "2026-10-29T20:42:29.938Z",
-      "last_seen": "2026-10-29T20:42:29.938Z",
-      "deadline_checked": "2026-10-29T20:42:29.938Z"
+      "first_seen": "2026-10-29T20:58:37.370Z",
+      "last_seen": "2026-10-29T20:58:37.370Z",
+      "deadline_checked": "2026-10-29T20:58:37.370Z"
+    },
+    {
+      "id": "ac9dbb729583b7ff",
+      "title": "Master Geographical Information Management and Applications",
+      "url": "https://www.wur.nl/nl/onderwijs/master/master-geographical-information-management-and-applications",
+      "kind": "course",
+      "source": "discovered-programmes",
+      "source_name": "University departments (auto-discovered)",
+      "published": null,
+      "summary": "The Master Geographical Information Management and Applications combines GIS and management. Learn how to apply geo-information and visit the Open Day! Wageningen University & Research",
+      "deadline": null,
+      "location": "Wageningen University & Research, NL",
+      "matched": [
+        "GIS"
+      ],
+      "first_seen": "2026-10-29T20:58:37.370Z",
+      "last_seen": "2026-10-29T20:58:37.370Z",
+      "deadline_checked": "2026-10-29T20:58:37.370Z"
+    },
+    {
+      "id": "e6dfbd849a36d016",
+      "title": "Geographic Information Science",
+      "url": "https://www.arizona.edu/degree-search/majors/geographic-information-science",
+      "kind": "course",
+      "source": "discovered-programmes",
+      "source_name": "University departments (auto-discovered)",
+      "published": null,
+      "summary": "The GIS Graduate Certificate program teaches you to use maps and data for a variety of industry and research applications. Apply today! University of Arizona",
+      "deadline": null,
+      "location": "University of Arizona, US",
+      "matched": [
+        "GIS"
+      ],
+      "first_seen": "2026-10-29T20:58:37.370Z",
+      "last_seen": "2026-10-29T20:58:37.370Z",
+      "deadline_checked": "2026-10-29T20:58:37.370Z"
+    },
+    {
+      "id": "2dee3cb31b9b2b17",
+      "title": "Geographic Information Systems Technology",
+      "url": "https://www.arizona.edu/degree-search/majors/geographic-information-systems-technology-bs",
+      "kind": "course",
+      "source": "discovered-programmes",
+      "source_name": "University departments (auto-discovered)",
+      "published": null,
+      "summary": "This degree is to offer courses in cutting edge geographic information science (GIS), and geographic information systems technology (GIST) to fill the growing worldwide demand for skilled geospatial professionals. The pr University of Arizona",
+      "deadline": null,
+      "location": "University of Arizona, US",
+      "matched": [
+        "geospatial",
+        "GIS"
+      ],
+      "first_seen": "2026-10-29T20:58:37.370Z",
+      "last_seen": "2026-10-29T20:58:37.370Z",
+      "deadline_checked": "2026-10-29T20:58:37.370Z"
+    },
+    {
+      "id": "33cf28fb6188f51c",
+      "title": "Geography: Geographic Information Science Emphasis",
+      "url": "https://www.arizona.edu/degree-search/majors/geography-geographic-information-science-emphasis",
+      "kind": "course",
+      "source": "discovered-programmes",
+      "source_name": "University departments (auto-discovered)",
+      "published": null,
+      "summary": "Students pursuing a geography degree with an emphasis on GIS programs from the University of Arizona benefit from courses in cutting-edge GIS technology. Learn about our program. University of Arizona",
+      "deadline": null,
+      "location": "University of Arizona, US",
+      "matched": [
+        "GIS"
+      ],
+      "first_seen": "2026-10-29T20:58:37.370Z",
+      "last_seen": "2026-10-29T20:58:37.370Z",
+      "deadline_checked": "2026-10-29T20:58:37.370Z"
+    },
+    {
+      "id": "345e923d1cbbd5ba",
+      "title": "GIS och skoglig fj&#xE4;rranalys",
+      "url": "https://www.slu.se/studentwebb/studier/kurser-och-program/kurssok/kurser/g/gis-och-skoglig-fjarranalys/",
+      "kind": "course",
+      "source": "discovered-programmes",
+      "source_name": "University departments (auto-discovered)",
+      "published": null,
+      "summary": "Vetenskap och utbildning f&#xF6;r h&#xE5;llbart liv. Swedish University of Agricultural Sciences",
+      "deadline": null,
+      "location": "Swedish University of Agricultural Sciences, SE",
+      "matched": [
+        "GIS"
+      ],
+      "first_seen": "2026-10-29T20:58:37.370Z",
+      "last_seen": "2026-10-29T20:58:37.370Z",
+      "deadline_checked": "2026-10-29T20:58:37.370Z"
+    },
+    {
+      "id": "e25bfb61bbae562e",
+      "title": "University Master's Degree in Geoinformation",
+      "url": "https://www.uab.cat/web/estudiar/official-master-s-degrees/general-information/geoinformation-1096480962610.html?param1=1345716413531",
+      "kind": "course",
+      "source": "discovered-programmes",
+      "source_name": "University departments (auto-discovered)",
+      "published": null,
+      "summary": "The best assessed master Universitat Autònoma de Barcelona",
+      "deadline": null,
+      "location": "Universitat Autònoma de Barcelona, ES",
+      "matched": [
+        "geoinformation"
+      ],
+      "first_seen": "2026-10-29T20:58:37.370Z",
+      "last_seen": "2026-10-29T20:58:37.370Z",
+      "deadline_checked": "2026-10-29T20:58:37.370Z"
+    },
+    {
+      "id": "3d0d512dbbcbca3c",
+      "title": "University Master's Degree in Remote Sensing and Geographical Information Systems",
+      "url": "https://www.uab.cat/web/estudiar/official-master-s-degrees/general-information/remote-sensing-and-geographical-information-systems-1096480962610.html?param1=1345664654736",
+      "kind": "course",
+      "source": "discovered-programmes",
+      "source_name": "University departments (auto-discovered)",
+      "published": null,
+      "summary": "Specialist training in Earth-observation techniques for studying the territory and managing its resources. Universitat Autònoma de Barcelona",
+      "deadline": null,
+      "location": "Universitat Autònoma de Barcelona, ES",
+      "matched": [
+        "remote sensing"
+      ],
+      "first_seen": "2026-10-29T20:58:37.370Z",
+      "last_seen": "2026-10-29T20:58:37.370Z",
+      "deadline_checked": "2026-10-29T20:58:37.370Z"
+    },
+    {
+      "id": "3acaf7ff7851cb43",
+      "title": "Geographical Information Sciences",
+      "url": "https://vu.nl/nl/onderwijs/professionals/cursussen-opleidingen/master-geographical-information-sciences",
+      "kind": "course",
+      "source": "discovered-programmes",
+      "source_name": "University departments (auto-discovered)",
+      "published": null,
+      "summary": "Wil je ruimtelijke data vertalen naar waardevolle kennis? Ontdek de online Master Geographical Information Sciences (UNIGIS) voor GIS professionals. Vrije Universiteit Amsterdam",
+      "deadline": null,
+      "location": "Vrije Universiteit Amsterdam, NL",
+      "matched": [
+        "GIS"
+      ],
+      "first_seen": "2026-10-29T20:58:37.370Z",
+      "last_seen": "2026-10-29T20:58:37.370Z",
+      "deadline_checked": "2026-10-29T20:58:37.370Z"
+    },
+    {
+      "id": "d1f67afdf63d896a",
+      "title": "Geographical Information Sciences (UNIGIS)",
+      "url": "https://vu.nl/nl/onderwijs/master/geographical-information-sciences",
+      "kind": "course",
+      "source": "discovered-programmes",
+      "source_name": "University departments (auto-discovered)",
+      "published": null,
+      "summary": "Met de parttime driejarige online Master MSc Geographical Information Sciences GIS aan VU Amsterdam leer je data uit verschillende bronnen samenbrengen. Vrije Universiteit Amsterdam",
+      "deadline": null,
+      "location": "Vrije Universiteit Amsterdam, NL",
+      "matched": [
+        "GIS"
+      ],
+      "first_seen": "2026-10-29T20:58:37.370Z",
+      "last_seen": "2026-10-29T20:58:37.370Z",
+      "deadline_checked": "2026-10-29T20:58:37.370Z"
+    },
+    {
+      "id": "bbe9d1df210264fe",
+      "title": "Online Surveying Engineering Technology Certificate | UMaine",
+      "url": "https://online.umaine.edu/online-graduate-certificate-in-surveying-engineering-technology/",
+      "kind": "course",
+      "source": "discovered-programmes",
+      "source_name": "University departments (auto-discovered)",
+      "published": null,
+      "summary": "Build expertise in surveying technology, boundary law, GIS and emerging tools with UMaine’s online Graduate Certificate in Surveying Engineering Technology. University of Maine",
+      "deadline": "2026-11-01T23:59:59.000Z",
+      "location": "University of Maine, US",
+      "matched": [
+        "GIS"
+      ],
+      "first_seen": "2026-10-29T20:58:37.370Z",
+      "last_seen": "2026-10-29T20:58:37.370Z"
+    },
+    {
+      "id": "199ddce1008548bb",
+      "title": "Online B.S. in Surveying Engineering Technology | UMaine",
+      "url": "https://online.umaine.edu/online-bachelor-of-science-in-surveying-engineering-technology/",
+      "kind": "course",
+      "source": "discovered-programmes",
+      "source_name": "University departments (auto-discovered)",
+      "published": null,
+      "summary": "Earn your B.S. in Surveying Engineering Technology online at UMaine. Build skills in land surveying, GIS, boundary law, GPS and engineering technology. University of Maine",
+      "deadline": "2026-11-01T23:59:59.000Z",
+      "location": "University of Maine, US",
+      "matched": [
+        "GIS"
+      ],
+      "first_seen": "2026-10-29T20:58:37.370Z",
+      "last_seen": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "ab4c69c33735e5cb",
-      "title": "Geo-information Science and Earth Observation Double degree Master&apos;s with Capital Normal University, China",
+      "title": "Geo-information Science and Earth Observation Double degree Master's with Capital Normal University, China",
       "url": "https://www.utwente.nl/en/education/master/programmes/geo-information-science-earth-observation/cnu-china/",
       "kind": "course",
       "source": "discovered-programmes",
@@ -37,8 +233,8 @@
         "earth observation"
       ],
       "first_seen": "2026-10-29T20:34:23.721Z",
-      "last_seen": "2026-10-29T20:42:29.938Z",
-      "deadline_checked": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z",
+      "deadline_checked": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "ca70f7293de937d0",
@@ -55,8 +251,8 @@
         "earth observation"
       ],
       "first_seen": "2026-10-29T20:34:23.721Z",
-      "last_seen": "2026-10-29T20:42:29.938Z",
-      "deadline_checked": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z",
+      "deadline_checked": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "4767487f44eb67b2",
@@ -74,8 +270,8 @@
         "GeoAI"
       ],
       "first_seen": "2026-10-29T20:34:23.721Z",
-      "last_seen": "2026-10-29T20:42:29.938Z",
-      "deadline_checked": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z",
+      "deadline_checked": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "264f38a788641b82",
@@ -92,7 +288,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T20:34:23.721Z",
-      "last_seen": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "469d93e681df733d",
@@ -109,8 +305,8 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:34:23.721Z",
-      "last_seen": "2026-10-29T20:42:29.938Z",
-      "deadline_checked": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z",
+      "deadline_checked": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "6bf846021532acf9",
@@ -128,7 +324,7 @@
         "cartography"
       ],
       "first_seen": "2026-10-29T20:34:23.721Z",
-      "last_seen": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "5581ab37b729309e",
@@ -145,8 +341,8 @@
         "cartography"
       ],
       "first_seen": "2026-10-29T20:34:23.721Z",
-      "last_seen": "2026-10-29T20:42:29.938Z",
-      "deadline_checked": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z",
+      "deadline_checked": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "35213b181cd9a506",
@@ -163,12 +359,12 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:34:23.721Z",
-      "last_seen": "2026-10-29T20:42:29.938Z",
-      "deadline_checked": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z",
+      "deadline_checked": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "3246ac10ce22b087",
-      "title": "Geo-information Science &#38; Earth Observation",
+      "title": "Geo-information Science & Earth Observation",
       "url": "https://www.utwente.nl/onderwijs/master/opleidingen/geo-information-science-earth-observation/",
       "kind": "course",
       "source": "discovered-programmes",
@@ -181,12 +377,12 @@
         "earth observation"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:42:29.938Z",
-      "deadline_checked": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z",
+      "deadline_checked": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "7aed83a1fec1b1d3",
-      "title": "Geo-information Science and Earth Observation Double degree Master&apos;s with Chang&apos;an University, China",
+      "title": "Geo-information Science and Earth Observation Double degree Master's with Chang'an University, China",
       "url": "https://www.utwente.nl/en/education/master/programmes/geo-information-science-earth-observation/cau-china/",
       "kind": "course",
       "source": "discovered-programmes",
@@ -199,8 +395,8 @@
         "earth observation"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:42:29.938Z",
-      "deadline_checked": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z",
+      "deadline_checked": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "f5034de4ee1a8b0d",
@@ -217,8 +413,8 @@
         "geomatics"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:42:29.938Z",
-      "deadline_checked": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z",
+      "deadline_checked": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "2f7c6d17bcd0324d",
@@ -235,8 +431,8 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:42:29.938Z",
-      "deadline_checked": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z",
+      "deadline_checked": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "2a4c3abbff3574fc",
@@ -253,8 +449,8 @@
         "earth observation"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:42:29.938Z",
-      "deadline_checked": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z",
+      "deadline_checked": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "c10bce7084060db8",
@@ -271,8 +467,8 @@
         "geomatics"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:42:29.938Z",
-      "deadline_checked": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z",
+      "deadline_checked": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "8a523d21bed9bdf1",
@@ -289,8 +485,8 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:42:29.938Z",
-      "deadline_checked": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z",
+      "deadline_checked": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "288884113b94640f",
@@ -308,7 +504,7 @@
         "Geodäsie"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "10743dde5862c986",
@@ -325,7 +521,7 @@
         "Geoinformatik"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "3fa916738ead9ce2",
@@ -343,7 +539,7 @@
         "geoinformatics"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "d33374c9e8f1266f",
@@ -361,7 +557,7 @@
         "cartography"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "411049cee1945e41",
@@ -378,7 +574,7 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "e8349083af01789b",
@@ -395,61 +591,7 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:42:29.938Z"
-    },
-    {
-      "id": "dafa26edf7de107c",
-      "title": "Master of Science in Applied Geospatial Analytics",
-      "url": "https://www.purdue.edu/online/program/masters-in-applied-geospatial-analytics/",
-      "kind": "course",
-      "source": "discovered-programmes",
-      "source_name": "University departments (auto-discovered)",
-      "published": null,
-      "summary": "Purdue University’s 100% online Master's in Applied Geospatial Analytics program combines a world-class graduate degree in geospatial analysis with the convenience of online coursework. You will gain skills to create str Purdue University West Lafayette",
-      "deadline": null,
-      "location": "Purdue University West Lafayette, US",
-      "matched": [
-        "geospatial"
-      ],
-      "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:42:29.938Z",
-      "deadline_checked": "2026-10-29T20:42:29.938Z"
-    },
-    {
-      "id": "5bdabf501dfe4613",
-      "title": "Online Master of Science in Applied Geospatial Analytics",
-      "url": "https://polytechnic.purdue.edu/degrees/masters-applied-geospatial-analytics-online?utm_source=puo_website&amp;utm_medium=snapshot&amp;utm_campaign=GRST-MS-OL_AGSA",
-      "kind": "course",
-      "source": "discovered-programmes",
-      "source_name": "University departments (auto-discovered)",
-      "published": null,
-      "summary": " Purdue University West Lafayette",
-      "deadline": null,
-      "location": "Purdue University West Lafayette, US",
-      "matched": [
-        "geospatial"
-      ],
-      "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:42:29.938Z",
-      "deadline_checked": "2026-10-29T20:42:29.938Z"
-    },
-    {
-      "id": "120a655697ce4ab1",
-      "title": "Applied Geospatial Analytics Curriculum",
-      "url": "https://polytechnic.purdue.edu/academics/online-master-science-applied-geospatial-analytics/curriculum?utm_source=puo_website&amp;utm_medium=snapshot",
-      "kind": "course",
-      "source": "discovered-programmes",
-      "source_name": "University departments (auto-discovered)",
-      "published": null,
-      "summary": "The Master's in Applied Geospatial Analytics program is offered through the Graduate School in partnership with the College of Agriculture, College of Liberal Arts, and Polytechnic Institute at Purdue University. This in Purdue University West Lafayette",
-      "deadline": null,
-      "location": "Purdue University West Lafayette, US",
-      "matched": [
-        "geospatial"
-      ],
-      "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:42:29.938Z",
-      "deadline_checked": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "0c15130b08f6440a",
@@ -469,7 +611,79 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z"
+    },
+    {
+      "id": "dafa26edf7de107c",
+      "title": "Master of Science in Applied Geospatial Analytics",
+      "url": "https://www.purdue.edu/online/program/masters-in-applied-geospatial-analytics/",
+      "kind": "course",
+      "source": "discovered-programmes",
+      "source_name": "University departments (auto-discovered)",
+      "published": null,
+      "summary": "Purdue University’s 100% online Master's in Applied Geospatial Analytics program combines a world-class graduate degree in geospatial analysis with the convenience of online coursework. You will gain skills to create str Purdue University West Lafayette",
+      "deadline": null,
+      "location": "Purdue University West Lafayette, US",
+      "matched": [
+        "geospatial"
+      ],
+      "first_seen": "2026-10-29T20:24:37.392Z",
+      "last_seen": "2026-10-29T20:58:37.370Z",
+      "deadline_checked": "2026-10-29T20:58:37.370Z"
+    },
+    {
+      "id": "5bdabf501dfe4613",
+      "title": "Online Master of Science in Applied Geospatial Analytics",
+      "url": "https://polytechnic.purdue.edu/degrees/masters-applied-geospatial-analytics-online?utm_source=puo_website&amp;utm_medium=snapshot&amp;utm_campaign=GRST-MS-OL_AGSA",
+      "kind": "course",
+      "source": "discovered-programmes",
+      "source_name": "University departments (auto-discovered)",
+      "published": null,
+      "summary": " Purdue University West Lafayette",
+      "deadline": null,
+      "location": "Purdue University West Lafayette, US",
+      "matched": [
+        "geospatial"
+      ],
+      "first_seen": "2026-10-29T20:24:37.392Z",
+      "last_seen": "2026-10-29T20:58:37.370Z",
+      "deadline_checked": "2026-10-29T20:58:37.370Z"
+    },
+    {
+      "id": "120a655697ce4ab1",
+      "title": "Applied Geospatial Analytics Curriculum",
+      "url": "https://polytechnic.purdue.edu/academics/online-master-science-applied-geospatial-analytics/curriculum?utm_source=puo_website&amp;utm_medium=snapshot",
+      "kind": "course",
+      "source": "discovered-programmes",
+      "source_name": "University departments (auto-discovered)",
+      "published": null,
+      "summary": "The Master's in Applied Geospatial Analytics program is offered through the Graduate School in partnership with the College of Agriculture, College of Liberal Arts, and Polytechnic Institute at Purdue University. This in Purdue University West Lafayette",
+      "deadline": null,
+      "location": "Purdue University West Lafayette, US",
+      "matched": [
+        "geospatial"
+      ],
+      "first_seen": "2026-10-29T20:24:37.392Z",
+      "last_seen": "2026-10-29T20:58:37.370Z",
+      "deadline_checked": "2026-10-29T20:58:37.370Z"
+    },
+    {
+      "id": "8ec4f2bec0764ef5",
+      "title": "Replicating terrestrial laser scanning point clouds with low cost photogrammetry techniques on small UK streams",
+      "url": "https://www.bristol.ac.uk/cabot/postgraduate-opportunities/cabot-masters/project-photogrammetry-techniques-on-uk-streams/",
+      "kind": "course",
+      "source": "discovered-programmes",
+      "source_name": "University departments (auto-discovered)",
+      "published": null,
+      "summary": " University of Bristol",
+      "deadline": null,
+      "location": "University of Bristol, GB",
+      "matched": [
+        "photogrammetry"
+      ],
+      "first_seen": "2026-10-29T20:24:37.392Z",
+      "last_seen": "2026-10-29T20:58:37.370Z",
+      "deadline_checked": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "e6e5150a7d2ff872",
@@ -487,26 +701,43 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:42:29.938Z",
-      "deadline_checked": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z",
+      "deadline_checked": "2026-10-29T20:58:37.370Z"
     },
     {
-      "id": "8ec4f2bec0764ef5",
-      "title": "Replicating terrestrial laser scanning point clouds with low cost photogrammetry techniques on small UK streams",
-      "url": "https://www.bristol.ac.uk/cabot/postgraduate-opportunities/cabot-masters/project-photogrammetry-techniques-on-uk-streams/",
+      "id": "360b1c9e340a33c6",
+      "title": "Master of Science (MSc) in Geography and Geoinformatics",
+      "url": "https://www.ku.dk/studies/masters/geography-and-geoinformatics",
       "kind": "course",
       "source": "discovered-programmes",
       "source_name": "University departments (auto-discovered)",
       "published": null,
-      "summary": " University of Bristol",
-      "deadline": null,
-      "location": "University of Bristol, GB",
+      "summary": "Explore fields within 3 specialisations or study geography with a minor subject. University of Copenhagen",
+      "deadline": "2027-01-15T23:59:59.000Z",
+      "location": "University of Copenhagen, DK",
       "matched": [
-        "photogrammetry"
+        "geoinformatics"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:42:29.938Z",
-      "deadline_checked": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z"
+    },
+    {
+      "id": "58d886b52ed92748",
+      "title": "Bachelor i geografi og geoinformatik",
+      "url": "https://www.ku.dk/studier/bachelor/geografi-og-geoinformatik",
+      "kind": "course",
+      "source": "discovered-programmes",
+      "source_name": "University departments (auto-discovered)",
+      "published": null,
+      "summary": "Hvad betyder samfundsmæssige og miljømæssige processer for vores omgivelser? University of Copenhagen",
+      "deadline": null,
+      "location": "University of Copenhagen, DK",
+      "matched": [
+        "Geoinformatik"
+      ],
+      "first_seen": "2026-10-29T20:24:37.392Z",
+      "last_seen": "2026-10-29T20:58:37.370Z",
+      "deadline_checked": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "f0d9c47ce963d65d",
@@ -524,8 +755,8 @@
         "spatial data"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:42:29.938Z",
-      "deadline_checked": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z",
+      "deadline_checked": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "a931e49fbf255381",
@@ -542,8 +773,8 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:42:29.938Z",
-      "deadline_checked": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z",
+      "deadline_checked": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "6955ae1170bc25cc",
@@ -560,8 +791,8 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:42:29.938Z",
-      "deadline_checked": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z",
+      "deadline_checked": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "8e778132696b0103",
@@ -578,8 +809,8 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:42:29.938Z",
-      "deadline_checked": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z",
+      "deadline_checked": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "ddadcf7cadfe3aaf",
@@ -596,43 +827,8 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:42:29.938Z",
-      "deadline_checked": "2026-10-29T20:42:29.938Z"
-    },
-    {
-      "id": "360b1c9e340a33c6",
-      "title": "Master of Science (MSc) in Geography and Geoinformatics",
-      "url": "https://www.ku.dk/studies/masters/geography-and-geoinformatics",
-      "kind": "course",
-      "source": "discovered-programmes",
-      "source_name": "University departments (auto-discovered)",
-      "published": null,
-      "summary": "Explore fields within 3 specialisations or study geography with a minor subject. University of Copenhagen",
-      "deadline": "2027-01-15T23:59:59.000Z",
-      "location": "University of Copenhagen, DK",
-      "matched": [
-        "geoinformatics"
-      ],
-      "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:42:29.938Z"
-    },
-    {
-      "id": "58d886b52ed92748",
-      "title": "Bachelor i geografi og geoinformatik",
-      "url": "https://www.ku.dk/studier/bachelor/geografi-og-geoinformatik",
-      "kind": "course",
-      "source": "discovered-programmes",
-      "source_name": "University departments (auto-discovered)",
-      "published": null,
-      "summary": "Hvad betyder samfundsmæssige og miljømæssige processer for vores omgivelser? University of Copenhagen",
-      "deadline": null,
-      "location": "University of Copenhagen, DK",
-      "matched": [
-        "Geoinformatik"
-      ],
-      "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:42:29.938Z",
-      "deadline_checked": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z",
+      "deadline_checked": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "24d1bdb1cb72e6e9",
@@ -649,8 +845,8 @@
         "geoinformation"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:42:29.938Z",
-      "deadline_checked": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z",
+      "deadline_checked": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "03fe987cc1713575",
@@ -667,8 +863,8 @@
         "cartography"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:42:29.938Z",
-      "deadline_checked": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z",
+      "deadline_checked": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "ad43287b983553a9",
@@ -686,8 +882,8 @@
         "geodesy"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:42:29.938Z",
-      "deadline_checked": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z",
+      "deadline_checked": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "7bd9a3a13e74eeca",
@@ -705,7 +901,7 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "4bccac543e23b28f",
@@ -723,7 +919,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "4ffc96da09b497f2",
@@ -740,7 +936,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "ec3e01820b98574a",
@@ -759,7 +955,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "944c23cc06ad5cfc",
@@ -776,7 +972,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "9610df26a438e5e4",
@@ -795,7 +991,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "4bef21eb97783e43",
@@ -816,24 +1012,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:42:29.938Z"
-    },
-    {
-      "id": "b2035757b8c172a9",
-      "title": "Master of Geographic Information Science and Technology",
-      "url": "https://online.osu.edu/masters-degree/master-geographic-information-science-technology/",
-      "kind": "course",
-      "source": "discovered-programmes",
-      "source_name": "University departments (auto-discovered)",
-      "published": null,
-      "summary": "Advance your career with applied geospatial skills. Earn a master's degree in geographic information science and technology 100% online. The Ohio State University",
-      "deadline": "2026-12-01T00:00:00.000Z",
-      "location": "The Ohio State University, US",
-      "matched": [
-        "geospatial"
-      ],
-      "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "c2cc91bf2f8f4a4e",
@@ -851,8 +1030,8 @@
         "geoinformation"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:42:29.938Z",
-      "deadline_checked": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z",
+      "deadline_checked": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "c65ba0228a65244e",
@@ -869,7 +1048,7 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "08f1cfadf71d3855",
@@ -886,7 +1065,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "1c5f0ff2c0a8a91a",
@@ -903,7 +1082,7 @@
         "Geoinformatik"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "9c3ddbc2cfec1cfe",
@@ -920,7 +1099,7 @@
         "Geoinformatik"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "0104a0606aaa4d33",
@@ -937,7 +1116,7 @@
         "Geoinformatik"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "054fcc4b3d43d0eb",
@@ -955,7 +1134,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "36cb8f4c08cfcdc4",
@@ -974,8 +1153,8 @@
         "earth observation"
       ],
       "first_seen": "2026-10-29T18:58:52.431Z",
-      "last_seen": "2026-10-29T20:42:29.938Z",
-      "deadline_checked": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z",
+      "deadline_checked": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "8f1f5483b5845d64",
@@ -995,7 +1174,7 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "cde00011bbd8320d",
@@ -1013,7 +1192,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "4176dad734180f16",
@@ -1031,7 +1210,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "0d90dd299bc23dd4",
@@ -1048,7 +1227,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "ed81ad5c57d46f6b",
@@ -1066,7 +1245,7 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "aff4aadb279cfbcc",
@@ -1083,7 +1262,7 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "944e1d4f5a491b43",
@@ -1100,7 +1279,7 @@
         "earth observation"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "50985f99b904f4c9",
@@ -1118,7 +1297,7 @@
         "earth observation"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "2bd7a6eadbc26756",
@@ -1135,7 +1314,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "46fbf07b97301623",
@@ -1153,7 +1332,7 @@
         "multispectral"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "ea01c23534de41e3",
@@ -1170,7 +1349,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "7d2c947a752105d8",
@@ -1187,7 +1366,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "0a9a629f7a24d74d",
@@ -1204,7 +1383,7 @@
         "InSAR"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "cb18bf86e5b61506",
@@ -1221,7 +1400,7 @@
         "GNSS"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "12297e8de28b2b0b",
@@ -1238,7 +1417,7 @@
         "geomatics"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "892cd4dc077a5e3f",
@@ -1256,7 +1435,7 @@
         "geodesy"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "b92d96690763671d",
@@ -1275,7 +1454,7 @@
         "geodetic"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "994ed6fb91ba7db9",
@@ -1293,8 +1472,8 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-29T20:42:29.938Z",
-      "deadline_checked": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z",
+      "deadline_checked": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "cd547b75999045f8",
@@ -1313,8 +1492,8 @@
         "geomatics"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-29T20:42:29.938Z",
-      "deadline_checked": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z",
+      "deadline_checked": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "fac3f0bb41de634f",
@@ -1331,8 +1510,8 @@
         "geoinformatics"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-29T20:42:29.938Z",
-      "deadline_checked": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z",
+      "deadline_checked": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "bd044a0c91931eaf",
@@ -1350,8 +1529,8 @@
         "geodesy"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-29T20:42:29.938Z",
-      "deadline_checked": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z",
+      "deadline_checked": "2026-10-29T20:58:37.370Z"
     },
     {
       "impact": 58,
@@ -3235,8 +3414,8 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T04:19:19.776Z",
-      "last_seen": "2026-10-29T20:42:29.938Z",
-      "deadline_checked": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z",
+      "deadline_checked": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "1e3f3b82b65024d1",
@@ -3253,8 +3432,8 @@
         "GeoAI"
       ],
       "first_seen": "2026-10-29T04:19:19.776Z",
-      "last_seen": "2026-10-29T20:42:29.938Z",
-      "deadline_checked": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z",
+      "deadline_checked": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "b6a6426da06fb935",
@@ -3271,8 +3450,8 @@
         "GeoAI"
       ],
       "first_seen": "2026-10-29T04:19:19.776Z",
-      "last_seen": "2026-10-29T20:42:29.938Z",
-      "deadline_checked": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z",
+      "deadline_checked": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "ebd0b344dded331d",
@@ -3289,8 +3468,8 @@
         "geodetic"
       ],
       "first_seen": "2026-10-29T04:19:19.776Z",
-      "last_seen": "2026-10-29T20:42:29.938Z",
-      "deadline_checked": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z",
+      "deadline_checked": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "6268a46ba2f53c8a",
@@ -3307,8 +3486,8 @@
         "point cloud"
       ],
       "first_seen": "2026-10-29T04:19:19.776Z",
-      "last_seen": "2026-10-29T20:42:29.938Z",
-      "deadline_checked": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z",
+      "deadline_checked": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "4927843db256c3e8",
@@ -3326,8 +3505,8 @@
         "geodesy"
       ],
       "first_seen": "2026-10-29T04:19:19.776Z",
-      "last_seen": "2026-10-29T20:42:29.938Z",
-      "deadline_checked": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z",
+      "deadline_checked": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "a3ef2b385d3719fa",
@@ -3345,8 +3524,8 @@
         "geodesy"
       ],
       "first_seen": "2026-10-29T04:19:19.776Z",
-      "last_seen": "2026-10-29T20:42:29.938Z",
-      "deadline_checked": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z",
+      "deadline_checked": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "337104e404693ce4",
@@ -3363,8 +3542,8 @@
         "geomatics"
       ],
       "first_seen": "2026-10-29T04:19:19.776Z",
-      "last_seen": "2026-10-29T20:42:29.938Z",
-      "deadline_checked": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z",
+      "deadline_checked": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "ae2c648270944de1",
@@ -3381,8 +3560,8 @@
         "geomatics"
       ],
       "first_seen": "2026-10-29T04:19:19.776Z",
-      "last_seen": "2026-10-29T20:42:29.938Z",
-      "deadline_checked": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z",
+      "deadline_checked": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "d9043e010239ecfe",
@@ -3399,8 +3578,8 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T04:19:19.776Z",
-      "last_seen": "2026-10-29T20:42:29.938Z",
-      "deadline_checked": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z",
+      "deadline_checked": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "a66be833ab478efa",
@@ -3417,8 +3596,8 @@
         "geoinformatics"
       ],
       "first_seen": "2026-10-29T04:19:19.776Z",
-      "last_seen": "2026-10-29T20:42:29.938Z",
-      "deadline_checked": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z",
+      "deadline_checked": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "514511bfb5cc6757",
@@ -3436,8 +3615,8 @@
         "spatial data"
       ],
       "first_seen": "2026-10-29T04:19:19.776Z",
-      "last_seen": "2026-10-29T20:42:29.938Z",
-      "deadline_checked": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z",
+      "deadline_checked": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "958f34a77b6506ea",
@@ -3454,8 +3633,8 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T04:19:19.776Z",
-      "last_seen": "2026-10-29T20:42:29.938Z",
-      "deadline_checked": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z",
+      "deadline_checked": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "ce34efc682a336f6",
@@ -3472,8 +3651,8 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T04:13:04.453Z",
-      "last_seen": "2026-10-29T20:42:29.938Z",
-      "deadline_checked": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z",
+      "deadline_checked": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "45d618b2500ce0d7",
@@ -3490,7 +3669,7 @@
         "GeoAI"
       ],
       "first_seen": "2026-10-29T04:13:04.453Z",
-      "last_seen": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "f02f8db04338cd21",
@@ -3507,7 +3686,7 @@
         "earth observation"
       ],
       "first_seen": "2026-10-29T04:13:04.453Z",
-      "last_seen": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "8e908c6174f04113",
@@ -3524,7 +3703,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T04:13:04.453Z",
-      "last_seen": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "d84c9c35ddcd5726",
@@ -3541,7 +3720,7 @@
         "SAR"
       ],
       "first_seen": "2026-10-29T04:08:43.810Z",
-      "last_seen": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "62f6b4eeaf05a901",
@@ -3558,7 +3737,7 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T04:08:43.810Z",
-      "last_seen": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "4c8d8b0b0aa43e7c",
@@ -3575,7 +3754,7 @@
         "multispectral"
       ],
       "first_seen": "2026-10-29T04:08:43.810Z",
-      "last_seen": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "8e01ba0ea80b56e7",
@@ -3592,7 +3771,7 @@
         "LiDAR"
       ],
       "first_seen": "2026-10-29T04:08:43.810Z",
-      "last_seen": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "bbc5f0e3b87cd782",
@@ -3610,7 +3789,7 @@
         "earth observation"
       ],
       "first_seen": "2026-10-29T04:08:43.810Z",
-      "last_seen": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "c07fa44ba97e3cc2",
@@ -3627,7 +3806,7 @@
         "earth observation"
       ],
       "first_seen": "2026-10-29T04:08:43.810Z",
-      "last_seen": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "8dacbfe3f121216c",
@@ -3646,7 +3825,7 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T04:06:44.492Z",
-      "last_seen": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "f6da0afec50fe9b5",
@@ -3664,7 +3843,7 @@
         "hyperspectral"
       ],
       "first_seen": "2026-10-29T04:06:44.492Z",
-      "last_seen": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "ce98ca00ca0fb410",
@@ -3681,7 +3860,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T04:06:44.492Z",
-      "last_seen": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "1097ac7ea2bdd433",
@@ -3698,7 +3877,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T04:06:44.492Z",
-      "last_seen": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "a7a43dfbc2126e9d",
@@ -3715,7 +3894,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T04:06:44.492Z",
-      "last_seen": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "be299c7d3ab959c4",
@@ -3732,8 +3911,8 @@
         "point cloud"
       ],
       "first_seen": "2026-10-29T04:06:44.492Z",
-      "last_seen": "2026-10-29T20:42:29.938Z",
-      "deadline_checked": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z",
+      "deadline_checked": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "dbc5f9322e86f8c8",
@@ -3750,8 +3929,8 @@
         "Geomatik"
       ],
       "first_seen": "2026-10-29T04:01:30.109Z",
-      "last_seen": "2026-10-29T20:42:29.938Z",
-      "deadline_checked": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z",
+      "deadline_checked": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "2f1eb20509bef025",
@@ -3768,8 +3947,8 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T04:01:30.109Z",
-      "last_seen": "2026-10-29T20:42:29.938Z",
-      "deadline_checked": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z",
+      "deadline_checked": "2026-10-29T20:58:37.370Z"
     },
     {
       "id": "b1fcd9f7b257d719",
@@ -3787,8 +3966,95 @@
         "hyperspectral"
       ],
       "first_seen": "2026-10-29T04:01:30.109Z",
-      "last_seen": "2026-10-29T20:42:29.938Z",
-      "deadline_checked": "2026-10-29T20:42:29.938Z"
+      "last_seen": "2026-10-29T20:58:37.370Z",
+      "deadline_checked": "2026-10-29T20:58:37.370Z"
+    },
+    {
+      "id": "343fd6657d41eb5e",
+      "title": "Early Career Programme EUMETSAT’s Early Career Employment Programme enables graduates to take their first step into an exciting career in Space Based Earth Observation",
+      "url": "https://www.eumetsat.int/careers-eumetsat/early-career-programme",
+      "kind": "job",
+      "source": "eumetsat-careers",
+      "source_name": "EUMETSAT careers",
+      "published": null,
+      "summary": "",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "earth observation"
+      ],
+      "first_seen": "2026-10-29T03:51:19.323Z",
+      "last_seen": "2026-10-29T20:58:37.370Z",
+      "deadline_checked": "2026-10-29T20:58:37.370Z"
+    },
+    {
+      "id": "1b11115bfe65805d",
+      "title": "MSc Geomatics Engineering",
+      "url": "https://www.geoengine.uni-stuttgart.de/",
+      "kind": "course",
+      "source": "geoengine-stuttgart",
+      "source_name": "GEOENGINE, University of Stuttgart",
+      "published": null,
+      "summary": "",
+      "deadline": "2026-11-15T23:59:59.000Z",
+      "location": null,
+      "matched": [
+        "geomatics"
+      ],
+      "first_seen": "2026-10-29T03:51:19.323Z",
+      "last_seen": "2026-10-29T20:58:37.370Z",
+      "deadline_checked": "2026-10-29T20:58:37.370Z"
+    },
+    {
+      "id": "c7e8882b0de54a3f",
+      "title": "Announcement | 2026 EuroSDR PhD Awards for the best PhD thesis related to geoinformation science",
+      "url": "https://www.eurosdr.net/news/announcement-2026-eurosdr-phd-awards-best-phd-thesis-related-geoinformation-science",
+      "kind": "news",
+      "source": "eurosdr-news",
+      "source_name": "EuroSDR news",
+      "published": null,
+      "summary": "",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "geoinformation"
+      ],
+      "first_seen": "2026-10-29T03:51:19.323Z",
+      "last_seen": "2026-10-29T20:58:37.370Z"
+    },
+    {
+      "id": "7e177aaf1f357629",
+      "title": "The ways to build Sustainable Business Models for National Mapping Cadastral Agencies",
+      "url": "https://www.eurosdr.net/news/ways-build-sustainable-business-models-national-mapping-cadastral-agencies",
+      "kind": "news",
+      "source": "eurosdr-news",
+      "source_name": "EuroSDR news",
+      "published": null,
+      "summary": "",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "mapping"
+      ],
+      "first_seen": "2026-10-29T03:51:19.323Z",
+      "last_seen": "2026-10-29T20:58:37.370Z"
+    },
+    {
+      "id": "4d815944b42510e6",
+      "title": "The way forward for 3D Mapping at National and Regional Mapping Agencies",
+      "url": "https://www.eurosdr.net/news/way-forward-3d-mapping-national-and-regional-mapping-agencies",
+      "kind": "news",
+      "source": "eurosdr-news",
+      "source_name": "EuroSDR news",
+      "published": null,
+      "summary": "",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "mapping"
+      ],
+      "first_seen": "2026-10-29T03:51:19.323Z",
+      "last_seen": "2026-10-29T20:58:37.370Z"
     },
     {
       "impact": 43,
@@ -3810,93 +4076,6 @@
         "remote sensing",
         "LiDAR",
         "point cloud"
-      ],
-      "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T20:42:29.938Z"
-    },
-    {
-      "id": "343fd6657d41eb5e",
-      "title": "Early Career Programme EUMETSAT’s Early Career Employment Programme enables graduates to take their first step into an exciting career in Space Based Earth Observation",
-      "url": "https://www.eumetsat.int/careers-eumetsat/early-career-programme",
-      "kind": "job",
-      "source": "eumetsat-careers",
-      "source_name": "EUMETSAT careers",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "earth observation"
-      ],
-      "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T20:42:29.938Z",
-      "deadline_checked": "2026-10-29T20:42:29.938Z"
-    },
-    {
-      "id": "1b11115bfe65805d",
-      "title": "MSc Geomatics Engineering",
-      "url": "https://www.geoengine.uni-stuttgart.de/",
-      "kind": "course",
-      "source": "geoengine-stuttgart",
-      "source_name": "GEOENGINE, University of Stuttgart",
-      "published": null,
-      "summary": "",
-      "deadline": "2026-11-15T23:59:59.000Z",
-      "location": null,
-      "matched": [
-        "geomatics"
-      ],
-      "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T20:42:29.938Z",
-      "deadline_checked": "2026-10-29T20:42:29.938Z"
-    },
-    {
-      "id": "c7e8882b0de54a3f",
-      "title": "Announcement | 2026 EuroSDR PhD Awards for the best PhD thesis related to geoinformation science",
-      "url": "https://www.eurosdr.net/news/announcement-2026-eurosdr-phd-awards-best-phd-thesis-related-geoinformation-science",
-      "kind": "news",
-      "source": "eurosdr-news",
-      "source_name": "EuroSDR news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "geoinformation"
-      ],
-      "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T20:42:29.938Z"
-    },
-    {
-      "id": "7e177aaf1f357629",
-      "title": "The ways to build Sustainable Business Models for National Mapping Cadastral Agencies",
-      "url": "https://www.eurosdr.net/news/ways-build-sustainable-business-models-national-mapping-cadastral-agencies",
-      "kind": "news",
-      "source": "eurosdr-news",
-      "source_name": "EuroSDR news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "mapping"
-      ],
-      "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T20:42:29.938Z"
-    },
-    {
-      "id": "4d815944b42510e6",
-      "title": "The way forward for 3D Mapping at National and Regional Mapping Agencies",
-      "url": "https://www.eurosdr.net/news/way-forward-3d-mapping-national-and-regional-mapping-agencies",
-      "kind": "news",
-      "source": "eurosdr-news",
-      "source_name": "EuroSDR news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "mapping"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
       "last_seen": "2026-10-29T20:42:29.938Z"
