@@ -1,8 +1,8 @@
 {
   "arxiv-eess-sp": {
     "state": "ok",
-    "last_checked": "2026-10-29T04:13:04.453Z",
-    "last_success": "2026-10-29T04:13:04.453Z",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
     "items_found": 0,
     "items_matched": 0,
     "consecutive_failures": 0,
@@ -10,26 +10,26 @@
   },
   "arxiv-eess-iv": {
     "state": "ok",
-    "last_checked": "2026-10-29T04:13:04.453Z",
-    "last_success": "2026-10-29T04:13:04.453Z",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
     "items_found": 0,
     "items_matched": 0,
     "consecutive_failures": 0,
     "last_error": null
   },
   "arxiv-cs-cv": {
-    "state": "ok",
-    "last_checked": "2026-10-29T04:13:04.453Z",
+    "state": "error",
+    "last_checked": "2026-10-29T04:19:19.776Z",
     "last_success": "2026-10-29T04:13:04.453Z",
     "items_found": 0,
     "items_matched": 0,
-    "consecutive_failures": 0,
-    "last_error": null
+    "consecutive_failures": 1,
+    "last_error": "fetch failed"
   },
   "arxiv-physics-geo-ph": {
     "state": "ok",
-    "last_checked": "2026-10-29T04:13:04.453Z",
-    "last_success": "2026-10-29T04:13:04.453Z",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
     "items_found": 0,
     "items_matched": 0,
     "consecutive_failures": 0,
@@ -37,8 +37,8 @@
   },
   "openalex-geoai": {
     "state": "ok",
-    "last_checked": "2026-10-29T04:13:04.453Z",
-    "last_success": "2026-10-29T04:13:04.453Z",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
     "items_found": 50,
     "items_matched": 37,
     "consecutive_failures": 0,
@@ -46,35 +46,35 @@
   },
   "openalex-citygml-bim": {
     "state": "ok",
-    "last_checked": "2026-10-29T04:13:04.453Z",
-    "last_success": "2026-10-29T04:13:04.453Z",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
     "items_found": 50,
     "items_matched": 46,
     "consecutive_failures": 0,
     "last_error": null
   },
   "openalex-lidar": {
-    "state": "ok",
-    "last_checked": "2026-10-29T04:13:04.453Z",
+    "state": "error",
+    "last_checked": "2026-10-29T04:19:19.776Z",
     "last_success": "2026-10-29T04:13:04.453Z",
     "items_found": 50,
     "items_matched": 50,
-    "consecutive_failures": 0,
-    "last_error": null
+    "consecutive_failures": 1,
+    "last_error": "fetch failed"
   },
   "openalex-photogrammetry": {
-    "state": "ok",
-    "last_checked": "2026-10-29T04:13:04.453Z",
+    "state": "error",
+    "last_checked": "2026-10-29T04:19:19.776Z",
     "last_success": "2026-10-29T04:13:04.453Z",
     "items_found": 50,
     "items_matched": 50,
-    "consecutive_failures": 0,
-    "last_error": null
+    "consecutive_failures": 1,
+    "last_error": "fetch failed"
   },
   "openalex-insar": {
     "state": "ok",
-    "last_checked": "2026-10-29T04:13:04.453Z",
-    "last_success": "2026-10-29T04:13:04.453Z",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
     "items_found": 50,
     "items_matched": 50,
     "consecutive_failures": 0,
@@ -82,8 +82,8 @@
   },
   "openalex-remote-sensing": {
     "state": "ok",
-    "last_checked": "2026-10-29T04:13:04.453Z",
-    "last_success": "2026-10-29T04:13:04.453Z",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
     "items_found": 50,
     "items_matched": 50,
     "consecutive_failures": 0,
@@ -91,8 +91,8 @@
   },
   "isprs-calendar": {
     "state": "ok",
-    "last_checked": "2026-10-29T04:13:04.453Z",
-    "last_success": "2026-10-29T04:13:04.453Z",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
     "items_found": 134,
     "items_matched": 0,
     "consecutive_failures": 0,
@@ -100,8 +100,8 @@
   },
   "erasmus-mundus-catalogue": {
     "state": "ok",
-    "last_checked": "2026-10-29T04:13:04.453Z",
-    "last_success": "2026-10-29T04:13:04.453Z",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
     "items_found": 90,
     "items_matched": 0,
     "consecutive_failures": 0,
@@ -109,8 +109,8 @@
   },
   "copernicus-events": {
     "state": "ok",
-    "last_checked": "2026-10-29T04:13:04.453Z",
-    "last_success": "2026-10-29T04:13:04.453Z",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
     "items_found": 2,
     "items_matched": 0,
     "consecutive_failures": 0,
@@ -118,8 +118,8 @@
   },
   "esa-careers": {
     "state": "ok",
-    "last_checked": "2026-10-29T04:13:04.453Z",
-    "last_success": "2026-10-29T04:13:04.453Z",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
     "items_found": 16,
     "items_matched": 0,
     "consecutive_failures": 0,
@@ -127,8 +127,8 @@
   },
   "eurosdr-news": {
     "state": "ok",
-    "last_checked": "2026-10-29T04:13:04.453Z",
-    "last_success": "2026-10-29T04:13:04.453Z",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
     "items_found": 8,
     "items_matched": 3,
     "consecutive_failures": 0,
@@ -136,8 +136,8 @@
   },
   "eumetsat-careers": {
     "state": "ok",
-    "last_checked": "2026-10-29T04:13:04.453Z",
-    "last_success": "2026-10-29T04:13:04.453Z",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
     "items_found": 57,
     "items_matched": 1,
     "consecutive_failures": 0,
@@ -145,8 +145,8 @@
   },
   "esa-eo-events": {
     "state": "ok",
-    "last_checked": "2026-10-29T04:13:04.453Z",
-    "last_success": "2026-10-29T04:13:04.453Z",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
     "items_found": 62,
     "items_matched": 6,
     "consecutive_failures": 0,
@@ -154,8 +154,8 @@
   },
   "geoengine-stuttgart": {
     "state": "ok",
-    "last_checked": "2026-10-29T04:13:04.453Z",
-    "last_success": "2026-10-29T04:13:04.453Z",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
     "items_found": 50,
     "items_matched": 3,
     "consecutive_failures": 0,
@@ -163,8 +163,8 @@
   },
   "isprs-news": {
     "state": "ok",
-    "last_checked": "2026-10-29T04:13:04.453Z",
-    "last_success": "2026-10-29T04:13:04.453Z",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
     "items_found": 144,
     "items_matched": 4,
     "consecutive_failures": 0,
@@ -172,8 +172,8 @@
   },
   "itc-education": {
     "state": "ok",
-    "last_checked": "2026-10-29T04:13:04.453Z",
-    "last_success": "2026-10-29T04:13:04.453Z",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
     "items_found": 1,
     "items_matched": 0,
     "consecutive_failures": 0,
@@ -181,8 +181,8 @@
   },
   "wur-geo-info": {
     "state": "ok",
-    "last_checked": "2026-10-29T04:13:04.453Z",
-    "last_success": "2026-10-29T04:13:04.453Z",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
     "items_found": 62,
     "items_matched": 1,
     "consecutive_failures": 0,
@@ -190,8 +190,8 @@
   },
   "unigis": {
     "state": "ok",
-    "last_checked": "2026-10-29T04:13:04.453Z",
-    "last_success": "2026-10-29T04:13:04.453Z",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
     "items_found": 21,
     "items_matched": 1,
     "consecutive_failures": 0,
@@ -199,8 +199,8 @@
   },
   "tudelft-vacancies": {
     "state": "ok",
-    "last_checked": "2026-10-29T04:13:04.453Z",
-    "last_success": "2026-10-29T04:13:04.453Z",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
     "items_found": 8,
     "items_matched": 0,
     "consecutive_failures": 0,
@@ -208,8 +208,8 @@
   },
   "ethz-jobs": {
     "state": "ok",
-    "last_checked": "2026-10-29T04:13:04.453Z",
-    "last_success": "2026-10-29T04:13:04.453Z",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
     "items_found": 136,
     "items_matched": 1,
     "consecutive_failures": 0,
@@ -217,8 +217,8 @@
   },
   "utwente-vacancies": {
     "state": "ok",
-    "last_checked": "2026-10-29T04:13:04.453Z",
-    "last_success": "2026-10-29T04:13:04.453Z",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
     "items_found": 33,
     "items_matched": 1,
     "consecutive_failures": 0,
@@ -226,8 +226,8 @@
   },
   "dlr-careers": {
     "state": "ok",
-    "last_checked": "2026-10-29T04:13:04.453Z",
-    "last_success": "2026-10-29T04:13:04.453Z",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
     "items_found": 18,
     "items_matched": 0,
     "consecutive_failures": 0,
@@ -235,8 +235,8 @@
   },
   "tuwien-jobs": {
     "state": "ok",
-    "last_checked": "2026-10-29T04:13:04.453Z",
-    "last_success": "2026-10-29T04:13:04.453Z",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
     "items_found": 18,
     "items_matched": 0,
     "consecutive_failures": 0,
@@ -244,8 +244,8 @@
   },
   "wur-vacancies": {
     "state": "ok",
-    "last_checked": "2026-10-29T04:13:04.453Z",
-    "last_success": "2026-10-29T04:13:04.453Z",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
     "items_found": 50,
     "items_matched": 0,
     "consecutive_failures": 0,
@@ -253,8 +253,8 @@
   },
   "gfz-jobs": {
     "state": "ok",
-    "last_checked": "2026-10-29T04:13:04.453Z",
-    "last_success": "2026-10-29T04:13:04.453Z",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
     "items_found": 77,
     "items_matched": 1,
     "consecutive_failures": 0,
@@ -262,8 +262,8 @@
   },
   "egu-meetings": {
     "state": "ok",
-    "last_checked": "2026-10-29T04:13:04.453Z",
-    "last_success": "2026-10-29T04:13:04.453Z",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
     "items_found": 114,
     "items_matched": 0,
     "consecutive_failures": 0,
@@ -271,8 +271,8 @@
   },
   "studyinsweden-gis": {
     "state": "ok",
-    "last_checked": "2026-10-29T04:13:04.453Z",
-    "last_success": "2026-10-29T04:13:04.453Z",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
     "items_found": 29,
     "items_matched": 0,
     "consecutive_failures": 0,
@@ -280,17 +280,17 @@
   },
   "grss-events": {
     "state": "ok",
-    "last_checked": "2026-10-29T04:13:04.453Z",
-    "last_success": "2026-10-29T04:13:04.453Z",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
     "items_found": 83,
-    "items_matched": 14,
+    "items_matched": 13,
     "consecutive_failures": 0,
     "last_error": null
   },
   "swissuniversities-geo": {
     "state": "ok",
-    "last_checked": "2026-10-29T04:13:04.453Z",
-    "last_success": "2026-10-29T04:13:04.453Z",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
     "items_found": 3,
     "items_matched": 0,
     "consecutive_failures": 0,
@@ -298,8 +298,8 @@
   },
   "agile-gi": {
     "state": "ok",
-    "last_checked": "2026-10-29T04:13:04.453Z",
-    "last_success": "2026-10-29T04:13:04.453Z",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
     "items_found": 175,
     "items_matched": 0,
     "consecutive_failures": 0,
@@ -307,8 +307,8 @@
   },
   "dgpf-events": {
     "state": "ok",
-    "last_checked": "2026-10-29T04:13:04.453Z",
-    "last_success": "2026-10-29T04:13:04.453Z",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
     "items_found": 69,
     "items_matched": 1,
     "consecutive_failures": 0,
@@ -316,41 +316,479 @@
   },
   "rspsoc-events": {
     "state": "ok",
-    "last_checked": "2026-10-29T04:13:04.453Z",
-    "last_success": "2026-10-29T04:13:04.453Z",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
     "items_found": 13,
     "items_matched": 0,
     "consecutive_failures": 0,
     "last_error": null
   },
-  "arbeitsagentur-fernerkundung": {
+  "bonn-jobs": {
     "consecutive_failures": 1,
     "state": "error",
-    "last_checked": "2026-10-29T04:13:04.453Z",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_error": "HTTP 404"
+  },
+  "tuberlin-jobs": {
+    "state": "ok",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
+    "items_found": 29,
+    "items_matched": 0,
+    "consecutive_failures": 0,
+    "last_error": null
+  },
+  "awi-jobs": {
+    "state": "ok",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
+    "items_found": 479,
+    "items_matched": 0,
+    "consecutive_failures": 0,
+    "last_error": null
+  },
+  "wuerzburg-jobs": {
+    "consecutive_failures": 1,
+    "state": "error",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_error": "HTTP 404"
+  },
+  "epfl-jobs": {
+    "state": "ok",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
+    "items_found": 14,
+    "items_matched": 0,
+    "consecutive_failures": 0,
+    "last_error": null
+  },
+  "aalto-jobs": {
+    "state": "ok",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
+    "items_found": 114,
+    "items_matched": 0,
+    "consecutive_failures": 0,
+    "last_error": null
+  },
+  "ugent-jobs": {
+    "state": "ok",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
+    "items_found": 32,
+    "items_matched": 0,
+    "consecutive_failures": 0,
+    "last_error": null
+  },
+  "utrecht-jobs": {
+    "state": "ok",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
+    "items_found": 39,
+    "items_matched": 1,
+    "consecutive_failures": 0,
+    "last_error": null
+  },
+  "dtu-jobs": {
+    "state": "ok",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
+    "items_found": 20,
+    "items_matched": 0,
+    "consecutive_failures": 0,
+    "last_error": null
+  },
+  "scholarshipdb-rs": {
+    "consecutive_failures": 1,
+    "state": "error",
+    "last_checked": "2026-10-29T04:19:19.776Z",
     "last_error": "HTTP 403"
   },
-  "arbeitsagentur-geoinformatik": {
+  "naturecareers-rs": {
     "consecutive_failures": 1,
     "state": "error",
-    "last_checked": "2026-10-29T04:13:04.453Z",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_error": "disallowed by robots.txt"
+  },
+  "vito-jobs": {
+    "state": "ok",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
+    "items_found": 29,
+    "items_matched": 0,
+    "consecutive_failures": 0,
+    "last_error": null
+  },
+  "jrc-jobs": {
+    "consecutive_failures": 1,
+    "state": "error",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_error": "HTTP 404"
+  },
+  "academictransfer-rs": {
+    "state": "ok",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
+    "items_found": 12,
+    "items_matched": 0,
+    "consecutive_failures": 0,
+    "last_error": null
+  },
+  "aalto-programs": {
+    "state": "ok",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
+    "items_found": 95,
+    "items_matched": 0,
+    "consecutive_failures": 0,
+    "last_error": null
+  },
+  "kit-programs": {
+    "consecutive_failures": 1,
+    "state": "error",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_error": "HTTP 404"
+  },
+  "ugent-programs": {
+    "state": "ok",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
+    "items_found": 40,
+    "items_matched": 0,
+    "consecutive_failures": 0,
+    "last_error": null
+  },
+  "tum-programs": {
+    "state": "ok",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
+    "items_found": 312,
+    "items_matched": 0,
+    "consecutive_failures": 0,
+    "last_error": null
+  },
+  "dtu-programs": {
+    "consecutive_failures": 1,
+    "state": "error",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_error": "HTTP 404"
+  },
+  "tudelft-masters": {
+    "state": "ok",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
+    "items_found": 97,
+    "items_matched": 1,
+    "consecutive_failures": 0,
+    "last_error": null
+  },
+  "salzburg-programs": {
+    "state": "ok",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
+    "items_found": 114,
+    "items_matched": 0,
+    "consecutive_failures": 0,
+    "last_error": null
+  },
+  "freiburg-jobs": {
+    "consecutive_failures": 1,
+    "state": "error",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_error": "fetch failed"
+  },
+  "conferenceindex-rs": {
+    "consecutive_failures": 1,
+    "state": "error",
+    "last_checked": "2026-10-29T04:19:19.776Z",
     "last_error": "HTTP 403"
   },
-  "arbeitsagentur-geodaesie": {
+  "conferenceindex-photogrammetry": {
     "consecutive_failures": 1,
     "state": "error",
-    "last_checked": "2026-10-29T04:13:04.453Z",
+    "last_checked": "2026-10-29T04:19:19.776Z",
     "last_error": "HTTP 403"
   },
-  "arbeitsagentur-photogrammetrie": {
+  "conferenceindex-gis": {
     "consecutive_failures": 1,
     "state": "error",
-    "last_checked": "2026-10-29T04:13:04.453Z",
+    "last_checked": "2026-10-29T04:19:19.776Z",
     "last_error": "HTTP 403"
   },
-  "arbeitsagentur-gis": {
+  "foss4g": {
+    "state": "ok",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
+    "items_found": 1,
+    "items_matched": 0,
+    "consecutive_failures": 0,
+    "last_error": null
+  },
+  "hannover-jobs": {
     "consecutive_failures": 1,
     "state": "error",
-    "last_checked": "2026-10-29T04:13:04.453Z",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_error": "HTTP 404"
+  },
+  "tudresden-jobs": {
+    "state": "ok",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
+    "items_found": 33,
+    "items_matched": 0,
+    "consecutive_failures": 0,
+    "last_error": null
+  },
+  "heidelberg-jobs": {
+    "state": "ok",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
+    "items_found": 19,
+    "items_matched": 0,
+    "consecutive_failures": 0,
+    "last_error": null
+  },
+  "kuleuven-jobs": {
+    "state": "ok",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
+    "items_found": 33,
+    "items_matched": 0,
+    "consecutive_failures": 0,
+    "last_error": null
+  },
+  "kth-jobs": {
+    "consecutive_failures": 1,
+    "state": "error",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_error": "HTTP 404"
+  },
+  "lund-jobs": {
+    "state": "ok",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
+    "items_found": 170,
+    "items_matched": 1,
+    "consecutive_failures": 0,
+    "last_error": null
+  },
+  "ufz-jobs": {
+    "state": "ok",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
+    "items_found": 76,
+    "items_matched": 0,
+    "consecutive_failures": 0,
+    "last_error": null
+  },
+  "ethz-masters": {
+    "state": "ok",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
+    "items_found": 26,
+    "items_matched": 0,
+    "consecutive_failures": 0,
+    "last_error": null
+  },
+  "unistuttgart-programs": {
+    "state": "ok",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
+    "items_found": 362,
+    "items_matched": 3,
+    "consecutive_failures": 0,
+    "last_error": null
+  },
+  "hannover-programs": {
+    "state": "ok",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
+    "items_found": 66,
+    "items_matched": 1,
+    "consecutive_failures": 0,
+    "last_error": null
+  },
+  "ucl-programs": {
+    "consecutive_failures": 1,
+    "state": "error",
+    "last_checked": "2026-10-29T04:19:19.776Z",
     "last_error": "HTTP 403"
+  },
+  "hft-programs": {
+    "consecutive_failures": 1,
+    "state": "error",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_error": "HTTP 404"
+  },
+  "ciem-erasmus": {
+    "state": "ok",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
+    "items_found": 90,
+    "items_matched": 0,
+    "consecutive_failures": 0,
+    "last_error": null
+  },
+  "gi-forum": {
+    "state": "ok",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
+    "items_found": 11,
+    "items_matched": 0,
+    "consecutive_failures": 0,
+    "last_error": null
+  },
+  "plus-jobs": {
+    "state": "ok",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
+    "items_found": 107,
+    "items_matched": 0,
+    "consecutive_failures": 0,
+    "last_error": null
+  },
+  "bonn-programs": {
+    "state": "ok",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
+    "items_found": 26,
+    "items_matched": 0,
+    "consecutive_failures": 0,
+    "last_error": null
+  },
+  "muenster-programs": {
+    "state": "ok",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
+    "items_found": 30,
+    "items_matched": 8,
+    "consecutive_failures": 0,
+    "last_error": null
+  },
+  "tuwien-programs": {
+    "state": "ok",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
+    "items_found": 70,
+    "items_matched": 0,
+    "consecutive_failures": 0,
+    "last_error": null
+  },
+  "aau-programs": {
+    "state": "ok",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
+    "items_found": 39,
+    "items_matched": 0,
+    "consecutive_failures": 0,
+    "last_error": null
+  },
+  "kth-programs": {
+    "state": "ok",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
+    "items_found": 88,
+    "items_matched": 1,
+    "consecutive_failures": 0,
+    "last_error": null
+  },
+  "geotech-erasmus": {
+    "state": "ok",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
+    "items_found": 35,
+    "items_matched": 1,
+    "consecutive_failures": 0,
+    "last_error": null
+  },
+  "polimi-programs": {
+    "consecutive_failures": 1,
+    "state": "error",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_error": "HTTP 404"
+  },
+  "intergeo": {
+    "state": "ok",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
+    "items_found": 19,
+    "items_matched": 0,
+    "consecutive_failures": 0,
+    "last_error": null
+  },
+  "eurosdr-workshops": {
+    "state": "ok",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
+    "items_found": 10,
+    "items_matched": 3,
+    "consecutive_failures": 0,
+    "last_error": null
+  },
+  "uzh-jobs": {
+    "state": "ok",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
+    "items_found": 31,
+    "items_matched": 0,
+    "consecutive_failures": 0,
+    "last_error": null
+  },
+  "kuleuven-programs": {
+    "state": "ok",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
+    "items_found": 7,
+    "items_matched": 0,
+    "consecutive_failures": 0,
+    "last_error": null
+  },
+  "uu-programs": {
+    "state": "ok",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
+    "items_found": 48,
+    "items_matched": 0,
+    "consecutive_failures": 0,
+    "last_error": null
+  },
+  "3dgeoinfo": {
+    "state": "ok",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
+    "items_found": 18,
+    "items_matched": 0,
+    "consecutive_failures": 0,
+    "last_error": null
+  },
+  "upv-programs": {
+    "state": "ok",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
+    "items_found": 56,
+    "items_matched": 0,
+    "consecutive_failures": 0,
+    "last_error": null
+  },
+  "ifgi-copernicus": {
+    "state": "ok",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_success": "2026-10-29T04:19:19.776Z",
+    "items_found": 62,
+    "items_matched": 6,
+    "consecutive_failures": 0,
+    "last_error": null
+  },
+  "ku-jobs": {
+    "consecutive_failures": 1,
+    "state": "error",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_error": "fetch failed"
+  },
+  "lund-programs": {
+    "consecutive_failures": 1,
+    "state": "error",
+    "last_checked": "2026-10-29T04:19:19.776Z",
+    "last_error": "HTTP 404"
   }
 }
