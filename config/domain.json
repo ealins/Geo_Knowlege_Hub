@@ -50,7 +50,7 @@
     "job": 30,
     "course": 120,
     "event": 60,
-    "paper": 21,
+    "paper": 60,
     "news": 7
   },
   "kinds": {
@@ -145,5 +145,28 @@
     "Membership",
     "Login",
     "Sign in"
+  ],
+  "paper_min_impact": 25,
+  "top_venues": [
+    "ISPRS Journal of Photogrammetry",
+    "Remote Sensing of Environment",
+    "IEEE Transactions on Geoscience and Remote Sensing",
+    "International Journal of Applied Earth Observation",
+    "^Nature\\b",
+    "^Science$",
+    "Photogrammetric Record",
+    "Journal of Geodesy",
+    "Pattern Analysis and Machine Intelligence",
+    "International Journal of Computer Vision",
+    "Computer Vision and Pattern Recognition",
+    "International Conference on Computer Vision",
+    "European Conference on Computer Vision",
+    "Neural Information Processing Systems",
+    "Earth System Science Data",
+    "Geophysical Research Letters",
+    "International Journal of Geographical Information Science",
+    "Computers, Environment and Urban Systems",
+    "Science of Remote Sensing",
+    "IEEE Geoscience and Remote Sensing Magazine"
   ]
 }

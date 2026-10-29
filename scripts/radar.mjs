@@ -169,6 +169,10 @@ function parseOpenAlex(body) {
     title: w.display_name || w.title || "",
     link: w.doi || w.id || "",
     date: w.publication_date || "",
+    cited: w.cited_by_count ?? 0,
+    fwci: w.fwci ?? null,
+    top10: Boolean(w.citation_normalized_percentile?.is_in_top_10_percent),
+    venue: w.primary_location?.source?.display_name || "",
     summary: [
       ...(w.keywords || []).map((k) => k.display_name),
       ...(w.concepts || []).slice(0, 8).map((c) => c.display_name),
@@ -245,6 +249,16 @@ function parseHtml(html, source) {
 }
 
 // ---------- filtering ----------
+// Paper impact: top venue, citations so far, field-weighted citation impact and
+// OpenAlex's top-10% flag. Only papers scoring at least paper_min_impact are kept.
+const venueRes = (domain.top_venues ?? []).map((v) => new RegExp(v, "i"));
+const minImpact = domain.paper_min_impact ?? 25;
+function paperImpact(raw) {
+  const topVenue = venueRes.some((re) => re.test(raw.venue || ""));
+  const score = (topVenue ? 40 : 0) + Math.min((raw.cited || 0) * 4, 40) + Math.min((raw.fwci || 0) * 8, 30) + (raw.top10 ? 20 : 0);
+  return { score: Math.round(score), topVenue };
+}
+
 function classify(raw, source) {
   const text = `${raw.title} ${raw.summary}`;
   const matched = domainTerms.filter((d) => d.re.test(text)).map((d) => d.term);
@@ -263,7 +277,14 @@ function classify(raw, source) {
     const hit = kindRes.find(([, re]) => re.test(text));
     if (hit) kind = hit[0];
   }
+  let paper = {};
+  if (kind === "paper") {
+    const { score, topVenue } = paperImpact(raw);
+    if (score < minImpact) return null;
+    paper = { impact: score, top_venue: topVenue, cited_by: raw.cited ?? 0, fwci: raw.fwci != null ? Math.round(raw.fwci * 10) / 10 : null, venue: raw.venue || null };
+  }
   return {
+    ...paper,
     id: createHash("sha1").update(raw.link).digest("hex").slice(0, 16),
     title: raw.title,
     url: raw.link,
@@ -374,6 +395,7 @@ for (let n = 0; n < todo.length; n += 8) {
 
 const items = [...merged.values()]
   .filter(isLive)
+  .filter((i) => i.kind !== "paper" || (i.impact ?? 0) >= minImpact)
   .filter((i) => !i.deadline || Date.parse(i.deadline) >= now.getTime())
   .sort((a, b) => b.first_seen.localeCompare(a.first_seen));
 

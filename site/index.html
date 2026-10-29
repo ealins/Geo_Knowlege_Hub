@@ -99,11 +99,11 @@ th,td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--line);vertic
       <div class="field"><label class="sr" for="source">Source</label><select id="source"><option value="">All sources</option></select></div>
       <h3>Show</h3>
       <label class="check"><input type="checkbox" id="newOnly"> New this week only</label>
-      <label class="check"><input type="checkbox" id="openOnly"> Open now (deadline ahead)</label>
+      <label class="check"><input type="checkbox" id="unlisted"> Also show items without a listed deadline</label>
       <label class="check"><input type="checkbox" id="savedOnly"> Saved only</label>
       <h3>Sort</h3>
       <div class="field"><label class="sr" for="sort">Sort</label>
-        <select id="sort"><option value="seen">Recently found</option><option value="published">Publication date</option><option value="title">Title A–Z</option></select>
+        <select id="sort"><option value="auto">Best first (closing soonest · highest impact)</option><option value="seen">Recently found</option><option value="published">Publication date</option><option value="title">Title A–Z</option></select>
       </div>
     </aside>
 
@@ -131,7 +131,8 @@ th,td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--line);vertic
 const KINDS = [["all","All"],["job","Positions"],["paper","Papers"],["course","Programmes"],["event","Events"],["news","News"]];
 const STORE = { saved: "geo-radar-saved", theme: "geo-radar-theme" };
 const PAGE = 40;
-const st = { kind: "all", topic: "", source: "", q: "", sort: "seen", newOnly: false, openOnly: false, savedOnly: false, shown: PAGE };
+const NEEDS_DEADLINE = new Set(["job", "course", "event"]);
+const st = { kind: "all", topic: "", source: "", q: "", sort: "auto", newOnly: false, unlisted: false, savedOnly: false, shown: PAGE };
 let feed = { items: [] }, status = {}, saved = new Set();
 
 const $ = id => document.getElementById(id);
@@ -155,13 +156,18 @@ function filtered(ignoreKind) {
     (!st.topic || (it.matched || []).includes(st.topic)) &&
     (!st.source || it.source_name === st.source) &&
     (!st.newOnly || isNew(it)) &&
-    (!st.openOnly || (it.deadline && Date.parse(it.deadline) >= Date.now())) &&
+    (!NEEDS_DEADLINE.has(it.kind) || st.unlisted || (it.deadline && Date.parse(it.deadline) >= Date.now())) &&
     (!st.savedOnly || saved.has(it.id)) &&
     (!q || [it.title, it.source_name, (it.matched || []).join(" ")].join(" ").toLowerCase().includes(q)));
 }
 
 function sorted(items) {
   const d = (x, k) => Date.parse(x[k] || 0) || 0;
+  if (st.sort === "auto") {
+    const rank = it => NEEDS_DEADLINE.has(it.kind) ? (it.deadline ? 0 : 3) : it.kind === "paper" ? 1 : 2;
+    return items.sort((a, b) => rank(a) - rank(b)
+      || (rank(a) === 0 ? d(a, "deadline") - d(b, "deadline") : rank(a) === 1 ? (b.impact || 0) - (a.impact || 0) : d(b, "first_seen") - d(a, "first_seen")));
+  }
   if (st.sort === "published") return items.sort((a, b) => d(b, "published") - d(a, "published"));
   if (st.sort === "title") return items.sort((a, b) => a.title.localeCompare(b.title));
   return items.sort((a, b) => d(b, "first_seen") - d(a, "first_seen"));
@@ -172,7 +178,17 @@ function bucket(it) {
   return days < 1 ? "Today" : days < 7 ? "This week" : days < 30 ? "This month" : "Earlier";
 }
 
+function paperLabel(it) {
+  const bits = [];
+  if (it.top_venue) bits.push("Top venue");
+  if (it.venue) bits.push(esc(it.venue));
+  bits.push(it.cited_by ? `cited ${it.cited_by}×` : "not yet cited");
+  if (it.fwci != null) bits.push(`FWCI ${it.fwci}`);
+  return `<span class="deadline">${bits.join(" · ")}</span>`;
+}
+
 function openLabel(it) {
+  if (it.kind === "paper") return it.impact ? paperLabel(it) : "";
   if (it.deadline) {
     const days = Math.ceil((Date.parse(it.deadline) - Date.now()) / 864e5);
     const left = days <= 0 ? "closes today" : days === 1 ? "1 day left" : days + " days left";
@@ -224,7 +240,7 @@ function render() {
   renderTopics();
   const items = sorted(filtered(false));
   const page = items.slice(0, st.shown);
-  const filters = [st.topic && `topic “${st.topic}”`, st.source, st.newOnly && "new this week", st.openOnly && "open now", st.savedOnly && "saved"].filter(Boolean);
+  const filters = [st.topic && `topic “${st.topic}”`, st.source, st.newOnly && "new this week", st.savedOnly && "saved"].filter(Boolean);
   $("count").textContent = `${items.length} ${items.length === 1 ? "item" : "items"}${filters.length ? " · " + filters.join(" · ") : ""}`;
   let html = "", last = "";
   for (const it of page) {
@@ -251,7 +267,7 @@ $("q").addEventListener("input", e => { st.q = e.target.value; reset(); });
 $("sort").addEventListener("change", e => { st.sort = e.target.value; reset(); });
 $("source").addEventListener("change", e => { st.source = e.target.value; reset(); });
 $("newOnly").addEventListener("change", e => { st.newOnly = e.target.checked; reset(); });
-$("openOnly").addEventListener("change", e => { st.openOnly = e.target.checked; reset(); });
+$("unlisted").addEventListener("change", e => { st.unlisted = e.target.checked; reset(); });
 $("savedOnly").addEventListener("change", e => { st.savedOnly = e.target.checked; reset(); });
 $("more").addEventListener("click", () => { st.shown += PAGE; render(); });
 $("theme").addEventListener("click", () => {

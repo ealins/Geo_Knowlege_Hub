@@ -2,41 +2,9 @@
   "_comment": "Well-known open sources. Items are kept only if they match config/domain.json. robots.txt is checked before every fetch; a source that fails 5 runs in a row is paused automatically.",
   "sources": [
     {
-      "id": "arxiv-cs-cv",
-      "name": "arXiv cs.CV",
-      "url": "https://rss.arxiv.org/rss/cs.CV",
-      "type": "rss",
-      "kind": "paper",
-      "enabled": true
-    },
-    {
-      "id": "arxiv-eess-iv",
-      "name": "arXiv eess.IV",
-      "url": "https://rss.arxiv.org/rss/eess.IV",
-      "type": "rss",
-      "kind": "paper",
-      "enabled": true
-    },
-    {
-      "id": "arxiv-eess-sp",
-      "name": "arXiv eess.SP",
-      "url": "https://rss.arxiv.org/rss/eess.SP",
-      "type": "rss",
-      "kind": "paper",
-      "enabled": true
-    },
-    {
-      "id": "arxiv-physics-geo-ph",
-      "name": "arXiv physics.geo-ph",
-      "url": "https://rss.arxiv.org/rss/physics.geo-ph",
-      "type": "rss",
-      "kind": "paper",
-      "enabled": true
-    },
-    {
       "id": "openalex-photogrammetry",
       "name": "OpenAlex: photogrammetry",
-      "url": "https://api.openalex.org/works?search=photogrammetry&filter=from_publication_date:{since:45},to_publication_date:{since:0}&sort=relevance_score:desc&per-page=50",
+      "url": "https://api.openalex.org/works?search=photogrammetry&filter=from_publication_date:{since:60},to_publication_date:{since:0}&sort=cited_by_count:desc&per-page=100",
       "type": "openalex",
       "kind": "paper",
       "enabled": true
@@ -44,7 +12,7 @@
     {
       "id": "openalex-remote-sensing",
       "name": "OpenAlex: remote sensing",
-      "url": "https://api.openalex.org/works?search=%22remote%20sensing%22&filter=from_publication_date:{since:45},to_publication_date:{since:0}&sort=relevance_score:desc&per-page=50",
+      "url": "https://api.openalex.org/works?search=%22remote%20sensing%22&filter=from_publication_date:{since:60},to_publication_date:{since:0}&sort=cited_by_count:desc&per-page=100",
       "type": "openalex",
       "kind": "paper",
       "enabled": true
@@ -52,7 +20,7 @@
     {
       "id": "openalex-insar",
       "name": "OpenAlex: InSAR",
-      "url": "https://api.openalex.org/works?search=InSAR&filter=from_publication_date:{since:45},to_publication_date:{since:0}&sort=relevance_score:desc&per-page=50",
+      "url": "https://api.openalex.org/works?search=InSAR&filter=from_publication_date:{since:60},to_publication_date:{since:0}&sort=cited_by_count:desc&per-page=100",
       "type": "openalex",
       "kind": "paper",
       "enabled": true
@@ -60,7 +28,7 @@
     {
       "id": "openalex-lidar",
       "name": "OpenAlex: LiDAR point cloud",
-      "url": "https://api.openalex.org/works?search=lidar%20point%20cloud&filter=from_publication_date:{since:45},to_publication_date:{since:0}&sort=relevance_score:desc&per-page=50",
+      "url": "https://api.openalex.org/works?search=lidar%20point%20cloud&filter=from_publication_date:{since:60},to_publication_date:{since:0}&sort=cited_by_count:desc&per-page=100",
       "type": "openalex",
       "kind": "paper",
       "enabled": true
@@ -68,7 +36,7 @@
     {
       "id": "openalex-geoai",
       "name": "OpenAlex: GeoAI / geoinformatics",
-      "url": "https://api.openalex.org/works?search=geoinformatics&filter=from_publication_date:{since:45},to_publication_date:{since:0}&sort=relevance_score:desc&per-page=50",
+      "url": "https://api.openalex.org/works?search=geoinformatics&filter=from_publication_date:{since:60},to_publication_date:{since:0}&sort=cited_by_count:desc&per-page=100",
       "type": "openalex",
       "kind": "paper",
       "enabled": true
@@ -76,7 +44,7 @@
     {
       "id": "openalex-citygml-bim",
       "name": "OpenAlex: CityGML / BIM",
-      "url": "https://api.openalex.org/works?search=CityGML&filter=from_publication_date:{since:45},to_publication_date:{since:0}&sort=relevance_score:desc&per-page=50",
+      "url": "https://api.openalex.org/works?search=CityGML&filter=from_publication_date:{since:60},to_publication_date:{since:0}&sort=cited_by_count:desc&per-page=100",
       "type": "openalex",
       "kind": "paper",
       "enabled": true

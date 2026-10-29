@@ -33,6 +33,8 @@ After that, the workflow fetches sources every 2 hours, commits the feed, and re
 ## Freshness rules
 
 - Items show `first_seen` and `last_seen`. The "New" badge means first seen in the last 7 days.
+- Positions, programmes and events are shown only with a confirmed open deadline (read from the item's own page); items without a listed deadline are hidden unless you tick the box. Closed items are removed.
+- Papers are kept only if they show impact: a top venue (list in `config/domain.json`), citations, field-weighted citation impact or OpenAlex's top-10% flag. They are ranked by that score.
 - Each kind has its own window in `config/domain.json` (`retain_days`): jobs 30 days, papers 21, events 60, courses 120, news 7. An item disappears once it has gone unseen for longer than its window.
 - A source that fails 5 times in a row is paused. Set its `consecutive_failures` in `data/status.json` to `0` to retry.
 - Sources that disallow the bot in robots.txt are skipped and shown as errors.
