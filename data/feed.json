@@ -1,8 +1,569 @@
 {
-  "generated_at": "2026-10-29T05:42:43.034Z",
+  "generated_at": "2026-10-29T05:43:44.325Z",
   "retain_days": 45,
-  "count": 104,
+  "count": 123,
   "items": [
+    {
+      "impact": 48,
+      "top_venue": false,
+      "cited_by": 1,
+      "fwci": 3,
+      "venue": "Fire Ecology",
+      "id": "3d8c08f8a911bff3",
+      "title": "Right on time: evaluating accuracy and timing of burn-severity assessments to support post-fire management",
+      "url": "https://doi.org/10.1186/s42408-026-00589-y",
+      "kind": "paper",
+      "source": "openalex-photogrammetry",
+      "source_name": "OpenAlex: photogrammetry",
+      "published": "2026-10-02T00:00:00.000Z",
+      "summary": "burn severity mapping, post-fire management, cloud cover, Sentinel-1, Sentinel-2, Landsat, Harmonized Landsat Sentinel-2, synthetic aperture radar, multispectral imagery, canopy loss, field validation, ecosystem recovery, Multispectral image, Remote sensing, Satellite imagery, Environmental science,",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "remote sensing",
+        "multispectral",
+        "Sentinel-1",
+        "Sentinel-2",
+        "Landsat",
+        "satellite",
+        "mapping"
+      ],
+      "first_seen": "2026-10-29T05:43:44.325Z",
+      "last_seen": "2026-10-29T05:43:44.325Z"
+    },
+    {
+      "impact": 32,
+      "top_venue": false,
+      "cited_by": 1,
+      "fwci": 3.5,
+      "venue": "Ecosphere",
+      "id": "bc91a9e72a60bfa7",
+      "title": "Using drone‐borne thermal infrared cameras to monitor moose in Scandinavia",
+      "url": "https://doi.org/10.1002/ecs2.70805",
+      "kind": "paper",
+      "source": "openalex-photogrammetry",
+      "source_name": "OpenAlex: photogrammetry",
+      "published": "2026-10-01T00:00:00.000Z",
+      "summary": "moose, wildlife population monitoring, population density estimation, boreal forest, pellet counts, wildlife management, Drone, Thermal infrared, Remote sensing, Infrared, Geography, Aeronautics, Environmental science, Computer science",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "remote sensing"
+      ],
+      "first_seen": "2026-10-29T05:43:44.325Z",
+      "last_seen": "2026-10-29T05:43:44.325Z"
+    },
+    {
+      "impact": 54,
+      "top_venue": false,
+      "cited_by": 1,
+      "fwci": 25.4,
+      "venue": "Geo-spatial Information Science",
+      "id": "357d5d551d0dcecb",
+      "title": "GeoAgentbench: a dynamic execution benchmark for tool-augmented agents in spatial analysis",
+      "url": "https://doi.org/10.1080/10095020.2026.2736957",
+      "kind": "paper",
+      "source": "openalex-photogrammetry",
+      "source_name": "OpenAlex: photogrammetry",
+      "published": "2026-10-01T00:00:00.000Z",
+      "summary": "tool-augmented agents, agent evaluation benchmarks, parameter inference, multi-step reasoning, error recovery, GeoAI, spatial analysis, Computer science, Geospatial analysis, Workflow, Benchmark (surveying), Task (project management), Distributed computing, Executable, Data mining",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "geospatial",
+        "GeoAI"
+      ],
+      "first_seen": "2026-10-29T05:43:44.325Z",
+      "last_seen": "2026-10-29T05:43:44.325Z"
+    },
+    {
+      "impact": 43,
+      "top_venue": false,
+      "cited_by": 1,
+      "fwci": 2.3,
+      "venue": "Geomatics",
+      "id": "898bc45f0136ae86",
+      "title": "Reconstruction of Waste Rock Dump Deformation Stages Based on Multi-Temporal UAV Photogrammetry, Terrestrial Laser Scanning, and Mine Surveying",
+      "url": "https://doi.org/10.3390/geomatics6050108",
+      "kind": "paper",
+      "source": "openalex-photogrammetry",
+      "source_name": "OpenAlex: photogrammetry",
+      "published": "2026-09-30T00:00:00.000Z",
+      "summary": "terrestrial laser scanning, mine surveying, open-pit mining, cross-sectional analysis, displacement monitoring, failure zone, Geology, Deformation (meteorology), Digital elevation model, Lift (data mining), Deformation monitoring, Mining engineering, Geotechnical engineering, Laser scanning",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "photogrammetry",
+        "UAV"
+      ],
+      "first_seen": "2026-10-29T05:43:44.325Z",
+      "last_seen": "2026-10-29T05:43:44.325Z"
+    },
+    {
+      "impact": 48,
+      "top_venue": false,
+      "cited_by": 1,
+      "fwci": 3,
+      "venue": "The international archives of the photogrammetry, remote sensing and spatial information sciences/International archives of the photogrammetry, remote sensing and spatial information sciences",
+      "id": "f14567259f6148db",
+      "title": "Data-Centric Solutions – A Case Study for Road Data Based on Knowledge Graphs",
+      "url": "https://doi.org/10.5194/isprs-archives-l-4-w2-2026-147-2026",
+      "kind": "paper",
+      "source": "openalex-photogrammetry",
+      "source_name": "OpenAlex: photogrammetry",
+      "published": "2026-09-28T00:00:00.000Z",
+      "summary": "knowledge graphs, data-centric architecture, road maintenance, CityGML, 3D city model, road database, information model, data silos, municipal data management, QGIS, Computer science, Data mining, Graph, Object (grammar), Software, Geographic information system, Data modeling, Information model",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "CityGML"
+      ],
+      "first_seen": "2026-10-29T05:43:44.325Z",
+      "last_seen": "2026-10-29T05:43:44.325Z"
+    },
+    {
+      "impact": 52,
+      "top_venue": false,
+      "cited_by": 1,
+      "fwci": 3.5,
+      "venue": "Alpine Botany",
+      "id": "b820718e2b91e162",
+      "title": "Integrating in–situ data and remote sensing for the spatiotemporal assessment of alpine vegetation",
+      "url": "https://doi.org/10.1007/s00035-026-00374-2",
+      "kind": "paper",
+      "source": "openalex-photogrammetry",
+      "source_name": "OpenAlex: photogrammetry",
+      "published": "2026-09-21T00:00:00.000Z",
+      "summary": "alpine meadow, Sentinel-2, satellite vegetation indices, soil-adjusted vegetation index, land surface temperature, soil temperature, soil water potential, soil texture, microclimate, vegetation productivity, vegetation moisture, community composition, scale dependence, habitat mapping, Cantabrian Mo",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "remote sensing",
+        "Sentinel-2",
+        "satellite",
+        "mapping"
+      ],
+      "first_seen": "2026-10-29T05:43:44.325Z",
+      "last_seen": "2026-10-29T05:43:44.325Z"
+    },
+    {
+      "impact": 47,
+      "top_venue": false,
+      "cited_by": 1,
+      "fwci": 2.9,
+      "venue": "Scientific Reports",
+      "id": "9edf1b218694c9e0",
+      "title": "An attention-guided adaptive multi-scale feature fusion method for remote sensing image object detection",
+      "url": "https://doi.org/10.1038/s41598-026-70241-x",
+      "kind": "paper",
+      "source": "openalex-photogrammetry",
+      "source_name": "OpenAlex: photogrammetry",
+      "published": "2026-09-07T00:00:00.000Z",
+      "summary": "multi-scale feature fusion, attention mechanism, small object detection, channel and spatial attention, feature pyramid network, background suppression, HRSC2016, Computer science, Robustness (evolution), Artificial intelligence, Feature (linguistics), Feature extraction, Channel (broadcasting), Pyr",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "remote sensing"
+      ],
+      "first_seen": "2026-10-29T05:43:44.325Z",
+      "last_seen": "2026-10-29T05:43:44.325Z"
+    },
+    {
+      "impact": 52,
+      "top_venue": false,
+      "cited_by": 1,
+      "fwci": 3.5,
+      "venue": "Royal Society Open Science",
+      "id": "d5d9975d8c6e1aea",
+      "title": "Full-spur mapping: refining coral reef carbonate production estimates using underwater photogrammetry",
+      "url": "https://doi.org/10.1098/rsos.260480",
+      "kind": "paper",
+      "source": "openalex-photogrammetry",
+      "source_name": "OpenAlex: photogrammetry",
+      "published": "2026-09-02T00:00:00.000Z",
+      "summary": "calcium carbonate formation, structure-from-motion photogrammetry, spatial sampling bias, coral reef degradation, reef monitoring, Caribbean coral reefs, Transect, Reef, Coral reef, Coral, Sampling (signal processing), Carbonate, Oceanography, Spatial variability",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "photogrammetry",
+        "mapping"
+      ],
+      "first_seen": "2026-10-29T05:43:44.325Z",
+      "last_seen": "2026-10-29T05:43:44.325Z"
+    },
+    {
+      "impact": 41,
+      "top_venue": false,
+      "cited_by": 1,
+      "fwci": 2.1,
+      "venue": "Journal of Advances in Modeling Earth Systems",
+      "id": "0618560db386b798",
+      "title": "The Urban Building Community Model for Earth System Modeling: Data and Comprehensive Evaluation",
+      "url": "https://doi.org/10.1029/2026ms005794",
+      "kind": "paper",
+      "source": "openalex-photogrammetry",
+      "source_name": "OpenAlex: photogrammetry",
+      "published": "2026-09-01T00:00:00.000Z",
+      "summary": "urban canopy model, Common Land Model, urban morphology, urban heat flux, anthropogenic heat, Urban heat island, Meteorology, Canyon, Environmental science, Urban morphology, Set (abstract data type), Component (thermodynamics), Representation (politics)",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "Earth system"
+      ],
+      "first_seen": "2026-10-29T05:43:44.325Z",
+      "last_seen": "2026-10-29T05:43:44.325Z"
+    },
+    {
+      "impact": 52,
+      "top_venue": false,
+      "cited_by": 1,
+      "fwci": 3.5,
+      "venue": "CLEAN - Soil Air Water",
+      "id": "823f1cfadc5ee6af",
+      "title": "Spectral–Biogeochemical Integration for Vegetation Health and Soil–Plant Metal Dynamics in Wastewater‐Irrigated Agroforestry: Insights From Sadat Forest, Egypt",
+      "url": "https://doi.org/10.1002/clen.70279",
+      "kind": "paper",
+      "source": "openalex-photogrammetry",
+      "source_name": "OpenAlex: photogrammetry",
+      "published": "2026-09-01T00:00:00.000Z",
+      "summary": "wastewater irrigation, agroforestry, vegetation health, Sentinel-2 spectral indices, heavy metals in soil, plant metal uptake, bioaccumulation factor, Casuarina equisetifolia, Eucalyptus camaldulensis, Sesbania sesban, plantation age, nutrient interactions, Environmental science, Casuarina equisetif",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "Sentinel-2"
+      ],
+      "first_seen": "2026-10-29T05:43:44.325Z",
+      "last_seen": "2026-10-29T05:43:44.325Z"
+    },
+    {
+      "impact": 48,
+      "top_venue": false,
+      "cited_by": 1,
+      "fwci": 3,
+      "venue": "Hydrobiologia",
+      "id": "84b45ff0ffad4b9e",
+      "title": "From pixels to ponds: assessing the feasibility of identifying small water features using satellite imagery",
+      "url": "https://doi.org/10.1007/s10750-026-06309-6",
+      "kind": "paper",
+      "source": "openalex-photogrammetry",
+      "source_name": "OpenAlex: photogrammetry",
+      "published": "2026-08-31T00:00:00.000Z",
+      "summary": "satellite remote sensing, spatial resolution, false positives, omission errors, aquatic plants, pond size, wetland conservation, South West England, Remote sensing, Workflow, Satellite imagery, False positives and false negatives, Satellite, Pixel, Computer science, Environmental science",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "remote sensing",
+        "satellite"
+      ],
+      "first_seen": "2026-10-29T05:43:44.325Z",
+      "last_seen": "2026-10-29T05:43:44.325Z"
+    },
+    {
+      "impact": 94,
+      "top_venue": true,
+      "cited_by": 1,
+      "fwci": 3.7,
+      "venue": "Geophysical Research Letters",
+      "id": "2d4ef80d4769c893",
+      "title": "An Innovative Approach for Estimating Coseismic Surface Uplifts Using Ionospheric Observations From Remote GNSS Stations: First Application for the 2025 Myanmar Earthquake",
+      "url": "https://doi.org/10.1029/2026gl122530",
+      "kind": "paper",
+      "source": "openalex-insar",
+      "source_name": "OpenAlex: InSAR",
+      "published": "2026-10-07T00:00:00.000Z",
+      "summary": "total electron content, GNSS stations, 2025 Myanmar earthquake, earthquake deformation, TEC, Geology, GNSS applications, Geodesy, Amplitude, Seismology, Remote sensing, Ionosphere",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "remote sensing",
+        "geodesy",
+        "GNSS"
+      ],
+      "first_seen": "2026-10-29T05:43:44.325Z",
+      "last_seen": "2026-10-29T05:43:44.325Z"
+    },
+    {
+      "impact": 94,
+      "top_venue": true,
+      "cited_by": 1,
+      "fwci": 6.6,
+      "venue": "Remote Sensing of Environment",
+      "id": "8fd76c3b531006ab",
+      "title": "Large-scale landslide susceptibility mapping via deep learning: A case study of Pakistan",
+      "url": "https://doi.org/10.1016/j.rse.2026.115710",
+      "kind": "paper",
+      "source": "openalex-insar",
+      "source_name": "OpenAlex: InSAR",
+      "published": "2026-09-28T00:00:00.000Z",
+      "summary": "landslide susceptibility mapping, landslide conditioning factors, squeeze-and-excitation, Pakistan, SBAS-InSAR, landslide deformation, SHAP feature importance, elevation and slope effects, landslide hazard assessment, Remote sensing, Geology, Landslide, Digital elevation model, Aerial photography, T",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "remote sensing",
+        "InSAR",
+        "satellite",
+        "mapping"
+      ],
+      "first_seen": "2026-10-29T05:43:44.325Z",
+      "last_seen": "2026-10-29T05:43:44.325Z"
+    },
+    {
+      "impact": 45,
+      "top_venue": false,
+      "cited_by": 1,
+      "fwci": 2.6,
+      "venue": "Buildings",
+      "id": "25450ed26fd3b88c",
+      "title": "InSAR-Based Structural Health Monitoring Within an Active Caldera: The Case Study of the Diego Armando Maradona Stadium",
+      "url": "https://doi.org/10.3390/buildings16183726",
+      "kind": "paper",
+      "source": "openalex-insar",
+      "source_name": "OpenAlex: InSAR",
+      "published": "2026-09-19T00:00:00.000Z",
+      "summary": "persistent scatterers, volcano deformation, COSMO-SkyMed, polynomial fitting, line-of-sight displacement, Displacement (psychology), Interferometric synthetic aperture radar, Geodesy, Structural engineering, Stadium, Structural health monitoring, Roof, Radar",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "geodesy",
+        "InSAR"
+      ],
+      "first_seen": "2026-10-29T05:43:44.325Z",
+      "last_seen": "2026-10-29T05:43:44.325Z"
+    },
+    {
+      "impact": 45,
+      "top_venue": false,
+      "cited_by": 1,
+      "fwci": 2.6,
+      "venue": "Geomatics Natural Hazards and Risk",
+      "id": "c84454ff83cd1b20",
+      "title": "Attribution analysis and threshold identification of land subsidence in the Beijing Plain based on MT-InSAR technology and explainable artificial intelligence",
+      "url": "https://doi.org/10.1080/19475705.2026.2731677",
+      "kind": "paper",
+      "source": "openalex-insar",
+      "source_name": "OpenAlex: InSAR",
+      "published": "2026-09-14T00:00:00.000Z",
+      "summary": "land subsidence, groundwater pumping, South-to-North Water Diversion Project, groundwater level, aquifer response, confined aquifer, threshold detection, SHAP, random forest, Beijing Plain, groundwater management, Aquifer, Beijing, Groundwater, Subsidence, Identification (biology), Hydrology (agricu",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "InSAR"
+      ],
+      "first_seen": "2026-10-29T05:43:44.325Z",
+      "last_seen": "2026-10-29T05:43:44.325Z"
+    },
+    {
+      "impact": 48,
+      "top_venue": false,
+      "cited_by": 1,
+      "fwci": 3,
+      "venue": "GEOMATICA",
+      "id": "4b9ef198e8c7705c",
+      "title": "Cloud-independent flood mapping and surface water dynamics using Sentinel-1 SAR in the Lower Volta Basin, Ghana",
+      "url": "https://doi.org/10.1016/j.geomat.2026.100131",
+      "kind": "paper",
+      "source": "openalex-insar",
+      "source_name": "OpenAlex: InSAR",
+      "published": "2026-09-07T00:00:00.000Z",
+      "summary": "flood mapping, Sentinel-1 SAR, surface water dynamics, temporary flooding, surface change detection, tropical river basin, flood exposure, Remote sensing, Environmental science, Flood myth, Geology, Synthetic aperture radar, Surface water, Hydrology (agriculture), Interferometric synthetic aperture ",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "remote sensing",
+        "SAR",
+        "Sentinel-1",
+        "mapping"
+      ],
+      "first_seen": "2026-10-29T05:43:44.325Z",
+      "last_seen": "2026-10-29T05:43:44.325Z"
+    },
+    {
+      "impact": 54,
+      "top_venue": false,
+      "cited_by": 1,
+      "fwci": 3.7,
+      "venue": "npj natural hazards.",
+      "id": "fb229402c0480544",
+      "title": "Global rapid assessment of earthquake rupture and shaking",
+      "url": "https://doi.org/10.1038/s44304-026-00252-1",
+      "kind": "paper",
+      "source": "openalex-insar",
+      "source_name": "OpenAlex: InSAR",
+      "published": "2026-09-04T00:00:00.000Z",
+      "summary": "seismic intensity, high-frequency seismic data, empirical ground motion prediction, strike-slip earthquakes, megathrust earthquakes, InSAR, earthquake disaster response, Geology, Seismology, Aftershock, Feature (linguistics), Forensic engineering, Deformation (meteorology), Margin (machine learning)",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "InSAR"
+      ],
+      "first_seen": "2026-10-29T05:43:44.325Z",
+      "last_seen": "2026-10-29T05:43:44.325Z"
+    },
+    {
+      "impact": 54,
+      "top_venue": false,
+      "cited_by": 1,
+      "fwci": 3.7,
+      "venue": "Natural Hazards",
+      "id": "6c563346dbe543d2",
+      "title": "Evidence for distributed transpressional deformation and seismic hazard implications from the 2025 Mw 6.0 Asadabad- Kunar earthquake, Eastern Afghanistan",
+      "url": "https://doi.org/10.1007/s11069-026-08397-y",
+      "kind": "paper",
+      "source": "openalex-insar",
+      "source_name": "OpenAlex: InSAR",
+      "published": "2026-08-31T00:00:00.000Z",
+      "summary": "transpressional deformation, Hindu Kush, intracontinental deformation, India-Eurasia convergence, PS-InSAR, uplift and subsidence, landslides, rock avalanches, seismic hazard assessment, secondary hazards, Geology, Seismology, Deformation (meteorology), Fault (geology), Geodesy, Seismic hazard, Inte",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "geodesy",
+        "InSAR"
+      ],
+      "first_seen": "2026-10-29T05:43:44.325Z",
+      "last_seen": "2026-10-29T05:43:44.325Z"
+    },
+    {
+      "impact": 40,
+      "top_venue": true,
+      "cited_by": 0,
+      "fwci": 0,
+      "venue": "Remote Sensing of Environment",
+      "id": "3fec2ae2cfcee728",
+      "title": "Continental-scale Sentinel-1 InSAR deformation rate mosaics of central North America",
+      "url": "https://doi.org/10.1016/j.rse.2026.115721",
+      "kind": "paper",
+      "source": "openalex-insar",
+      "source_name": "OpenAlex: InSAR",
+      "published": "2026-10-23T00:00:00.000Z",
+      "summary": "ground deformation, InSAR, Sentinel-1, central North America, line-of-sight deformation, anthropogenic deformation, natural deformation, Interferometric synthetic aperture radar, Geology, Remote sensing, Synthetic aperture radar, Deformation (meteorology), Deformation monitoring, Geodesy, Interferom",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "remote sensing",
+        "geodesy",
+        "InSAR",
+        "Sentinel-1"
+      ],
+      "first_seen": "2026-10-29T05:43:44.325Z",
+      "last_seen": "2026-10-29T05:43:44.325Z"
+    },
+    {
+      "impact": 102,
+      "top_venue": true,
+      "cited_by": 3,
+      "fwci": 8.6,
+      "venue": "The Photogrammetric Record",
+      "id": "109a22923f6b9289",
+      "title": "Towards Vision‐Language Geo‐Foundation Models: A Survey",
+      "url": "https://doi.org/10.1111/phor.70066",
+      "kind": "paper",
+      "source": "openalex-photogrammetry",
+      "source_name": "OpenAlex: photogrammetry",
+      "published": "2026-09-28T00:00:00.000Z",
+      "summary": "vision-language foundation models, geospatial foundation models, Earth observation, remote sensing, image-text retrieval, visual grounding, visual question answering, image captioning, model architecture, Geospatial analysis, Data science, Leverage (statistics), Computer science, Tracing, Empirical ",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "remote sensing",
+        "geospatial",
+        "earth observation"
+      ],
+      "first_seen": "2026-10-29T05:42:43.034Z",
+      "last_seen": "2026-10-29T05:43:44.325Z"
+    },
+    {
+      "impact": 58,
+      "top_venue": false,
+      "cited_by": 2,
+      "fwci": 7,
+      "venue": "Biogeosciences",
+      "id": "e48e458ca683d37b",
+      "title": "Tracking crop evapotranspiration and water stress across seasons using multi-sensor UAV observations",
+      "url": "https://doi.org/10.5194/bg-23-7253-2026",
+      "kind": "paper",
+      "source": "openalex-photogrammetry",
+      "source_name": "OpenAlex: photogrammetry",
+      "published": "2026-10-16T00:00:00.000Z",
+      "summary": "crop evapotranspiration, crop water stress, UAV remote sensing, thermal radiation, very high resolution imagery, crop water use, Environmental science, Evapotranspiration, Remote sensing, Water stress, Crop, Hydrology (agriculture), Irrigation, Crop yield",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "remote sensing",
+        "UAV"
+      ],
+      "first_seen": "2026-10-29T05:42:43.034Z",
+      "last_seen": "2026-10-29T05:43:44.325Z"
+    },
+    {
+      "impact": 48,
+      "top_venue": false,
+      "cited_by": 1,
+      "fwci": 3,
+      "venue": "GIScience & Remote Sensing",
+      "id": "9ffab245c80e1cff",
+      "title": "SAMWater: a prompt-guided multimodal framework for transferable water mapping with the segment anything model",
+      "url": "https://doi.org/10.1080/15481603.2026.2745243",
+      "kind": "paper",
+      "source": "openalex-photogrammetry",
+      "source_name": "OpenAlex: photogrammetry",
+      "published": "2026-10-09T00:00:00.000Z",
+      "summary": "water body mapping, Segment Anything Model, multimodal segmentation, water body detection, image segmentation, Computer science, Remote sensing, Geography, Field (mathematics), Cartography, Artificial intelligence, Data mining, Visualization",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "remote sensing",
+        "cartography",
+        "mapping"
+      ],
+      "first_seen": "2026-10-29T05:42:43.034Z",
+      "last_seen": "2026-10-29T05:43:44.325Z"
+    },
+    {
+      "impact": 52,
+      "top_venue": false,
+      "cited_by": 1,
+      "fwci": 3.5,
+      "venue": "Frontiers in Earth Science",
+      "id": "353512d6a2db1f4b",
+      "title": "Multi-source remote sensing approach for monitoring the Caspian Sea shoreline dynamics",
+      "url": "https://doi.org/10.3389/feart.2026.1918346",
+      "kind": "paper",
+      "source": "openalex-photogrammetry",
+      "source_name": "OpenAlex: photogrammetry",
+      "published": "2026-09-29T00:00:00.000Z",
+      "summary": "Caspian Sea, shoreline change, sea-level fall, shoreline retreat, multi-source satellite imagery, PlanetScope imagery, MNDWI, coastal monitoring, Digital Shoreline Analysis System, Shore, Remote sensing, Satellite, Geology, Environmental science, Altimeter, Transect, Compositing",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "remote sensing",
+        "satellite"
+      ],
+      "first_seen": "2026-10-29T05:42:43.034Z",
+      "last_seen": "2026-10-29T05:43:44.325Z"
+    },
+    {
+      "impact": 45,
+      "top_venue": false,
+      "cited_by": 1,
+      "fwci": 2.6,
+      "venue": "Water Resources Research",
+      "id": "5f9ffdbc01718ed5",
+      "title": "Interferometric Synthetic Aperture Radar (InSAR) for Monitoring Seasonal Snow",
+      "url": "https://doi.org/10.1029/2025wr042866",
+      "kind": "paper",
+      "source": "openalex-photogrammetry",
+      "source_name": "OpenAlex: photogrammetry",
+      "published": "2026-09-01T00:00:00.000Z",
+      "summary": "interferometric synthetic aperture radar, seasonal snow, snow water equivalent, snow depth, snow monitoring, NISAR, L-band radar, phase unwrapping, ionospheric and tropospheric delays, dry snow, snow accumulation and ablation, forest canopy effects, snow observation, river basin hydrology, Snow, Int",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "remote sensing",
+        "InSAR"
+      ],
+      "first_seen": "2026-10-29T05:42:43.034Z",
+      "last_seen": "2026-10-29T05:43:44.325Z"
+    },
     {
       "impact": 40,
       "top_venue": false,
@@ -23,7 +584,7 @@
         "cartography"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "impact": 28,
@@ -45,7 +606,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "impact": 78,
@@ -67,7 +628,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "impact": 66,
@@ -91,7 +652,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "impact": 42,
@@ -113,31 +674,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
-    },
-    {
-      "impact": 102,
-      "top_venue": true,
-      "cited_by": 3,
-      "fwci": 8.6,
-      "venue": "The Photogrammetric Record",
-      "id": "109a22923f6b9289",
-      "title": "Towards Vision‐Language Geo‐Foundation Models: A Survey",
-      "url": "https://doi.org/10.1111/phor.70066",
-      "kind": "paper",
-      "source": "openalex-remote-sensing",
-      "source_name": "OpenAlex: remote sensing",
-      "published": "2026-09-28T00:00:00.000Z",
-      "summary": "vision-language foundation models, geospatial foundation models, Earth observation, remote sensing, image-text retrieval, visual grounding, visual question answering, image captioning, model architecture, Geospatial analysis, Data science, Leverage (statistics), Computer science, Tracing, Empirical ",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "remote sensing",
-        "geospatial",
-        "earth observation"
-      ],
-      "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "impact": 62,
@@ -160,7 +697,7 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "impact": 58,
@@ -182,30 +719,7 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
-    },
-    {
-      "impact": 58,
-      "top_venue": false,
-      "cited_by": 2,
-      "fwci": 7,
-      "venue": "Biogeosciences",
-      "id": "e48e458ca683d37b",
-      "title": "Tracking crop evapotranspiration and water stress across seasons using multi-sensor UAV observations",
-      "url": "https://doi.org/10.5194/bg-23-7253-2026",
-      "kind": "paper",
-      "source": "openalex-remote-sensing",
-      "source_name": "OpenAlex: remote sensing",
-      "published": "2026-10-16T00:00:00.000Z",
-      "summary": "crop evapotranspiration, crop water stress, UAV remote sensing, thermal radiation, very high resolution imagery, crop water use, Environmental science, Evapotranspiration, Remote sensing, Water stress, Crop, Hydrology (agriculture), Irrigation, Crop yield",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "remote sensing",
-        "UAV"
-      ],
-      "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "impact": 98,
@@ -227,7 +741,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "impact": 58,
@@ -249,7 +763,7 @@
         "Earth system"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "impact": 58,
@@ -271,7 +785,7 @@
         "Landsat"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "impact": 58,
@@ -293,7 +807,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "impact": 58,
@@ -315,7 +829,7 @@
         "LiDAR"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "impact": 58,
@@ -337,7 +851,7 @@
         "UAV"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "impact": 58,
@@ -362,7 +876,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "impact": 28,
@@ -385,7 +899,7 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "impact": 28,
@@ -407,7 +921,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "impact": 74,
@@ -429,7 +943,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "impact": 48,
@@ -452,7 +966,7 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "impact": 49,
@@ -475,7 +989,7 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "impact": 66,
@@ -497,7 +1011,7 @@
         "geodetic"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "impact": 43,
@@ -519,7 +1033,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "impact": 26,
@@ -541,7 +1055,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "impact": 32,
@@ -563,7 +1077,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "impact": 68,
@@ -585,7 +1099,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "impact": 28,
@@ -607,7 +1121,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "impact": 48,
@@ -630,7 +1144,7 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "impact": 67,
@@ -652,7 +1166,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "impact": 28,
@@ -675,7 +1189,7 @@
         "LiDAR"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "impact": 46,
@@ -701,7 +1215,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "impact": 54,
@@ -724,35 +1238,11 @@
         "spatial data"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
-      "impact": 48,
+      "impact": 54,
       "top_venue": false,
-      "cited_by": 1,
-      "fwci": 3,
-      "venue": "GIScience & Remote Sensing",
-      "id": "9ffab245c80e1cff",
-      "title": "SAMWater: a prompt-guided multimodal framework for transferable water mapping with the segment anything model",
-      "url": "https://doi.org/10.1080/15481603.2026.2745243",
-      "kind": "paper",
-      "source": "openalex-remote-sensing",
-      "source_name": "OpenAlex: remote sensing",
-      "published": "2026-10-09T00:00:00.000Z",
-      "summary": "water body mapping, Segment Anything Model, multimodal segmentation, water body detection, image segmentation, Computer science, Remote sensing, Geography, Field (mathematics), Cartography, Artificial intelligence, Data mining, Visualization",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "remote sensing",
-        "cartography",
-        "mapping"
-      ],
-      "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
-    },
-    {
-      "impact": 94,
-      "top_venue": true,
       "cited_by": 1,
       "fwci": 4,
       "venue": "Nature Conservation",
@@ -770,7 +1260,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "impact": 57,
@@ -792,7 +1282,7 @@
         "geodesy"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "impact": 41,
@@ -815,7 +1305,7 @@
         "LiDAR"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "impact": 54,
@@ -837,7 +1327,7 @@
         "LiDAR"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "impact": 48,
@@ -859,30 +1349,7 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
-    },
-    {
-      "impact": 52,
-      "top_venue": false,
-      "cited_by": 1,
-      "fwci": 3.5,
-      "venue": "Frontiers in Earth Science",
-      "id": "353512d6a2db1f4b",
-      "title": "Multi-source remote sensing approach for monitoring the Caspian Sea shoreline dynamics",
-      "url": "https://doi.org/10.3389/feart.2026.1918346",
-      "kind": "paper",
-      "source": "openalex-lidar",
-      "source_name": "OpenAlex: LiDAR point cloud",
-      "published": "2026-09-29T00:00:00.000Z",
-      "summary": "Caspian Sea, shoreline change, sea-level fall, shoreline retreat, multi-source satellite imagery, PlanetScope imagery, MNDWI, coastal monitoring, Digital Shoreline Analysis System, Shore, Remote sensing, Satellite, Geology, Environmental science, Altimeter, Transect, Compositing",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "remote sensing",
-        "satellite"
-      ],
-      "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "impact": 48,
@@ -904,7 +1371,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "impact": 54,
@@ -928,7 +1395,7 @@
         "UAV"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "impact": 48,
@@ -950,7 +1417,7 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "impact": 45,
@@ -973,7 +1440,7 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "impact": 48,
@@ -995,7 +1462,7 @@
         "LiDAR"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "impact": 54,
@@ -1017,7 +1484,7 @@
         "digital twin"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "impact": 52,
@@ -1040,7 +1507,7 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "impact": 45,
@@ -1062,7 +1529,7 @@
         "GNSS"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "impact": 25,
@@ -1084,7 +1551,7 @@
         "LiDAR"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "impact": 28,
@@ -1106,7 +1573,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "impact": 52,
@@ -1129,7 +1596,7 @@
         "spatial data"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "impact": 52,
@@ -1151,7 +1618,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "impact": 28,
@@ -1175,7 +1642,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "impact": 25,
@@ -1197,7 +1664,7 @@
         "LiDAR"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "impact": 92,
@@ -1221,30 +1688,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
-    },
-    {
-      "impact": 45,
-      "top_venue": false,
-      "cited_by": 1,
-      "fwci": 2.6,
-      "venue": "Water Resources Research",
-      "id": "5f9ffdbc01718ed5",
-      "title": "Interferometric Synthetic Aperture Radar (InSAR) for Monitoring Seasonal Snow",
-      "url": "https://doi.org/10.1029/2025wr042866",
-      "kind": "paper",
-      "source": "openalex-lidar",
-      "source_name": "OpenAlex: LiDAR point cloud",
-      "published": "2026-09-01T00:00:00.000Z",
-      "summary": "interferometric synthetic aperture radar, seasonal snow, snow water equivalent, snow depth, snow monitoring, NISAR, L-band radar, phase unwrapping, ionospheric and tropospheric delays, dry snow, snow accumulation and ablation, forest canopy effects, snow observation, river basin hydrology, Snow, Int",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "remote sensing",
-        "InSAR"
-      ],
-      "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "impact": 48,
@@ -1267,7 +1711,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "impact": 25,
@@ -1290,7 +1734,7 @@
         "point cloud"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "impact": 34,
@@ -1312,7 +1756,7 @@
         "point cloud"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "impact": 48,
@@ -1334,7 +1778,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "impact": 52,
@@ -1356,7 +1800,7 @@
         "Landsat"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "id": "33567e88398bf6b5",
@@ -1373,8 +1817,8 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T04:19:19.776Z",
-      "last_seen": "2026-10-29T05:42:43.034Z",
-      "deadline_checked": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z",
+      "deadline_checked": "2026-10-29T05:43:44.325Z"
     },
     {
       "id": "1e3f3b82b65024d1",
@@ -1391,8 +1835,8 @@
         "GeoAI"
       ],
       "first_seen": "2026-10-29T04:19:19.776Z",
-      "last_seen": "2026-10-29T05:42:43.034Z",
-      "deadline_checked": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z",
+      "deadline_checked": "2026-10-29T05:43:44.325Z"
     },
     {
       "id": "b6a6426da06fb935",
@@ -1409,8 +1853,8 @@
         "GeoAI"
       ],
       "first_seen": "2026-10-29T04:19:19.776Z",
-      "last_seen": "2026-10-29T05:42:43.034Z",
-      "deadline_checked": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z",
+      "deadline_checked": "2026-10-29T05:43:44.325Z"
     },
     {
       "id": "ebd0b344dded331d",
@@ -1427,8 +1871,8 @@
         "geodetic"
       ],
       "first_seen": "2026-10-29T04:19:19.776Z",
-      "last_seen": "2026-10-29T05:42:43.034Z",
-      "deadline_checked": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z",
+      "deadline_checked": "2026-10-29T05:43:44.325Z"
     },
     {
       "id": "6268a46ba2f53c8a",
@@ -1445,8 +1889,8 @@
         "point cloud"
       ],
       "first_seen": "2026-10-29T04:19:19.776Z",
-      "last_seen": "2026-10-29T05:42:43.034Z",
-      "deadline_checked": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z",
+      "deadline_checked": "2026-10-29T05:43:44.325Z"
     },
     {
       "id": "4927843db256c3e8",
@@ -1464,8 +1908,8 @@
         "geodesy"
       ],
       "first_seen": "2026-10-29T04:19:19.776Z",
-      "last_seen": "2026-10-29T05:42:43.034Z",
-      "deadline_checked": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z",
+      "deadline_checked": "2026-10-29T05:43:44.325Z"
     },
     {
       "id": "a3ef2b385d3719fa",
@@ -1483,8 +1927,8 @@
         "geodesy"
       ],
       "first_seen": "2026-10-29T04:19:19.776Z",
-      "last_seen": "2026-10-29T05:42:43.034Z",
-      "deadline_checked": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z",
+      "deadline_checked": "2026-10-29T05:43:44.325Z"
     },
     {
       "id": "337104e404693ce4",
@@ -1501,8 +1945,8 @@
         "geomatics"
       ],
       "first_seen": "2026-10-29T04:19:19.776Z",
-      "last_seen": "2026-10-29T05:42:43.034Z",
-      "deadline_checked": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z",
+      "deadline_checked": "2026-10-29T05:43:44.325Z"
     },
     {
       "id": "ae2c648270944de1",
@@ -1519,8 +1963,8 @@
         "geomatics"
       ],
       "first_seen": "2026-10-29T04:19:19.776Z",
-      "last_seen": "2026-10-29T05:42:43.034Z",
-      "deadline_checked": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z",
+      "deadline_checked": "2026-10-29T05:43:44.325Z"
     },
     {
       "id": "d9043e010239ecfe",
@@ -1537,8 +1981,8 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T04:19:19.776Z",
-      "last_seen": "2026-10-29T05:42:43.034Z",
-      "deadline_checked": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z",
+      "deadline_checked": "2026-10-29T05:43:44.325Z"
     },
     {
       "id": "a66be833ab478efa",
@@ -1555,8 +1999,8 @@
         "geoinformatics"
       ],
       "first_seen": "2026-10-29T04:19:19.776Z",
-      "last_seen": "2026-10-29T05:42:43.034Z",
-      "deadline_checked": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z",
+      "deadline_checked": "2026-10-29T05:43:44.325Z"
     },
     {
       "id": "514511bfb5cc6757",
@@ -1574,8 +2018,8 @@
         "spatial data"
       ],
       "first_seen": "2026-10-29T04:19:19.776Z",
-      "last_seen": "2026-10-29T05:42:43.034Z",
-      "deadline_checked": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z",
+      "deadline_checked": "2026-10-29T05:43:44.325Z"
     },
     {
       "id": "958f34a77b6506ea",
@@ -1592,8 +2036,8 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T04:19:19.776Z",
-      "last_seen": "2026-10-29T05:42:43.034Z",
-      "deadline_checked": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z",
+      "deadline_checked": "2026-10-29T05:43:44.325Z"
     },
     {
       "id": "ce34efc682a336f6",
@@ -1610,8 +2054,8 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T04:13:04.453Z",
-      "last_seen": "2026-10-29T05:42:43.034Z",
-      "deadline_checked": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z",
+      "deadline_checked": "2026-10-29T05:43:44.325Z"
     },
     {
       "id": "45d618b2500ce0d7",
@@ -1628,7 +2072,7 @@
         "GeoAI"
       ],
       "first_seen": "2026-10-29T04:13:04.453Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "id": "f02f8db04338cd21",
@@ -1645,7 +2089,7 @@
         "earth observation"
       ],
       "first_seen": "2026-10-29T04:13:04.453Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "id": "8e908c6174f04113",
@@ -1662,7 +2106,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T04:13:04.453Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "id": "d84c9c35ddcd5726",
@@ -1679,7 +2123,7 @@
         "SAR"
       ],
       "first_seen": "2026-10-29T04:08:43.810Z",
-      "last_seen": "2026-10-29T05:40:39.878Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "id": "62f6b4eeaf05a901",
@@ -1696,7 +2140,7 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T04:08:43.810Z",
-      "last_seen": "2026-10-29T05:40:39.878Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "id": "4c8d8b0b0aa43e7c",
@@ -1713,7 +2157,7 @@
         "multispectral"
       ],
       "first_seen": "2026-10-29T04:08:43.810Z",
-      "last_seen": "2026-10-29T05:40:39.878Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "id": "8e01ba0ea80b56e7",
@@ -1730,7 +2174,7 @@
         "LiDAR"
       ],
       "first_seen": "2026-10-29T04:08:43.810Z",
-      "last_seen": "2026-10-29T05:40:39.878Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "id": "bbc5f0e3b87cd782",
@@ -1748,7 +2192,7 @@
         "earth observation"
       ],
       "first_seen": "2026-10-29T04:08:43.810Z",
-      "last_seen": "2026-10-29T05:40:39.878Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "id": "c07fa44ba97e3cc2",
@@ -1765,7 +2209,7 @@
         "earth observation"
       ],
       "first_seen": "2026-10-29T04:08:43.810Z",
-      "last_seen": "2026-10-29T05:40:39.878Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "id": "8dacbfe3f121216c",
@@ -1784,7 +2228,7 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T04:06:44.492Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "id": "f6da0afec50fe9b5",
@@ -1802,7 +2246,7 @@
         "hyperspectral"
       ],
       "first_seen": "2026-10-29T04:06:44.492Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "id": "ce98ca00ca0fb410",
@@ -1819,7 +2263,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T04:06:44.492Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "id": "1097ac7ea2bdd433",
@@ -1836,7 +2280,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T04:06:44.492Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "id": "a7a43dfbc2126e9d",
@@ -1853,7 +2297,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T04:06:44.492Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "id": "be299c7d3ab959c4",
@@ -1870,8 +2314,8 @@
         "point cloud"
       ],
       "first_seen": "2026-10-29T04:06:44.492Z",
-      "last_seen": "2026-10-29T05:42:43.034Z",
-      "deadline_checked": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z",
+      "deadline_checked": "2026-10-29T05:43:44.325Z"
     },
     {
       "id": "dbc5f9322e86f8c8",
@@ -1888,8 +2332,8 @@
         "Geomatik"
       ],
       "first_seen": "2026-10-29T04:01:30.109Z",
-      "last_seen": "2026-10-29T05:42:43.034Z",
-      "deadline_checked": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z",
+      "deadline_checked": "2026-10-29T05:43:44.325Z"
     },
     {
       "id": "2f1eb20509bef025",
@@ -1906,8 +2350,8 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T04:01:30.109Z",
-      "last_seen": "2026-10-29T05:42:43.034Z",
-      "deadline_checked": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z",
+      "deadline_checked": "2026-10-29T05:43:44.325Z"
     },
     {
       "id": "b1fcd9f7b257d719",
@@ -1925,8 +2369,8 @@
         "hyperspectral"
       ],
       "first_seen": "2026-10-29T04:01:30.109Z",
-      "last_seen": "2026-10-29T05:42:43.034Z",
-      "deadline_checked": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z",
+      "deadline_checked": "2026-10-29T05:43:44.325Z"
     },
     {
       "impact": 43,
@@ -1950,7 +2394,7 @@
         "point cloud"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "id": "343fd6657d41eb5e",
@@ -1967,8 +2411,8 @@
         "earth observation"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T05:42:43.034Z",
-      "deadline_checked": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z",
+      "deadline_checked": "2026-10-29T05:43:44.325Z"
     },
     {
       "id": "1b11115bfe65805d",
@@ -1985,8 +2429,8 @@
         "geomatics"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T05:42:43.034Z",
-      "deadline_checked": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z",
+      "deadline_checked": "2026-10-29T05:43:44.325Z"
     },
     {
       "id": "c7e8882b0de54a3f",
@@ -2003,7 +2447,7 @@
         "geoinformation"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "id": "7e177aaf1f357629",
@@ -2020,7 +2464,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "id": "4d815944b42510e6",
@@ -2037,7 +2481,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "id": "79f953e581c14c61",
@@ -2054,7 +2498,29 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
+    },
+    {
+      "impact": 40,
+      "top_venue": true,
+      "cited_by": 0,
+      "fwci": 0,
+      "venue": "ISPRS Journal of Photogrammetry and Remote Sensing",
+      "id": "b57461c88fcd502f",
+      "title": "From articles to canopies: Knowledge-driven pseudo-labelling for tree species classification using LLM experts",
+      "url": "https://doi.org/10.1016/j.isprsjprs.2026.10.007",
+      "kind": "paper",
+      "source": "openalex-photogrammetry",
+      "source_name": "OpenAlex: photogrammetry",
+      "published": "2026-10-26T00:00:00.000Z",
+      "summary": "tree species classification, hyperspectral imaging, pseudo-labeling, semi-supervised learning, large language models, airborne laser scanning, spectral mixing, canopy structure, forest classification, Hyperspectral imaging, Prior probability, Computer science, Artificial intelligence, Machine learni",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "hyperspectral"
+      ],
+      "first_seen": "2026-10-29T02:30:38.369Z",
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "impact": 28,
@@ -2076,29 +2542,7 @@
         "LiDAR"
       ],
       "first_seen": "2026-10-29T02:30:38.369Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
-    },
-    {
-      "impact": 40,
-      "top_venue": true,
-      "cited_by": 0,
-      "fwci": 0,
-      "venue": "ISPRS Journal of Photogrammetry and Remote Sensing",
-      "id": "b57461c88fcd502f",
-      "title": "From articles to canopies: Knowledge-driven pseudo-labelling for tree species classification using LLM experts",
-      "url": "https://doi.org/10.1016/j.isprsjprs.2026.10.007",
-      "kind": "paper",
-      "source": "openalex-lidar",
-      "source_name": "OpenAlex: LiDAR point cloud",
-      "published": "2026-10-26T00:00:00.000Z",
-      "summary": "tree species classification, hyperspectral imaging, pseudo-labeling, semi-supervised learning, large language models, airborne laser scanning, spectral mixing, canopy structure, forest classification, Hyperspectral imaging, Prior probability, Computer science, Artificial intelligence, Machine learni",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "hyperspectral"
-      ],
-      "first_seen": "2026-10-29T02:30:38.369Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "id": "5de847d39fe1a370",
@@ -2115,7 +2559,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T02:30:38.369Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "id": "f900c5f7dad2b060",
@@ -2132,7 +2576,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T02:30:38.369Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     },
     {
       "id": "657136a340d2d1f3",
@@ -2149,7 +2593,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T02:30:38.369Z",
-      "last_seen": "2026-10-29T05:42:43.034Z"
+      "last_seen": "2026-10-29T05:43:44.325Z"
     }
   ]
 }
