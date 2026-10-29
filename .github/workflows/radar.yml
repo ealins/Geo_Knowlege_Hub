@@ -3,8 +3,8 @@ name: Geo Radar
 on:
   workflow_dispatch:
   schedule:
-    # Scheduled runs only fire from the default branch (main).
-    - cron: "17 */6 * * *"
+    # Every 2 hours. Scheduled runs only fire from the default branch (main).
+    - cron: "17 */2 * * *"
   push:
     branches: [main]
     paths: ["config/**", "scripts/**", "site/**", "wrangler.jsonc", ".github/workflows/radar.yml"]
