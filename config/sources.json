@@ -1,33 +1,32 @@
 {
-  "_comment": "One entry per source. type: rss (RSS/Atom feed, preferred) or html (links on a page). kind: job | course | event | news | auto. Set enabled to true once the URL is confirmed. Sources that disallow us in robots.txt are skipped automatically.",
+  "_comment": "Official arXiv RSS category feeds. Enabled items are filtered by config/domain.json; the fetcher checks robots.txt before reading.",
   "sources": [
     {
-      "id": "example-rss",
-      "name": "Replace with a real feed",
-      "url": "https://example.org/feed.xml",
+      "id": "arxiv-cs-cv",
+      "name": "arXiv Computer Vision and Pattern Recognition (cs.CV)",
+      "url": "https://rss.arxiv.org/rss/cs.CV",
       "type": "rss",
-      "kind": "auto",
-      "enabled": false,
-      "notes": "Placeholder. Confirm the URL before enabling."
+      "kind": "paper",
+      "enabled": true,
+      "notes": "Official arXiv category feed; only items matching Geo Radar domain terms are retained."
     },
     {
       "id": "arxiv-eess-iv",
-      "name": "arXiv: Image and Video Processing (eess.IV)",
-      "url": "https://export.arxiv.org/rss/eess.IV",
+      "name": "arXiv Image and Video Processing (eess.IV)",
+      "url": "https://rss.arxiv.org/rss/eess.IV",
       "type": "rss",
       "kind": "paper",
-      "enabled": false,
-      "notes": "arXiv category feed. Verify the URL before enabling; add cs.CV and other categories the same way."
+      "enabled": true,
+      "notes": "Official arXiv category feed; only items matching Geo Radar domain terms are retained."
     },
     {
-      "id": "example-html",
-      "name": "Replace with a real listing page",
-      "url": "https://example.org/jobs",
-      "type": "html",
-      "kind": "job",
-      "include": "/jobs?/",
-      "enabled": false,
-      "notes": "Placeholder. include is an optional regex that the link URL or text must match."
+      "id": "arxiv-eess-sp",
+      "name": "arXiv Signal Processing (eess.SP)",
+      "url": "https://rss.arxiv.org/rss/eess.SP",
+      "type": "rss",
+      "kind": "paper",
+      "enabled": true,
+      "notes": "Official arXiv category feed; only items matching Geo Radar domain terms are retained."
     }
   ]
 }
