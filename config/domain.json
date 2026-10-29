@@ -152,7 +152,7 @@
     "Remote Sensing of Environment",
     "IEEE Transactions on Geoscience and Remote Sensing",
     "International Journal of Applied Earth Observation",
-    "^Nature\\b",
+    "^Nature( Communications| Geoscience| Climate Change| Reviews Earth & Environment)?$",
     "^Science$",
     "Photogrammetric Record",
     "Journal of Geodesy",
