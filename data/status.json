@@ -1,8 +1,8 @@
 {
   "arxiv-eess-sp": {
     "state": "ok",
-    "last_checked": "2026-10-29T02:30:38.369Z",
-    "last_success": "2026-10-29T02:30:38.369Z",
+    "last_checked": "2026-10-29T03:27:34.742Z",
+    "last_success": "2026-10-29T03:27:34.742Z",
     "items_found": 43,
     "items_matched": 3,
     "consecutive_failures": 0,
@@ -10,8 +10,8 @@
   },
   "arxiv-eess-iv": {
     "state": "ok",
-    "last_checked": "2026-10-29T02:30:38.369Z",
-    "last_success": "2026-10-29T02:30:38.369Z",
+    "last_checked": "2026-10-29T03:27:34.742Z",
+    "last_success": "2026-10-29T03:27:34.742Z",
     "items_found": 11,
     "items_matched": 2,
     "consecutive_failures": 0,
@@ -19,74 +19,74 @@
   },
   "arxiv-cs-cv": {
     "state": "ok",
-    "last_checked": "2026-10-29T02:30:38.369Z",
-    "last_success": "2026-10-29T02:30:38.369Z",
+    "last_checked": "2026-10-29T03:27:34.742Z",
+    "last_success": "2026-10-29T03:27:34.742Z",
     "items_found": 245,
     "items_matched": 12,
     "consecutive_failures": 0,
     "last_error": null
   },
   "elsevier-isprs-jprs": {
-    "consecutive_failures": 1,
+    "consecutive_failures": 2,
     "state": "error",
-    "last_checked": "2026-10-29T02:30:38.369Z",
+    "last_checked": "2026-10-29T03:27:34.742Z",
     "last_error": "disallowed by robots.txt"
   },
   "elsevier-rse": {
-    "consecutive_failures": 1,
+    "consecutive_failures": 2,
     "state": "error",
-    "last_checked": "2026-10-29T02:30:38.369Z",
+    "last_checked": "2026-10-29T03:27:34.742Z",
     "last_error": "disallowed by robots.txt"
   },
   "euraxess-remote-sensing": {
-    "consecutive_failures": 1,
+    "consecutive_failures": 2,
     "state": "error",
-    "last_checked": "2026-10-29T02:30:38.369Z",
+    "last_checked": "2026-10-29T03:27:34.742Z",
     "last_error": "HTTP 403"
   },
   "arxiv-physics-geo-ph": {
     "state": "ok",
-    "last_checked": "2026-10-29T02:30:38.369Z",
-    "last_success": "2026-10-29T02:30:38.369Z",
+    "last_checked": "2026-10-29T03:27:34.742Z",
+    "last_success": "2026-10-29T03:27:34.742Z",
     "items_found": 8,
     "items_matched": 0,
     "consecutive_failures": 0,
     "last_error": null
   },
   "mdpi-remote-sensing": {
-    "consecutive_failures": 1,
+    "consecutive_failures": 2,
     "state": "error",
-    "last_checked": "2026-10-29T02:30:38.369Z",
+    "last_checked": "2026-10-29T03:27:34.742Z",
     "last_error": "HTTP 403"
   },
   "euraxess-photogrammetry": {
-    "consecutive_failures": 1,
+    "consecutive_failures": 2,
     "state": "error",
-    "last_checked": "2026-10-29T02:30:38.369Z",
+    "last_checked": "2026-10-29T03:27:34.742Z",
     "last_error": "HTTP 403"
   },
   "mdpi-ijgi": {
-    "consecutive_failures": 1,
+    "consecutive_failures": 2,
     "state": "error",
-    "last_checked": "2026-10-29T02:30:38.369Z",
+    "last_checked": "2026-10-29T03:27:34.742Z",
     "last_error": "HTTP 403"
   },
   "academicpositions-remote-sensing": {
-    "consecutive_failures": 1,
+    "consecutive_failures": 2,
     "state": "error",
-    "last_checked": "2026-10-29T02:30:38.369Z",
+    "last_checked": "2026-10-29T03:27:34.742Z",
     "last_error": "HTTP 403"
   },
   "academicpositions-geoinformatics": {
-    "consecutive_failures": 1,
+    "consecutive_failures": 2,
     "state": "error",
-    "last_checked": "2026-10-29T02:30:38.369Z",
+    "last_checked": "2026-10-29T03:27:34.742Z",
     "last_error": "HTTP 403"
   },
   "openalex-geoai": {
     "state": "ok",
-    "last_checked": "2026-10-29T02:30:38.369Z",
-    "last_success": "2026-10-29T02:30:38.369Z",
+    "last_checked": "2026-10-29T03:27:34.742Z",
+    "last_success": "2026-10-29T03:27:34.742Z",
     "items_found": 50,
     "items_matched": 21,
     "consecutive_failures": 0,
@@ -94,8 +94,8 @@
   },
   "openalex-citygml-bim": {
     "state": "ok",
-    "last_checked": "2026-10-29T02:30:38.369Z",
-    "last_success": "2026-10-29T02:30:38.369Z",
+    "last_checked": "2026-10-29T03:27:34.742Z",
+    "last_success": "2026-10-29T03:27:34.742Z",
     "items_found": 50,
     "items_matched": 30,
     "consecutive_failures": 0,
@@ -103,8 +103,8 @@
   },
   "openalex-lidar": {
     "state": "ok",
-    "last_checked": "2026-10-29T02:30:38.369Z",
-    "last_success": "2026-10-29T02:30:38.369Z",
+    "last_checked": "2026-10-29T03:27:34.742Z",
+    "last_success": "2026-10-29T03:27:34.742Z",
     "items_found": 50,
     "items_matched": 36,
     "consecutive_failures": 0,
@@ -112,8 +112,8 @@
   },
   "openalex-photogrammetry": {
     "state": "ok",
-    "last_checked": "2026-10-29T02:30:38.369Z",
-    "last_success": "2026-10-29T02:30:38.369Z",
+    "last_checked": "2026-10-29T03:27:34.742Z",
+    "last_success": "2026-10-29T03:27:34.742Z",
     "items_found": 50,
     "items_matched": 26,
     "consecutive_failures": 0,
@@ -121,8 +121,8 @@
   },
   "openalex-insar": {
     "state": "ok",
-    "last_checked": "2026-10-29T02:30:38.369Z",
-    "last_success": "2026-10-29T02:30:38.369Z",
+    "last_checked": "2026-10-29T03:27:34.742Z",
+    "last_success": "2026-10-29T03:27:34.742Z",
     "items_found": 50,
     "items_matched": 36,
     "consecutive_failures": 0,
@@ -130,35 +130,44 @@
   },
   "openalex-remote-sensing": {
     "state": "ok",
-    "last_checked": "2026-10-29T02:30:38.369Z",
-    "last_success": "2026-10-29T02:30:38.369Z",
+    "last_checked": "2026-10-29T03:27:34.742Z",
+    "last_success": "2026-10-29T03:27:34.742Z",
     "items_found": 50,
     "items_matched": 26,
     "consecutive_failures": 0,
     "last_error": null
   },
   "daad-geoinformatics": {
-    "consecutive_failures": 1,
-    "state": "error",
-    "last_checked": "2026-10-29T02:30:38.369Z",
-    "last_error": "HTTP 403"
+    "state": "ok",
+    "last_checked": "2026-10-29T03:27:34.742Z",
+    "last_success": "2026-10-29T03:27:34.742Z",
+    "items_found": 0,
+    "items_matched": 0,
+    "consecutive_failures": 0,
+    "last_error": null
   },
   "daad-remote-sensing": {
-    "consecutive_failures": 1,
-    "state": "error",
-    "last_checked": "2026-10-29T02:30:38.369Z",
-    "last_error": "HTTP 403"
+    "state": "ok",
+    "last_checked": "2026-10-29T03:27:34.742Z",
+    "last_success": "2026-10-29T03:27:34.742Z",
+    "items_found": 0,
+    "items_matched": 0,
+    "consecutive_failures": 0,
+    "last_error": null
   },
   "daad-photogrammetry": {
-    "consecutive_failures": 1,
-    "state": "error",
-    "last_checked": "2026-10-29T02:30:38.369Z",
-    "last_error": "HTTP 403"
+    "state": "ok",
+    "last_checked": "2026-10-29T03:27:34.742Z",
+    "last_success": "2026-10-29T03:27:34.742Z",
+    "items_found": 0,
+    "items_matched": 0,
+    "consecutive_failures": 0,
+    "last_error": null
   },
   "jobsacuk-gis": {
     "state": "ok",
-    "last_checked": "2026-10-29T02:30:38.369Z",
-    "last_success": "2026-10-29T02:30:38.369Z",
+    "last_checked": "2026-10-29T03:27:34.742Z",
+    "last_success": "2026-10-29T03:27:34.742Z",
     "items_found": 12,
     "items_matched": 0,
     "consecutive_failures": 0,
@@ -166,32 +175,95 @@
   },
   "jobsacuk-remote-sensing": {
     "state": "ok",
-    "last_checked": "2026-10-29T02:30:38.369Z",
-    "last_success": "2026-10-29T02:30:38.369Z",
-    "items_found": 16,
+    "last_checked": "2026-10-29T03:27:34.742Z",
+    "last_success": "2026-10-29T03:27:34.742Z",
+    "items_found": 0,
     "items_matched": 0,
     "consecutive_failures": 0,
     "last_error": null
   },
   "isprs-calendar": {
     "state": "ok",
-    "last_checked": "2026-10-29T02:30:38.369Z",
-    "last_success": "2026-10-29T02:30:38.369Z",
+    "last_checked": "2026-10-29T03:27:34.742Z",
+    "last_success": "2026-10-29T03:27:34.742Z",
     "items_found": 134,
     "items_matched": 3,
     "consecutive_failures": 0,
     "last_error": null
   },
   "wikicfp-gis": {
-    "consecutive_failures": 1,
+    "consecutive_failures": 2,
     "state": "error",
-    "last_checked": "2026-10-29T02:30:38.369Z",
+    "last_checked": "2026-10-29T03:27:34.742Z",
     "last_error": "fetch failed"
   },
   "wikicfp-remote-sensing": {
+    "consecutive_failures": 2,
+    "state": "error",
+    "last_checked": "2026-10-29T03:27:34.742Z",
+    "last_error": "fetch failed"
+  },
+  "mastersportal-remote-sensing": {
     "consecutive_failures": 1,
     "state": "error",
-    "last_checked": "2026-10-29T02:30:38.369Z",
-    "last_error": "fetch failed"
+    "last_checked": "2026-10-29T03:27:34.742Z",
+    "last_error": "HTTP 403"
+  },
+  "mastersportal-geoinformatics": {
+    "consecutive_failures": 1,
+    "state": "error",
+    "last_checked": "2026-10-29T03:27:34.742Z",
+    "last_error": "HTTP 403"
+  },
+  "findamasters-gis": {
+    "consecutive_failures": 1,
+    "state": "error",
+    "last_checked": "2026-10-29T03:27:34.742Z",
+    "last_error": "HTTP 403"
+  },
+  "studyeu-remote-sensing": {
+    "consecutive_failures": 1,
+    "state": "error",
+    "last_checked": "2026-10-29T03:27:34.742Z",
+    "last_error": "HTTP 403"
+  },
+  "findamasters-remote-sensing": {
+    "consecutive_failures": 1,
+    "state": "error",
+    "last_checked": "2026-10-29T03:27:34.742Z",
+    "last_error": "HTTP 403"
+  },
+  "studyeu-geoinformatics": {
+    "consecutive_failures": 1,
+    "state": "error",
+    "last_checked": "2026-10-29T03:27:34.742Z",
+    "last_error": "HTTP 403"
+  },
+  "findaphd-photogrammetry": {
+    "consecutive_failures": 1,
+    "state": "error",
+    "last_checked": "2026-10-29T03:27:34.742Z",
+    "last_error": "HTTP 403"
+  },
+  "findaphd-remote-sensing": {
+    "consecutive_failures": 1,
+    "state": "error",
+    "last_checked": "2026-10-29T03:27:34.742Z",
+    "last_error": "HTTP 403"
+  },
+  "findaphd-gis": {
+    "consecutive_failures": 1,
+    "state": "error",
+    "last_checked": "2026-10-29T03:27:34.742Z",
+    "last_error": "HTTP 403"
+  },
+  "erasmus-mundus-catalogue": {
+    "state": "ok",
+    "last_checked": "2026-10-29T03:27:34.742Z",
+    "last_success": "2026-10-29T03:27:34.742Z",
+    "items_found": 90,
+    "items_matched": 0,
+    "consecutive_failures": 0,
+    "last_error": null
   }
 }
