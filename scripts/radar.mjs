@@ -142,6 +142,21 @@ function parseFeed(xml) {
   });
 }
 
+// OpenAlex works API (open scholarly index). Concepts go into the summary so
+// the domain filter can match papers whose titles omit the field's keywords.
+function parseOpenAlex(body) {
+  const data = JSON.parse(body);
+  return (data.results || []).map((w) => ({
+    title: w.display_name || w.title || "",
+    link: w.doi || w.id || "",
+    date: w.publication_date || "",
+    summary: [
+      ...(w.keywords || []).map((k) => k.display_name),
+      ...(w.concepts || []).slice(0, 8).map((c) => c.display_name),
+    ].join(", ").slice(0, 400),
+  }));
+}
+
 function parseHtml(html, source) {
   const out = [];
   const seen = new Set();
@@ -202,7 +217,10 @@ async function runSource(src, statusOut) {
   try {
     if (!(await robotsAllows(src.url))) throw new Error("disallowed by robots.txt");
     const body = await fetchText(src.url);
-    const raw = src.type === "rss" ? parseFeed(body) : parseHtml(body, src);
+    const raw =
+      src.type === "rss" ? parseFeed(body)
+      : src.type === "openalex" ? parseOpenAlex(body)
+      : parseHtml(body, src);
     const kept = raw.map((r) => classify(r, src)).filter(Boolean);
     statusOut[src.id] = {
       state: "ok",
