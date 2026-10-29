@@ -6,7 +6,8 @@
   "scripts": {
     "fetch": "node scripts/radar.mjs",
     "build": "node scripts/build.mjs",
-    "radar": "node scripts/radar.mjs && node scripts/build.mjs"
+    "radar": "node scripts/radar.mjs && node scripts/build.mjs",
+    "test": "node --test scripts/*.test.mjs"
   },
   "engines": {
     "node": ">=20"
