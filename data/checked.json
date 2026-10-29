@@ -1,5 +1,248 @@
 {
- "https://www.jobs.ac.uk/job/DTH813/associate-lecturer-teaching-in-finance-and-technology-corporate": "2026-10-29T18:56:07.685Z",
- "https://www.jobs.ac.uk/job/DTH814/associate-lecturer-teaching-in-finance-and-technology-innovation": "2026-10-29T18:56:07.685Z",
- "https://www.jobs.ac.uk/job/DTJ359/phd-studentship-one-cell-at-a-time-uncovering-enhancer-control-of-blood-and-cardiovascular-fate-using-single-cell-multi-omics": "2026-10-29T18:56:07.685Z"
+ "https://www.jobs.ac.uk/job/DTL457/research-associate-in-seismic-hazard-vulnerability-and-risk-assessment": {
+  "v": 2,
+  "ok": false,
+  "terms": "",
+  "at": "2026-10-29T18:58:52.431Z"
+ },
+ "https://www.jobs.ac.uk/job/DTJ846/senior-research-associate-in-computer-vision-and-3d-reconstruction-for-wildlife-conservation-9503": {
+  "v": 2,
+  "ok": false,
+  "terms": "",
+  "at": "2026-10-29T18:58:52.431Z"
+ },
+ "https://www.jobs.ac.uk/job/DTJ798/assistant-professor-in-geography": {
+  "v": 2,
+  "ok": true,
+  "terms": "geospatial",
+  "at": "2026-10-29T18:58:52.431Z"
+ },
+ "https://www.jobs.ac.uk/job/DTL055/phd-studentship-integrating-sensing-modelling-and-data-analytics-to-understand-forest-microclimate-dynamics-under-fire-degradation-and-climate-change-in-amazonia": {
+  "v": 2,
+  "ok": false,
+  "terms": "",
+  "at": "2026-10-29T18:58:52.431Z"
+ },
+ "https://www.jobs.ac.uk/job/DTK730/open-rank-faculty-position-in-electrical-and-electronic-engineering": {
+  "v": 2,
+  "ok": false,
+  "terms": "",
+  "at": "2026-10-29T18:58:52.431Z"
+ },
+ "https://www.jobs.ac.uk/job/DTK728/open-rank-faculty-position-in-mechanical-engineering": {
+  "v": 2,
+  "ok": false,
+  "terms": "",
+  "at": "2026-10-29T18:58:52.431Z"
+ },
+ "https://www.jobs.ac.uk/job/DTH043/phd-studentship-ai-optimisation-of-green-roofs-and-facades-for-low-carbon-heat-resilient-buildings": {
+  "v": 2,
+  "ok": true,
+  "terms": "geospatial",
+  "at": "2026-10-29T18:58:52.431Z"
+ },
+ "https://www.jobs.ac.uk/job/DTL076/phd-studentship-digital-twinning-for-post-mining-environmental-transitions": {
+  "v": 2,
+  "ok": false,
+  "terms": "",
+  "at": "2026-10-29T18:58:52.431Z"
+ },
+ "https://www.jobs.ac.uk/job/DTL341/research-scientist-realesm": {
+  "v": 2,
+  "ok": false,
+  "terms": "",
+  "at": "2026-10-29T18:58:52.431Z"
+ },
+ "https://www.jobs.ac.uk/job/DTI242/efficient-physical-ai-for-real-world-robotics-funded-phd-studentship": {
+  "v": 2,
+  "ok": false,
+  "terms": "",
+  "at": "2026-10-29T18:58:52.431Z"
+ },
+ "https://www.jobs.ac.uk/job/DTL075/phd-studentship-advancing-multi-mission-satellite-radar-for-monitoring-permafrost-degradation-and-erosion-in-a-changing-arctic": {
+  "v": 2,
+  "ok": true,
+  "terms": "InSAR, Sentinel-1",
+  "at": "2026-10-29T18:58:52.431Z"
+ },
+ "https://www.jobs.ac.uk/job/DTJ282/research-assistant-in-digital-heritage-documentation-fixed-term": {
+  "v": 2,
+  "ok": false,
+  "terms": "",
+  "at": "2026-10-29T18:58:52.431Z"
+ },
+ "https://www.jobs.ac.uk/job/DTL080/postdoctoral-research-associate-fellow": {
+  "v": 2,
+  "ok": false,
+  "terms": "",
+  "at": "2026-10-29T18:58:52.431Z"
+ },
+ "https://www.jobs.ac.uk/job/DTK783/project-archivist-national-soils-map-archive": {
+  "v": 2,
+  "ok": false,
+  "terms": "",
+  "at": "2026-10-29T18:58:52.431Z"
+ },
+ "https://www.jobs.ac.uk/job/DTE729/research-leader-landscape-ecology-and-ecosystem-science": {
+  "v": 2,
+  "ok": true,
+  "terms": "geospatial, earth observation",
+  "at": "2026-10-29T18:58:52.431Z"
+ },
+ "https://www.jobs.ac.uk/job/DTJ558/phd-studentship-good-vibrations-evidencing-the-links-between-soil-acoustics-and-soil-health": {
+  "v": 2,
+  "ok": false,
+  "terms": "",
+  "at": "2026-10-29T18:58:52.431Z"
+ },
+ "https://www.jobs.ac.uk/job/DTL177/phd-studentship-next-generation-machine-learning-for-genetic-interaction-prediction-with-lab-in-the-loop-validation-in-pancreatic-cancer": {
+  "v": 2,
+  "ok": true,
+  "terms": "GIS",
+  "at": "2026-10-29T18:58:52.431Z"
+ },
+ "https://www.jobs.ac.uk/job/DTK878/phd-studentship-overcoming-the-quantification-problem-in-deep-raman-spectroscopy-using-advanced-optical-metrology-and-3d-phantoms": {
+  "v": 2,
+  "ok": false,
+  "terms": "",
+  "at": "2026-10-29T18:58:52.431Z"
+ },
+ "https://www.jobs.ac.uk/job/DTI375/research-associate-in-volcano-deformation-modelling": {
+  "v": 2,
+  "ok": true,
+  "terms": "InSAR",
+  "at": "2026-10-29T18:58:52.431Z"
+ },
+ "https://www.jobs.ac.uk/job/DTE958/phd-studentship-marie-sklodowska-curie-actions-doctoral-network-blueocean": {
+  "v": 2,
+  "ok": true,
+  "terms": "GNSS",
+  "at": "2026-10-29T18:58:52.431Z"
+ },
+ "https://www.jobs.ac.uk/job/DTI921/research-manager-data": {
+  "v": 2,
+  "ok": true,
+  "terms": "geospatial",
+  "at": "2026-10-29T18:58:52.431Z"
+ },
+ "https://www.jobs.ac.uk/job/DTH813/associate-lecturer-teaching-in-finance-and-technology-corporate": {
+  "v": 2,
+  "ok": false,
+  "terms": "",
+  "at": "2026-10-29T18:58:52.431Z"
+ },
+ "https://www.jobs.ac.uk/job/DTH814/associate-lecturer-teaching-in-finance-and-technology-innovation": {
+  "v": 2,
+  "ok": false,
+  "terms": "",
+  "at": "2026-10-29T18:58:52.431Z"
+ },
+ "https://www.jobs.ac.uk/job/DTI317/phd-position-in-mining-mineral-life": {
+  "v": 2,
+  "ok": false,
+  "terms": "",
+  "at": "2026-10-29T18:58:52.431Z"
+ },
+ "https://www.jobs.ac.uk/job/DTI322/postdoc-research-fellows-in-mining-mineral-life": {
+  "v": 2,
+  "ok": false,
+  "terms": "",
+  "at": "2026-10-29T18:58:52.431Z"
+ },
+ "https://www.jobs.ac.uk/job/DTL749/research-fellow-in-causal-inference-and-ecology": {
+  "v": 2,
+  "ok": false,
+  "terms": "",
+  "at": "2026-10-29T18:58:52.431Z"
+ },
+ "https://www.jobs.ac.uk/job/DTJ941/lecturer-assistant-professor-temporary": {
+  "v": 2,
+  "ok": true,
+  "terms": "geospatial",
+  "at": "2026-10-29T18:58:52.431Z"
+ },
+ "https://www.jobs.ac.uk/job/DTA895/lecturer-the-joint-institute-of-ujn-and-gcu": {
+  "v": 2,
+  "ok": false,
+  "terms": "",
+  "at": "2026-10-29T18:58:52.431Z"
+ },
+ "https://www.jobs.ac.uk/job/DTJ141/associate-lecturer-in-geographic-data-science": {
+  "v": 2,
+  "ok": true,
+  "terms": "remote sensing, GIS",
+  "at": "2026-10-29T18:58:52.431Z"
+ },
+ "https://www.jobs.ac.uk/job/DTK760/research-associate-in-global-hazard-hotspot-identification": {
+  "v": 2,
+  "ok": false,
+  "terms": "",
+  "at": "2026-10-29T18:58:52.431Z"
+ },
+ "https://www.jobs.ac.uk/job/DTH089/senior-research-associate-in-vegetation-and-fire-modelling": {
+  "v": 2,
+  "ok": false,
+  "terms": "",
+  "at": "2026-10-29T18:58:52.431Z"
+ },
+ "https://www.jobs.ac.uk/job/DTJ444/phd-studentship-drivers-and-consequences-of-recent-changes-in-bird-migration": {
+  "v": 2,
+  "ok": true,
+  "terms": "remote sensing",
+  "at": "2026-10-29T18:58:52.431Z"
+ },
+ "https://www.jobs.ac.uk/job/DTJ359/phd-studentship-one-cell-at-a-time-uncovering-enhancer-control-of-blood-and-cardiovascular-fate-using-single-cell-multi-omics": {
+  "v": 2,
+  "ok": false,
+  "terms": "",
+  "at": "2026-10-29T18:58:52.431Z"
+ },
+ "https://www.jobs.ac.uk/job/DTK965/phd-studentship-raman-spectroscopy-for-early-on-farm-diagnosis-of-nephrocalcinosis-kidney-stone-disease-the-1-issue-of-concern-for-salmon-and-trout-aquaculture": {
+  "v": 2,
+  "ok": false,
+  "terms": "",
+  "at": "2026-10-29T18:58:52.431Z"
+ },
+ "https://www.jobs.ac.uk/job/DTJ126/research-fellow-in-palaeoecology": {
+  "v": 2,
+  "ok": false,
+  "terms": "",
+  "at": "2026-10-29T18:58:52.431Z"
+ },
+ "https://www.jobs.ac.uk/job/DTB906/senior-optical-instrumentation-development-technician": {
+  "v": 2,
+  "ok": false,
+  "terms": "",
+  "at": "2026-10-29T18:58:52.431Z"
+ },
+ "https://www.jobs.ac.uk/job/DTA986/open-rank-faculty-position-in-international-relations-international-political-economy": {
+  "v": 2,
+  "ok": false,
+  "terms": "",
+  "at": "2026-10-29T18:58:52.431Z"
+ },
+ "https://www.jobs.ac.uk/job/DSQ223/klesch-postdoctoral-fellowship-in-history-of-art-and-technology": {
+  "v": 2,
+  "ok": false,
+  "terms": "",
+  "at": "2026-10-29T18:58:52.431Z"
+ },
+ "https://www.jobs.ac.uk/job/DTE751/marie-curie-early-stage-researcher": {
+  "v": 2,
+  "ok": false,
+  "terms": "",
+  "at": "2026-10-29T18:58:52.431Z"
+ },
+ "https://www.jobs.ac.uk/job/DTH197/phd-studentship-the-role-of-icebergs-in-heat-freshwater-and-nutrient-exchanges-in-greenlands-fjords": {
+  "v": 2,
+  "ok": false,
+  "terms": "",
+  "at": "2026-10-29T18:58:52.431Z"
+ },
+ "https://www.jobs.ac.uk/job/DTE253/research-associate-in-planetary-atmospheric-science": {
+  "v": 2,
+  "ok": false,
+  "terms": "",
+  "at": "2026-10-29T18:58:52.431Z"
+ }
 }
