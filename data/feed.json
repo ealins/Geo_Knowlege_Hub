@@ -1,6 +1,234 @@
 {
-  "generated_at": "2026-10-29T00:21:54.820Z",
+  "generated_at": "2026-10-29T00:27:27.880Z",
   "retain_days": 45,
-  "count": 0,
-  "items": []
+  "count": 15,
+  "items": [
+    {
+      "id": "5541b38dc8a37da4",
+      "title": "Any3R: Feedforward 3D Reconstruction from Any Camera Type",
+      "url": "https://arxiv.org/abs/2610.36150",
+      "kind": "paper",
+      "source": "arxiv-cs-cv",
+      "source_name": "arXiv Computer Vision and Pattern Recognition (cs.CV)",
+      "published": "2026-10-28T04:00:00.000Z",
+      "summary": "arXiv:2610.36150v1 Announce Type: new Abstract: Geometry foundation models recover camera poses and dense geometry from a set of images with a feed-forward network, but they expect pinhole images. That assumption is inside the backbone too: the positional encoding and the training loss both bind an ",
+      "matched": [
+        "3D reconstruction"
+      ],
+      "first_seen": "2026-10-29T00:27:27.880Z",
+      "last_seen": "2026-10-29T00:27:27.880Z"
+    },
+    {
+      "id": "ff50c46b4e171add",
+      "title": "SAGE: Semantic-Augmented Geometric Experts for Point Cloud Registration",
+      "url": "https://arxiv.org/abs/2610.36658",
+      "kind": "paper",
+      "source": "arxiv-cs-cv",
+      "source_name": "arXiv Computer Vision and Pattern Recognition (cs.CV)",
+      "published": "2026-10-28T04:00:00.000Z",
+      "summary": "arXiv:2610.36658v1 Announce Type: new Abstract: Point cloud registration is an essential task for scene reconstruction, requiring the alignment of partially overlapping point clouds. Under low-overlap conditions, this task remains challenging because existing geometry-only methods cannot distinguish",
+      "matched": [
+        "point cloud"
+      ],
+      "first_seen": "2026-10-29T00:27:27.880Z",
+      "last_seen": "2026-10-29T00:27:27.880Z"
+    },
+    {
+      "id": "29a785c94ba0c2de",
+      "title": "Efficient Remote Sensing Image-Text Retrieval via Interaction-Free Recall and Text-Guided Reranking",
+      "url": "https://arxiv.org/abs/2610.36756",
+      "kind": "paper",
+      "source": "arxiv-cs-cv",
+      "source_name": "arXiv Computer Vision and Pattern Recognition (cs.CV)",
+      "published": "2026-10-28T04:00:00.000Z",
+      "summary": "arXiv:2610.36756v1 Announce Type: new Abstract: Remote sensing (RS) image-text retrieval plays a critical role in understanding massive RS imagery. However, the dense multi-object distribution and complex backgrounds in RS imagery make it difficult to simultaneously achieve fine-grained cross-modal ",
+      "matched": [
+        "remote sensing"
+      ],
+      "first_seen": "2026-10-29T00:27:27.880Z",
+      "last_seen": "2026-10-29T00:27:27.880Z"
+    },
+    {
+      "id": "5313e01af66d01b7",
+      "title": "Evaluating AlphaEarth Embeddings for Crop Classification: Separability, Temporal Dynamics, and Cross-Regional Transferability",
+      "url": "https://arxiv.org/abs/2610.36857",
+      "kind": "paper",
+      "source": "arxiv-cs-cv",
+      "source_name": "arXiv Computer Vision and Pattern Recognition (cs.CV)",
+      "published": "2026-10-28T04:00:00.000Z",
+      "summary": "arXiv:2610.36857v1 Announce Type: new Abstract: Earth Observation (EO)-based agricultural monitoring is shifting from pixel-level spectral analysis toward representation-driven modeling, yet systematic evaluation of learned representations across spatial, temporal, and domain-generalization dimensio",
+      "matched": [
+        "geospatial",
+        "earth observation"
+      ],
+      "first_seen": "2026-10-29T00:27:27.880Z",
+      "last_seen": "2026-10-29T00:27:27.880Z"
+    },
+    {
+      "id": "50603a05cf46f01d",
+      "title": "Learning to Code the World: Harness Evolution for Compositional 3D Reconstruction",
+      "url": "https://arxiv.org/abs/2610.37046",
+      "kind": "paper",
+      "source": "arxiv-cs-cv",
+      "source_name": "arXiv Computer Vision and Pattern Recognition (cs.CV)",
+      "published": "2026-10-28T04:00:00.000Z",
+      "summary": "arXiv:2610.37046v1 Announce Type: new Abstract: Reconstructing editable and compositional 3D scenes from a real image requires jointly reasoning about geometry, object structure, and spatial relationships. We introduce SceneEvolve, a framework that represents 3D scenes as executable code and improve",
+      "matched": [
+        "3D reconstruction"
+      ],
+      "first_seen": "2026-10-29T00:27:27.880Z",
+      "last_seen": "2026-10-29T00:27:27.880Z"
+    },
+    {
+      "id": "5f5205d0f69a599f",
+      "title": "FastBEVFusion: Simple Multi-Modal Fusion for 3D Object Detection at 50 FPS",
+      "url": "https://arxiv.org/abs/2610.37153",
+      "kind": "paper",
+      "source": "arxiv-cs-cv",
+      "source_name": "arXiv Computer Vision and Pattern Recognition (cs.CV)",
+      "published": "2026-10-28T04:00:00.000Z",
+      "summary": "arXiv:2610.37153v1 Announce Type: new Abstract: Reliable real-time 3D object detection based on LiDAR and camera data is critical for safety in autonomous driving, where systems must accurately perceive their surroundings with minimal latency. Many state-of-the-art systems achieve high-quality detec",
+      "matched": [
+        "LiDAR"
+      ],
+      "first_seen": "2026-10-29T00:27:27.880Z",
+      "last_seen": "2026-10-29T00:27:27.880Z"
+    },
+    {
+      "id": "3ed0b89e483b9e58",
+      "title": "Honeycomb-Surfels: Compact Hexagonal Primitives for Efficient Scene Rendering and Reconstruction",
+      "url": "https://arxiv.org/abs/2610.37668",
+      "kind": "paper",
+      "source": "arxiv-cs-cv",
+      "source_name": "arXiv Computer Vision and Pattern Recognition (cs.CV)",
+      "published": "2026-10-28T04:00:00.000Z",
+      "summary": "arXiv:2610.37668v1 Announce Type: new Abstract: Novel view synthesis and 3D reconstruction have advanced rapidly with radiance fields and splatting, yet their memory and computational demands limit their use in resource-constrained settings. We introduce Hexels: novel planar hexagonal surface elemen",
+      "matched": [
+        "3D reconstruction"
+      ],
+      "first_seen": "2026-10-29T00:27:27.880Z",
+      "last_seen": "2026-10-29T00:27:27.880Z"
+    },
+    {
+      "id": "48111a12161cad49",
+      "title": "Quantized Edge Inference of a Self-Supervised SAR-Optical Encoder on Commodity x86 Hardware",
+      "url": "https://arxiv.org/abs/2610.37056",
+      "kind": "paper",
+      "source": "arxiv-cs-cv",
+      "source_name": "arXiv Computer Vision and Pattern Recognition (cs.CV)",
+      "published": "2026-10-28T04:00:00.000Z",
+      "summary": "arXiv:2610.37056v1 Announce Type: cross Abstract: Self-supervised vision transformers are increasingly used as reusable encoders for Earth observation, but their inference cost on the hardware available in the field is rarely characterized. We deploy a pretrained SAR-optical masked-autoencoder encod",
+      "matched": [
+        "earth observation",
+        "SAR"
+      ],
+      "first_seen": "2026-10-29T00:27:27.880Z",
+      "last_seen": "2026-10-29T00:27:27.880Z"
+    },
+    {
+      "id": "39a8c97d65591069",
+      "title": "PIS3R: Very Large Parallax Image Stitching via Deep 3D Reconstruction",
+      "url": "https://arxiv.org/abs/2508.04236",
+      "kind": "paper",
+      "source": "arxiv-cs-cv",
+      "source_name": "arXiv Computer Vision and Pattern Recognition (cs.CV)",
+      "published": "2026-10-28T04:00:00.000Z",
+      "summary": "arXiv:2508.04236v4 Announce Type: replace Abstract: Image stitching aim to align two images taken from different viewpoints into one seamless, wider image. However, when the 3D scene contains depth variations and the camera baseline is significant, noticeable parallax occurs-meaning the relative pos",
+      "matched": [
+        "3D reconstruction"
+      ],
+      "first_seen": "2026-10-29T00:27:27.880Z",
+      "last_seen": "2026-10-29T00:27:27.880Z"
+    },
+    {
+      "id": "d8bc3a4cd1d84b0f",
+      "title": "SQuID: A Benchmark for Quantitative Spatial Reasoning on Satellite Imagery",
+      "url": "https://arxiv.org/abs/2601.13401",
+      "kind": "paper",
+      "source": "arxiv-cs-cv",
+      "source_name": "arXiv Computer Vision and Pattern Recognition (cs.CV)",
+      "published": "2026-10-28T04:00:00.000Z",
+      "summary": "arXiv:2601.13401v2 Announce Type: replace Abstract: Vision-Language Models (VLMs) describe satellite images fluently but struggle with the quantitative spatial reasoning that remote sensing (RS) analysts perform routinely, such as counting buildings, measuring forest area in hectares and computing d",
+      "matched": [
+        "remote sensing"
+      ],
+      "first_seen": "2026-10-29T00:27:27.880Z",
+      "last_seen": "2026-10-29T00:27:27.880Z"
+    },
+    {
+      "id": "8cb42454a5c177ce",
+      "title": "LESSViT: Robust Hyperspectral Representation Learning under Spectral Configuration Shift",
+      "url": "https://arxiv.org/abs/2605.18541",
+      "kind": "paper",
+      "source": "arxiv-cs-cv",
+      "source_name": "arXiv Computer Vision and Pattern Recognition (cs.CV)",
+      "published": "2026-10-28T04:00:00.000Z",
+      "summary": "arXiv:2605.18541v2 Announce Type: replace Abstract: Modeling hyperspectral imagery (HSI) across different sensors presents a fundamental challenge due to variations in wavelength coverage, band sampling, and channel dimensionality. As a result, models trained under a fixed spectral configuration oft",
+      "matched": [
+        "hyperspectral"
+      ],
+      "first_seen": "2026-10-29T00:27:27.880Z",
+      "last_seen": "2026-10-29T00:27:27.880Z"
+    },
+    {
+      "id": "7157baed14581c66",
+      "title": "LEVIRDet: A Million-Scale 159-Category Dataset and Foundation Model for Universal Remote Sensing Object Detection",
+      "url": "https://arxiv.org/abs/2606.25312",
+      "kind": "paper",
+      "source": "arxiv-cs-cv",
+      "source_name": "arXiv Computer Vision and Pattern Recognition (cs.CV)",
+      "published": "2026-10-28T04:00:00.000Z",
+      "summary": "arXiv:2606.25312v3 Announce Type: replace Abstract: Remote sensing object detection has advanced rapidly with the development of large-scale benchmarks and modern detection architectures. However, existing datasets and detectors remain fragmented. Most benchmarks focus on limited categories, fixed s",
+      "matched": [
+        "remote sensing"
+      ],
+      "first_seen": "2026-10-29T00:27:27.880Z",
+      "last_seen": "2026-10-29T00:27:27.880Z"
+    },
+    {
+      "id": "f9019b3fe0998457",
+      "title": "Assessing BIOMASS Radiometric Stability using Permanent Scatterers",
+      "url": "https://arxiv.org/abs/2610.37400",
+      "kind": "paper",
+      "source": "arxiv-eess-iv",
+      "source_name": "arXiv Image and Video Processing (eess.IV)",
+      "published": "2026-10-28T04:00:00.000Z",
+      "summary": "arXiv:2610.37400v1 Announce Type: cross Abstract: Monitoring the relative radiometric stability of the European Space Agency's BIOMASS P-band synthetic aperture radar (SAR) requires separating instrumental and processing effects from temporal changes in the scene backscatter. This study investigates",
+      "matched": [
+        "SAR"
+      ],
+      "first_seen": "2026-10-29T00:27:27.880Z",
+      "last_seen": "2026-10-29T00:27:27.880Z"
+    },
+    {
+      "id": "d0322dfa789d6d50",
+      "title": "Digital Twin-Guided Wireless Localization via Probabilistic Inverse Learning",
+      "url": "https://arxiv.org/abs/2610.36905",
+      "kind": "paper",
+      "source": "arxiv-eess-sp",
+      "source_name": "arXiv Signal Processing (eess.SP)",
+      "published": "2026-10-28T04:00:00.000Z",
+      "summary": "arXiv:2610.36905v1 Announce Type: cross Abstract: This work investigates how site-specific digital twins (DTs) can support wireless localization using simplified distributed infrastructure. We propose PRISM (Probabilistic Refinement using Inverse learning and a Site-specific Model), a DT-guided prob",
+      "matched": [
+        "digital twin"
+      ],
+      "first_seen": "2026-10-29T00:27:27.880Z",
+      "last_seen": "2026-10-29T00:27:27.880Z"
+    },
+    {
+      "id": "424f34c6c5983820",
+      "title": "AuRaSim: A Ray-Tracing Based Automotive FMCW Radar Simulator for Dynamic Scenarios",
+      "url": "https://arxiv.org/abs/2610.37403",
+      "kind": "paper",
+      "source": "arxiv-eess-sp",
+      "source_name": "arXiv Signal Processing (eess.SP)",
+      "published": "2026-10-28T04:00:00.000Z",
+      "summary": "arXiv:2610.37403v1 Announce Type: cross Abstract: Modern simulators can generate synthetic camera and LiDAR data with accurate annotations for downstream tasks. In contrast, automotive radar simulation remains less mature because it requires not only a 3D engine to model dynamic objects in the scene",
+      "matched": [
+        "LiDAR"
+      ],
+      "first_seen": "2026-10-29T00:27:27.880Z",
+      "last_seen": "2026-10-29T00:27:27.880Z"
+    }
+  ]
 }
