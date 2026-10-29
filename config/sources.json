@@ -1,36 +1,311 @@
 {
   "_comment": "Well-known open sources. Items are kept only if they match config/domain.json. robots.txt is checked before every fetch; a source that fails 5 runs in a row is paused automatically.",
   "sources": [
-    { "id": "arxiv-cs-cv", "name": "arXiv cs.CV", "url": "https://rss.arxiv.org/rss/cs.CV", "type": "rss", "kind": "paper", "enabled": true },
-    { "id": "arxiv-eess-iv", "name": "arXiv eess.IV", "url": "https://rss.arxiv.org/rss/eess.IV", "type": "rss", "kind": "paper", "enabled": true },
-    { "id": "arxiv-eess-sp", "name": "arXiv eess.SP", "url": "https://rss.arxiv.org/rss/eess.SP", "type": "rss", "kind": "paper", "enabled": true },
-    { "id": "arxiv-physics-geo-ph", "name": "arXiv physics.geo-ph", "url": "https://rss.arxiv.org/rss/physics.geo-ph", "type": "rss", "kind": "paper", "enabled": true },
-
-    { "id": "openalex-photogrammetry", "name": "OpenAlex: photogrammetry", "url": "https://api.openalex.org/works?search=photogrammetry&sort=publication_date:desc&per-page=50", "type": "openalex", "kind": "paper", "enabled": true },
-    { "id": "openalex-remote-sensing", "name": "OpenAlex: remote sensing", "url": "https://api.openalex.org/works?search=%22remote%20sensing%22&sort=publication_date:desc&per-page=50", "type": "openalex", "kind": "paper", "enabled": true },
-    { "id": "openalex-insar", "name": "OpenAlex: InSAR", "url": "https://api.openalex.org/works?search=InSAR&sort=publication_date:desc&per-page=50", "type": "openalex", "kind": "paper", "enabled": true },
-    { "id": "openalex-lidar", "name": "OpenAlex: LiDAR point cloud", "url": "https://api.openalex.org/works?search=lidar%20point%20cloud&sort=publication_date:desc&per-page=50", "type": "openalex", "kind": "paper", "enabled": true },
-    { "id": "openalex-geoai", "name": "OpenAlex: GeoAI / geoinformatics", "url": "https://api.openalex.org/works?search=geoinformatics&sort=publication_date:desc&per-page=50", "type": "openalex", "kind": "paper", "enabled": true },
-    { "id": "openalex-citygml-bim", "name": "OpenAlex: CityGML / BIM", "url": "https://api.openalex.org/works?search=CityGML&sort=publication_date:desc&per-page=50", "type": "openalex", "kind": "paper", "enabled": true },
-
-    { "id": "mdpi-remote-sensing", "name": "MDPI Remote Sensing", "url": "https://www.mdpi.com/rss/journal/remotesensing", "type": "rss", "kind": "paper", "enabled": true },
-    { "id": "mdpi-ijgi", "name": "MDPI ISPRS Int. J. Geo-Information", "url": "https://www.mdpi.com/rss/journal/ijgi", "type": "rss", "kind": "paper", "enabled": true },
-    { "id": "elsevier-isprs-jprs", "name": "ISPRS Journal of Photogrammetry and Remote Sensing", "url": "https://rss.sciencedirect.com/publication/science/09242716", "type": "rss", "kind": "paper", "enabled": true },
-    { "id": "elsevier-rse", "name": "Remote Sensing of Environment", "url": "https://rss.sciencedirect.com/publication/science/00344257", "type": "rss", "kind": "paper", "enabled": true },
-
-    { "id": "euraxess-remote-sensing", "name": "EURAXESS jobs: remote sensing", "url": "https://euraxess.ec.europa.eu/jobs/search?keywords=remote%20sensing", "type": "html", "kind": "job", "include": "/jobs/\\d+", "enabled": true },
-    { "id": "euraxess-photogrammetry", "name": "EURAXESS jobs: photogrammetry", "url": "https://euraxess.ec.europa.eu/jobs/search?keywords=photogrammetry", "type": "html", "kind": "job", "include": "/jobs/\\d+", "enabled": true },
-    { "id": "jobsacuk-remote-sensing", "name": "jobs.ac.uk: remote sensing", "url": "https://www.jobs.ac.uk/search/?keywords=remote+sensing", "type": "html", "kind": "job", "include": "/job/", "enabled": true },
-    { "id": "jobsacuk-gis", "name": "jobs.ac.uk: GIS", "url": "https://www.jobs.ac.uk/search/?keywords=GIS", "type": "html", "kind": "job", "include": "/job/", "enabled": true },
-    { "id": "academicpositions-remote-sensing", "name": "AcademicPositions: remote sensing", "url": "https://academicpositions.com/find-jobs?search=remote%20sensing", "type": "html", "kind": "job", "include": "/ad/", "enabled": true },
-    { "id": "academicpositions-geoinformatics", "name": "AcademicPositions: geoinformatics", "url": "https://academicpositions.com/find-jobs?search=geoinformatics", "type": "html", "kind": "job", "include": "/ad/", "enabled": true },
-
-    { "id": "wikicfp-remote-sensing", "name": "WikiCFP: remote sensing", "url": "https://www.wikicfp.com/cfp/rss?cat=remote%20sensing", "type": "rss", "kind": "event", "enabled": true },
-    { "id": "wikicfp-gis", "name": "WikiCFP: GIS", "url": "https://www.wikicfp.com/cfp/rss?cat=GIS", "type": "rss", "kind": "event", "enabled": true },
-    { "id": "isprs-calendar", "name": "ISPRS event calendar", "url": "https://www.isprs.org/calendar/", "type": "html", "kind": "event", "enabled": true },
-
-    { "id": "daad-geoinformatics", "name": "DAAD international programmes: geoinformatics", "url": "https://www2.daad.de/deutschland/studienangebote/international-programmes/en/result/?q=geoinformatics", "type": "html", "kind": "course", "include": "/detail/", "enabled": true },
-    { "id": "daad-remote-sensing", "name": "DAAD international programmes: remote sensing", "url": "https://www2.daad.de/deutschland/studienangebote/international-programmes/en/result/?q=remote%20sensing", "type": "html", "kind": "course", "include": "/detail/", "enabled": true },
-    { "id": "daad-photogrammetry", "name": "DAAD international programmes: photogrammetry", "url": "https://www2.daad.de/deutschland/studienangebote/international-programmes/en/result/?q=photogrammetry", "type": "html", "kind": "course", "include": "/detail/", "enabled": true }
+    {
+      "id": "arxiv-cs-cv",
+      "name": "arXiv cs.CV",
+      "url": "https://rss.arxiv.org/rss/cs.CV",
+      "type": "rss",
+      "kind": "paper",
+      "enabled": true
+    },
+    {
+      "id": "arxiv-eess-iv",
+      "name": "arXiv eess.IV",
+      "url": "https://rss.arxiv.org/rss/eess.IV",
+      "type": "rss",
+      "kind": "paper",
+      "enabled": true
+    },
+    {
+      "id": "arxiv-eess-sp",
+      "name": "arXiv eess.SP",
+      "url": "https://rss.arxiv.org/rss/eess.SP",
+      "type": "rss",
+      "kind": "paper",
+      "enabled": true
+    },
+    {
+      "id": "arxiv-physics-geo-ph",
+      "name": "arXiv physics.geo-ph",
+      "url": "https://rss.arxiv.org/rss/physics.geo-ph",
+      "type": "rss",
+      "kind": "paper",
+      "enabled": true
+    },
+    {
+      "id": "openalex-photogrammetry",
+      "name": "OpenAlex: photogrammetry",
+      "url": "https://api.openalex.org/works?search=photogrammetry&sort=publication_date:desc&per-page=50",
+      "type": "openalex",
+      "kind": "paper",
+      "enabled": true
+    },
+    {
+      "id": "openalex-remote-sensing",
+      "name": "OpenAlex: remote sensing",
+      "url": "https://api.openalex.org/works?search=%22remote%20sensing%22&sort=publication_date:desc&per-page=50",
+      "type": "openalex",
+      "kind": "paper",
+      "enabled": true
+    },
+    {
+      "id": "openalex-insar",
+      "name": "OpenAlex: InSAR",
+      "url": "https://api.openalex.org/works?search=InSAR&sort=publication_date:desc&per-page=50",
+      "type": "openalex",
+      "kind": "paper",
+      "enabled": true
+    },
+    {
+      "id": "openalex-lidar",
+      "name": "OpenAlex: LiDAR point cloud",
+      "url": "https://api.openalex.org/works?search=lidar%20point%20cloud&sort=publication_date:desc&per-page=50",
+      "type": "openalex",
+      "kind": "paper",
+      "enabled": true
+    },
+    {
+      "id": "openalex-geoai",
+      "name": "OpenAlex: GeoAI / geoinformatics",
+      "url": "https://api.openalex.org/works?search=geoinformatics&sort=publication_date:desc&per-page=50",
+      "type": "openalex",
+      "kind": "paper",
+      "enabled": true
+    },
+    {
+      "id": "openalex-citygml-bim",
+      "name": "OpenAlex: CityGML / BIM",
+      "url": "https://api.openalex.org/works?search=CityGML&sort=publication_date:desc&per-page=50",
+      "type": "openalex",
+      "kind": "paper",
+      "enabled": true
+    },
+    {
+      "id": "mdpi-remote-sensing",
+      "name": "MDPI Remote Sensing",
+      "url": "https://www.mdpi.com/rss/journal/remotesensing",
+      "type": "rss",
+      "kind": "paper",
+      "enabled": true
+    },
+    {
+      "id": "mdpi-ijgi",
+      "name": "MDPI ISPRS Int. J. Geo-Information",
+      "url": "https://www.mdpi.com/rss/journal/ijgi",
+      "type": "rss",
+      "kind": "paper",
+      "enabled": true
+    },
+    {
+      "id": "elsevier-isprs-jprs",
+      "name": "ISPRS Journal of Photogrammetry and Remote Sensing",
+      "url": "https://rss.sciencedirect.com/publication/science/09242716",
+      "type": "rss",
+      "kind": "paper",
+      "enabled": true
+    },
+    {
+      "id": "elsevier-rse",
+      "name": "Remote Sensing of Environment",
+      "url": "https://rss.sciencedirect.com/publication/science/00344257",
+      "type": "rss",
+      "kind": "paper",
+      "enabled": true
+    },
+    {
+      "id": "euraxess-remote-sensing",
+      "name": "EURAXESS jobs: remote sensing",
+      "url": "https://euraxess.ec.europa.eu/jobs/search?keywords=remote%20sensing",
+      "type": "html",
+      "kind": "job",
+      "include": "/jobs/\\d+",
+      "enabled": true
+    },
+    {
+      "id": "euraxess-photogrammetry",
+      "name": "EURAXESS jobs: photogrammetry",
+      "url": "https://euraxess.ec.europa.eu/jobs/search?keywords=photogrammetry",
+      "type": "html",
+      "kind": "job",
+      "include": "/jobs/\\d+",
+      "enabled": true
+    },
+    {
+      "id": "jobsacuk-remote-sensing",
+      "name": "jobs.ac.uk: remote sensing",
+      "url": "https://www.jobs.ac.uk/search/?keywords=remote+sensing",
+      "type": "html",
+      "kind": "job",
+      "include": "/job/",
+      "enabled": true
+    },
+    {
+      "id": "jobsacuk-gis",
+      "name": "jobs.ac.uk: GIS",
+      "url": "https://www.jobs.ac.uk/search/?keywords=GIS",
+      "type": "html",
+      "kind": "job",
+      "include": "/job/",
+      "enabled": true
+    },
+    {
+      "id": "academicpositions-remote-sensing",
+      "name": "AcademicPositions: remote sensing",
+      "url": "https://academicpositions.com/find-jobs?search=remote%20sensing",
+      "type": "html",
+      "kind": "job",
+      "include": "/ad/",
+      "enabled": true
+    },
+    {
+      "id": "academicpositions-geoinformatics",
+      "name": "AcademicPositions: geoinformatics",
+      "url": "https://academicpositions.com/find-jobs?search=geoinformatics",
+      "type": "html",
+      "kind": "job",
+      "include": "/ad/",
+      "enabled": true
+    },
+    {
+      "id": "wikicfp-remote-sensing",
+      "name": "WikiCFP: remote sensing",
+      "url": "https://www.wikicfp.com/cfp/rss?cat=remote%20sensing",
+      "type": "rss",
+      "kind": "event",
+      "enabled": true
+    },
+    {
+      "id": "wikicfp-gis",
+      "name": "WikiCFP: GIS",
+      "url": "https://www.wikicfp.com/cfp/rss?cat=GIS",
+      "type": "rss",
+      "kind": "event",
+      "enabled": true
+    },
+    {
+      "id": "isprs-calendar",
+      "name": "ISPRS event calendar",
+      "url": "https://www.isprs.org/calendar/",
+      "type": "html",
+      "kind": "event",
+      "enabled": true
+    },
+    {
+      "id": "daad-geoinformatics",
+      "name": "DAAD international programmes: geoinformatics",
+      "url": "https://www2.daad.de/deutschland/studienangebote/international-programmes/en/result/?q=geoinformatics",
+      "type": "html",
+      "kind": "course",
+      "include": "/detail/",
+      "enabled": true
+    },
+    {
+      "id": "daad-remote-sensing",
+      "name": "DAAD international programmes: remote sensing",
+      "url": "https://www2.daad.de/deutschland/studienangebote/international-programmes/en/result/?q=remote%20sensing",
+      "type": "html",
+      "kind": "course",
+      "include": "/detail/",
+      "enabled": true
+    },
+    {
+      "id": "daad-photogrammetry",
+      "name": "DAAD international programmes: photogrammetry",
+      "url": "https://www2.daad.de/deutschland/studienangebote/international-programmes/en/result/?q=photogrammetry",
+      "type": "html",
+      "kind": "course",
+      "include": "/detail/",
+      "enabled": true
+    },
+    {
+      "id": "mastersportal-remote-sensing",
+      "name": "Mastersportal: remote sensing",
+      "url": "https://www.mastersportal.com/search/master/remote-sensing",
+      "type": "html",
+      "kind": "course",
+      "enabled": true,
+      "include": "/studies/"
+    },
+    {
+      "id": "mastersportal-geoinformatics",
+      "name": "Mastersportal: geoinformatics",
+      "url": "https://www.mastersportal.com/search/master/geographic-information-systems",
+      "type": "html",
+      "kind": "course",
+      "enabled": true,
+      "include": "/studies/"
+    },
+    {
+      "id": "findamasters-remote-sensing",
+      "name": "FindAMasters: remote sensing",
+      "url": "https://www.findamasters.com/masters-degrees/?Keywords=remote+sensing",
+      "type": "html",
+      "kind": "course",
+      "enabled": true,
+      "include": "/masters-degrees/course/"
+    },
+    {
+      "id": "findamasters-gis",
+      "name": "FindAMasters: GIS",
+      "url": "https://www.findamasters.com/masters-degrees/?Keywords=GIS",
+      "type": "html",
+      "kind": "course",
+      "enabled": true,
+      "include": "/masters-degrees/course/"
+    },
+    {
+      "id": "studyeu-geoinformatics",
+      "name": "Study.EU: geoinformatics",
+      "url": "https://www.study.eu/search?q=geoinformatics",
+      "type": "html",
+      "kind": "course",
+      "enabled": true,
+      "include": "/programme/"
+    },
+    {
+      "id": "studyeu-remote-sensing",
+      "name": "Study.EU: remote sensing",
+      "url": "https://www.study.eu/search?q=remote%20sensing",
+      "type": "html",
+      "kind": "course",
+      "enabled": true,
+      "include": "/programme/"
+    },
+    {
+      "id": "erasmus-mundus-catalogue",
+      "name": "Erasmus Mundus joint masters catalogue",
+      "url": "https://www.eacea.ec.europa.eu/scholarships/erasmus-mundus-catalogue_en",
+      "type": "html",
+      "kind": "course",
+      "enabled": true
+    },
+    {
+      "id": "findaphd-remote-sensing",
+      "name": "FindAPhD: remote sensing",
+      "url": "https://www.findaphd.com/phds/?Keywords=remote+sensing",
+      "type": "html",
+      "kind": "job",
+      "enabled": true,
+      "include": "/phds/project/"
+    },
+    {
+      "id": "findaphd-photogrammetry",
+      "name": "FindAPhD: photogrammetry",
+      "url": "https://www.findaphd.com/phds/?Keywords=photogrammetry",
+      "type": "html",
+      "kind": "job",
+      "enabled": true,
+      "include": "/phds/project/"
+    },
+    {
+      "id": "findaphd-gis",
+      "name": "FindAPhD: GIS",
+      "url": "https://www.findaphd.com/phds/?Keywords=GIS",
+      "type": "html",
+      "kind": "job",
+      "enabled": true,
+      "include": "/phds/project/"
+    }
   ]
 }
