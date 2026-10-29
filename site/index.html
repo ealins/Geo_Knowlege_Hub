@@ -4,89 +4,173 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Geo Radar</title>
-<meta name="description" content="Fresh jobs, courses and events for photogrammetry, remote sensing and geoinformatics.">
+<meta name="description" content="Recent academic jobs, papers, courses and events in photogrammetry, remote sensing and geoinformatics.">
 <style>
-:root{--bg:#f6f7f9;--card:#fff;--text:#14181f;--muted:#5b6472;--line:#dfe3ea;--accent:#0b6e4f;--new:#e8f5ef;--newtext:#0b6e4f}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0e1116;--card:#161b22;--text:#e6e9ef;--muted:#9aa4b2;--line:#263040;--accent:#4fd1a5;--new:#133227;--newtext:#4fd1a5}}
-:root[data-theme="dark"]{--bg:#0e1116;--card:#161b22;--text:#e6e9ef;--muted:#9aa4b2;--line:#263040;--accent:#4fd1a5;--new:#133227;--newtext:#4fd1a5}
+:root{
+  --bg:#f7f6f3; --surface:#ffffff; --text:#1d2228; --muted:#5f6670; --line:#e2e0da;
+  --accent:#1f5f7a; --accent-soft:#e6f0f4; --new:#2d6a4f; --new-soft:#e7f2ec; --focus:#1f5f7a;
+  --serif:Georgia,"Iowan Old Style","Palatino Linotype",serif;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#15181c; --surface:#1d2127; --text:#e7e9ec; --muted:#9aa2ad; --line:#2c3138;
+    --accent:#8fc1d6; --accent-soft:#1f2d35; --new:#8fd3ae; --new-soft:#1d3028; --focus:#8fc1d6;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#15181c; --surface:#1d2127; --text:#e7e9ec; --muted:#9aa2ad; --line:#2c3138;
+  --accent:#8fc1d6; --accent-soft:#1f2d35; --new:#8fd3ae; --new-soft:#1d3028; --focus:#8fc1d6;
+}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--text);font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
-main{max-width:860px;margin:0 auto;padding:24px 16px 48px}
-h1{margin:0 0 4px;font-size:26px}
-.sub{color:var(--muted);margin:0 0 16px}
-.bar{margin-bottom:12px}
-input[type=search]{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--text);font:inherit}
-.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
-.tab{border:1px solid var(--line);background:var(--card);color:var(--text);padding:6px 12px;border-radius:999px;cursor:pointer;font:inherit}
-.tab[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
-.meta{color:var(--muted);font-size:13px;margin:8px 0 16px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin-bottom:10px}
-.card a{color:var(--text);font-weight:600;text-decoration:none;overflow-wrap:anywhere}
-.card a:hover{text-decoration:underline}
-.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-size:13px;color:var(--muted);margin-top:6px}
-.badge{padding:1px 8px;border-radius:999px;border:1px solid var(--line);font-size:12px}
-.new{background:var(--new);color:var(--newtext);border-color:transparent;font-weight:600}
-.chip{font-size:12px;color:var(--accent)}
-details{margin-top:24px;color:var(--muted);font-size:13px}
-.tablewrap{overflow-x:auto}
+body{margin:0;background:var(--bg);color:var(--text);font:15px/1.55 var(--sans)}
+a{color:var(--accent)}
+:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+main{max-width:880px;margin:0 auto;padding:32px 18px 64px}
+header{border-bottom:1px solid var(--line);padding-bottom:18px;margin-bottom:22px}
+h1{margin:0;font:600 28px/1.2 var(--serif);letter-spacing:.2px}
+.tagline{margin:6px 0 0;color:var(--muted)}
+.controls{display:grid;gap:10px;grid-template-columns:1fr auto auto;align-items:center;margin-bottom:12px}
+input[type=search],select{width:100%;padding:9px 11px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--text);font:inherit}
+.toggle{display:inline-flex;align-items:center;gap:6px;color:var(--muted);white-space:nowrap;font-size:14px}
+.tabs{display:flex;gap:4px;flex-wrap:wrap;border-bottom:1px solid var(--line);margin-bottom:14px}
+.tab{background:none;border:0;border-bottom:2px solid transparent;padding:8px 12px;color:var(--muted);cursor:pointer;font:inherit}
+.tab[aria-pressed="true"]{color:var(--text);border-bottom-color:var(--accent);font-weight:600}
+.count{color:var(--muted);font-size:13px;margin:4px 0 14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:14px 16px;margin-bottom:10px}
+.card h2{margin:0;font:600 17px/1.35 var(--serif)}
+.card h2 a{color:var(--text);text-decoration:none}
+.card h2 a:hover{text-decoration:underline;color:var(--accent)}
+.meta{display:flex;gap:8px 12px;flex-wrap:wrap;align-items:center;margin-top:8px;color:var(--muted);font-size:13px}
+.pill{border:1px solid var(--line);border-radius:999px;padding:0 9px;line-height:20px}
+.pill.new{background:var(--new-soft);color:var(--new);border-color:transparent;font-weight:600}
+.terms{margin-top:8px;font-size:12.5px;color:var(--accent)}
+.save{margin-left:auto;background:none;border:1px solid var(--line);border-radius:6px;padding:2px 10px;color:var(--muted);cursor:pointer;font:inherit;font-size:13px}
+.save[aria-pressed="true"]{color:var(--accent);border-color:var(--accent);background:var(--accent-soft)}
+.empty{color:var(--muted);padding:32px 0;text-align:center}
+footer{margin-top:36px;color:var(--muted);font-size:13px}
+details summary{cursor:pointer}
+.tablewrap{overflow-x:auto;margin-top:10px}
 table{width:100%;border-collapse:collapse;font-size:13px}
-td,th{text-align:left;padding:6px;border-bottom:1px solid var(--line);vertical-align:top}
-.empty{color:var(--muted);padding:24px;text-align:center}
+th,td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+@media (max-width:640px){.controls{grid-template-columns:1fr}.toggle{justify-self:start}}
 </style>
 </head>
 <body>
 <main>
-  <h1>Geo Radar</h1>
-  <p class="sub">Fresh jobs, courses and events for photogrammetry, remote sensing and geoinformatics. Only recently seen items are kept.</p>
-  <div class="bar"><input id="q" type="search" placeholder="Filter by title, source or topic" aria-label="Filter items"></div>
-  <div class="tabs" id="tabs"></div>
-  <div class="meta" id="meta">Loading…</div>
+  <header>
+    <h1>Geo Radar</h1>
+    <p class="tagline">Recent jobs, papers, courses and events in photogrammetry, remote sensing and geoinformatics. Items expire when they stop appearing in their sources.</p>
+  </header>
+
+  <div class="controls">
+    <label class="sr-only" for="q" style="position:absolute;left:-9999px">Search</label>
+    <input id="q" type="search" placeholder="Search titles, sources, topics  (press /)" autocomplete="off">
+    <select id="sort" aria-label="Sort by">
+      <option value="seen">Recently seen</option>
+      <option value="published">Published date</option>
+      <option value="source">Source name</option>
+    </select>
+    <label class="toggle"><input id="savedOnly" type="checkbox"> Saved only</label>
+  </div>
+
+  <div class="tabs" id="tabs" role="group" aria-label="Filter by type"></div>
+  <div class="count" id="count" aria-live="polite">Loading…</div>
   <div id="list"></div>
-  <details><summary>Sources and health</summary><div class="tablewrap" id="sources"></div></details>
+
+  <footer>
+    <p id="meta"></p>
+    <details>
+      <summary>Sources and status</summary>
+      <div class="tablewrap" id="sources"></div>
+    </details>
+    <p>Saved items are stored in this browser only.</p>
+  </footer>
 </main>
 <script>
 const KINDS = [["all","All"],["job","Jobs"],["paper","Papers"],["course","Courses"],["event","Events"],["news","News"]];
-let feed = { items: [] }, status = {}, kind = "all", query = "";
+const SAVED_KEY = "geo-radar-saved";
+let feed = { items: [] }, status = {}, kind = "all", query = "", sort = "seen", savedOnly = false;
+let saved = new Set();
+
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const fmtDate = iso => iso ? new Date(iso).toLocaleDateString(undefined, {day:"numeric", month:"short", year:"numeric"}) : "";
 const fmtTime = iso => iso ? new Date(iso).toLocaleString() : "";
 const isNew = it => Date.now() - Date.parse(it.first_seen) < 7 * 864e5;
 
-function render() {
+function loadSaved() {
+  try { saved = new Set(JSON.parse(localStorage.getItem(SAVED_KEY) || "[]")); }
+  catch { saved = new Set(); }
+}
+function persistSaved() {
+  try { localStorage.setItem(SAVED_KEY, JSON.stringify([...saved])); } catch { /* storage unavailable */ }
+}
+
+function visibleItems() {
   const q = query.trim().toLowerCase();
-  const items = feed.items.filter(it =>
+  let items = feed.items.filter(it =>
     (kind === "all" || it.kind === kind) &&
+    (!savedOnly || saved.has(it.id)) &&
     (!q || [it.title, it.source_name, (it.matched || []).join(" ")].join(" ").toLowerCase().includes(q)));
+  const byDate = (a, b, key) => (Date.parse(b[key] || 0) || 0) - (Date.parse(a[key] || 0) || 0);
+  if (sort === "seen") items.sort((a, b) => byDate(a, b, "first_seen"));
+  if (sort === "published") items.sort((a, b) => byDate(a, b, "published"));
+  if (sort === "source") items.sort((a, b) => String(a.source_name).localeCompare(String(b.source_name)));
+  return items;
+}
+
+function render() {
   document.getElementById("tabs").innerHTML = KINDS.map(([k, label]) => {
     const n = k === "all" ? feed.items.length : feed.items.filter(i => i.kind === k).length;
-    return `<button class="tab" data-k="${k}" aria-pressed="${k === kind}">${label} (${n})</button>`;
+    return `<button class="tab" data-k="${k}" aria-pressed="${k === kind}">${label} <span class="count">${n}</span></button>`;
   }).join("");
+  const items = visibleItems();
+  document.getElementById("count").textContent =
+    `${items.length} ${items.length === 1 ? "item" : "items"}${savedOnly ? " saved" : ""}`;
   document.getElementById("list").innerHTML = items.length ? items.map(it => `
     <article class="card">
-      <a href="${esc(it.url)}" target="_blank" rel="noopener">${esc(it.title)}</a>
-      <div class="row">
-        ${isNew(it) ? '<span class="badge new">New</span>' : ""}
-        <span class="badge">${esc(it.kind)}</span>
+      <h2><a href="${esc(it.url)}" target="_blank" rel="noopener noreferrer">${esc(it.title)}</a></h2>
+      <div class="meta">
+        ${isNew(it) ? '<span class="pill new">New</span>' : ""}
+        <span class="pill">${esc(it.kind)}</span>
         <span>${esc(it.source_name)}</span>
-        <span>${fmtDate(it.published) || "first seen " + fmtDate(it.first_seen)}</span>
+        <span>${it.published ? "published " + fmtDate(it.published) : "seen " + fmtDate(it.first_seen)}</span>
+        <button class="save" data-id="${esc(it.id)}" aria-pressed="${saved.has(it.id)}">${saved.has(it.id) ? "Saved" : "Save"}</button>
       </div>
-      ${it.matched && it.matched.length ? `<div class="row chip">${it.matched.slice(0, 5).map(esc).join(" · ")}</div>` : ""}
-    </article>`).join("") : '<div class="empty">Nothing matches right now.</div>';
+      ${it.matched && it.matched.length ? `<div class="terms">${it.matched.slice(0, 5).map(esc).join(" · ")}</div>` : ""}
+    </article>`).join("") : '<div class="empty">Nothing matches these filters.</div>';
 }
 
 document.getElementById("tabs").addEventListener("click", e => {
   const b = e.target.closest("[data-k]");
   if (b) { kind = b.dataset.k; render(); }
 });
+document.getElementById("list").addEventListener("click", e => {
+  const b = e.target.closest(".save");
+  if (!b) return;
+  const id = b.dataset.id;
+  saved.has(id) ? saved.delete(id) : saved.add(id);
+  persistSaved();
+  render();
+});
 document.getElementById("q").addEventListener("input", e => { query = e.target.value; render(); });
+document.getElementById("sort").addEventListener("change", e => { sort = e.target.value; render(); });
+document.getElementById("savedOnly").addEventListener("change", e => { savedOnly = e.target.checked; render(); });
+document.addEventListener("keydown", e => {
+  if (e.key === "/" && document.activeElement.tagName !== "INPUT" && document.activeElement.tagName !== "TEXTAREA") {
+    e.preventDefault();
+    document.getElementById("q").focus();
+  }
+});
 
+loadSaved();
 Promise.all([
   fetch("data/feed.json", { cache: "no-store" }).then(r => r.json()),
   fetch("data/status.json", { cache: "no-store" }).then(r => r.json()).catch(() => ({})),
 ]).then(([f, s]) => {
   feed = f; status = s;
   document.getElementById("meta").textContent =
-    `Updated ${fmtTime(feed.generated_at)} · ${feed.items.length} items · kept for ${feed.retain_days} days`;
+    `Updated ${fmtTime(feed.generated_at)} · ${feed.items.length} items · each kind kept for its own window`;
   render();
   const rows = Object.entries(status).map(([id, st]) => `
     <tr><td>${esc(id)}</td><td>${esc(st.state)}</td><td>${esc(fmtTime(st.last_checked))}</td>
