@@ -215,8 +215,10 @@ async function runSource(src, statusOut) {
     return [];
   }
   try {
-    if (!(await robotsAllows(src.url))) throw new Error("disallowed by robots.txt");
-    const body = await fetchText(src.url);
+    if (!(await robotsAllows(src.url.replace(/\{since:\d+\}/g, "")))) throw new Error("disallowed by robots.txt");
+    // {since:N} in a URL becomes the date N days ago (YYYY-MM-DD), keeping API queries to recent work.
+    const url = src.url.replace(/\{since:(\d+)\}/g, (_, d) => new Date(now.getTime() - Number(d) * 864e5).toISOString().slice(0, 10));
+    const body = await fetchText(url);
     const raw =
       src.type === "rss" ? parseFeed(body)
       : src.type === "openalex" ? parseOpenAlex(body)
@@ -276,7 +278,7 @@ await writeFile(
 );
 await writeFile(
   path.join(DATA_DIR, "status.json"),
-  JSON.stringify({ ...statusPrev, ...statusOut }, null, 2) + "\n",
+  JSON.stringify(Object.fromEntries(Object.entries({ ...statusPrev, ...statusOut }).filter(([id]) => enabled.some((e) => e.id === id))), null, 2) + "\n",
 );
 
 console.log(
