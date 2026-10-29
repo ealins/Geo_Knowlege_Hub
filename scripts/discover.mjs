@@ -20,15 +20,18 @@ const nowIso = new Date().toISOString();
 
 const esc = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 const WEAK = new Set(["mapping", "satellite", "Copernicus", "spatial data", "Earth system", "digital twin", "3D reconstruction", "BIM", "IFC", "UAV"]);
-const STRONG = new RegExp(`(?<!\\p{L})(?:${domain.terms.filter((t) => !WEAK.has(t)).map(esc).join("|")})(?!\\p{L})`, "iu");
-const URL_KEY = /(geomatic|geodes|geoinform|geospatial|remote[-_ ]?sensing|photogramm|earth[-_ ]?observ|[-_/]gis[-_/.]|lidar|cartograph|geograph|geoscien|surveying|spatial[-_ ]?(data|analysis|science))/i;
+// Programme titles use fuller names than the radar's keyword list.
+const EXTRA = ["geographic information", "geographical information", "GIScience", "GI Science", "geomatics", "surveying engineering", "geodetic", "geospatial", "Geoinformation", "Geoinformatik", "Fernerkundung"];
+const STRONG = new RegExp(`(?<!\\p{L})(?:${[...domain.terms.filter((t) => !WEAK.has(t)), ...EXTRA].map(esc).join("|")})(?!\\p{L})`, "iu");
+const URL_KEY = /(geomatic|geodes|geoinform|geospatial|remote[-_ ]?sensing|photogramm|earth[-_ ]?observ|[-_/]gis[-_/.]|(?<![a-z])lidar|cartograph|geograph|geoscien|surveying|spatial[-_ ]?(data|analysis|science))/i;
 const NAV = /(graduate|master|msc|m\.s\.|programs?|programmes?|degrees?|admission|apply|academics|study|studies|department|school|college|faculty|fachbereich|studium|studiengang)/i;
-const PROG = /\b(M\.?\s?Sc\.?|M\.?\s?S\.?|M\.?\s?A\.?|MEng|Master|Masters|Master['’]s|graduate certificate|graduate program(me)?|PhD|Ph\.D\.|doctoral|degree|program(me)?|major|certificate|Studiengang|Bachelor|B\.?\s?Sc\.?|undergraduate)\b/i;
+const PROG = /\b(M\.?\s?Sc\.?|M\.?\s?S\.?|M\.?\s?A\.?|B\.?\s?S\.?|B\.?\s?A\.?|MEng|Master|Masters|Master['’]s|graduate certificate|graduate program(me)?|PhD|Ph\.D\.|doctoral|degree|program(me)?|major|certificate|Studiengang|Bachelor|B\.?\s?Sc\.?|undergraduate)\b/i;
 const GENERIC = /^(contact|faq|how to apply|apply|admission|admissions|application|applying|requirements|factsheet|timeline|courses?( and timeline)?|career|careers|research|overview|home|laptop|fees|tuition|scholarships?|news|stories|story|events?|people|staff|about|welcome|department of .*|school of .*|college of .*)\b/i;
-const SKIP_PATH = /(\/news|\/events?\/|\/people|\/person|\/faculty\/|\/staff|\/directory|\/profile|\/publications?|\/blog|\/seminar|\/colloquium|\/calendar|\/jobs|\/careers|\/alumni|\/research-?groups?|\/labs?\/|\/projects?\/|\.pdf$|\.(jpg|png|zip)$)/i;
+const SKIP_PATH = /(\/news|\/agenda|\/evenemang|\/eventi|\/actualit|\/notizi|\/noticia|\/artikel|\/articles?\/|\/stories|\/story|\/presse|\/press|\/activit|\/conferences?\/|\/features?\/|\/research\/|\/a-z-research|\/library|\/libraries|\/bu\/|\/minors?\/|\/events?\/|\/people|\/person|\/faculty\/|\/staff|\/directory|\/profile|\/publications?|\/blog|\/seminar|\/colloquium|\/calendar|\/jobs|\/careers|\/alumni|\/research-?groups?|\/labs?\/|\/projects?\/|\.pdf$|\.(jpg|png|zip)$)/i;
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-const clean = (s = "") => s.replace(/<[^>]+>/g, " ").replace(/&amp;/g, "&").replace(/&#0?39;|&rsquo;/g, "'").replace(/&nbsp;/g, " ").replace(/\s+/g, " ").trim();
+const clean = (s = "") =>
+  s.replace(/<[^>]+>/g, " ").replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(+n)).replace(/&apos;|&rsquo;/g, "'").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&nbsp;/g, " ").replace(/&amp;/g, "&").replace(/\s+/g, " ").trim();
 
 // ---------- 1. universities ----------
 async function universities() {
@@ -125,8 +128,9 @@ function programmeOf(html, url) {
   const desc = clean(html.match(/<meta[^>]+name=["']description["'][^>]+content=["']([^"']+)/i)?.[1] ?? "");
   const title = (h1.length >= 8 && h1.length <= 140 ? h1 : ogt || ttl).replace(/\s*[|–—-]\s*[^|–—-]{0,60}$/, (m) => (/univers|college|school|institute|hochschule/i.test(m) ? "" : m));
   const head = `${h1} ${ogt} ${ttl}`;
+  const level = /\b(PhD|Ph\.D\.|doctoral)\b/i.test(head) ? "doctoral" : /\b(certificate)\b/i.test(head) ? "certificate" : /\b(M\.?\s?Sc|MS|MA|MEng|Master|Masters|Master['’]s)\b/.test(head) ? "master" : /\b(Bachelor|B\.?\s?Sc|BS|BA|undergraduate)\b/.test(head) ? "bachelor" : "";
   if (!STRONG.test(head) || !PROG.test(`${head} ${url}`) || SKIP_PATH.test(url) || title.length < 8 || GENERIC.test(title) || /\b(minor|day|seminar|stories|story)\b/i.test(title) || /studeert|stories?\//i.test(`${title} ${url}`)) return null;
-  return { title: title.slice(0, 140), summary: desc.slice(0, 220) };
+  return { title: title.replace(/\s*<\s.*$/, "").slice(0, 140), summary: desc.slice(0, 220), level };
 }
 
 async function crawl(u) {
