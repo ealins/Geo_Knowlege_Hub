@@ -1,0 +1,43 @@
+name: Discover programmes
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Weekly, Monday 03:41 UTC. The radar picks the result up on its next run.
+    - cron: "41 3 * * 1"
+  push:
+    branches: [main]
+    paths: ["scripts/discover.mjs", "config/discover.json"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: geo-radar-discover
+  cancel-in-progress: false
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Find programmes at top universities
+        run: node scripts/discover.mjs | tee discover.log
+      - name: Commit result
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          mkdir -p data
+          tail -n 400 discover.log | head -c 60000 > data/discover-log.txt
+          git add data/programmes-discovered.json data/discover-log.txt
+          if git diff --cached --quiet; then
+            echo "No changes."
+          else
+            git commit -m "discover: refresh programmes"
+            git pull --rebase -q
+            git push
+          fi

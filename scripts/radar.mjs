@@ -8,13 +8,13 @@ import { createHash } from "node:crypto";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { getEnabledSources } from "./source-config.mjs";
+import { UA, fetchText, robotsAllows } from "./net.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const DATA_DIR = path.join(ROOT, "data");
 const RETAIN_DAYS = Number(process.env.RETAIN_DAYS ?? 45);
 const MAX_FAILURES = Number(process.env.MAX_FAILURES ?? 5);
 const SOURCES_FILE = process.env.SOURCES_FILE ?? path.join(ROOT, "config", "sources.json");
-const UA = "GeoRadarBot/1.0 (+https://github.com/ealins/geo_knowlege_hub)";
 const now = new Date();
 const nowIso = now.toISOString();
 
@@ -84,67 +84,6 @@ async function renderPage(url) {
   } finally {
     await page.close();
   }
-}
-
-async function fetchText(url, extraHeaders = {}) {
-  const res = await fetch(url, {
-    headers: {
-      "user-agent": UA,
-      accept: "application/rss+xml,application/atom+xml,application/json,text/html;q=0.9,*/*;q=0.5",
-      ...extraHeaders,
-    },
-    signal: AbortSignal.timeout(20_000),
-    redirect: "follow",
-  });
-  if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  return res.text();
-}
-
-// Minimal robots.txt check: longest matching rule wins; our UA group or "*".
-async function robotsAllows(url) {
-  const u = new URL(url);
-  let txt = "";
-  try {
-    const r = await fetch(new URL("/robots.txt", u), {
-      headers: { "user-agent": UA },
-      signal: AbortSignal.timeout(10_000),
-    });
-    if (!r.ok) return true;
-    txt = await r.text();
-  } catch {
-    return true;
-  }
-  const groups = [];
-  let cur = null;
-  for (const raw of txt.split(/\r?\n/)) {
-    const line = raw.split("#")[0].trim();
-    if (!line) continue;
-    const idx = line.indexOf(":");
-    if (idx < 0) continue;
-    const key = line.slice(0, idx).trim().toLowerCase();
-    const val = line.slice(idx + 1).trim();
-    if (key === "user-agent") {
-      if (!cur || cur.rules.length) {
-        cur = { agents: [], rules: [] };
-        groups.push(cur);
-      }
-      cur.agents.push(val.toLowerCase());
-    } else if ((key === "allow" || key === "disallow") && cur) {
-      cur.rules.push({ type: key, path: val });
-    }
-  }
-  const mine = groups.filter((g) => g.agents.includes("georadarbot"));
-  const group = mine.length ? mine : groups.filter((g) => g.agents.includes("*"));
-  const rules = group.flatMap((g) => g.rules).filter((r) => r.path);
-  const p = u.pathname + u.search;
-  let bestAllow = -1;
-  let bestDisallow = -1;
-  for (const r of rules) {
-    if (!p.startsWith(r.path)) continue;
-    if (r.type === "allow") bestAllow = Math.max(bestAllow, r.path.length);
-    else bestDisallow = Math.max(bestDisallow, r.path.length);
-  }
-  return bestDisallow < 0 || bestAllow >= bestDisallow;
 }
 
 // ---------- parsing ----------
@@ -386,6 +325,14 @@ async function runSource(src, statusOut) {
     return [];
   }
   try {
+    if (src.type === "discovered") {
+      // Programmes found by scripts/discover.mjs (weekly); read from the committed file.
+      const file = await readJson(path.join(DATA_DIR, "programmes-discovered.json"), { items: [] });
+      const raw = file.items.map((p) => ({ title: p.title, link: p.url, date: "", summary: `${p.summary || ""} ${p.university}`, deadline: p.deadline || "", location: `${p.university}, ${p.country}` }));
+      const kept = raw.map((r) => classify(r, src)).filter(Boolean);
+      statusOut[src.id] = { state: "ok", last_checked: nowIso, last_success: nowIso, items_found: raw.length, items_matched: kept.length, consecutive_failures: 0, last_error: null };
+      return kept;
+    }
     if (!(await robotsAllows(src.url.replace(/\{since:\d+\}/g, "")))) throw new Error("disallowed by robots.txt");
     // {since:N} in a URL becomes the date N days ago (YYYY-MM-DD), keeping API queries to recent work.
     const url = src.url.replace(/\{since:(\d+)\}/g, (_, d) => new Date(now.getTime() - Number(d) * 864e5).toISOString().slice(0, 10));
@@ -441,7 +388,7 @@ for (const it of fresh) {
 // Listing pages (html) show only what is currently open: if such a source was
 // read successfully and an item is no longer on it, the item is gone. Feeds
 // and APIs roll over quickly, so their items keep the per-kind window instead.
-const htmlOk = new Set(enabled.filter((s) => ["html", "jobsacuk", "page"].includes(s.type) && statusOut[s.id]?.state === "ok").map((s) => s.id));
+const htmlOk = new Set(enabled.filter((s) => ["html", "jobsacuk", "page", "discovered"].includes(s.type) && statusOut[s.id]?.state === "ok").map((s) => s.id));
 for (const it of previous.items ?? []) {
   if (merged.has(it.id) || htmlOk.has(it.source)) continue;
   merged.set(it.id, it);

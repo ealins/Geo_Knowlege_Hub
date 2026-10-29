@@ -806,6 +806,14 @@
       "tag": "geodesy geoinformation",
       "location": "Darmstadt, Germany",
       "enabled": true
+    },
+    {
+      "id": "discovered-programmes",
+      "name": "University departments (auto-discovered)",
+      "url": "https://geoacademic.app/data/programmes-discovered.json",
+      "type": "discovered",
+      "kind": "course",
+      "enabled": true
     }
   ]
 }
