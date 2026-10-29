@@ -293,22 +293,6 @@
       "enabled": true
     },
     {
-      "id": "bonn-jobs",
-      "name": "University of Bonn jobs",
-      "url": "https://www.uni-bonn.de/en/university/working-at-the-university/job-offers",
-      "type": "html",
-      "kind": "job",
-      "enabled": true
-    },
-    {
-      "id": "hannover-jobs",
-      "name": "Leibniz University Hannover jobs",
-      "url": "https://www.uni-hannover.de/en/universitaet/stellenangebote/",
-      "type": "html",
-      "kind": "job",
-      "enabled": true
-    },
-    {
       "id": "tudresden-jobs",
       "name": "TU Dresden jobs",
       "url": "https://tu-dresden.de/karriere/stellenangebote",
@@ -336,14 +320,6 @@
       "id": "freiburg-jobs",
       "name": "University of Freiburg jobs",
       "url": "https://www.jobs.uni-freiburg.de/",
-      "type": "html",
-      "kind": "job",
-      "enabled": true
-    },
-    {
-      "id": "wuerzburg-jobs",
-      "name": "University of Würzburg jobs",
-      "url": "https://www.uni-wuerzburg.de/en/karriere/stellenangebote/",
       "type": "html",
       "kind": "job",
       "enabled": true
@@ -397,14 +373,6 @@
       "enabled": true
     },
     {
-      "id": "kth-jobs",
-      "name": "KTH vacancies",
-      "url": "https://www.kth.se/en/om/work-at-kth/lediga-jobb",
-      "type": "html",
-      "kind": "job",
-      "enabled": true
-    },
-    {
       "id": "dtu-jobs",
       "name": "DTU vacant positions",
       "url": "https://www.dtu.dk/english/about/job-and-career/vacant-positions",
@@ -453,14 +421,6 @@
       "enabled": true
     },
     {
-      "id": "jrc-jobs",
-      "name": "EU Joint Research Centre jobs",
-      "url": "https://joint-research-centre.ec.europa.eu/working-us_en",
-      "type": "html",
-      "kind": "job",
-      "enabled": true
-    },
-    {
       "id": "plus-jobs",
       "name": "University of Salzburg jobs",
       "url": "https://www.plus.ac.at/jobs/",
@@ -472,22 +432,6 @@
       "id": "academictransfer-rs",
       "name": "AcademicTransfer: remote sensing",
       "url": "https://www.academictransfer.com/en/jobs/?q=remote+sensing",
-      "type": "html",
-      "kind": "job",
-      "enabled": true
-    },
-    {
-      "id": "naturecareers-rs",
-      "name": "Nature Careers: remote sensing",
-      "url": "https://www.nature.com/naturecareers/jobs/search?keywords=remote+sensing",
-      "type": "html",
-      "kind": "job",
-      "enabled": true
-    },
-    {
-      "id": "scholarshipdb-rs",
-      "name": "ScholarshipDb: remote sensing",
-      "url": "https://scholarshipdb.net/scholarships?q=remote+sensing",
       "type": "html",
       "kind": "job",
       "enabled": true
@@ -512,30 +456,6 @@
       "id": "intergeo",
       "name": "INTERGEO",
       "url": "https://www.intergeo.de/en",
-      "type": "html",
-      "kind": "event",
-      "enabled": true
-    },
-    {
-      "id": "conferenceindex-rs",
-      "name": "ConferenceIndex: remote sensing",
-      "url": "https://conferenceindex.org/conferences/remote-sensing",
-      "type": "html",
-      "kind": "event",
-      "enabled": true
-    },
-    {
-      "id": "conferenceindex-gis",
-      "name": "ConferenceIndex: GIS",
-      "url": "https://conferenceindex.org/conferences/geographic-information-systems",
-      "type": "html",
-      "kind": "event",
-      "enabled": true
-    },
-    {
-      "id": "conferenceindex-photogrammetry",
-      "name": "ConferenceIndex: photogrammetry",
-      "url": "https://conferenceindex.org/conferences/photogrammetry",
       "type": "html",
       "kind": "event",
       "enabled": true
@@ -573,14 +493,6 @@
       "enabled": true
     },
     {
-      "id": "kit-programs",
-      "name": "KIT study programmes",
-      "url": "https://www.kit.edu/english/studies.php",
-      "type": "html",
-      "kind": "course",
-      "enabled": true
-    },
-    {
       "id": "tudelft-masters",
       "name": "TU Delft master programmes",
       "url": "https://www.tudelft.nl/en/education/programmes/masters",
@@ -613,33 +525,9 @@
       "enabled": true
     },
     {
-      "id": "hft-programs",
-      "name": "HFT Stuttgart programmes",
-      "url": "https://www.hft-stuttgart.com/study",
-      "type": "html",
-      "kind": "course",
-      "enabled": true
-    },
-    {
-      "id": "lund-programs",
-      "name": "Lund University master programmes",
-      "url": "https://www.lunduniversity.lu.se/study/find-programmes-and-courses/masters-programmes",
-      "type": "html",
-      "kind": "course",
-      "enabled": true
-    },
-    {
       "id": "kth-programs",
       "name": "KTH master programmes",
       "url": "https://www.kth.se/en/studies/master",
-      "type": "html",
-      "kind": "course",
-      "enabled": true
-    },
-    {
-      "id": "dtu-programs",
-      "name": "DTU MSc programmes",
-      "url": "https://www.dtu.dk/english/education/msc",
       "type": "html",
       "kind": "course",
       "enabled": true
@@ -685,14 +573,6 @@
       "enabled": true
     },
     {
-      "id": "polimi-programs",
-      "name": "Politecnico di Milano programmes",
-      "url": "https://www.polimi.it/en/students/prospective-students/master-of-science",
-      "type": "html",
-      "kind": "course",
-      "enabled": true
-    },
-    {
       "id": "upv-programs",
       "name": "UPV Valencia masters",
       "url": "https://www.upv.es/estudios/posgrado/index-en.html",
@@ -704,14 +584,6 @@
       "id": "aau-programs",
       "name": "Aalborg University programmes",
       "url": "https://www.en.aau.dk/education/master",
-      "type": "html",
-      "kind": "course",
-      "enabled": true
-    },
-    {
-      "id": "ucl-programs",
-      "name": "UCL Geography / Geomatics postgraduate",
-      "url": "https://www.ucl.ac.uk/prospective-students/graduate/taught-degrees",
       "type": "html",
       "kind": "course",
       "enabled": true
