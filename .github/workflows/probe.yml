@@ -13,7 +13,7 @@ jobs:
         with: { node-version: 22 }
       - run: node scripts/dump.mjs
         env:
-          URLS: '["https://www.jobs.ac.uk/search/?keywords=remote+sensing&sortOrder=1&pageSize=50&startIndex=1","https://www.egu.eu/jobs/","https://www.gim-international.com/jobs","https://www.academics.de/jobs?search=photogrammetrie","https://www.isprs.org/society/awards.aspx"]'
+          URLS: '["https://www.mygermanuniversity.com/subjects/remote-sensing/master/application-deadlines", "https://www.mygermanuniversity.com/subjects/geodesy-and-geoinformatics/master/application-deadlines", "https://www.mygermanuniversity.com/subjects/geoinformatics-and-geophysics/master/application-deadlines", "https://www.mygermanuniversity.com/subjects/remote-sensing/international-programs/application-deadlines", "https://www.mygermanuniversity.com/master/geoinformatics-and-spatial-data-science/589", "https://www2.daad.de/deutschland/studienangebote/international-programmes/en/detail/6963", "https://www2.daad.de/deutschland/studienangebote/international-programmes/en/detail/4562", "https://www.myguide.de/en/international-programmes-master/detail/technische-universitaet-berlin-international-masters-programme-in-geodesy-and-geoinformation-science-6084/?ip-id=6084", "https://www.mastersportal.com/studies/259804/geodesy-and-geoinformation.html"]'
       - name: Commit output
         if: always()
         run: |
