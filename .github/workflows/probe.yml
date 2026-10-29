@@ -11,7 +11,9 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
-      - run: node scripts/probe.mjs
+      - run: node scripts/dump.mjs
+        env:
+          URLS: '["https://www.jobs.ac.uk/search/?keywords=remote+sensing&sortOrder=1&pageSize=50&startIndex=1","https://www.egu.eu/jobs/","https://www.gim-international.com/jobs","https://www.academics.de/jobs?search=photogrammetrie","https://www.isprs.org/society/awards.aspx"]'
       - name: Commit output
         if: always()
         run: |
