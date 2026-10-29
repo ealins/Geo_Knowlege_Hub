@@ -151,6 +151,7 @@ async function crawl(u) {
     if (!html) continue;
     if (URL_KEY.test(href)) { const d = findDeadline(html); if (d) aux.set(href, d); }
     const prog = programmeOf(html, href);
+    if (!prog && URL_KEY.test(href) && (state.rej ??= []).length < 4) state.rej.push(`${href.slice(0, 90)} => ${clean(html.match(/<title[^>]*>([\s\S]*?)<\/title>/i)?.[1] ?? "").slice(0, 60)}`);
     if (prog) {
       let deadline = findDeadline(html);
       if (!deadline) {
@@ -180,7 +181,7 @@ async function crawl(u) {
     if (hit) it.deadline = hit[1];
   }
   const items = [...found.values()].sort((a, b) => Number(Boolean(b.deadline)) - Number(Boolean(a.deadline))).slice(0, cfg.max_programmes_per_university);
-  return { items, fetched: state.fetched, err: state.err ?? null };
+  return { items, fetched: state.fetched, err: state.err ?? null, rej: state.rej ?? [], seenQueue: seen.size };
 }
 
 // ---------- main ----------
@@ -194,6 +195,7 @@ await Promise.all(Array.from({ length: 8 }, async () => {
     try {
       const r = await crawl(u);
       console.log(`${u.name} (${u.country}): pages ${r.fetched}, programmes ${r.items.length}, with deadline ${r.items.filter((i) => i.deadline).length}${r.items.length ? "" : r.err ? " [" + r.err + "]" : ""}`);
+      if (!r.items.length && r.rej.length) console.log("   rejected: " + r.rej.join(" ;; "));
       // A site that could not be read keeps last week's entries instead of vanishing.
       results.push(...(r.fetched === 0 ? prevFile.items.filter((i) => i.university === u.name) : r.items));
     } catch (e) {
