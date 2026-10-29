@@ -194,33 +194,9 @@
       "enabled": true
     },
     {
-      "id": "kit-jobs",
-      "name": "KIT job offers",
-      "url": "https://www.pse.kit.edu/karriere/joboffers.php",
-      "type": "html",
-      "kind": "job",
-      "enabled": true
-    },
-    {
       "id": "utwente-vacancies",
       "name": "University of Twente / ITC vacancies",
       "url": "https://www.utwente.nl/en/organisation/careers/vacancies/",
-      "type": "html",
-      "kind": "job",
-      "enabled": true
-    },
-    {
-      "id": "unistuttgart-jobs",
-      "name": "University of Stuttgart jobs",
-      "url": "https://www.uni-stuttgart.de/en/jobs/",
-      "type": "html",
-      "kind": "job",
-      "enabled": true
-    },
-    {
-      "id": "tum-jobs",
-      "name": "TUM job portal",
-      "url": "https://portal.mytum.de/jobs",
       "type": "html",
       "kind": "job",
       "enabled": true
@@ -255,6 +231,158 @@
       "url": "https://jobs.tuwien.ac.at/",
       "type": "html",
       "kind": "job",
+      "enabled": true
+    },
+    {
+      "id": "grss-events",
+      "name": "IEEE GRSS events",
+      "url": "https://www.grss-ieee.org/events/",
+      "type": "html",
+      "kind": "event",
+      "enabled": true
+    },
+    {
+      "id": "earsel-events",
+      "name": "EARSeL events",
+      "url": "https://earsel.org/events/",
+      "type": "html",
+      "kind": "event",
+      "enabled": true
+    },
+    {
+      "id": "dgpf-events",
+      "name": "DGPF (German Society for Photogrammetry) events",
+      "url": "https://www.dgpf.de/",
+      "type": "html",
+      "kind": "event",
+      "enabled": true
+    },
+    {
+      "id": "fig-events",
+      "name": "FIG events",
+      "url": "https://www.fig.net/news/events/index.asp",
+      "type": "html",
+      "kind": "event",
+      "enabled": true
+    },
+    {
+      "id": "asprs-events",
+      "name": "ASPRS events",
+      "url": "https://www.asprs.org/events",
+      "type": "html",
+      "kind": "event",
+      "enabled": true
+    },
+    {
+      "id": "rspsoc-events",
+      "name": "RSPSoc events",
+      "url": "https://www.rspsoc.org.uk/events",
+      "type": "html",
+      "kind": "event",
+      "enabled": true
+    },
+    {
+      "id": "egu-meetings",
+      "name": "EGU meetings",
+      "url": "https://www.egu.eu/meetings/",
+      "type": "html",
+      "kind": "event",
+      "enabled": true
+    },
+    {
+      "id": "agile-gi",
+      "name": "AGILE GIScience conference",
+      "url": "https://agile-online.org/",
+      "type": "html",
+      "kind": "event",
+      "enabled": true
+    },
+    {
+      "id": "isprs-congress-events",
+      "name": "ISPRS events listing",
+      "url": "https://www.isprs.org/news/events.aspx",
+      "type": "html",
+      "kind": "event",
+      "enabled": true
+    },
+    {
+      "id": "hochschulkompass-geoinformatik",
+      "name": "Hochschulkompass (DE): Geoinformatik",
+      "url": "https://www.hochschulkompass.de/studium/studiengangsuche/erweiterte-studiengangsuche.html?tx_szhrksearch_pi1%5Bsearch%5D=1&tx_szhrksearch_pi1%5Bfach%5D=Geoinformatik",
+      "type": "html",
+      "kind": "course",
+      "enabled": true
+    },
+    {
+      "id": "hochschulkompass-photogrammetrie",
+      "name": "Hochschulkompass (DE): Photogrammetrie",
+      "url": "https://www.hochschulkompass.de/studium/studiengangsuche/erweiterte-studiengangsuche.html?tx_szhrksearch_pi1%5Bsearch%5D=1&tx_szhrksearch_pi1%5Bfach%5D=Photogrammetrie",
+      "type": "html",
+      "kind": "course",
+      "enabled": true
+    },
+    {
+      "id": "hochschulkompass-fernerkundung",
+      "name": "Hochschulkompass (DE): Fernerkundung",
+      "url": "https://www.hochschulkompass.de/studium/studiengangsuche/erweiterte-studiengangsuche.html?tx_szhrksearch_pi1%5Bsearch%5D=1&tx_szhrksearch_pi1%5Bfach%5D=Fernerkundung",
+      "type": "html",
+      "kind": "course",
+      "enabled": true
+    },
+    {
+      "id": "hochschulkompass-geodaesie",
+      "name": "Hochschulkompass (DE): Geodäsie",
+      "url": "https://www.hochschulkompass.de/studium/studiengangsuche/erweiterte-studiengangsuche.html?tx_szhrksearch_pi1%5Bsearch%5D=1&tx_szhrksearch_pi1%5Bfach%5D=Geod%C3%A4sie",
+      "type": "html",
+      "kind": "course",
+      "enabled": true
+    },
+    {
+      "id": "studyinnl-geo",
+      "name": "Study in NL: geo-information",
+      "url": "https://www.studyinnl.org/finding-a-programme?search=geo-information",
+      "type": "html",
+      "kind": "course",
+      "enabled": true
+    },
+    {
+      "id": "studyinsweden-gis",
+      "name": "Study in Sweden: GIS",
+      "url": "https://studyinsweden.se/?s=GIS",
+      "type": "html",
+      "kind": "course",
+      "enabled": true
+    },
+    {
+      "id": "studyinfo-fi-geo",
+      "name": "Studyinfo Finland: geoinformatics",
+      "url": "https://opintopolku.fi/konfo/en/haku/geoinformatics",
+      "type": "html",
+      "kind": "course",
+      "enabled": true
+    },
+    {
+      "id": "studyinaustria-geo",
+      "name": "Study in Austria: geoinformatics",
+      "url": "https://studyinaustria.at/en/study/degree-programmes?q=geoinformatics",
+      "type": "html",
+      "kind": "course",
+      "enabled": true
+    },
+    {
+      "id": "swissuniversities-geo",
+      "name": "Swissuniversities study programmes: geomatics",
+      "url": "https://www.studyprogrammes.ch/en/?q=geomatics",
+      "type": "html",
+      "kind": "course",
+      "enabled": true
+    },
+    {
+      "id": "campusfrance-geo",
+      "name": "Campus France: geomatics",
+      "url": "https://taughtie.campusfrance.org/tiesearch/#/catalog?query=geomatics",
+      "type": "html",
+      "kind": "course",
       "enabled": true
     }
   ]
