@@ -1,565 +1,837 @@
 {
- "generated_at": "2026-10-29T20:34:10.020Z",
+ "generated_at": "2026-10-29T20:42:30.729Z",
  "universities": 122,
- "count": 62,
+ "count": 83,
  "items": [
   {
    "url": "https://www.utwente.nl/en/education/master/programmes/geo-information-science-earth-observation/master-structure/",
-   "title": "Master&apos;s structure",
+   "title": "Master's structure",
    "summary": "",
+   "level": "master",
    "university": "University of Twente",
    "country": "NL",
    "deadline": "2027-05-01T23:59:59.000Z",
-   "discovered_at": "2026-10-29T20:34:10.020Z"
+   "discovered_at": "2026-10-29T20:42:30.729Z"
   },
   {
    "url": "https://www.utwente.nl/onderwijs/master/opleidingen/geo-information-science-earth-observation/",
-   "title": "Geo-information Science &#38; Earth Observation",
+   "title": "Geo-information Science & Earth Observation",
    "summary": "",
+   "level": "master",
    "university": "University of Twente",
    "country": "NL",
    "deadline": null,
-   "discovered_at": "2026-10-29T20:34:10.020Z"
+   "discovered_at": "2026-10-29T20:42:30.729Z"
   },
   {
    "url": "https://www.utwente.nl/en/education/master/programmes/geo-information-science-earth-observation/admission-application/university-students/",
    "title": "For students of Dutch research universities",
    "summary": "",
+   "level": "",
    "university": "University of Twente",
    "country": "NL",
    "deadline": null,
-   "discovered_at": "2026-10-29T20:34:10.020Z"
+   "discovered_at": "2026-10-29T20:42:30.729Z"
   },
   {
    "url": "https://www.utwente.nl/en/education/master/programmes/geo-information-science-earth-observation/cau-china/",
-   "title": "Geo-information Science and Earth Observation Double degree Master&apos;s with Chang&apos;an University, China",
+   "title": "Geo-information Science and Earth Observation Double degree Master's with Chang'an University, China",
    "summary": "",
+   "level": "master",
    "university": "University of Twente",
    "country": "NL",
    "deadline": null,
-   "discovered_at": "2026-10-29T20:34:10.020Z"
+   "discovered_at": "2026-10-29T20:42:30.729Z"
   },
   {
    "url": "https://www.utwente.nl/en/education/master/programmes/geo-information-science-earth-observation/cnu-china/",
-   "title": "Geo-information Science and Earth Observation Double degree Master&apos;s with Capital Normal University, China",
+   "title": "Geo-information Science and Earth Observation Double degree Master's with Capital Normal University, China",
    "summary": "",
+   "level": "master",
    "university": "University of Twente",
    "country": "NL",
    "deadline": null,
-   "discovered_at": "2026-10-29T20:34:10.020Z"
+   "discovered_at": "2026-10-29T20:42:30.729Z"
   },
   {
    "url": "https://www.utwente.nl/en/education/master/programmes/geo-information-science-earth-observation/elegibility-check/",
    "title": "Master Geo-information Science & Earth Observation",
    "summary": "",
+   "level": "master",
    "university": "University of Twente",
    "country": "NL",
    "deadline": null,
-   "discovered_at": "2026-10-29T20:34:10.020Z"
+   "discovered_at": "2026-10-29T20:42:30.729Z"
   },
   {
    "url": "https://www.utwente.nl/en/education/master/programmes/geo-information-science-earth-observation/master-structure/joint-programmes/",
    "title": "Joint programmes",
    "summary": "",
+   "level": "master",
    "university": "University of Twente",
    "country": "NL",
    "deadline": null,
-   "discovered_at": "2026-10-29T20:34:10.020Z"
+   "discovered_at": "2026-10-29T20:42:30.729Z"
   },
   {
    "url": "https://www.utwente.nl/en/education/master/programmes/geo-information-science-earth-observation/specialisations/disaster-resilience/",
    "title": "Disaster resilience",
    "summary": "",
+   "level": "master",
    "university": "University of Twente",
    "country": "NL",
    "deadline": null,
-   "discovered_at": "2026-10-29T20:34:10.020Z"
+   "discovered_at": "2026-10-29T20:42:30.729Z"
   },
   {
    "url": "https://www.utwente.nl/en/education/master/programmes/geo-information-science-earth-observation/specialisations/free-specialisation/",
    "title": "Free Specialisation",
    "summary": "",
+   "level": "master",
    "university": "University of Twente",
    "country": "NL",
    "deadline": null,
-   "discovered_at": "2026-10-29T20:34:10.020Z"
+   "discovered_at": "2026-10-29T20:42:30.729Z"
   },
   {
    "url": "https://www.utwente.nl/en/education/master/programmes/geo-information-science-earth-observation/specialisations/geoai/",
    "title": "Geospatial Artificial Intelligence (GeoAI)",
    "summary": "",
+   "level": "master",
    "university": "University of Twente",
    "country": "NL",
    "deadline": null,
-   "discovered_at": "2026-10-29T20:34:10.020Z"
+   "discovered_at": "2026-10-29T20:42:30.729Z"
   },
   {
    "url": "https://www.utwente.nl/en/education/master/programmes/geo-information-science-earth-observation/specialisations/resources-security/",
    "title": "Resources Security",
    "summary": "",
+   "level": "master",
    "university": "University of Twente",
    "country": "NL",
    "deadline": null,
-   "discovered_at": "2026-10-29T20:34:10.020Z"
+   "discovered_at": "2026-10-29T20:42:30.729Z"
   },
   {
    "url": "https://www.utwente.nl/en/education/master/programmes/geo-information-science-earth-observation/specialisations/urban-and-land-futures/",
    "title": "Urban and Land Futures",
    "summary": "",
+   "level": "master",
    "university": "University of Twente",
    "country": "NL",
    "deadline": null,
-   "discovered_at": "2026-10-29T20:34:10.020Z"
+   "discovered_at": "2026-10-29T20:42:30.729Z"
+  },
+  {
+   "url": "https://www.tudelft.nl/onderwijs/opleidingen/masters/sgim/msc-geographical-information-management-and-applications",
+   "title": "MSc Geographical Information Management and Applications",
+   "summary": "",
+   "level": "master",
+   "university": "Delft University of Technology",
+   "country": "NL",
+   "deadline": null,
+   "discovered_at": "2026-10-29T20:42:30.729Z"
   },
   {
    "url": "https://www.tudelft.nl/onderwijs/opleidingen/masters/gm/msc-geomatics",
    "title": "MSc Geomatics for the Built Environment",
    "summary": "",
+   "level": "master",
    "university": "Delft University of Technology",
    "country": "NL",
    "deadline": null,
-   "discovered_at": "2026-10-29T20:34:10.020Z"
+   "discovered_at": "2026-10-29T20:42:30.729Z"
+  },
+  {
+   "url": "https://www.wur.nl/en/education/master/masters-geographical-information-management-and-applications",
+   "title": "Master’s in Geographical Information Management and Applications",
+   "summary": "The Master&#x27;s in Geographical Information Management and Applications combines GIS and management. Learn how to apply geo-information and visit the Open Day!",
+   "level": "master",
+   "university": "Wageningen University & Research",
+   "country": "NL",
+   "deadline": null,
+   "discovered_at": "2026-10-29T20:42:30.729Z"
+  },
+  {
+   "url": "https://www.wur.nl/nl/onderwijs/master/master-geographical-information-management-and-applications",
+   "title": "Master Geographical Information Management and Applications",
+   "summary": "The Master Geographical Information Management and Applications combines GIS and management. Learn how to apply geo-information and visit the Open Day!",
+   "level": "master",
+   "university": "Wageningen University & Research",
+   "country": "NL",
+   "deadline": null,
+   "discovered_at": "2026-10-29T20:42:30.729Z"
   },
   {
    "url": "https://geog.umd.edu/undergraduate/geospatial-data-science",
    "title": "Geospatial Data Science",
    "summary": "",
+   "level": "",
    "university": "University of Maryland, College Park",
    "country": "US",
    "deadline": null,
-   "discovered_at": "2026-10-29T20:34:10.020Z"
+   "discovered_at": "2026-10-29T20:42:30.729Z"
   },
   {
    "url": "https://geog.umd.edu/undergraduate/computational-earth-observation-science",
    "title": "Computational Earth Observation Science",
    "summary": "",
+   "level": "",
    "university": "University of Maryland, College Park",
    "country": "US",
    "deadline": null,
-   "discovered_at": "2026-10-29T20:34:10.020Z"
+   "discovered_at": "2026-10-29T20:42:30.729Z"
   },
   {
    "url": "https://catalog.ufl.edu/UGRD/colleges-schools/UGAGL/AGL_UCT06/",
    "title": "Geomatics",
    "summary": "",
+   "level": "certificate",
    "university": "University of Florida",
    "country": "US",
    "deadline": null,
-   "discovered_at": "2026-10-29T20:34:10.020Z"
+   "discovered_at": "2026-10-29T20:42:30.729Z"
   },
   {
    "url": "https://catalog.ufl.edu/UGRD/colleges-schools/UGLAS/LAS_UCT04/",
    "title": "Geospatial Information Analysis",
    "summary": "",
+   "level": "certificate",
    "university": "University of Florida",
    "country": "US",
    "deadline": null,
-   "discovered_at": "2026-10-29T20:34:10.020Z"
+   "discovered_at": "2026-10-29T20:42:30.729Z"
+  },
+  {
+   "url": "https://catalog.tamu.edu/undergraduate/arts-and-sciences/geography/geographic-information-science-technology-bs/",
+   "title": "Texas A&M University Catalogs",
+   "summary": "",
+   "level": "bachelor",
+   "university": "Texas A&M University",
+   "country": "US",
+   "deadline": "2027-01-05T23:59:59.000Z",
+   "discovered_at": "2026-10-29T20:42:30.729Z"
   },
   {
    "url": "https://www.sle.kit.edu/vorstudium/bachelor-geodaesie-geoinformatik.php",
    "title": "KIT - Studiengänge - Geodäsie und Geoinformatik Bachelor of Science",
    "summary": "▶ Alles rund um den Studiengang Geod&auml;sie und Geoinformatik am Karlsruher Institut f&uuml;r Technologie, der Forschungsuniversit&auml;t in Baden-W&uuml;rttemberg. Entdecke unser breites Studienangebot am KIT, Univers",
+   "level": "bachelor",
    "university": "Karlsruhe Institute of Technology",
    "country": "DE",
    "deadline": "2027-09-15T23:59:59.000Z",
-   "discovered_at": "2026-10-29T20:34:10.020Z"
+   "discovered_at": "2026-10-29T20:42:30.729Z"
   },
   {
    "url": "https://www.sle.kit.edu/vorstudium/master-geodaesie-geoinformatik.php",
    "title": "KIT - Studiengänge - Geodaäsie und Geoinformatik Master of Science",
    "summary": "▶ Alles rund um den Studiengang Geod&auml;sie und Geoinformatik am Karlsruher Institut f&uuml;r Technologie, der Forschungsuniversit&auml;t in Baden-W&uuml;rttemberg. Entdecke unser breites Studienangebot am KIT, Univers",
+   "level": "master",
    "university": "Karlsruhe Institute of Technology",
    "country": "DE",
    "deadline": "2027-09-30T23:59:59.000Z",
-   "discovered_at": "2026-10-29T20:34:10.020Z"
+   "discovered_at": "2026-10-29T20:42:30.729Z"
   },
   {
    "url": "https://www.sle.kit.edu/vorstudium/master-remote-sensing-geoinformatics.php",
    "title": "KIT - Studiengänge - Remote Sensing and Geoinformatics Master of Science",
    "summary": "▶ Alles rund um den Studiengang Remote Sensing and Geoinformatics am Karlsruher Institut f&uuml;r Technologie, der Forschungsuniversit&auml;t in Baden-W&uuml;rttemberg. Entdecke unser breites Studienangebot am KIT, Unive",
+   "level": "master",
    "university": "Karlsruhe Institute of Technology",
    "country": "DE",
    "deadline": "2027-06-15T23:59:59.000Z",
-   "discovered_at": "2026-10-29T20:34:10.020Z"
+   "discovered_at": "2026-10-29T20:42:30.729Z"
   },
   {
    "url": "https://pdc.wisc.edu/degrees/cartography-gis-accelerated-non-thesis-ms/",
    "title": "Cartography & Geographic Information Systems: Accelerated/Non-Thesis MS",
    "summary": "The Non-thesis Master of Science in Cartography and Geographic Information Systems (GIS) from the University of Wisconsin–Madison offers you a GIS master’s degree at an accelerated pace, so you will go from GIS novice to",
+   "level": "master",
    "university": "University of Wisconsin–Madison",
    "country": "US",
    "deadline": "2027-04-01T00:00:00.000Z",
-   "discovered_at": "2026-10-29T20:34:10.020Z"
+   "discovered_at": "2026-10-29T20:42:30.729Z"
   },
   {
    "url": "https://www.exeter.ac.uk/undergraduate-degrees/bsc-geography-with-applied-gis/",
    "title": "BSc Geography with Applied GIS",
    "summary": "Learn from leading experts about global issues affecting environments and societies worldwide with our Geography BSc. Includes a GIS specialism.",
+   "level": "bachelor",
    "university": "University of Exeter",
    "country": "GB",
    "deadline": "2027-06-30T23:59:59.000Z",
-   "discovered_at": "2026-10-29T20:34:10.020Z"
+   "discovered_at": "2026-10-29T20:42:30.729Z"
   },
   {
    "url": "https://www.exeter.ac.uk/masters-degrees/msc-geographical-information-science/",
    "title": "MSc Geographical Information Science",
    "summary": "You will empower digital transformation through GIS and discover how it is being applied in industries including business, government, and science.",
+   "level": "master",
    "university": "University of Exeter",
    "country": "GB",
    "deadline": "2027-01-20T23:59:59.000Z",
-   "discovered_at": "2026-10-29T20:34:10.020Z"
-  },
-  {
-   "url": "https://infostudies.purdue.edu/graduate-certificate-in-geospatial-information-science/",
-   "title": "GRADUATE CERTIFICATE IN GEOSPATIAL INFORMATION SCIENCE",
-   "summary": "",
-   "university": "Purdue University West Lafayette",
-   "country": "US",
-   "deadline": "2026-12-01T23:59:59.000Z",
-   "discovered_at": "2026-10-29T20:34:10.020Z"
-  },
-  {
-   "url": "https://www.purdue.edu/online/program/masters-in-applied-geospatial-analytics/",
-   "title": "Master of Science in Applied Geospatial Analytics",
-   "summary": "Purdue University’s 100% online Master's in Applied Geospatial Analytics program combines a world-class graduate degree in geospatial analysis with the convenience of online coursework. You will gain skills to create str",
-   "university": "Purdue University West Lafayette",
-   "country": "US",
-   "deadline": null,
-   "discovered_at": "2026-10-29T20:34:10.020Z"
-  },
-  {
-   "url": "https://polytechnic.purdue.edu/degrees/masters-applied-geospatial-analytics-online?utm_source=puo_website&amp;utm_medium=snapshot&amp;utm_campaign=GRST-MS-OL_AGSA",
-   "title": "Online Master of Science in Applied Geospatial Analytics",
-   "summary": "",
-   "university": "Purdue University West Lafayette",
-   "country": "US",
-   "deadline": null,
-   "discovered_at": "2026-10-29T20:34:10.020Z"
-  },
-  {
-   "url": "https://polytechnic.purdue.edu/academics/online-master-science-applied-geospatial-analytics/curriculum?utm_source=puo_website&amp;utm_medium=snapshot",
-   "title": "Applied Geospatial Analytics Curriculum",
-   "summary": "The Master's in Applied Geospatial Analytics program is offered through the Graduate School in partnership with the College of Agriculture, College of Liberal Arts, and Polytechnic Institute at Purdue University. This in",
-   "university": "Purdue University West Lafayette",
-   "country": "US",
-   "deadline": null,
-   "discovered_at": "2026-10-29T20:34:10.020Z"
+   "discovered_at": "2026-10-29T20:42:30.729Z"
   },
   {
    "url": "https://pm.forestry.ubc.ca/programs/master-geomatics-for-environmental-management/",
    "title": "Master of Geomatics for Environmental Management",
    "summary": "MGEM is an accelerated, 9-month, course-based masters degree program focused on GIS, remote sensing, image processing, and application of geospatial tools",
+   "level": "master",
    "university": "University of British Columbia",
    "country": "CA",
    "deadline": "2027-02-01T23:59:59.000Z",
-   "discovered_at": "2026-10-29T20:34:10.020Z"
+   "discovered_at": "2026-10-29T20:42:30.729Z"
   },
   {
-   "url": "https://forestry.ubc.ca/future-students/undergraduate/certificate-in-geomatics-for-environmental-management/",
-   "title": "Certificate in Geomatics for Environmental Management",
-   "summary": "This undergraduate certificate prepares students to apply spatial data to real-world environmental and planning challenges.",
-   "university": "University of British Columbia",
-   "country": "CA",
+   "url": "https://siebelschool.illinois.edu/academics/undergraduate/degree-program-options/cs-x-degree-programs/computer-science-geography",
+   "title": "B.S. CS + Geography & Geographic Information Science",
+   "summary": "Explore a Computer Science + Geography & Geographic Information Science, Bachelor of Science (BS) degree at one of the nation",
+   "level": "",
+   "university": "University of Illinois Urbana-Champaign",
+   "country": "US",
    "deadline": null,
-   "discovered_at": "2026-10-29T20:34:10.020Z"
+   "discovered_at": "2026-10-29T20:42:30.729Z"
   },
   {
-   "url": "https://grad.ucla.edu/programs/social-sciences/geography-department/master-of-applied-geospatial-information-systems-technologies/",
-   "title": "UCLA Graduate Programs",
+   "url": "https://infostudies.purdue.edu/graduate-certificate-in-geospatial-information-science/",
+   "title": "GRADUATE CERTIFICATE IN GEOSPATIAL INFORMATION SCIENCE",
    "summary": "",
-   "university": "University of California, Los Angeles",
+   "level": "certificate",
+   "university": "Purdue University West Lafayette",
    "country": "US",
-   "deadline": null,
-   "discovered_at": "2026-10-29T20:34:10.020Z"
+   "deadline": "2026-12-01T23:59:59.000Z",
+   "discovered_at": "2026-10-29T20:42:30.729Z"
   },
   {
-   "url": "https://gis.ucla.edu/programs/magist",
-   "title": "MAGIST - UCLA Master of Applied Geospatial Information Systems and Technologies (MAGIST)",
-   "summary": "Earn your GIS Master's degree fully online from UCLA, the #1 public university in the United States.",
-   "university": "University of California, Los Angeles",
+   "url": "https://www.purdue.edu/online/program/masters-in-applied-geospatial-analytics/",
+   "title": "Master of Science in Applied Geospatial Analytics",
+   "summary": "Purdue University’s 100% online Master's in Applied Geospatial Analytics program combines a world-class graduate degree in geospatial analysis with the convenience of online coursework. You will gain skills to create str",
+   "level": "master",
+   "university": "Purdue University West Lafayette",
    "country": "US",
    "deadline": null,
-   "discovered_at": "2026-10-29T20:34:10.020Z"
+   "discovered_at": "2026-10-29T20:42:30.729Z"
+  },
+  {
+   "url": "https://polytechnic.purdue.edu/degrees/masters-applied-geospatial-analytics-online?utm_source=puo_website&amp;utm_medium=snapshot&amp;utm_campaign=GRST-MS-OL_AGSA",
+   "title": "Online Master of Science in Applied Geospatial Analytics",
+   "summary": "",
+   "level": "master",
+   "university": "Purdue University West Lafayette",
+   "country": "US",
+   "deadline": null,
+   "discovered_at": "2026-10-29T20:42:30.729Z"
+  },
+  {
+   "url": "https://polytechnic.purdue.edu/academics/online-master-science-applied-geospatial-analytics/curriculum?utm_source=puo_website&amp;utm_medium=snapshot",
+   "title": "Applied Geospatial Analytics Curriculum",
+   "summary": "The Master's in Applied Geospatial Analytics program is offered through the Graduate School in partnership with the College of Agriculture, College of Liberal Arts, and Polytechnic Institute at Purdue University. This in",
+   "level": "",
+   "university": "Purdue University West Lafayette",
+   "country": "US",
+   "deadline": null,
+   "discovered_at": "2026-10-29T20:42:30.729Z"
+  },
+  {
+   "url": "https://www.uu.nl/en/masters/geographical-information-management-and-applications-gima",
+   "title": "Geographical Information Management and Applications (GIMA)",
+   "summary": "",
+   "level": "",
+   "university": "Utrecht University",
+   "country": "NL",
+   "deadline": "2027-04-01T23:59:59.000Z",
+   "discovered_at": "2026-10-29T20:42:30.729Z"
+  },
+  {
+   "url": "https://www.arizona.edu/degree-search/majors/geographic-information-science",
+   "title": "Geographic Information Science",
+   "summary": "The GIS Graduate Certificate program teaches you to use maps and data for a variety of industry and research applications. Apply today!",
+   "level": "",
+   "university": "University of Arizona",
+   "country": "US",
+   "deadline": null,
+   "discovered_at": "2026-10-29T20:42:30.729Z"
+  },
+  {
+   "url": "https://www.arizona.edu/degree-search/majors/geographic-information-systems-technology-bs",
+   "title": "Geographic Information Systems Technology",
+   "summary": "This degree is to offer courses in cutting edge geographic information science (GIS), and geographic information systems technology (GIST) to fill the growing worldwide demand for skilled geospatial professionals. The pr",
+   "level": "",
+   "university": "University of Arizona",
+   "country": "US",
+   "deadline": null,
+   "discovered_at": "2026-10-29T20:42:30.729Z"
+  },
+  {
+   "url": "https://www.arizona.edu/degree-search/majors/geography-geographic-information-science-emphasis",
+   "title": "Geography: Geographic Information Science Emphasis",
+   "summary": "Students pursuing a geography degree with an emphasis on GIS programs from the University of Arizona benefit from courses in cutting-edge GIS technology. Learn about our program.",
+   "level": "",
+   "university": "University of Arizona",
+   "country": "US",
+   "deadline": null,
+   "discovered_at": "2026-10-29T20:42:30.729Z"
+  },
+  {
+   "url": "https://www.arizona.edu/degree-search/majors/professional-geographic-information-systems-technology",
+   "title": "Professional Geographic Information Systems Technology",
+   "summary": "Choose from two graduate pathways, GIST program or Graduate Certificate in Professional Geographic Information Systems Technology (P-GIST).",
+   "level": "",
+   "university": "University of Arizona",
+   "country": "US",
+   "deadline": null,
+   "discovered_at": "2026-10-29T20:42:30.729Z"
   },
   {
    "url": "https://www.bristol.ac.uk/cabot/postgraduate-opportunities/cabot-masters/project-photogrammetry-techniques-on-uk-streams/",
    "title": "Replicating terrestrial laser scanning point clouds with low cost photogrammetry techniques on small UK streams",
    "summary": "",
+   "level": "",
    "university": "University of Bristol",
    "country": "GB",
    "deadline": null,
-   "discovered_at": "2026-10-29T20:34:10.020Z"
+   "discovered_at": "2026-10-29T20:42:30.729Z"
   },
   {
-   "url": "https://www.slu.se/en/study/programmes-courses/doctoral-education/research-schools/ecology/programme/2026/gis-and-spatial-analysis-with-r/",
-   "title": "GIS and spatial analysis with R",
-   "summary": "The course aims to introduce students to GIS (geographical information systems), and how to understand, manipulate and analyse spatial data in the using the R environment. The idea is that students can then integrate spa",
-   "university": "Swedish University of Agricultural Sciences",
-   "country": "SE",
+   "url": "https://grad.ucla.edu/programs/social-sciences/geography-department/master-of-applied-geospatial-information-systems-technologies/",
+   "title": "UCLA Graduate Programs",
+   "summary": "",
+   "level": "master",
+   "university": "University of California, Los Angeles",
+   "country": "US",
    "deadline": null,
-   "discovered_at": "2026-10-29T20:34:10.020Z"
+   "discovered_at": "2026-10-29T20:42:30.729Z"
   },
   {
-   "url": "https://www.slu.se/studentwebb/studier/kurser-och-program/kurssok/kurser/a/avancerad-geografisk-modellering-i-gis/",
-   "title": "Avancerad geografisk modellering i GIS",
-   "summary": "Vetenskap och utbildning f&#xF6;r h&#xE5;llbart liv.",
-   "university": "Swedish University of Agricultural Sciences",
-   "country": "SE",
+   "url": "https://gis.ucla.edu/programs/magist",
+   "title": "MAGIST - UCLA Master of Applied Geospatial Information Systems and Technologies (MAGIST)",
+   "summary": "Earn your GIS Master's degree fully online from UCLA, the #1 public university in the United States.",
+   "level": "master",
+   "university": "University of California, Los Angeles",
+   "country": "US",
    "deadline": null,
-   "discovered_at": "2026-10-29T20:34:10.020Z"
-  },
-  {
-   "url": "https://www.slu.se/studentwebb/studier/kurser-och-program/kurssok/kurser/a/avancerad-landskapsanalys-med-gis/",
-   "title": "Avancerad Landskapsanalys med GIS",
-   "summary": "Vetenskap och utbildning f&#xF6;r h&#xE5;llbart liv.",
-   "university": "Swedish University of Agricultural Sciences",
-   "country": "SE",
-   "deadline": null,
-   "discovered_at": "2026-10-29T20:34:10.020Z"
-  },
-  {
-   "url": "https://www.slu.se/studentwebb/studier/kurser-och-program/kurssok/kurser/e/en-introduktion-till-geografiska-informationssytem-gis/",
-   "title": "En introduktion till Geografiska informationssytem (GIS)",
-   "summary": "Vetenskap och utbildning f&#xF6;r h&#xE5;llbart liv.",
-   "university": "Swedish University of Agricultural Sciences",
-   "country": "SE",
-   "deadline": null,
-   "discovered_at": "2026-10-29T20:34:10.020Z"
-  },
-  {
-   "url": "https://www.slu.se/studentwebb/studier/kurser-och-program/kurssok/kurser/g/gis-for-skog-och-landskap/",
-   "title": "GIS f&#xF6;r skog och landskap",
-   "summary": "Vetenskap och utbildning f&#xF6;r h&#xE5;llbart liv.",
-   "university": "Swedish University of Agricultural Sciences",
-   "country": "SE",
-   "deadline": null,
-   "discovered_at": "2026-10-29T20:34:10.020Z"
-  },
-  {
-   "url": "https://www.slu.se/studentwebb/studier/kurser-och-program/kurssok/kurser/g/gis-and-geographic-analysis/",
-   "title": "GIS and Geographic Analysis",
-   "summary": "Vetenskap och utbildning f&#xF6;r h&#xE5;llbart liv.",
-   "university": "Swedish University of Agricultural Sciences",
-   "country": "SE",
-   "deadline": null,
-   "discovered_at": "2026-10-29T20:34:10.020Z"
+   "discovered_at": "2026-10-29T20:42:30.729Z"
   },
   {
    "url": "https://www.ku.dk/studies/masters/geography-and-geoinformatics",
    "title": "Master of Science (MSc) in Geography and Geoinformatics",
    "summary": "Explore fields within 3 specialisations or study geography with a minor subject.",
+   "level": "master",
    "university": "University of Copenhagen",
    "country": "DK",
    "deadline": "2027-01-15T23:59:59.000Z",
-   "discovered_at": "2026-10-29T20:34:10.020Z"
+   "discovered_at": "2026-10-29T20:42:30.729Z"
   },
   {
    "url": "https://www.ku.dk/studier/bachelor/geografi-og-geoinformatik",
    "title": "Bachelor i geografi og geoinformatik",
    "summary": "Hvad betyder samfundsmæssige og miljømæssige processer for vores omgivelser?",
+   "level": "bachelor",
    "university": "University of Copenhagen",
    "country": "DK",
    "deadline": null,
-   "discovered_at": "2026-10-29T20:34:10.020Z"
+   "discovered_at": "2026-10-29T20:42:30.729Z"
   },
   {
-   "url": "https://www.tuwien.at/en/studies/studies/master-programmes/mathematics-and-geoinformation",
-   "title": "Master's Programmes in Mathematics and Geoinformation",
-   "summary": "TU Wien, TUW. Information on studying at the TU Wien. News, study programmes, admission, teaching at TU Wien, ÖH election, academic calendar, distance learning, international.",
-   "university": "TU Wien",
-   "country": "AT",
+   "url": "https://www.slu.se/en/study/programmes-courses/doctoral-education/research-schools/ecology/programme/2026/gis-and-spatial-analysis-with-r/",
+   "title": "GIS and spatial analysis with R",
+   "summary": "The course aims to introduce students to GIS (geographical information systems), and how to understand, manipulate and analyse spatial data in the using the R environment. The idea is that students can then integrate spa",
+   "level": "",
+   "university": "Swedish University of Agricultural Sciences",
+   "country": "SE",
    "deadline": null,
-   "discovered_at": "2026-10-29T20:34:10.020Z"
+   "discovered_at": "2026-10-29T20:42:30.729Z"
   },
   {
-   "url": "https://www.tuwien.at/studium/studienangebot/masterstudien/mathematik-und-geoinformation/cartography",
-   "title": "Cartography (Master)",
-   "summary": "",
-   "university": "TU Wien",
-   "country": "AT",
+   "url": "https://www.slu.se/studentwebb/studier/kurser-och-program/kurssok/kurser/a/avancerad-geografisk-modellering-i-gis/",
+   "title": "Avancerad geografisk modellering i GIS",
+   "summary": "Vetenskap och utbildning f&#xF6;r h&#xE5;llbart liv.",
+   "level": "",
+   "university": "Swedish University of Agricultural Sciences",
+   "country": "SE",
    "deadline": null,
-   "discovered_at": "2026-10-29T20:34:10.020Z"
+   "discovered_at": "2026-10-29T20:42:30.729Z"
   },
   {
-   "url": "https://www.tuwien.at/studium/studienangebot/masterstudien/mathematik-und-geoinformation/geodesy-and-geoinformation",
-   "title": "Geodesy and Geoinformation (Master)",
-   "summary": "",
-   "university": "TU Wien",
-   "country": "AT",
+   "url": "https://www.slu.se/studentwebb/studier/kurser-och-program/kurssok/kurser/a/avancerad-landskapsanalys-med-gis/",
+   "title": "Avancerad Landskapsanalys med GIS",
+   "summary": "Vetenskap och utbildning f&#xF6;r h&#xE5;llbart liv.",
+   "level": "",
+   "university": "Swedish University of Agricultural Sciences",
+   "country": "SE",
    "deadline": null,
-   "discovered_at": "2026-10-29T20:34:10.020Z"
+   "discovered_at": "2026-10-29T20:42:30.729Z"
+  },
+  {
+   "url": "https://www.slu.se/studentwebb/studier/kurser-och-program/kurssok/kurser/e/en-introduktion-till-geografiska-informationssytem-gis/",
+   "title": "En introduktion till Geografiska informationssytem (GIS)",
+   "summary": "Vetenskap och utbildning f&#xF6;r h&#xE5;llbart liv.",
+   "level": "",
+   "university": "Swedish University of Agricultural Sciences",
+   "country": "SE",
+   "deadline": null,
+   "discovered_at": "2026-10-29T20:42:30.729Z"
+  },
+  {
+   "url": "https://www.slu.se/studentwebb/studier/kurser-och-program/kurssok/kurser/g/gis-for-skog-och-landskap/",
+   "title": "GIS f&#xF6;r skog och landskap",
+   "summary": "Vetenskap och utbildning f&#xF6;r h&#xE5;llbart liv.",
+   "level": "",
+   "university": "Swedish University of Agricultural Sciences",
+   "country": "SE",
+   "deadline": null,
+   "discovered_at": "2026-10-29T20:42:30.729Z"
+  },
+  {
+   "url": "https://www.slu.se/studentwebb/studier/kurser-och-program/kurssok/kurser/g/gis-and-geographic-analysis/",
+   "title": "GIS and Geographic Analysis",
+   "summary": "Vetenskap och utbildning f&#xF6;r h&#xE5;llbart liv.",
+   "level": "",
+   "university": "Swedish University of Agricultural Sciences",
+   "country": "SE",
+   "deadline": null,
+   "discovered_at": "2026-10-29T20:42:30.729Z"
+  },
+  {
+   "url": "https://www.slu.se/studentwebb/studier/kurser-och-program/kurssok/kurser/g/gis-och-skoglig-fjarranalys/",
+   "title": "GIS och skoglig fj&#xE4;rranalys",
+   "summary": "Vetenskap och utbildning f&#xF6;r h&#xE5;llbart liv.",
+   "level": "",
+   "university": "Swedish University of Agricultural Sciences",
+   "country": "SE",
+   "deadline": null,
+   "discovered_at": "2026-10-29T20:42:30.729Z"
   },
   {
    "url": "https://www.gla.ac.uk/postgraduate/taught/geoinformation-technology-cartography/",
    "title": "Postgraduate study",
    "summary": "Find out more about the MSc Geoinformation Technology and Cartography in the School of Geographical and Earth Sciences at the University of Glasgow, UK, This Masters in Geoinformation Technology & Cartography focuses on ",
+   "level": "",
    "university": "University of Glasgow",
    "country": "GB",
    "deadline": "2027-09-20T23:59:59.000Z",
-   "discovered_at": "2026-10-29T20:34:10.020Z"
+   "discovered_at": "2026-10-29T20:42:30.729Z"
+  },
+  {
+   "url": "https://www.tuwien.at/en/studies/studies/master-programmes/mathematics-and-geoinformation",
+   "title": "Master's Programmes in Mathematics and Geoinformation",
+   "summary": "TU Wien, TUW. Information on studying at the TU Wien. News, study programmes, admission, teaching at TU Wien, ÖH election, academic calendar, distance learning, international.",
+   "level": "master",
+   "university": "TU Wien",
+   "country": "AT",
+   "deadline": null,
+   "discovered_at": "2026-10-29T20:42:30.729Z"
+  },
+  {
+   "url": "https://www.tuwien.at/studium/studienangebot/masterstudien/mathematik-und-geoinformation/cartography",
+   "title": "Cartography (Master)",
+   "summary": "",
+   "level": "master",
+   "university": "TU Wien",
+   "country": "AT",
+   "deadline": null,
+   "discovered_at": "2026-10-29T20:42:30.729Z"
+  },
+  {
+   "url": "https://www.tuwien.at/studium/studienangebot/masterstudien/mathematik-und-geoinformation/geodesy-and-geoinformation",
+   "title": "Geodesy and Geoinformation (Master)",
+   "summary": "",
+   "level": "master",
+   "university": "TU Wien",
+   "country": "AT",
+   "deadline": null,
+   "discovered_at": "2026-10-29T20:42:30.729Z"
   },
   {
    "url": "https://www.worldcampus.psu.edu/degrees-and-certificates/topics/gis-and-geospatial",
    "title": "GIS and Geospatial Online Degree and Certificate Programs",
    "summary": "Earn a respected and recognized degree or certificate through Penn State's geospatial intelligence and GIS programs. Choose the one that fits your needs.",
+   "level": "certificate",
    "university": "Pennsylvania State University",
    "country": "US",
    "deadline": "2026-11-01T23:59:59.000Z",
-   "discovered_at": "2026-10-29T20:34:10.020Z"
+   "discovered_at": "2026-10-29T20:42:30.729Z"
   },
   {
    "url": "https://www.worldcampus.psu.edu/degrees-and-certificates/penn-state-online-gis-geographic-information-systems-masters-degree",
    "title": "Master of Geographic Information Systems",
    "summary": "This online GIS master’s degree program can help you uncover insights and relationships to improve strategic decision making. Learn to apply industry best practices and the latest mapping tools to integrate, visualize, a",
+   "level": "master",
    "university": "Pennsylvania State University",
    "country": "US",
    "deadline": "2026-11-01T00:00:00.000Z",
-   "discovered_at": "2026-10-29T20:34:10.020Z"
+   "discovered_at": "2026-10-29T20:42:30.729Z"
   },
   {
    "url": "https://www.worldcampus.psu.edu/degrees-and-certificates/penn-state-online-homeland-security-intelligence-and-geospatial-analysis-masters-degree",
    "title": "Master of Professional Studies in Homeland Security – Intelligence and Geospatial Analysis Option",
    "summary": "Combine intelligence analysis with geospatial science and technology to gain situational awareness and provide a decisive advantage in preventing and responding to homeland security threats. This online degree program ca",
+   "level": "master",
    "university": "Pennsylvania State University",
    "country": "US",
    "deadline": "2026-11-01T00:00:00.000Z",
-   "discovered_at": "2026-10-29T20:34:10.020Z"
+   "discovered_at": "2026-10-29T20:42:30.729Z"
   },
   {
    "url": "https://www.worldcampus.psu.edu/degrees-and-certificates/penn-state-online-gis-geographic-information-systems-postbaccalaureate-certificate",
    "title": "Postbaccalaureate Certificate in Geographic Information Systems",
    "summary": "This online GIS certificate program provides students with hands-on course experiences to develop technical skills using the latest mapping tools in the geospatial industry. Kickstart or advance your career as a GIS anal",
+   "level": "certificate",
    "university": "Pennsylvania State University",
    "country": "US",
    "deadline": "2026-12-15T00:00:00.000Z",
-   "discovered_at": "2026-10-29T20:34:10.020Z"
+   "discovered_at": "2026-10-29T20:42:30.729Z"
   },
   {
    "url": "https://www.worldcampus.psu.edu/degrees-and-certificates/penn-state-online-geospatial-intelligence-analytics-graduate-certificate",
    "title": "Graduate Certificate in Geospatial Intelligence Analytics",
    "summary": "This online GEOINT certificate can help jumpstart or advance your career as a geospatial intelligence or imagery analyst. Apply geospatial information science and technology (GIST), knowledge of spatial relationships, an",
+   "level": "certificate",
    "university": "Pennsylvania State University",
    "country": "US",
    "deadline": "2026-12-15T00:00:00.000Z",
-   "discovered_at": "2026-10-29T20:34:10.020Z"
+   "discovered_at": "2026-10-29T20:42:30.729Z"
   },
   {
    "url": "https://www.worldcampus.psu.edu/degrees-and-certificates/penn-state-online-geospatial-programming-and-web-map-development-graduate-certificate",
    "title": "Graduate Certificate in Geospatial Programming and Web Map Development",
    "summary": "This online programming certificate can expand your web mapping and coding skills. Geospatial professionals can learn to create web-based interactive mapping applications that support spatial data science. Prior programm",
+   "level": "certificate",
    "university": "Pennsylvania State University",
    "country": "US",
    "deadline": "2026-12-15T00:00:00.000Z",
-   "discovered_at": "2026-10-29T20:34:10.020Z"
+   "discovered_at": "2026-10-29T20:42:30.729Z"
   },
   {
    "url": "https://www.worldcampus.psu.edu/degrees-and-certificates/penn-state-online-remote-sensing-and-earth-observation-graduate-certificate",
    "title": "Graduate Certificate in Remote Sensing and Earth Observation",
    "summary": "Learn to leverage data gathered from drones, satellites, and lidar. This certificate focuses on remote sensing, terrain mapping, and image analysis and draws upon the resources of one of the most respected online GIS pro",
+   "level": "certificate",
    "university": "Pennsylvania State University",
    "country": "US",
    "deadline": "2026-12-15T00:00:00.000Z",
-   "discovered_at": "2026-10-29T20:34:10.020Z"
+   "discovered_at": "2026-10-29T20:42:30.729Z"
   },
   {
-   "url": "https://online.osu.edu/masters-degree/master-geographic-information-science-technology/",
+   "url": "https://geography.osu.edu/mgist",
    "title": "Master of Geographic Information Science and Technology",
-   "summary": "Advance your career with applied geospatial skills. Earn a master's degree in geographic information science and technology 100% online.",
+   "summary": "",
+   "level": "master",
    "university": "The Ohio State University",
    "country": "US",
-   "deadline": "2026-12-01T00:00:00.000Z",
-   "discovered_at": "2026-10-29T20:34:10.020Z"
+   "deadline": "2026-11-15T23:59:59.000Z",
+   "discovered_at": "2026-10-29T20:42:30.729Z"
+  },
+  {
+   "url": "https://gpadmissions.osu.edu/programs/program.aspx?prog=0352",
+   "title": "Geographic Information Science and Technology Master of Geographic Information Science and Technology – Online",
+   "summary": "",
+   "level": "master",
+   "university": "The Ohio State University",
+   "country": "US",
+   "deadline": null,
+   "discovered_at": "2026-10-29T20:42:30.729Z"
+  },
+  {
+   "url": "https://gpadmissions.osu.edu/programs/program.aspx?prog=0300",
+   "title": "Geographic Information Science and Technology Graduate Certificate in Geographic Information Science Technology",
+   "summary": "",
+   "level": "certificate",
+   "university": "The Ohio State University",
+   "country": "US",
+   "deadline": null,
+   "discovered_at": "2026-10-29T20:42:30.729Z"
   },
   {
    "url": "https://www.uni-potsdam.de/en/studium/what-to-study/master/remote-sensing",
    "title": "Remote Sensing, geoInformation and Visualization | Master",
    "summary": "Would you like to study the master's prorgam &quot;Remote Sensing, geoInformation and Visualization&quot;? You will find more information about the course content and application on our profile.",
+   "level": "master",
    "university": "University of Potsdam",
    "country": "DE",
    "deadline": null,
-   "discovered_at": "2026-10-29T20:34:10.020Z"
+   "discovered_at": "2026-10-29T20:42:30.729Z"
   },
   {
    "url": "https://arts.ucalgary.ca/geography/future-students/undergraduate/geographic-information-science-certificate",
    "title": "Embedded Certificate in Geographic Information Science (GIS)",
    "summary": "Start Something New in GIS! Use technology to solve a wide range of real-world issuesLearn from international leaders",
+   "level": "certificate",
    "university": "University of Calgary",
    "country": "CA",
    "deadline": "2027-09-01T23:59:59.000Z",
-   "discovered_at": "2026-10-29T20:34:10.020Z"
+   "discovered_at": "2026-10-29T20:42:30.729Z"
+  },
+  {
+   "url": "https://arts.ucalgary.ca/geography/future-students/graduate/programs/master-geographic-information-systems",
+   "title": "Guidelines for MGIS Students",
+   "summary": "The Department of Geography's Graduate Program Master of Geographic Information Systems (MGIS)",
+   "level": "master",
+   "university": "University of Calgary",
+   "country": "CA",
+   "deadline": "2027-09-01T23:59:59.000Z",
+   "discovered_at": "2026-10-29T20:42:30.729Z"
   },
   {
    "url": "https://arts.ucalgary.ca/geospatial-information-technology",
    "title": "Certificate in Geospatial Information Technology",
    "summary": "Get a career edge – learn how to integrate geospatial technologies in your work and your future career.",
+   "level": "certificate",
    "university": "University of Calgary",
    "country": "CA",
    "deadline": "2027-03-01T23:59:59.000Z",
-   "discovered_at": "2026-10-29T20:34:10.020Z"
+   "discovered_at": "2026-10-29T20:42:30.729Z"
   },
   {
-   "url": "https://www.hft-stuttgart.de/vermessung/bachelor-vermessung-und-geoinformatik",
-   "title": "Bachelor Vermessung und Geo­informatik",
-   "summary": "Das Studium in Vermessung und Geoinformatik bereitet Sie auf die umfassenden und abwechslungsreichen Einsatzgebiete von Vermessungsingenieurinnen und Geoinformatikingenieuren vor. Sie lernen verschiedene Messgeräte, Mess",
-   "university": "HFT Stuttgart",
-   "country": "DE",
-   "deadline": "2027-10-20T23:59:59.000Z",
-   "discovered_at": "2026-10-29T20:34:10.020Z"
+   "url": "https://www.uab.cat/web/estudiar/official-master-s-degrees/general-information/geoinformation-1096480962610.html?param1=1345716413531",
+   "title": "University Master's Degree in Geoinformation",
+   "summary": "The best assessed master",
+   "level": "master",
+   "university": "Universitat Autònoma de Barcelona",
+   "country": "ES",
+   "deadline": null,
+   "discovered_at": "2026-10-29T20:42:30.729Z"
   },
   {
-   "url": "https://www.hft-stuttgart.de/vermessung/master-photogrammetry-and-geoinformatics",
-   "title": "Master Photo­grammetry and Geo­informatics",
+   "url": "https://www.uab.cat/web/estudiar/official-master-s-degrees/general-information/remote-sensing-and-geographical-information-systems-1096480962610.html?param1=1345664654736",
+   "title": "University Master's Degree in Remote Sensing and Geographical Information Systems",
+   "summary": "Specialist training in Earth-observation techniques for studying the territory and managing its resources.",
+   "level": "master",
+   "university": "Universitat Autònoma de Barcelona",
+   "country": "ES",
+   "deadline": null,
+   "discovered_at": "2026-10-29T20:42:30.729Z"
+  },
+  {
+   "url": "https://vu.nl/nl/onderwijs/professionals/cursussen-opleidingen/master-geographical-information-sciences",
+   "title": "Geographical Information Sciences",
+   "summary": "Wil je ruimtelijke data vertalen naar waardevolle kennis? Ontdek de online Master Geographical Information Sciences (UNIGIS) voor GIS professionals.",
+   "level": "",
+   "university": "Vrije Universiteit Amsterdam",
+   "country": "NL",
+   "deadline": null,
+   "discovered_at": "2026-10-29T20:42:30.729Z"
+  },
+  {
+   "url": "https://vu.nl/nl/onderwijs/master/geographical-information-sciences",
+   "title": "Geographical Information Sciences (UNIGIS)",
+   "summary": "Met de parttime driejarige online Master MSc Geographical Information Sciences GIS aan VU Amsterdam leer je data uit verschillende bronnen samenbrengen.",
+   "level": "master",
+   "university": "Vrije Universiteit Amsterdam",
+   "country": "NL",
+   "deadline": null,
+   "discovered_at": "2026-10-29T20:42:30.729Z"
+  },
+  {
+   "url": "https://www.unimi.it/en/education/degree-programme-courses/2027/geographic-information-systems-and-environmental-modelling-0",
+   "title": "Geographic Information Systems and Environmental Modelling",
    "summary": "",
-   "university": "HFT Stuttgart",
-   "country": "DE",
-   "deadline": "2027-02-20T23:59:59.000Z",
-   "discovered_at": "2026-10-29T20:34:10.020Z"
-  },
-  {
-   "url": "https://www.hft-stuttgart.de/vermessung/projekte/abschluss-arbeiten-im-bachelor-vermessung-und-geoinformatik-und-master-vermessung",
-   "title": "Abschluss-Arbeiten im Bachelor Vermessung und Geoinformatik und Master Vermessung",
-   "summary": "",
-   "university": "HFT Stuttgart",
-   "country": "DE",
-   "deadline": "2027-10-20T23:59:59.000Z",
-   "discovered_at": "2026-10-29T20:34:10.020Z"
-  },
-  {
-   "url": "https://www.hft-stuttgart.de/vermessung/veranstaltung/digitale-studienberatung-bachelor-vermessung-und-geoinformatik-3",
-   "title": "Digitale Studienberatung Bachelor Vermessung und Geoinformatik",
-   "summary": "",
-   "university": "HFT Stuttgart",
-   "country": "DE",
-   "deadline": "2027-10-20T23:59:59.000Z",
-   "discovered_at": "2026-10-29T20:34:10.020Z"
+   "level": "",
+   "university": "University of Milan",
+   "country": "IT",
+   "deadline": null,
+   "discovered_at": "2026-10-29T20:42:30.729Z"
   },
   {
    "url": "https://www.unimi.it/en/education/degree-programme-courses/2027/cartography-and-cartographic-semiology-0",
    "title": "Cartography and Cartographic Semiology",
    "summary": "",
+   "level": "",
    "university": "University of Milan",
    "country": "IT",
    "deadline": null,
-   "discovered_at": "2026-10-29T20:34:10.020Z"
+   "discovered_at": "2026-10-29T20:42:30.729Z"
   },
   {
    "url": "https://www.unimi.it/en/education/degree-programme-courses/2027/geographical-information-system-gis-1",
    "title": "Geographical Information System Gis",
    "summary": "",
+   "level": "",
    "university": "University of Milan",
    "country": "IT",
    "deadline": null,
-   "discovered_at": "2026-10-29T20:34:10.020Z"
+   "discovered_at": "2026-10-29T20:42:30.729Z"
+  },
+  {
+   "url": "https://www.hft-stuttgart.de/vermessung/bachelor-vermessung-und-geoinformatik",
+   "title": "Bachelor Vermessung und Geo­informatik",
+   "summary": "Das Studium in Vermessung und Geoinformatik bereitet Sie auf die umfassenden und abwechslungsreichen Einsatzgebiete von Vermessungsingenieurinnen und Geoinformatikingenieuren vor. Sie lernen verschiedene Messgeräte, Mess",
+   "level": "bachelor",
+   "university": "HFT Stuttgart",
+   "country": "DE",
+   "deadline": "2027-10-20T23:59:59.000Z",
+   "discovered_at": "2026-10-29T20:42:30.729Z"
+  },
+  {
+   "url": "https://www.hft-stuttgart.de/vermessung/master-photogrammetry-and-geoinformatics",
+   "title": "Master Photo­grammetry and Geo­informatics",
+   "summary": "",
+   "level": "master",
+   "university": "HFT Stuttgart",
+   "country": "DE",
+   "deadline": "2027-02-20T23:59:59.000Z",
+   "discovered_at": "2026-10-29T20:42:30.729Z"
+  },
+  {
+   "url": "https://www.hft-stuttgart.de/vermessung/projekte/abschluss-arbeiten-im-bachelor-vermessung-und-geoinformatik-und-master-vermessung",
+   "title": "Abschluss-Arbeiten im Bachelor Vermessung und Geoinformatik und Master Vermessung",
+   "summary": "",
+   "level": "master",
+   "university": "HFT Stuttgart",
+   "country": "DE",
+   "deadline": "2027-10-20T23:59:59.000Z",
+   "discovered_at": "2026-10-29T20:42:30.729Z"
+  },
+  {
+   "url": "https://www.hft-stuttgart.de/vermessung/veranstaltung/digitale-studienberatung-bachelor-vermessung-und-geoinformatik-3",
+   "title": "Digitale Studienberatung Bachelor Vermessung und Geoinformatik",
+   "summary": "",
+   "level": "bachelor",
+   "university": "HFT Stuttgart",
+   "country": "DE",
+   "deadline": "2027-10-20T23:59:59.000Z",
+   "discovered_at": "2026-10-29T20:42:30.729Z"
+  },
+  {
+   "url": "https://online.umaine.edu/online-graduate-certificate-in-geographic-information-systems/",
+   "title": "UMaine Online",
+   "summary": "The 100% online Graduate Certificate in Geographic Information Systems provides a foundation in critical aspects of geographic information systems.",
+   "level": "certificate",
+   "university": "University of Maine",
+   "country": "US",
+   "deadline": "2026-11-01T23:59:59.000Z",
+   "discovered_at": "2026-10-29T20:42:30.729Z"
+  },
+  {
+   "url": "https://online.umaine.edu/online-graduate-certificate-in-surveying-engineering-technology/",
+   "title": "Online Surveying Engineering Technology Certificate | UMaine",
+   "summary": "Build expertise in surveying technology, boundary law, GIS and emerging tools with UMaine’s online Graduate Certificate in Surveying Engineering Technology.",
+   "level": "certificate",
+   "university": "University of Maine",
+   "country": "US",
+   "deadline": "2026-11-01T23:59:59.000Z",
+   "discovered_at": "2026-10-29T20:42:30.729Z"
+  },
+  {
+   "url": "https://online.umaine.edu/online-bachelor-of-science-in-surveying-engineering-technology/",
+   "title": "Online B.S. in Surveying Engineering Technology | UMaine",
+   "summary": "Earn your B.S. in Surveying Engineering Technology online at UMaine. Build skills in land surveying, GIS, boundary law, GPS and engineering technology.",
+   "level": "",
+   "university": "University of Maine",
+   "country": "US",
+   "deadline": "2026-11-01T23:59:59.000Z",
+   "discovered_at": "2026-10-29T20:42:30.729Z"
   },
   {
    "url": "https://www.curtin.edu.au/study/offering/course-pg-graduate-certificate-in-geospatial-intelligence--gc-geospi/",
    "title": "Geospatial Intelligence",
    "summary": "Learn the principles of geographic information systems and remote sensing, and change to a career in geospatial intelligence.",
+   "level": "certificate",
    "university": "Curtin University",
    "country": "AU",
    "deadline": "2027-04-20T23:59:59.000Z",
-   "discovered_at": "2026-10-29T20:34:10.020Z"
+   "discovered_at": "2026-10-29T20:42:30.729Z"
   }
  ]
 }
