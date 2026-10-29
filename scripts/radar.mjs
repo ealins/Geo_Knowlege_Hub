@@ -3,6 +3,7 @@
 // No dependencies (Node 20+). Run: node scripts/radar.mjs
 
 import { readFile, writeFile, mkdir } from "node:fs/promises";
+import { findDeadline } from "./deadline.mjs";
 import { createHash } from "node:crypto";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -347,6 +348,30 @@ for (const it of previous.items ?? []) {
   if (merged.has(it.id) || htmlOk.has(it.source)) continue;
   merged.set(it.id, it);
 }
+// Open status: positions, programmes and events rarely state a deadline in the
+// listing, so read each item's own page (robots.txt respected) for one. Results
+// are cached on the item and rechecked every few days; at most 80 pages per run.
+const ENRICH_KINDS = new Set(["job", "course", "event"]);
+const RECHECK_MS = 3 * 864e5;
+const todo = [...merged.values()].filter(
+  (i) => ENRICH_KINDS.has(i.kind) && !i.deadline && !i.apply_closed && (!i.deadline_checked || now.getTime() - Date.parse(i.deadline_checked) > RECHECK_MS),
+).slice(0, 80);
+for (let n = 0; n < todo.length; n += 8) {
+  await Promise.all(
+    todo.slice(n, n + 8).map(async (it) => {
+      it.deadline_checked = nowIso;
+      try {
+        if (!(await robotsAllows(it.url))) return;
+        const found = findDeadline(await fetchText(it.url), now);
+        if (!found) return;
+        if (Date.parse(found) >= now.getTime()) it.deadline = found;
+        else if (it.kind === "course") it.apply_closed = true; // programme stays; its intake has passed
+        else it.deadline = found; // position or event already over: dropped below
+      } catch {}
+    }),
+  );
+}
+
 const items = [...merged.values()]
   .filter(isLive)
   .filter((i) => !i.deadline || Date.parse(i.deadline) >= now.getTime())
