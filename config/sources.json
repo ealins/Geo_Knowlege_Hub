@@ -129,7 +129,8 @@
       "kind": "event",
       "enabled": true,
       "trusted": true,
-      "include": "/en/events/[^/?#]+"
+      "include": "/en/events/[^/?#]+",
+      "render": true
     },
     {
       "id": "itc-education",
@@ -289,6 +290,61 @@
       "url": "https://www.studyprogrammes.ch/en/?q=geomatics",
       "type": "html",
       "kind": "course",
+      "enabled": true
+    },
+    {
+      "id": "arbeitsagentur-geoinformatik",
+      "name": "Bundesagentur für Arbeit: Geoinformatik",
+      "url": "https://rest.arbeitsagentur.de/jobboerse/jobsuche-service/pc/v4/jobs?size=50&angebotsart=1&was=Geoinformatik",
+      "type": "arbeitsagentur",
+      "kind": "job",
+      "headers": {
+        "X-API-Key": "jobboerse-jobsuche"
+      },
+      "enabled": true
+    },
+    {
+      "id": "arbeitsagentur-fernerkundung",
+      "name": "Bundesagentur für Arbeit: Fernerkundung",
+      "url": "https://rest.arbeitsagentur.de/jobboerse/jobsuche-service/pc/v4/jobs?size=50&angebotsart=1&was=Fernerkundung",
+      "type": "arbeitsagentur",
+      "kind": "job",
+      "headers": {
+        "X-API-Key": "jobboerse-jobsuche"
+      },
+      "enabled": true
+    },
+    {
+      "id": "arbeitsagentur-photogrammetrie",
+      "name": "Bundesagentur für Arbeit: Photogrammetrie",
+      "url": "https://rest.arbeitsagentur.de/jobboerse/jobsuche-service/pc/v4/jobs?size=50&angebotsart=1&was=Photogrammetrie",
+      "type": "arbeitsagentur",
+      "kind": "job",
+      "headers": {
+        "X-API-Key": "jobboerse-jobsuche"
+      },
+      "enabled": true
+    },
+    {
+      "id": "arbeitsagentur-gis",
+      "name": "Bundesagentur für Arbeit: GIS",
+      "url": "https://rest.arbeitsagentur.de/jobboerse/jobsuche-service/pc/v4/jobs?size=50&angebotsart=1&was=GIS",
+      "type": "arbeitsagentur",
+      "kind": "job",
+      "headers": {
+        "X-API-Key": "jobboerse-jobsuche"
+      },
+      "enabled": true
+    },
+    {
+      "id": "arbeitsagentur-geodaesie",
+      "name": "Bundesagentur für Arbeit: Geodäsie",
+      "url": "https://rest.arbeitsagentur.de/jobboerse/jobsuche-service/pc/v4/jobs?size=50&angebotsart=1&was=Geod%C3%A4sie",
+      "type": "arbeitsagentur",
+      "kind": "job",
+      "headers": {
+        "X-API-Key": "jobboerse-jobsuche"
+      },
       "enabled": true
     }
   ]

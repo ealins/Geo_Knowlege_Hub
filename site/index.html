@@ -71,6 +71,7 @@ details summary{cursor:pointer}
 .tablewrap{overflow-x:auto;margin-top:10px}
 table{width:100%;border-collapse:collapse;font-size:13px}
 th,td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+.deadline{color:var(--job);font-weight:600}
 .ok{color:var(--new)} .bad{color:var(--job)}
 .sr{position:absolute;left:-9999px}
 @media (max-width:820px){.layout{grid-template-columns:1fr}.stats{grid-template-columns:repeat(3,minmax(0,1fr))}}
@@ -194,6 +195,8 @@ function card(it) {
       ${isNew(it) ? '<span class="new">New</span>' : ""}
       <span>${esc(it.source_name)}</span>
       <span>${it.published ? "Published " + fmt(it.published) : "Found " + fmt(it.first_seen)}</span>
+      ${it.location ? `<span>${esc(it.location)}</span>` : ""}
+      ${it.deadline ? `<span class="deadline">Deadline ${fmt(it.deadline)}</span>` : ""}
       <span class="actions">
         <button class="act" data-copy="${esc(it.url)}" title="Copy link">Copy link</button>
         <button class="act" data-save="${esc(it.id)}" aria-pressed="${s}">${s ? "Saved" : "Save"}</button>

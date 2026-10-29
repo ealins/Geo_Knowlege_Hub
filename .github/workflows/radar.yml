@@ -26,6 +26,11 @@ jobs:
         with:
           node-version: 22
 
+      - name: Install headless browser for JavaScript-built pages
+        run: |
+          npm install --no-save playwright@1.48.2
+          npx playwright install --with-deps chromium
+
       - name: Fetch sources and update feed
         run: node scripts/radar.mjs
 

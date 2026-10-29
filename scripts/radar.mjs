@@ -66,11 +66,28 @@ const parseDate = (s) => {
 };
 
 // ---------- fetching ----------
-async function fetchText(url) {
+// Render a JavaScript-built page with a headless browser (only for sources
+// marked "render": true, and only after robots.txt allowed the fetch).
+let browserPromise = null;
+async function renderPage(url) {
+  const { chromium } = await import("playwright");
+  browserPromise ??= chromium.launch();
+  const page = await (await browserPromise).newPage({ userAgent: UA });
+  try {
+    const res = await page.goto(url, { waitUntil: "networkidle", timeout: 45_000 });
+    if (res && !res.ok()) throw new Error(`HTTP ${res.status()}`);
+    return await page.content();
+  } finally {
+    await page.close();
+  }
+}
+
+async function fetchText(url, extraHeaders = {}) {
   const res = await fetch(url, {
     headers: {
       "user-agent": UA,
-      accept: "application/rss+xml,application/atom+xml,text/html;q=0.9,*/*;q=0.5",
+      accept: "application/rss+xml,application/atom+xml,application/json,text/html;q=0.9,*/*;q=0.5",
+      ...extraHeaders,
     },
     signal: AbortSignal.timeout(20_000),
     redirect: "follow",
@@ -158,6 +175,51 @@ function parseOpenAlex(body) {
   }));
 }
 
+// German Federal Employment Agency job search API (public, documented on bund.dev).
+function parseArbeitsagentur(body) {
+  const data = JSON.parse(body);
+  return (data.stellenangebote || []).map((j) => ({
+    title: `${j.titel || j.beruf || ""}${j.arbeitgeber ? " – " + j.arbeitgeber : ""}`,
+    link: `https://www.arbeitsagentur.de/jobsuche/jobdetail/${encodeURIComponent(j.refnr)}`,
+    date: j.aktuelleVeroeffentlichungsdatum || j.modifikationsTimestamp || "",
+    summary: [j.beruf, j.titel].filter(Boolean).join(", "),
+    location: j.arbeitsort?.ort || "",
+  }));
+}
+
+// schema.org JSON-LD embedded in pages: JobPosting, Event, Course, etc.
+// Gives clean titles, dates, deadlines and locations instead of link text.
+const LD_TYPES = new Set(["JobPosting", "Event", "EducationEvent", "Course", "EducationalOccupationalProgram", "ScholarlyArticle", "NewsArticle"]);
+function parseJsonLd(html, source) {
+  const out = [];
+  const blocks = html.match(/<script[^>]+type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi) || [];
+  const visit = (node) => {
+    if (!node || typeof node !== "object") return;
+    if (Array.isArray(node)) return node.forEach(visit);
+    if (node["@graph"]) visit(node["@graph"]);
+    if (node.itemListElement) visit(node.itemListElement.map((e) => e.item || e));
+    const types = [].concat(node["@type"] || []);
+    if (!types.some((t) => LD_TYPES.has(t))) return;
+    const title = clean(String(node.title || node.name || node.headline || ""));
+    let link = node.url || node["@id"] || "";
+    try { link = new URL(link, source.url).href; } catch { link = ""; }
+    const loc = node.jobLocation || node.location;
+    const place = [].concat(loc || [])[0];
+    out.push({
+      title,
+      link,
+      date: node.datePosted || node.startDate || node.datePublished || "",
+      summary: clean(String(node.description || "")).slice(0, 400),
+      deadline: node.validThrough || node.applicationDeadline || node.endDate || "",
+      location: clean(String(place?.address?.addressLocality || place?.name || place?.address?.addressCountry || "")),
+    });
+  };
+  for (const b of blocks) {
+    try { visit(JSON.parse(b.replace(/^<script[^>]*>|<\/script>$/gi, ""))); } catch { /* malformed block */ }
+  }
+  return out.filter((r) => r.title && r.link);
+}
+
 function parseHtml(html, source) {
   const out = [];
   const seen = new Set();
@@ -186,6 +248,7 @@ function classify(raw, source) {
   const text = `${raw.title} ${raw.summary}`;
   const matched = domainTerms.filter((d) => d.re.test(text)).map((d) => d.term);
   if (!matched.length || !raw.link) return null;
+  if (raw.deadline && Date.parse(raw.deadline) < now.getTime()) return null; // already closed
   if (excludeRe && excludeRe.test(text)) return null;
   // Job pages also carry navigation and department links: require a position
   // word and a title of at least four words before accepting a listing.
@@ -207,7 +270,9 @@ function classify(raw, source) {
     source: source.id,
     source_name: source.name,
     published: parseDate(raw.date),
-    summary: raw.summary.slice(0, 300),
+    summary: (raw.summary || "").slice(0, 300),
+    deadline: parseDate(raw.deadline),
+    location: raw.location || null,
     matched,
   };
 }
@@ -227,11 +292,12 @@ async function runSource(src, statusOut) {
     if (!(await robotsAllows(src.url.replace(/\{since:\d+\}/g, "")))) throw new Error("disallowed by robots.txt");
     // {since:N} in a URL becomes the date N days ago (YYYY-MM-DD), keeping API queries to recent work.
     const url = src.url.replace(/\{since:(\d+)\}/g, (_, d) => new Date(now.getTime() - Number(d) * 864e5).toISOString().slice(0, 10));
-    const body = await fetchText(url);
+    const body = src.render ? await renderPage(url) : await fetchText(url, src.headers);
     const raw =
       src.type === "rss" ? parseFeed(body)
       : src.type === "openalex" ? parseOpenAlex(body)
-      : parseHtml(body, src);
+      : src.type === "arbeitsagentur" ? parseArbeitsagentur(body)
+      : [...parseJsonLd(body, src), ...parseHtml(body, src)];
     const kept = raw.map((r) => classify(r, src)).filter(Boolean);
     statusOut[src.id] = {
       state: "ok",
@@ -283,6 +349,7 @@ for (const it of previous.items ?? []) {
 }
 const items = [...merged.values()]
   .filter(isLive)
+  .filter((i) => !i.deadline || Date.parse(i.deadline) >= now.getTime())
   .sort((a, b) => b.first_seen.localeCompare(a.first_seen));
 
 await mkdir(DATA_DIR, { recursive: true });
@@ -298,3 +365,4 @@ await writeFile(
 console.log(
   `sources enabled: ${enabled.length}, matched this run: ${fresh.length}, items kept: ${items.length}`,
 );
+if (browserPromise) await (await browserPromise).close();
