@@ -189,7 +189,8 @@ function classify(raw, source) {
   if (excludeRe && excludeRe.test(text)) return null;
   // Job pages also carry navigation and department links: require a position
   // word and a title of at least four words before accepting a listing.
-  if (source.type === "html" && (source.kind === "job" || source.kind === "event")) {
+  // Sources marked "trusted" list only items of their kind (e.g. an event calendar).
+  if (source.type === "html" && !source.trusted && (source.kind === "job" || source.kind === "event")) {
     const re = kindRes.find(([k]) => k === source.kind)?.[1];
     if ((re && !re.test(text)) || raw.title.trim().split(/\s+/).length < 4) return null;
   }
