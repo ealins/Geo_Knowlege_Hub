@@ -1,7 +1,7 @@
 {
- "generated_at": "2026-10-29T20:24:39.634Z",
+ "generated_at": "2026-10-29T20:34:10.020Z",
  "universities": 122,
- "count": 61,
+ "count": 62,
  "items": [
   {
    "url": "https://www.utwente.nl/en/education/master/programmes/geo-information-science-earth-observation/master-structure/",
@@ -10,7 +10,7 @@
    "university": "University of Twente",
    "country": "NL",
    "deadline": "2027-05-01T23:59:59.000Z",
-   "discovered_at": "2026-10-29T20:24:39.634Z"
+   "discovered_at": "2026-10-29T20:34:10.020Z"
   },
   {
    "url": "https://www.utwente.nl/onderwijs/master/opleidingen/geo-information-science-earth-observation/",
@@ -19,7 +19,7 @@
    "university": "University of Twente",
    "country": "NL",
    "deadline": null,
-   "discovered_at": "2026-10-29T20:24:39.634Z"
+   "discovered_at": "2026-10-29T20:34:10.020Z"
   },
   {
    "url": "https://www.utwente.nl/en/education/master/programmes/geo-information-science-earth-observation/admission-application/university-students/",
@@ -28,7 +28,7 @@
    "university": "University of Twente",
    "country": "NL",
    "deadline": null,
-   "discovered_at": "2026-10-29T20:24:39.634Z"
+   "discovered_at": "2026-10-29T20:34:10.020Z"
   },
   {
    "url": "https://www.utwente.nl/en/education/master/programmes/geo-information-science-earth-observation/cau-china/",
@@ -37,7 +37,7 @@
    "university": "University of Twente",
    "country": "NL",
    "deadline": null,
-   "discovered_at": "2026-10-29T20:24:39.634Z"
+   "discovered_at": "2026-10-29T20:34:10.020Z"
   },
   {
    "url": "https://www.utwente.nl/en/education/master/programmes/geo-information-science-earth-observation/cnu-china/",
@@ -46,7 +46,7 @@
    "university": "University of Twente",
    "country": "NL",
    "deadline": null,
-   "discovered_at": "2026-10-29T20:24:39.634Z"
+   "discovered_at": "2026-10-29T20:34:10.020Z"
   },
   {
    "url": "https://www.utwente.nl/en/education/master/programmes/geo-information-science-earth-observation/elegibility-check/",
@@ -55,7 +55,7 @@
    "university": "University of Twente",
    "country": "NL",
    "deadline": null,
-   "discovered_at": "2026-10-29T20:24:39.634Z"
+   "discovered_at": "2026-10-29T20:34:10.020Z"
   },
   {
    "url": "https://www.utwente.nl/en/education/master/programmes/geo-information-science-earth-observation/master-structure/joint-programmes/",
@@ -64,7 +64,7 @@
    "university": "University of Twente",
    "country": "NL",
    "deadline": null,
-   "discovered_at": "2026-10-29T20:24:39.634Z"
+   "discovered_at": "2026-10-29T20:34:10.020Z"
   },
   {
    "url": "https://www.utwente.nl/en/education/master/programmes/geo-information-science-earth-observation/specialisations/disaster-resilience/",
@@ -73,7 +73,7 @@
    "university": "University of Twente",
    "country": "NL",
    "deadline": null,
-   "discovered_at": "2026-10-29T20:24:39.634Z"
+   "discovered_at": "2026-10-29T20:34:10.020Z"
   },
   {
    "url": "https://www.utwente.nl/en/education/master/programmes/geo-information-science-earth-observation/specialisations/free-specialisation/",
@@ -82,7 +82,7 @@
    "university": "University of Twente",
    "country": "NL",
    "deadline": null,
-   "discovered_at": "2026-10-29T20:24:39.634Z"
+   "discovered_at": "2026-10-29T20:34:10.020Z"
   },
   {
    "url": "https://www.utwente.nl/en/education/master/programmes/geo-information-science-earth-observation/specialisations/geoai/",
@@ -91,7 +91,7 @@
    "university": "University of Twente",
    "country": "NL",
    "deadline": null,
-   "discovered_at": "2026-10-29T20:24:39.634Z"
+   "discovered_at": "2026-10-29T20:34:10.020Z"
   },
   {
    "url": "https://www.utwente.nl/en/education/master/programmes/geo-information-science-earth-observation/specialisations/resources-security/",
@@ -100,7 +100,7 @@
    "university": "University of Twente",
    "country": "NL",
    "deadline": null,
-   "discovered_at": "2026-10-29T20:24:39.634Z"
+   "discovered_at": "2026-10-29T20:34:10.020Z"
   },
   {
    "url": "https://www.utwente.nl/en/education/master/programmes/geo-information-science-earth-observation/specialisations/urban-and-land-futures/",
@@ -109,7 +109,7 @@
    "university": "University of Twente",
    "country": "NL",
    "deadline": null,
-   "discovered_at": "2026-10-29T20:24:39.634Z"
+   "discovered_at": "2026-10-29T20:34:10.020Z"
   },
   {
    "url": "https://www.tudelft.nl/onderwijs/opleidingen/masters/gm/msc-geomatics",
@@ -118,7 +118,7 @@
    "university": "Delft University of Technology",
    "country": "NL",
    "deadline": null,
-   "discovered_at": "2026-10-29T20:24:39.634Z"
+   "discovered_at": "2026-10-29T20:34:10.020Z"
   },
   {
    "url": "https://geog.umd.edu/undergraduate/geospatial-data-science",
@@ -127,7 +127,7 @@
    "university": "University of Maryland, College Park",
    "country": "US",
    "deadline": null,
-   "discovered_at": "2026-10-29T20:24:39.634Z"
+   "discovered_at": "2026-10-29T20:34:10.020Z"
   },
   {
    "url": "https://geog.umd.edu/undergraduate/computational-earth-observation-science",
@@ -136,7 +136,7 @@
    "university": "University of Maryland, College Park",
    "country": "US",
    "deadline": null,
-   "discovered_at": "2026-10-29T20:24:39.634Z"
+   "discovered_at": "2026-10-29T20:34:10.020Z"
   },
   {
    "url": "https://catalog.ufl.edu/UGRD/colleges-schools/UGAGL/AGL_UCT06/",
@@ -145,7 +145,7 @@
    "university": "University of Florida",
    "country": "US",
    "deadline": null,
-   "discovered_at": "2026-10-29T20:24:39.634Z"
+   "discovered_at": "2026-10-29T20:34:10.020Z"
   },
   {
    "url": "https://catalog.ufl.edu/UGRD/colleges-schools/UGLAS/LAS_UCT04/",
@@ -154,7 +154,7 @@
    "university": "University of Florida",
    "country": "US",
    "deadline": null,
-   "discovered_at": "2026-10-29T20:24:39.634Z"
+   "discovered_at": "2026-10-29T20:34:10.020Z"
   },
   {
    "url": "https://www.sle.kit.edu/vorstudium/bachelor-geodaesie-geoinformatik.php",
@@ -163,7 +163,7 @@
    "university": "Karlsruhe Institute of Technology",
    "country": "DE",
    "deadline": "2027-09-15T23:59:59.000Z",
-   "discovered_at": "2026-10-29T20:24:39.634Z"
+   "discovered_at": "2026-10-29T20:34:10.020Z"
   },
   {
    "url": "https://www.sle.kit.edu/vorstudium/master-geodaesie-geoinformatik.php",
@@ -172,7 +172,7 @@
    "university": "Karlsruhe Institute of Technology",
    "country": "DE",
    "deadline": "2027-09-30T23:59:59.000Z",
-   "discovered_at": "2026-10-29T20:24:39.634Z"
+   "discovered_at": "2026-10-29T20:34:10.020Z"
   },
   {
    "url": "https://www.sle.kit.edu/vorstudium/master-remote-sensing-geoinformatics.php",
@@ -181,7 +181,7 @@
    "university": "Karlsruhe Institute of Technology",
    "country": "DE",
    "deadline": "2027-06-15T23:59:59.000Z",
-   "discovered_at": "2026-10-29T20:24:39.634Z"
+   "discovered_at": "2026-10-29T20:34:10.020Z"
   },
   {
    "url": "https://pdc.wisc.edu/degrees/cartography-gis-accelerated-non-thesis-ms/",
@@ -190,16 +190,7 @@
    "university": "University of Wisconsin–Madison",
    "country": "US",
    "deadline": "2027-04-01T00:00:00.000Z",
-   "discovered_at": "2026-10-29T20:24:39.634Z"
-  },
-  {
-   "url": "https://pm.forestry.ubc.ca/programs/master-geomatics-for-environmental-management/",
-   "title": "Master of Geomatics for Environmental Management",
-   "summary": "MGEM is an accelerated, 9-month, course-based masters degree program focused on GIS, remote sensing, image processing, and application of geospatial tools",
-   "university": "University of British Columbia",
-   "country": "CA",
-   "deadline": "2027-02-01T23:59:59.000Z",
-   "discovered_at": "2026-10-29T20:24:39.634Z"
+   "discovered_at": "2026-10-29T20:34:10.020Z"
   },
   {
    "url": "https://www.exeter.ac.uk/undergraduate-degrees/bsc-geography-with-applied-gis/",
@@ -208,7 +199,7 @@
    "university": "University of Exeter",
    "country": "GB",
    "deadline": "2027-06-30T23:59:59.000Z",
-   "discovered_at": "2026-10-29T20:24:39.634Z"
+   "discovered_at": "2026-10-29T20:34:10.020Z"
   },
   {
    "url": "https://www.exeter.ac.uk/masters-degrees/msc-geographical-information-science/",
@@ -217,7 +208,7 @@
    "university": "University of Exeter",
    "country": "GB",
    "deadline": "2027-01-20T23:59:59.000Z",
-   "discovered_at": "2026-10-29T20:24:39.634Z"
+   "discovered_at": "2026-10-29T20:34:10.020Z"
   },
   {
    "url": "https://infostudies.purdue.edu/graduate-certificate-in-geospatial-information-science/",
@@ -226,7 +217,7 @@
    "university": "Purdue University West Lafayette",
    "country": "US",
    "deadline": "2026-12-01T23:59:59.000Z",
-   "discovered_at": "2026-10-29T20:24:39.634Z"
+   "discovered_at": "2026-10-29T20:34:10.020Z"
   },
   {
    "url": "https://www.purdue.edu/online/program/masters-in-applied-geospatial-analytics/",
@@ -235,7 +226,7 @@
    "university": "Purdue University West Lafayette",
    "country": "US",
    "deadline": null,
-   "discovered_at": "2026-10-29T20:24:39.634Z"
+   "discovered_at": "2026-10-29T20:34:10.020Z"
   },
   {
    "url": "https://polytechnic.purdue.edu/degrees/masters-applied-geospatial-analytics-online?utm_source=puo_website&amp;utm_medium=snapshot&amp;utm_campaign=GRST-MS-OL_AGSA",
@@ -244,7 +235,7 @@
    "university": "Purdue University West Lafayette",
    "country": "US",
    "deadline": null,
-   "discovered_at": "2026-10-29T20:24:39.634Z"
+   "discovered_at": "2026-10-29T20:34:10.020Z"
   },
   {
    "url": "https://polytechnic.purdue.edu/academics/online-master-science-applied-geospatial-analytics/curriculum?utm_source=puo_website&amp;utm_medium=snapshot",
@@ -253,7 +244,25 @@
    "university": "Purdue University West Lafayette",
    "country": "US",
    "deadline": null,
-   "discovered_at": "2026-10-29T20:24:39.634Z"
+   "discovered_at": "2026-10-29T20:34:10.020Z"
+  },
+  {
+   "url": "https://pm.forestry.ubc.ca/programs/master-geomatics-for-environmental-management/",
+   "title": "Master of Geomatics for Environmental Management",
+   "summary": "MGEM is an accelerated, 9-month, course-based masters degree program focused on GIS, remote sensing, image processing, and application of geospatial tools",
+   "university": "University of British Columbia",
+   "country": "CA",
+   "deadline": "2027-02-01T23:59:59.000Z",
+   "discovered_at": "2026-10-29T20:34:10.020Z"
+  },
+  {
+   "url": "https://forestry.ubc.ca/future-students/undergraduate/certificate-in-geomatics-for-environmental-management/",
+   "title": "Certificate in Geomatics for Environmental Management",
+   "summary": "This undergraduate certificate prepares students to apply spatial data to real-world environmental and planning challenges.",
+   "university": "University of British Columbia",
+   "country": "CA",
+   "deadline": null,
+   "discovered_at": "2026-10-29T20:34:10.020Z"
   },
   {
    "url": "https://grad.ucla.edu/programs/social-sciences/geography-department/master-of-applied-geospatial-information-systems-technologies/",
@@ -262,7 +271,7 @@
    "university": "University of California, Los Angeles",
    "country": "US",
    "deadline": null,
-   "discovered_at": "2026-10-29T20:24:39.634Z"
+   "discovered_at": "2026-10-29T20:34:10.020Z"
   },
   {
    "url": "https://gis.ucla.edu/programs/magist",
@@ -271,7 +280,7 @@
    "university": "University of California, Los Angeles",
    "country": "US",
    "deadline": null,
-   "discovered_at": "2026-10-29T20:24:39.634Z"
+   "discovered_at": "2026-10-29T20:34:10.020Z"
   },
   {
    "url": "https://www.bristol.ac.uk/cabot/postgraduate-opportunities/cabot-masters/project-photogrammetry-techniques-on-uk-streams/",
@@ -280,7 +289,7 @@
    "university": "University of Bristol",
    "country": "GB",
    "deadline": null,
-   "discovered_at": "2026-10-29T20:24:39.634Z"
+   "discovered_at": "2026-10-29T20:34:10.020Z"
   },
   {
    "url": "https://www.slu.se/en/study/programmes-courses/doctoral-education/research-schools/ecology/programme/2026/gis-and-spatial-analysis-with-r/",
@@ -289,7 +298,7 @@
    "university": "Swedish University of Agricultural Sciences",
    "country": "SE",
    "deadline": null,
-   "discovered_at": "2026-10-29T20:24:39.634Z"
+   "discovered_at": "2026-10-29T20:34:10.020Z"
   },
   {
    "url": "https://www.slu.se/studentwebb/studier/kurser-och-program/kurssok/kurser/a/avancerad-geografisk-modellering-i-gis/",
@@ -298,7 +307,7 @@
    "university": "Swedish University of Agricultural Sciences",
    "country": "SE",
    "deadline": null,
-   "discovered_at": "2026-10-29T20:24:39.634Z"
+   "discovered_at": "2026-10-29T20:34:10.020Z"
   },
   {
    "url": "https://www.slu.se/studentwebb/studier/kurser-och-program/kurssok/kurser/a/avancerad-landskapsanalys-med-gis/",
@@ -307,7 +316,7 @@
    "university": "Swedish University of Agricultural Sciences",
    "country": "SE",
    "deadline": null,
-   "discovered_at": "2026-10-29T20:24:39.634Z"
+   "discovered_at": "2026-10-29T20:34:10.020Z"
   },
   {
    "url": "https://www.slu.se/studentwebb/studier/kurser-och-program/kurssok/kurser/e/en-introduktion-till-geografiska-informationssytem-gis/",
@@ -316,7 +325,7 @@
    "university": "Swedish University of Agricultural Sciences",
    "country": "SE",
    "deadline": null,
-   "discovered_at": "2026-10-29T20:24:39.634Z"
+   "discovered_at": "2026-10-29T20:34:10.020Z"
   },
   {
    "url": "https://www.slu.se/studentwebb/studier/kurser-och-program/kurssok/kurser/g/gis-for-skog-och-landskap/",
@@ -325,7 +334,7 @@
    "university": "Swedish University of Agricultural Sciences",
    "country": "SE",
    "deadline": null,
-   "discovered_at": "2026-10-29T20:24:39.634Z"
+   "discovered_at": "2026-10-29T20:34:10.020Z"
   },
   {
    "url": "https://www.slu.se/studentwebb/studier/kurser-och-program/kurssok/kurser/g/gis-and-geographic-analysis/",
@@ -334,43 +343,7 @@
    "university": "Swedish University of Agricultural Sciences",
    "country": "SE",
    "deadline": null,
-   "discovered_at": "2026-10-29T20:24:39.634Z"
-  },
-  {
-   "url": "https://www.tuwien.at/en/studies/studies/master-programmes/mathematics-and-geoinformation",
-   "title": "Master's Programmes in Mathematics and Geoinformation",
-   "summary": "TU Wien, TUW. Information on studying at the TU Wien. News, study programmes, admission, teaching at TU Wien, ÖH election, academic calendar, distance learning, international.",
-   "university": "TU Wien",
-   "country": "AT",
-   "deadline": null,
-   "discovered_at": "2026-10-29T20:24:39.634Z"
-  },
-  {
-   "url": "https://www.tuwien.at/studium/studienangebot/masterstudien/mathematik-und-geoinformation/cartography",
-   "title": "Cartography (Master)",
-   "summary": "",
-   "university": "TU Wien",
-   "country": "AT",
-   "deadline": null,
-   "discovered_at": "2026-10-29T20:24:39.634Z"
-  },
-  {
-   "url": "https://www.tuwien.at/studium/studienangebot/masterstudien/mathematik-und-geoinformation/geodesy-and-geoinformation",
-   "title": "Geodesy and Geoinformation (Master)",
-   "summary": "",
-   "university": "TU Wien",
-   "country": "AT",
-   "deadline": null,
-   "discovered_at": "2026-10-29T20:24:39.634Z"
-  },
-  {
-   "url": "https://www.gla.ac.uk/postgraduate/taught/geoinformation-technology-cartography/",
-   "title": "Postgraduate study",
-   "summary": "Find out more about the MSc Geoinformation Technology and Cartography in the School of Geographical and Earth Sciences at the University of Glasgow, UK, This Masters in Geoinformation Technology & Cartography focuses on ",
-   "university": "University of Glasgow",
-   "country": "GB",
-   "deadline": "2027-09-20T23:59:59.000Z",
-   "discovered_at": "2026-10-29T20:24:39.634Z"
+   "discovered_at": "2026-10-29T20:34:10.020Z"
   },
   {
    "url": "https://www.ku.dk/studies/masters/geography-and-geoinformatics",
@@ -379,7 +352,7 @@
    "university": "University of Copenhagen",
    "country": "DK",
    "deadline": "2027-01-15T23:59:59.000Z",
-   "discovered_at": "2026-10-29T20:24:39.634Z"
+   "discovered_at": "2026-10-29T20:34:10.020Z"
   },
   {
    "url": "https://www.ku.dk/studier/bachelor/geografi-og-geoinformatik",
@@ -388,7 +361,43 @@
    "university": "University of Copenhagen",
    "country": "DK",
    "deadline": null,
-   "discovered_at": "2026-10-29T20:24:39.634Z"
+   "discovered_at": "2026-10-29T20:34:10.020Z"
+  },
+  {
+   "url": "https://www.tuwien.at/en/studies/studies/master-programmes/mathematics-and-geoinformation",
+   "title": "Master's Programmes in Mathematics and Geoinformation",
+   "summary": "TU Wien, TUW. Information on studying at the TU Wien. News, study programmes, admission, teaching at TU Wien, ÖH election, academic calendar, distance learning, international.",
+   "university": "TU Wien",
+   "country": "AT",
+   "deadline": null,
+   "discovered_at": "2026-10-29T20:34:10.020Z"
+  },
+  {
+   "url": "https://www.tuwien.at/studium/studienangebot/masterstudien/mathematik-und-geoinformation/cartography",
+   "title": "Cartography (Master)",
+   "summary": "",
+   "university": "TU Wien",
+   "country": "AT",
+   "deadline": null,
+   "discovered_at": "2026-10-29T20:34:10.020Z"
+  },
+  {
+   "url": "https://www.tuwien.at/studium/studienangebot/masterstudien/mathematik-und-geoinformation/geodesy-and-geoinformation",
+   "title": "Geodesy and Geoinformation (Master)",
+   "summary": "",
+   "university": "TU Wien",
+   "country": "AT",
+   "deadline": null,
+   "discovered_at": "2026-10-29T20:34:10.020Z"
+  },
+  {
+   "url": "https://www.gla.ac.uk/postgraduate/taught/geoinformation-technology-cartography/",
+   "title": "Postgraduate study",
+   "summary": "Find out more about the MSc Geoinformation Technology and Cartography in the School of Geographical and Earth Sciences at the University of Glasgow, UK, This Masters in Geoinformation Technology & Cartography focuses on ",
+   "university": "University of Glasgow",
+   "country": "GB",
+   "deadline": "2027-09-20T23:59:59.000Z",
+   "discovered_at": "2026-10-29T20:34:10.020Z"
   },
   {
    "url": "https://www.worldcampus.psu.edu/degrees-and-certificates/topics/gis-and-geospatial",
@@ -397,7 +406,7 @@
    "university": "Pennsylvania State University",
    "country": "US",
    "deadline": "2026-11-01T23:59:59.000Z",
-   "discovered_at": "2026-10-29T20:24:39.634Z"
+   "discovered_at": "2026-10-29T20:34:10.020Z"
   },
   {
    "url": "https://www.worldcampus.psu.edu/degrees-and-certificates/penn-state-online-gis-geographic-information-systems-masters-degree",
@@ -406,7 +415,7 @@
    "university": "Pennsylvania State University",
    "country": "US",
    "deadline": "2026-11-01T00:00:00.000Z",
-   "discovered_at": "2026-10-29T20:24:39.634Z"
+   "discovered_at": "2026-10-29T20:34:10.020Z"
   },
   {
    "url": "https://www.worldcampus.psu.edu/degrees-and-certificates/penn-state-online-homeland-security-intelligence-and-geospatial-analysis-masters-degree",
@@ -415,7 +424,7 @@
    "university": "Pennsylvania State University",
    "country": "US",
    "deadline": "2026-11-01T00:00:00.000Z",
-   "discovered_at": "2026-10-29T20:24:39.634Z"
+   "discovered_at": "2026-10-29T20:34:10.020Z"
   },
   {
    "url": "https://www.worldcampus.psu.edu/degrees-and-certificates/penn-state-online-gis-geographic-information-systems-postbaccalaureate-certificate",
@@ -424,7 +433,7 @@
    "university": "Pennsylvania State University",
    "country": "US",
    "deadline": "2026-12-15T00:00:00.000Z",
-   "discovered_at": "2026-10-29T20:24:39.634Z"
+   "discovered_at": "2026-10-29T20:34:10.020Z"
   },
   {
    "url": "https://www.worldcampus.psu.edu/degrees-and-certificates/penn-state-online-geospatial-intelligence-analytics-graduate-certificate",
@@ -433,7 +442,7 @@
    "university": "Pennsylvania State University",
    "country": "US",
    "deadline": "2026-12-15T00:00:00.000Z",
-   "discovered_at": "2026-10-29T20:24:39.634Z"
+   "discovered_at": "2026-10-29T20:34:10.020Z"
   },
   {
    "url": "https://www.worldcampus.psu.edu/degrees-and-certificates/penn-state-online-geospatial-programming-and-web-map-development-graduate-certificate",
@@ -442,7 +451,7 @@
    "university": "Pennsylvania State University",
    "country": "US",
    "deadline": "2026-12-15T00:00:00.000Z",
-   "discovered_at": "2026-10-29T20:24:39.634Z"
+   "discovered_at": "2026-10-29T20:34:10.020Z"
   },
   {
    "url": "https://www.worldcampus.psu.edu/degrees-and-certificates/penn-state-online-remote-sensing-and-earth-observation-graduate-certificate",
@@ -451,7 +460,7 @@
    "university": "Pennsylvania State University",
    "country": "US",
    "deadline": "2026-12-15T00:00:00.000Z",
-   "discovered_at": "2026-10-29T20:24:39.634Z"
+   "discovered_at": "2026-10-29T20:34:10.020Z"
   },
   {
    "url": "https://online.osu.edu/masters-degree/master-geographic-information-science-technology/",
@@ -460,7 +469,7 @@
    "university": "The Ohio State University",
    "country": "US",
    "deadline": "2026-12-01T00:00:00.000Z",
-   "discovered_at": "2026-10-29T20:24:39.634Z"
+   "discovered_at": "2026-10-29T20:34:10.020Z"
   },
   {
    "url": "https://www.uni-potsdam.de/en/studium/what-to-study/master/remote-sensing",
@@ -469,7 +478,7 @@
    "university": "University of Potsdam",
    "country": "DE",
    "deadline": null,
-   "discovered_at": "2026-10-29T20:24:39.634Z"
+   "discovered_at": "2026-10-29T20:34:10.020Z"
   },
   {
    "url": "https://arts.ucalgary.ca/geography/future-students/undergraduate/geographic-information-science-certificate",
@@ -478,7 +487,7 @@
    "university": "University of Calgary",
    "country": "CA",
    "deadline": "2027-09-01T23:59:59.000Z",
-   "discovered_at": "2026-10-29T20:24:39.634Z"
+   "discovered_at": "2026-10-29T20:34:10.020Z"
   },
   {
    "url": "https://arts.ucalgary.ca/geospatial-information-technology",
@@ -487,16 +496,7 @@
    "university": "University of Calgary",
    "country": "CA",
    "deadline": "2027-03-01T23:59:59.000Z",
-   "discovered_at": "2026-10-29T20:24:39.634Z"
-  },
-  {
-   "url": "https://www.curtin.edu.au/study/offering/course-pg-graduate-certificate-in-geospatial-intelligence--gc-geospi/",
-   "title": "Geospatial Intelligence",
-   "summary": "Learn the principles of geographic information systems and remote sensing, and change to a career in geospatial intelligence.",
-   "university": "Curtin University",
-   "country": "AU",
-   "deadline": "2027-04-20T23:59:59.000Z",
-   "discovered_at": "2026-10-29T20:24:39.634Z"
+   "discovered_at": "2026-10-29T20:34:10.020Z"
   },
   {
    "url": "https://www.hft-stuttgart.de/vermessung/bachelor-vermessung-und-geoinformatik",
@@ -505,7 +505,7 @@
    "university": "HFT Stuttgart",
    "country": "DE",
    "deadline": "2027-10-20T23:59:59.000Z",
-   "discovered_at": "2026-10-29T20:24:39.634Z"
+   "discovered_at": "2026-10-29T20:34:10.020Z"
   },
   {
    "url": "https://www.hft-stuttgart.de/vermessung/master-photogrammetry-and-geoinformatics",
@@ -514,7 +514,7 @@
    "university": "HFT Stuttgart",
    "country": "DE",
    "deadline": "2027-02-20T23:59:59.000Z",
-   "discovered_at": "2026-10-29T20:24:39.634Z"
+   "discovered_at": "2026-10-29T20:34:10.020Z"
   },
   {
    "url": "https://www.hft-stuttgart.de/vermessung/projekte/abschluss-arbeiten-im-bachelor-vermessung-und-geoinformatik-und-master-vermessung",
@@ -523,7 +523,7 @@
    "university": "HFT Stuttgart",
    "country": "DE",
    "deadline": "2027-10-20T23:59:59.000Z",
-   "discovered_at": "2026-10-29T20:24:39.634Z"
+   "discovered_at": "2026-10-29T20:34:10.020Z"
   },
   {
    "url": "https://www.hft-stuttgart.de/vermessung/veranstaltung/digitale-studienberatung-bachelor-vermessung-und-geoinformatik-3",
@@ -532,7 +532,7 @@
    "university": "HFT Stuttgart",
    "country": "DE",
    "deadline": "2027-10-20T23:59:59.000Z",
-   "discovered_at": "2026-10-29T20:24:39.634Z"
+   "discovered_at": "2026-10-29T20:34:10.020Z"
   },
   {
    "url": "https://www.unimi.it/en/education/degree-programme-courses/2027/cartography-and-cartographic-semiology-0",
@@ -541,7 +541,7 @@
    "university": "University of Milan",
    "country": "IT",
    "deadline": null,
-   "discovered_at": "2026-10-29T20:24:39.634Z"
+   "discovered_at": "2026-10-29T20:34:10.020Z"
   },
   {
    "url": "https://www.unimi.it/en/education/degree-programme-courses/2027/geographical-information-system-gis-1",
@@ -550,7 +550,16 @@
    "university": "University of Milan",
    "country": "IT",
    "deadline": null,
-   "discovered_at": "2026-10-29T20:24:39.634Z"
+   "discovered_at": "2026-10-29T20:34:10.020Z"
+  },
+  {
+   "url": "https://www.curtin.edu.au/study/offering/course-pg-graduate-certificate-in-geospatial-intelligence--gc-geospi/",
+   "title": "Geospatial Intelligence",
+   "summary": "Learn the principles of geographic information systems and remote sensing, and change to a career in geospatial intelligence.",
+   "university": "Curtin University",
+   "country": "AU",
+   "deadline": "2027-04-20T23:59:59.000Z",
+   "discovered_at": "2026-10-29T20:34:10.020Z"
   }
  ]
 }
