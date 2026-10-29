@@ -33,7 +33,7 @@
     "Fernerkundung",
     "Photogrammetrie",
     "Geoinformatik",
-    "Geod\u00e4sie",
+    "Geodäsie",
     "Geomatik",
     "Copernicus",
     "Digital Earth",
@@ -70,7 +70,20 @@
       "job opening",
       "position",
       "Mitarbeiter",
-      "Doktorand"
+      "Doktorand",
+      "scientist",
+      "researcher",
+      "engineer",
+      "EngD",
+      "assistant",
+      "professor",
+      "lecturer",
+      "Wissenschaftler",
+      "Ingenieur",
+      "internship",
+      "trainee",
+      "graduate programme",
+      "early career"
     ],
     "course": [
       "MSc",
@@ -107,5 +120,12 @@
       "dataset",
       "study"
     ]
-  }
+  },
+  "exclude": [
+    "Schülerpraktikum",
+    "Schulpraktikum",
+    "Girls' Day",
+    "Boys' Day",
+    "Ausbildung"
+  ]
 }

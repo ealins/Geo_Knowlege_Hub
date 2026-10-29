@@ -36,6 +36,7 @@ const previous = await readJson(path.join(DATA_DIR, "feed.json"), { items: [] })
 const statusPrev = await readJson(path.join(DATA_DIR, "status.json"), {});
 
 const domainTerms = domain.terms.map((t) => ({ term: t, re: wordRe([t]) }));
+const excludeRe = domain.exclude?.length ? wordRe(domain.exclude) : null;
 const kindRes = Object.entries(domain.kinds).map(([kind, words]) => [kind, wordRe(words)]);
 
 // ---------- text helpers ----------
@@ -185,6 +186,13 @@ function classify(raw, source) {
   const text = `${raw.title} ${raw.summary}`;
   const matched = domainTerms.filter((d) => d.re.test(text)).map((d) => d.term);
   if (!matched.length || !raw.link) return null;
+  if (excludeRe && excludeRe.test(text)) return null;
+  // Job pages also carry navigation and department links: require a position
+  // word and a title of at least four words before accepting a listing.
+  if (source.kind === "job") {
+    const jobRe = kindRes.find(([k]) => k === "job")?.[1];
+    if ((jobRe && !jobRe.test(text)) || raw.title.trim().split(/\s+/).length < 4) return null;
+  }
   let kind = source.kind && source.kind !== "auto" ? source.kind : "news";
   if (!source.kind || source.kind === "auto") {
     const hit = kindRes.find(([, re]) => re.test(text));
