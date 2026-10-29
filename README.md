@@ -20,12 +20,15 @@ node scripts/radar.mjs
 node scripts/build.mjs
 ```
 
-## Setup checklist
+## Setup (one-time)
 
-- **GitHub Pages:** Settings → Pages → Source: *GitHub Actions*.
-- **Default branch:** `main` is the default. Scheduled runs only fire from the default branch.
-- **Cloudflare Pages (optional):** add repository secret `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`, and variable `CF_PAGES_PROJECT`. The workflow deploys there only when all three are set.
-- **Sources:** add entries to `config/sources.json`. Prefer RSS/Atom. For HTML pages, keep `include` narrow.
+Deploys to a Cloudflare Worker (static assets) on every run.
+
+1. Create a Cloudflare API token with the "Edit Cloudflare Workers" template.
+2. In the GitHub repo, add two secrets: `CLOUDFLARE_API_TOKEN` (the token) and `CLOUDFLARE_ACCOUNT_ID` (your account ID).
+3. Add your domain under `routes` in `wrangler.jsonc`.
+
+After that, the workflow fetches sources every 6 hours, commits the feed, and redeploys the Worker.
 
 ## Freshness rules
 

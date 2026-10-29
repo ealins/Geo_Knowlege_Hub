@@ -3,16 +3,14 @@ name: Geo Radar
 on:
   workflow_dispatch:
   schedule:
-    # Scheduled runs only fire from the default branch.
+    # Scheduled runs only fire from the default branch (main).
     - cron: "17 */6 * * *"
   push:
     branches: [main]
-    paths: ["config/**", "scripts/**", "site/**", ".github/workflows/radar.yml"]
+    paths: ["config/**", "scripts/**", "site/**", "wrangler.jsonc", ".github/workflows/radar.yml"]
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
 
 concurrency:
   group: geo-radar
@@ -21,9 +19,6 @@ concurrency:
 jobs:
   radar:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
 
@@ -49,32 +44,9 @@ jobs:
       - name: Build site
         run: node scripts/build.mjs
 
-      - name: Detect Cloudflare configuration
-        id: cf
-        env:
-          CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CF_PROJECT: ${{ vars.CF_PAGES_PROJECT }}
-        run: |
-          if [ -n "$CF_TOKEN" ] && [ -n "$CF_PROJECT" ]; then
-            echo "enabled=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "enabled=false" >> "$GITHUB_OUTPUT"
-            echo "Cloudflare not configured; deploying to GitHub Pages only."
-          fi
-
-      - name: Deploy to Cloudflare Pages
-        if: steps.cf.outputs.enabled == 'true'
+      - name: Deploy Worker to Cloudflare
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy dist --project-name=${{ vars.CF_PAGES_PROJECT }} --branch=main
-
-      - uses: actions/configure-pages@v5
-
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: dist
-
-      - id: deployment
-        uses: actions/deploy-pages@v4
+          command: deploy

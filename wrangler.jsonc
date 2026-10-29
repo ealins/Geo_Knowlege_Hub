@@ -1,0 +1,13 @@
+{
+  // Static Worker: serves dist/ (built by scripts/build.mjs) with no server code.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "geo-radar",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./dist",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  }
+  // Custom domain: add "routes": [{ "pattern": "radar.example.com", "custom_domain": true }]
+  // once the domain is confirmed.
+}
