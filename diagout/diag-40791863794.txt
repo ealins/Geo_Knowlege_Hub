@@ -1,0 +1,35 @@
+token set: yes; account id set: yes; account id length: 32
+
+ ⛅️ wrangler 4.155.0
+────────────────────
+Getting User settings...
+👋 You are logged in with an Account API Token, associated with the account Ealinb4u@gmail.com's Account.
+ℹ️  The API Token is read from the CLOUDFLARE_API_TOKEN environment variable.
+┌──────────────────────────────┬──────────────────────────────────┐
+│ Account Name                 │ Account ID                       │
+├──────────────────────────────┼──────────────────────────────────┤
+│ Ealinb4u@gmail.com's Account │ 3bbc7f56439d41a35b3f83132c12b81c │
+└──────────────────────────────┴──────────────────────────────────┘
+🔓 To see token permissions visit https://dash.cloudflare.com/3bbc7f56439d41a35b3f83132c12b81c/api-tokens
+
+ ⛅️ wrangler 4.155.0
+────────────────────
+
+Cloudflare collects anonymous telemetry about your usage of Wrangler. Learn more at https://github.com/cloudflare/workers-sdk/tree/main/packages/wrangler/telemetry.md
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mThe directory specified by the "assets.directory" field in your configuration file does not exist:[0m
+
+  /home/runner/work/Geo_Knowlege_Hub/Geo_Knowlege_Hub/dist
+
+
+🪵  Logs were written to "/home/runner/.config/.wrangler/logs/wrangler-2026-10-29_00-06-53_782.log"
+
+ ⛅️ wrangler 4.155.0
+────────────────────
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mThe directory specified by the "assets.directory" field in your configuration file does not exist:[0m
+
+  /home/runner/work/Geo_Knowlege_Hub/Geo_Knowlege_Hub/dist
+
+
+🪵  Logs were written to "/home/runner/.config/.wrangler/logs/wrangler-2026-10-29_00-06-55_703.log"

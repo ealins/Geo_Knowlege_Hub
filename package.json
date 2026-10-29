@@ -1,0 +1,14 @@
+{
+  "name": "geo-radar",
+  "private": true,
+  "type": "module",
+  "description": "Fresh academic radar for photogrammetry, remote sensing and geoinformatics",
+  "scripts": {
+    "fetch": "node scripts/radar.mjs",
+    "build": "node scripts/build.mjs",
+    "radar": "node scripts/radar.mjs && node scripts/build.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

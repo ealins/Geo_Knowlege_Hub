@@ -1,0 +1,14 @@
+{
+  // Static Worker: serves dist/ (built by scripts/build.mjs) with no server code.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "geo-radar",
+  "compatibility_date": "2026-10-01",
+  "routes": [
+    { "pattern": "geoacademic.app/*", "zone_name": "geoacademic.app" }
+  ],
+  "assets": {
+    "directory": "./dist",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  }
+}

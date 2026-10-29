@@ -1,0 +1,83 @@
+name: Geo Radar
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Scheduled runs only fire from the default branch (main).
+    - cron: "17 */6 * * *"
+  push:
+    branches: [main]
+    paths: ["config/**", "scripts/**", "site/**", "wrangler.jsonc", ".github/workflows/radar.yml"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: geo-radar
+  cancel-in-progress: false
+
+jobs:
+  radar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Fetch sources and update feed
+        run: node scripts/radar.mjs
+
+      - name: Commit feed if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data
+          if git diff --cached --quiet; then
+            echo "No feed changes."
+          else
+            git commit -m "radar: refresh feed"
+            git push
+          fi
+
+      - name: Build site
+        run: node scripts/build.mjs
+
+      - name: Deploy Worker to Cloudflare
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: deploy
+
+  diagnose:
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Diagnose Cloudflare auth (no secrets printed)
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          set +e
+          curl -sS -X DELETE -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/workers/scripts/research-pulse-global" > delete-old.json; echo "delete old worker:"; head -c 400 delete-old.json; echo
+                    echo "token set: ${CLOUDFLARE_API_TOKEN:+yes}; account id set: ${CLOUDFLARE_ACCOUNT_ID:+yes}; account id length: ${#CLOUDFLARE_ACCOUNT_ID}" > diag.txt
+          npx -y wrangler@4 whoami >> diag.txt 2>&1 || true
+          mkdir -p data && node scripts/build.mjs >> diag.txt 2>&1
+          npx -y wrangler@4 deploy --dry-run >> diag.txt 2>&1 || true
+          npx -y wrangler@4 deploy >> diag.txt 2>&1 || true
+          cat diag.txt
+      - name: Publish diagnostic output to branch
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          mkdir -p diagout && cp diag.txt diagout/diag-${GITHUB_RUN_ID}.txt
+          git add -f diagout
+          git commit -q -m diag-output
+          git pull -q --rebase origin diag || true
+          git push -q origin HEAD:diag

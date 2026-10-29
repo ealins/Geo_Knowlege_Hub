@@ -1,0 +1,47 @@
+token set: yes; account id set: yes; account id length: 32
+
+ ⛅️ wrangler 4.155.0
+────────────────────
+Getting User settings...
+👋 You are logged in with an Account API Token, associated with the account Ealinb4u@gmail.com's Account.
+ℹ️  The API Token is read from the CLOUDFLARE_API_TOKEN environment variable.
+┌──────────────────────────────┬──────────────────────────────────┐
+│ Account Name                 │ Account ID                       │
+├──────────────────────────────┼──────────────────────────────────┤
+│ Ealinb4u@gmail.com's Account │ 3bbc7f56439d41a35b3f83132c12b81c │
+└──────────────────────────────┴──────────────────────────────────┘
+🔓 To see token permissions visit https://dash.cloudflare.com/3bbc7f56439d41a35b3f83132c12b81c/api-tokens
+built /home/runner/work/Geo_Knowlege_Hub/Geo_Knowlege_Hub/dist
+
+ ⛅️ wrangler 4.155.0
+────────────────────
+
+Cloudflare collects anonymous telemetry about your usage of Wrangler. Learn more at https://github.com/cloudflare/workers-sdk/tree/main/packages/wrangler/telemetry.md
+✨ Read 5 files from the assets directory /home/runner/work/Geo_Knowlege_Hub/Geo_Knowlege_Hub/dist
+Total Upload: 0.34 KiB / gzip: 0.25 KiB
+No bindings found.
+--dry-run: exiting now.
+
+ ⛅️ wrangler 4.155.0
+────────────────────
+🌀 Building list of assets...
+✨ Read 5 files from the assets directory /home/runner/work/Geo_Knowlege_Hub/Geo_Knowlege_Hub/dist
+🌀 Starting asset upload...
+🌀 Found 1 new or modified static asset to upload. Proceeding with upload...
++ /data/feed.json
+Uploaded 1 of 1 asset
+✨ Success! Uploaded 1 file (3 already uploaded) (0.88 sec)
+
+Total Upload: 0.34 KiB / gzip: 0.25 KiB
+Uploaded geo-radar (3.49 sec)
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mCan't deploy routes that are assigned to another worker.[0m
+
+  "research-pulse-global" is already assigned to routes:
+    - geoacademic.app/*
+  
+  Unassign other workers from the routes you want to deploy to, and then try again.
+  Visit [4mhttps://dash.cloudflare.com/3bbc7f56439d41a35b3f83132c12b81c/workers/overview[0m to unassign a worker from a route.
+
+
+🪵  Logs were written to "/home/runner/.config/.wrangler/logs/wrangler-2026-10-29_00-33-14_007.log"
