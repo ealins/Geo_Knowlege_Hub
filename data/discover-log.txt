@@ -1,0 +1,124 @@
+universities: 122
+ETH Zurich (CH): pages 1, programmes 0, with deadline 0
+University of Oxford (GB): pages 1, programmes 0, with deadline 0
+Politecnico di Milano (IT): pages 1, programmes 0, with deadline 0
+University of Colorado Boulder (US): pages 30, programmes 0, with deadline 0
+University of Bologna (IT): pages 1, programmes 0, with deadline 0
+Sapienza University of Rome (IT): pages 30, programmes 0, with deadline 0
+University of Twente (NL): pages 30, programmes 12, with deadline 2
+University College London (GB): pages 1, programmes 0, with deadline 0
+Politecnico di Torino (IT): pages 6, programmes 0, with deadline 0
+Technical University of Munich (DE): pages 30, programmes 0, with deadline 0
+University of Cambridge (GB): pages 30, programmes 0, with deadline 0
+University of Lisbon (PT): pages 19, programmes 0, with deadline 0
+Wageningen University & Research (NL): pages 30, programmes 2, with deadline 0
+University of Padua (IT): pages 2, programmes 0, with deadline 0
+Université de Toulouse (FR): pages 1, programmes 0, with deadline 0
+University of Florida (US): pages 30, programmes 2, with deadline 0
+University of Maryland, College Park (US): pages 30, programmes 4, with deadline 0
+The University of Melbourne (AU): pages 1, programmes 0, with deadline 0
+Delft University of Technology (NL): pages 26, programmes 2, with deadline 0
+University of Washington (US): pages 30, programmes 1, with deadline 1
+Texas A&M University (US): pages 30, programmes 0, with deadline 0
+Sorbonne Université (FR): pages 29, programmes 0, with deadline 0
+University of Leeds (GB): pages 30, programmes 0, with deadline 0
+Ghent University (BE): pages 6, programmes 0, with deadline 0
+Aarhus University (DK): pages 1, programmes 0, with deadline 0
+University of Michigan (US): pages 1, programmes 0, with deadline 0
+University of Florence (IT): pages 3, programmes 0, with deadline 0
+Karlsruhe Institute of Technology (DE): pages 29, programmes 3, with deadline 3
+University of Wisconsin–Madison (US): pages 26, programmes 1, with deadline 1
+University of Toronto (CA): pages 30, programmes 0, with deadline 0
+Université de Montpellier (FR): pages 30, programmes 0, with deadline 0
+Massachusetts Institute of Technology (US): pages 7, programmes 0, with deadline 0
+KU Leuven (BE): pages 1, programmes 0, with deadline 0
+UNSW Sydney (AU): pages 30, programmes 0, with deadline 0
+Harvard University (US): pages 30, programmes 0, with deadline 0
+Colorado State University (US): pages 30, programmes 0, with deadline 0
+University of British Columbia (CA): pages 30, programmes 4, with deadline 3
+University of Helsinki (FI): pages 30, programmes 1, with deadline 0
+Universitat de València (ES): pages 1, programmes 0, with deadline 0
+University of California, Berkeley (US): pages 30, programmes 0, with deadline 0
+The University of Queensland (AU): pages 30, programmes 0, with deadline 0
+Imperial College London (GB): pages 30, programmes 0, with deadline 0
+Columbia University (US): pages 1, programmes 0, with deadline 0
+University of Exeter (GB): pages 30, programmes 2, with deadline 2
+University of Illinois Urbana-Champaign (US): pages 30, programmes 0, with deadline 0
+University of Copenhagen (DK): pages 19, programmes 2, with deadline 1
+Purdue University West Lafayette (US): pages 30, programmes 3, with deadline 0
+University of Edinburgh (GB): pages 30, programmes 0, with deadline 0
+Arizona State University (US): pages 30, programmes 0, with deadline 0
+Université Grenoble Alpes (FR): pages 1, programmes 0, with deadline 0
+Utrecht University (NL): pages 30, programmes 0, with deadline 0
+Université Paris-Saclay (FR): pages 30, programmes 0, with deadline 0
+California Institute of Technology (US): pages 30, programmes 0, with deadline 0
+University of Arizona (US): pages 30, programmes 4, with deadline 0
+Lund University (SE): pages 9, programmes 0, with deadline 0
+University of California, Los Angeles (US): pages 30, programmes 2, with deadline 0
+University of Bern (CH): pages 3, programmes 0, with deadline 0
+Universidade do Porto (PT): pages 2, programmes 0, with deadline 0
+Stanford University (US): pages 30, programmes 0, with deadline 0
+Oregon State University (US): pages 30, programmes 1, with deadline 0
+University of Bristol (GB): pages 30, programmes 1, with deadline 0
+Université de Versailles Saint-Quentin-en-Yvelines (FR): pages 30, programmes 0, with deadline 0
+University of Reading (GB): pages 30, programmes 0, with deadline 0
+Cornell University (US): pages 30, programmes 0, with deadline 0
+Christian Business School (US): pages 1, programmes 0, with deadline 0
+University of Coimbra (PT): pages 1, programmes 0, with deadline 0
+Universidad Politécnica de Madrid (ES): pages 4, programmes 0, with deadline 0
+University of Liège (BE): pages 28, programmes 0, with deadline 0
+University of California, Davis (US): pages 30, programmes 0, with deadline 0
+Warsaw University of Technology (PL): pages 1, programmes 0, with deadline 0
+Swedish University of Agricultural Sciences (SE): pages 30, programmes 5, with deadline 0
+Universitat Politècnica de Catalunya (ES): pages 1, programmes 0, with deadline 0
+Michigan State University (US): pages 30, programmes 0, with deadline 0
+University of Bonn (DE): pages 6, programmes 0, with deadline 0
+University of Turin (IT): pages 6, programmes 0, with deadline 0
+AGH University of Krakow (PL): pages 28, programmes 0, with deadline 0
+University of Palermo (IT): pages 8, programmes 0, with deadline 0
+Universidad Europea del Atlántico (ES): pages 1, programmes 0, with deadline 0
+Universitat Politècnica de València (ES): pages 1, programmes 0, with deadline 0
+Technische Universität Dresden (DE): pages 5, programmes 0, with deadline 0
+Veni Creator Christian University (US): pages 0, programmes 0, with deadline 0
+Universidad Complutense de Madrid (ES): pages 5, programmes 0, with deadline 0
+TU Wien (AT): pages 20, programmes 3, with deadline 0
+University of Glasgow (GB): pages 30, programmes 0, with deadline 0
+University of Naples Federico II (IT): pages 2, programmes 0, with deadline 0
+University of Zurich (CH): pages 1, programmes 0, with deadline 0
+École Polytechnique Fédérale de Lausanne (CH): pages 20, programmes 0, with deadline 0
+University of Agriculture in Krakow (PL): pages 22, programmes 1, with deadline 1
+University of Freiburg (DE): pages 8, programmes 0, with deadline 0
+Pennsylvania State University (US): pages 30, programmes 8, with deadline 8
+University of California San Diego (US): pages 30, programmes 0, with deadline 0
+Leibniz University Hannover (DE): pages 21, programmes 0, with deadline 0
+AgroParisTech (FR): pages 11, programmes 0, with deadline 0
+Wrocław University of Science and Technology (PL): pages 30, programmes 0, with deadline 0
+Humboldt-Universität zu Berlin (DE): pages 1, programmes 0, with deadline 0
+Universidad de Granada (ES): pages 30, programmes 0, with deadline 0
+Technische Universität Berlin (DE): pages 30, programmes 0, with deadline 0
+The Ohio State University (US): pages 30, programmes 1, with deadline 1
+University of Potsdam (DE): pages 30, programmes 1, with deadline 0
+The University of Texas at Austin (US): pages 30, programmes 0, with deadline 0
+University of Georgia (US): pages 1, programmes 0, with deadline 0
+University of Warmia and Mazury in Olsztyn (PL): pages 1, programmes 0, with deadline 0
+Czech Technical University in Prague (CZ): pages 1, programmes 0, with deadline 0
+University of Calgary (CA): pages 30, programmes 2, with deadline 2
+Marche Polytechnic University (IT): pages 9, programmes 0, with deadline 0
+Monash University (AU): pages 1, programmes 0, with deadline 0
+North Carolina State University (US): pages 1, programmes 0, with deadline 0
+University of Birmingham (GB): pages 30, programmes 0, with deadline 0
+University of Manchester (GB): pages 30, programmes 0, with deadline 0
+Universitat de Barcelona (ES): pages 1, programmes 0, with deadline 0
+University of Minnesota (US): pages 30, programmes 0, with deadline 0
+Université de Strasbourg (FR): pages 25, programmes 0, with deadline 0
+Universitat Autònoma de Barcelona (ES): pages 30, programmes 0, with deadline 0
+Technical University of Denmark (DK): pages 1, programmes 0, with deadline 0
+Czech University of Life Sciences Prague (CZ): pages 30, programmes 0, with deadline 0
+Curtin University (AU): pages 30, programmes 1, with deadline 1
+Vrije Universiteit Amsterdam (NL): pages 30, programmes 2, with deadline 0
+HFT Stuttgart (DE): pages 30, programmes 4, with deadline 4
+University of Hawaiʻi at Mānoa (US): pages 30, programmes 2, with deadline 0
+University of Maine (US): pages 30, programmes 2, with deadline 2
+University of Milan (IT): pages 30, programmes 0, with deadline 0
+University of Trento (IT): pages 15, programmes 0, with deadline 0
+programmes: 79, with deadline: 32
