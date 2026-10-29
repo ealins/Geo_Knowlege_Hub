@@ -3,7 +3,7 @@
 // No dependencies (Node 20+). Run: node scripts/radar.mjs
 
 import { readFile, writeFile, mkdir } from "node:fs/promises";
-import { findDeadline } from "./deadline.mjs";
+import { findDeadline, datesIn } from "./deadline.mjs";
 import { createHash } from "node:crypto";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -35,6 +35,9 @@ if (!domain) throw new Error("config/domain.json is missing or invalid");
 const sourcesCfg = await readJson(SOURCES_FILE, { sources: [] });
 const previous = await readJson(path.join(DATA_DIR, "feed.json"), { items: [] });
 const statusPrev = await readJson(path.join(DATA_DIR, "status.json"), {});
+// Adverts already opened and found off-topic, so they are not fetched again.
+const checkedPrev = await readJson(path.join(DATA_DIR, "checked.json"), {});
+const checkedOut = Object.fromEntries(Object.entries(checkedPrev).filter(([, d]) => Date.now() - Date.parse(d) < 30 * 864e5));
 
 const domainTerms = domain.terms.map((t) => ({ term: t, re: wordRe([t]) }));
 const excludeRe = domain.exclude?.length ? wordRe(domain.exclude) : null;
@@ -192,6 +195,65 @@ function parseArbeitsagentur(body) {
   }));
 }
 
+// jobs.ac.uk search results: each result shows employer, location and closing
+// date ("24 Nov"). The search term is added to the summary so the domain filter
+// accepts what the site already matched on its full text.
+function parseJobsAc(html, source) {
+  const out = [];
+  for (const block of html.split(/<div class="j-search-result__result/).slice(1)) {
+    const a = block.match(/<a href="(\/job\/[^"]+)">\s*([^<]+?)\s*<\/a>/);
+    if (!a) continue;
+    const employer = pick(block, /j-search-result__employer">\s*<b>([^<]+)</);
+    const location = pick(block, /<div>Location:\s*([^<]+)</);
+    const closes = block.match(/date--blue\s*">([^<]+)</)?.[1]?.trim() || "";
+    out.push({
+      title: clean(a[2]),
+      link: new URL(a[1], "https://www.jobs.ac.uk").href,
+      date: "",
+      summary: `${clean(employer)}. ${source.tag || ""}`,
+      deadline: datesIn(closes, now)[0] || "",
+      location: clean(location),
+    });
+  }
+  return out;
+}
+const pick = (s, re) => s.match(re)?.[1] ?? "";
+
+// Keyword search on a job board is loose. Open each new advert once and keep it
+// only if its own text covers the field (two different strong terms, or one
+// repeated). Off-topic ones are remembered in checked.json for 30 days.
+const WEAK = new Set(["mapping", "satellite", "Copernicus", "spatial data", "Earth system", "digital twin", "3D reconstruction", "BIM", "IFC", "UAV"]);
+const strongTerms = domainTerms.filter((d) => !WEAK.has(d.term));
+let verifyBudget = 120;
+async function verifyAdverts(raws) {
+  const keep = [];
+  const todo = [];
+  for (const r of raws) {
+    if (strongTerms.some((d) => d.re.test(r.title))) keep.push(r);
+    else if (!checkedOut[r.link] && verifyBudget-- > 0) todo.push(r);
+  }
+  for (let n = 0; n < todo.length; n += 6) {
+    await Promise.all(todo.slice(n, n + 6).map(async (r) => {
+      try {
+        if (!(await robotsAllows(r.link))) return;
+        const text = clean((await fetchText(r.link)).replace(/<(script|style|nav|footer|header)[\s\S]*?<\/\1>/gi, " "));
+        const hits = strongTerms.map((d) => ({ term: d.term, n: (text.match(new RegExp(d.re.source, "gi")) || []).length })).filter((h) => h.n);
+        if (hits.length >= 2 || hits.some((h) => h.n >= 3)) keep.push({ ...r, summary: `${r.summary} ${hits.map((h) => h.term).join(", ")}` });
+        else checkedOut[r.link] = nowIso;
+      } catch { /* try again next run */ }
+    }));
+  }
+  return keep;
+}
+
+// A single page that is itself the item (e.g. one degree programme). Title and
+// description come from the page; the closing date is read from its text.
+function parsePage(html, source, url) {
+  const title = clean(pick(html, /<meta[^>]+property=["']og:title["'][^>]+content=["']([^"']+)/i) || pick(html, /<h1[^>]*>([\s\S]*?)<\/h1>/i) || pick(html, /<title[^>]*>([\s\S]*?)<\/title>/i));
+  const desc = clean(pick(html, /<meta[^>]+name=["']description["'][^>]+content=["']([^"']+)/i) || pick(html, /<meta[^>]+property=["']og:description["'][^>]+content=["']([^"']+)/i));
+  return [{ title: source.title || title, link: url, date: "", summary: `${desc} ${source.tag || ""}`.trim(), deadline: findDeadline(html, now) || "", location: source.location || "" }];
+}
+
 // schema.org JSON-LD embedded in pages: JobPosting, Event, Course, etc.
 // Gives clean titles, dates, deadlines and locations instead of link text.
 const LD_TYPES = new Set(["JobPosting", "Event", "EducationEvent", "Course", "EducationalOccupationalProgram", "ScholarlyArticle", "NewsArticle"]);
@@ -263,7 +325,13 @@ function classify(raw, source) {
   const text = `${raw.title} ${raw.summary}`;
   const matched = domainTerms.filter((d) => d.re.test(text)).map((d) => d.term);
   if (!matched.length || !raw.link) return null;
-  if (raw.deadline && Date.parse(raw.deadline) < now.getTime()) return null; // already closed
+  // A programme page keeps its place after its intake closes; anything else is over.
+  let closed = false;
+  if (raw.deadline && Date.parse(raw.deadline) < now.getTime()) {
+    if (source.kind !== "course") return null;
+    raw = { ...raw, deadline: "" };
+    closed = true;
+  }
   if (excludeRe && excludeRe.test(text)) return null;
   // Job pages also carry navigation and department links: require a position
   // word and a title of at least four words before accepting a listing.
@@ -285,6 +353,7 @@ function classify(raw, source) {
   }
   return {
     ...paper,
+    ...(closed ? { apply_closed: true } : {}),
     id: createHash("sha1").update(raw.link).digest("hex").slice(0, 16),
     title: raw.title,
     url: raw.link,
@@ -319,6 +388,8 @@ async function runSource(src, statusOut) {
       src.type === "rss" ? parseFeed(body)
       : src.type === "openalex" ? parseOpenAlex(body)
       : src.type === "arbeitsagentur" ? parseArbeitsagentur(body)
+      : src.type === "jobsacuk" ? await verifyAdverts(parseJobsAc(body, src))
+      : src.type === "page" ? parsePage(body, src, url)
       : [...parseJsonLd(body, src), ...parseHtml(body, src)];
     const kept = raw.map((r) => classify(r, src)).filter(Boolean);
     statusOut[src.id] = {
@@ -404,6 +475,7 @@ await writeFile(
   path.join(DATA_DIR, "feed.json"),
   JSON.stringify({ generated_at: nowIso, retain_days: RETAIN_DAYS, count: items.length, items }, null, 2) + "\n",
 );
+await writeFile(path.join(DATA_DIR, "checked.json"), JSON.stringify(checkedOut, null, 1) + "\n");
 await writeFile(
   path.join(DATA_DIR, "status.json"),
   JSON.stringify(Object.fromEntries(Object.entries({ ...statusPrev, ...statusOut }).filter(([id]) => enabled.some((e) => e.id === id))), null, 2) + "\n",

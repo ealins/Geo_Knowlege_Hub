@@ -595,6 +595,239 @@
       "type": "html",
       "kind": "course",
       "enabled": true
+    },
+    {
+      "id": "egu-jobs",
+      "name": "EGU Job Board",
+      "url": "https://www.egu.eu/jobs/rss/",
+      "type": "rss",
+      "kind": "job",
+      "enabled": true
+    },
+    {
+      "id": "jobsac-remote-sensing",
+      "name": "jobs.ac.uk: remote sensing",
+      "url": "https://www.jobs.ac.uk/search/?keywords=%22remote+sensing%22&sortOrder=1&pageSize=50&startIndex=1",
+      "type": "jobsacuk",
+      "kind": "job",
+      "tag": "remote sensing",
+      "enabled": true
+    },
+    {
+      "id": "jobsac-photogrammetry",
+      "name": "jobs.ac.uk: photogrammetry",
+      "url": "https://www.jobs.ac.uk/search/?keywords=%22photogrammetry%22&sortOrder=1&pageSize=50&startIndex=1",
+      "type": "jobsacuk",
+      "kind": "job",
+      "tag": "photogrammetry",
+      "enabled": true
+    },
+    {
+      "id": "jobsac-geoinformatics",
+      "name": "jobs.ac.uk: geoinformatics",
+      "url": "https://www.jobs.ac.uk/search/?keywords=%22geoinformatics%22&sortOrder=1&pageSize=50&startIndex=1",
+      "type": "jobsacuk",
+      "kind": "job",
+      "tag": "geoinformatics",
+      "enabled": true
+    },
+    {
+      "id": "jobsac-gis",
+      "name": "jobs.ac.uk: GIS",
+      "url": "https://www.jobs.ac.uk/search/?keywords=%22GIS%22&sortOrder=1&pageSize=50&startIndex=1",
+      "type": "jobsacuk",
+      "kind": "job",
+      "tag": "GIS",
+      "enabled": true
+    },
+    {
+      "id": "jobsac-lidar",
+      "name": "jobs.ac.uk: lidar",
+      "url": "https://www.jobs.ac.uk/search/?keywords=%22lidar%22&sortOrder=1&pageSize=50&startIndex=1",
+      "type": "jobsacuk",
+      "kind": "job",
+      "tag": "lidar",
+      "enabled": true
+    },
+    {
+      "id": "jobsac-geodesy",
+      "name": "jobs.ac.uk: geodesy",
+      "url": "https://www.jobs.ac.uk/search/?keywords=%22geodesy%22&sortOrder=1&pageSize=50&startIndex=1",
+      "type": "jobsacuk",
+      "kind": "job",
+      "tag": "geodesy",
+      "enabled": true
+    },
+    {
+      "id": "jobsac-earth-observation",
+      "name": "jobs.ac.uk: earth observation",
+      "url": "https://www.jobs.ac.uk/search/?keywords=%22earth+observation%22&sortOrder=1&pageSize=50&startIndex=1",
+      "type": "jobsacuk",
+      "kind": "job",
+      "tag": "earth observation",
+      "enabled": true
+    },
+    {
+      "id": "jobsac-geospatial",
+      "name": "jobs.ac.uk: geospatial",
+      "url": "https://www.jobs.ac.uk/search/?keywords=%22geospatial%22&sortOrder=1&pageSize=50&startIndex=1",
+      "type": "jobsacuk",
+      "kind": "job",
+      "tag": "geospatial",
+      "enabled": true
+    },
+    {
+      "id": "jobsac-insar",
+      "name": "jobs.ac.uk: InSAR",
+      "url": "https://www.jobs.ac.uk/search/?keywords=%22InSAR%22&sortOrder=1&pageSize=50&startIndex=1",
+      "type": "jobsacuk",
+      "kind": "job",
+      "tag": "InSAR",
+      "enabled": true
+    },
+    {
+      "id": "jobsac-point-cloud",
+      "name": "jobs.ac.uk: point cloud",
+      "url": "https://www.jobs.ac.uk/search/?keywords=%22point+cloud%22&sortOrder=1&pageSize=50&startIndex=1",
+      "type": "jobsacuk",
+      "kind": "job",
+      "tag": "point cloud",
+      "enabled": true
+    },
+    {
+      "id": "jobsac-gnss",
+      "name": "jobs.ac.uk: GNSS",
+      "url": "https://www.jobs.ac.uk/search/?keywords=%22GNSS%22&sortOrder=1&pageSize=50&startIndex=1",
+      "type": "jobsacuk",
+      "kind": "job",
+      "tag": "GNSS",
+      "enabled": true
+    },
+    {
+      "id": "jobsac-hyperspectral",
+      "name": "jobs.ac.uk: hyperspectral",
+      "url": "https://www.jobs.ac.uk/search/?keywords=%22hyperspectral%22&sortOrder=1&pageSize=50&startIndex=1",
+      "type": "jobsacuk",
+      "kind": "job",
+      "tag": "hyperspectral",
+      "enabled": true
+    },
+    {
+      "id": "jobsac-geomatics",
+      "name": "jobs.ac.uk: geomatics",
+      "url": "https://www.jobs.ac.uk/search/?keywords=%22geomatics%22&sortOrder=1&pageSize=50&startIndex=1",
+      "type": "jobsacuk",
+      "kind": "job",
+      "tag": "geomatics",
+      "enabled": true
+    },
+    {
+      "id": "jobsac-cartography",
+      "name": "jobs.ac.uk: cartography",
+      "url": "https://www.jobs.ac.uk/search/?keywords=%22cartography%22&sortOrder=1&pageSize=50&startIndex=1",
+      "type": "jobsacuk",
+      "kind": "job",
+      "tag": "cartography",
+      "enabled": true
+    },
+    {
+      "id": "tum-geodesy-msc",
+      "name": "TUM: Geodesy and Geoinformation (MSc)",
+      "url": "https://www.ed.tum.de/en/ed/studies/degree-programs/geodesy-and-geoinformation-m-sc/",
+      "type": "page",
+      "kind": "course",
+      "title": "MSc Geodesy and Geoinformation, TU Munich",
+      "tag": "geodesy geoinformation",
+      "location": "Munich, Germany",
+      "enabled": true
+    },
+    {
+      "id": "bonn-geodetic-msc",
+      "name": "Bonn: Geodetic Engineering (MSc)",
+      "url": "https://www.gug.uni-bonn.de/en/master-ge/apply",
+      "type": "page",
+      "kind": "course",
+      "title": "MSc Geodetic Engineering, University of Bonn",
+      "tag": "geodesy geoinformation",
+      "location": "Bonn, Germany",
+      "enabled": true
+    },
+    {
+      "id": "itc-msc-geoinfo",
+      "name": "Twente ITC: Geo-information Science and Earth Observation (MSc)",
+      "url": "https://www.utwente.nl/en/itc/education/study-finder/geo-information-science-earth-observation/admission-and-application/",
+      "type": "page",
+      "kind": "course",
+      "title": "MSc Geo-information Science and Earth Observation, ITC University of Twente",
+      "tag": "geoinformation earth observation remote sensing",
+      "location": "Enschede, Netherlands",
+      "enabled": true
+    },
+    {
+      "id": "salzburg-applied-geoinfo",
+      "name": "Salzburg: Applied Geoinformatics (MSc)",
+      "url": "https://plus.ac.at/studium/studienangebot/masterstudien/applied-geoinformatics",
+      "type": "page",
+      "kind": "course",
+      "title": "MSc Applied Geoinformatics, University of Salzburg",
+      "tag": "geoinformatics GIS",
+      "location": "Salzburg, Austria",
+      "enabled": true
+    },
+    {
+      "id": "univie-cartography-msc",
+      "name": "Vienna: Cartography and Geoinformation (MSc)",
+      "url": "https://studieren.univie.ac.at/en/degree-programmes/master-programmes/master-access-guide/mag-cartography-and-geoinformation",
+      "type": "page",
+      "kind": "course",
+      "title": "MSc Cartography and Geoinformation, University of Vienna",
+      "tag": "cartography geoinformation",
+      "location": "Vienna, Austria",
+      "enabled": true
+    },
+    {
+      "id": "eth-geomatics-msc",
+      "name": "ETH Zurich: Geomatics (MSc)",
+      "url": "https://ethz.ch/en/studies/master/application/master-geomatik.html",
+      "type": "page",
+      "kind": "course",
+      "title": "MSc Geomatics, ETH Zurich",
+      "tag": "geomatics photogrammetry remote sensing",
+      "location": "Zurich, Switzerland",
+      "enabled": true
+    },
+    {
+      "id": "aalto-geoinfo-msc",
+      "name": "Aalto: Geoinformatics (MSc)",
+      "url": "https://www.aalto.fi/en/programmes/masters-programme-in-geoinformatics",
+      "type": "page",
+      "kind": "course",
+      "title": "MSc Geoinformatics, Aalto University",
+      "tag": "geoinformatics",
+      "location": "Espoo, Finland",
+      "enabled": true
+    },
+    {
+      "id": "tuda-geodesy-msc",
+      "name": "TU Darmstadt: Geodesy and Geoinformation (MSc)",
+      "url": "https://www.tu-darmstadt.de/studieren/studieninteressierte/studienangebot_studiengaenge/studiengang_184320.en.jsp",
+      "type": "page",
+      "kind": "course",
+      "title": "MSc Geodesy and Geoinformation, TU Darmstadt",
+      "tag": "geodesy geoinformation",
+      "location": "Darmstadt, Germany",
+      "enabled": true
+    },
+    {
+      "id": "ucl-geospatial-msc",
+      "name": "UCL: Geospatial Sciences (MSc)",
+      "url": "https://www.ucl.ac.uk/prospective-students/graduate/taught-degrees/geospatial-sciences-msc",
+      "type": "page",
+      "kind": "course",
+      "title": "MSc Geospatial Sciences, UCL",
+      "tag": "geospatial remote sensing GIS",
+      "location": "London, UK",
+      "enabled": true
     }
   ]
 }
