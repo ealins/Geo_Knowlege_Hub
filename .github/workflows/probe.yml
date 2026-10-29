@@ -13,7 +13,7 @@ jobs:
         with: { node-version: 22 }
       - run: node scripts/dump.mjs
         env:
-          URLS: '["https://www.mygermanuniversity.com/subjects/remote-sensing/master/application-deadlines", "https://www.mygermanuniversity.com/subjects/geodesy-and-geoinformatics/master/application-deadlines", "https://www.mygermanuniversity.com/subjects/geoinformatics-and-geophysics/master/application-deadlines", "https://www.mygermanuniversity.com/subjects/remote-sensing/international-programs/application-deadlines", "https://www.mygermanuniversity.com/master/geoinformatics-and-spatial-data-science/589", "https://www2.daad.de/deutschland/studienangebote/international-programmes/en/detail/6963", "https://www2.daad.de/deutschland/studienangebote/international-programmes/en/detail/4562", "https://www.myguide.de/en/international-programmes-master/detail/technische-universitaet-berlin-international-masters-programme-in-geodesy-and-geoinformation-science-6084/?ip-id=6084", "https://www.mastersportal.com/studies/259804/geodesy-and-geoinformation.html"]'
+          URLS: '["https://www.jobs.ac.uk/job/DTK728/open-rank-faculty-position-in-mechanical-engineering","https://www.jobs.ac.uk/job/DTL075/phd-studentship-advancing-multi-mission-satellite-radar-for-monitoring-permafrost-degradation-and-erosion-in-a-changing-arctic","https://www.jobs.ac.uk/job/DTK878/phd-studentship-overcoming-the-quantification-problem-in-deep-raman-spectroscopy-using-advanced-optical-metrology-and-3d-phantoms","https://www.jobs.ac.uk/job/DTK783/project-archivist-national-soils-map-archive","https://www.jobs.ac.uk/job/DSQ223/klesch-postdoctoral-fellowship-in-history-of-art-and-technology"]'
       - name: Commit output
         if: always()
         run: |
