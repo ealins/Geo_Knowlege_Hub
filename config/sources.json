@@ -87,8 +87,7 @@
       "url": "https://www.isprs.org/calendar/",
       "type": "html",
       "kind": "event",
-      "enabled": true,
-      "trusted": true
+      "enabled": true
     },
     {
       "id": "erasmus-mundus-catalogue",
@@ -100,12 +99,11 @@
     },
     {
       "id": "esa-eo-events",
-      "name": "ESA Earth Observation events",
+      "name": "ESA Earth Observation news",
       "url": "https://earth.esa.int/eogateway/events",
       "type": "html",
-      "kind": "event",
-      "enabled": true,
-      "trusted": true
+      "kind": "news",
+      "enabled": true
     },
     {
       "id": "esa-careers",
@@ -130,7 +128,8 @@
       "type": "html",
       "kind": "event",
       "enabled": true,
-      "trusted": true
+      "trusted": true,
+      "include": "/en/events/[^/?#]+"
     },
     {
       "id": "itc-education",
