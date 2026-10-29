@@ -114,14 +114,6 @@
       "enabled": true
     },
     {
-      "id": "dlr-jobs",
-      "name": "DLR job offers",
-      "url": "https://www.dlr.de/en/careers-and-jobs/job-offers",
-      "type": "html",
-      "kind": "job",
-      "enabled": true
-    },
-    {
       "id": "eumetsat-careers",
       "name": "EUMETSAT careers",
       "url": "https://www.eumetsat.int/careers",
@@ -138,14 +130,6 @@
       "enabled": true
     },
     {
-      "id": "copernicus-news",
-      "name": "Copernicus news",
-      "url": "https://www.copernicus.eu/en/news",
-      "type": "html",
-      "kind": "news",
-      "enabled": true
-    },
-    {
       "id": "itc-education",
       "name": "ITC Twente education",
       "url": "https://www.itc.nl/education/",
@@ -157,14 +141,6 @@
       "id": "geoengine-stuttgart",
       "name": "GEOENGINE, University of Stuttgart",
       "url": "https://www.geoengine.uni-stuttgart.de/",
-      "type": "html",
-      "kind": "course",
-      "enabled": true
-    },
-    {
-      "id": "tum-espace",
-      "name": "TUM ESPACE programme",
-      "url": "https://www.asg.ed.tum.de/en/espace/",
       "type": "html",
       "kind": "course",
       "enabled": true
@@ -199,6 +175,86 @@
       "url": "https://www.isprs.org/news/",
       "type": "html",
       "kind": "news",
+      "enabled": true
+    },
+    {
+      "id": "ethz-jobs",
+      "name": "ETH Zurich jobs",
+      "url": "https://jobs.ethz.ch/",
+      "type": "html",
+      "kind": "job",
+      "enabled": true
+    },
+    {
+      "id": "tudelft-vacancies",
+      "name": "TU Delft vacancies",
+      "url": "https://careers.tudelft.nl/",
+      "type": "html",
+      "kind": "job",
+      "enabled": true
+    },
+    {
+      "id": "kit-jobs",
+      "name": "KIT job offers",
+      "url": "https://www.pse.kit.edu/karriere/joboffers.php",
+      "type": "html",
+      "kind": "job",
+      "enabled": true
+    },
+    {
+      "id": "utwente-vacancies",
+      "name": "University of Twente / ITC vacancies",
+      "url": "https://www.utwente.nl/en/organisation/careers/vacancies/",
+      "type": "html",
+      "kind": "job",
+      "enabled": true
+    },
+    {
+      "id": "unistuttgart-jobs",
+      "name": "University of Stuttgart jobs",
+      "url": "https://www.uni-stuttgart.de/en/jobs/",
+      "type": "html",
+      "kind": "job",
+      "enabled": true
+    },
+    {
+      "id": "tum-jobs",
+      "name": "TUM job portal",
+      "url": "https://portal.mytum.de/jobs",
+      "type": "html",
+      "kind": "job",
+      "enabled": true
+    },
+    {
+      "id": "dlr-careers",
+      "name": "DLR careers",
+      "url": "https://jobs.dlr.de/",
+      "type": "html",
+      "kind": "job",
+      "enabled": true
+    },
+    {
+      "id": "gfz-jobs",
+      "name": "GFZ Potsdam job offers",
+      "url": "https://www.gfz-potsdam.de/en/career/job-offers",
+      "type": "html",
+      "kind": "job",
+      "enabled": true
+    },
+    {
+      "id": "wur-vacancies",
+      "name": "Wageningen University vacancies",
+      "url": "https://www.wur.nl/en/vacancies.htm",
+      "type": "html",
+      "kind": "job",
+      "enabled": true
+    },
+    {
+      "id": "tuwien-jobs",
+      "name": "TU Wien jobs",
+      "url": "https://jobs.tuwien.ac.at/",
+      "type": "html",
+      "kind": "job",
       "enabled": true
     }
   ]

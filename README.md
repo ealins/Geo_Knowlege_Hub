@@ -28,7 +28,7 @@ Deploys to a Cloudflare Worker (static assets) on every run.
 2. In the GitHub repo, add two secrets: `CLOUDFLARE_API_TOKEN` (the token) and `CLOUDFLARE_ACCOUNT_ID` (your account ID).
 3. Add your domain under `routes` in `wrangler.jsonc`.
 
-After that, the workflow fetches sources every 6 hours, commits the feed, and redeploys the Worker.
+After that, the workflow fetches sources every 2 hours, commits the feed, and redeploys the Worker.
 
 ## Freshness rules
 
