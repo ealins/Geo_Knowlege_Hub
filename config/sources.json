@@ -293,58 +293,467 @@
       "enabled": true
     },
     {
-      "id": "arbeitsagentur-geoinformatik",
-      "name": "Bundesagentur für Arbeit: Geoinformatik",
-      "url": "https://rest.arbeitsagentur.de/jobboerse/jobsuche-service/pc/v4/jobs?size=50&angebotsart=1&was=Geoinformatik",
-      "type": "arbeitsagentur",
+      "id": "bonn-jobs",
+      "name": "University of Bonn jobs",
+      "url": "https://www.uni-bonn.de/en/university/working-at-the-university/job-offers",
+      "type": "html",
       "kind": "job",
-      "headers": {
-        "X-API-Key": "jobboerse-jobsuche"
-      },
       "enabled": true
     },
     {
-      "id": "arbeitsagentur-fernerkundung",
-      "name": "Bundesagentur für Arbeit: Fernerkundung",
-      "url": "https://rest.arbeitsagentur.de/jobboerse/jobsuche-service/pc/v4/jobs?size=50&angebotsart=1&was=Fernerkundung",
-      "type": "arbeitsagentur",
+      "id": "hannover-jobs",
+      "name": "Leibniz University Hannover jobs",
+      "url": "https://www.uni-hannover.de/en/universitaet/stellenangebote/",
+      "type": "html",
       "kind": "job",
-      "headers": {
-        "X-API-Key": "jobboerse-jobsuche"
-      },
       "enabled": true
     },
     {
-      "id": "arbeitsagentur-photogrammetrie",
-      "name": "Bundesagentur für Arbeit: Photogrammetrie",
-      "url": "https://rest.arbeitsagentur.de/jobboerse/jobsuche-service/pc/v4/jobs?size=50&angebotsart=1&was=Photogrammetrie",
-      "type": "arbeitsagentur",
+      "id": "tudresden-jobs",
+      "name": "TU Dresden jobs",
+      "url": "https://tu-dresden.de/karriere/stellenangebote",
+      "type": "html",
       "kind": "job",
-      "headers": {
-        "X-API-Key": "jobboerse-jobsuche"
-      },
       "enabled": true
     },
     {
-      "id": "arbeitsagentur-gis",
-      "name": "Bundesagentur für Arbeit: GIS",
-      "url": "https://rest.arbeitsagentur.de/jobboerse/jobsuche-service/pc/v4/jobs?size=50&angebotsart=1&was=GIS",
-      "type": "arbeitsagentur",
+      "id": "tuberlin-jobs",
+      "name": "TU Berlin jobs",
+      "url": "https://www.jobs.tu-berlin.de/en/job-postings",
+      "type": "html",
       "kind": "job",
-      "headers": {
-        "X-API-Key": "jobboerse-jobsuche"
-      },
       "enabled": true
     },
     {
-      "id": "arbeitsagentur-geodaesie",
-      "name": "Bundesagentur für Arbeit: Geodäsie",
-      "url": "https://rest.arbeitsagentur.de/jobboerse/jobsuche-service/pc/v4/jobs?size=50&angebotsart=1&was=Geod%C3%A4sie",
-      "type": "arbeitsagentur",
+      "id": "heidelberg-jobs",
+      "name": "Heidelberg University jobs",
+      "url": "https://www.uni-heidelberg.de/en/jobs",
+      "type": "html",
       "kind": "job",
-      "headers": {
-        "X-API-Key": "jobboerse-jobsuche"
-      },
+      "enabled": true
+    },
+    {
+      "id": "freiburg-jobs",
+      "name": "University of Freiburg jobs",
+      "url": "https://www.jobs.uni-freiburg.de/",
+      "type": "html",
+      "kind": "job",
+      "enabled": true
+    },
+    {
+      "id": "wuerzburg-jobs",
+      "name": "University of Würzburg jobs",
+      "url": "https://www.uni-wuerzburg.de/en/karriere/stellenangebote/",
+      "type": "html",
+      "kind": "job",
+      "enabled": true
+    },
+    {
+      "id": "awi-jobs",
+      "name": "Alfred Wegener Institute jobs",
+      "url": "https://www.awi.de/en/work-study/jobs.html",
+      "type": "html",
+      "kind": "job",
+      "enabled": true
+    },
+    {
+      "id": "ufz-jobs",
+      "name": "UFZ Helmholtz jobs",
+      "url": "https://www.ufz.de/index.php?en=34275",
+      "type": "html",
+      "kind": "job",
+      "enabled": true
+    },
+    {
+      "id": "uzh-jobs",
+      "name": "University of Zurich jobs",
+      "url": "https://www.uzh.ch/cmsssl/en/explore/work/jobs.html",
+      "type": "html",
+      "kind": "job",
+      "enabled": true
+    },
+    {
+      "id": "epfl-jobs",
+      "name": "EPFL careers",
+      "url": "https://careers.epfl.ch/",
+      "type": "html",
+      "kind": "job",
+      "enabled": true
+    },
+    {
+      "id": "aalto-jobs",
+      "name": "Aalto University careers",
+      "url": "https://www.aalto.fi/en/careers-at-aalto",
+      "type": "html",
+      "kind": "job",
+      "enabled": true
+    },
+    {
+      "id": "lund-jobs",
+      "name": "Lund University vacancies",
+      "url": "https://www.lunduniversity.lu.se/vacancies",
+      "type": "html",
+      "kind": "job",
+      "enabled": true
+    },
+    {
+      "id": "kth-jobs",
+      "name": "KTH vacancies",
+      "url": "https://www.kth.se/en/om/work-at-kth/lediga-jobb",
+      "type": "html",
+      "kind": "job",
+      "enabled": true
+    },
+    {
+      "id": "dtu-jobs",
+      "name": "DTU vacant positions",
+      "url": "https://www.dtu.dk/english/about/job-and-career/vacant-positions",
+      "type": "html",
+      "kind": "job",
+      "enabled": true
+    },
+    {
+      "id": "ugent-jobs",
+      "name": "Ghent University jobs",
+      "url": "https://www.ugent.be/en/work",
+      "type": "html",
+      "kind": "job",
+      "enabled": true
+    },
+    {
+      "id": "kuleuven-jobs",
+      "name": "KU Leuven jobs",
+      "url": "https://www.kuleuven.be/personeel/jobsite/en",
+      "type": "html",
+      "kind": "job",
+      "enabled": true
+    },
+    {
+      "id": "utrecht-jobs",
+      "name": "Utrecht University jobs",
+      "url": "https://www.uu.nl/en/organisation/working-at-utrecht-university/jobs",
+      "type": "html",
+      "kind": "job",
+      "enabled": true
+    },
+    {
+      "id": "ku-jobs",
+      "name": "University of Copenhagen vacancies",
+      "url": "https://employment.ku.dk/all-vacancies/",
+      "type": "html",
+      "kind": "job",
+      "enabled": true
+    },
+    {
+      "id": "vito-jobs",
+      "name": "VITO jobs",
+      "url": "https://vito.be/en/jobs",
+      "type": "html",
+      "kind": "job",
+      "enabled": true
+    },
+    {
+      "id": "jrc-jobs",
+      "name": "EU Joint Research Centre jobs",
+      "url": "https://joint-research-centre.ec.europa.eu/working-us_en",
+      "type": "html",
+      "kind": "job",
+      "enabled": true
+    },
+    {
+      "id": "plus-jobs",
+      "name": "University of Salzburg jobs",
+      "url": "https://www.plus.ac.at/jobs/",
+      "type": "html",
+      "kind": "job",
+      "enabled": true
+    },
+    {
+      "id": "academictransfer-rs",
+      "name": "AcademicTransfer: remote sensing",
+      "url": "https://www.academictransfer.com/en/jobs/?q=remote+sensing",
+      "type": "html",
+      "kind": "job",
+      "enabled": true
+    },
+    {
+      "id": "naturecareers-rs",
+      "name": "Nature Careers: remote sensing",
+      "url": "https://www.nature.com/naturecareers/jobs/search?keywords=remote+sensing",
+      "type": "html",
+      "kind": "job",
+      "enabled": true
+    },
+    {
+      "id": "scholarshipdb-rs",
+      "name": "ScholarshipDb: remote sensing",
+      "url": "https://scholarshipdb.net/scholarships?q=remote+sensing",
+      "type": "html",
+      "kind": "job",
+      "enabled": true
+    },
+    {
+      "id": "eurosdr-workshops",
+      "name": "EuroSDR workshops",
+      "url": "https://www.eurosdr.net/workshops",
+      "type": "html",
+      "kind": "event",
+      "enabled": true
+    },
+    {
+      "id": "foss4g",
+      "name": "FOSS4G conference",
+      "url": "https://foss4g.org/",
+      "type": "html",
+      "kind": "event",
+      "enabled": true
+    },
+    {
+      "id": "intergeo",
+      "name": "INTERGEO",
+      "url": "https://www.intergeo.de/en",
+      "type": "html",
+      "kind": "event",
+      "enabled": true
+    },
+    {
+      "id": "conferenceindex-rs",
+      "name": "ConferenceIndex: remote sensing",
+      "url": "https://conferenceindex.org/conferences/remote-sensing",
+      "type": "html",
+      "kind": "event",
+      "enabled": true
+    },
+    {
+      "id": "conferenceindex-gis",
+      "name": "ConferenceIndex: GIS",
+      "url": "https://conferenceindex.org/conferences/geographic-information-systems",
+      "type": "html",
+      "kind": "event",
+      "enabled": true
+    },
+    {
+      "id": "conferenceindex-photogrammetry",
+      "name": "ConferenceIndex: photogrammetry",
+      "url": "https://conferenceindex.org/conferences/photogrammetry",
+      "type": "html",
+      "kind": "event",
+      "enabled": true
+    },
+    {
+      "id": "3dgeoinfo",
+      "name": "3D GeoInfo conference",
+      "url": "https://www.3dgeoinfo.org/",
+      "type": "html",
+      "kind": "event",
+      "enabled": true
+    },
+    {
+      "id": "gi-forum",
+      "name": "GI_Forum / AGIT Salzburg",
+      "url": "https://www.agit.at/",
+      "type": "html",
+      "kind": "event",
+      "enabled": true
+    },
+    {
+      "id": "tum-programs",
+      "name": "TUM degree programmes",
+      "url": "https://www.tum.de/en/studies/degree-programs",
+      "type": "html",
+      "kind": "course",
+      "enabled": true
+    },
+    {
+      "id": "unistuttgart-programs",
+      "name": "University of Stuttgart study programmes",
+      "url": "https://www.uni-stuttgart.de/en/study/study-programs/",
+      "type": "html",
+      "kind": "course",
+      "enabled": true
+    },
+    {
+      "id": "kit-programs",
+      "name": "KIT study programmes",
+      "url": "https://www.kit.edu/english/studies.php",
+      "type": "html",
+      "kind": "course",
+      "enabled": true
+    },
+    {
+      "id": "tudelft-masters",
+      "name": "TU Delft master programmes",
+      "url": "https://www.tudelft.nl/en/education/programmes/masters",
+      "type": "html",
+      "kind": "course",
+      "enabled": true
+    },
+    {
+      "id": "ethz-masters",
+      "name": "ETH Zurich master programmes",
+      "url": "https://ethz.ch/en/studies/master/degree-programmes.html",
+      "type": "html",
+      "kind": "course",
+      "enabled": true
+    },
+    {
+      "id": "aalto-programs",
+      "name": "Aalto University study options",
+      "url": "https://www.aalto.fi/en/study-options",
+      "type": "html",
+      "kind": "course",
+      "enabled": true
+    },
+    {
+      "id": "hannover-programs",
+      "name": "Leibniz University Hannover programmes",
+      "url": "https://www.uni-hannover.de/en/studium/studienangebot",
+      "type": "html",
+      "kind": "course",
+      "enabled": true
+    },
+    {
+      "id": "hft-programs",
+      "name": "HFT Stuttgart programmes",
+      "url": "https://www.hft-stuttgart.com/study",
+      "type": "html",
+      "kind": "course",
+      "enabled": true
+    },
+    {
+      "id": "lund-programs",
+      "name": "Lund University master programmes",
+      "url": "https://www.lunduniversity.lu.se/study/find-programmes-and-courses/masters-programmes",
+      "type": "html",
+      "kind": "course",
+      "enabled": true
+    },
+    {
+      "id": "kth-programs",
+      "name": "KTH master programmes",
+      "url": "https://www.kth.se/en/studies/master",
+      "type": "html",
+      "kind": "course",
+      "enabled": true
+    },
+    {
+      "id": "dtu-programs",
+      "name": "DTU MSc programmes",
+      "url": "https://www.dtu.dk/english/education/msc",
+      "type": "html",
+      "kind": "course",
+      "enabled": true
+    },
+    {
+      "id": "ugent-programs",
+      "name": "Ghent University international programmes",
+      "url": "https://www.ugent.be/en/programmes",
+      "type": "html",
+      "kind": "course",
+      "enabled": true
+    },
+    {
+      "id": "kuleuven-programs",
+      "name": "KU Leuven international programmes",
+      "url": "https://www.kuleuven.be/programmes",
+      "type": "html",
+      "kind": "course",
+      "enabled": true
+    },
+    {
+      "id": "uu-programs",
+      "name": "Utrecht University master programmes",
+      "url": "https://www.uu.nl/masters/en",
+      "type": "html",
+      "kind": "course",
+      "enabled": true
+    },
+    {
+      "id": "tuwien-programs",
+      "name": "TU Wien study programmes",
+      "url": "https://www.tuwien.at/en/studies/studies",
+      "type": "html",
+      "kind": "course",
+      "enabled": true
+    },
+    {
+      "id": "bonn-programs",
+      "name": "University of Bonn programmes",
+      "url": "https://www.uni-bonn.de/en/studying/degree-programs",
+      "type": "html",
+      "kind": "course",
+      "enabled": true
+    },
+    {
+      "id": "polimi-programs",
+      "name": "Politecnico di Milano programmes",
+      "url": "https://www.polimi.it/en/students/prospective-students/master-of-science",
+      "type": "html",
+      "kind": "course",
+      "enabled": true
+    },
+    {
+      "id": "upv-programs",
+      "name": "UPV Valencia masters",
+      "url": "https://www.upv.es/estudios/posgrado/index-en.html",
+      "type": "html",
+      "kind": "course",
+      "enabled": true
+    },
+    {
+      "id": "aau-programs",
+      "name": "Aalborg University programmes",
+      "url": "https://www.en.aau.dk/education/master",
+      "type": "html",
+      "kind": "course",
+      "enabled": true
+    },
+    {
+      "id": "ucl-programs",
+      "name": "UCL Geography / Geomatics postgraduate",
+      "url": "https://www.ucl.ac.uk/prospective-students/graduate/taught-degrees",
+      "type": "html",
+      "kind": "course",
+      "enabled": true
+    },
+    {
+      "id": "salzburg-programs",
+      "name": "University of Salzburg programmes",
+      "url": "https://www.plus.ac.at/studium/studienangebot/",
+      "type": "html",
+      "kind": "course",
+      "enabled": true
+    },
+    {
+      "id": "muenster-programs",
+      "name": "University of Münster Geoinformatics",
+      "url": "https://www.uni-muenster.de/Geoinformatics/en/",
+      "type": "html",
+      "kind": "course",
+      "enabled": true
+    },
+    {
+      "id": "ifgi-copernicus",
+      "name": "Copernicus Master in Digital Earth",
+      "url": "https://www.master-cde.eu/",
+      "type": "html",
+      "kind": "course",
+      "enabled": true
+    },
+    {
+      "id": "geotech-erasmus",
+      "name": "Erasmus Mundus Geospatial Technologies",
+      "url": "https://mastergeotech.info/",
+      "type": "html",
+      "kind": "course",
+      "enabled": true
+    },
+    {
+      "id": "ciem-erasmus",
+      "name": "Erasmus Mundus programmes catalogue (EACEA)",
+      "url": "https://www.eacea.ec.europa.eu/scholarships/erasmus-mundus-catalogue_en",
+      "type": "html",
+      "kind": "course",
       "enabled": true
     }
   ]

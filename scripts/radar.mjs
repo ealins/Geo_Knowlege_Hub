@@ -50,7 +50,7 @@ const decode = (s) =>
     .replace(/&amp;/g, "&");
 
 const clean = (s = "") =>
-  decode(s.replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, "$1"))
+  decode(decode(s.replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, "$1")))
     .replace(/<[^>]+>/g, " ")
     .replace(/\s+/g, " ")
     .trim();
