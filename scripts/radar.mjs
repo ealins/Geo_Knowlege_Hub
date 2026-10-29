@@ -37,7 +37,7 @@ const previous = await readJson(path.join(DATA_DIR, "feed.json"), { items: [] })
 const statusPrev = await readJson(path.join(DATA_DIR, "status.json"), {});
 // Adverts already opened and found off-topic, so they are not fetched again.
 const checkedPrev = await readJson(path.join(DATA_DIR, "checked.json"), {});
-const checkedOut = Object.fromEntries(Object.entries(checkedPrev).filter(([, d]) => Date.now() - Date.parse(d) < 30 * 864e5));
+const checkedOut = Object.fromEntries(Object.entries(checkedPrev).filter(([, d]) => Date.now() - Date.parse(d?.at ?? 0) < 30 * 864e5));
 
 const domainTerms = domain.terms.map((t) => ({ term: t, re: wordRe([t]) }));
 const excludeRe = domain.exclude?.length ? wordRe(domain.exclude) : null;
@@ -219,27 +219,33 @@ function parseJobsAc(html, source) {
 }
 const pick = (s, re) => s.match(re)?.[1] ?? "";
 
-// Keyword search on a job board is loose. Open each new advert once and keep it
-// only if its own text covers the field (two different strong terms, or one
-// repeated). Off-topic ones are remembered in checked.json for 30 days.
+// Keyword search on a job board is loose, and an advert may mention "GIS" only in
+// a list of desirable skills. Open each new advert once and keep it only if the
+// field shows in its title or in the opening of the description. Verdicts are
+// cached in checked.json (30 days), so each advert is fetched once.
+const VERIFY_V = 2;
 const WEAK = new Set(["mapping", "satellite", "Copernicus", "spatial data", "Earth system", "digital twin", "3D reconstruction", "BIM", "IFC", "UAV"]);
 const strongTerms = domainTerms.filter((d) => !WEAK.has(d.term));
+const hasStrong = (s) => strongTerms.filter((d) => d.re.test(s));
 let verifyBudget = 120;
 async function verifyAdverts(raws) {
   const keep = [];
   const todo = [];
   for (const r of raws) {
-    if (strongTerms.some((d) => d.re.test(r.title))) keep.push(r);
-    else if (!checkedOut[r.link] && verifyBudget-- > 0) todo.push(r);
+    const c = checkedOut[r.link];
+    if (hasStrong(r.title).length) keep.push(r);
+    else if (c?.v === VERIFY_V) { if (c.ok) keep.push({ ...r, summary: `${r.summary} ${c.terms}` }); }
+    else if (verifyBudget-- > 0) todo.push(r);
   }
   for (let n = 0; n < todo.length; n += 6) {
     await Promise.all(todo.slice(n, n + 6).map(async (r) => {
       try {
         if (!(await robotsAllows(r.link))) return;
         const text = clean((await fetchText(r.link)).replace(/<(script|style|nav|footer|header)[\s\S]*?<\/\1>/gi, " "));
-        const hits = strongTerms.map((d) => ({ term: d.term, n: (text.match(new RegExp(d.re.source, "gi")) || []).length })).filter((h) => h.n);
-        if (hits.length >= 2 || hits.some((h) => h.n >= 3)) keep.push({ ...r, summary: `${r.summary} ${hits.map((h) => h.term).join(", ")}` });
-        else checkedOut[r.link] = nowIso;
+        const at = Math.max(0, text.indexOf(r.title));
+        const terms = hasStrong(text.slice(at, at + 1500)).map((d) => d.term);
+        checkedOut[r.link] = { v: VERIFY_V, ok: terms.length > 0, terms: terms.join(", "), at: nowIso };
+        if (terms.length) keep.push({ ...r, summary: `${r.summary} ${terms.join(", ")}` });
       } catch { /* try again next run */ }
     }));
   }
@@ -435,7 +441,7 @@ for (const it of fresh) {
 // Listing pages (html) show only what is currently open: if such a source was
 // read successfully and an item is no longer on it, the item is gone. Feeds
 // and APIs roll over quickly, so their items keep the per-kind window instead.
-const htmlOk = new Set(enabled.filter((s) => s.type === "html" && statusOut[s.id]?.state === "ok").map((s) => s.id));
+const htmlOk = new Set(enabled.filter((s) => ["html", "jobsacuk", "page"].includes(s.type) && statusOut[s.id]?.state === "ok").map((s) => s.id));
 for (const it of previous.items ?? []) {
   if (merged.has(it.id) || htmlOk.has(it.source)) continue;
   merged.set(it.id, it);
