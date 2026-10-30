@@ -4,129 +4,200 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Geo Radar</title>
-<meta name="description" content="A live radar of PhD positions, papers, programmes and events in photogrammetry, remote sensing and geoinformatics.">
+<meta name="description" content="Open deadlines and high-impact papers in photogrammetry, remote sensing and geoinformatics, refreshed every two hours.">
 <style>
 :root{
-  --bg:#f6f5f1; --surface:#fff; --text:#1c2127; --muted:#5d6570; --faint:#8a919a; --line:#e3e0d9;
-  --accent:#1f5f7a; --accent-soft:#e8f1f5; --new:#2d6a4f; --new-soft:#e6f2eb;
-  --job:#8a4b0f; --paper:#1f5f7a; --course:#5b3f8c; --event:#2d6a4f; --news:#5d6570;
-  --serif:"Iowan Old Style","Palatino Linotype",Georgia,serif;
+  --bg:#e9eef1; --surface:#f7f9fa; --raise:#fff; --text:#0f2230; --muted:#4d6270; --faint:#7a8d99; --line:#c9d5db;
+  --accent:#1c4fd1; --accent-soft:#dde7fb; --hero:#0f2a3a; --hero-text:#eaf2f6; --hero-mute:#9fb7c4; --contour:#6fa3bd;
+  --hot:#b3261e; --hot-soft:#fbe4e1; --warm:#a85a00; --warm-soft:#fbead2; --calm:#1f6b4a; --calm-soft:#dcf0e5; --ink:#0f2230; --ink-soft:#dfe7ec; --event:#4b4aa8; --event-soft:#e5e5f7;
+  --job:#a85a00; --paper:#1c4fd1; --course:#6a3fa0; --news:#4d6270;
+  --serif:Charter,"Bitstream Charter","Sitka Text",Cambria,Georgia,serif;
   --sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#14171b; --surface:#1b1f25; --text:#e6e8eb; --muted:#a0a8b2; --faint:#76808b; --line:#2b3037;
-  --accent:#8fc1d6; --accent-soft:#1d2b33; --new:#8fd3ae; --new-soft:#1b2e25;
-  --job:#e0a86b; --paper:#8fc1d6; --course:#b9a3e0; --event:#8fd3ae; --news:#a0a8b2;
+  --bg:#0a1319; --surface:#10202a; --raise:#152833; --text:#e1ecf1; --muted:#9db3bf; --faint:#6f8795; --line:#233947;
+  --accent:#86b0ff; --accent-soft:#16294a; --hero:#0d2432; --hero-text:#eaf2f6; --hero-mute:#8aa6b5; --contour:#3d6f88;
+  --hot:#ff8f86; --hot-soft:#3a1c1a; --warm:#f0b25c; --warm-soft:#38280f; --calm:#7fd3a6; --calm-soft:#12301f; --ink:#e1ecf1; --ink-soft:#1b303c; --event:#b3b1ff; --event-soft:#23234a;
+  --job:#f0b25c; --paper:#86b0ff; --course:#c8a8f0; --news:#9db3bf;
 }}
 :root[data-theme="dark"]{
-  --bg:#14171b; --surface:#1b1f25; --text:#e6e8eb; --muted:#a0a8b2; --faint:#76808b; --line:#2b3037;
-  --accent:#8fc1d6; --accent-soft:#1d2b33; --new:#8fd3ae; --new-soft:#1b2e25;
-  --job:#e0a86b; --paper:#8fc1d6; --course:#b9a3e0; --event:#8fd3ae; --news:#a0a8b2;
+  --bg:#0a1319; --surface:#10202a; --raise:#152833; --text:#e1ecf1; --muted:#9db3bf; --faint:#6f8795; --line:#233947;
+  --accent:#86b0ff; --accent-soft:#16294a; --hero:#0d2432; --hero-text:#eaf2f6; --hero-mute:#8aa6b5; --contour:#3d6f88;
+  --hot:#ff8f86; --hot-soft:#3a1c1a; --warm:#f0b25c; --warm-soft:#38280f; --calm:#7fd3a6; --calm-soft:#12301f; --ink:#e1ecf1; --ink-soft:#1b303c; --event:#b3b1ff; --event-soft:#23234a;
+  --job:#f0b25c; --paper:#86b0ff; --course:#c8a8f0; --news:#9db3bf;
 }
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--text);font:15px/1.55 var(--sans)}
+body{margin:0;background:var(--bg);color:var(--text);font:15px/1.55 var(--sans);-webkit-font-smoothing:antialiased}
 a{color:var(--accent)}
+button{font:inherit;color:inherit}
 :focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:3px}
-.wrap{max-width:1080px;margin:0 auto;padding:28px 18px 64px}
-header{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:16px}
-h1{margin:0;font:600 30px/1.15 var(--serif)}
-.tagline{margin:6px 0 0;color:var(--muted);max-width:60ch}
-.theme{background:none;border:1px solid var(--line);color:var(--muted);border-radius:6px;padding:5px 10px;cursor:pointer;font:inherit;font-size:13px}
-.stats{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;margin:18px 0}
-.stat{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:10px 12px;text-align:left;cursor:pointer;font:inherit;color:inherit}
-.stat[aria-pressed="true"]{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
-.stat b{display:block;font:600 22px/1.1 var(--serif)}
-.stat span{color:var(--muted);font-size:13px}
-.stat small{display:block;color:var(--new);font-size:12px;margin-top:2px}
-.layout{display:grid;grid-template-columns:230px 1fr;gap:24px}
-aside h3{font:600 12px/1 var(--sans);letter-spacing:.06em;text-transform:uppercase;color:var(--faint);margin:18px 0 8px}
+.sr{position:absolute;left:-9999px}
+
+/* hero */
+.hero{position:relative;background:var(--hero);color:var(--hero-text);overflow:hidden}
+.hero svg{position:absolute;right:-60px;top:-40px;width:760px;max-width:none;height:auto;fill:none;stroke:var(--contour);stroke-width:1;opacity:.9;pointer-events:none}
+.hero svg path{opacity:.35;animation:trace 1.4s ease-out both}
+.hero svg path.idx{opacity:.75;stroke-width:1.6}
+@keyframes trace{from{opacity:0}}
+.hero-in{position:relative;max-width:1120px;margin:0 auto;padding:30px 20px 34px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.brand{font:600 15px/1 var(--sans);letter-spacing:.01em;color:var(--hero-text);display:flex;align-items:center;gap:9px}
+.brand::before{content:"";width:10px;height:10px;border-radius:50%;background:#7fd3a6;box-shadow:0 0 0 4px rgba(127,211,166,.2)}
+.theme{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);color:var(--hero-text);border-radius:999px;padding:5px 13px;cursor:pointer;font-size:13px}
+.theme:hover{background:rgba(255,255,255,.16)}
+h1{margin:44px 0 0;max-width:15ch;font:600 clamp(34px,6.2vw,60px)/1.04 var(--serif);letter-spacing:-.015em}
+.tagline{margin:14px 0 0;max-width:52ch;color:var(--hero-mute);font-size:16px}
+.live{margin-top:26px;display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 18px;font-size:15px;color:var(--hero-text)}
+.live b{font:600 34px/1 var(--serif);margin-right:8px}
+.live span{color:var(--hero-mute)}
+.live div{white-space:nowrap}
+.live a{color:var(--hero-text);text-decoration-color:rgba(255,255,255,.4);text-underline-offset:3px}
+
+/* tabs */
+.tabs{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+.tabs-in{max-width:1120px;margin:0 auto;padding:0 12px;display:flex;gap:2px;overflow-x:auto}
+.tab{background:none;border:0;border-bottom:3px solid transparent;padding:13px 12px 10px;cursor:pointer;display:flex;align-items:baseline;gap:7px;white-space:nowrap;color:var(--muted)}
+.tab:hover{color:var(--text)}
+.tab[aria-pressed="true"]{border-bottom-color:var(--accent);color:var(--text)}
+.tab-n{font:600 18px/1 var(--serif)}
+.tab-l{font-size:14px}
+.tab-new{font-size:12px;color:var(--calm);background:var(--calm-soft);border-radius:999px;padding:0 7px;align-self:center}
+
+/* layout */
+.wrap{max-width:1120px;margin:0 auto;padding:24px 20px 64px}
+.layout{display:grid;grid-template-columns:230px 1fr;gap:34px;align-items:start}
+aside{position:sticky;top:64px}
+aside h3{font:600 14px/1 var(--serif);color:var(--text);margin:22px 0 10px}
 aside h3:first-child{margin-top:0}
 .chips{display:flex;flex-wrap:wrap;gap:6px}
-.chip{border:1px solid var(--line);background:var(--surface);color:var(--muted);border-radius:999px;padding:2px 10px;font:inherit;font-size:12.5px;cursor:pointer}
-.chip[aria-pressed="true"]{background:var(--accent-soft);color:var(--accent);border-color:var(--accent)}
-.chip i{font-style:normal;color:var(--faint);margin-left:4px}
-.field{display:flex;flex-direction:column;gap:4px;margin-bottom:10px;font-size:13px;color:var(--muted)}
-input[type=search],select{width:100%;padding:9px 11px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--text);font:inherit}
-.check{display:flex;align-items:center;gap:6px;font-size:13.5px;color:var(--muted);margin:6px 0}
-.toolbar{display:flex;gap:10px;align-items:center;margin-bottom:6px}
-.toolbar input{flex:1}
-.count{color:var(--muted);font-size:13px;margin:6px 0 4px}
-.group{font:600 13px/1 var(--sans);color:var(--faint);letter-spacing:.04em;text-transform:uppercase;margin:22px 0 8px}
-.card{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--k,var(--line));border-radius:8px;padding:13px 16px;margin-bottom:9px}
-.card h2{margin:0;font:600 16.5px/1.38 var(--serif)}
-.card h2 a{color:var(--text);text-decoration:none}
-.card h2 a:hover{color:var(--accent);text-decoration:underline}
-.meta{display:flex;gap:6px 12px;flex-wrap:wrap;align-items:center;margin-top:7px;color:var(--muted);font-size:13px}
-.kind{font-weight:600;color:var(--k);text-transform:capitalize}
-.new{background:var(--new-soft);color:var(--new);border-radius:999px;padding:0 8px;font-size:12px;font-weight:600}
-.terms{margin-top:7px;display:flex;flex-wrap:wrap;gap:5px}
-.terms button{border:0;background:var(--accent-soft);color:var(--accent);border-radius:4px;padding:1px 7px;font:inherit;font-size:12px;cursor:pointer}
+.chip{border:1px solid var(--line);background:var(--surface);color:var(--muted);border-radius:6px;padding:3px 9px;font-size:12.5px;cursor:pointer}
+.chip:hover{border-color:var(--accent);color:var(--text)}
+.chip[aria-pressed="true"]{background:var(--accent);color:#fff;border-color:var(--accent)}
+.chip i{font-style:normal;opacity:.65;margin-left:5px}
+input[type=search],select{width:100%;padding:9px 11px;border:1px solid var(--line);border-radius:8px;background:var(--raise);color:var(--text);font:inherit}
+.check{display:flex;align-items:flex-start;gap:8px;font-size:13.5px;color:var(--muted);margin:8px 0;cursor:pointer}
+.check input{margin-top:3px;accent-color:var(--accent)}
+.toolbar{margin-bottom:4px}
+.toolbar input{padding:12px 14px;font-size:15px}
+.count{color:var(--muted);font-size:13px;margin:10px 0 0}
+
+/* list */
+.group{font:600 19px/1.2 var(--serif);margin:34px 0 12px;display:flex;align-items:center;gap:12px}
+.group::after{content:"";flex:1;height:1px;background:var(--line)}
+.row{display:grid;grid-template-columns:96px 1fr;gap:18px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 18px 14px 14px;margin-bottom:10px;transition:border-color .15s}
+.row:hover{border-color:var(--faint)}
+.gauge{border-radius:9px;padding:10px 8px 12px;text-align:center;position:relative;display:flex;flex-direction:column;justify-content:center;min-height:84px;background:var(--bg);overflow:hidden}
+.gauge b{font:600 30px/1 var(--serif);font-variant-numeric:tabular-nums}
+.gauge span{font-size:12px;color:var(--muted);margin-top:4px}
+.gauge i{position:absolute;left:0;bottom:0;height:4px;width:var(--f);background:currentColor;opacity:.85}
+.t-hot{background:var(--hot-soft);color:var(--hot)}
+.t-warm{background:var(--warm-soft);color:var(--warm)}
+.t-calm{background:var(--calm-soft);color:var(--calm)}
+.t-ink{background:var(--ink-soft);color:var(--ink)}
+.t-event{background:var(--event-soft);color:var(--event)}
+.t-none{color:var(--faint)}
+.gauge span{color:inherit;opacity:.8}
+.body{min-width:0}
+.row h2{margin:0;font:600 18px/1.32 var(--serif)}
+.row h2 a{color:var(--text);text-decoration:none}
+.row h2 a:hover{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+.meta{display:flex;gap:4px 14px;flex-wrap:wrap;align-items:center;margin-top:6px;color:var(--muted);font-size:13.5px}
+.kind{font-weight:600;color:var(--k);display:inline-flex;align-items:center;gap:6px}
+.kind::before{content:"";width:8px;height:8px;border-radius:2px;background:var(--k)}
+.strong{color:var(--text);font-weight:600}
+.src{color:var(--faint)}
+.new{background:var(--calm-soft);color:var(--calm);border-radius:999px;padding:0 8px;font-size:12px;font-weight:600}
+.foot{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:10px}
+.term{border:0;background:none;color:var(--accent);padding:0;margin-right:8px;font-size:12.5px;cursor:pointer}
+.term::before{content:"#"}
+.term:hover{text-decoration:underline}
 .actions{margin-left:auto;display:flex;gap:6px}
-.act{background:none;border:1px solid var(--line);border-radius:6px;padding:1px 9px;color:var(--muted);cursor:pointer;font:inherit;font-size:12.5px}
+.act{background:none;border:1px solid var(--line);border-radius:7px;padding:2px 10px;color:var(--muted);cursor:pointer;font-size:12.5px}
+.act:hover{color:var(--text);border-color:var(--faint)}
 .act[aria-pressed="true"]{color:var(--accent);border-color:var(--accent);background:var(--accent-soft)}
-.empty{color:var(--muted);padding:40px 0;text-align:center}
-.more{display:block;margin:14px auto;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:8px 16px;cursor:pointer;color:var(--text);font:inherit}
-footer{margin-top:40px;border-top:1px solid var(--line);padding-top:14px;color:var(--muted);font-size:13px}
+.empty{color:var(--muted);padding:48px 0;text-align:center}
+.more{display:block;margin:18px auto;background:var(--raise);border:1px solid var(--line);border-radius:8px;padding:10px 22px;cursor:pointer}
+.more:hover{border-color:var(--accent)}
+
+footer{max-width:1120px;margin:0 auto;border-top:1px solid var(--line);padding:16px 20px 48px;color:var(--muted);font-size:13px}
+footer p{margin:6px 0}
 details summary{cursor:pointer}
 .tablewrap{overflow-x:auto;margin-top:10px}
 table{width:100%;border-collapse:collapse;font-size:13px}
 th,td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--line);vertical-align:top}
-.deadline{color:var(--job);font-weight:600}
-.muted-tag{color:var(--muted,#6b7280);font-style:italic}
-.ok{color:var(--new)} .bad{color:var(--job)}
-.sr{position:absolute;left:-9999px}
-@media (max-width:820px){.layout{grid-template-columns:1fr}.stats{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media (max-width:480px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.ok{color:var(--calm)} .bad{color:var(--hot)}
+
+.filters>summary{display:none}
+@media (max-width:860px){
+  .filters>summary{display:block;font:600 14px var(--serif);padding:10px 14px;border:1px solid var(--line);border-radius:8px;background:var(--surface);cursor:pointer}
+  .filters[open]>summary{margin-bottom:6px}
+  .layout{grid-template-columns:1fr}
+  aside{position:static}
+  .hero svg{opacity:.5;right:-300px}
+}
+@media (max-width:560px){
+  .row{grid-template-columns:1fr;gap:10px}
+  .gauge{flex-direction:row;align-items:baseline;justify-content:flex-start;gap:8px;min-height:0;padding:8px 12px 12px;text-align:left}
+  .gauge b{font-size:22px}.gauge span{margin:0}
+  h1{margin-top:30px}
+}
+@media (prefers-reduced-motion:reduce){.hero svg path{animation:none}}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <header>
-    <div>
-      <h1>Geo Radar</h1>
-      <p class="tagline">A live radar of PhD positions, papers, programmes and events in photogrammetry, remote sensing and geoinformatics. Only recent items are shown; old ones expire automatically.</p>
+<div class="hero">
+  <svg id="contours" viewBox="0 0 640 360" aria-hidden="true"></svg>
+  <div class="hero-in">
+    <div class="top">
+      <div class="brand">Geo Radar</div>
+      <button class="theme" id="theme" type="button">Auto theme</button>
     </div>
-    <button class="theme" id="theme" type="button">Theme: auto</button>
-  </header>
+    <h1>What is open in geodata, right now</h1>
+    <p class="tagline">PhD and postdoc positions, MSc programmes, conferences and calls in photogrammetry, remote sensing and geoinformatics. Only items you can still act on. Papers are ranked by impact.</p>
+    <div class="live" id="live"></div>
+  </div>
+</div>
 
-  <div class="stats" id="stats" role="group" aria-label="Filter by type"></div>
+<nav class="tabs" aria-label="Filter by type"><div class="tabs-in" id="stats" role="group"></div></nav>
 
+<div class="wrap">
   <div class="layout">
     <aside>
+     <details class="filters" id="filters" open><summary>Filters</summary>
       <h3>Topics</h3>
       <div class="chips" id="topics"></div>
       <h3>Source</h3>
-      <div class="field"><label class="sr" for="source">Source</label><select id="source"><option value="">All sources</option></select></div>
+      <label class="sr" for="source">Source</label><select id="source"><option value="">All sources</option></select>
       <h3>Show</h3>
       <label class="check"><input type="checkbox" id="newOnly"> New this week only</label>
-      <label class="check"><input type="checkbox" id="unlisted"> Also show items without a listed deadline</label>
+      <label class="check"><input type="checkbox" id="unlisted"> Include items without a listed deadline</label>
       <label class="check"><input type="checkbox" id="savedOnly"> Saved only</label>
-      <h3>Sort</h3>
-      <div class="field"><label class="sr" for="sort">Sort</label>
-        <select id="sort"><option value="auto">Best first (closing soonest · highest impact)</option><option value="seen">Recently found</option><option value="published">Publication date</option><option value="title">Title A–Z</option></select>
-      </div>
+      <h3>Order</h3>
+      <label class="sr" for="sort">Sort</label>
+      <select id="sort"><option value="auto">Best first</option><option value="seen">Recently found</option><option value="published">Publication date</option><option value="title">Title A to Z</option></select>
+     </details>
     </aside>
 
     <section aria-label="Results">
       <div class="toolbar">
         <label class="sr" for="q">Search</label>
-        <input id="q" type="search" placeholder="Search titles, sources, topics  (press /)" autocomplete="off">
+        <input id="q" type="search" placeholder="Search titles, sources and topics. Press / to jump here." autocomplete="off">
       </div>
       <div class="count" id="count" aria-live="polite">Loading…</div>
       <div id="list"></div>
       <button class="more" id="more" hidden>Show more</button>
     </section>
   </div>
-
-  <footer>
-    <p id="meta"></p>
-    <details>
-      <summary>Sources and status</summary>
-      <div class="tablewrap" id="sources"></div>
-    </details>
-    <p>Saved items stay in this browser only. Links open the original source.</p>
-  </footer>
 </div>
+
+<footer>
+  <p id="meta"></p>
+  <details>
+    <summary>Sources and status</summary>
+    <div class="tablewrap" id="sources"></div>
+  </details>
+  <p>Saved items stay in this browser only. Links open the original source.</p>
+</footer>
 <script>
 const KINDS = [["all","All"],["job","Positions"],["paper","Papers"],["course","Programmes"],["event","Events"],["news","News"]];
 const STORE = { saved: "geo-radar-saved", theme: "geo-radar-theme" };
@@ -148,7 +219,7 @@ const write = (k, v) => { try { localStorage.setItem(k, v); } catch {} };
 function applyTheme(t) {
   if (t === "auto") document.documentElement.removeAttribute("data-theme");
   else document.documentElement.setAttribute("data-theme", t);
-  $("theme").textContent = "Theme: " + t;
+  $("theme").textContent = t === "auto" ? "Auto theme" : t === "dark" ? "Dark" : "Light";
 }
 
 function filtered(ignoreKind) {
@@ -166,9 +237,11 @@ function filtered(ignoreKind) {
 function sorted(items) {
   const d = (x, k) => Date.parse(x[k] || 0) || 0;
   if (st.sort === "auto") {
-    const rank = it => NEEDS_DEADLINE.has(it.kind) ? (it.deadline || upcoming(it) ? 0 : it.open_posting ? 0.5 : 3) : it.kind === "paper" ? 1 : 2;
+    const rank = it => SECTIONS.indexOf(section(it));
     return items.sort((a, b) => rank(a) - rank(b)
-      || (rank(a) === 0 ? when(a) - when(b) : rank(a) === 0.5 ? d(b, "published") - d(a, "published") : rank(a) === 1 ? (b.impact || 0) - (a.impact || 0) : d(b, "first_seen") - d(a, "first_seen")));
+      || (a.kind === "paper" && b.kind === "paper" ? (b.impact || 0) - (a.impact || 0)
+        : a.open_posting && !a.deadline ? d(b, "published") - d(a, "published")
+        : NEEDS_DEADLINE.has(a.kind) ? when(a) - when(b) : d(b, "first_seen") - d(a, "first_seen")));
   }
   if (st.sort === "published") return items.sort((a, b) => d(b, "published") - d(a, "published"));
   if (st.sort === "title") return items.sort((a, b) => a.title.localeCompare(b.title));
@@ -220,7 +293,7 @@ function renderStats() {
   $("stats").innerHTML = KINDS.map(([k, label]) => {
     const items = k === "all" ? pool : pool.filter(i => i.kind === k);
     const fresh = items.filter(isNew).length;
-    return `<button class="stat" data-k="${k}" aria-pressed="${st.kind === k}"><b>${items.length}</b><span>${label}</span>${fresh ? `<small>${fresh} new this week</small>` : ""}</button>`;
+    return `<button class="tab" data-k="${k}" aria-pressed="${st.kind === k}"><span class="tab-n">${items.length}</span><span class="tab-l">${label}</span>${fresh ? `<span class="tab-new" title="${fresh} new this week">+${fresh}</span>` : ""}</button>`;
   }).join("");
 }
 
@@ -232,24 +305,107 @@ function renderTopics() {
     `<button class="chip" data-t="${esc(t)}" aria-pressed="${st.topic === t}">${esc(t)}<i>${n}</i></button>`).join("");
 }
 
+const MON = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+function dayLeft(iso) { return Math.ceil((Date.parse(iso) - Date.now()) / 864e5); }
+function tone(d) { return d <= 7 ? "hot" : d <= 30 ? "warm" : "calm"; }
+
+function gauge(it) {
+  if (it.kind === "paper") {
+    const v = Math.round(it.impact || 0);
+    return { big: v || "–", small: v ? "impact" : "new", frac: Math.min(1, v / 100), tone: "ink" };
+  }
+  if (it.deadline && Date.parse(it.deadline) >= Date.now() - 864e5) {
+    const d = Math.max(0, dayLeft(it.deadline));
+    return { big: d === 0 ? "Today" : d, small: d === 1 ? "day left" : d === 0 ? "closes" : "days left", frac: Math.min(1, d / 60), tone: tone(d) };
+  }
+  if (it.kind === "event" && it.starts) {
+    const s = new Date(it.starts);
+    if (s < Date.now() && it.ends) { const e = new Date(it.ends); return { big: "Now", small: "until " + e.getDate() + " " + MON[e.getMonth()], frac: 0, tone: "event" }; }
+    return { big: s.getDate(), small: MON[s.getMonth()] + " " + s.getFullYear(), frac: 0, tone: "event" };
+  }
+  if (it.open_posting) {
+    const days = Math.max(0, Math.floor((Date.now() - Date.parse(it.published || it.first_seen)) / 864e5));
+    return { big: "Open", small: days === 0 ? "posted today" : "posted " + days + "d ago", frac: Math.max(0, 1 - days / 45), tone: "calm" };
+  }
+  return { big: "–", small: it.apply_closed ? "intake closed" : "no deadline", frac: 0, tone: "none" };
+}
+
+function details(it) {
+  const bits = [];
+  if (it.kind !== "paper" && it.deadline && Date.parse(it.deadline) >= Date.now() - 864e5) bits.push(`<span class="strong">${it.kind === "event" ? "Call closes" : "Apply by"} ${fmt(it.deadline)}</span>`);
+  if (it.kind === "event" && it.starts) bits.push(`<span class="strong">${it.ends && it.ends !== it.starts ? fmt(it.starts) + " to " + fmt(it.ends) : fmt(it.starts)}</span>`);
+  if (it.kind === "paper") {
+    if (it.top_venue) bits.push('<span class="strong">Top venue</span>');
+    if (it.venue) bits.push(`<span>${esc(it.venue)}</span>`);
+    bits.push(`<span>${it.cited_by ? "cited " + it.cited_by + " times" : "not yet cited"}</span>`);
+    if (it.fwci != null) bits.push(`<span>FWCI ${esc(it.fwci)}</span>`);
+  }
+  if (it.apply_closed) bits.push("<span>Current intake closed</span>");
+  if (it.location) bits.push(`<span>${esc(it.location)}</span>`);
+  return bits.join("");
+}
+
 function card(it) {
-  const s = saved.has(it.id);
-  return `<article class="card" style="--k:var(--${esc(it.kind)})">
-    <h2><a href="${esc(it.url)}" target="_blank" rel="noopener noreferrer">${esc(it.title)}</a></h2>
-    <div class="meta">
-      <span class="kind">${esc((KINDS.find(k => k[0] === it.kind) || [, it.kind])[1])}</span>
-      ${isNew(it) ? '<span class="new">New</span>' : ""}
-      <span>${esc(it.source_name)}</span>
-      <span>${it.published ? "Published " + fmt(it.published) : "Found " + fmt(it.first_seen)}</span>
-      ${it.location ? `<span>${esc(it.location)}</span>` : ""}
-      ${openLabel(it)}
-      <span class="actions">
-        <button class="act" data-copy="${esc(it.url)}" title="Copy link">Copy link</button>
-        <button class="act" data-save="${esc(it.id)}" aria-pressed="${s}">${s ? "Saved" : "Save"}</button>
-      </span>
+  const s = saved.has(it.id), g = gauge(it);
+  const kindName = (KINDS.find(k => k[0] === it.kind) || [, it.kind])[1];
+  return `<article class="row" style="--k:var(--${esc(it.kind)})">
+    <div class="gauge t-${g.tone}" aria-label="${esc(g.big + " " + g.small)}">
+      <b>${esc(g.big)}</b><span>${esc(g.small)}</span>
+      <i style="--f:${(g.frac * 100).toFixed(0)}%"></i>
     </div>
-    ${(it.matched || []).length ? `<div class="terms">${it.matched.slice(0, 5).map(t => `<button data-t="${esc(t)}">${esc(t)}</button>`).join("")}</div>` : ""}
+    <div class="body">
+      <h2><a href="${esc(it.url)}" target="_blank" rel="noopener noreferrer">${esc(it.title)}</a></h2>
+      <div class="meta">
+        <span class="kind">${esc(kindName)}</span>
+        ${isNew(it) ? '<span class="new">New</span>' : ""}
+        ${details(it)}
+        <span class="src">${esc(it.source_name)}</span>
+      </div>
+      <div class="foot">
+        ${(it.matched || []).filter(t => t !== "event").slice(0, 4).filter(t => t !== "event").map(t => `<button class="term" data-t="${esc(t)}">${esc(t)}</button>`).join("")}
+        <span class="actions">
+          <button class="act" data-copy="${esc(it.url)}">Copy link</button>
+          <button class="act" data-save="${esc(it.id)}" aria-pressed="${s}">${s ? "Saved" : "Save"}</button>
+        </span>
+      </div>
+    </div>
   </article>`;
+}
+
+const SECTIONS = ["Closing within a week", "Closing within a month", "Open for longer", "Upcoming events", "Open postings without a closing date", "Papers with the most impact", "Recent papers", "News", "Other"];
+function section(it) {
+  if (it.kind === "paper") return (it.impact || 0) >= 50 ? "Papers with the most impact" : "Recent papers";
+  if (it.kind === "news") return "News";
+  if (it.deadline && Date.parse(it.deadline) >= Date.now() - 864e5) {
+    const d = dayLeft(it.deadline);
+    return d <= 7 ? "Closing within a week" : d <= 30 ? "Closing within a month" : "Open for longer";
+  }
+  if (it.kind === "event" && upcoming(it)) return "Upcoming events";
+  if (it.open_posting) return "Open postings without a closing date";
+  return "Other";
+}
+
+function renderHero() {
+  const live = feed.items.filter(it => NEEDS_DEADLINE.has(it.kind) && it.deadline && Date.parse(it.deadline) >= Date.now() - 864e5)
+    .sort((a, b) => Date.parse(a.deadline) - Date.parse(b.deadline));
+  const open = feed.items.filter(it => (NEEDS_DEADLINE.has(it.kind) && ((it.deadline && Date.parse(it.deadline) >= Date.now() - 864e5) || it.open_posting || upcoming(it)))).length;
+  const next = live[0];
+  $("live").innerHTML = `<div><b>${open}</b>open right now</div>` + (next
+    ? `<span>Next to close: <a href="${esc(next.url)}" target="_blank" rel="noopener noreferrer">${esc(next.title.length > 90 ? next.title.slice(0, 88) + "…" : next.title)}</a>, ${dayLeft(next.deadline) <= 0 ? "today" : "in " + dayLeft(next.deadline) + (dayLeft(next.deadline) === 1 ? " day" : " days")}</span>` : "");
+}
+
+function drawContours() {
+  const svg = $("contours"); let p = "";
+  for (let i = 0; i < 16; i++) {
+    const r = 30 + i * 17, ph = i * 0.42; let d = "";
+    for (let a = 0; a <= 64; a++) {
+      const t = a / 64 * Math.PI * 2;
+      const rr = r * (1 + 0.10 * Math.sin(2 * t + ph) + 0.06 * Math.sin(3 * t - ph * 1.7) + 0.035 * Math.sin(5 * t + ph));
+      d += (a ? "L" : "M") + (320 + rr * 1.25 * Math.cos(t)).toFixed(1) + " " + (180 + rr * 0.8 * Math.sin(t)).toFixed(1);
+    }
+    p += `<path d="${d}Z" style="animation-delay:${(i * 0.06).toFixed(2)}s"${i % 5 === 0 ? ' class="idx"' : ""}/>`;
+  }
+  svg.innerHTML = p;
 }
 
 function render() {
@@ -261,8 +417,8 @@ function render() {
   $("count").textContent = `${items.length} ${items.length === 1 ? "item" : "items"}${filters.length ? " · " + filters.join(" · ") : ""}`;
   let html = "", last = "";
   for (const it of page) {
-    const g = st.sort === "seen" ? bucket(it) : "";
-    if (g && g !== last) { html += `<div class="group">${g}</div>`; last = g; }
+    const g = st.sort === "seen" ? bucket(it) : st.sort === "auto" ? section(it) : "";
+    if (g && g !== last) { html += `<h3 class="group">${esc(g)}</h3>`; last = g; }
     html += card(it);
   }
   $("list").innerHTML = html || '<div class="empty">Nothing matches these filters.</div>';
@@ -298,6 +454,8 @@ document.addEventListener("keydown", e => {
 
 try { saved = new Set(JSON.parse(read(STORE.saved, "[]"))); } catch { saved = new Set(); }
 applyTheme(read(STORE.theme, "auto"));
+drawContours();
+try { if (matchMedia("(max-width:860px)").matches) $("filters").open = false; } catch {}
 
 Promise.all([
   fetch("data/feed.json", { cache: "no-store" }).then(r => r.json()),
@@ -307,7 +465,7 @@ Promise.all([
   const names = [...new Set(feed.items.map(i => i.source_name))].sort();
   $("source").innerHTML += names.map(n => `<option>${esc(n)}</option>`).join("");
   $("meta").textContent = `Updated ${new Date(feed.generated_at).toLocaleString()} · refreshed every 2 hours · ${feed.items.length} live items`;
-  render();
+  renderHero(); render();
   const rows = Object.entries(status).sort().map(([id, x]) => `<tr><td>${esc(id)}</td>
     <td class="${x.state === "ok" ? "ok" : "bad"}">${esc(x.state)}</td><td>${esc(x.last_checked ? new Date(x.last_checked).toLocaleString() : "")}</td>
     <td>${x.items_matched ?? 0}</td><td>${esc(x.last_error || x.note || "")}</td></tr>`).join("");
