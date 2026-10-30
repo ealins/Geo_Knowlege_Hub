@@ -55,6 +55,7 @@ const decode = (s) =>
 
 const clean = (s = "") =>
   decode(decode(s.replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, "$1")))
+    .replace(/&nbsp;|\u00a0/g, " ")
     .replace(/<[^>]+>/g, " ")
     .replace(/\s+/g, " ")
     .trim();
