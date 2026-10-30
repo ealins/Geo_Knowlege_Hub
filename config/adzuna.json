@@ -1,0 +1,13 @@
+{
+  "note": "Adzuna free tier: keep calls_per_day at or below 20 (limit 25). Each query is one call.",
+  "calls_per_day": 20,
+  "max_days_old": 30,
+  "queries": [
+    ["de", "Photogrammetrie"], ["de", "Fernerkundung"], ["de", "Geoinformatik"], ["de", "GIS"],
+    ["de", "Geodäsie"], ["de", "LiDAR"], ["de", "Laserscanning"], ["de", "remote sensing"],
+    ["de", "Vermessungsingenieur"], ["de", "BIM GIS"],
+    ["gb", "photogrammetry"], ["gb", "remote sensing"], ["gb", "LiDAR"], ["gb", "geospatial"], ["gb", "earth observation"],
+    ["nl", "remote sensing"], ["nl", "GIS"],
+    ["at", "Geoinformatik"], ["ch", "Geomatik"], ["ch", "Photogrammetrie"]
+  ]
+}

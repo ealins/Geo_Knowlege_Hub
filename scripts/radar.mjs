@@ -396,6 +396,15 @@ async function runSource(src, statusOut) {
       statusOut[src.id] = { state: "ok", last_checked: nowIso, last_success: nowIso, items_found: raw.length, items_matched: kept.length, consecutive_failures: 0, last_error: null };
       return kept;
     }
+    if (src.type === "adzuna") {
+      // Jobs fetched once a day by scripts/adzuna.mjs; loose keyword hits are verified like other boards.
+      const file = await readJson(path.join(DATA_DIR, "adzuna.json"), { items: [] });
+      const raw = file.items.map((j) => ({ title: j.title, link: j.url, date: j.posted, summary: `${j.org}. ${j.summary}`, deadline: "", location: j.location }));
+      const verified = raw.filter((r) => hasStrong(`${r.title} ${r.summary.slice(0, 400)}`).length);
+      const kept = verified.map((r) => classify(r, src)).filter(Boolean);
+      statusOut[src.id] = { state: "ok", last_checked: nowIso, last_success: nowIso, items_found: raw.length, items_matched: kept.length, consecutive_failures: 0, last_error: null, note: file.fetched_at ? `fetched ${file.fetched_at.slice(0, 10)}, ${file.calls} calls` : "no Adzuna data yet" };
+      return kept;
+    }
     if (src.type === "curated") {
       // Items collected by the scheduled Claude task (Indeed, Exa, web search), read from data/curated.json.
       const file = await readJson(path.join(DATA_DIR, "curated.json"), { items: [] });
@@ -479,7 +488,7 @@ for (const it of fresh) {
 // Listing pages (html) show only what is currently open: if such a source was
 // read successfully and an item is no longer on it, the item is gone. Feeds
 // and APIs roll over quickly, so their items keep the per-kind window instead.
-const htmlOk = new Set(enabled.filter((s) => ["html", "jobsacuk", "euraxess", "page", "discovered", "discovered-events", "curated"].includes(s.type) && statusOut[s.id]?.state === "ok").map((s) => s.id));
+const htmlOk = new Set(enabled.filter((s) => ["html", "jobsacuk", "euraxess", "adzuna", "page", "discovered", "discovered-events", "curated"].includes(s.type) && statusOut[s.id]?.state === "ok").map((s) => s.id));
 const enabledIds = new Set(enabled.map((s) => s.id));
 for (const it of previous.items ?? []) {
   if (merged.has(it.id) || htmlOk.has(it.source) || !enabledIds.has(it.source)) continue;

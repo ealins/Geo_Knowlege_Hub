@@ -996,6 +996,14 @@
       "tag": "hyperspectral",
       "enabled": false,
       "note": "EURAXESS returns 403 to GitHub runners; disabled, not circumvented"
+    },
+    {
+      "id": "adzuna",
+      "name": "Adzuna job ads",
+      "url": "https://geoacademic.app/data/adzuna.json",
+      "type": "adzuna",
+      "kind": "job",
+      "enabled": true
     }
   ]
 }

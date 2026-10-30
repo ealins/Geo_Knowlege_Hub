@@ -1,0 +1,39 @@
+name: Adzuna jobs
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Once a day at 05:37 UTC; the script also refuses a second run on the same day.
+    - cron: "37 5 * * *"
+  push:
+    branches: [main]
+    paths: ["scripts/adzuna.mjs", "config/adzuna.json"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: geo-radar-adzuna
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Search Adzuna (max 20 calls)
+        env:
+          ADZUNA_APP_ID: ${{ secrets.ADZUNA_APP_ID }}
+          ADZUNA_APP_KEY: ${{ secrets.ADZUNA_APP_KEY }}
+        run: node scripts/adzuna.mjs
+      - name: Commit result
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/adzuna.json 2>/dev/null || true
+          if git diff --cached --quiet; then echo "No changes."; else
+            git commit -m "adzuna: refresh jobs"; git pull --rebase -q; git push; fi
