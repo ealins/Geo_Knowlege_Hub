@@ -78,6 +78,8 @@ async function crawl(org) {
   const record = async (title, url, range, ctx, deadlineHtml) => {
     title = title.replace(/\s+/g, " ").trim().slice(0, 160);
     if (!title || GENERIC.test(title) || title.split(/\s+/).length < 3) return;
+    // A one-day "event" starting within days is nearly always a news post dated today.
+    if (range.start === range.end && Date.parse(range.start) < now.getTime() + 3 * 864e5) return;
     const company = org.host.endsWith(".com");
     if ((!org.onTopic || company) && !TOPIC.test(`${title} ${ctx}`)) return;
     const key = title.toLowerCase().replace(/[^a-z0-9]+/g, "") + range.start.slice(0, 7);
