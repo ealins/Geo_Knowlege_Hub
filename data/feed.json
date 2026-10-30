@@ -1,12 +1,102 @@
 {
-  "generated_at": "2026-10-30T05:26:00.397Z",
+  "generated_at": "2026-10-30T05:27:48.174Z",
   "retain_days": 45,
   "count": 245,
   "items": [
     {
-      "id": "ab4c69c33735e5cb",
-      "title": "Geo-information Science and Earth Observation Double degree Master's with Capital Normal University, China",
-      "url": "https://www.utwente.nl/en/education/master/programmes/geo-information-science-earth-observation/cnu-china/",
+      "id": "b6a6426da06fb935",
+      "title": "EuroSDR GeoAI SIG | 2nd Workshop: Learning by Sharing: The European Model Catalogue & LLMs in Action",
+      "url": "https://www.eurosdr.net/workshops/eurosdr-geoai-sig-2nd-workshop-learning-sharing-european-model-catalogue-llms-action",
+      "kind": "event",
+      "source": "eurosdr-workshops",
+      "source_name": "EuroSDR workshops",
+      "published": null,
+      "summary": "",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "GeoAI"
+      ],
+      "first_seen": "2026-10-30T05:27:48.174Z",
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
+    },
+    {
+      "id": "ebd0b344dded331d",
+      "title": "EuroSDR Webinar – Securing Critical Geo and Geodetic Expertise in Europe",
+      "url": "https://www.eurosdr.net/workshops/eurosdr-webinar-%E2%80%93-securing-critical-geo-and-geodetic-expertise-europe",
+      "kind": "event",
+      "source": "eurosdr-workshops",
+      "source_name": "EuroSDR workshops",
+      "published": null,
+      "summary": "",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "geodetic"
+      ],
+      "first_seen": "2026-10-30T05:27:48.174Z",
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
+    },
+    {
+      "id": "a3c170588ab78a98",
+      "title": "EuroSDR Workshop | Addressing Key Challenges for NMCAs and 3D: From Wish List to Practice",
+      "url": "https://www.eurosdr.net/workshops/eurosdr-workshop-addressing-key-challenges-nmcas-and-3d-wish-list-practice",
+      "kind": "event",
+      "source": "eurosdr-workshops",
+      "source_name": "EuroSDR workshops",
+      "published": null,
+      "summary": "",
+      "deadline": "2026-12-04T23:59:59.000Z",
+      "location": null,
+      "matched": [
+        "EuroSDR"
+      ],
+      "first_seen": "2026-10-30T05:27:48.174Z",
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
+    },
+    {
+      "id": "6268a46ba2f53c8a",
+      "title": "5th International Workshop on Point Cloud Processing",
+      "url": "https://www.eurosdr.net/workshops/5th-international-workshop-point-cloud-processing",
+      "kind": "event",
+      "source": "eurosdr-workshops",
+      "source_name": "EuroSDR workshops",
+      "published": null,
+      "summary": "",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "point cloud"
+      ],
+      "first_seen": "2026-10-30T05:27:48.174Z",
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
+    },
+    {
+      "id": "bd51f81f9745362e",
+      "title": "EuroSDR workshop | Towards a Digital Commons for Education about Land and Its Transformation",
+      "url": "https://www.eurosdr.net/workshops/eurosdr-workshop-towards-digital-commons-education-about-land-and-its-transformation",
+      "kind": "event",
+      "source": "eurosdr-workshops",
+      "source_name": "EuroSDR workshops",
+      "published": null,
+      "summary": "",
+      "deadline": "2026-12-04T23:59:59.000Z",
+      "location": null,
+      "matched": [
+        "EuroSDR"
+      ],
+      "first_seen": "2026-10-30T05:27:48.174Z",
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
+    },
+    {
+      "id": "7aed83a1fec1b1d3",
+      "title": "Geo-information Science and Earth Observation Double degree Master's with Chang'an University, China",
+      "url": "https://www.utwente.nl/en/education/master/programmes/geo-information-science-earth-observation/cau-china/",
       "kind": "course",
       "source": "discovered-programmes",
       "source_name": "University departments (auto-discovered)",
@@ -17,122 +107,27 @@
       "matched": [
         "earth observation"
       ],
-      "first_seen": "2026-10-30T05:26:00.397Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
+      "first_seen": "2026-10-30T05:27:48.174Z",
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
-      "id": "3acaf7ff7851cb43",
-      "title": "Geographical Information Sciences",
-      "url": "https://vu.nl/nl/onderwijs/professionals/cursussen-opleidingen/master-geographical-information-sciences",
+      "id": "d1f67afdf63d896a",
+      "title": "Geographical Information Sciences (UNIGIS)",
+      "url": "https://vu.nl/nl/onderwijs/master/geographical-information-sciences",
       "kind": "course",
       "source": "discovered-programmes",
       "source_name": "University departments (auto-discovered)",
       "published": null,
-      "summary": "Wil je ruimtelijke data vertalen naar waardevolle kennis? Ontdek de online Master Geographical Information Sciences (UNIGIS) voor GIS professionals. Vrije Universiteit Amsterdam",
+      "summary": "Met de parttime driejarige online Master MSc Geographical Information Sciences GIS aan VU Amsterdam leer je data uit verschillende bronnen samenbrengen. Vrije Universiteit Amsterdam",
       "deadline": null,
       "location": "Vrije Universiteit Amsterdam, NL",
       "matched": [
         "GIS"
       ],
-      "first_seen": "2026-10-30T05:26:00.397Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
-    },
-    {
-      "id": "9f9f4f24b717397e",
-      "title": "EuroSDR GeoAI SIG | 2nd Workshop: Learning by Sharing: The European Model Catalogue & LLMs in Action",
-      "url": "http://www.eurosdr.net/workshops/eurosdr-geoai-sig-2nd-workshop-learning-sharing-european-model-catalogue-llms-action",
-      "kind": "event",
-      "source": "discovered-events",
-      "source_name": "Societies and organisations (auto-discovered)",
-      "published": "2026-11-18T00:00:00.000Z",
-      "summary": "eurosdr.net",
-      "deadline": null,
-      "starts": "2026-11-18T00:00:00.000Z",
-      "ends": "2026-11-20T23:59:59.000Z",
-      "location": "eurosdr.net",
-      "matched": [
-        "GeoAI"
-      ],
-      "first_seen": "2026-10-30T05:26:00.397Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
-    },
-    {
-      "id": "0359d913d8f10dae",
-      "title": "EuroSDR Webinar – Securing Critical Geo and Geodetic Expertise in Europe",
-      "url": "http://www.eurosdr.net/workshops/eurosdr-webinar-%E2%80%93-securing-critical-geo-and-geodetic-expertise-europe",
-      "kind": "event",
-      "source": "discovered-events",
-      "source_name": "Societies and organisations (auto-discovered)",
-      "published": "2026-12-03T00:00:00.000Z",
-      "summary": "eurosdr.net",
-      "deadline": null,
-      "starts": "2026-12-03T00:00:00.000Z",
-      "ends": "2026-12-03T23:59:59.000Z",
-      "location": "eurosdr.net",
-      "matched": [
-        "geodetic"
-      ],
-      "first_seen": "2026-10-30T05:26:00.397Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
-    },
-    {
-      "id": "54af16e97be74d5c",
-      "title": "EuroSDR Workshop | Addressing Key Challenges for NMCAs and 3D: From Wish List to Practice",
-      "url": "http://www.eurosdr.net/workshops/eurosdr-workshop-addressing-key-challenges-nmcas-and-3d-wish-list-practice",
-      "kind": "event",
-      "source": "discovered-events",
-      "source_name": "Societies and organisations (auto-discovered)",
-      "published": "2027-01-20T00:00:00.000Z",
-      "summary": "eurosdr.net",
-      "deadline": "2026-12-04T23:59:59.000Z",
-      "starts": "2027-01-20T00:00:00.000Z",
-      "ends": "2027-01-21T23:59:59.000Z",
-      "location": "eurosdr.net",
-      "matched": [
-        "event"
-      ],
-      "first_seen": "2026-10-30T05:26:00.397Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
-    },
-    {
-      "id": "abb5ef45219063da",
-      "title": "5th International Workshop on Point Cloud Processing",
-      "url": "http://www.eurosdr.net/workshops/5th-international-workshop-point-cloud-processing",
-      "kind": "event",
-      "source": "discovered-events",
-      "source_name": "Societies and organisations (auto-discovered)",
-      "published": "2026-11-01T00:00:00.000Z",
-      "summary": "eurosdr.net",
-      "deadline": null,
-      "starts": "2026-11-01T00:00:00.000Z",
-      "ends": "2026-11-01T23:59:59.000Z",
-      "location": "eurosdr.net",
-      "matched": [
-        "point cloud"
-      ],
-      "first_seen": "2026-10-30T05:26:00.397Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
-    },
-    {
-      "id": "ec313e7302ca9939",
-      "title": "EuroSDR workshop | Towards a Digital Commons for Education about Land and Its Transformation",
-      "url": "http://www.eurosdr.net/workshops/eurosdr-workshop-towards-digital-commons-education-about-land-and-its-transformation",
-      "kind": "event",
-      "source": "discovered-events",
-      "source_name": "Societies and organisations (auto-discovered)",
-      "published": "2027-02-15T00:00:00.000Z",
-      "summary": "eurosdr.net",
-      "deadline": "2026-12-04T23:59:59.000Z",
-      "starts": "2027-02-15T00:00:00.000Z",
-      "ends": "2027-02-15T23:59:59.000Z",
-      "location": "eurosdr.net",
-      "matched": [
-        "event"
-      ],
-      "first_seen": "2026-10-30T05:26:00.397Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "first_seen": "2026-10-30T05:27:48.174Z",
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "654d2d43b4dce496",
@@ -151,8 +146,8 @@
         "event"
       ],
       "first_seen": "2026-10-30T03:51:07.598Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "c255828e782a4b29",
@@ -171,7 +166,7 @@
         "event"
       ],
       "first_seen": "2026-10-30T03:51:07.598Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "aeddc535f6e73755",
@@ -190,8 +185,8 @@
         "event"
       ],
       "first_seen": "2026-10-30T01:33:26.991Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "8f3ff4a2623bd782",
@@ -210,8 +205,8 @@
         "geomatics"
       ],
       "first_seen": "2026-10-30T01:33:26.991Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "4bfb79a55dd7f4f3",
@@ -230,8 +225,8 @@
         "event"
       ],
       "first_seen": "2026-10-30T01:33:26.991Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "923efff94b1593b8",
@@ -250,8 +245,8 @@
         "event"
       ],
       "first_seen": "2026-10-30T01:33:26.991Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "b1c098a73282ff60",
@@ -270,7 +265,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-30T01:33:26.991Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "76393e86e17e9721",
@@ -289,7 +284,7 @@
         "event"
       ],
       "first_seen": "2026-10-30T01:33:26.991Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "ff8cc3cde998b8dd",
@@ -308,7 +303,7 @@
         "event"
       ],
       "first_seen": "2026-10-30T01:33:26.991Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "83ad34daa774afad",
@@ -327,7 +322,7 @@
         "event"
       ],
       "first_seen": "2026-10-30T01:33:26.991Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "fa9e75d2286e3c0f",
@@ -346,7 +341,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-30T01:33:26.991Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "open_posting": true,
@@ -364,7 +359,7 @@
         "geodesy"
       ],
       "first_seen": "2026-10-30T01:16:56.695Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "66681e1654302825",
@@ -381,8 +376,8 @@
         "DGPF"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "1e614fbc75cce556",
@@ -399,8 +394,8 @@
         "DGPF"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "930b22487da898a1",
@@ -419,8 +414,8 @@
         "ISPRS"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "ddea71e5e70b48d0",
@@ -439,8 +434,8 @@
         "ISPRS"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "59439f8b561ad6a1",
@@ -459,8 +454,8 @@
         "ISPRS"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "a3699a7a8321f3e9",
@@ -479,8 +474,8 @@
         "ISPRS"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "278b772118b6972e",
@@ -499,8 +494,8 @@
         "ISPRS"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "2954177116f2dae8",
@@ -520,8 +515,8 @@
         "GIS"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "22258047a96815ff",
@@ -540,8 +535,8 @@
         "ISPRS"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "d98518d8d810d295",
@@ -560,8 +555,8 @@
         "ISPRS"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "6fc01db8c23b53f0",
@@ -580,24 +575,7 @@
         "event"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
-    },
-    {
-      "id": "6a6a557cd6c232e0",
-      "title": "ACM SIGSPATIAL 2026: research papers",
-      "url": "https://sigspatial2026.sigspatial.org/research-submission.html",
-      "kind": "event",
-      "source": "sigspatial2026",
-      "source_name": "ACM SIGSPATIAL 2026",
-      "published": null,
-      "summary": "ACM SIGSPATIAL GIS",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "GIS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "58eecb359a31123f",
@@ -616,7 +594,7 @@
         "LiDAR"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "15761566e86ca6e8",
@@ -635,7 +613,7 @@
         "point cloud"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "18c6d1459e87b711",
@@ -654,7 +632,7 @@
         "ISPRS"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "f002769ec3554e6d",
@@ -673,7 +651,7 @@
         "photogrammetric"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "729b8dc89e255265",
@@ -692,7 +670,7 @@
         "ISPRS"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "9b84b0a9e4ade38d",
@@ -711,7 +689,7 @@
         "ISPRS"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "dded81b00f74de54",
@@ -730,7 +708,7 @@
         "ISPRS"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "363847c598bb914c",
@@ -749,7 +727,7 @@
         "ISPRS"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "9003567e6bc6398a",
@@ -768,7 +746,24 @@
         "geospatial"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
+    },
+    {
+      "id": "6a6a557cd6c232e0",
+      "title": "ACM SIGSPATIAL 2026: research papers",
+      "url": "https://sigspatial2026.sigspatial.org/research-submission.html",
+      "kind": "event",
+      "source": "sigspatial2026",
+      "source_name": "ACM SIGSPATIAL 2026",
+      "published": null,
+      "summary": "ACM SIGSPATIAL GIS",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "GIS"
+      ],
+      "first_seen": "2026-10-30T00:47:17.268Z",
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "1fdf8953ca6581a8",
@@ -785,7 +780,7 @@
         "GIS"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "adc20e9426673d37",
@@ -803,7 +798,7 @@
         "geodesy"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "38d6d86313a4c95b",
@@ -820,7 +815,7 @@
         "Earth system"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "e6dae5749a8681d2",
@@ -837,7 +832,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "e1ebd227763752a8",
@@ -855,8 +850,8 @@
         "spatial data"
       ],
       "first_seen": "2026-10-29T22:47:38.598Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "08efbcb392ae7e82",
@@ -873,8 +868,8 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T22:47:38.598Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "ee256c39cdbf65f9",
@@ -891,8 +886,8 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:58:37.370Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "ac9dbb729583b7ff",
@@ -909,8 +904,8 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:58:37.370Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "e6dfbd849a36d016",
@@ -927,8 +922,8 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:58:37.370Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "2dee3cb31b9b2b17",
@@ -946,8 +941,8 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:58:37.370Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "33cf28fb6188f51c",
@@ -964,8 +959,8 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:58:37.370Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "345e923d1cbbd5ba",
@@ -982,8 +977,8 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:58:37.370Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "e25bfb61bbae562e",
@@ -1000,8 +995,8 @@
         "geoinformation"
       ],
       "first_seen": "2026-10-29T20:58:37.370Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "3d0d512dbbcbca3c",
@@ -1018,8 +1013,8 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T20:58:37.370Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "bbe9d1df210264fe",
@@ -1036,7 +1031,7 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:58:37.370Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "199ddce1008548bb",
@@ -1053,7 +1048,7 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:58:37.370Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "ca70f7293de937d0",
@@ -1070,8 +1065,8 @@
         "earth observation"
       ],
       "first_seen": "2026-10-29T20:34:23.721Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "4767487f44eb67b2",
@@ -1089,8 +1084,8 @@
         "GeoAI"
       ],
       "first_seen": "2026-10-29T20:34:23.721Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "264f38a788641b82",
@@ -1107,7 +1102,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T20:34:23.721Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "469d93e681df733d",
@@ -1124,8 +1119,8 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:34:23.721Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "5581ab37b729309e",
@@ -1142,8 +1137,8 @@
         "cartography"
       ],
       "first_seen": "2026-10-29T20:34:23.721Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "35213b181cd9a506",
@@ -1160,8 +1155,8 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:34:23.721Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "3246ac10ce22b087",
@@ -1178,8 +1173,8 @@
         "earth observation"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "f5034de4ee1a8b0d",
@@ -1196,8 +1191,8 @@
         "geomatics"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "2f7c6d17bcd0324d",
@@ -1214,8 +1209,8 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "2a4c3abbff3574fc",
@@ -1232,8 +1227,8 @@
         "earth observation"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "c10bce7084060db8",
@@ -1250,8 +1245,8 @@
         "geomatics"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "8a523d21bed9bdf1",
@@ -1268,8 +1263,8 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "288884113b94640f",
@@ -1287,7 +1282,7 @@
         "Geodäsie"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "10743dde5862c986",
@@ -1304,7 +1299,7 @@
         "Geoinformatik"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "3fa916738ead9ce2",
@@ -1322,7 +1317,7 @@
         "geoinformatics"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "d33374c9e8f1266f",
@@ -1340,7 +1335,7 @@
         "cartography"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "411049cee1945e41",
@@ -1357,7 +1352,7 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "e8349083af01789b",
@@ -1374,7 +1369,7 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "0c15130b08f6440a",
@@ -1394,7 +1389,7 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "dafa26edf7de107c",
@@ -1411,8 +1406,8 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "5bdabf501dfe4613",
@@ -1429,8 +1424,8 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "120a655697ce4ab1",
@@ -1447,8 +1442,8 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "e6e5150a7d2ff872",
@@ -1466,8 +1461,8 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "8ec4f2bec0764ef5",
@@ -1484,8 +1479,8 @@
         "photogrammetry"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "360b1c9e340a33c6",
@@ -1502,7 +1497,7 @@
         "geoinformatics"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "58d886b52ed92748",
@@ -1519,8 +1514,8 @@
         "Geoinformatik"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "f0d9c47ce963d65d",
@@ -1538,8 +1533,8 @@
         "spatial data"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "a931e49fbf255381",
@@ -1556,8 +1551,8 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "6955ae1170bc25cc",
@@ -1574,8 +1569,8 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "8e778132696b0103",
@@ -1592,8 +1587,8 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "ddadcf7cadfe3aaf",
@@ -1610,8 +1605,8 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "24d1bdb1cb72e6e9",
@@ -1628,8 +1623,8 @@
         "geoinformation"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "03fe987cc1713575",
@@ -1646,8 +1641,8 @@
         "cartography"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "ad43287b983553a9",
@@ -1665,8 +1660,8 @@
         "geodesy"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "4bccac543e23b28f",
@@ -1684,7 +1679,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "ec3e01820b98574a",
@@ -1703,7 +1698,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "944c23cc06ad5cfc",
@@ -1720,7 +1715,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "9610df26a438e5e4",
@@ -1739,7 +1734,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "4bef21eb97783e43",
@@ -1760,7 +1755,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "c2cc91bf2f8f4a4e",
@@ -1778,8 +1773,8 @@
         "geoinformation"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "c65ba0228a65244e",
@@ -1796,7 +1791,7 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "08f1cfadf71d3855",
@@ -1813,7 +1808,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "1c5f0ff2c0a8a91a",
@@ -1830,7 +1825,7 @@
         "Geoinformatik"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "054fcc4b3d43d0eb",
@@ -1848,7 +1843,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "36cb8f4c08cfcdc4",
@@ -1867,115 +1862,45 @@
         "earth observation"
       ],
       "first_seen": "2026-10-29T18:58:52.431Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
-    },
-    {
-      "id": "aff4aadb279cfbcc",
-      "title": "PhD Studentship: Next-generation machine learning for genetic interaction prediction with lab-in the-loop validation in pancreatic cancer",
-      "url": "https://www.jobs.ac.uk/job/DTL177/phd-studentship-next-generation-machine-learning-for-genetic-interaction-prediction-with-lab-in-the-loop-validation-in-pancreatic-cancer",
-      "kind": "job",
-      "source": "jobsac-gis",
-      "source_name": "jobs.ac.uk: GIS",
-      "published": null,
-      "summary": "University of Exeter. GIS GIS",
-      "deadline": "2026-12-08T23:59:59.000Z",
-      "location": "Exeter",
-      "matched": [
-        "GIS"
-      ],
-      "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
-    },
-    {
-      "id": "cde00011bbd8320d",
-      "title": "PhD Studentship: AI Optimisation of Green Roofs and Facades for Low-Carbon, Heat-Resilient Buildings",
-      "url": "https://www.jobs.ac.uk/job/DTH043/phd-studentship-ai-optimisation-of-green-roofs-and-facades-for-low-carbon-heat-resilient-buildings",
-      "kind": "job",
-      "source": "jobsac-gis",
-      "source_name": "jobs.ac.uk: GIS",
-      "published": null,
-      "summary": "University of West London. GIS geospatial",
-      "deadline": "2027-01-25T23:59:59.000Z",
-      "location": "London",
-      "matched": [
-        "geospatial",
-        "GIS"
-      ],
-      "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
-    },
-    {
-      "id": "ed81ad5c57d46f6b",
-      "title": "Associate Lecturer in Geographic Data Science",
-      "url": "https://www.jobs.ac.uk/job/DTJ141/associate-lecturer-in-geographic-data-science",
-      "kind": "job",
-      "source": "jobsac-gis",
-      "source_name": "jobs.ac.uk: GIS",
-      "published": null,
-      "summary": "Birkbeck, University of London. GIS remote sensing, GIS",
-      "deadline": "2026-11-01T23:59:59.000Z",
-      "location": "London",
-      "matched": [
-        "remote sensing",
-        "GIS"
-      ],
-      "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
-    },
-    {
-      "id": "8f1f5483b5845d64",
-      "title": "PhD Studentship: Advancing Multi-Mission Satellite Radar for Monitoring Permafrost Degradation and Erosion in a Changing Arctic",
-      "url": "https://www.jobs.ac.uk/job/DTL075/phd-studentship-advancing-multi-mission-satellite-radar-for-monitoring-permafrost-degradation-and-erosion-in-a-changing-arctic",
-      "kind": "job",
-      "source": "jobsac-remote-sensing",
-      "source_name": "jobs.ac.uk: remote sensing",
-      "published": null,
-      "summary": "University of Exeter. remote sensing InSAR, Sentinel-1",
-      "deadline": "2026-12-08T23:59:59.000Z",
-      "location": "Exeter",
-      "matched": [
-        "remote sensing",
-        "InSAR",
-        "Sentinel-1",
-        "satellite"
-      ],
-      "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "4176dad734180f16",
       "title": "Assistant Professor in Geography",
       "url": "https://www.jobs.ac.uk/job/DTJ798/assistant-professor-in-geography",
       "kind": "job",
-      "source": "jobsac-remote-sensing",
-      "source_name": "jobs.ac.uk: remote sensing",
+      "source": "jobsac-geoinformatics",
+      "source_name": "jobs.ac.uk: geoinformatics",
       "published": null,
-      "summary": "University of Limerick. remote sensing geospatial",
+      "summary": "University of Limerick. geoinformatics geospatial",
       "deadline": "2026-11-18T23:59:59.000Z",
       "location": "Limerick",
       "matched": [
-        "remote sensing",
+        "geoinformatics",
         "geospatial"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
-      "id": "0d90dd299bc23dd4",
-      "title": "PhD Studentship: Drivers and Consequences of Recent Changes in Bird Migration",
-      "url": "https://www.jobs.ac.uk/job/DTJ444/phd-studentship-drivers-and-consequences-of-recent-changes-in-bird-migration",
+      "id": "8f1f5483b5845d64",
+      "title": "PhD Studentship: Advancing Multi-Mission Satellite Radar for Monitoring Permafrost Degradation and Erosion in a Changing Arctic",
+      "url": "https://www.jobs.ac.uk/job/DTL075/phd-studentship-advancing-multi-mission-satellite-radar-for-monitoring-permafrost-degradation-and-erosion-in-a-changing-arctic",
       "kind": "job",
-      "source": "jobsac-remote-sensing",
-      "source_name": "jobs.ac.uk: remote sensing",
+      "source": "jobsac-earth-observation",
+      "source_name": "jobs.ac.uk: earth observation",
       "published": null,
-      "summary": "University of East Anglia. remote sensing remote sensing",
-      "deadline": "2026-12-16T23:59:59.000Z",
-      "location": "Norwich",
+      "summary": "University of Exeter. earth observation InSAR, Sentinel-1",
+      "deadline": "2026-12-08T23:59:59.000Z",
+      "location": "Exeter",
       "matched": [
-        "remote sensing"
+        "earth observation",
+        "InSAR",
+        "Sentinel-1",
+        "satellite"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "944e1d4f5a491b43",
@@ -1992,7 +1917,7 @@
         "earth observation"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "50985f99b904f4c9",
@@ -2010,7 +1935,128 @@
         "earth observation"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
+    },
+    {
+      "id": "cde00011bbd8320d",
+      "title": "PhD Studentship: AI Optimisation of Green Roofs and Facades for Low-Carbon, Heat-Resilient Buildings",
+      "url": "https://www.jobs.ac.uk/job/DTH043/phd-studentship-ai-optimisation-of-green-roofs-and-facades-for-low-carbon-heat-resilient-buildings",
+      "kind": "job",
+      "source": "jobsac-remote-sensing",
+      "source_name": "jobs.ac.uk: remote sensing",
+      "published": null,
+      "summary": "University of West London. remote sensing geospatial",
+      "deadline": "2027-01-25T23:59:59.000Z",
+      "location": "London",
+      "matched": [
+        "remote sensing",
+        "geospatial"
+      ],
+      "first_seen": "2026-10-29T18:56:07.685Z",
+      "last_seen": "2026-10-30T05:27:48.174Z"
+    },
+    {
+      "id": "0d90dd299bc23dd4",
+      "title": "PhD Studentship: Drivers and Consequences of Recent Changes in Bird Migration",
+      "url": "https://www.jobs.ac.uk/job/DTJ444/phd-studentship-drivers-and-consequences-of-recent-changes-in-bird-migration",
+      "kind": "job",
+      "source": "jobsac-remote-sensing",
+      "source_name": "jobs.ac.uk: remote sensing",
+      "published": null,
+      "summary": "University of East Anglia. remote sensing remote sensing",
+      "deadline": "2026-12-16T23:59:59.000Z",
+      "location": "Norwich",
+      "matched": [
+        "remote sensing"
+      ],
+      "first_seen": "2026-10-29T18:56:07.685Z",
+      "last_seen": "2026-10-30T05:27:48.174Z"
+    },
+    {
+      "id": "ed81ad5c57d46f6b",
+      "title": "Associate Lecturer in Geographic Data Science",
+      "url": "https://www.jobs.ac.uk/job/DTJ141/associate-lecturer-in-geographic-data-science",
+      "kind": "job",
+      "source": "jobsac-remote-sensing",
+      "source_name": "jobs.ac.uk: remote sensing",
+      "published": null,
+      "summary": "Birkbeck, University of London. remote sensing remote sensing, GIS",
+      "deadline": "2026-11-01T23:59:59.000Z",
+      "location": "London",
+      "matched": [
+        "remote sensing",
+        "GIS"
+      ],
+      "first_seen": "2026-10-29T18:56:07.685Z",
+      "last_seen": "2026-10-30T05:27:48.174Z"
+    },
+    {
+      "id": "aff4aadb279cfbcc",
+      "title": "PhD Studentship: Next-generation machine learning for genetic interaction prediction with lab-in the-loop validation in pancreatic cancer",
+      "url": "https://www.jobs.ac.uk/job/DTL177/phd-studentship-next-generation-machine-learning-for-genetic-interaction-prediction-with-lab-in-the-loop-validation-in-pancreatic-cancer",
+      "kind": "job",
+      "source": "jobsac-gis",
+      "source_name": "jobs.ac.uk: GIS",
+      "published": null,
+      "summary": "University of Exeter. GIS GIS",
+      "deadline": "2026-12-08T23:59:59.000Z",
+      "location": "Exeter",
+      "matched": [
+        "GIS"
+      ],
+      "first_seen": "2026-10-29T18:56:07.685Z",
+      "last_seen": "2026-10-30T05:27:48.174Z"
+    },
+    {
+      "id": "12297e8de28b2b0b",
+      "title": "Lecturer in Marine Geomatics",
+      "url": "https://www.jobs.ac.uk/job/DTF390/lecturer-in-marine-geomatics",
+      "kind": "job",
+      "source": "jobsac-geomatics",
+      "source_name": "jobs.ac.uk: geomatics",
+      "published": null,
+      "summary": "Cardiff University. geomatics",
+      "deadline": "2026-11-06T23:59:59.000Z",
+      "location": "Cardiff",
+      "matched": [
+        "geomatics"
+      ],
+      "first_seen": "2026-10-29T18:56:07.685Z",
+      "last_seen": "2026-10-30T05:27:48.174Z"
+    },
+    {
+      "id": "0a9a629f7a24d74d",
+      "title": "Research Associate in Volcano Deformation Modelling",
+      "url": "https://www.jobs.ac.uk/job/DTI375/research-associate-in-volcano-deformation-modelling",
+      "kind": "job",
+      "source": "jobsac-insar",
+      "source_name": "jobs.ac.uk: InSAR",
+      "published": null,
+      "summary": "University of Bristol. InSAR InSAR",
+      "deadline": "2026-11-02T23:59:59.000Z",
+      "location": "Bristol",
+      "matched": [
+        "InSAR"
+      ],
+      "first_seen": "2026-10-29T18:56:07.685Z",
+      "last_seen": "2026-10-30T05:27:48.174Z"
+    },
+    {
+      "id": "cb18bf86e5b61506",
+      "title": "PhD Studentship: Marie Sklodowska-Curie Actions Doctoral Network BlueOcean",
+      "url": "https://www.jobs.ac.uk/job/DTE958/phd-studentship-marie-sklodowska-curie-actions-doctoral-network-blueocean",
+      "kind": "job",
+      "source": "jobsac-gnss",
+      "source_name": "jobs.ac.uk: GNSS",
+      "published": null,
+      "summary": "University of Southampton. GNSS GNSS",
+      "deadline": "2026-11-04T23:59:59.000Z",
+      "location": "Southampton",
+      "matched": [
+        "GNSS"
+      ],
+      "first_seen": "2026-10-29T18:56:07.685Z",
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "2bd7a6eadbc26756",
@@ -2027,7 +2073,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "46fbf07b97301623",
@@ -2045,7 +2091,7 @@
         "multispectral"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "ea01c23534de41e3",
@@ -2062,7 +2108,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "7d2c947a752105d8",
@@ -2079,58 +2125,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
-    },
-    {
-      "id": "cb18bf86e5b61506",
-      "title": "PhD Studentship: Marie Sklodowska-Curie Actions Doctoral Network BlueOcean",
-      "url": "https://www.jobs.ac.uk/job/DTE958/phd-studentship-marie-sklodowska-curie-actions-doctoral-network-blueocean",
-      "kind": "job",
-      "source": "jobsac-gnss",
-      "source_name": "jobs.ac.uk: GNSS",
-      "published": null,
-      "summary": "University of Southampton. GNSS GNSS",
-      "deadline": "2026-11-04T23:59:59.000Z",
-      "location": "Southampton",
-      "matched": [
-        "GNSS"
-      ],
-      "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
-    },
-    {
-      "id": "12297e8de28b2b0b",
-      "title": "Lecturer in Marine Geomatics",
-      "url": "https://www.jobs.ac.uk/job/DTF390/lecturer-in-marine-geomatics",
-      "kind": "job",
-      "source": "jobsac-geomatics",
-      "source_name": "jobs.ac.uk: geomatics",
-      "published": null,
-      "summary": "Cardiff University. geomatics",
-      "deadline": "2026-11-06T23:59:59.000Z",
-      "location": "Cardiff",
-      "matched": [
-        "geomatics"
-      ],
-      "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
-    },
-    {
-      "id": "0a9a629f7a24d74d",
-      "title": "Research Associate in Volcano Deformation Modelling",
-      "url": "https://www.jobs.ac.uk/job/DTI375/research-associate-in-volcano-deformation-modelling",
-      "kind": "job",
-      "source": "jobsac-insar",
-      "source_name": "jobs.ac.uk: InSAR",
-      "published": null,
-      "summary": "University of Bristol. InSAR InSAR",
-      "deadline": "2026-11-02T23:59:59.000Z",
-      "location": "Bristol",
-      "matched": [
-        "InSAR"
-      ],
-      "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "cd547b75999045f8",
@@ -2149,8 +2144,8 @@
         "geomatics"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "892cd4dc077a5e3f",
@@ -2168,7 +2163,7 @@
         "geodesy"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "b92d96690763671d",
@@ -2187,7 +2182,7 @@
         "geodetic"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "fac3f0bb41de634f",
@@ -2204,8 +2199,8 @@
         "geoinformatics"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "bd044a0c91931eaf",
@@ -2223,7 +2218,7 @@
         "geodesy"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "994ed6fb91ba7db9",
@@ -2241,7 +2236,7 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 58,
@@ -2263,7 +2258,7 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T16:56:55.674Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 47,
@@ -2285,7 +2280,7 @@
         "UAV"
       ],
       "first_seen": "2026-10-29T16:56:55.674Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 40,
@@ -2309,7 +2304,7 @@
         "point cloud"
       ],
       "first_seen": "2026-10-29T16:56:55.674Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 94,
@@ -2333,7 +2328,7 @@
         "GNSS"
       ],
       "first_seen": "2026-10-29T05:43:44.325Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 94,
@@ -2358,7 +2353,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T05:43:44.325Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 45,
@@ -2381,7 +2376,7 @@
         "InSAR"
       ],
       "first_seen": "2026-10-29T05:43:44.325Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 45,
@@ -2403,7 +2398,7 @@
         "InSAR"
       ],
       "first_seen": "2026-10-29T05:43:44.325Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 48,
@@ -2428,7 +2423,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T05:43:44.325Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 54,
@@ -2450,7 +2445,7 @@
         "InSAR"
       ],
       "first_seen": "2026-10-29T05:43:44.325Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 54,
@@ -2473,7 +2468,7 @@
         "InSAR"
       ],
       "first_seen": "2026-10-29T05:43:44.325Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 40,
@@ -2498,29 +2493,7 @@
         "Sentinel-1"
       ],
       "first_seen": "2026-10-29T05:43:44.325Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
-    },
-    {
-      "impact": 48,
-      "top_venue": false,
-      "cited_by": 1,
-      "fwci": 3,
-      "venue": "The international archives of the photogrammetry, remote sensing and spatial information sciences/International archives of the photogrammetry, remote sensing and spatial information sciences",
-      "id": "f14567259f6148db",
-      "title": "Data-Centric Solutions – A Case Study for Road Data Based on Knowledge Graphs",
-      "url": "https://doi.org/10.5194/isprs-archives-l-4-w2-2026-147-2026",
-      "kind": "paper",
-      "source": "openalex-citygml-bim",
-      "source_name": "OpenAlex: CityGML / BIM",
-      "published": "2026-09-28T00:00:00.000Z",
-      "summary": "knowledge graphs, data-centric architecture, road maintenance, CityGML, 3D city model, road database, information model, data silos, municipal data management, QGIS, Computer science, Data mining, Graph, Object (grammar), Software, Geographic information system, Data modeling, Information model",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "CityGML"
-      ],
-      "first_seen": "2026-10-29T05:43:44.325Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 48,
@@ -2548,7 +2521,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T05:43:44.325Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 32,
@@ -2570,7 +2543,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T05:43:44.325Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 54,
@@ -2593,7 +2566,7 @@
         "GeoAI"
       ],
       "first_seen": "2026-10-29T05:43:44.325Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 42,
@@ -2616,7 +2589,29 @@
         "UAV"
       ],
       "first_seen": "2026-10-29T05:43:44.325Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
+    },
+    {
+      "impact": 48,
+      "top_venue": false,
+      "cited_by": 1,
+      "fwci": 3,
+      "venue": "The international archives of the photogrammetry, remote sensing and spatial information sciences/International archives of the photogrammetry, remote sensing and spatial information sciences",
+      "id": "f14567259f6148db",
+      "title": "Data-Centric Solutions – A Case Study for Road Data Based on Knowledge Graphs",
+      "url": "https://doi.org/10.5194/isprs-archives-l-4-w2-2026-147-2026",
+      "kind": "paper",
+      "source": "openalex-photogrammetry",
+      "source_name": "OpenAlex: photogrammetry",
+      "published": "2026-09-28T00:00:00.000Z",
+      "summary": "knowledge graphs, data-centric architecture, road maintenance, CityGML, 3D city model, road database, information model, data silos, municipal data management, QGIS, Computer science, Data mining, Graph, Object (grammar), Software, Geographic information system, Data modeling, Information model",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "CityGML"
+      ],
+      "first_seen": "2026-10-29T05:43:44.325Z",
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 52,
@@ -2641,7 +2636,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T05:43:44.325Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 47,
@@ -2663,7 +2658,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T05:43:44.325Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 52,
@@ -2686,7 +2681,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T05:43:44.325Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 41,
@@ -2708,7 +2703,7 @@
         "Earth system"
       ],
       "first_seen": "2026-10-29T05:43:44.325Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 52,
@@ -2730,7 +2725,7 @@
         "Sentinel-2"
       ],
       "first_seen": "2026-10-29T05:43:44.325Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 48,
@@ -2753,7 +2748,7 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T05:43:44.325Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 41,
@@ -2776,7 +2771,7 @@
         "LiDAR"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 45,
@@ -2799,30 +2794,7 @@
         "InSAR"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
-    },
-    {
-      "impact": 48,
-      "top_venue": false,
-      "cited_by": 1,
-      "fwci": 3,
-      "venue": "Journal of Intelligent Decision Making and Information Science",
-      "id": "e0565112d6aaa58a",
-      "title": "GeoAI-Enabled Environmental Digital Twins for Urban Environmental Planning: A Bibliometric-Assisted Systematic Mapping Review and Built-Environment Framework",
-      "url": "https://doi.org/10.17762/jidmis.v3.2917",
-      "kind": "paper",
-      "source": "openalex-citygml-bim",
-      "source_name": "OpenAlex: CityGML / BIM",
-      "published": "2026-09-01T00:00:00.000Z",
-      "summary": "GeoAI, urban digital twins, urban environmental planning, Internet of Things sensing, environmental simulation, spatial decision support, smart cities, Thematic map, Digital mapping, Urban planning, Environmental data, Geography, Environmental planning, Geographic information system, Spatialization",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "GeoAI",
-        "mapping"
-      ],
-      "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 48,
@@ -2844,7 +2816,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 52,
@@ -2866,7 +2838,7 @@
         "Landsat"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 52,
@@ -2889,7 +2861,30 @@
         "spatial data"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
+    },
+    {
+      "impact": 48,
+      "top_venue": false,
+      "cited_by": 1,
+      "fwci": 3,
+      "venue": "Journal of Intelligent Decision Making and Information Science",
+      "id": "e0565112d6aaa58a",
+      "title": "GeoAI-Enabled Environmental Digital Twins for Urban Environmental Planning: A Bibliometric-Assisted Systematic Mapping Review and Built-Environment Framework",
+      "url": "https://doi.org/10.17762/jidmis.v3.2917",
+      "kind": "paper",
+      "source": "openalex-geoai",
+      "source_name": "OpenAlex: GeoAI / geoinformatics",
+      "published": "2026-09-01T00:00:00.000Z",
+      "summary": "GeoAI, urban digital twins, urban environmental planning, Internet of Things sensing, environmental simulation, spatial decision support, smart cities, Thematic map, Digital mapping, Urban planning, Environmental data, Geography, Environmental planning, Geographic information system, Spatialization",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "GeoAI",
+        "mapping"
+      ],
+      "first_seen": "2026-10-29T05:42:43.034Z",
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 102,
@@ -2913,7 +2908,7 @@
         "earth observation"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 58,
@@ -2936,7 +2931,7 @@
         "UAV"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 48,
@@ -2960,7 +2955,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 52,
@@ -2983,7 +2978,7 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 40,
@@ -3005,7 +3000,7 @@
         "cartography"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 28,
@@ -3027,7 +3022,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 78,
@@ -3049,7 +3044,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 66,
@@ -3073,7 +3068,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 42,
@@ -3095,7 +3090,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 62,
@@ -3118,7 +3113,7 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 58,
@@ -3140,7 +3135,7 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 98,
@@ -3162,7 +3157,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 58,
@@ -3184,7 +3179,7 @@
         "Earth system"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 58,
@@ -3206,7 +3201,7 @@
         "Landsat"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 58,
@@ -3228,7 +3223,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 58,
@@ -3250,7 +3245,7 @@
         "LiDAR"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 58,
@@ -3272,7 +3267,7 @@
         "UAV"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 28,
@@ -3295,7 +3290,7 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 28,
@@ -3317,7 +3312,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 74,
@@ -3339,7 +3334,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 48,
@@ -3362,7 +3357,7 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 49,
@@ -3385,7 +3380,7 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 66,
@@ -3407,7 +3402,7 @@
         "geodetic"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 43,
@@ -3429,7 +3424,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 26,
@@ -3451,7 +3446,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 32,
@@ -3473,7 +3468,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 68,
@@ -3495,7 +3490,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 28,
@@ -3517,7 +3512,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 48,
@@ -3540,7 +3535,7 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 67,
@@ -3562,7 +3557,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 28,
@@ -3585,7 +3580,7 @@
         "LiDAR"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 46,
@@ -3611,7 +3606,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 54,
@@ -3633,7 +3628,7 @@
         "LiDAR"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 48,
@@ -3655,7 +3650,7 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 48,
@@ -3677,7 +3672,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 54,
@@ -3701,7 +3696,7 @@
         "UAV"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 48,
@@ -3723,7 +3718,7 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 45,
@@ -3746,7 +3741,7 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 48,
@@ -3768,7 +3763,7 @@
         "LiDAR"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 54,
@@ -3790,7 +3785,7 @@
         "digital twin"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 52,
@@ -3813,7 +3808,7 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 45,
@@ -3835,7 +3830,7 @@
         "GNSS"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 25,
@@ -3857,7 +3852,7 @@
         "LiDAR"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 28,
@@ -3879,7 +3874,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 52,
@@ -3901,7 +3896,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 28,
@@ -3925,7 +3920,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 25,
@@ -3947,7 +3942,7 @@
         "LiDAR"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 92,
@@ -3971,7 +3966,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 25,
@@ -3994,7 +3989,7 @@
         "point cloud"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 34,
@@ -4016,7 +4011,7 @@
         "point cloud"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 58,
@@ -4125,8 +4120,8 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T04:19:19.776Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "1e3f3b82b65024d1",
@@ -4143,8 +4138,8 @@
         "GeoAI"
       ],
       "first_seen": "2026-10-29T04:19:19.776Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "ae2c648270944de1",
@@ -4161,8 +4156,8 @@
         "geomatics"
       ],
       "first_seen": "2026-10-29T04:19:19.776Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "4927843db256c3e8",
@@ -4180,8 +4175,8 @@
         "geodesy"
       ],
       "first_seen": "2026-10-29T04:19:19.776Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "a3ef2b385d3719fa",
@@ -4199,8 +4194,8 @@
         "geodesy"
       ],
       "first_seen": "2026-10-29T04:19:19.776Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "337104e404693ce4",
@@ -4217,8 +4212,8 @@
         "geomatics"
       ],
       "first_seen": "2026-10-29T04:19:19.776Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "d9043e010239ecfe",
@@ -4235,8 +4230,8 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T04:19:19.776Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "a66be833ab478efa",
@@ -4253,8 +4248,8 @@
         "geoinformatics"
       ],
       "first_seen": "2026-10-29T04:19:19.776Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "514511bfb5cc6757",
@@ -4272,8 +4267,8 @@
         "spatial data"
       ],
       "first_seen": "2026-10-29T04:19:19.776Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "958f34a77b6506ea",
@@ -4290,8 +4285,8 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T04:19:19.776Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "ce34efc682a336f6",
@@ -4308,8 +4303,8 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T04:13:04.453Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "45d618b2500ce0d7",
@@ -4326,7 +4321,7 @@
         "GeoAI"
       ],
       "first_seen": "2026-10-29T04:13:04.453Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "f02f8db04338cd21",
@@ -4343,7 +4338,7 @@
         "earth observation"
       ],
       "first_seen": "2026-10-29T04:13:04.453Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "8e908c6174f04113",
@@ -4360,7 +4355,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T04:13:04.453Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "d84c9c35ddcd5726",
@@ -4377,7 +4372,7 @@
         "SAR"
       ],
       "first_seen": "2026-10-29T04:08:43.810Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "62f6b4eeaf05a901",
@@ -4394,7 +4389,7 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T04:08:43.810Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "4c8d8b0b0aa43e7c",
@@ -4411,7 +4406,7 @@
         "multispectral"
       ],
       "first_seen": "2026-10-29T04:08:43.810Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "8e01ba0ea80b56e7",
@@ -4428,7 +4423,7 @@
         "LiDAR"
       ],
       "first_seen": "2026-10-29T04:08:43.810Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "bbc5f0e3b87cd782",
@@ -4446,7 +4441,7 @@
         "earth observation"
       ],
       "first_seen": "2026-10-29T04:08:43.810Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "c07fa44ba97e3cc2",
@@ -4463,7 +4458,7 @@
         "earth observation"
       ],
       "first_seen": "2026-10-29T04:08:43.810Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "8dacbfe3f121216c",
@@ -4482,7 +4477,7 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T04:06:44.492Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "f6da0afec50fe9b5",
@@ -4500,7 +4495,7 @@
         "hyperspectral"
       ],
       "first_seen": "2026-10-29T04:06:44.492Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "ce98ca00ca0fb410",
@@ -4517,7 +4512,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T04:06:44.492Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "1097ac7ea2bdd433",
@@ -4534,7 +4529,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T04:06:44.492Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "a7a43dfbc2126e9d",
@@ -4551,7 +4546,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T04:06:44.492Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "be299c7d3ab959c4",
@@ -4568,8 +4563,8 @@
         "point cloud"
       ],
       "first_seen": "2026-10-29T04:06:44.492Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "dbc5f9322e86f8c8",
@@ -4586,8 +4581,8 @@
         "Geomatik"
       ],
       "first_seen": "2026-10-29T04:01:30.109Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "2f1eb20509bef025",
@@ -4604,8 +4599,8 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T04:01:30.109Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "b1fcd9f7b257d719",
@@ -4623,8 +4618,8 @@
         "hyperspectral"
       ],
       "first_seen": "2026-10-29T04:01:30.109Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "343fd6657d41eb5e",
@@ -4641,8 +4636,8 @@
         "earth observation"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 43,
@@ -4666,7 +4661,7 @@
         "point cloud"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "c7e8882b0de54a3f",
@@ -4683,7 +4678,7 @@
         "geoinformation"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "7e177aaf1f357629",
@@ -4700,7 +4695,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "4d815944b42510e6",
@@ -4717,25 +4712,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
-    },
-    {
-      "id": "1b11115bfe65805d",
-      "title": "MSc Geomatics Engineering",
-      "url": "https://www.geoengine.uni-stuttgart.de/",
-      "kind": "course",
-      "source": "geoengine-stuttgart",
-      "source_name": "GEOENGINE, University of Stuttgart",
-      "published": null,
-      "summary": "",
-      "deadline": "2026-11-15T23:59:59.000Z",
-      "location": null,
-      "matched": [
-        "geomatics"
-      ],
-      "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-30T05:26:00.397Z",
-      "deadline_checked": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "79f953e581c14c61",
@@ -4752,7 +4729,25 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
+    },
+    {
+      "id": "1b11115bfe65805d",
+      "title": "MSc Geomatics Engineering",
+      "url": "https://www.geoengine.uni-stuttgart.de/",
+      "kind": "course",
+      "source": "geoengine-stuttgart",
+      "source_name": "GEOENGINE, University of Stuttgart",
+      "published": null,
+      "summary": "",
+      "deadline": "2026-11-15T23:59:59.000Z",
+      "location": null,
+      "matched": [
+        "geomatics"
+      ],
+      "first_seen": "2026-10-29T03:51:19.323Z",
+      "last_seen": "2026-10-30T05:27:48.174Z",
+      "deadline_checked": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 28,
@@ -4774,7 +4769,7 @@
         "LiDAR"
       ],
       "first_seen": "2026-10-29T02:30:38.369Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "5de847d39fe1a370",
@@ -4791,7 +4786,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T02:30:38.369Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "f900c5f7dad2b060",
@@ -4808,7 +4803,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T02:30:38.369Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "id": "657136a340d2d1f3",
@@ -4825,7 +4820,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T02:30:38.369Z",
-      "last_seen": "2026-10-30T05:26:00.397Z"
+      "last_seen": "2026-10-30T05:27:48.174Z"
     },
     {
       "impact": 40,
