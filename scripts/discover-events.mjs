@@ -19,7 +19,9 @@ const nowIso = now.toISOString();
 
 const esc = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 const TOPIC = new RegExp(`(?<!\\p{L})(?:${domain.terms.map(esc).join("|")})(?!\\p{L})`, "iu");
-const EVENT_WORD = /\b(conference|workshop|symposium|symposia|congress|summit|summer school|winter school|school|forum|assembly|annual meeting|meeting|colloquium|webinar|tagung|konferenz|jahrestagung|kolloquium|seminar|week|days)\b/i;
+// The link text itself must name a kind of event (several languages).
+const EVENT_WORD = /(conference|workshop|symposi|congress|congres|kongres|summit|summer school|winter school|forum|assembly|annual meeting|colloquium|webinar|tagung|konferenz|jahrestagung|kolloquium|konferens|konferanse|konferencija|conferenza|conferencia|colloque|simpozij|simpoz|geomatikkdag|geodesi.*dag|dagene|geomatics day|geo ?week|working week)/i;
+const NEWSY = /(published|publication|issue|newsletter|press|award|prize|nominee|genomineerd|bekend|hands over|signs|decision|odluka|nyhet|news|obituary|appointed|elected|membership|job|vacanc|tender|call for (members|nominations)|brojevi|списание|публикуван)/i;
 const YEAR = /\b(2026|2027|2028)\b/;
 const GENERIC = /^(events?|calendar|conferences?|workshops?|upcoming events|past events|all events|news|home|read more|more|details|register|registration|call for papers|submit|programme|program)$/i;
 const NAV = /(event|calendar|conference|symposium|congress|workshop|meeting|tagung|veranstaltung|agenda|termine|kalender|news|aktuelles)/i;
@@ -100,19 +102,24 @@ async function crawl(org) {
     const links = await pageLinks(url, html);
     for (const l of links) {
       const sameSite = hostOf(l.href) === org.host || hostOf(l.href).endsWith("." + org.host);
-      const looksEvent = l.text.length >= 10 && (EVENT_WORD.test(l.text) || YEAR.test(l.text)) && !GENERIC.test(l.text);
+      const looksEvent = l.text.length >= 10 && l.text.length <= 140 && EVENT_WORD.test(l.text) && !NEWSY.test(l.text) && !GENERIC.test(l.text);
       if (looksEvent && !SKIP_PATH.test(l.href)) {
         // dates next to the link ...
         const ctx = clean(html.slice(Math.max(0, l.index - 250), l.index + l.len + 450));
-        let range = eventRange(ctx, now);
+        let range = null;
         let detail = null;
-        if (!range && state.fetched < cfg.max_pages_per_host && !found.has("seen:" + l.href)) {
-          // ... or on the event's own page
+        if (!found.has("seen:" + l.href) && state.fetched < cfg.max_pages_per_host) {
+          // the event's own page is the authority for its dates
           found.set("seen:" + l.href, null);
           detail = await get(l.href);
           if (detail) range = eventRange(clean(detail).slice(0, 6000), now);
         }
-        if (range) await record(l.text, l.href, range, ctx, detail);
+        if (!range) {
+          // fall back to dates beside the link, but a single date within days of today is a post date
+          const near = eventRange(ctx, now);
+          if (near && (near.start !== near.end || Date.parse(near.start) > now.getTime() + 7 * 864e5)) range = near;
+        }
+        if (range && Date.parse(range.start) >= now.getTime() - 864e5) await record(l.text, l.href, range, ctx, detail);
       }
       if (depth < 2 && sameSite && NAV.test(l.text + " " + l.href) && !seen.has(l.href) && !SKIP_PATH.test(l.href)) {
         seen.add(l.href);
