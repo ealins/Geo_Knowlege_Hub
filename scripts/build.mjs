@@ -9,6 +9,7 @@ const DIST = path.join(ROOT, "dist");
 await rm(DIST, { recursive: true, force: true });
 await mkdir(DIST, { recursive: true });
 await cp(path.join(ROOT, "site", "index.html"), path.join(DIST, "index.html"));
+await cp(path.join(ROOT, "site", "fonts"), path.join(DIST, "fonts"), { recursive: true });
 await cp(path.join(ROOT, "data"), path.join(DIST, "data"), { recursive: true });
 await writeFile(path.join(DIST, ".nojekyll"), "");
 console.log(`built ${DIST}`);

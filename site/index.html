@@ -6,13 +6,15 @@
 <title>Geo Radar</title>
 <meta name="description" content="Open deadlines and high-impact papers in photogrammetry, remote sensing and geoinformatics, refreshed every two hours.">
 <style>
+@font-face{font-family:"Fraunces";src:url(fonts/fraunces.woff2) format("woff2");font-weight:100 900;font-display:swap}
+@font-face{font-family:"Inter";src:url(fonts/inter.woff2) format("woff2");font-weight:100 900;font-display:swap}
 :root{
   --bg:#e9eef1; --surface:#f7f9fa; --raise:#fff; --text:#0f2230; --muted:#4d6270; --faint:#7a8d99; --line:#c9d5db;
   --accent:#1c4fd1; --accent-soft:#dde7fb; --hero:#0f2a3a; --hero-text:#eaf2f6; --hero-mute:#9fb7c4; --contour:#6fa3bd;
   --hot:#b3261e; --hot-soft:#fbe4e1; --warm:#a85a00; --warm-soft:#fbead2; --calm:#1f6b4a; --calm-soft:#dcf0e5; --ink:#0f2230; --ink-soft:#dfe7ec; --event:#4b4aa8; --event-soft:#e5e5f7;
   --job:#a85a00; --paper:#1c4fd1; --course:#6a3fa0; --news:#4d6270;
-  --serif:Charter,"Bitstream Charter","Sitka Text",Cambria,Georgia,serif;
-  --sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --serif:"Fraunces",Charter,Georgia,serif;
+  --sans:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --bg:#0a1319; --surface:#10202a; --raise:#152833; --text:#e1ecf1; --muted:#9db3bf; --faint:#6f8795; --line:#233947;
@@ -45,7 +47,7 @@ button{font:inherit;color:inherit}
 .brand::before{content:"";width:10px;height:10px;border-radius:50%;background:#7fd3a6;box-shadow:0 0 0 4px rgba(127,211,166,.2)}
 .theme{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);color:var(--hero-text);border-radius:999px;padding:5px 13px;cursor:pointer;font-size:13px}
 .theme:hover{background:rgba(255,255,255,.16)}
-h1{margin:44px 0 0;max-width:15ch;font:600 clamp(34px,6.2vw,60px)/1.04 var(--serif);letter-spacing:-.015em}
+h1{margin:44px 0 0;max-width:15ch;font:500 clamp(36px,6.4vw,64px)/1.02 var(--serif);font-variation-settings:"opsz" 72;letter-spacing:-.008em;max-width:14ch}
 .tagline{margin:14px 0 0;max-width:52ch;color:var(--hero-mute);font-size:16px}
 .live{margin-top:26px;display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 18px;font-size:15px;color:var(--hero-text)}
 .live b{font:600 34px/1 var(--serif);margin-right:8px}
