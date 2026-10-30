@@ -1,2388 +1,521 @@
 {
-  "generated_at": "2026-10-30T00:47:17.268Z",
+  "generated_at": "2026-10-30T00:49:06.369Z",
   "retain_days": 45,
-  "count": 397,
+  "count": 258,
   "items": [
     {
-      "id": "0155aa9d8df96864",
-      "title": "The ISPRS Foundation",
-      "url": "https://www.isprs.org/foundation",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
+      "id": "66681e1654302825",
+      "title": "Doppel-Workshop: Optical 3D Metrology & LowCost3D",
+      "url": "https://www.dgpf.de/cal/Eventdetail/242/114|136|113|101/doppel-workshop-optical-3d-metrology-lowcost3d.html",
+      "kind": "event",
+      "source": "dgpf-events",
+      "source_name": "DGPF (German Society for Photogrammetry) events",
       "published": null,
       "summary": "",
       "deadline": null,
       "location": null,
       "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "7fc26fccc15b3e30",
-      "title": "Overview & Organization",
-      "url": "https://www.isprs.org/news/#!",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "068c88ee2b600d1c",
-      "title": "Organization",
-      "url": "https://www.isprs.org/structure/organization.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "a2769243d4ba2e4d",
-      "title": "Historical Background",
-      "url": "https://www.isprs.org/society/history.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "b3100f9a5886e0c4",
-      "title": "Interorganis. Activities",
-      "url": "https://www.isprs.org/society/interorganization.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "e46bc8683d7cf53a",
-      "title": "Objectives and Activities",
-      "url": "https://www.isprs.org/society/objectives.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "8ef4745bcf1e7a40",
-      "title": "Commission Presidents",
-      "url": "https://www.isprs.org/structure/presidents.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "2e442b03278244d9",
-      "title": "Financial Commission",
-      "url": "https://www.isprs.org/structure/fin_com.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "326adc75843b382a",
-      "title": "Reg. Representatives",
-      "url": "https://www.isprs.org/structure/reg_representatives.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "f7de1f4cdd0a579b",
-      "title": "Committees & SC",
-      "url": "https://www.isprs.org/structure/committees.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "8d84557bc54a2339",
-      "title": "White Elephant Club",
-      "url": "https://www.isprs.org/structure/knowledge_transfer.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "e0da822c836899cf",
-      "title": "Awards Policy",
-      "url": "https://www.isprs.org/society/awards/awards_policy.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "36a75a1381836f88",
-      "title": "Honorary Member",
-      "url": "https://www.isprs.org/society/awards/honorary_member.html",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "dae7b1be0e167dcf",
-      "title": "ISPRS Fellow",
-      "url": "https://www.isprs.org/society/awards/fellows.html",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "63cff97908018456",
-      "title": "Brock Gold Medal",
-      "url": "https://www.isprs.org/society/awards/brock.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "3e6635b7b932ee5e",
-      "title": "Gruber Award",
-      "url": "https://www.isprs.org/society/awards/gruber.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "68d23c2996830d95",
-      "title": "Schwidefsky Medal",
-      "url": "https://www.isprs.org/society/awards/schwidefsky.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "e895a6e39f13b0ec",
-      "title": "Schermerhorn Award",
-      "url": "https://www.isprs.org/society/awards/schermerhorn.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "373cef38b332ee88",
-      "title": "Gamble Award",
-      "url": "https://www.isprs.org/society/awards/gamble.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "67c17d8a866f1d71",
-      "title": "Doležal Award",
-      "url": "https://www.isprs.org/society/awards/dolezal.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "7562b36cebfd87d6",
-      "title": "Helava Award",
-      "url": "https://www.isprs.org/society/awards/helava.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "875719e6ccae9d5a",
-      "title": "Ackermann Award",
-      "url": "https://www.isprs.org/society/awards/ackermann.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "3c4ea0e8238349c2",
-      "title": "Dangermond Award",
-      "url": "https://www.isprs.org/society/awards/dangermond.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "fd26d6f4ccf8c338",
-      "title": "Inghilleri Award",
-      "url": "https://www.isprs.org/society/awards/inghilleri.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "b01a71e1f4ce70c2",
-      "title": "Wang Zhizhuo Award",
-      "url": "https://www.isprs.org/society/awards/zhizhuo.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "3f1f70f136dc895c",
-      "title": "Honorary Citation",
-      "url": "https://www.isprs.org/society/awards/honorary.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "a3b48e26a6a4e866",
-      "title": "Young Author Award",
-      "url": "https://www.isprs.org/society/awards/young.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "b2cf06d7c41aa9d3",
-      "title": "Best Poster Award",
-      "url": "https://www.isprs.org/society/awards/poster.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "49b8b0e312664118",
-      "title": "Karl Kraus Medal",
-      "url": "https://www.isprs.org/society/awards/kraus.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "e0e8e48269d3f12d",
-      "title": "Konecny Award",
-      "url": "https://www.isprs.org/society/awards/konecny.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "57d2e0736b0e3765",
-      "title": "Li Deren Award",
-      "url": "https://www.isprs.org/society/awards/li_deren.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "c60dc9f38e6e9e2a",
-      "title": "Student Consortium Service Award",
-      "url": "https://www.isprs.org/society/awards/student_consortium.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "163621038ac40e5b",
-      "title": "WEC Kennert Torleg&aring;rd Travel Grant",
-      "url": "https://www.isprs.org/society/awards/torlegard.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "041302069e2d79c1",
-      "title": "Toronto 2026",
-      "url": "https://www.isprs.org/congresses/toronto2026/default.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "30783b2399006e0c",
-      "title": "Nice 2020/2021/2022",
-      "url": "https://www.isprs.org/congresses/nice2020-2022/default.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "6bff4d60b48c3026",
-      "title": "Melbourne 2012",
-      "url": "https://www.isprs.org/congresses/melbourne2012/default.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "74888be962829df5",
-      "title": "Beijing 2008",
-      "url": "https://www.isprs.org/congresses/beijing2008/default.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "b4aa3e7915ea7b80",
-      "title": "Istanbul 2004",
-      "url": "https://www.isprs.org/congresses/istanbul2004/default.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "dfbec08207a172f4",
-      "title": "Amsterdam 2000",
-      "url": "https://www.isprs.org/congresses/amsterdam2000/default.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "1a4cb6ece448c812",
-      "title": "Washington 1992",
-      "url": "https://www.isprs.org/congresses/washington1992/default.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "30dbeecdce4f0a06",
-      "title": "Hamburg 1980",
-      "url": "https://www.isprs.org/congresses/hamburg1980/default.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "1c32c2638cad860e",
-      "title": "Midterm Symposia",
-      "url": "https://www.isprs.org/society/midterm.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "d71896c619bb59df",
-      "title": "Scientific Initiatives",
-      "url": "https://www.isprs.org/society/si/default.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "748f620e41cd439f",
-      "title": "Education Initiatives",
-      "url": "https://www.isprs.org/society/ecbi/default.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "5bf14aea04da2122",
-      "title": "Keynote Speaker Programme",
-      "url": "https://www.isprs.org/society/ksp/default.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "f2ccff3a071afb83",
-      "title": "Virtual Keynote Speaker Series",
-      "url": "https://www.isprs.org/society/vkss/default.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "0346858c4d18298b",
-      "title": "Ordinary Members",
-      "url": "https://www.isprs.org/members/ordinary.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "cfdb26951d0428ef",
-      "title": "Associate Members",
-      "url": "https://www.isprs.org/members/associate.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "11b981d4ed20f0cc",
-      "title": "Regional Members",
-      "url": "https://www.isprs.org/members/regional.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "dba21b22b4924fa3",
-      "title": "Sustaining Members",
-      "url": "https://www.isprs.org/members/sustaining.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "77c2debc491c3ac9",
-      "title": "Terms of Reference",
-      "url": "https://www.isprs.org/members/tor_sust_mem.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "f96b173993e2ba7a",
-      "title": "Honorary Members",
-      "url": "https://www.isprs.org/members/honorary.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "753934796da8a050",
-      "title": "ISPRS Individual Members",
-      "url": "https://www.isprs.org/members/individual-membership-policy.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "6f5d408a248fb2e2",
-      "title": "Application Forms",
-      "url": "https://www.isprs.org/members/application_forms.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "4fc44e8512289e4e",
-      "title": "Commission I",
-      "url": "https://commissions.isprs.org/comm1/",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "37f553404aba1686",
-      "title": "Commission II",
-      "url": "https://commissions.isprs.org/comm2/",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "6aec0d70fc522383",
-      "title": "Commission III",
-      "url": "https://commissions.isprs.org/comm3/",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "d787d566e45a37f6",
-      "title": "Commission IV",
-      "url": "https://commissions.isprs.org/comm4/",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "b55e5db863670153",
-      "title": "Commission V",
-      "url": "https://commissions.isprs.org/comm5/",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "1da68ca43b206d47",
-      "title": "Introduction",
-      "url": "https://www.isprs.org/documents/orangebook/introduction.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "9dd4bdda6d26ce5e",
-      "title": "Tech. Commissions",
-      "url": "https://www.isprs.org/documents/orangebook/tcprespons.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "2c459836429ecf41",
-      "title": "Working Groups",
-      "url": "https://www.isprs.org/documents/orangebook/wgrespons.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "9c28d3a24a7788fa",
-      "title": "Candidates for Council",
-      "url": "https://www.isprs.org/documents/guidelines/c-gide.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "16e56280f104f9f9",
-      "title": "ISPRS Congress",
-      "url": "https://www.isprs.org/documents/guidelines/conggide.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "47d6a277413a9959",
-      "title": "ISPRS Events",
-      "url": "https://www.isprs.org/documents/doc/Guide_for_Local_Event_Organizers_09_2026.pdf",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "0175267292ccddc8",
-      "title": "Financial Policy",
-      "url": "https://www.isprs.org/documents/guidelines/financial-policy.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "97c230ea8dfb3999",
-      "title": "Financial Commission",
-      "url": "https://www.isprs.org/documents/guidelines/FinCom.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "1641ce10b03b71ba",
-      "title": "Spending Policy",
-      "url": "https://www.isprs.org/documents/guidelines/c-spend.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "7d6e7ad6bc6429f1",
-      "title": "Strategic Plan",
-      "url": "https://www.isprs.org/publications/strategic_plan.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "b858c8e4ed0ebdf0",
-      "title": "Pre-Publication",
-      "url": "https://www.isprs.org/documents/guidelines/pre-publication.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "62e2b2319a4a5cb1",
-      "title": "Historical Archive",
-      "url": "https://www.isprs.org/documents/archive/default.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "cb6b3618a5f21a28",
-      "title": "Parts A of IAPRS",
-      "url": "https://www.isprs.org/documents/archive/Volume-A/default.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "859b2802b56dcfcd",
-      "title": "Silver Books",
-      "url": "https://www.isprs.org/documents/archive/Silver_Book/default.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "89574ce174595415",
-      "title": "Historical Material",
-      "url": "https://www.isprs.org/documents/archive/Historical_Material/default.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "ce1db623de63586c",
-      "title": "Autobiographies",
-      "url": "https://www.isprs.org/documents/archive/autobiographies/default.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "3bc131ef42db9118",
-      "title": "Celebrations",
-      "url": "https://www.isprs.org/documents/archive/Celebrations/",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "7f8f468b48989f07",
-      "title": "Web Visitors",
-      "url": "https://www.isprs.org/documents/web-visitors/default.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "bfd60e137b806d26",
-      "title": "Publications",
-      "url": "https://www.isprs.org/publications/Default.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "4ada8e992d9264d8",
-      "title": "ISPRS Journal Ph & RS",
-      "url": "https://www.journals.elsevier.com/isprs-journal-of-photogrammetry-and-remote-sensing",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "c3db1450753a9a23",
-      "title": "ISPRS Open Journal Ph & RS",
-      "url": "https://www.journals.elsevier.com/isprs-open-journal-of-photogrammetry-and-remote-sensing",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "28c6060d6aa212d8",
-      "title": "ISPRS International Journal Geo-Info",
-      "url": "http://www.mdpi.com/journal/ijgi",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "9b36a15297fbad0e",
-      "title": "ISPRS eBulletin",
-      "url": "https://www.isprs.org/news/newsletter/ebulletin.html",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "66076e9954bf0506",
-      "title": "ISPRS Highlights",
-      "url": "https://www.isprs.org/publications/highlights.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "36174797dc45fc5b",
-      "title": "ISPRS Media Library",
-      "url": "https://www.isprs.org/publications/media_library.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "7f0859d2f4d82eec",
-      "title": "ISPRS Profile",
-      "url": "https://www.isprs.org/publications/profile.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "f3de48eeb633d65d",
-      "title": "Annual & Biennial Reports",
-      "url": "https://www.isprs.org/publications/annual_reports.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "1b3da5b9abd5a2ec",
-      "title": "Related Publications",
-      "url": "https://www.isprs.org/publications/related_pub.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "3312ec7644600c96",
-      "title": "Open&nbsp;Resources -->",
-      "url": "https://www.isprs.org/resources/Default.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "4f94ddfc5f754633",
-      "title": "Sample Datasets",
-      "url": "https://www.isprs.org/resources/datasets/sample-datasets/",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "473454fa91db3be2",
-      "title": "ISPRS Archives",
-      "url": "https://www.isprs.org/publications/archives.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "f7853fb38519650b",
-      "title": "ISPRS Annals",
-      "url": "https://www.isprs.org/publications/annals.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "174999395d66ca63",
-      "title": "ISPRS e-Bulletin",
-      "url": "https://www.isprs.org/news/newsletter/default.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "9f20b896e4241e3b",
-      "title": "Presentations",
-      "url": "https://www.isprs.org/resources/presentations/",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "0cfc39a0349aef25",
-      "title": "Technical Presentations",
-      "url": "https://www.isprs.org/resources/presentations/technical-presentations/#",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "2dbecf2d38451cc0",
-      "title": "Keynote Presentations",
-      "url": "https://www.isprs.org/resources/presentations/keynote-presentations/",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "cca5c0d274ac165a",
-      "title": "ISPRS Book Series",
-      "url": "https://www.isprs.org/publications/bookseries.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "e0d799bf53f9c6b9",
-      "title": "Webinar Records",
-      "url": "https://www.isprs.org/resources/education/webinar-records/",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "59b6be82281cc665",
-      "title": "Tutorial Slides",
-      "url": "https://www.isprs.org/resources/education/tutorial-slides/",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "a1b54dfbeb577062",
-      "title": "Software/Hardware",
-      "url": "https://www.isprs.org/resources/software-hardware/",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "de0f3e2ef258fdf7",
-      "title": "Free download Software",
-      "url": "https://www.isprs.org/resources/software-hardware/free-download-software/",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "8270223db1bad842",
-      "title": "Open Access Platform",
-      "url": "https://www.isprs.org/resources/software-hardware/open-access-platform/",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "3de75a132c29d711",
-      "title": "Event Application Form",
-      "url": "https://www.isprs.org/documents/orangebook/app3.docx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "3d7e85f765840065",
-      "title": "Summer School Appl. Form",
-      "url": "https://www.isprs.org/resources/templates/summer-school-application-form/",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "d655ee838808f828",
-      "title": "Promotion Material",
-      "url": "https://www.isprs.org/resources/promotion-material/",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "4cdf3825c1f0b3b3",
-      "title": "ISPRS Introduction Slides",
-      "url": "https://www.isprs.org/resources/promotion-material/introduction-slides/",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "ea7a6229af20bf4f",
-      "title": "ISPRS Introduction Video",
-      "url": "https://www.isprs.org/resources/promotion-material/introduction-video/",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "84bc7ccc23072662",
-      "title": "Related Links",
-      "url": "https://www.isprs.org/resources/related-links/",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "0214c609c5a7b023",
-      "title": "Related Journals",
-      "url": "https://www.isprs.org/resources/related-links/related-journals/",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "6be86f4961519b51",
-      "title": "Organizations",
-      "url": "https://www.isprs.org/resources/related-links/organizations/",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "3fbccc9c6d612906",
-      "title": "Educational Sites",
-      "url": "https://www.isprs.org/education/education.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "a712a04eae9e45d9",
-      "title": "Software & Hardware",
-      "url": "https://www.isprs.org/education/software.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "1550ead260d1db81",
-      "title": "Journals & Magazines",
-      "url": "https://www.isprs.org/education/journals.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "e978606f3bad3000",
-      "title": "Standardization Sites",
-      "url": "https://www.isprs.org/education/standardization.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "66db1564b564ef03",
-      "title": "Job Opportunities",
-      "url": "https://www.isprs.org/job_opportunities/default.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "ISPRS"
+        "DGPF"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
-      "id": "96da3b76ceda3643",
-      "title": "ISPRS Calendar",
-      "url": "https://www.isprs.org/calendar/Default.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
+      "id": "1e614fbc75cce556",
+      "title": "DGPF Jahrestagung 2027",
+      "url": "https://www.dgpf.de/cal/Eventdetail/236/114|136|113|101/dgpf-jahrestagung-2027.html",
+      "kind": "event",
+      "source": "dgpf-events",
+      "source_name": "DGPF (German Society for Photogrammetry) events",
       "published": null,
       "summary": "",
       "deadline": null,
       "location": null,
       "matched": [
-        "ISPRS"
+        "DGPF"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
-      "id": "1e42c11903b643e3",
-      "title": "Other Calendar",
-      "url": "https://www.isprs.org/calendar/other_calendar.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
+      "id": "a3c170588ab78a98",
+      "title": "EuroSDR Workshop | Addressing Key Challenges for NMCAs and 3D: From Wish List to Practice",
+      "url": "https://www.eurosdr.net/workshops/eurosdr-workshop-addressing-key-challenges-nmcas-and-3d-wish-list-practice",
+      "kind": "event",
+      "source": "eurosdr-workshops",
+      "source_name": "EuroSDR workshops",
       "published": null,
       "summary": "",
-      "deadline": null,
+      "deadline": "2026-12-04T23:59:59.000Z",
       "location": null,
       "matched": [
-        "ISPRS"
+        "EuroSDR"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
-      "id": "b1da65e39de94d8f",
-      "title": "Members Homepages",
-      "url": "https://www.isprs.org/links/members.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
+      "id": "bd51f81f9745362e",
+      "title": "EuroSDR workshop | Towards a Digital Commons for Education about Land and Its Transformation",
+      "url": "https://www.eurosdr.net/workshops/eurosdr-workshop-towards-digital-commons-education-about-land-and-its-transformation",
+      "kind": "event",
+      "source": "eurosdr-workshops",
+      "source_name": "EuroSDR workshops",
       "published": null,
       "summary": "",
-      "deadline": null,
+      "deadline": "2026-12-04T23:59:59.000Z",
       "location": null,
       "matched": [
-        "ISPRS"
+        "EuroSDR"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
-      "id": "824c8d144804e880",
-      "title": "Related Orgs",
-      "url": "https://www.isprs.org/links/org.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
+      "id": "930b22487da898a1",
+      "title": "ISPRS WG V/2",
+      "url": "http://brauic.bucea.edu.cn/",
+      "kind": "event",
+      "source": "isprs-calendar-2026",
+      "source_name": "ISPRS Calendar 2026",
+      "published": "2026-01-01T00:00:00.000Z",
       "summary": "",
       "deadline": null,
-      "location": null,
+      "starts": "2026-01-01T00:00:00.000Z",
+      "ends": "2026-11-30T00:00:00.000Z",
+      "location": "Beijing China",
       "matched": [
         "ISPRS"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
-      "id": "9cc88dbe79cb891e",
-      "title": "The ISPRS Foundation",
-      "url": "http://www.isprs.org/foundation/",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
+      "id": "ddea71e5e70b48d0",
+      "title": "ISPRS WG IV/2",
+      "url": "https://sca26.medi-asd.org/",
+      "kind": "event",
+      "source": "isprs-calendar-2026",
+      "source_name": "ISPRS Calendar 2026",
+      "published": "2026-11-10T00:00:00.000Z",
       "summary": "",
-      "deadline": null,
-      "location": null,
+      "deadline": "2027-09-02T23:59:59.000Z",
+      "starts": "2026-11-10T00:00:00.000Z",
+      "ends": "2026-11-12T00:00:00.000Z",
+      "location": "Karabük Türkiye",
       "matched": [
         "ISPRS"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
-      "id": "0fd80fefc78b84bc",
-      "title": "ISPRS Announcements",
-      "url": "https://www.isprs.org/news/announcements/default.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
+      "id": "59439f8b561ad6a1",
+      "title": "ISPRS WG II/9: Optical 3D Metrology",
+      "url": "https://o3dm.fbk.eu",
+      "kind": "event",
+      "source": "isprs-calendar-2026",
+      "source_name": "ISPRS Calendar 2026",
+      "published": "2026-11-18T00:00:00.000Z",
+      "summary": "Optical 3D Metrology",
       "deadline": null,
-      "location": null,
+      "starts": "2026-11-18T00:00:00.000Z",
+      "ends": "2026-11-20T00:00:00.000Z",
+      "location": "Braunschweig Germany",
       "matched": [
         "ISPRS"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
-      "id": "028065a152f9efc8",
-      "title": "ISPRS Mailing List",
-      "url": "https://www.isprs.org/mailinglist/default.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
+      "id": "a3699a7a8321f3e9",
+      "title": "ISPRS ICWG II/Ib: 9th International ISPRS Workshop Low-Cost 3D-Sensors, Algorithms, Applications",
+      "url": "https://lc3d.fbk.eu",
+      "kind": "event",
+      "source": "isprs-calendar-2026",
+      "source_name": "ISPRS Calendar 2026",
+      "published": "2026-11-18T00:00:00.000Z",
+      "summary": "9th International ISPRS Workshop Low-Cost 3D-Sensors, Algorithms, Applications",
       "deadline": null,
-      "location": null,
+      "starts": "2026-11-18T00:00:00.000Z",
+      "ends": "2026-11-20T00:00:00.000Z",
+      "location": "Braunschweig Germany",
       "matched": [
         "ISPRS"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
-      "id": "aeb22eccb3a7e6e6",
-      "title": "ISPRS Mailing List",
-      "url": "https://www.isprs.org/mailinglist/Default.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
+      "id": "278b772118b6972e",
+      "title": "WLF7: The 7th World Landslide Forum",
+      "url": "https://www.wlf7.org",
+      "kind": "event",
+      "source": "isprs-calendar-2026",
+      "source_name": "ISPRS Calendar 2026",
+      "published": "2026-11-23T00:00:00.000Z",
+      "summary": "The 7th World Landslide Forum",
+      "deadline": "2026-10-30T23:59:59.000Z",
+      "starts": "2026-11-23T00:00:00.000Z",
+      "ends": "2026-11-27T00:00:00.000Z",
+      "location": "Faridabad India",
       "matched": [
         "ISPRS"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
-      "id": "507a366e4ab98878",
-      "title": "ISPRS Archives",
-      "url": "http://www.isprs.org/publications/archives.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
+      "id": "2954177116f2dae8",
+      "title": "Pacific Islands GIS and Remote Sensing User Conference",
+      "url": "http://www.pgrsc.org/",
+      "kind": "event",
+      "source": "isprs-calendar-2026",
+      "source_name": "ISPRS Calendar 2026",
+      "published": "2026-11-30T00:00:00.000Z",
       "summary": "",
       "deadline": null,
-      "location": null,
+      "starts": "2026-11-30T00:00:00.000Z",
+      "ends": "2026-12-04T00:00:00.000Z",
+      "location": "Suva Fiji Islands",
       "matched": [
-        "ISPRS"
+        "remote sensing",
+        "GIS"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
-      "id": "3fe85efbba25ef3a",
-      "title": "ISPRS Annals",
-      "url": "http://www.isprs.org/publications/annals.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
+      "id": "22258047a96815ff",
+      "title": "SWS Vienna GREEN 2026 – Green Science for Green Life: International multidisciplinary scientific conference",
+      "url": "https://sgemviennagreen.org/",
+      "kind": "event",
+      "source": "isprs-calendar-2026",
+      "source_name": "ISPRS Calendar 2026",
+      "published": "2026-12-02T00:00:00.000Z",
+      "summary": "International multidisciplinary scientific conference",
+      "deadline": "2026-11-16T23:59:59.000Z",
+      "starts": "2026-12-02T00:00:00.000Z",
+      "ends": "2026-12-05T00:00:00.000Z",
+      "location": "Vienna Austria",
       "matched": [
         "ISPRS"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
-      "id": "d9f891469443d644",
-      "title": "Calendar 2018",
-      "url": "http://www.isprs.org/calendar/2018.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
+      "id": "d98518d8d810d295",
+      "title": "ICWG III/II",
+      "url": "https://neuralearthfields.github.io/",
+      "kind": "event",
+      "source": "isprs-calendar-2026",
+      "source_name": "ISPRS Calendar 2026",
+      "published": "2026-12-07T00:00:00.000Z",
       "summary": "",
-      "deadline": null,
-      "location": null,
+      "deadline": "2026-10-30T23:59:59.000Z",
+      "starts": "2026-12-07T00:00:00.000Z",
+      "ends": "2026-12-08T00:00:00.000Z",
+      "location": "Bonn Germany",
       "matched": [
         "ISPRS"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
-      "id": "9d6dde50ac8591fb",
-      "title": "Job Opportunities",
-      "url": "http://www.isprs.org/job_opportunities/default.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
+      "id": "58eecb359a31123f",
+      "title": "NCKU LiDAR Winter School 2027",
+      "url": "https://lidar2027.geomatics.ncku.edu.tw/",
+      "kind": "event",
+      "source": "isprs-calendar-2027",
+      "source_name": "ISPRS Calendar 2027",
+      "published": "2027-01-11T00:00:00.000Z",
       "summary": "",
-      "deadline": null,
-      "location": null,
+      "deadline": "2027-09-20T23:59:59.000Z",
+      "starts": "2027-01-11T00:00:00.000Z",
+      "ends": "2027-01-15T00:00:00.000Z",
+      "location": "Tainan Chinese Taipei",
       "matched": [
-        "ISPRS"
+        "LiDAR"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
-      "id": "2eea9a8779ca21b1",
-      "title": "XXIV th ISPRS Congress:",
-      "url": "https://www.isprs2022-nice.com/",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
+      "id": "15761566e86ca6e8",
+      "title": "PCP 2027: 5th EuroSDR Workshop on Point Cloud Processing",
+      "url": "https://pcp.ifp.uni-stuttgart.de",
+      "kind": "event",
+      "source": "isprs-calendar-2027",
+      "source_name": "ISPRS Calendar 2027",
+      "published": "2027-02-04T00:00:00.000Z",
+      "summary": "5th EuroSDR Workshop on Point Cloud Processing",
       "deadline": null,
-      "location": null,
+      "starts": "2027-02-04T00:00:00.000Z",
+      "ends": "2027-02-05T00:00:00.000Z",
+      "location": "Stuttgart Germany",
       "matched": [
-        "ISPRS"
+        "point cloud"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
-      "id": "dd8648427360ae90",
-      "title": "XXV ISPRS Congress",
-      "url": "https://www.isprs2026toronto.com/",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
+      "id": "18c6d1459e87b711",
+      "title": "Geo Week",
+      "url": "https://www.geo-week.com/",
+      "kind": "event",
+      "source": "isprs-calendar-2027",
+      "source_name": "ISPRS Calendar 2027",
+      "published": "2027-02-23T00:00:00.000Z",
       "summary": "",
       "deadline": null,
-      "location": null,
+      "starts": "2027-02-23T00:00:00.000Z",
+      "ends": "2027-02-25T00:00:00.000Z",
+      "location": "Salt Lake City, Utah USA",
       "matched": [
         "ISPRS"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
-      "id": "ab9bbadbcb9e9dae",
-      "title": "TC II Mid-term Symosium",
-      "url": "https://www.isprs.org/tc2-symposium2024/index.html",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
+      "id": "f002769ec3554e6d",
+      "title": "60th Photogrammetric Week: 06-09 Apr 2027 Stuttgart, Germany",
+      "url": "https://phowo.ifp.uni-stuttgart.de",
+      "kind": "event",
+      "source": "isprs-calendar-2027",
+      "source_name": "ISPRS Calendar 2027",
+      "published": "2027-04-06T00:00:00.000Z",
+      "summary": "06-09 Apr 2027 Stuttgart, Germany",
       "deadline": null,
-      "location": null,
+      "starts": "2027-04-06T00:00:00.000Z",
+      "ends": "2027-04-09T00:00:00.000Z",
+      "location": "Stuttgart Germany",
       "matched": [
-        "ISPRS"
+        "photogrammetric"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
-      "id": "c0173eaf18fe42a9",
-      "title": "TC V Mid-term Symosium",
-      "url": "https://www.isprs.org/tc5-symposium2024/index.html",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
+      "id": "729b8dc89e255265",
+      "title": "JISDM 2027: 7th Joint International Symposium on Deformation Monitoring",
+      "url": "https://jisdm2027.tudelft.nl/",
+      "kind": "event",
+      "source": "isprs-calendar-2027",
+      "source_name": "ISPRS Calendar 2027",
+      "published": "2027-04-14T00:00:00.000Z",
+      "summary": "7th Joint International Symposium on Deformation Monitoring",
+      "deadline": "2027-01-07T23:59:59.000Z",
+      "starts": "2027-04-14T00:00:00.000Z",
+      "ends": "2027-04-16T00:00:00.000Z",
+      "location": "Delft The Netherlands",
       "matched": [
         "ISPRS"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
-      "id": "fb8d27fba7219fc2",
-      "title": "TC IV Mid-term Symosium",
-      "url": "https://www.isprs.org/tc4-symposium2024/index.html",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
+      "id": "9b84b0a9e4ade38d",
+      "title": "GISTAM 2027: 13th International Conference on Geographical Information Systems Theory, Applications and Management",
+      "url": "https://gistam.scitevents.org/",
+      "kind": "event",
+      "source": "isprs-calendar-2027",
+      "source_name": "ISPRS Calendar 2027",
+      "published": "2027-04-20T00:00:00.000Z",
+      "summary": "13th International Conference on Geographical Information Systems Theory, Applications and Management",
       "deadline": null,
-      "location": null,
+      "starts": "2027-04-20T00:00:00.000Z",
+      "ends": "2027-04-22T00:00:00.000Z",
+      "location": "Rome Italy",
       "matched": [
         "ISPRS"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
-      "id": "17f8046905e72b03",
-      "title": "TC III Mid-term Symosium",
-      "url": "https://selperbrasil.org.br/events/belem-2024-tc3-symposium/",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
+      "id": "dded81b00f74de54",
+      "title": "TNSPRS / TUFUAB XIV. Technical Symposium",
+      "url": "https://tufuab2027.ktun.edu.tr/",
+      "kind": "event",
+      "source": "isprs-calendar-2027",
+      "source_name": "ISPRS Calendar 2027",
+      "published": "2027-05-27T00:00:00.000Z",
       "summary": "",
       "deadline": null,
-      "location": null,
+      "starts": "2027-05-27T00:00:00.000Z",
+      "ends": "2027-05-29T00:00:00.000Z",
+      "location": "Konya Türkiye",
       "matched": [
         "ISPRS"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
-      "id": "3d1c013ce6691ace",
-      "title": "The ISPRS Foundation Brochure",
-      "url": "http://www.isprs.org/foundation2/PDF/ISPRS_foundation_brochure.pdf",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
+      "id": "6fc01db8c23b53f0",
+      "title": "46th EARSeL Symposium 2027",
+      "url": "https://symposium.earsel.org/46th-symposium-Turin/",
+      "kind": "event",
+      "source": "isprs-calendar-2027",
+      "source_name": "ISPRS Calendar 2027",
+      "published": "2027-06-01T00:00:00.000Z",
       "summary": "",
       "deadline": null,
-      "location": null,
+      "starts": "2027-06-01T00:00:00.000Z",
+      "ends": "2027-06-04T00:00:00.000Z",
+      "location": "Turin Italy",
       "matched": [
         "ISPRS"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
-      "id": "a766acd7b46606c5",
-      "title": "Calendar 2023",
-      "url": "https://www.isprs.org/calendar/2023.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
+      "id": "363847c598bb914c",
+      "title": "XXVII International Multidisciplinary Scientific GeoConference SGEM 2027: 03-12 Jul 2027 Albena, Bulgaria",
+      "url": "https://www.sgem.org/",
+      "kind": "event",
+      "source": "isprs-calendar-2027",
+      "source_name": "ISPRS Calendar 2027",
+      "published": "2027-07-03T00:00:00.000Z",
+      "summary": "03-12 Jul 2027 Albena, Bulgaria",
       "deadline": null,
-      "location": null,
+      "starts": "2027-07-03T00:00:00.000Z",
+      "ends": "2027-07-12T00:00:00.000Z",
+      "location": "Albena Bulgaria",
       "matched": [
         "ISPRS"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
-      "id": "414a02960b5920f1",
-      "title": "Calendar 2026",
-      "url": "https://www.isprs.org/calendar/2026.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
+      "id": "9003567e6bc6398a",
+      "title": "Geospatial Week 2027: Advancing Geospatial Technologies for Smart and Sustainable Development",
+      "url": "https://www.gsw2027.pl",
+      "kind": "event",
+      "source": "isprs-calendar-2027",
+      "source_name": "ISPRS Calendar 2027",
+      "published": "2027-09-19T00:00:00.000Z",
+      "summary": "Advancing Geospatial Technologies for Smart and Sustainable Development",
       "deadline": null,
-      "location": null,
+      "starts": "2027-09-19T00:00:00.000Z",
+      "ends": "2027-09-24T00:00:00.000Z",
+      "location": "Warsaw Poland",
       "matched": [
-        "ISPRS"
+        "geospatial"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
-      "id": "ab2842477422028b",
-      "title": "Calendar 2027",
-      "url": "https://www.isprs.org/calendar/2027.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
+      "id": "6a6a557cd6c232e0",
+      "title": "ACM SIGSPATIAL 2026: research papers",
+      "url": "https://sigspatial2026.sigspatial.org/research-submission.html",
+      "kind": "event",
+      "source": "sigspatial2026",
+      "source_name": "ACM SIGSPATIAL 2026",
       "published": null,
-      "summary": "",
+      "summary": "ACM SIGSPATIAL GIS",
       "deadline": null,
       "location": null,
       "matched": [
-        "ISPRS"
+        "GIS"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
-      "id": "90c8e673e6aeee0f",
-      "title": "Nice Congress 2022",
-      "url": "http://www.isprs2020-nice.com/",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
+      "id": "1fdf8953ca6581a8",
+      "title": "FOSSGIS Conference 2027: call for participation",
+      "url": "https://pretalx.com/fossgis2027/cfp",
+      "kind": "event",
+      "source": "fossgis2027",
+      "source_name": "FOSSGIS Conference 2027",
       "published": null,
-      "summary": "",
-      "deadline": null,
+      "summary": "FOSSGIS open source GIS",
+      "deadline": "2026-11-01T23:59:59.000Z",
       "location": null,
       "matched": [
-        "ISPRS"
+        "GIS"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
-      "id": "c36c428ed34117da",
-      "title": "isprs-sg@isprs.org",
-      "url": "mailto:isprs-sg@isprs.org",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
+      "id": "adc20e9426673d37",
+      "title": "FIG Working Week 2027: call for papers",
+      "url": "https://fig.net/fig2027/call.htm",
+      "kind": "event",
+      "source": "fig2027",
+      "source_name": "FIG Working Week 2027",
       "published": null,
-      "summary": "",
+      "summary": "FIG surveying geodesy geospatial",
       "deadline": null,
       "location": null,
       "matched": [
-        "ISPRS"
+        "geospatial",
+        "geodesy"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
-      "id": "0eaf289f3ccb9d3f",
-      "title": "Privacy Notice",
-      "url": "https://www.isprs.org/privacy_notice.aspx",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
+      "id": "38d6d86313a4c95b",
+      "title": "EGU General Assembly 2027",
+      "url": "https://www.egu27.eu/",
+      "kind": "event",
+      "source": "egu27",
+      "source_name": "EGU General Assembly 2027",
       "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
+      "summary": "EGU Earth system geoscience",
+      "deadline": "2027-01-12T23:59:59.000Z",
+      "location": "Vienna, Austria",
       "matched": [
-        "ISPRS"
+        "Earth system"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "e6dae5749a8681d2",
-      "title": "Call for Papers",
+      "title": "AGILE 2027 conference: call for papers",
       "url": "https://agile-online.org/conference-2027/call-for-papers-2027",
       "kind": "event",
-      "source": "agile-gi",
-      "source_name": "AGILE GIScience conference",
+      "source": "agile-2027",
+      "source_name": "AGILE 2027",
       "published": null,
-      "summary": "",
+      "summary": "agile-gi.eu AGILE GIScience geospatial",
       "deadline": null,
       "location": null,
       "matched": [
-        "AGILE"
+        "geospatial"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z",
-      "deadline_checked": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "c83fac7fead6871d",
@@ -2691,78 +824,6 @@
       "deadline_checked": "2026-10-30T00:47:17.268Z"
     },
     {
-      "id": "66681e1654302825",
-      "title": "Doppel-Workshop: Optical 3D Metrology & LowCost3D",
-      "url": "https://www.dgpf.de/cal/Eventdetail/242/114|136|113|101/doppel-workshop-optical-3d-metrology-lowcost3d.html",
-      "kind": "event",
-      "source": "dgpf-events",
-      "source_name": "DGPF (German Society for Photogrammetry) events",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "DGPF"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z",
-      "deadline_checked": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "1e614fbc75cce556",
-      "title": "DGPF Jahrestagung 2027",
-      "url": "https://www.dgpf.de/cal/Eventdetail/236/114|136|113|101/dgpf-jahrestagung-2027.html",
-      "kind": "event",
-      "source": "dgpf-events",
-      "source_name": "DGPF (German Society for Photogrammetry) events",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "DGPF"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z",
-      "deadline_checked": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "a3c170588ab78a98",
-      "title": "EuroSDR Workshop | Addressing Key Challenges for NMCAs and 3D: From Wish List to Practice",
-      "url": "https://www.eurosdr.net/workshops/eurosdr-workshop-addressing-key-challenges-nmcas-and-3d-wish-list-practice",
-      "kind": "event",
-      "source": "eurosdr-workshops",
-      "source_name": "EuroSDR workshops",
-      "published": null,
-      "summary": "",
-      "deadline": "2026-12-04T23:59:59.000Z",
-      "location": null,
-      "matched": [
-        "EuroSDR"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z",
-      "deadline_checked": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "bd51f81f9745362e",
-      "title": "EuroSDR workshop | Towards a Digital Commons for Education about Land and Its Transformation",
-      "url": "https://www.eurosdr.net/workshops/eurosdr-workshop-towards-digital-commons-education-about-land-and-its-transformation",
-      "kind": "event",
-      "source": "eurosdr-workshops",
-      "source_name": "EuroSDR workshops",
-      "published": null,
-      "summary": "",
-      "deadline": "2026-12-04T23:59:59.000Z",
-      "location": null,
-      "matched": [
-        "EuroSDR"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z",
-      "deadline_checked": "2026-10-30T00:47:17.268Z"
-    },
-    {
       "id": "38ff8e3ac02ed079",
       "title": "A big THANK YOU to all the attendees for making the conference a success !!!!",
       "url": "https://goo.gl/maps/gLPvp6V2VyLDgUm9A",
@@ -2871,418 +932,6 @@
       "deadline_checked": "2026-10-30T00:47:17.268Z"
     },
     {
-      "id": "930b22487da898a1",
-      "title": "ISPRS WG V/2",
-      "url": "http://brauic.bucea.edu.cn/",
-      "kind": "event",
-      "source": "isprs-calendar-2026",
-      "source_name": "ISPRS Calendar 2026",
-      "published": "2026-01-01T00:00:00.000Z",
-      "summary": "",
-      "deadline": null,
-      "starts": "2026-01-01T00:00:00.000Z",
-      "ends": "2026-11-30T00:00:00.000Z",
-      "location": "Beijing China",
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "ddea71e5e70b48d0",
-      "title": "ISPRS WG IV/2",
-      "url": "https://sca26.medi-asd.org/",
-      "kind": "event",
-      "source": "isprs-calendar-2026",
-      "source_name": "ISPRS Calendar 2026",
-      "published": "2026-11-10T00:00:00.000Z",
-      "summary": "",
-      "deadline": null,
-      "starts": "2026-11-10T00:00:00.000Z",
-      "ends": "2026-11-12T00:00:00.000Z",
-      "location": "Karabük Türkiye",
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "59439f8b561ad6a1",
-      "title": "ISPRS WG II/9: Optical 3D Metrology",
-      "url": "https://o3dm.fbk.eu",
-      "kind": "event",
-      "source": "isprs-calendar-2026",
-      "source_name": "ISPRS Calendar 2026",
-      "published": "2026-11-18T00:00:00.000Z",
-      "summary": "Optical 3D Metrology",
-      "deadline": null,
-      "starts": "2026-11-18T00:00:00.000Z",
-      "ends": "2026-11-20T00:00:00.000Z",
-      "location": "Braunschweig Germany",
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "a3699a7a8321f3e9",
-      "title": "ISPRS ICWG II/Ib: 9th International ISPRS Workshop Low-Cost 3D-Sensors, Algorithms, Applications",
-      "url": "https://lc3d.fbk.eu",
-      "kind": "event",
-      "source": "isprs-calendar-2026",
-      "source_name": "ISPRS Calendar 2026",
-      "published": "2026-11-18T00:00:00.000Z",
-      "summary": "9th International ISPRS Workshop Low-Cost 3D-Sensors, Algorithms, Applications",
-      "deadline": null,
-      "starts": "2026-11-18T00:00:00.000Z",
-      "ends": "2026-11-20T00:00:00.000Z",
-      "location": "Braunschweig Germany",
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "278b772118b6972e",
-      "title": "WLF7: The 7th World Landslide Forum&nbsp;",
-      "url": "https://www.wlf7.org",
-      "kind": "event",
-      "source": "isprs-calendar-2026",
-      "source_name": "ISPRS Calendar 2026",
-      "published": "2026-11-23T00:00:00.000Z",
-      "summary": "The 7th World Landslide Forum&nbsp;",
-      "deadline": null,
-      "starts": "2026-11-23T00:00:00.000Z",
-      "ends": "2026-11-27T00:00:00.000Z",
-      "location": "Faridabad India",
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "2954177116f2dae8",
-      "title": "Pacific Islands GIS and Remote Sensing User Conference",
-      "url": "http://www.pgrsc.org/",
-      "kind": "event",
-      "source": "isprs-calendar-2026",
-      "source_name": "ISPRS Calendar 2026",
-      "published": "2026-11-30T00:00:00.000Z",
-      "summary": "",
-      "deadline": null,
-      "starts": "2026-11-30T00:00:00.000Z",
-      "ends": "2026-12-04T00:00:00.000Z",
-      "location": "Suva Fiji Islands",
-      "matched": [
-        "remote sensing",
-        "GIS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "22258047a96815ff",
-      "title": "SWS Vienna GREEN 2026 – Green Science for Green Life: International multidisciplinary scientific conference",
-      "url": "https://sgemviennagreen.org/",
-      "kind": "event",
-      "source": "isprs-calendar-2026",
-      "source_name": "ISPRS Calendar 2026",
-      "published": "2026-12-02T00:00:00.000Z",
-      "summary": "International multidisciplinary scientific conference",
-      "deadline": null,
-      "starts": "2026-12-02T00:00:00.000Z",
-      "ends": "2026-12-05T00:00:00.000Z",
-      "location": "Vienna Austria",
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "d98518d8d810d295",
-      "title": "ICWG III/II",
-      "url": "https://neuralearthfields.github.io/",
-      "kind": "event",
-      "source": "isprs-calendar-2026",
-      "source_name": "ISPRS Calendar 2026",
-      "published": "2026-12-07T00:00:00.000Z",
-      "summary": "",
-      "deadline": null,
-      "starts": "2026-12-07T00:00:00.000Z",
-      "ends": "2026-12-08T00:00:00.000Z",
-      "location": "Bonn Germany",
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "58eecb359a31123f",
-      "title": "NCKU LiDAR Winter School 2027",
-      "url": "https://lidar2027.geomatics.ncku.edu.tw/",
-      "kind": "event",
-      "source": "isprs-calendar-2027",
-      "source_name": "ISPRS Calendar 2027",
-      "published": "2027-01-11T00:00:00.000Z",
-      "summary": "",
-      "deadline": null,
-      "starts": "2027-01-11T00:00:00.000Z",
-      "ends": "2027-01-15T00:00:00.000Z",
-      "location": "Tainan Chinese Taipei",
-      "matched": [
-        "LiDAR"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "15761566e86ca6e8",
-      "title": "PCP 2027: 5th EuroSDR Workshop on Point Cloud Processing",
-      "url": "https://pcp.ifp.uni-stuttgart.de",
-      "kind": "event",
-      "source": "isprs-calendar-2027",
-      "source_name": "ISPRS Calendar 2027",
-      "published": "2027-02-04T00:00:00.000Z",
-      "summary": "5th EuroSDR Workshop on Point Cloud Processing",
-      "deadline": null,
-      "starts": "2027-02-04T00:00:00.000Z",
-      "ends": "2027-02-05T00:00:00.000Z",
-      "location": "Stuttgart Germany",
-      "matched": [
-        "point cloud"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "18c6d1459e87b711",
-      "title": "Geo Week",
-      "url": "https://www.geo-week.com/",
-      "kind": "event",
-      "source": "isprs-calendar-2027",
-      "source_name": "ISPRS Calendar 2027",
-      "published": "2027-02-23T00:00:00.000Z",
-      "summary": "",
-      "deadline": null,
-      "starts": "2027-02-23T00:00:00.000Z",
-      "ends": "2027-02-25T00:00:00.000Z",
-      "location": "Salt Lake City, Utah USA",
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "f002769ec3554e6d",
-      "title": "60th Photogrammetric Week: 06-09 Apr 2027 Stuttgart, Germany",
-      "url": "https://phowo.ifp.uni-stuttgart.de",
-      "kind": "event",
-      "source": "isprs-calendar-2027",
-      "source_name": "ISPRS Calendar 2027",
-      "published": "2027-04-06T00:00:00.000Z",
-      "summary": "06-09 Apr 2027 Stuttgart, Germany",
-      "deadline": null,
-      "starts": "2027-04-06T00:00:00.000Z",
-      "ends": "2027-04-09T00:00:00.000Z",
-      "location": "Stuttgart Germany",
-      "matched": [
-        "photogrammetric"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "729b8dc89e255265",
-      "title": "JISDM 2027: 7th Joint International Symposium on Deformation Monitoring",
-      "url": "https://jisdm2027.tudelft.nl/",
-      "kind": "event",
-      "source": "isprs-calendar-2027",
-      "source_name": "ISPRS Calendar 2027",
-      "published": "2027-04-14T00:00:00.000Z",
-      "summary": "7th Joint International Symposium on Deformation Monitoring",
-      "deadline": null,
-      "starts": "2027-04-14T00:00:00.000Z",
-      "ends": "2027-04-16T00:00:00.000Z",
-      "location": "Delft The Netherlands",
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "9b84b0a9e4ade38d",
-      "title": "GISTAM 2027: 13th International Conference on Geographical Information Systems Theory, Applications and Management",
-      "url": "https://gistam.scitevents.org/",
-      "kind": "event",
-      "source": "isprs-calendar-2027",
-      "source_name": "ISPRS Calendar 2027",
-      "published": "2027-04-20T00:00:00.000Z",
-      "summary": "13th International Conference on Geographical Information Systems Theory, Applications and Management",
-      "deadline": null,
-      "starts": "2027-04-20T00:00:00.000Z",
-      "ends": "2027-04-22T00:00:00.000Z",
-      "location": "Rome Italy",
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "dded81b00f74de54",
-      "title": "TNSPRS / TUFUAB XIV. Technical Symposium",
-      "url": "https://tufuab2027.ktun.edu.tr/",
-      "kind": "event",
-      "source": "isprs-calendar-2027",
-      "source_name": "ISPRS Calendar 2027",
-      "published": "2027-05-27T00:00:00.000Z",
-      "summary": "",
-      "deadline": null,
-      "starts": "2027-05-27T00:00:00.000Z",
-      "ends": "2027-05-29T00:00:00.000Z",
-      "location": "Konya Türkiye",
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "6fc01db8c23b53f0",
-      "title": "46th EARSeL Symposium 2027",
-      "url": "https://symposium.earsel.org/46th-symposium-Turin/",
-      "kind": "event",
-      "source": "isprs-calendar-2027",
-      "source_name": "ISPRS Calendar 2027",
-      "published": "2027-06-01T00:00:00.000Z",
-      "summary": "",
-      "deadline": null,
-      "starts": "2027-06-01T00:00:00.000Z",
-      "ends": "2027-06-04T00:00:00.000Z",
-      "location": "Turin Italy",
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "363847c598bb914c",
-      "title": "XXVII International Multidisciplinary Scientific GeoConference SGEM 2027: 03-12 Jul 2027 Albena, Bulgaria",
-      "url": "https://www.sgem.org/",
-      "kind": "event",
-      "source": "isprs-calendar-2027",
-      "source_name": "ISPRS Calendar 2027",
-      "published": "2027-07-03T00:00:00.000Z",
-      "summary": "03-12 Jul 2027 Albena, Bulgaria",
-      "deadline": null,
-      "starts": "2027-07-03T00:00:00.000Z",
-      "ends": "2027-07-12T00:00:00.000Z",
-      "location": "Albena Bulgaria",
-      "matched": [
-        "ISPRS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "9003567e6bc6398a",
-      "title": "Geospatial Week 2027: Advancing Geospatial Technologies for Smart and Sustainable Development",
-      "url": "https://www.gsw2027.pl",
-      "kind": "event",
-      "source": "isprs-calendar-2027",
-      "source_name": "ISPRS Calendar 2027",
-      "published": "2027-09-19T00:00:00.000Z",
-      "summary": "Advancing Geospatial Technologies for Smart and Sustainable Development",
-      "deadline": null,
-      "starts": "2027-09-19T00:00:00.000Z",
-      "ends": "2027-09-24T00:00:00.000Z",
-      "location": "Warsaw Poland",
-      "matched": [
-        "geospatial"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "adc20e9426673d37",
-      "title": "FIG Working Week 2027: call for papers",
-      "url": "https://fig.net/fig2027/call.htm",
-      "kind": "event",
-      "source": "fig2027",
-      "source_name": "FIG Working Week 2027",
-      "published": null,
-      "summary": "FIG surveying geodesy geospatial",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "geospatial",
-        "geodesy"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "1fdf8953ca6581a8",
-      "title": "FOSSGIS Conference 2027: call for participation",
-      "url": "https://pretalx.com/fossgis2027/cfp",
-      "kind": "event",
-      "source": "fossgis2027",
-      "source_name": "FOSSGIS Conference 2027",
-      "published": null,
-      "summary": "FOSSGIS open source GIS",
-      "deadline": "2026-11-01T23:59:59.000Z",
-      "location": null,
-      "matched": [
-        "GIS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "6a6a557cd6c232e0",
-      "title": "ACM SIGSPATIAL 2026: research papers",
-      "url": "https://sigspatial2026.sigspatial.org/research-submission.html",
-      "kind": "event",
-      "source": "sigspatial2026",
-      "source_name": "ACM SIGSPATIAL 2026",
-      "published": null,
-      "summary": "ACM SIGSPATIAL GIS",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "GIS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "38d6d86313a4c95b",
-      "title": "EGU General Assembly 2027",
-      "url": "https://www.egu27.eu/",
-      "kind": "event",
-      "source": "egu27",
-      "source_name": "EGU General Assembly 2027",
-      "published": null,
-      "summary": "EGU Earth system geoscience",
-      "deadline": "2027-01-12T23:59:59.000Z",
-      "location": "Vienna, Austria",
-      "matched": [
-        "Earth system"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
       "id": "e1ebd227763752a8",
       "title": "Certificate in Geomatics for Environmental Management",
       "url": "https://forestry.ubc.ca/future-students/undergraduate/certificate-in-geomatics-for-environmental-management/",
@@ -3298,8 +947,8 @@
         "spatial data"
       ],
       "first_seen": "2026-10-29T22:47:38.598Z",
-      "last_seen": "2026-10-30T00:47:17.268Z",
-      "deadline_checked": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "08efbcb392ae7e82",
@@ -3316,7 +965,8 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T22:47:38.598Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "ee256c39cdbf65f9",
@@ -3333,8 +983,8 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:58:37.370Z",
-      "last_seen": "2026-10-30T00:47:17.268Z",
-      "deadline_checked": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "ac9dbb729583b7ff",
@@ -3351,8 +1001,8 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:58:37.370Z",
-      "last_seen": "2026-10-30T00:47:17.268Z",
-      "deadline_checked": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "e6dfbd849a36d016",
@@ -3369,8 +1019,8 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:58:37.370Z",
-      "last_seen": "2026-10-30T00:47:17.268Z",
-      "deadline_checked": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "2dee3cb31b9b2b17",
@@ -3388,8 +1038,8 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:58:37.370Z",
-      "last_seen": "2026-10-30T00:47:17.268Z",
-      "deadline_checked": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "33cf28fb6188f51c",
@@ -3406,8 +1056,8 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:58:37.370Z",
-      "last_seen": "2026-10-30T00:47:17.268Z",
-      "deadline_checked": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "345e923d1cbbd5ba",
@@ -3424,8 +1074,8 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:58:37.370Z",
-      "last_seen": "2026-10-30T00:47:17.268Z",
-      "deadline_checked": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "e25bfb61bbae562e",
@@ -3442,7 +1092,8 @@
         "geoinformation"
       ],
       "first_seen": "2026-10-29T20:58:37.370Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "3d0d512dbbcbca3c",
@@ -3459,7 +1110,8 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T20:58:37.370Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "3acaf7ff7851cb43",
@@ -3476,7 +1128,8 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:58:37.370Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "d1f67afdf63d896a",
@@ -3493,7 +1146,8 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:58:37.370Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "bbe9d1df210264fe",
@@ -3510,7 +1164,7 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:58:37.370Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "199ddce1008548bb",
@@ -3527,7 +1181,7 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:58:37.370Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "ab4c69c33735e5cb",
@@ -3544,8 +1198,8 @@
         "earth observation"
       ],
       "first_seen": "2026-10-29T20:34:23.721Z",
-      "last_seen": "2026-10-30T00:47:17.268Z",
-      "deadline_checked": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "ca70f7293de937d0",
@@ -3562,8 +1216,8 @@
         "earth observation"
       ],
       "first_seen": "2026-10-29T20:34:23.721Z",
-      "last_seen": "2026-10-30T00:47:17.268Z",
-      "deadline_checked": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "4767487f44eb67b2",
@@ -3581,8 +1235,8 @@
         "GeoAI"
       ],
       "first_seen": "2026-10-29T20:34:23.721Z",
-      "last_seen": "2026-10-30T00:47:17.268Z",
-      "deadline_checked": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "264f38a788641b82",
@@ -3599,7 +1253,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T20:34:23.721Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "469d93e681df733d",
@@ -3616,8 +1270,8 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:34:23.721Z",
-      "last_seen": "2026-10-30T00:47:17.268Z",
-      "deadline_checked": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "5581ab37b729309e",
@@ -3634,7 +1288,8 @@
         "cartography"
       ],
       "first_seen": "2026-10-29T20:34:23.721Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "35213b181cd9a506",
@@ -3651,7 +1306,8 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:34:23.721Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "3246ac10ce22b087",
@@ -3668,8 +1324,8 @@
         "earth observation"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T00:47:17.268Z",
-      "deadline_checked": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "7aed83a1fec1b1d3",
@@ -3686,8 +1342,8 @@
         "earth observation"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T00:47:17.268Z",
-      "deadline_checked": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "f5034de4ee1a8b0d",
@@ -3704,8 +1360,8 @@
         "geomatics"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T00:47:17.268Z",
-      "deadline_checked": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "2f7c6d17bcd0324d",
@@ -3722,8 +1378,8 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T00:47:17.268Z",
-      "deadline_checked": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "2a4c3abbff3574fc",
@@ -3740,8 +1396,8 @@
         "earth observation"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T00:47:17.268Z",
-      "deadline_checked": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "c10bce7084060db8",
@@ -3758,8 +1414,8 @@
         "geomatics"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T00:47:17.268Z",
-      "deadline_checked": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "8a523d21bed9bdf1",
@@ -3776,8 +1432,8 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T00:47:17.268Z",
-      "deadline_checked": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "288884113b94640f",
@@ -3795,7 +1451,7 @@
         "Geodäsie"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "10743dde5862c986",
@@ -3812,7 +1468,7 @@
         "Geoinformatik"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "3fa916738ead9ce2",
@@ -3830,7 +1486,7 @@
         "geoinformatics"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "d33374c9e8f1266f",
@@ -3848,7 +1504,7 @@
         "cartography"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "411049cee1945e41",
@@ -3865,7 +1521,7 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "e8349083af01789b",
@@ -3882,7 +1538,7 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "0c15130b08f6440a",
@@ -3902,7 +1558,7 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "dafa26edf7de107c",
@@ -3919,8 +1575,8 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T00:47:17.268Z",
-      "deadline_checked": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "5bdabf501dfe4613",
@@ -3937,8 +1593,8 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T00:47:17.268Z",
-      "deadline_checked": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "120a655697ce4ab1",
@@ -3955,8 +1611,8 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T00:47:17.268Z",
-      "deadline_checked": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "e6e5150a7d2ff872",
@@ -3974,8 +1630,8 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T00:47:17.268Z",
-      "deadline_checked": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "8ec4f2bec0764ef5",
@@ -3992,8 +1648,8 @@
         "photogrammetry"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T00:47:17.268Z",
-      "deadline_checked": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "360b1c9e340a33c6",
@@ -4010,7 +1666,7 @@
         "geoinformatics"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "58d886b52ed92748",
@@ -4027,8 +1683,8 @@
         "Geoinformatik"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T00:47:17.268Z",
-      "deadline_checked": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "f0d9c47ce963d65d",
@@ -4046,8 +1702,8 @@
         "spatial data"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T00:47:17.268Z",
-      "deadline_checked": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "a931e49fbf255381",
@@ -4064,8 +1720,8 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T00:47:17.268Z",
-      "deadline_checked": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "6955ae1170bc25cc",
@@ -4082,8 +1738,8 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T00:47:17.268Z",
-      "deadline_checked": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "8e778132696b0103",
@@ -4100,8 +1756,8 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T00:47:17.268Z",
-      "deadline_checked": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "ddadcf7cadfe3aaf",
@@ -4118,8 +1774,8 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T00:47:17.268Z",
-      "deadline_checked": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "24d1bdb1cb72e6e9",
@@ -4136,8 +1792,8 @@
         "geoinformation"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T00:47:17.268Z",
-      "deadline_checked": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "03fe987cc1713575",
@@ -4154,8 +1810,8 @@
         "cartography"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T00:47:17.268Z",
-      "deadline_checked": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "ad43287b983553a9",
@@ -4173,7 +1829,8 @@
         "geodesy"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "4bccac543e23b28f",
@@ -4191,7 +1848,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "ec3e01820b98574a",
@@ -4210,7 +1867,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "944c23cc06ad5cfc",
@@ -4227,7 +1884,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "9610df26a438e5e4",
@@ -4246,7 +1903,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "4bef21eb97783e43",
@@ -4267,7 +1924,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "c2cc91bf2f8f4a4e",
@@ -4285,7 +1942,8 @@
         "geoinformation"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "c65ba0228a65244e",
@@ -4302,7 +1960,7 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "08f1cfadf71d3855",
@@ -4319,7 +1977,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "1c5f0ff2c0a8a91a",
@@ -4336,7 +1994,7 @@
         "Geoinformatik"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "054fcc4b3d43d0eb",
@@ -4354,7 +2012,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "36cb8f4c08cfcdc4",
@@ -4373,60 +2031,7 @@
         "earth observation"
       ],
       "first_seen": "2026-10-29T18:58:52.431Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "aff4aadb279cfbcc",
-      "title": "PhD Studentship: Next-generation machine learning for genetic interaction prediction with lab-in the-loop validation in pancreatic cancer",
-      "url": "https://www.jobs.ac.uk/job/DTL177/phd-studentship-next-generation-machine-learning-for-genetic-interaction-prediction-with-lab-in-the-loop-validation-in-pancreatic-cancer",
-      "kind": "job",
-      "source": "jobsac-gis",
-      "source_name": "jobs.ac.uk: GIS",
-      "published": null,
-      "summary": "University of Exeter. GIS GIS",
-      "deadline": "2026-12-08T23:59:59.000Z",
-      "location": "Exeter",
-      "matched": [
-        "GIS"
-      ],
-      "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "cde00011bbd8320d",
-      "title": "PhD Studentship: AI Optimisation of Green Roofs and Facades for Low-Carbon, Heat-Resilient Buildings",
-      "url": "https://www.jobs.ac.uk/job/DTH043/phd-studentship-ai-optimisation-of-green-roofs-and-facades-for-low-carbon-heat-resilient-buildings",
-      "kind": "job",
-      "source": "jobsac-gis",
-      "source_name": "jobs.ac.uk: GIS",
-      "published": null,
-      "summary": "University of West London. GIS geospatial",
-      "deadline": "2027-01-25T23:59:59.000Z",
-      "location": "London",
-      "matched": [
-        "geospatial",
-        "GIS"
-      ],
-      "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "ed81ad5c57d46f6b",
-      "title": "Associate Lecturer in Geographic Data Science",
-      "url": "https://www.jobs.ac.uk/job/DTJ141/associate-lecturer-in-geographic-data-science",
-      "kind": "job",
-      "source": "jobsac-gis",
-      "source_name": "jobs.ac.uk: GIS",
-      "published": null,
-      "summary": "Birkbeck, University of London. GIS remote sensing, GIS",
-      "deadline": "2026-11-01T23:59:59.000Z",
-      "location": "London",
-      "matched": [
-        "remote sensing",
-        "GIS"
-      ],
-      "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "8f1f5483b5845d64",
@@ -4446,7 +2051,25 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
+    },
+    {
+      "id": "cde00011bbd8320d",
+      "title": "PhD Studentship: AI Optimisation of Green Roofs and Facades for Low-Carbon, Heat-Resilient Buildings",
+      "url": "https://www.jobs.ac.uk/job/DTH043/phd-studentship-ai-optimisation-of-green-roofs-and-facades-for-low-carbon-heat-resilient-buildings",
+      "kind": "job",
+      "source": "jobsac-remote-sensing",
+      "source_name": "jobs.ac.uk: remote sensing",
+      "published": null,
+      "summary": "University of West London. remote sensing geospatial",
+      "deadline": "2027-01-25T23:59:59.000Z",
+      "location": "London",
+      "matched": [
+        "remote sensing",
+        "geospatial"
+      ],
+      "first_seen": "2026-10-29T18:56:07.685Z",
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "4176dad734180f16",
@@ -4464,7 +2087,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "0d90dd299bc23dd4",
@@ -4481,7 +2104,60 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
+    },
+    {
+      "id": "ed81ad5c57d46f6b",
+      "title": "Associate Lecturer in Geographic Data Science",
+      "url": "https://www.jobs.ac.uk/job/DTJ141/associate-lecturer-in-geographic-data-science",
+      "kind": "job",
+      "source": "jobsac-remote-sensing",
+      "source_name": "jobs.ac.uk: remote sensing",
+      "published": null,
+      "summary": "Birkbeck, University of London. remote sensing remote sensing, GIS",
+      "deadline": "2026-11-01T23:59:59.000Z",
+      "location": "London",
+      "matched": [
+        "remote sensing",
+        "GIS"
+      ],
+      "first_seen": "2026-10-29T18:56:07.685Z",
+      "last_seen": "2026-10-30T00:49:06.369Z"
+    },
+    {
+      "id": "944e1d4f5a491b43",
+      "title": "Research Associate (Socially Responsible Earth Observation)",
+      "url": "https://www.jobs.ac.uk/job/DTI582/research-associate-socially-responsible-earth-observation",
+      "kind": "job",
+      "source": "jobsac-earth-observation",
+      "source_name": "jobs.ac.uk: earth observation",
+      "published": null,
+      "summary": "The University of Manchester. earth observation",
+      "deadline": "2026-11-08T23:59:59.000Z",
+      "location": "Manchester, Hybrid",
+      "matched": [
+        "earth observation"
+      ],
+      "first_seen": "2026-10-29T18:56:07.685Z",
+      "last_seen": "2026-10-30T00:49:06.369Z"
+    },
+    {
+      "id": "50985f99b904f4c9",
+      "title": "Research Leader - Landscape Ecology and Ecosystem Science",
+      "url": "https://www.jobs.ac.uk/job/DTE729/research-leader-landscape-ecology-and-ecosystem-science",
+      "kind": "job",
+      "source": "jobsac-earth-observation",
+      "source_name": "jobs.ac.uk: earth observation",
+      "published": null,
+      "summary": "Royal Botanic Gardens, Kew. earth observation geospatial, earth observation",
+      "deadline": "2026-11-01T23:59:59.000Z",
+      "location": "Kew Wakehurst",
+      "matched": [
+        "geospatial",
+        "earth observation"
+      ],
+      "first_seen": "2026-10-29T18:56:07.685Z",
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "2bd7a6eadbc26756",
@@ -4498,7 +2174,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "46fbf07b97301623",
@@ -4516,7 +2192,7 @@
         "multispectral"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "ea01c23534de41e3",
@@ -4533,7 +2209,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "7d2c947a752105d8",
@@ -4550,59 +2226,24 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
-      "id": "50985f99b904f4c9",
-      "title": "Research Leader - Landscape Ecology and Ecosystem Science",
-      "url": "https://www.jobs.ac.uk/job/DTE729/research-leader-landscape-ecology-and-ecosystem-science",
+      "id": "aff4aadb279cfbcc",
+      "title": "PhD Studentship: Next-generation machine learning for genetic interaction prediction with lab-in the-loop validation in pancreatic cancer",
+      "url": "https://www.jobs.ac.uk/job/DTL177/phd-studentship-next-generation-machine-learning-for-genetic-interaction-prediction-with-lab-in-the-loop-validation-in-pancreatic-cancer",
       "kind": "job",
-      "source": "jobsac-geospatial",
-      "source_name": "jobs.ac.uk: geospatial",
+      "source": "jobsac-gis",
+      "source_name": "jobs.ac.uk: GIS",
       "published": null,
-      "summary": "Royal Botanic Gardens, Kew. geospatial geospatial, earth observation",
-      "deadline": "2026-11-01T23:59:59.000Z",
-      "location": "Kew Wakehurst",
+      "summary": "University of Exeter. GIS GIS",
+      "deadline": "2026-12-08T23:59:59.000Z",
+      "location": "Exeter",
       "matched": [
-        "geospatial",
-        "earth observation"
+        "GIS"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "cb18bf86e5b61506",
-      "title": "PhD Studentship: Marie Sklodowska-Curie Actions Doctoral Network BlueOcean",
-      "url": "https://www.jobs.ac.uk/job/DTE958/phd-studentship-marie-sklodowska-curie-actions-doctoral-network-blueocean",
-      "kind": "job",
-      "source": "jobsac-gnss",
-      "source_name": "jobs.ac.uk: GNSS",
-      "published": null,
-      "summary": "University of Southampton. GNSS GNSS",
-      "deadline": "2026-11-04T23:59:59.000Z",
-      "location": "Southampton",
-      "matched": [
-        "GNSS"
-      ],
-      "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "944e1d4f5a491b43",
-      "title": "Research Associate (Socially Responsible Earth Observation)",
-      "url": "https://www.jobs.ac.uk/job/DTI582/research-associate-socially-responsible-earth-observation",
-      "kind": "job",
-      "source": "jobsac-earth-observation",
-      "source_name": "jobs.ac.uk: earth observation",
-      "published": null,
-      "summary": "The University of Manchester. earth observation",
-      "deadline": "2026-11-08T23:59:59.000Z",
-      "location": "Manchester, Hybrid",
-      "matched": [
-        "earth observation"
-      ],
-      "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "0a9a629f7a24d74d",
@@ -4619,7 +2260,24 @@
         "InSAR"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
+    },
+    {
+      "id": "cb18bf86e5b61506",
+      "title": "PhD Studentship: Marie Sklodowska-Curie Actions Doctoral Network BlueOcean",
+      "url": "https://www.jobs.ac.uk/job/DTE958/phd-studentship-marie-sklodowska-curie-actions-doctoral-network-blueocean",
+      "kind": "job",
+      "source": "jobsac-gnss",
+      "source_name": "jobs.ac.uk: GNSS",
+      "published": null,
+      "summary": "University of Southampton. GNSS GNSS",
+      "deadline": "2026-11-04T23:59:59.000Z",
+      "location": "Southampton",
+      "matched": [
+        "GNSS"
+      ],
+      "first_seen": "2026-10-29T18:56:07.685Z",
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "12297e8de28b2b0b",
@@ -4636,25 +2294,7 @@
         "geomatics"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "892cd4dc077a5e3f",
-      "title": "MSc Geodesy and Geoinformation, TU Munich",
-      "url": "https://www.ed.tum.de/en/ed/studies/degree-programs/geodesy-and-geoinformation-m-sc/",
-      "kind": "course",
-      "source": "tum-geodesy-msc",
-      "source_name": "TUM: Geodesy and Geoinformation (MSc)",
-      "published": null,
-      "summary": "geodesy geoinformation",
-      "deadline": "2026-11-15T23:59:59.000Z",
-      "location": "Munich, Germany",
-      "matched": [
-        "geoinformation",
-        "geodesy"
-      ],
-      "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "cd547b75999045f8",
@@ -4673,24 +2313,26 @@
         "geomatics"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
-      "id": "fac3f0bb41de634f",
-      "title": "MSc Geoinformatics, Aalto University",
-      "url": "https://www.aalto.fi/en/programmes/masters-programme-in-geoinformatics",
+      "id": "892cd4dc077a5e3f",
+      "title": "MSc Geodesy and Geoinformation, TU Munich",
+      "url": "https://www.ed.tum.de/en/ed/studies/degree-programs/geodesy-and-geoinformation-m-sc/",
       "kind": "course",
-      "source": "aalto-geoinfo-msc",
-      "source_name": "Aalto: Geoinformatics (MSc)",
+      "source": "tum-geodesy-msc",
+      "source_name": "TUM: Geodesy and Geoinformation (MSc)",
       "published": null,
-      "summary": "Programme pages for students geoinformatics",
-      "deadline": null,
-      "location": "Espoo, Finland",
+      "summary": "geodesy geoinformation",
+      "deadline": "2026-11-15T23:59:59.000Z",
+      "location": "Munich, Germany",
       "matched": [
-        "geoinformatics"
+        "geoinformation",
+        "geodesy"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "b92d96690763671d",
@@ -4709,7 +2351,25 @@
         "geodetic"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
+    },
+    {
+      "id": "fac3f0bb41de634f",
+      "title": "MSc Geoinformatics, Aalto University",
+      "url": "https://www.aalto.fi/en/programmes/masters-programme-in-geoinformatics",
+      "kind": "course",
+      "source": "aalto-geoinfo-msc",
+      "source_name": "Aalto: Geoinformatics (MSc)",
+      "published": null,
+      "summary": "Programme pages for students geoinformatics",
+      "deadline": null,
+      "location": "Espoo, Finland",
+      "matched": [
+        "geoinformatics"
+      ],
+      "first_seen": "2026-10-29T18:56:07.685Z",
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "bd044a0c91931eaf",
@@ -4727,7 +2387,7 @@
         "geodesy"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "994ed6fb91ba7db9",
@@ -4745,7 +2405,7 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 58,
@@ -4757,8 +2417,8 @@
       "title": "Monitoring and forecasting groundwater storage dynamics in arid Wadi systems using GRACE/GRACE-FO satellite observations and XGBoost machine learning: Wadi El-Assiuti, Egypt (2003–2030)",
       "url": "https://doi.org/10.1038/s41598-026-70664-6",
       "kind": "paper",
-      "source": "openalex-insar",
-      "source_name": "OpenAlex: InSAR",
+      "source": "openalex-geoai",
+      "source_name": "OpenAlex: GeoAI / geoinformatics",
       "published": "2026-10-04T00:00:00.000Z",
       "summary": "groundwater depletion, groundwater storage anomalies, agricultural expansion, GRACE/GRACE-FO, terrestrial water storage anomalies, soil moisture, land use change, groundwater monitoring, water security, data-scarce regions, Wadi, Groundwater, Environmental science, Hydrology (agriculture), Arid, Aqu",
       "deadline": null,
@@ -4767,7 +2427,7 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T16:56:55.674Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 47,
@@ -4789,7 +2449,7 @@
         "UAV"
       ],
       "first_seen": "2026-10-29T16:56:55.674Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 40,
@@ -4813,7 +2473,29 @@
         "point cloud"
       ],
       "first_seen": "2026-10-29T16:56:55.674Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
+    },
+    {
+      "impact": 48,
+      "top_venue": false,
+      "cited_by": 1,
+      "fwci": 3,
+      "venue": "The international archives of the photogrammetry, remote sensing and spatial information sciences/International archives of the photogrammetry, remote sensing and spatial information sciences",
+      "id": "f14567259f6148db",
+      "title": "Data-Centric Solutions – A Case Study for Road Data Based on Knowledge Graphs",
+      "url": "https://doi.org/10.5194/isprs-archives-l-4-w2-2026-147-2026",
+      "kind": "paper",
+      "source": "openalex-citygml-bim",
+      "source_name": "OpenAlex: CityGML / BIM",
+      "published": "2026-09-28T00:00:00.000Z",
+      "summary": "knowledge graphs, data-centric architecture, road maintenance, CityGML, 3D city model, road database, information model, data silos, municipal data management, QGIS, Computer science, Data mining, Graph, Object (grammar), Software, Geographic information system, Data modeling, Information model",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "CityGML"
+      ],
+      "first_seen": "2026-10-29T05:43:44.325Z",
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 94,
@@ -4837,7 +2519,7 @@
         "GNSS"
       ],
       "first_seen": "2026-10-29T05:43:44.325Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 94,
@@ -4862,7 +2544,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T05:43:44.325Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 45,
@@ -4885,7 +2567,7 @@
         "InSAR"
       ],
       "first_seen": "2026-10-29T05:43:44.325Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 45,
@@ -4907,7 +2589,7 @@
         "InSAR"
       ],
       "first_seen": "2026-10-29T05:43:44.325Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 48,
@@ -4932,7 +2614,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T05:43:44.325Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 54,
@@ -4954,7 +2636,7 @@
         "InSAR"
       ],
       "first_seen": "2026-10-29T05:43:44.325Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 54,
@@ -4977,7 +2659,7 @@
         "InSAR"
       ],
       "first_seen": "2026-10-29T05:43:44.325Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 40,
@@ -5002,7 +2684,7 @@
         "Sentinel-1"
       ],
       "first_seen": "2026-10-29T05:43:44.325Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 48,
@@ -5030,7 +2712,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T05:43:44.325Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 32,
@@ -5052,7 +2734,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T05:43:44.325Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 54,
@@ -5075,7 +2757,7 @@
         "GeoAI"
       ],
       "first_seen": "2026-10-29T05:43:44.325Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 42,
@@ -5098,29 +2780,7 @@
         "UAV"
       ],
       "first_seen": "2026-10-29T05:43:44.325Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "impact": 48,
-      "top_venue": false,
-      "cited_by": 1,
-      "fwci": 3,
-      "venue": "The international archives of the photogrammetry, remote sensing and spatial information sciences/International archives of the photogrammetry, remote sensing and spatial information sciences",
-      "id": "f14567259f6148db",
-      "title": "Data-Centric Solutions – A Case Study for Road Data Based on Knowledge Graphs",
-      "url": "https://doi.org/10.5194/isprs-archives-l-4-w2-2026-147-2026",
-      "kind": "paper",
-      "source": "openalex-photogrammetry",
-      "source_name": "OpenAlex: photogrammetry",
-      "published": "2026-09-28T00:00:00.000Z",
-      "summary": "knowledge graphs, data-centric architecture, road maintenance, CityGML, 3D city model, road database, information model, data silos, municipal data management, QGIS, Computer science, Data mining, Graph, Object (grammar), Software, Geographic information system, Data modeling, Information model",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "CityGML"
-      ],
-      "first_seen": "2026-10-29T05:43:44.325Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 52,
@@ -5145,7 +2805,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T05:43:44.325Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 47,
@@ -5167,7 +2827,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T05:43:44.325Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 52,
@@ -5190,7 +2850,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T05:43:44.325Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 41,
@@ -5212,7 +2872,7 @@
         "Earth system"
       ],
       "first_seen": "2026-10-29T05:43:44.325Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 52,
@@ -5234,7 +2894,7 @@
         "Sentinel-2"
       ],
       "first_seen": "2026-10-29T05:43:44.325Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 48,
@@ -5257,147 +2917,7 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T05:43:44.325Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "impact": 41,
-      "top_venue": false,
-      "cited_by": 1,
-      "fwci": 2.1,
-      "venue": "Earth Science Informatics",
-      "id": "5f1064a61548e0ea",
-      "title": "GEDIMetrics: a QGIS plugin for accessing and integrating multi-product GEDI spaceborne LiDAR data",
-      "url": "https://doi.org/10.1007/s12145-026-02254-z",
-      "kind": "paper",
-      "source": "openalex-insar",
-      "source_name": "OpenAlex: InSAR",
-      "published": "2026-10-08T00:00:00.000Z",
-      "summary": "GEDI, spaceborne lidar, QGIS plugin, forest vertical structure, canopy height, aboveground biomass density, open source software, temperate mixed forest, tropical rainforest, Plug-in, Computer science, Remote sensing, Database, Workflow, Lidar, Data quality, Data integration",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "remote sensing",
-        "LiDAR"
-      ],
-      "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "impact": 45,
-      "top_venue": false,
-      "cited_by": 1,
-      "fwci": 2.6,
-      "venue": "Water Resources Research",
-      "id": "5f9ffdbc01718ed5",
-      "title": "Interferometric Synthetic Aperture Radar (InSAR) for Monitoring Seasonal Snow",
-      "url": "https://doi.org/10.1029/2025wr042866",
-      "kind": "paper",
-      "source": "openalex-insar",
-      "source_name": "OpenAlex: InSAR",
-      "published": "2026-09-01T00:00:00.000Z",
-      "summary": "interferometric synthetic aperture radar, seasonal snow, snow water equivalent, snow depth, snow monitoring, NISAR, L-band radar, phase unwrapping, ionospheric and tropospheric delays, dry snow, snow accumulation and ablation, forest canopy effects, snow observation, river basin hydrology, Snow, Int",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "remote sensing",
-        "InSAR"
-      ],
-      "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "impact": 102,
-      "top_venue": true,
-      "cited_by": 3,
-      "fwci": 8.6,
-      "venue": "The Photogrammetric Record",
-      "id": "109a22923f6b9289",
-      "title": "Towards Vision‐Language Geo‐Foundation Models: A Survey",
-      "url": "https://doi.org/10.1111/phor.70066",
-      "kind": "paper",
-      "source": "openalex-photogrammetry",
-      "source_name": "OpenAlex: photogrammetry",
-      "published": "2026-09-28T00:00:00.000Z",
-      "summary": "vision-language foundation models, geospatial foundation models, Earth observation, remote sensing, image-text retrieval, visual grounding, visual question answering, image captioning, model architecture, Geospatial analysis, Data science, Leverage (statistics), Computer science, Tracing, Empirical ",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "remote sensing",
-        "geospatial",
-        "earth observation"
-      ],
-      "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "impact": 58,
-      "top_venue": false,
-      "cited_by": 2,
-      "fwci": 7,
-      "venue": "Biogeosciences",
-      "id": "e48e458ca683d37b",
-      "title": "Tracking crop evapotranspiration and water stress across seasons using multi-sensor UAV observations",
-      "url": "https://doi.org/10.5194/bg-23-7253-2026",
-      "kind": "paper",
-      "source": "openalex-photogrammetry",
-      "source_name": "OpenAlex: photogrammetry",
-      "published": "2026-10-16T00:00:00.000Z",
-      "summary": "crop evapotranspiration, crop water stress, UAV remote sensing, thermal radiation, very high resolution imagery, crop water use, Environmental science, Evapotranspiration, Remote sensing, Water stress, Crop, Hydrology (agriculture), Irrigation, Crop yield",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "remote sensing",
-        "UAV"
-      ],
-      "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "impact": 48,
-      "top_venue": false,
-      "cited_by": 1,
-      "fwci": 3,
-      "venue": "GIScience & Remote Sensing",
-      "id": "9ffab245c80e1cff",
-      "title": "SAMWater: a prompt-guided multimodal framework for transferable water mapping with the segment anything model",
-      "url": "https://doi.org/10.1080/15481603.2026.2745243",
-      "kind": "paper",
-      "source": "openalex-photogrammetry",
-      "source_name": "OpenAlex: photogrammetry",
-      "published": "2026-10-09T00:00:00.000Z",
-      "summary": "water body mapping, Segment Anything Model, multimodal segmentation, water body detection, image segmentation, Computer science, Remote sensing, Geography, Field (mathematics), Cartography, Artificial intelligence, Data mining, Visualization",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "remote sensing",
-        "cartography",
-        "mapping"
-      ],
-      "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "impact": 52,
-      "top_venue": false,
-      "cited_by": 1,
-      "fwci": 3.5,
-      "venue": "Frontiers in Earth Science",
-      "id": "353512d6a2db1f4b",
-      "title": "Multi-source remote sensing approach for monitoring the Caspian Sea shoreline dynamics",
-      "url": "https://doi.org/10.3389/feart.2026.1918346",
-      "kind": "paper",
-      "source": "openalex-photogrammetry",
-      "source_name": "OpenAlex: photogrammetry",
-      "published": "2026-09-29T00:00:00.000Z",
-      "summary": "Caspian Sea, shoreline change, sea-level fall, shoreline retreat, multi-source satellite imagery, PlanetScope imagery, MNDWI, coastal monitoring, Digital Shoreline Analysis System, Shore, Remote sensing, Satellite, Geology, Environmental science, Altimeter, Transect, Compositing",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "remote sensing",
-        "satellite"
-      ],
-      "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 48,
@@ -5419,7 +2939,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 52,
@@ -5441,7 +2961,7 @@
         "Landsat"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 52,
@@ -5464,7 +2984,7 @@
         "spatial data"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 48,
@@ -5487,7 +3007,100 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
+    },
+    {
+      "impact": 41,
+      "top_venue": false,
+      "cited_by": 1,
+      "fwci": 2.1,
+      "venue": "Earth Science Informatics",
+      "id": "5f1064a61548e0ea",
+      "title": "GEDIMetrics: a QGIS plugin for accessing and integrating multi-product GEDI spaceborne LiDAR data",
+      "url": "https://doi.org/10.1007/s12145-026-02254-z",
+      "kind": "paper",
+      "source": "openalex-insar",
+      "source_name": "OpenAlex: InSAR",
+      "published": "2026-10-08T00:00:00.000Z",
+      "summary": "GEDI, spaceborne lidar, QGIS plugin, forest vertical structure, canopy height, aboveground biomass density, open source software, temperate mixed forest, tropical rainforest, Plug-in, Computer science, Remote sensing, Database, Workflow, Lidar, Data quality, Data integration",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "remote sensing",
+        "LiDAR"
+      ],
+      "first_seen": "2026-10-29T05:42:43.034Z",
+      "last_seen": "2026-10-30T00:49:06.369Z"
+    },
+    {
+      "impact": 45,
+      "top_venue": false,
+      "cited_by": 1,
+      "fwci": 2.6,
+      "venue": "Water Resources Research",
+      "id": "5f9ffdbc01718ed5",
+      "title": "Interferometric Synthetic Aperture Radar (InSAR) for Monitoring Seasonal Snow",
+      "url": "https://doi.org/10.1029/2025wr042866",
+      "kind": "paper",
+      "source": "openalex-insar",
+      "source_name": "OpenAlex: InSAR",
+      "published": "2026-09-01T00:00:00.000Z",
+      "summary": "interferometric synthetic aperture radar, seasonal snow, snow water equivalent, snow depth, snow monitoring, NISAR, L-band radar, phase unwrapping, ionospheric and tropospheric delays, dry snow, snow accumulation and ablation, forest canopy effects, snow observation, river basin hydrology, Snow, Int",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "remote sensing",
+        "InSAR"
+      ],
+      "first_seen": "2026-10-29T05:42:43.034Z",
+      "last_seen": "2026-10-30T00:49:06.369Z"
+    },
+    {
+      "impact": 102,
+      "top_venue": true,
+      "cited_by": 3,
+      "fwci": 8.6,
+      "venue": "The Photogrammetric Record",
+      "id": "109a22923f6b9289",
+      "title": "Towards Vision‐Language Geo‐Foundation Models: A Survey",
+      "url": "https://doi.org/10.1111/phor.70066",
+      "kind": "paper",
+      "source": "openalex-lidar",
+      "source_name": "OpenAlex: LiDAR point cloud",
+      "published": "2026-09-28T00:00:00.000Z",
+      "summary": "vision-language foundation models, geospatial foundation models, Earth observation, remote sensing, image-text retrieval, visual grounding, visual question answering, image captioning, model architecture, Geospatial analysis, Data science, Leverage (statistics), Computer science, Tracing, Empirical ",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "remote sensing",
+        "geospatial",
+        "earth observation"
+      ],
+      "first_seen": "2026-10-29T05:42:43.034Z",
+      "last_seen": "2026-10-30T00:49:06.369Z"
+    },
+    {
+      "impact": 58,
+      "top_venue": false,
+      "cited_by": 2,
+      "fwci": 7,
+      "venue": "Biogeosciences",
+      "id": "e48e458ca683d37b",
+      "title": "Tracking crop evapotranspiration and water stress across seasons using multi-sensor UAV observations",
+      "url": "https://doi.org/10.5194/bg-23-7253-2026",
+      "kind": "paper",
+      "source": "openalex-lidar",
+      "source_name": "OpenAlex: LiDAR point cloud",
+      "published": "2026-10-16T00:00:00.000Z",
+      "summary": "crop evapotranspiration, crop water stress, UAV remote sensing, thermal radiation, very high resolution imagery, crop water use, Environmental science, Evapotranspiration, Remote sensing, Water stress, Crop, Hydrology (agriculture), Irrigation, Crop yield",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "remote sensing",
+        "UAV"
+      ],
+      "first_seen": "2026-10-29T05:42:43.034Z",
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 58,
@@ -5509,7 +3122,7 @@
         "Earth system"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 28,
@@ -5531,7 +3144,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 48,
@@ -5554,7 +3167,7 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 54,
@@ -5576,7 +3189,7 @@
         "LiDAR"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 28,
@@ -5598,7 +3211,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 28,
@@ -5621,7 +3234,7 @@
         "LiDAR"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 48,
@@ -5643,7 +3256,30 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
+    },
+    {
+      "impact": 52,
+      "top_venue": false,
+      "cited_by": 1,
+      "fwci": 3.5,
+      "venue": "Frontiers in Earth Science",
+      "id": "353512d6a2db1f4b",
+      "title": "Multi-source remote sensing approach for monitoring the Caspian Sea shoreline dynamics",
+      "url": "https://doi.org/10.3389/feart.2026.1918346",
+      "kind": "paper",
+      "source": "openalex-lidar",
+      "source_name": "OpenAlex: LiDAR point cloud",
+      "published": "2026-09-29T00:00:00.000Z",
+      "summary": "Caspian Sea, shoreline change, sea-level fall, shoreline retreat, multi-source satellite imagery, PlanetScope imagery, MNDWI, coastal monitoring, Digital Shoreline Analysis System, Shore, Remote sensing, Satellite, Geology, Environmental science, Altimeter, Transect, Compositing",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "remote sensing",
+        "satellite"
+      ],
+      "first_seen": "2026-10-29T05:42:43.034Z",
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 48,
@@ -5665,7 +3301,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 54,
@@ -5689,7 +3325,7 @@
         "UAV"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 48,
@@ -5711,7 +3347,7 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 45,
@@ -5734,7 +3370,7 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 48,
@@ -5756,7 +3392,7 @@
         "LiDAR"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 54,
@@ -5778,7 +3414,7 @@
         "digital twin"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 52,
@@ -5801,7 +3437,7 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 45,
@@ -5823,7 +3459,7 @@
         "GNSS"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 25,
@@ -5845,7 +3481,7 @@
         "LiDAR"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 28,
@@ -5867,7 +3503,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 52,
@@ -5889,7 +3525,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 28,
@@ -5913,7 +3549,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 25,
@@ -5935,7 +3571,7 @@
         "LiDAR"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 92,
@@ -5959,7 +3595,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 25,
@@ -5982,7 +3618,7 @@
         "point cloud"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 34,
@@ -6004,7 +3640,7 @@
         "point cloud"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 40,
@@ -6026,7 +3662,7 @@
         "cartography"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 28,
@@ -6048,7 +3684,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 78,
@@ -6070,7 +3706,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 66,
@@ -6094,7 +3730,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 42,
@@ -6116,7 +3752,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 62,
@@ -6139,7 +3775,7 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 58,
@@ -6161,7 +3797,7 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 98,
@@ -6183,7 +3819,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 58,
@@ -6205,7 +3841,7 @@
         "Landsat"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 58,
@@ -6227,7 +3863,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 58,
@@ -6249,7 +3885,7 @@
         "LiDAR"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 58,
@@ -6271,7 +3907,7 @@
         "UAV"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 28,
@@ -6294,7 +3930,7 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 74,
@@ -6316,7 +3952,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 49,
@@ -6339,7 +3975,7 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 66,
@@ -6361,7 +3997,7 @@
         "geodetic"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 43,
@@ -6383,7 +4019,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 26,
@@ -6405,7 +4041,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 32,
@@ -6427,7 +4063,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 68,
@@ -6449,7 +4085,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 48,
@@ -6472,7 +4108,7 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 67,
@@ -6494,7 +4130,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 46,
@@ -6520,7 +4156,31 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
+    },
+    {
+      "impact": 48,
+      "top_venue": false,
+      "cited_by": 1,
+      "fwci": 3,
+      "venue": "GIScience & Remote Sensing",
+      "id": "9ffab245c80e1cff",
+      "title": "SAMWater: a prompt-guided multimodal framework for transferable water mapping with the segment anything model",
+      "url": "https://doi.org/10.1080/15481603.2026.2745243",
+      "kind": "paper",
+      "source": "openalex-photogrammetry",
+      "source_name": "OpenAlex: photogrammetry",
+      "published": "2026-10-09T00:00:00.000Z",
+      "summary": "water body mapping, Segment Anything Model, multimodal segmentation, water body detection, image segmentation, Computer science, Remote sensing, Geography, Field (mathematics), Cartography, Artificial intelligence, Data mining, Visualization",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "remote sensing",
+        "cartography",
+        "mapping"
+      ],
+      "first_seen": "2026-10-29T05:42:43.034Z",
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 58,
@@ -6629,8 +4289,8 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T04:19:19.776Z",
-      "last_seen": "2026-10-30T00:47:17.268Z",
-      "deadline_checked": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "1e3f3b82b65024d1",
@@ -6647,8 +4307,8 @@
         "GeoAI"
       ],
       "first_seen": "2026-10-29T04:19:19.776Z",
-      "last_seen": "2026-10-30T00:47:17.268Z",
-      "deadline_checked": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "b6a6426da06fb935",
@@ -6665,8 +4325,8 @@
         "GeoAI"
       ],
       "first_seen": "2026-10-29T04:19:19.776Z",
-      "last_seen": "2026-10-30T00:47:17.268Z",
-      "deadline_checked": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "ebd0b344dded331d",
@@ -6683,8 +4343,8 @@
         "geodetic"
       ],
       "first_seen": "2026-10-29T04:19:19.776Z",
-      "last_seen": "2026-10-30T00:47:17.268Z",
-      "deadline_checked": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "6268a46ba2f53c8a",
@@ -6701,8 +4361,8 @@
         "point cloud"
       ],
       "first_seen": "2026-10-29T04:19:19.776Z",
-      "last_seen": "2026-10-30T00:47:17.268Z",
-      "deadline_checked": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "ae2c648270944de1",
@@ -6719,8 +4379,8 @@
         "geomatics"
       ],
       "first_seen": "2026-10-29T04:19:19.776Z",
-      "last_seen": "2026-10-30T00:47:17.268Z",
-      "deadline_checked": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "4927843db256c3e8",
@@ -6738,8 +4398,8 @@
         "geodesy"
       ],
       "first_seen": "2026-10-29T04:19:19.776Z",
-      "last_seen": "2026-10-30T00:47:17.268Z",
-      "deadline_checked": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "a3ef2b385d3719fa",
@@ -6757,8 +4417,8 @@
         "geodesy"
       ],
       "first_seen": "2026-10-29T04:19:19.776Z",
-      "last_seen": "2026-10-30T00:47:17.268Z",
-      "deadline_checked": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "337104e404693ce4",
@@ -6775,8 +4435,8 @@
         "geomatics"
       ],
       "first_seen": "2026-10-29T04:19:19.776Z",
-      "last_seen": "2026-10-30T00:47:17.268Z",
-      "deadline_checked": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "d9043e010239ecfe",
@@ -6793,8 +4453,8 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T04:19:19.776Z",
-      "last_seen": "2026-10-30T00:47:17.268Z",
-      "deadline_checked": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "a66be833ab478efa",
@@ -6811,8 +4471,8 @@
         "geoinformatics"
       ],
       "first_seen": "2026-10-29T04:19:19.776Z",
-      "last_seen": "2026-10-30T00:47:17.268Z",
-      "deadline_checked": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "514511bfb5cc6757",
@@ -6830,8 +4490,8 @@
         "spatial data"
       ],
       "first_seen": "2026-10-29T04:19:19.776Z",
-      "last_seen": "2026-10-30T00:47:17.268Z",
-      "deadline_checked": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "958f34a77b6506ea",
@@ -6848,8 +4508,8 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T04:19:19.776Z",
-      "last_seen": "2026-10-30T00:47:17.268Z",
-      "deadline_checked": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "ce34efc682a336f6",
@@ -6866,8 +4526,8 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T04:13:04.453Z",
-      "last_seen": "2026-10-30T00:47:17.268Z",
-      "deadline_checked": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "45d618b2500ce0d7",
@@ -6884,7 +4544,7 @@
         "GeoAI"
       ],
       "first_seen": "2026-10-29T04:13:04.453Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "f02f8db04338cd21",
@@ -6901,7 +4561,7 @@
         "earth observation"
       ],
       "first_seen": "2026-10-29T04:13:04.453Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "8e908c6174f04113",
@@ -6918,7 +4578,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T04:13:04.453Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "d84c9c35ddcd5726",
@@ -6935,7 +4595,7 @@
         "SAR"
       ],
       "first_seen": "2026-10-29T04:08:43.810Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "62f6b4eeaf05a901",
@@ -6952,7 +4612,7 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T04:08:43.810Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "4c8d8b0b0aa43e7c",
@@ -6969,7 +4629,7 @@
         "multispectral"
       ],
       "first_seen": "2026-10-29T04:08:43.810Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "8e01ba0ea80b56e7",
@@ -6986,7 +4646,7 @@
         "LiDAR"
       ],
       "first_seen": "2026-10-29T04:08:43.810Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "bbc5f0e3b87cd782",
@@ -7004,7 +4664,7 @@
         "earth observation"
       ],
       "first_seen": "2026-10-29T04:08:43.810Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "c07fa44ba97e3cc2",
@@ -7021,7 +4681,7 @@
         "earth observation"
       ],
       "first_seen": "2026-10-29T04:08:43.810Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "8dacbfe3f121216c",
@@ -7040,7 +4700,7 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T04:06:44.492Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "f6da0afec50fe9b5",
@@ -7058,7 +4718,7 @@
         "hyperspectral"
       ],
       "first_seen": "2026-10-29T04:06:44.492Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "ce98ca00ca0fb410",
@@ -7075,7 +4735,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T04:06:44.492Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "1097ac7ea2bdd433",
@@ -7092,7 +4752,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T04:06:44.492Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "a7a43dfbc2126e9d",
@@ -7109,7 +4769,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T04:06:44.492Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "be299c7d3ab959c4",
@@ -7126,8 +4786,8 @@
         "point cloud"
       ],
       "first_seen": "2026-10-29T04:06:44.492Z",
-      "last_seen": "2026-10-30T00:47:17.268Z",
-      "deadline_checked": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "dbc5f9322e86f8c8",
@@ -7144,8 +4804,8 @@
         "Geomatik"
       ],
       "first_seen": "2026-10-29T04:01:30.109Z",
-      "last_seen": "2026-10-30T00:47:17.268Z",
-      "deadline_checked": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "2f1eb20509bef025",
@@ -7162,8 +4822,8 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T04:01:30.109Z",
-      "last_seen": "2026-10-30T00:47:17.268Z",
-      "deadline_checked": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "b1fcd9f7b257d719",
@@ -7181,8 +4841,8 @@
         "hyperspectral"
       ],
       "first_seen": "2026-10-29T04:01:30.109Z",
-      "last_seen": "2026-10-30T00:47:17.268Z",
-      "deadline_checked": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "343fd6657d41eb5e",
@@ -7199,8 +4859,8 @@
         "earth observation"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-30T00:47:17.268Z",
-      "deadline_checked": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 43,
@@ -7224,7 +4884,7 @@
         "point cloud"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "c7e8882b0de54a3f",
@@ -7241,7 +4901,7 @@
         "geoinformation"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "7e177aaf1f357629",
@@ -7258,7 +4918,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "4d815944b42510e6",
@@ -7275,24 +4935,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
-    },
-    {
-      "id": "79f953e581c14c61",
-      "title": "Geospatial Week 2025",
-      "url": "https://gsw2025.ae/",
-      "kind": "news",
-      "source": "isprs-news",
-      "source_name": "ISPRS news",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "geospatial"
-      ],
-      "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "1b11115bfe65805d",
@@ -7309,8 +4952,25 @@
         "geomatics"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-30T00:47:17.268Z",
-      "deadline_checked": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z",
+      "deadline_checked": "2026-10-30T00:49:06.369Z"
+    },
+    {
+      "id": "79f953e581c14c61",
+      "title": "Geospatial Week 2025",
+      "url": "https://gsw2025.ae/",
+      "kind": "news",
+      "source": "isprs-news",
+      "source_name": "ISPRS news",
+      "published": null,
+      "summary": "",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "geospatial"
+      ],
+      "first_seen": "2026-10-29T03:51:19.323Z",
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 28,
@@ -7332,7 +4992,7 @@
         "LiDAR"
       ],
       "first_seen": "2026-10-29T02:30:38.369Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "5de847d39fe1a370",
@@ -7349,7 +5009,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T02:30:38.369Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "f900c5f7dad2b060",
@@ -7366,7 +5026,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T02:30:38.369Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "id": "657136a340d2d1f3",
@@ -7383,7 +5043,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T02:30:38.369Z",
-      "last_seen": "2026-10-30T00:47:17.268Z"
+      "last_seen": "2026-10-30T00:49:06.369Z"
     },
     {
       "impact": 40,
