@@ -13,7 +13,7 @@ jobs:
         with: { node-version: 22 }
       - run: node scripts/dump.mjs
         env:
-          URLS: '["https://www.jobs.ac.uk/job/DTK728/open-rank-faculty-position-in-mechanical-engineering","https://www.jobs.ac.uk/job/DTL075/phd-studentship-advancing-multi-mission-satellite-radar-for-monitoring-permafrost-degradation-and-erosion-in-a-changing-arctic","https://www.jobs.ac.uk/job/DTK878/phd-studentship-overcoming-the-quantification-problem-in-deep-raman-spectroscopy-using-advanced-optical-metrology-and-3d-phantoms","https://www.jobs.ac.uk/job/DTK783/project-archivist-national-soils-map-archive","https://www.jobs.ac.uk/job/DSQ223/klesch-postdoctoral-fellowship-in-history-of-art-and-technology"]'
+          URLS: '["https://www.isprs.org/calendar/", "https://www.isprs.org/news/", "https://www.3dgeoinfo.org/", "https://agile-online.org/", "https://www.intergeo.de/en", "https://www.rspsoc.org.uk/events", "https://www.egu.eu/meetings/", "https://www.dgpf.de/"]'
       - name: Commit output
         if: always()
         run: |
