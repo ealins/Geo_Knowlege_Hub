@@ -884,7 +884,8 @@
       "type": "euraxess",
       "kind": "job",
       "tag": "photogrammetry",
-      "enabled": true
+      "enabled": false,
+      "note": "EURAXESS returns 403 to GitHub runners; disabled, not circumvented"
     },
     {
       "id": "euraxess-remote-sensing",
@@ -893,7 +894,8 @@
       "type": "euraxess",
       "kind": "job",
       "tag": "remote sensing",
-      "enabled": true
+      "enabled": false,
+      "note": "EURAXESS returns 403 to GitHub runners; disabled, not circumvented"
     },
     {
       "id": "euraxess-geoinformatics",
@@ -902,7 +904,8 @@
       "type": "euraxess",
       "kind": "job",
       "tag": "geoinformatics",
-      "enabled": true
+      "enabled": false,
+      "note": "EURAXESS returns 403 to GitHub runners; disabled, not circumvented"
     },
     {
       "id": "euraxess-geodesy",
@@ -911,7 +914,8 @@
       "type": "euraxess",
       "kind": "job",
       "tag": "geodesy",
-      "enabled": true
+      "enabled": false,
+      "note": "EURAXESS returns 403 to GitHub runners; disabled, not circumvented"
     },
     {
       "id": "euraxess-lidar",
@@ -920,7 +924,8 @@
       "type": "euraxess",
       "kind": "job",
       "tag": "LiDAR",
-      "enabled": true
+      "enabled": false,
+      "note": "EURAXESS returns 403 to GitHub runners; disabled, not circumvented"
     },
     {
       "id": "euraxess-insar",
@@ -929,7 +934,8 @@
       "type": "euraxess",
       "kind": "job",
       "tag": "InSAR",
-      "enabled": true
+      "enabled": false,
+      "note": "EURAXESS returns 403 to GitHub runners; disabled, not circumvented"
     },
     {
       "id": "euraxess-gis",
@@ -938,7 +944,8 @@
       "type": "euraxess",
       "kind": "job",
       "tag": "GIS",
-      "enabled": true
+      "enabled": false,
+      "note": "EURAXESS returns 403 to GitHub runners; disabled, not circumvented"
     },
     {
       "id": "euraxess-earth-observation",
@@ -947,7 +954,8 @@
       "type": "euraxess",
       "kind": "job",
       "tag": "earth observation",
-      "enabled": true
+      "enabled": false,
+      "note": "EURAXESS returns 403 to GitHub runners; disabled, not circumvented"
     },
     {
       "id": "euraxess-geomatics",
@@ -956,7 +964,8 @@
       "type": "euraxess",
       "kind": "job",
       "tag": "geomatics",
-      "enabled": true
+      "enabled": false,
+      "note": "EURAXESS returns 403 to GitHub runners; disabled, not circumvented"
     },
     {
       "id": "euraxess-point-cloud",
@@ -965,7 +974,8 @@
       "type": "euraxess",
       "kind": "job",
       "tag": "point cloud",
-      "enabled": true
+      "enabled": false,
+      "note": "EURAXESS returns 403 to GitHub runners; disabled, not circumvented"
     },
     {
       "id": "euraxess-gnss",
@@ -974,7 +984,8 @@
       "type": "euraxess",
       "kind": "job",
       "tag": "GNSS",
-      "enabled": true
+      "enabled": false,
+      "note": "EURAXESS returns 403 to GitHub runners; disabled, not circumvented"
     },
     {
       "id": "euraxess-hyperspectral",
@@ -983,7 +994,8 @@
       "type": "euraxess",
       "kind": "job",
       "tag": "hyperspectral",
-      "enabled": true
+      "enabled": false,
+      "note": "EURAXESS returns 403 to GitHub runners; disabled, not circumvented"
     }
   ]
 }
