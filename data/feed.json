@@ -1,102 +1,12 @@
 {
-  "generated_at": "2026-10-30T03:51:07.598Z",
+  "generated_at": "2026-10-30T05:26:00.397Z",
   "retain_days": 45,
   "count": 245,
   "items": [
     {
-      "id": "b6a6426da06fb935",
-      "title": "EuroSDR GeoAI SIG | 2nd Workshop: Learning by Sharing: The European Model Catalogue & LLMs in Action",
-      "url": "https://www.eurosdr.net/workshops/eurosdr-geoai-sig-2nd-workshop-learning-sharing-european-model-catalogue-llms-action",
-      "kind": "event",
-      "source": "eurosdr-workshops",
-      "source_name": "EuroSDR workshops",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "GeoAI"
-      ],
-      "first_seen": "2026-10-30T03:51:07.598Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
-    },
-    {
-      "id": "ebd0b344dded331d",
-      "title": "EuroSDR Webinar – Securing Critical Geo and Geodetic Expertise in Europe",
-      "url": "https://www.eurosdr.net/workshops/eurosdr-webinar-%E2%80%93-securing-critical-geo-and-geodetic-expertise-europe",
-      "kind": "event",
-      "source": "eurosdr-workshops",
-      "source_name": "EuroSDR workshops",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "geodetic"
-      ],
-      "first_seen": "2026-10-30T03:51:07.598Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
-    },
-    {
-      "id": "a3c170588ab78a98",
-      "title": "EuroSDR Workshop | Addressing Key Challenges for NMCAs and 3D: From Wish List to Practice",
-      "url": "https://www.eurosdr.net/workshops/eurosdr-workshop-addressing-key-challenges-nmcas-and-3d-wish-list-practice",
-      "kind": "event",
-      "source": "eurosdr-workshops",
-      "source_name": "EuroSDR workshops",
-      "published": null,
-      "summary": "",
-      "deadline": "2026-12-04T23:59:59.000Z",
-      "location": null,
-      "matched": [
-        "EuroSDR"
-      ],
-      "first_seen": "2026-10-30T03:51:07.598Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
-    },
-    {
-      "id": "6268a46ba2f53c8a",
-      "title": "5th International Workshop on Point Cloud Processing",
-      "url": "https://www.eurosdr.net/workshops/5th-international-workshop-point-cloud-processing",
-      "kind": "event",
-      "source": "eurosdr-workshops",
-      "source_name": "EuroSDR workshops",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "point cloud"
-      ],
-      "first_seen": "2026-10-30T03:51:07.598Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
-    },
-    {
-      "id": "bd51f81f9745362e",
-      "title": "EuroSDR workshop | Towards a Digital Commons for Education about Land and Its Transformation",
-      "url": "https://www.eurosdr.net/workshops/eurosdr-workshop-towards-digital-commons-education-about-land-and-its-transformation",
-      "kind": "event",
-      "source": "eurosdr-workshops",
-      "source_name": "EuroSDR workshops",
-      "published": null,
-      "summary": "",
-      "deadline": "2026-12-04T23:59:59.000Z",
-      "location": null,
-      "matched": [
-        "EuroSDR"
-      ],
-      "first_seen": "2026-10-30T03:51:07.598Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
-    },
-    {
-      "id": "7aed83a1fec1b1d3",
-      "title": "Geo-information Science and Earth Observation Double degree Master's with Chang'an University, China",
-      "url": "https://www.utwente.nl/en/education/master/programmes/geo-information-science-earth-observation/cau-china/",
+      "id": "ab4c69c33735e5cb",
+      "title": "Geo-information Science and Earth Observation Double degree Master's with Capital Normal University, China",
+      "url": "https://www.utwente.nl/en/education/master/programmes/geo-information-science-earth-observation/cnu-china/",
       "kind": "course",
       "source": "discovered-programmes",
       "source_name": "University departments (auto-discovered)",
@@ -107,27 +17,122 @@
       "matched": [
         "earth observation"
       ],
-      "first_seen": "2026-10-30T03:51:07.598Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
+      "first_seen": "2026-10-30T05:26:00.397Z",
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
     },
     {
-      "id": "d1f67afdf63d896a",
-      "title": "Geographical Information Sciences (UNIGIS)",
-      "url": "https://vu.nl/nl/onderwijs/master/geographical-information-sciences",
+      "id": "3acaf7ff7851cb43",
+      "title": "Geographical Information Sciences",
+      "url": "https://vu.nl/nl/onderwijs/professionals/cursussen-opleidingen/master-geographical-information-sciences",
       "kind": "course",
       "source": "discovered-programmes",
       "source_name": "University departments (auto-discovered)",
       "published": null,
-      "summary": "Met de parttime driejarige online Master MSc Geographical Information Sciences GIS aan VU Amsterdam leer je data uit verschillende bronnen samenbrengen. Vrije Universiteit Amsterdam",
+      "summary": "Wil je ruimtelijke data vertalen naar waardevolle kennis? Ontdek de online Master Geographical Information Sciences (UNIGIS) voor GIS professionals. Vrije Universiteit Amsterdam",
       "deadline": null,
       "location": "Vrije Universiteit Amsterdam, NL",
       "matched": [
         "GIS"
       ],
-      "first_seen": "2026-10-30T03:51:07.598Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
+      "first_seen": "2026-10-30T05:26:00.397Z",
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
+    },
+    {
+      "id": "9f9f4f24b717397e",
+      "title": "EuroSDR GeoAI SIG | 2nd Workshop: Learning by Sharing: The European Model Catalogue & LLMs in Action",
+      "url": "http://www.eurosdr.net/workshops/eurosdr-geoai-sig-2nd-workshop-learning-sharing-european-model-catalogue-llms-action",
+      "kind": "event",
+      "source": "discovered-events",
+      "source_name": "Societies and organisations (auto-discovered)",
+      "published": "2026-11-18T00:00:00.000Z",
+      "summary": "eurosdr.net",
+      "deadline": null,
+      "starts": "2026-11-18T00:00:00.000Z",
+      "ends": "2026-11-20T23:59:59.000Z",
+      "location": "eurosdr.net",
+      "matched": [
+        "GeoAI"
+      ],
+      "first_seen": "2026-10-30T05:26:00.397Z",
+      "last_seen": "2026-10-30T05:26:00.397Z"
+    },
+    {
+      "id": "0359d913d8f10dae",
+      "title": "EuroSDR Webinar – Securing Critical Geo and Geodetic Expertise in Europe",
+      "url": "http://www.eurosdr.net/workshops/eurosdr-webinar-%E2%80%93-securing-critical-geo-and-geodetic-expertise-europe",
+      "kind": "event",
+      "source": "discovered-events",
+      "source_name": "Societies and organisations (auto-discovered)",
+      "published": "2026-12-03T00:00:00.000Z",
+      "summary": "eurosdr.net",
+      "deadline": null,
+      "starts": "2026-12-03T00:00:00.000Z",
+      "ends": "2026-12-03T23:59:59.000Z",
+      "location": "eurosdr.net",
+      "matched": [
+        "geodetic"
+      ],
+      "first_seen": "2026-10-30T05:26:00.397Z",
+      "last_seen": "2026-10-30T05:26:00.397Z"
+    },
+    {
+      "id": "54af16e97be74d5c",
+      "title": "EuroSDR Workshop | Addressing Key Challenges for NMCAs and 3D: From Wish List to Practice",
+      "url": "http://www.eurosdr.net/workshops/eurosdr-workshop-addressing-key-challenges-nmcas-and-3d-wish-list-practice",
+      "kind": "event",
+      "source": "discovered-events",
+      "source_name": "Societies and organisations (auto-discovered)",
+      "published": "2027-01-20T00:00:00.000Z",
+      "summary": "eurosdr.net",
+      "deadline": "2026-12-04T23:59:59.000Z",
+      "starts": "2027-01-20T00:00:00.000Z",
+      "ends": "2027-01-21T23:59:59.000Z",
+      "location": "eurosdr.net",
+      "matched": [
+        "event"
+      ],
+      "first_seen": "2026-10-30T05:26:00.397Z",
+      "last_seen": "2026-10-30T05:26:00.397Z"
+    },
+    {
+      "id": "abb5ef45219063da",
+      "title": "5th International Workshop on Point Cloud Processing",
+      "url": "http://www.eurosdr.net/workshops/5th-international-workshop-point-cloud-processing",
+      "kind": "event",
+      "source": "discovered-events",
+      "source_name": "Societies and organisations (auto-discovered)",
+      "published": "2026-11-01T00:00:00.000Z",
+      "summary": "eurosdr.net",
+      "deadline": null,
+      "starts": "2026-11-01T00:00:00.000Z",
+      "ends": "2026-11-01T23:59:59.000Z",
+      "location": "eurosdr.net",
+      "matched": [
+        "point cloud"
+      ],
+      "first_seen": "2026-10-30T05:26:00.397Z",
+      "last_seen": "2026-10-30T05:26:00.397Z"
+    },
+    {
+      "id": "ec313e7302ca9939",
+      "title": "EuroSDR workshop | Towards a Digital Commons for Education about Land and Its Transformation",
+      "url": "http://www.eurosdr.net/workshops/eurosdr-workshop-towards-digital-commons-education-about-land-and-its-transformation",
+      "kind": "event",
+      "source": "discovered-events",
+      "source_name": "Societies and organisations (auto-discovered)",
+      "published": "2027-02-15T00:00:00.000Z",
+      "summary": "eurosdr.net",
+      "deadline": "2026-12-04T23:59:59.000Z",
+      "starts": "2027-02-15T00:00:00.000Z",
+      "ends": "2027-02-15T23:59:59.000Z",
+      "location": "eurosdr.net",
+      "matched": [
+        "event"
+      ],
+      "first_seen": "2026-10-30T05:26:00.397Z",
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "654d2d43b4dce496",
@@ -146,8 +151,8 @@
         "event"
       ],
       "first_seen": "2026-10-30T03:51:07.598Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "c255828e782a4b29",
@@ -166,7 +171,7 @@
         "event"
       ],
       "first_seen": "2026-10-30T03:51:07.598Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "aeddc535f6e73755",
@@ -185,8 +190,8 @@
         "event"
       ],
       "first_seen": "2026-10-30T01:33:26.991Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "8f3ff4a2623bd782",
@@ -205,8 +210,8 @@
         "geomatics"
       ],
       "first_seen": "2026-10-30T01:33:26.991Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "4bfb79a55dd7f4f3",
@@ -225,8 +230,8 @@
         "event"
       ],
       "first_seen": "2026-10-30T01:33:26.991Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "923efff94b1593b8",
@@ -245,8 +250,8 @@
         "event"
       ],
       "first_seen": "2026-10-30T01:33:26.991Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "b1c098a73282ff60",
@@ -265,8 +270,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-30T01:33:26.991Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "76393e86e17e9721",
@@ -285,8 +289,7 @@
         "event"
       ],
       "first_seen": "2026-10-30T01:33:26.991Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "ff8cc3cde998b8dd",
@@ -305,8 +308,7 @@
         "event"
       ],
       "first_seen": "2026-10-30T01:33:26.991Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "83ad34daa774afad",
@@ -325,7 +327,7 @@
         "event"
       ],
       "first_seen": "2026-10-30T01:33:26.991Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "fa9e75d2286e3c0f",
@@ -344,7 +346,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-30T01:33:26.991Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "open_posting": true,
@@ -362,7 +364,7 @@
         "geodesy"
       ],
       "first_seen": "2026-10-30T01:16:56.695Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "66681e1654302825",
@@ -379,8 +381,8 @@
         "DGPF"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "1e614fbc75cce556",
@@ -397,28 +399,8 @@
         "DGPF"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
-    },
-    {
-      "id": "6fc01db8c23b53f0",
-      "title": "46th EARSeL Symposium and 50th General Assembly",
-      "url": "https://symposium.earsel.org/46th-symposium-Turin/",
-      "kind": "event",
-      "source": "discovered-events",
-      "source_name": "Societies and organisations (auto-discovered)",
-      "published": "2027-06-01T00:00:00.000Z",
-      "summary": "earsel.org",
-      "deadline": null,
-      "starts": "2027-06-01T00:00:00.000Z",
-      "ends": "2027-06-04T23:59:59.000Z",
-      "location": "earsel.org",
-      "matched": [
-        "event"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "930b22487da898a1",
@@ -437,7 +419,8 @@
         "ISPRS"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "ddea71e5e70b48d0",
@@ -456,7 +439,8 @@
         "ISPRS"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "59439f8b561ad6a1",
@@ -475,7 +459,8 @@
         "ISPRS"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "a3699a7a8321f3e9",
@@ -494,7 +479,8 @@
         "ISPRS"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "278b772118b6972e",
@@ -505,7 +491,7 @@
       "source_name": "ISPRS Calendar 2026",
       "published": "2026-11-23T00:00:00.000Z",
       "summary": "The 7th World Landslide Forum",
-      "deadline": null,
+      "deadline": "2026-10-30T23:59:59.000Z",
       "starts": "2026-11-23T00:00:00.000Z",
       "ends": "2026-11-27T00:00:00.000Z",
       "location": "Faridabad India",
@@ -513,7 +499,8 @@
         "ISPRS"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "2954177116f2dae8",
@@ -533,7 +520,8 @@
         "GIS"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "22258047a96815ff",
@@ -544,7 +532,7 @@
       "source_name": "ISPRS Calendar 2026",
       "published": "2026-12-02T00:00:00.000Z",
       "summary": "International multidisciplinary scientific conference",
-      "deadline": null,
+      "deadline": "2026-11-16T23:59:59.000Z",
       "starts": "2026-12-02T00:00:00.000Z",
       "ends": "2026-12-05T00:00:00.000Z",
       "location": "Vienna Austria",
@@ -552,7 +540,8 @@
         "ISPRS"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "d98518d8d810d295",
@@ -563,7 +552,7 @@
       "source_name": "ISPRS Calendar 2026",
       "published": "2026-12-07T00:00:00.000Z",
       "summary": "",
-      "deadline": null,
+      "deadline": "2026-10-30T23:59:59.000Z",
       "starts": "2026-12-07T00:00:00.000Z",
       "ends": "2026-12-08T00:00:00.000Z",
       "location": "Bonn Germany",
@@ -571,7 +560,44 @@
         "ISPRS"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
+    },
+    {
+      "id": "6fc01db8c23b53f0",
+      "title": "46th EARSeL Symposium and 50th General Assembly",
+      "url": "https://symposium.earsel.org/46th-symposium-Turin/",
+      "kind": "event",
+      "source": "discovered-events",
+      "source_name": "Societies and organisations (auto-discovered)",
+      "published": "2027-06-01T00:00:00.000Z",
+      "summary": "earsel.org",
+      "deadline": null,
+      "starts": "2027-06-01T00:00:00.000Z",
+      "ends": "2027-06-04T23:59:59.000Z",
+      "location": "earsel.org",
+      "matched": [
+        "event"
+      ],
+      "first_seen": "2026-10-30T00:47:17.268Z",
+      "last_seen": "2026-10-30T05:26:00.397Z"
+    },
+    {
+      "id": "6a6a557cd6c232e0",
+      "title": "ACM SIGSPATIAL 2026: research papers",
+      "url": "https://sigspatial2026.sigspatial.org/research-submission.html",
+      "kind": "event",
+      "source": "sigspatial2026",
+      "source_name": "ACM SIGSPATIAL 2026",
+      "published": null,
+      "summary": "ACM SIGSPATIAL GIS",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "GIS"
+      ],
+      "first_seen": "2026-10-30T00:47:17.268Z",
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "58eecb359a31123f",
@@ -590,7 +616,7 @@
         "LiDAR"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "15761566e86ca6e8",
@@ -609,7 +635,7 @@
         "point cloud"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "18c6d1459e87b711",
@@ -628,7 +654,7 @@
         "ISPRS"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "f002769ec3554e6d",
@@ -647,7 +673,7 @@
         "photogrammetric"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "729b8dc89e255265",
@@ -666,7 +692,7 @@
         "ISPRS"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "9b84b0a9e4ade38d",
@@ -685,7 +711,7 @@
         "ISPRS"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "dded81b00f74de54",
@@ -704,7 +730,7 @@
         "ISPRS"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "363847c598bb914c",
@@ -723,7 +749,7 @@
         "ISPRS"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "9003567e6bc6398a",
@@ -742,7 +768,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "1fdf8953ca6581a8",
@@ -759,24 +785,7 @@
         "GIS"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
-    },
-    {
-      "id": "6a6a557cd6c232e0",
-      "title": "ACM SIGSPATIAL 2026: research papers",
-      "url": "https://sigspatial2026.sigspatial.org/research-submission.html",
-      "kind": "event",
-      "source": "sigspatial2026",
-      "source_name": "ACM SIGSPATIAL 2026",
-      "published": null,
-      "summary": "ACM SIGSPATIAL GIS",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "GIS"
-      ],
-      "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "adc20e9426673d37",
@@ -794,7 +803,7 @@
         "geodesy"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "38d6d86313a4c95b",
@@ -811,7 +820,7 @@
         "Earth system"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "e6dae5749a8681d2",
@@ -828,7 +837,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-30T00:47:17.268Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "e1ebd227763752a8",
@@ -846,8 +855,8 @@
         "spatial data"
       ],
       "first_seen": "2026-10-29T22:47:38.598Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "08efbcb392ae7e82",
@@ -864,8 +873,8 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T22:47:38.598Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "ee256c39cdbf65f9",
@@ -882,8 +891,8 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:58:37.370Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "ac9dbb729583b7ff",
@@ -900,8 +909,8 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:58:37.370Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "e6dfbd849a36d016",
@@ -918,8 +927,8 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:58:37.370Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "2dee3cb31b9b2b17",
@@ -937,8 +946,8 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:58:37.370Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "33cf28fb6188f51c",
@@ -955,8 +964,8 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:58:37.370Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "345e923d1cbbd5ba",
@@ -973,8 +982,8 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:58:37.370Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "e25bfb61bbae562e",
@@ -991,8 +1000,8 @@
         "geoinformation"
       ],
       "first_seen": "2026-10-29T20:58:37.370Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "3d0d512dbbcbca3c",
@@ -1009,8 +1018,8 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T20:58:37.370Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "bbe9d1df210264fe",
@@ -1027,7 +1036,7 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:58:37.370Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "199ddce1008548bb",
@@ -1044,7 +1053,7 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:58:37.370Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "ca70f7293de937d0",
@@ -1061,8 +1070,8 @@
         "earth observation"
       ],
       "first_seen": "2026-10-29T20:34:23.721Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "4767487f44eb67b2",
@@ -1080,8 +1089,8 @@
         "GeoAI"
       ],
       "first_seen": "2026-10-29T20:34:23.721Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "264f38a788641b82",
@@ -1098,7 +1107,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T20:34:23.721Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "469d93e681df733d",
@@ -1115,8 +1124,8 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:34:23.721Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "5581ab37b729309e",
@@ -1133,8 +1142,8 @@
         "cartography"
       ],
       "first_seen": "2026-10-29T20:34:23.721Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "35213b181cd9a506",
@@ -1151,8 +1160,8 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:34:23.721Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "3246ac10ce22b087",
@@ -1169,8 +1178,8 @@
         "earth observation"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "f5034de4ee1a8b0d",
@@ -1187,8 +1196,8 @@
         "geomatics"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "2f7c6d17bcd0324d",
@@ -1205,8 +1214,8 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "2a4c3abbff3574fc",
@@ -1223,8 +1232,8 @@
         "earth observation"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "c10bce7084060db8",
@@ -1241,8 +1250,8 @@
         "geomatics"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "8a523d21bed9bdf1",
@@ -1259,8 +1268,8 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "288884113b94640f",
@@ -1278,7 +1287,7 @@
         "Geodäsie"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "10743dde5862c986",
@@ -1295,7 +1304,7 @@
         "Geoinformatik"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "3fa916738ead9ce2",
@@ -1313,7 +1322,7 @@
         "geoinformatics"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "d33374c9e8f1266f",
@@ -1331,7 +1340,7 @@
         "cartography"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "411049cee1945e41",
@@ -1348,7 +1357,7 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "e8349083af01789b",
@@ -1365,7 +1374,7 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "0c15130b08f6440a",
@@ -1385,7 +1394,7 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "dafa26edf7de107c",
@@ -1402,8 +1411,8 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "5bdabf501dfe4613",
@@ -1420,8 +1429,8 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "120a655697ce4ab1",
@@ -1438,8 +1447,8 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "e6e5150a7d2ff872",
@@ -1457,8 +1466,8 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "8ec4f2bec0764ef5",
@@ -1475,8 +1484,8 @@
         "photogrammetry"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "360b1c9e340a33c6",
@@ -1493,7 +1502,7 @@
         "geoinformatics"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "58d886b52ed92748",
@@ -1510,8 +1519,8 @@
         "Geoinformatik"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "f0d9c47ce963d65d",
@@ -1529,8 +1538,8 @@
         "spatial data"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "a931e49fbf255381",
@@ -1547,8 +1556,8 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "6955ae1170bc25cc",
@@ -1565,8 +1574,8 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "8e778132696b0103",
@@ -1583,8 +1592,8 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "ddadcf7cadfe3aaf",
@@ -1601,8 +1610,8 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "24d1bdb1cb72e6e9",
@@ -1619,8 +1628,8 @@
         "geoinformation"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "03fe987cc1713575",
@@ -1637,8 +1646,8 @@
         "cartography"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "ad43287b983553a9",
@@ -1656,8 +1665,8 @@
         "geodesy"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "4bccac543e23b28f",
@@ -1675,7 +1684,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "ec3e01820b98574a",
@@ -1694,7 +1703,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "944c23cc06ad5cfc",
@@ -1711,7 +1720,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "9610df26a438e5e4",
@@ -1730,7 +1739,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "4bef21eb97783e43",
@@ -1751,7 +1760,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "c2cc91bf2f8f4a4e",
@@ -1769,8 +1778,8 @@
         "geoinformation"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "c65ba0228a65244e",
@@ -1787,7 +1796,7 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "08f1cfadf71d3855",
@@ -1804,7 +1813,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "1c5f0ff2c0a8a91a",
@@ -1821,7 +1830,7 @@
         "Geoinformatik"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "054fcc4b3d43d0eb",
@@ -1839,7 +1848,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T20:24:37.392Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "36cb8f4c08cfcdc4",
@@ -1858,26 +1867,60 @@
         "earth observation"
       ],
       "first_seen": "2026-10-29T18:58:52.431Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
-      "id": "4176dad734180f16",
-      "title": "Assistant Professor in Geography",
-      "url": "https://www.jobs.ac.uk/job/DTJ798/assistant-professor-in-geography",
+      "id": "aff4aadb279cfbcc",
+      "title": "PhD Studentship: Next-generation machine learning for genetic interaction prediction with lab-in the-loop validation in pancreatic cancer",
+      "url": "https://www.jobs.ac.uk/job/DTL177/phd-studentship-next-generation-machine-learning-for-genetic-interaction-prediction-with-lab-in-the-loop-validation-in-pancreatic-cancer",
       "kind": "job",
-      "source": "jobsac-geoinformatics",
-      "source_name": "jobs.ac.uk: geoinformatics",
+      "source": "jobsac-gis",
+      "source_name": "jobs.ac.uk: GIS",
       "published": null,
-      "summary": "University of Limerick. geoinformatics geospatial",
-      "deadline": "2026-11-18T23:59:59.000Z",
-      "location": "Limerick",
+      "summary": "University of Exeter. GIS GIS",
+      "deadline": "2026-12-08T23:59:59.000Z",
+      "location": "Exeter",
       "matched": [
-        "geoinformatics",
-        "geospatial"
+        "GIS"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
+    },
+    {
+      "id": "cde00011bbd8320d",
+      "title": "PhD Studentship: AI Optimisation of Green Roofs and Facades for Low-Carbon, Heat-Resilient Buildings",
+      "url": "https://www.jobs.ac.uk/job/DTH043/phd-studentship-ai-optimisation-of-green-roofs-and-facades-for-low-carbon-heat-resilient-buildings",
+      "kind": "job",
+      "source": "jobsac-gis",
+      "source_name": "jobs.ac.uk: GIS",
+      "published": null,
+      "summary": "University of West London. GIS geospatial",
+      "deadline": "2027-01-25T23:59:59.000Z",
+      "location": "London",
+      "matched": [
+        "geospatial",
+        "GIS"
+      ],
+      "first_seen": "2026-10-29T18:56:07.685Z",
+      "last_seen": "2026-10-30T05:26:00.397Z"
+    },
+    {
+      "id": "ed81ad5c57d46f6b",
+      "title": "Associate Lecturer in Geographic Data Science",
+      "url": "https://www.jobs.ac.uk/job/DTJ141/associate-lecturer-in-geographic-data-science",
+      "kind": "job",
+      "source": "jobsac-gis",
+      "source_name": "jobs.ac.uk: GIS",
+      "published": null,
+      "summary": "Birkbeck, University of London. GIS remote sensing, GIS",
+      "deadline": "2026-11-01T23:59:59.000Z",
+      "location": "London",
+      "matched": [
+        "remote sensing",
+        "GIS"
+      ],
+      "first_seen": "2026-10-29T18:56:07.685Z",
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "8f1f5483b5845d64",
@@ -1897,25 +1940,25 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
-      "id": "cde00011bbd8320d",
-      "title": "PhD Studentship: AI Optimisation of Green Roofs and Facades for Low-Carbon, Heat-Resilient Buildings",
-      "url": "https://www.jobs.ac.uk/job/DTH043/phd-studentship-ai-optimisation-of-green-roofs-and-facades-for-low-carbon-heat-resilient-buildings",
+      "id": "4176dad734180f16",
+      "title": "Assistant Professor in Geography",
+      "url": "https://www.jobs.ac.uk/job/DTJ798/assistant-professor-in-geography",
       "kind": "job",
       "source": "jobsac-remote-sensing",
       "source_name": "jobs.ac.uk: remote sensing",
       "published": null,
-      "summary": "University of West London. remote sensing geospatial",
-      "deadline": "2027-01-25T23:59:59.000Z",
-      "location": "London",
+      "summary": "University of Limerick. remote sensing geospatial",
+      "deadline": "2026-11-18T23:59:59.000Z",
+      "location": "Limerick",
       "matched": [
         "remote sensing",
         "geospatial"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "0d90dd299bc23dd4",
@@ -1932,42 +1975,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
-    },
-    {
-      "id": "ed81ad5c57d46f6b",
-      "title": "Associate Lecturer in Geographic Data Science",
-      "url": "https://www.jobs.ac.uk/job/DTJ141/associate-lecturer-in-geographic-data-science",
-      "kind": "job",
-      "source": "jobsac-remote-sensing",
-      "source_name": "jobs.ac.uk: remote sensing",
-      "published": null,
-      "summary": "Birkbeck, University of London. remote sensing remote sensing, GIS",
-      "deadline": "2026-11-01T23:59:59.000Z",
-      "location": "London",
-      "matched": [
-        "remote sensing",
-        "GIS"
-      ],
-      "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
-    },
-    {
-      "id": "aff4aadb279cfbcc",
-      "title": "PhD Studentship: Next-generation machine learning for genetic interaction prediction with lab-in the-loop validation in pancreatic cancer",
-      "url": "https://www.jobs.ac.uk/job/DTL177/phd-studentship-next-generation-machine-learning-for-genetic-interaction-prediction-with-lab-in-the-loop-validation-in-pancreatic-cancer",
-      "kind": "job",
-      "source": "jobsac-gis",
-      "source_name": "jobs.ac.uk: GIS",
-      "published": null,
-      "summary": "University of Exeter. GIS GIS",
-      "deadline": "2026-12-08T23:59:59.000Z",
-      "location": "Exeter",
-      "matched": [
-        "GIS"
-      ],
-      "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "944e1d4f5a491b43",
@@ -1984,7 +1992,7 @@
         "earth observation"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "50985f99b904f4c9",
@@ -2002,7 +2010,7 @@
         "earth observation"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "2bd7a6eadbc26756",
@@ -2019,7 +2027,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "46fbf07b97301623",
@@ -2037,7 +2045,7 @@
         "multispectral"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "ea01c23534de41e3",
@@ -2054,7 +2062,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "7d2c947a752105d8",
@@ -2071,59 +2079,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
-    },
-    {
-      "id": "0a9a629f7a24d74d",
-      "title": "Research Associate in Volcano Deformation Modelling",
-      "url": "https://www.jobs.ac.uk/job/DTI375/research-associate-in-volcano-deformation-modelling",
-      "kind": "job",
-      "source": "jobsac-insar",
-      "source_name": "jobs.ac.uk: InSAR",
-      "published": null,
-      "summary": "University of Bristol. InSAR InSAR",
-      "deadline": "2026-11-02T23:59:59.000Z",
-      "location": "Bristol",
-      "matched": [
-        "InSAR"
-      ],
-      "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
-    },
-    {
-      "id": "12297e8de28b2b0b",
-      "title": "Lecturer in Marine Geomatics",
-      "url": "https://www.jobs.ac.uk/job/DTF390/lecturer-in-marine-geomatics",
-      "kind": "job",
-      "source": "jobsac-geomatics",
-      "source_name": "jobs.ac.uk: geomatics",
-      "published": null,
-      "summary": "Cardiff University. geomatics",
-      "deadline": "2026-11-06T23:59:59.000Z",
-      "location": "Cardiff",
-      "matched": [
-        "geomatics"
-      ],
-      "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
-    },
-    {
-      "id": "892cd4dc077a5e3f",
-      "title": "MSc Geodesy and Geoinformation, TU Munich",
-      "url": "https://www.ed.tum.de/en/ed/studies/degree-programs/geodesy-and-geoinformation-m-sc/",
-      "kind": "course",
-      "source": "tum-geodesy-msc",
-      "source_name": "TUM: Geodesy and Geoinformation (MSc)",
-      "published": null,
-      "summary": "geodesy geoinformation",
-      "deadline": "2026-11-15T23:59:59.000Z",
-      "location": "Munich, Germany",
-      "matched": [
-        "geoinformation",
-        "geodesy"
-      ],
-      "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "cb18bf86e5b61506",
@@ -2140,7 +2096,41 @@
         "GNSS"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
+    },
+    {
+      "id": "12297e8de28b2b0b",
+      "title": "Lecturer in Marine Geomatics",
+      "url": "https://www.jobs.ac.uk/job/DTF390/lecturer-in-marine-geomatics",
+      "kind": "job",
+      "source": "jobsac-geomatics",
+      "source_name": "jobs.ac.uk: geomatics",
+      "published": null,
+      "summary": "Cardiff University. geomatics",
+      "deadline": "2026-11-06T23:59:59.000Z",
+      "location": "Cardiff",
+      "matched": [
+        "geomatics"
+      ],
+      "first_seen": "2026-10-29T18:56:07.685Z",
+      "last_seen": "2026-10-30T05:26:00.397Z"
+    },
+    {
+      "id": "0a9a629f7a24d74d",
+      "title": "Research Associate in Volcano Deformation Modelling",
+      "url": "https://www.jobs.ac.uk/job/DTI375/research-associate-in-volcano-deformation-modelling",
+      "kind": "job",
+      "source": "jobsac-insar",
+      "source_name": "jobs.ac.uk: InSAR",
+      "published": null,
+      "summary": "University of Bristol. InSAR InSAR",
+      "deadline": "2026-11-02T23:59:59.000Z",
+      "location": "Bristol",
+      "matched": [
+        "InSAR"
+      ],
+      "first_seen": "2026-10-29T18:56:07.685Z",
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "cd547b75999045f8",
@@ -2159,8 +2149,26 @@
         "geomatics"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
+    },
+    {
+      "id": "892cd4dc077a5e3f",
+      "title": "MSc Geodesy and Geoinformation, TU Munich",
+      "url": "https://www.ed.tum.de/en/ed/studies/degree-programs/geodesy-and-geoinformation-m-sc/",
+      "kind": "course",
+      "source": "tum-geodesy-msc",
+      "source_name": "TUM: Geodesy and Geoinformation (MSc)",
+      "published": null,
+      "summary": "geodesy geoinformation",
+      "deadline": "2026-11-15T23:59:59.000Z",
+      "location": "Munich, Germany",
+      "matched": [
+        "geoinformation",
+        "geodesy"
+      ],
+      "first_seen": "2026-10-29T18:56:07.685Z",
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "b92d96690763671d",
@@ -2179,7 +2187,7 @@
         "geodetic"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "fac3f0bb41de634f",
@@ -2196,8 +2204,8 @@
         "geoinformatics"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "bd044a0c91931eaf",
@@ -2215,7 +2223,7 @@
         "geodesy"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "994ed6fb91ba7db9",
@@ -2233,7 +2241,29 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T18:56:07.685Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
+    },
+    {
+      "impact": 58,
+      "top_venue": false,
+      "cited_by": 2,
+      "fwci": 7,
+      "venue": "Scientific Reports",
+      "id": "c5eaf32f839b0470",
+      "title": "Monitoring and forecasting groundwater storage dynamics in arid Wadi systems using GRACE/GRACE-FO satellite observations and XGBoost machine learning: Wadi El-Assiuti, Egypt (2003–2030)",
+      "url": "https://doi.org/10.1038/s41598-026-70664-6",
+      "kind": "paper",
+      "source": "openalex-insar",
+      "source_name": "OpenAlex: InSAR",
+      "published": "2026-10-04T00:00:00.000Z",
+      "summary": "groundwater depletion, groundwater storage anomalies, agricultural expansion, GRACE/GRACE-FO, terrestrial water storage anomalies, soil moisture, land use change, groundwater monitoring, water security, data-scarce regions, Wadi, Groundwater, Environmental science, Hydrology (agriculture), Arid, Aqu",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "satellite"
+      ],
+      "first_seen": "2026-10-29T16:56:55.674Z",
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "impact": 47,
@@ -2255,7 +2285,7 @@
         "UAV"
       ],
       "first_seen": "2026-10-29T16:56:55.674Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "impact": 40,
@@ -2279,51 +2309,7 @@
         "point cloud"
       ],
       "first_seen": "2026-10-29T16:56:55.674Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
-    },
-    {
-      "impact": 58,
-      "top_venue": false,
-      "cited_by": 2,
-      "fwci": 7,
-      "venue": "Scientific Reports",
-      "id": "c5eaf32f839b0470",
-      "title": "Monitoring and forecasting groundwater storage dynamics in arid Wadi systems using GRACE/GRACE-FO satellite observations and XGBoost machine learning: Wadi El-Assiuti, Egypt (2003–2030)",
-      "url": "https://doi.org/10.1038/s41598-026-70664-6",
-      "kind": "paper",
-      "source": "openalex-geoai",
-      "source_name": "OpenAlex: GeoAI / geoinformatics",
-      "published": "2026-10-04T00:00:00.000Z",
-      "summary": "groundwater depletion, groundwater storage anomalies, agricultural expansion, GRACE/GRACE-FO, terrestrial water storage anomalies, soil moisture, land use change, groundwater monitoring, water security, data-scarce regions, Wadi, Groundwater, Environmental science, Hydrology (agriculture), Arid, Aqu",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "satellite"
-      ],
-      "first_seen": "2026-10-29T16:56:55.674Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
-    },
-    {
-      "impact": 48,
-      "top_venue": false,
-      "cited_by": 1,
-      "fwci": 3,
-      "venue": "The international archives of the photogrammetry, remote sensing and spatial information sciences/International archives of the photogrammetry, remote sensing and spatial information sciences",
-      "id": "f14567259f6148db",
-      "title": "Data-Centric Solutions – A Case Study for Road Data Based on Knowledge Graphs",
-      "url": "https://doi.org/10.5194/isprs-archives-l-4-w2-2026-147-2026",
-      "kind": "paper",
-      "source": "openalex-citygml-bim",
-      "source_name": "OpenAlex: CityGML / BIM",
-      "published": "2026-09-28T00:00:00.000Z",
-      "summary": "knowledge graphs, data-centric architecture, road maintenance, CityGML, 3D city model, road database, information model, data silos, municipal data management, QGIS, Computer science, Data mining, Graph, Object (grammar), Software, Geographic information system, Data modeling, Information model",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "CityGML"
-      ],
-      "first_seen": "2026-10-29T05:43:44.325Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "impact": 94,
@@ -2347,7 +2333,7 @@
         "GNSS"
       ],
       "first_seen": "2026-10-29T05:43:44.325Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "impact": 94,
@@ -2372,7 +2358,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T05:43:44.325Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "impact": 45,
@@ -2395,7 +2381,7 @@
         "InSAR"
       ],
       "first_seen": "2026-10-29T05:43:44.325Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "impact": 45,
@@ -2417,7 +2403,7 @@
         "InSAR"
       ],
       "first_seen": "2026-10-29T05:43:44.325Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "impact": 48,
@@ -2442,7 +2428,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T05:43:44.325Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "impact": 54,
@@ -2464,7 +2450,7 @@
         "InSAR"
       ],
       "first_seen": "2026-10-29T05:43:44.325Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "impact": 54,
@@ -2487,7 +2473,7 @@
         "InSAR"
       ],
       "first_seen": "2026-10-29T05:43:44.325Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "impact": 40,
@@ -2512,7 +2498,29 @@
         "Sentinel-1"
       ],
       "first_seen": "2026-10-29T05:43:44.325Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
+    },
+    {
+      "impact": 48,
+      "top_venue": false,
+      "cited_by": 1,
+      "fwci": 3,
+      "venue": "The international archives of the photogrammetry, remote sensing and spatial information sciences/International archives of the photogrammetry, remote sensing and spatial information sciences",
+      "id": "f14567259f6148db",
+      "title": "Data-Centric Solutions – A Case Study for Road Data Based on Knowledge Graphs",
+      "url": "https://doi.org/10.5194/isprs-archives-l-4-w2-2026-147-2026",
+      "kind": "paper",
+      "source": "openalex-citygml-bim",
+      "source_name": "OpenAlex: CityGML / BIM",
+      "published": "2026-09-28T00:00:00.000Z",
+      "summary": "knowledge graphs, data-centric architecture, road maintenance, CityGML, 3D city model, road database, information model, data silos, municipal data management, QGIS, Computer science, Data mining, Graph, Object (grammar), Software, Geographic information system, Data modeling, Information model",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "CityGML"
+      ],
+      "first_seen": "2026-10-29T05:43:44.325Z",
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "impact": 48,
@@ -2540,7 +2548,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T05:43:44.325Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "impact": 32,
@@ -2562,7 +2570,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T05:43:44.325Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "impact": 54,
@@ -2585,7 +2593,7 @@
         "GeoAI"
       ],
       "first_seen": "2026-10-29T05:43:44.325Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "impact": 42,
@@ -2608,7 +2616,7 @@
         "UAV"
       ],
       "first_seen": "2026-10-29T05:43:44.325Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "impact": 52,
@@ -2633,7 +2641,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T05:43:44.325Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "impact": 47,
@@ -2655,7 +2663,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T05:43:44.325Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "impact": 52,
@@ -2678,7 +2686,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T05:43:44.325Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "impact": 41,
@@ -2700,7 +2708,7 @@
         "Earth system"
       ],
       "first_seen": "2026-10-29T05:43:44.325Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "impact": 52,
@@ -2722,7 +2730,7 @@
         "Sentinel-2"
       ],
       "first_seen": "2026-10-29T05:43:44.325Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "impact": 48,
@@ -2745,7 +2753,53 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T05:43:44.325Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
+    },
+    {
+      "impact": 41,
+      "top_venue": false,
+      "cited_by": 1,
+      "fwci": 2.1,
+      "venue": "Earth Science Informatics",
+      "id": "5f1064a61548e0ea",
+      "title": "GEDIMetrics: a QGIS plugin for accessing and integrating multi-product GEDI spaceborne LiDAR data",
+      "url": "https://doi.org/10.1007/s12145-026-02254-z",
+      "kind": "paper",
+      "source": "openalex-insar",
+      "source_name": "OpenAlex: InSAR",
+      "published": "2026-10-08T00:00:00.000Z",
+      "summary": "GEDI, spaceborne lidar, QGIS plugin, forest vertical structure, canopy height, aboveground biomass density, open source software, temperate mixed forest, tropical rainforest, Plug-in, Computer science, Remote sensing, Database, Workflow, Lidar, Data quality, Data integration",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "remote sensing",
+        "LiDAR"
+      ],
+      "first_seen": "2026-10-29T05:42:43.034Z",
+      "last_seen": "2026-10-30T05:26:00.397Z"
+    },
+    {
+      "impact": 45,
+      "top_venue": false,
+      "cited_by": 1,
+      "fwci": 2.6,
+      "venue": "Water Resources Research",
+      "id": "5f9ffdbc01718ed5",
+      "title": "Interferometric Synthetic Aperture Radar (InSAR) for Monitoring Seasonal Snow",
+      "url": "https://doi.org/10.1029/2025wr042866",
+      "kind": "paper",
+      "source": "openalex-insar",
+      "source_name": "OpenAlex: InSAR",
+      "published": "2026-09-01T00:00:00.000Z",
+      "summary": "interferometric synthetic aperture radar, seasonal snow, snow water equivalent, snow depth, snow monitoring, NISAR, L-band radar, phase unwrapping, ionospheric and tropospheric delays, dry snow, snow accumulation and ablation, forest canopy effects, snow observation, river basin hydrology, Snow, Int",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "remote sensing",
+        "InSAR"
+      ],
+      "first_seen": "2026-10-29T05:42:43.034Z",
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "impact": 48,
@@ -2768,663 +2822,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
-    },
-    {
-      "impact": 102,
-      "top_venue": true,
-      "cited_by": 3,
-      "fwci": 8.6,
-      "venue": "The Photogrammetric Record",
-      "id": "109a22923f6b9289",
-      "title": "Towards Vision‐Language Geo‐Foundation Models: A Survey",
-      "url": "https://doi.org/10.1111/phor.70066",
-      "kind": "paper",
-      "source": "openalex-lidar",
-      "source_name": "OpenAlex: LiDAR point cloud",
-      "published": "2026-09-28T00:00:00.000Z",
-      "summary": "vision-language foundation models, geospatial foundation models, Earth observation, remote sensing, image-text retrieval, visual grounding, visual question answering, image captioning, model architecture, Geospatial analysis, Data science, Leverage (statistics), Computer science, Tracing, Empirical ",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "remote sensing",
-        "geospatial",
-        "earth observation"
-      ],
-      "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
-    },
-    {
-      "impact": 58,
-      "top_venue": false,
-      "cited_by": 2,
-      "fwci": 7,
-      "venue": "Biogeosciences",
-      "id": "e48e458ca683d37b",
-      "title": "Tracking crop evapotranspiration and water stress across seasons using multi-sensor UAV observations",
-      "url": "https://doi.org/10.5194/bg-23-7253-2026",
-      "kind": "paper",
-      "source": "openalex-lidar",
-      "source_name": "OpenAlex: LiDAR point cloud",
-      "published": "2026-10-16T00:00:00.000Z",
-      "summary": "crop evapotranspiration, crop water stress, UAV remote sensing, thermal radiation, very high resolution imagery, crop water use, Environmental science, Evapotranspiration, Remote sensing, Water stress, Crop, Hydrology (agriculture), Irrigation, Crop yield",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "remote sensing",
-        "UAV"
-      ],
-      "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
-    },
-    {
-      "impact": 58,
-      "top_venue": false,
-      "cited_by": 2,
-      "fwci": 6.1,
-      "venue": "Geoscientific model development",
-      "id": "139601fff67f4a84",
-      "title": "The NASA-GISS ModelE2.1-CC2 ESM: development and evaluation",
-      "url": "https://doi.org/10.5194/gmd-19-9131-2026",
-      "kind": "paper",
-      "source": "openalex-lidar",
-      "source_name": "OpenAlex: LiDAR point cloud",
-      "published": "2026-09-28T00:00:00.000Z",
-      "summary": "Earth system models, carbon cycle, ocean carbon cycle, terrestrial carbon cycle, soil carbon, ocean productivity, iron limitation, photoadaptation, gross primary productivity, CO2 fertilization, soil respiration, model evaluation, model calibration, Environmental science, Carbon cycle, Productivity,",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "Earth system"
-      ],
-      "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
-    },
-    {
-      "impact": 28,
-      "top_venue": false,
-      "cited_by": 1,
-      "fwci": 3,
-      "venue": "Atmospheric measurement techniques",
-      "id": "b29a2125fddd379c",
-      "title": "A hybrid ice hydrometeor retrieval algorithm for submillimeter-wave radiometers in support of the PolSIR and PMM missions",
-      "url": "https://doi.org/10.5194/amt-19-6661-2026",
-      "kind": "paper",
-      "source": "openalex-lidar",
-      "source_name": "OpenAlex: LiDAR point cloud",
-      "published": "2026-10-22T00:00:00.000Z",
-      "summary": "submillimeter-wave radiometry, optimal estimation, ice cloud microphysics, ice particle habits, ice water content, ice water path, particle size distribution, brightness temperature, Remote sensing, A priori and a posteriori, Environmental science, Algorithm, Radiometer, Computer science, Radar, Met",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "remote sensing"
-      ],
-      "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
-    },
-    {
-      "impact": 48,
-      "top_venue": false,
-      "cited_by": 1,
-      "fwci": 3,
-      "venue": "Atmospheric measurement techniques",
-      "id": "8225db3706900041",
-      "title": "Performance validation of the GHGSat methane constellation via controlled releases",
-      "url": "https://doi.org/10.5194/amt-19-6643-2026",
-      "kind": "paper",
-      "source": "openalex-lidar",
-      "source_name": "OpenAlex: LiDAR point cloud",
-      "published": "2026-10-21T00:00:00.000Z",
-      "summary": "GHGSat, methane emissions, controlled release, point source emissions, detection limit, signal-to-noise ratio, emission rate quantification, wind speed effects, bias correction, methane plumes, remote sensing validation, Environmental science, Constellation, Remote sensing, Methane, Probability dens",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "remote sensing",
-        "satellite"
-      ],
-      "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
-    },
-    {
-      "impact": 54,
-      "top_venue": false,
-      "cited_by": 1,
-      "fwci": 18.5,
-      "venue": "Lecture notes in computer science",
-      "id": "a80d882dcf846421",
-      "title": "VLC Fusion: Vision-Language Conditioned Sensor Fusion for Robust Object Detection",
-      "url": "https://doi.org/10.1007/978-3-032-37679-4_4",
-      "kind": "paper",
-      "source": "openalex-lidar",
-      "source_name": "OpenAlex: LiDAR point cloud",
-      "published": "2026-10-17T00:00:00.000Z",
-      "summary": "sensor fusion, object detection, vision-language models, modality weighting, environmental factors, LiDAR, mid-wave infrared, autonomous driving, military target detection, domain adaptation, multimodal fusion, Artificial intelligence, Fusion, Computer vision, Sensor fusion, Modality (human–computer",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "LiDAR"
-      ],
-      "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
-    },
-    {
-      "impact": 28,
-      "top_venue": false,
-      "cited_by": 1,
-      "fwci": 3,
-      "venue": "Atmospheric chemistry and physics",
-      "id": "d825057a7d500c23",
-      "title": "Optical properties and shape-dependent retrievals of the imaginary part of the refractive index of freshly emitted Saharan dust",
-      "url": "https://doi.org/10.5194/acp-26-14531-2026",
-      "kind": "paper",
-      "source": "openalex-lidar",
-      "source_name": "OpenAlex: LiDAR point cloud",
-      "published": "2026-10-14T00:00:00.000Z",
-      "summary": "Saharan dust, particle shape effects, single scattering albedo, mass absorption efficiency, asymmetry parameter, PM2.5, PM10, dust emission, direct radiative effect, Saharan Air Layer, Refractive index, Index (typography), Mineral dust, Materials science, Environmental science, Remote sensing, Optic",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "remote sensing"
-      ],
-      "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
-    },
-    {
-      "impact": 28,
-      "top_venue": false,
-      "cited_by": 1,
-      "fwci": 3,
-      "venue": "Atmospheric chemistry and physics",
-      "id": "925275910e84265c",
-      "title": "Asymptotic behavior of lidar scattering properties of absorbing dust aerosols across Rayleigh and geometrical-optics regimes: theory and implications",
-      "url": "https://doi.org/10.5194/acp-26-14487-2026",
-      "kind": "paper",
-      "source": "openalex-lidar",
-      "source_name": "OpenAlex: LiDAR point cloud",
-      "published": "2026-10-13T00:00:00.000Z",
-      "summary": "dust aerosols, lidar ratio, linear depolarization ratio, single scattering albedo, Rayleigh scattering, geometrical optics, mineral dust, triaxial ellipsoid, particle shape, multiwavelength lidar, Rayleigh scattering, Lidar, Scattering, Physics, Environmental science, Remote sensing, Aerosol, Optics",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "remote sensing",
-        "LiDAR"
-      ],
-      "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
-    },
-    {
-      "impact": 41,
-      "top_venue": false,
-      "cited_by": 1,
-      "fwci": 2.1,
-      "venue": "Earth Science Informatics",
-      "id": "5f1064a61548e0ea",
-      "title": "GEDIMetrics: a QGIS plugin for accessing and integrating multi-product GEDI spaceborne LiDAR data",
-      "url": "https://doi.org/10.1007/s12145-026-02254-z",
-      "kind": "paper",
-      "source": "openalex-lidar",
-      "source_name": "OpenAlex: LiDAR point cloud",
-      "published": "2026-10-08T00:00:00.000Z",
-      "summary": "GEDI, spaceborne lidar, QGIS plugin, forest vertical structure, canopy height, aboveground biomass density, open source software, temperate mixed forest, tropical rainforest, Plug-in, Computer science, Remote sensing, Database, Workflow, Lidar, Data quality, Data integration",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "remote sensing",
-        "LiDAR"
-      ],
-      "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
-    },
-    {
-      "impact": 48,
-      "top_venue": false,
-      "cited_by": 1,
-      "fwci": 3,
-      "venue": "Atmospheric chemistry and physics",
-      "id": "7340c0437102f307",
-      "title": "Fire carbon emission constraints from space-based carbon monoxide retrievals during the 2019 intense burning season in Brazil",
-      "url": "https://doi.org/10.5194/acp-26-13929-2026",
-      "kind": "paper",
-      "source": "openalex-lidar",
-      "source_name": "OpenAlex: LiDAR point cloud",
-      "published": "2026-10-06T00:00:00.000Z",
-      "summary": "fire carbon emissions, carbon monoxide, top-down emission estimates, inverse modeling, MOPITT, TROPOMI, Cerrado, Caatinga, savanna burning, emission inventory, GFAS, emission factors, fuel load, Environmental science, Biome, Atmospheric sciences, Fire regime, Carbon monoxide, Satellite, Emission inv",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "satellite"
-      ],
-      "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
-    },
-    {
-      "impact": 52,
-      "top_venue": false,
-      "cited_by": 1,
-      "fwci": 3.5,
-      "venue": "Frontiers in Earth Science",
-      "id": "353512d6a2db1f4b",
-      "title": "Multi-source remote sensing approach for monitoring the Caspian Sea shoreline dynamics",
-      "url": "https://doi.org/10.3389/feart.2026.1918346",
-      "kind": "paper",
-      "source": "openalex-lidar",
-      "source_name": "OpenAlex: LiDAR point cloud",
-      "published": "2026-09-29T00:00:00.000Z",
-      "summary": "Caspian Sea, shoreline change, sea-level fall, shoreline retreat, multi-source satellite imagery, PlanetScope imagery, MNDWI, coastal monitoring, Digital Shoreline Analysis System, Shore, Remote sensing, Satellite, Geology, Environmental science, Altimeter, Transect, Compositing",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "remote sensing",
-        "satellite"
-      ],
-      "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
-    },
-    {
-      "impact": 48,
-      "top_venue": false,
-      "cited_by": 1,
-      "fwci": 3,
-      "venue": "Atmospheric measurement techniques",
-      "id": "bfeb000d5a790478",
-      "title": "A new balloon-borne system for measuring the vertical variability of aerosol optical properties using low-cost sensors",
-      "url": "https://doi.org/10.5194/amt-19-5989-2026",
-      "kind": "paper",
-      "source": "openalex-lidar",
-      "source_name": "OpenAlex: LiDAR point cloud",
-      "published": "2026-09-23T00:00:00.000Z",
-      "summary": "low-cost optical sensor, aerosol optical properties, aerosol vertical distribution, scattering coefficient, scattering Ångström exponent, effective particle radius, sensor calibration, Saharan dust, biomass burning plumes, long-range transport, atmospheric boundary layer, aerosol optical depth, sout",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "remote sensing"
-      ],
-      "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
-    },
-    {
-      "impact": 54,
-      "top_venue": false,
-      "cited_by": 1,
-      "fwci": 4.1,
-      "venue": "Applied Sciences",
-      "id": "6605428b585f3c53",
-      "title": "The Critical Role of Site Characterization in Geotechnical Evaluation: A Case Study of Slope Stability Reinforcement with Soil Nailing",
-      "url": "https://doi.org/10.3390/app16199473",
-      "kind": "paper",
-      "source": "openalex-lidar",
-      "source_name": "OpenAlex: LiDAR point cloud",
-      "published": "2026-09-23T00:00:00.000Z",
-      "summary": "slope stability, soil nailing, site characterization, UAV LiDAR, point cloud processing, multichannel analysis of surface waves, electrical resistivity tomography, fractured rock, slope drainage, limit equilibrium analysis, finite element analysis, quasi-static loading, seismic loading, safety facto",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "LiDAR",
-        "point cloud",
-        "UAV"
-      ],
-      "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
-    },
-    {
-      "impact": 48,
-      "top_venue": false,
-      "cited_by": 1,
-      "fwci": 3,
-      "venue": "Atmospheric chemistry and physics",
-      "id": "4a3ca17df79ab689",
-      "title": "Cloud-type-dependent mixed-phase cloud climatology from CloudSat/CALIPSO measurements",
-      "url": "https://doi.org/10.5194/acp-26-13319-2026",
-      "kind": "paper",
-      "source": "openalex-lidar",
-      "source_name": "OpenAlex: LiDAR point cloud",
-      "published": "2026-09-22T00:00:00.000Z",
-      "summary": "mixed-phase clouds, cloud climatology, cloud types, altocumulus, cloud top temperature, seasonal variation, sea ice, Southern Ocean, storm tracks, cloud phase, climate model evaluation, CloudSat, CALIPSO, Climatology, Environmental science, Middle latitudes, Latitude, International Satellite Cloud C",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "satellite"
-      ],
-      "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
-    },
-    {
-      "impact": 45,
-      "top_venue": false,
-      "cited_by": 1,
-      "fwci": 2.6,
-      "venue": "Wind energy science",
-      "id": "804f0fd4d41b2022",
-      "title": "Assessing the accuracy of a 3-year high-resolution mesoscale wind farm wake simulation with lidar and satellite radar data",
-      "url": "https://doi.org/10.5194/wes-11-3555-2026",
-      "kind": "paper",
-      "source": "openalex-lidar",
-      "source_name": "OpenAlex: LiDAR point cloud",
-      "published": "2026-09-18T00:00:00.000Z",
-      "summary": "wind farm wake, offshore wind farms, mesoscale atmospheric modeling, WRF model, wind speed deficit, atmospheric boundary layer stability, lidar observations, synthetic aperture radar, North Sea, wind farm clusters, Mesoscale meteorology, Wake, Environmental science, Meteorology, Offshore wind power,",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "LiDAR",
-        "satellite"
-      ],
-      "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
-    },
-    {
-      "impact": 48,
-      "top_venue": false,
-      "cited_by": 1,
-      "fwci": 3,
-      "venue": "Science Advances",
-      "id": "e33aaac1c2228d31",
-      "title": "A global decline in atmospheric dust during the 21st century",
-      "url": "https://doi.org/10.1126/sciadv.aef5691",
-      "kind": "paper",
-      "source": "openalex-lidar",
-      "source_name": "OpenAlex: LiDAR point cloud",
-      "published": "2026-09-16T00:00:00.000Z",
-      "summary": "atmospheric dust, dust optical depth, Asian dust, dust deposition, dust emission, effective radiative forcing, global warming, spaceborne lidar, aerosol reanalysis, inverse modeling, AERONET, Mineral dust, Radiative forcing, Environmental science, AERONET, Atmospheric sciences, Aerosol, Climatology,",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "LiDAR"
-      ],
-      "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
-    },
-    {
-      "impact": 54,
-      "top_venue": false,
-      "cited_by": 1,
-      "fwci": 3.8,
-      "venue": "Computers and Electronics in Agriculture",
-      "id": "0bc92b6f056db957",
-      "title": "Agentic AI for Livestock Housing Management: Applications, Benchmarking, and Readiness Assessment",
-      "url": "https://doi.org/10.1016/j.compag.2026.112361",
-      "kind": "paper",
-      "source": "openalex-lidar",
-      "source_name": "OpenAlex: LiDAR point cloud",
-      "published": "2026-09-14T00:00:00.000Z",
-      "summary": "agentic AI, precision livestock farming, multi-agent systems, retrieval-augmented generation, large language models, foundation models, digital twin, computer vision, technology readiness assessment, benchmarking, human-AI interaction, animal welfare, dairy cattle, poultry, pigs, small ruminants, de",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "digital twin"
-      ],
-      "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
-    },
-    {
-      "impact": 52,
-      "top_venue": false,
-      "cited_by": 1,
-      "fwci": 3.5,
-      "venue": "Frontiers in Remote Sensing",
-      "id": "4ac5efe2c9c18df2",
-      "title": "Simultaneous retrieval of 13 phytoplankton pigments from Sentinel-3 OLCI using convolutional neural networks and transfer learning",
-      "url": "https://doi.org/10.3389/frsen.2026.1880618",
-      "kind": "paper",
-      "source": "openalex-lidar",
-      "source_name": "OpenAlex: LiDAR point cloud",
-      "published": "2026-09-10T00:00:00.000Z",
-      "summary": "phytoplankton pigments, Sentinel-3 OLCI, ocean color remote sensing, convolutional neural networks, transfer learning, multi-output models, remote sensing reflectance, Mediterranean Sea, Black Sea, English Channel, Atlantic Ocean, OCCI, Remote sensing, Environmental science, Convolutional neural net",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "remote sensing",
-        "satellite"
-      ],
-      "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
-    },
-    {
-      "impact": 45,
-      "top_venue": false,
-      "cited_by": 1,
-      "fwci": 2.6,
-      "venue": "GPS Solutions",
-      "id": "d822601bd1dc4b09",
-      "title": "A generalized, outage period-aware CNN-BiLSTM architecture for real-world INS/GPS deployment under extended GNSS denials",
-      "url": "https://doi.org/10.1007/s10291-026-02139-0",
-      "kind": "paper",
-      "source": "openalex-lidar",
-      "source_name": "OpenAlex: LiDAR point cloud",
-      "published": "2026-09-09T00:00:00.000Z",
-      "summary": "GPS signal outage, GPS-denied navigation, GPS/INS integration, CNN-BiLSTM, edge deployment, Computer science, Benchmark (surveying), Global Positioning System, GNSS applications, Real-time computing, SIGNAL (programming language), Inertial navigation system, Trajectory",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "GNSS"
-      ],
-      "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
-    },
-    {
-      "impact": 25,
-      "top_venue": false,
-      "cited_by": 1,
-      "fwci": 2.6,
-      "venue": "The International Journal of Robotics Research",
-      "id": "68f2de591feb19ca",
-      "title": "Boreas road trip: A multi-sensor autonomous driving dataset on challenging roads",
-      "url": "https://doi.org/10.1177/02783649261479362",
-      "kind": "paper",
-      "source": "openalex-lidar",
-      "source_name": "OpenAlex: LiDAR point cloud",
-      "published": "2026-09-07T00:00:00.000Z",
-      "summary": "autonomous driving, multi-sensor fusion, odometry, localization, LiDAR, Doppler radar, camera, sensor calibration, multisensory perception, Odometry, Overfitting, Metric (unit), Computer science, Ground truth, Benchmark (surveying), Artificial intelligence, Visual odometry",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "LiDAR"
-      ],
-      "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
-    },
-    {
-      "impact": 28,
-      "top_venue": false,
-      "cited_by": 1,
-      "fwci": 3,
-      "venue": "Atmospheric measurement techniques",
-      "id": "71101e66e495e8cb",
-      "title": "Observation modes of EarthCARE/CPR with different Doppler measurement accuracy: evaluation of their applicability",
-      "url": "https://doi.org/10.5194/amt-19-5617-2026",
-      "kind": "paper",
-      "source": "openalex-lidar",
-      "source_name": "OpenAlex: LiDAR point cloud",
-      "published": "2026-09-04T00:00:00.000Z",
-      "summary": "EarthCARE, Cloud Profiling Radar, Doppler velocimetry, pulse repetition rate, high clouds, cloud microphysics, cloud dynamics, Doppler effect, Doppler radar, Remote sensing, Spurious relationship, Mode (computer interface), Cloud computing, Physics, Observational error",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "remote sensing"
-      ],
-      "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
-    },
-    {
-      "impact": 52,
-      "top_venue": false,
-      "cited_by": 1,
-      "fwci": 3.5,
-      "venue": "International Journal of Geographical Information Systems",
-      "id": "552a3fc7923d52c9",
-      "title": "Towards intelligent geospatial data discovery: a knowledge graph-driven multi-agent framework powered by large language models",
-      "url": "https://doi.org/10.1080/13658816.2026.2724505",
-      "kind": "paper",
-      "source": "openalex-lidar",
-      "source_name": "OpenAlex: LiDAR point cloud",
-      "published": "2026-09-03T00:00:00.000Z",
-      "summary": "geospatial data discovery, knowledge graphs, multi-agent systems, large language models, geospatial metadata, metadata ontology, semantic mediation, knowledge graph retrieval, semantic search, spatial data infrastructure, Geospatial analysis, Computer science, Metadata, Ontology, Geospatial metadata",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "geospatial",
-        "spatial data"
-      ],
-      "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
-    },
-    {
-      "impact": 52,
-      "top_venue": false,
-      "cited_by": 1,
-      "fwci": 3.5,
-      "venue": "Plants",
-      "id": "fc5f2f19da795757",
-      "title": "Advanced Remote Sensing and AI Techniques in Agriculture and Forestry",
-      "url": "https://doi.org/10.3390/plants15172706",
-      "kind": "paper",
-      "source": "openalex-lidar",
-      "source_name": "OpenAlex: LiDAR point cloud",
-      "published": "2026-09-03T00:00:00.000Z",
-      "summary": "remote sensing, artificial intelligence, agriculture, forestry, plant observations, agricultural systems management, Remote sensing, Agriculture, Automation, Precision agriculture, Environmental science, Remote sensing application, Forestry, Computer science",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "remote sensing"
-      ],
-      "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
-    },
-    {
-      "impact": 28,
-      "top_venue": false,
-      "cited_by": 1,
-      "fwci": 3,
-      "venue": "Water",
-      "id": "980b5237937f9488",
-      "title": "DEMands of Precision: How DEM Resolution Shapes Various Flood Applications",
-      "url": "https://doi.org/10.3390/w18172162",
-      "kind": "paper",
-      "source": "openalex-lidar",
-      "source_name": "OpenAlex: LiDAR point cloud",
-      "published": "2026-09-02T00:00:00.000Z",
-      "summary": "digital elevation model resolution, flood susceptibility mapping, pluvial flooding, ASTER DEM, LiDAR DEM, DEM resampling, stormwater management, Flood myth, Resolution (logic), Computer science, Remote sensing, Geology, Geography, Artificial intelligence, Archaeology",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "remote sensing",
-        "LiDAR",
-        "mapping"
-      ],
-      "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
-    },
-    {
-      "impact": 25,
-      "top_venue": false,
-      "cited_by": 1,
-      "fwci": 2.6,
-      "venue": "Wind energy science",
-      "id": "f3acd36737b168c1",
-      "title": "An experimental campaign to measure turbulence in the marine boundary layer",
-      "url": "https://doi.org/10.5194/wes-11-3153-2026",
-      "kind": "paper",
-      "source": "openalex-lidar",
-      "source_name": "OpenAlex: LiDAR point cloud",
-      "published": "2026-09-02T00:00:00.000Z",
-      "summary": "marine boundary layer, turbulent flow, lidar observations, horizontal wind components, lateral coherence, turbulence model validation, offshore wind turbines, wind profiles, WRF model simulation, Meteorology, Planetary boundary layer, Wind speed, Turbulence, Lidar, Environmental science, Measure (da",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "LiDAR"
-      ],
-      "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
-    },
-    {
-      "impact": 92,
-      "top_venue": true,
-      "cited_by": 1,
-      "fwci": 3.5,
-      "venue": "Earth system science data",
-      "id": "aa00fb6e6c54ce94",
-      "title": "A global 30 m disturbance-recovery age dataset for young natural and planted forests (1985–2024)",
-      "url": "https://doi.org/10.5194/essd-18-6225-2026",
-      "kind": "paper",
-      "source": "openalex-lidar",
-      "source_name": "OpenAlex: LiDAR point cloud",
-      "published": "2026-09-01T00:00:00.000Z",
-      "summary": "forest age mapping, natural forests, forest plantations, forest succession, Landsat time series, Continuous Change Detection and Classification, forest carbon dynamics, Suffix, Natural forest, Geography, Mean squared error, Natural (archaeology), Remote sensing, Mathematics, Statistics",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "remote sensing",
-        "Landsat",
-        "mapping"
-      ],
-      "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
-    },
-    {
-      "impact": 45,
-      "top_venue": false,
-      "cited_by": 1,
-      "fwci": 2.6,
-      "venue": "Water Resources Research",
-      "id": "5f9ffdbc01718ed5",
-      "title": "Interferometric Synthetic Aperture Radar (InSAR) for Monitoring Seasonal Snow",
-      "url": "https://doi.org/10.1029/2025wr042866",
-      "kind": "paper",
-      "source": "openalex-lidar",
-      "source_name": "OpenAlex: LiDAR point cloud",
-      "published": "2026-09-01T00:00:00.000Z",
-      "summary": "interferometric synthetic aperture radar, seasonal snow, snow water equivalent, snow depth, snow monitoring, NISAR, L-band radar, phase unwrapping, ionospheric and tropospheric delays, dry snow, snow accumulation and ablation, forest canopy effects, snow observation, river basin hydrology, Snow, Int",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "remote sensing",
-        "InSAR"
-      ],
-      "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
-    },
-    {
-      "impact": 25,
-      "top_venue": false,
-      "cited_by": 1,
-      "fwci": 2.6,
-      "venue": "The International Journal of Robotics Research",
-      "id": "055902e9418874f1",
-      "title": "DCReg: Decoupled characterization for efficient degenerate LiDAR registration",
-      "url": "https://doi.org/10.1177/02783649261465040",
-      "kind": "paper",
-      "source": "openalex-lidar",
-      "source_name": "OpenAlex: LiDAR point cloud",
-      "published": "2026-08-31T00:00:00.000Z",
-      "summary": "LiDAR point cloud registration, ill-conditioned optimization, Hessian matrix, preconditioners, preconditioned conjugate gradient, narrow corridors, robot localization, Computer science, Point cloud, Hessian matrix, Payload (computing), Robustness (evolution), Rigid transformation, Representation (po",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "LiDAR",
-        "point cloud"
-      ],
-      "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
-    },
-    {
-      "impact": 34,
-      "top_venue": false,
-      "cited_by": 1,
-      "fwci": 3.9,
-      "venue": "Engineering Applications of Artificial Intelligence",
-      "id": "c8070946225bf857",
-      "title": "Multimodal surface defect detection from wooden logs for sawing optimization",
-      "url": "https://doi.org/10.1016/j.engappai.2026.116047",
-      "kind": "paper",
-      "source": "openalex-lidar",
-      "source_name": "OpenAlex: LiDAR point cloud",
-      "published": "2026-08-31T00:00:00.000Z",
-      "summary": "knot detection, surface defect detection, multimodal fusion, decision fusion, point clouds, laser scanning, camera images, timber grading, cross correlation function, Knot (papermaking), Point cloud, Artificial intelligence, RGB color model, Computer vision, Fusion, Computer science, Pipeline (softw",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "point cloud"
-      ],
-      "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "impact": 48,
@@ -3446,7 +2844,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "impact": 52,
@@ -3468,7 +2866,124 @@
         "Landsat"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
+    },
+    {
+      "impact": 52,
+      "top_venue": false,
+      "cited_by": 1,
+      "fwci": 3.5,
+      "venue": "International Journal of Geographical Information Systems",
+      "id": "552a3fc7923d52c9",
+      "title": "Towards intelligent geospatial data discovery: a knowledge graph-driven multi-agent framework powered by large language models",
+      "url": "https://doi.org/10.1080/13658816.2026.2724505",
+      "kind": "paper",
+      "source": "openalex-geoai",
+      "source_name": "OpenAlex: GeoAI / geoinformatics",
+      "published": "2026-09-03T00:00:00.000Z",
+      "summary": "geospatial data discovery, knowledge graphs, multi-agent systems, large language models, geospatial metadata, metadata ontology, semantic mediation, knowledge graph retrieval, semantic search, spatial data infrastructure, Geospatial analysis, Computer science, Metadata, Ontology, Geospatial metadata",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "geospatial",
+        "spatial data"
+      ],
+      "first_seen": "2026-10-29T05:42:43.034Z",
+      "last_seen": "2026-10-30T05:26:00.397Z"
+    },
+    {
+      "impact": 102,
+      "top_venue": true,
+      "cited_by": 3,
+      "fwci": 8.6,
+      "venue": "The Photogrammetric Record",
+      "id": "109a22923f6b9289",
+      "title": "Towards Vision‐Language Geo‐Foundation Models: A Survey",
+      "url": "https://doi.org/10.1111/phor.70066",
+      "kind": "paper",
+      "source": "openalex-photogrammetry",
+      "source_name": "OpenAlex: photogrammetry",
+      "published": "2026-09-28T00:00:00.000Z",
+      "summary": "vision-language foundation models, geospatial foundation models, Earth observation, remote sensing, image-text retrieval, visual grounding, visual question answering, image captioning, model architecture, Geospatial analysis, Data science, Leverage (statistics), Computer science, Tracing, Empirical ",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "remote sensing",
+        "geospatial",
+        "earth observation"
+      ],
+      "first_seen": "2026-10-29T05:42:43.034Z",
+      "last_seen": "2026-10-30T05:26:00.397Z"
+    },
+    {
+      "impact": 58,
+      "top_venue": false,
+      "cited_by": 2,
+      "fwci": 7,
+      "venue": "Biogeosciences",
+      "id": "e48e458ca683d37b",
+      "title": "Tracking crop evapotranspiration and water stress across seasons using multi-sensor UAV observations",
+      "url": "https://doi.org/10.5194/bg-23-7253-2026",
+      "kind": "paper",
+      "source": "openalex-photogrammetry",
+      "source_name": "OpenAlex: photogrammetry",
+      "published": "2026-10-16T00:00:00.000Z",
+      "summary": "crop evapotranspiration, crop water stress, UAV remote sensing, thermal radiation, very high resolution imagery, crop water use, Environmental science, Evapotranspiration, Remote sensing, Water stress, Crop, Hydrology (agriculture), Irrigation, Crop yield",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "remote sensing",
+        "UAV"
+      ],
+      "first_seen": "2026-10-29T05:42:43.034Z",
+      "last_seen": "2026-10-30T05:26:00.397Z"
+    },
+    {
+      "impact": 48,
+      "top_venue": false,
+      "cited_by": 1,
+      "fwci": 3,
+      "venue": "GIScience & Remote Sensing",
+      "id": "9ffab245c80e1cff",
+      "title": "SAMWater: a prompt-guided multimodal framework for transferable water mapping with the segment anything model",
+      "url": "https://doi.org/10.1080/15481603.2026.2745243",
+      "kind": "paper",
+      "source": "openalex-photogrammetry",
+      "source_name": "OpenAlex: photogrammetry",
+      "published": "2026-10-09T00:00:00.000Z",
+      "summary": "water body mapping, Segment Anything Model, multimodal segmentation, water body detection, image segmentation, Computer science, Remote sensing, Geography, Field (mathematics), Cartography, Artificial intelligence, Data mining, Visualization",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "remote sensing",
+        "cartography",
+        "mapping"
+      ],
+      "first_seen": "2026-10-29T05:42:43.034Z",
+      "last_seen": "2026-10-30T05:26:00.397Z"
+    },
+    {
+      "impact": 52,
+      "top_venue": false,
+      "cited_by": 1,
+      "fwci": 3.5,
+      "venue": "Frontiers in Earth Science",
+      "id": "353512d6a2db1f4b",
+      "title": "Multi-source remote sensing approach for monitoring the Caspian Sea shoreline dynamics",
+      "url": "https://doi.org/10.3389/feart.2026.1918346",
+      "kind": "paper",
+      "source": "openalex-photogrammetry",
+      "source_name": "OpenAlex: photogrammetry",
+      "published": "2026-09-29T00:00:00.000Z",
+      "summary": "Caspian Sea, shoreline change, sea-level fall, shoreline retreat, multi-source satellite imagery, PlanetScope imagery, MNDWI, coastal monitoring, Digital Shoreline Analysis System, Shore, Remote sensing, Satellite, Geology, Environmental science, Altimeter, Transect, Compositing",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "remote sensing",
+        "satellite"
+      ],
+      "first_seen": "2026-10-29T05:42:43.034Z",
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "impact": 40,
@@ -3490,7 +3005,7 @@
         "cartography"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "impact": 28,
@@ -3512,7 +3027,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "impact": 78,
@@ -3534,7 +3049,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "impact": 66,
@@ -3558,7 +3073,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "impact": 42,
@@ -3580,7 +3095,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "impact": 62,
@@ -3603,7 +3118,7 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "impact": 58,
@@ -3625,7 +3140,7 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "impact": 98,
@@ -3647,7 +3162,29 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
+    },
+    {
+      "impact": 58,
+      "top_venue": false,
+      "cited_by": 2,
+      "fwci": 6.1,
+      "venue": "Geoscientific model development",
+      "id": "139601fff67f4a84",
+      "title": "The NASA-GISS ModelE2.1-CC2 ESM: development and evaluation",
+      "url": "https://doi.org/10.5194/gmd-19-9131-2026",
+      "kind": "paper",
+      "source": "openalex-remote-sensing",
+      "source_name": "OpenAlex: remote sensing",
+      "published": "2026-09-28T00:00:00.000Z",
+      "summary": "Earth system models, carbon cycle, ocean carbon cycle, terrestrial carbon cycle, soil carbon, ocean productivity, iron limitation, photoadaptation, gross primary productivity, CO2 fertilization, soil respiration, model evaluation, model calibration, Environmental science, Carbon cycle, Productivity,",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "Earth system"
+      ],
+      "first_seen": "2026-10-29T05:42:43.034Z",
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "impact": 58,
@@ -3669,7 +3206,7 @@
         "Landsat"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "impact": 58,
@@ -3691,7 +3228,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "impact": 58,
@@ -3713,7 +3250,7 @@
         "LiDAR"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "impact": 58,
@@ -3735,7 +3272,7 @@
         "UAV"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "impact": 28,
@@ -3758,7 +3295,29 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
+    },
+    {
+      "impact": 28,
+      "top_venue": false,
+      "cited_by": 1,
+      "fwci": 3,
+      "venue": "Atmospheric measurement techniques",
+      "id": "b29a2125fddd379c",
+      "title": "A hybrid ice hydrometeor retrieval algorithm for submillimeter-wave radiometers in support of the PolSIR and PMM missions",
+      "url": "https://doi.org/10.5194/amt-19-6661-2026",
+      "kind": "paper",
+      "source": "openalex-remote-sensing",
+      "source_name": "OpenAlex: remote sensing",
+      "published": "2026-10-22T00:00:00.000Z",
+      "summary": "submillimeter-wave radiometry, optimal estimation, ice cloud microphysics, ice particle habits, ice water content, ice water path, particle size distribution, brightness temperature, Remote sensing, A priori and a posteriori, Environmental science, Algorithm, Radiometer, Computer science, Radar, Met",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "remote sensing"
+      ],
+      "first_seen": "2026-10-29T05:42:43.034Z",
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "impact": 74,
@@ -3780,7 +3339,30 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
+    },
+    {
+      "impact": 48,
+      "top_venue": false,
+      "cited_by": 1,
+      "fwci": 3,
+      "venue": "Atmospheric measurement techniques",
+      "id": "8225db3706900041",
+      "title": "Performance validation of the GHGSat methane constellation via controlled releases",
+      "url": "https://doi.org/10.5194/amt-19-6643-2026",
+      "kind": "paper",
+      "source": "openalex-remote-sensing",
+      "source_name": "OpenAlex: remote sensing",
+      "published": "2026-10-21T00:00:00.000Z",
+      "summary": "GHGSat, methane emissions, controlled release, point source emissions, detection limit, signal-to-noise ratio, emission rate quantification, wind speed effects, bias correction, methane plumes, remote sensing validation, Environmental science, Constellation, Remote sensing, Methane, Probability dens",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "remote sensing",
+        "satellite"
+      ],
+      "first_seen": "2026-10-29T05:42:43.034Z",
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "impact": 49,
@@ -3803,7 +3385,7 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "impact": 66,
@@ -3825,7 +3407,7 @@
         "geodetic"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "impact": 43,
@@ -3847,7 +3429,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "impact": 26,
@@ -3869,7 +3451,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "impact": 32,
@@ -3891,7 +3473,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "impact": 68,
@@ -3913,7 +3495,29 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
+    },
+    {
+      "impact": 28,
+      "top_venue": false,
+      "cited_by": 1,
+      "fwci": 3,
+      "venue": "Atmospheric chemistry and physics",
+      "id": "d825057a7d500c23",
+      "title": "Optical properties and shape-dependent retrievals of the imaginary part of the refractive index of freshly emitted Saharan dust",
+      "url": "https://doi.org/10.5194/acp-26-14531-2026",
+      "kind": "paper",
+      "source": "openalex-remote-sensing",
+      "source_name": "OpenAlex: remote sensing",
+      "published": "2026-10-14T00:00:00.000Z",
+      "summary": "Saharan dust, particle shape effects, single scattering albedo, mass absorption efficiency, asymmetry parameter, PM2.5, PM10, dust emission, direct radiative effect, Saharan Air Layer, Refractive index, Index (typography), Mineral dust, Materials science, Environmental science, Remote sensing, Optic",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "remote sensing"
+      ],
+      "first_seen": "2026-10-29T05:42:43.034Z",
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "impact": 48,
@@ -3936,7 +3540,7 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "impact": 67,
@@ -3958,7 +3562,30 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
+    },
+    {
+      "impact": 28,
+      "top_venue": false,
+      "cited_by": 1,
+      "fwci": 3,
+      "venue": "Atmospheric chemistry and physics",
+      "id": "925275910e84265c",
+      "title": "Asymptotic behavior of lidar scattering properties of absorbing dust aerosols across Rayleigh and geometrical-optics regimes: theory and implications",
+      "url": "https://doi.org/10.5194/acp-26-14487-2026",
+      "kind": "paper",
+      "source": "openalex-remote-sensing",
+      "source_name": "OpenAlex: remote sensing",
+      "published": "2026-10-13T00:00:00.000Z",
+      "summary": "dust aerosols, lidar ratio, linear depolarization ratio, single scattering albedo, Rayleigh scattering, geometrical optics, mineral dust, triaxial ellipsoid, particle shape, multiwavelength lidar, Rayleigh scattering, Lidar, Scattering, Physics, Environmental science, Remote sensing, Aerosol, Optics",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "remote sensing",
+        "LiDAR"
+      ],
+      "first_seen": "2026-10-29T05:42:43.034Z",
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "impact": 46,
@@ -3984,31 +3611,412 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
+    },
+    {
+      "impact": 54,
+      "top_venue": false,
+      "cited_by": 1,
+      "fwci": 18.5,
+      "venue": "Lecture notes in computer science",
+      "id": "a80d882dcf846421",
+      "title": "VLC Fusion: Vision-Language Conditioned Sensor Fusion for Robust Object Detection",
+      "url": "https://doi.org/10.1007/978-3-032-37679-4_4",
+      "kind": "paper",
+      "source": "openalex-lidar",
+      "source_name": "OpenAlex: LiDAR point cloud",
+      "published": "2026-10-17T00:00:00.000Z",
+      "summary": "sensor fusion, object detection, vision-language models, modality weighting, environmental factors, LiDAR, mid-wave infrared, autonomous driving, military target detection, domain adaptation, multimodal fusion, Artificial intelligence, Fusion, Computer vision, Sensor fusion, Modality (human–computer",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "LiDAR"
+      ],
+      "first_seen": "2026-10-29T05:42:43.034Z",
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "impact": 48,
       "top_venue": false,
       "cited_by": 1,
       "fwci": 3,
-      "venue": "GIScience & Remote Sensing",
-      "id": "9ffab245c80e1cff",
-      "title": "SAMWater: a prompt-guided multimodal framework for transferable water mapping with the segment anything model",
-      "url": "https://doi.org/10.1080/15481603.2026.2745243",
+      "venue": "Atmospheric chemistry and physics",
+      "id": "7340c0437102f307",
+      "title": "Fire carbon emission constraints from space-based carbon monoxide retrievals during the 2019 intense burning season in Brazil",
+      "url": "https://doi.org/10.5194/acp-26-13929-2026",
       "kind": "paper",
-      "source": "openalex-photogrammetry",
-      "source_name": "OpenAlex: photogrammetry",
-      "published": "2026-10-09T00:00:00.000Z",
-      "summary": "water body mapping, Segment Anything Model, multimodal segmentation, water body detection, image segmentation, Computer science, Remote sensing, Geography, Field (mathematics), Cartography, Artificial intelligence, Data mining, Visualization",
+      "source": "openalex-lidar",
+      "source_name": "OpenAlex: LiDAR point cloud",
+      "published": "2026-10-06T00:00:00.000Z",
+      "summary": "fire carbon emissions, carbon monoxide, top-down emission estimates, inverse modeling, MOPITT, TROPOMI, Cerrado, Caatinga, savanna burning, emission inventory, GFAS, emission factors, fuel load, Environmental science, Biome, Atmospheric sciences, Fire regime, Carbon monoxide, Satellite, Emission inv",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "satellite"
+      ],
+      "first_seen": "2026-10-29T05:42:43.034Z",
+      "last_seen": "2026-10-30T05:26:00.397Z"
+    },
+    {
+      "impact": 48,
+      "top_venue": false,
+      "cited_by": 1,
+      "fwci": 3,
+      "venue": "Atmospheric measurement techniques",
+      "id": "bfeb000d5a790478",
+      "title": "A new balloon-borne system for measuring the vertical variability of aerosol optical properties using low-cost sensors",
+      "url": "https://doi.org/10.5194/amt-19-5989-2026",
+      "kind": "paper",
+      "source": "openalex-lidar",
+      "source_name": "OpenAlex: LiDAR point cloud",
+      "published": "2026-09-23T00:00:00.000Z",
+      "summary": "low-cost optical sensor, aerosol optical properties, aerosol vertical distribution, scattering coefficient, scattering Ångström exponent, effective particle radius, sensor calibration, Saharan dust, biomass burning plumes, long-range transport, atmospheric boundary layer, aerosol optical depth, sout",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "remote sensing"
+      ],
+      "first_seen": "2026-10-29T05:42:43.034Z",
+      "last_seen": "2026-10-30T05:26:00.397Z"
+    },
+    {
+      "impact": 54,
+      "top_venue": false,
+      "cited_by": 1,
+      "fwci": 4.1,
+      "venue": "Applied Sciences",
+      "id": "6605428b585f3c53",
+      "title": "The Critical Role of Site Characterization in Geotechnical Evaluation: A Case Study of Slope Stability Reinforcement with Soil Nailing",
+      "url": "https://doi.org/10.3390/app16199473",
+      "kind": "paper",
+      "source": "openalex-lidar",
+      "source_name": "OpenAlex: LiDAR point cloud",
+      "published": "2026-09-23T00:00:00.000Z",
+      "summary": "slope stability, soil nailing, site characterization, UAV LiDAR, point cloud processing, multichannel analysis of surface waves, electrical resistivity tomography, fractured rock, slope drainage, limit equilibrium analysis, finite element analysis, quasi-static loading, seismic loading, safety facto",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "LiDAR",
+        "point cloud",
+        "UAV"
+      ],
+      "first_seen": "2026-10-29T05:42:43.034Z",
+      "last_seen": "2026-10-30T05:26:00.397Z"
+    },
+    {
+      "impact": 48,
+      "top_venue": false,
+      "cited_by": 1,
+      "fwci": 3,
+      "venue": "Atmospheric chemistry and physics",
+      "id": "4a3ca17df79ab689",
+      "title": "Cloud-type-dependent mixed-phase cloud climatology from CloudSat/CALIPSO measurements",
+      "url": "https://doi.org/10.5194/acp-26-13319-2026",
+      "kind": "paper",
+      "source": "openalex-lidar",
+      "source_name": "OpenAlex: LiDAR point cloud",
+      "published": "2026-09-22T00:00:00.000Z",
+      "summary": "mixed-phase clouds, cloud climatology, cloud types, altocumulus, cloud top temperature, seasonal variation, sea ice, Southern Ocean, storm tracks, cloud phase, climate model evaluation, CloudSat, CALIPSO, Climatology, Environmental science, Middle latitudes, Latitude, International Satellite Cloud C",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "satellite"
+      ],
+      "first_seen": "2026-10-29T05:42:43.034Z",
+      "last_seen": "2026-10-30T05:26:00.397Z"
+    },
+    {
+      "impact": 45,
+      "top_venue": false,
+      "cited_by": 1,
+      "fwci": 2.6,
+      "venue": "Wind energy science",
+      "id": "804f0fd4d41b2022",
+      "title": "Assessing the accuracy of a 3-year high-resolution mesoscale wind farm wake simulation with lidar and satellite radar data",
+      "url": "https://doi.org/10.5194/wes-11-3555-2026",
+      "kind": "paper",
+      "source": "openalex-lidar",
+      "source_name": "OpenAlex: LiDAR point cloud",
+      "published": "2026-09-18T00:00:00.000Z",
+      "summary": "wind farm wake, offshore wind farms, mesoscale atmospheric modeling, WRF model, wind speed deficit, atmospheric boundary layer stability, lidar observations, synthetic aperture radar, North Sea, wind farm clusters, Mesoscale meteorology, Wake, Environmental science, Meteorology, Offshore wind power,",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "LiDAR",
+        "satellite"
+      ],
+      "first_seen": "2026-10-29T05:42:43.034Z",
+      "last_seen": "2026-10-30T05:26:00.397Z"
+    },
+    {
+      "impact": 48,
+      "top_venue": false,
+      "cited_by": 1,
+      "fwci": 3,
+      "venue": "Science Advances",
+      "id": "e33aaac1c2228d31",
+      "title": "A global decline in atmospheric dust during the 21st century",
+      "url": "https://doi.org/10.1126/sciadv.aef5691",
+      "kind": "paper",
+      "source": "openalex-lidar",
+      "source_name": "OpenAlex: LiDAR point cloud",
+      "published": "2026-09-16T00:00:00.000Z",
+      "summary": "atmospheric dust, dust optical depth, Asian dust, dust deposition, dust emission, effective radiative forcing, global warming, spaceborne lidar, aerosol reanalysis, inverse modeling, AERONET, Mineral dust, Radiative forcing, Environmental science, AERONET, Atmospheric sciences, Aerosol, Climatology,",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "LiDAR"
+      ],
+      "first_seen": "2026-10-29T05:42:43.034Z",
+      "last_seen": "2026-10-30T05:26:00.397Z"
+    },
+    {
+      "impact": 54,
+      "top_venue": false,
+      "cited_by": 1,
+      "fwci": 3.8,
+      "venue": "Computers and Electronics in Agriculture",
+      "id": "0bc92b6f056db957",
+      "title": "Agentic AI for Livestock Housing Management: Applications, Benchmarking, and Readiness Assessment",
+      "url": "https://doi.org/10.1016/j.compag.2026.112361",
+      "kind": "paper",
+      "source": "openalex-lidar",
+      "source_name": "OpenAlex: LiDAR point cloud",
+      "published": "2026-09-14T00:00:00.000Z",
+      "summary": "agentic AI, precision livestock farming, multi-agent systems, retrieval-augmented generation, large language models, foundation models, digital twin, computer vision, technology readiness assessment, benchmarking, human-AI interaction, animal welfare, dairy cattle, poultry, pigs, small ruminants, de",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "digital twin"
+      ],
+      "first_seen": "2026-10-29T05:42:43.034Z",
+      "last_seen": "2026-10-30T05:26:00.397Z"
+    },
+    {
+      "impact": 52,
+      "top_venue": false,
+      "cited_by": 1,
+      "fwci": 3.5,
+      "venue": "Frontiers in Remote Sensing",
+      "id": "4ac5efe2c9c18df2",
+      "title": "Simultaneous retrieval of 13 phytoplankton pigments from Sentinel-3 OLCI using convolutional neural networks and transfer learning",
+      "url": "https://doi.org/10.3389/frsen.2026.1880618",
+      "kind": "paper",
+      "source": "openalex-lidar",
+      "source_name": "OpenAlex: LiDAR point cloud",
+      "published": "2026-09-10T00:00:00.000Z",
+      "summary": "phytoplankton pigments, Sentinel-3 OLCI, ocean color remote sensing, convolutional neural networks, transfer learning, multi-output models, remote sensing reflectance, Mediterranean Sea, Black Sea, English Channel, Atlantic Ocean, OCCI, Remote sensing, Environmental science, Convolutional neural net",
       "deadline": null,
       "location": null,
       "matched": [
         "remote sensing",
-        "cartography",
+        "satellite"
+      ],
+      "first_seen": "2026-10-29T05:42:43.034Z",
+      "last_seen": "2026-10-30T05:26:00.397Z"
+    },
+    {
+      "impact": 45,
+      "top_venue": false,
+      "cited_by": 1,
+      "fwci": 2.6,
+      "venue": "GPS Solutions",
+      "id": "d822601bd1dc4b09",
+      "title": "A generalized, outage period-aware CNN-BiLSTM architecture for real-world INS/GPS deployment under extended GNSS denials",
+      "url": "https://doi.org/10.1007/s10291-026-02139-0",
+      "kind": "paper",
+      "source": "openalex-lidar",
+      "source_name": "OpenAlex: LiDAR point cloud",
+      "published": "2026-09-09T00:00:00.000Z",
+      "summary": "GPS signal outage, GPS-denied navigation, GPS/INS integration, CNN-BiLSTM, edge deployment, Computer science, Benchmark (surveying), Global Positioning System, GNSS applications, Real-time computing, SIGNAL (programming language), Inertial navigation system, Trajectory",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "GNSS"
+      ],
+      "first_seen": "2026-10-29T05:42:43.034Z",
+      "last_seen": "2026-10-30T05:26:00.397Z"
+    },
+    {
+      "impact": 25,
+      "top_venue": false,
+      "cited_by": 1,
+      "fwci": 2.6,
+      "venue": "The International Journal of Robotics Research",
+      "id": "68f2de591feb19ca",
+      "title": "Boreas road trip: A multi-sensor autonomous driving dataset on challenging roads",
+      "url": "https://doi.org/10.1177/02783649261479362",
+      "kind": "paper",
+      "source": "openalex-lidar",
+      "source_name": "OpenAlex: LiDAR point cloud",
+      "published": "2026-09-07T00:00:00.000Z",
+      "summary": "autonomous driving, multi-sensor fusion, odometry, localization, LiDAR, Doppler radar, camera, sensor calibration, multisensory perception, Odometry, Overfitting, Metric (unit), Computer science, Ground truth, Benchmark (surveying), Artificial intelligence, Visual odometry",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "LiDAR"
+      ],
+      "first_seen": "2026-10-29T05:42:43.034Z",
+      "last_seen": "2026-10-30T05:26:00.397Z"
+    },
+    {
+      "impact": 28,
+      "top_venue": false,
+      "cited_by": 1,
+      "fwci": 3,
+      "venue": "Atmospheric measurement techniques",
+      "id": "71101e66e495e8cb",
+      "title": "Observation modes of EarthCARE/CPR with different Doppler measurement accuracy: evaluation of their applicability",
+      "url": "https://doi.org/10.5194/amt-19-5617-2026",
+      "kind": "paper",
+      "source": "openalex-lidar",
+      "source_name": "OpenAlex: LiDAR point cloud",
+      "published": "2026-09-04T00:00:00.000Z",
+      "summary": "EarthCARE, Cloud Profiling Radar, Doppler velocimetry, pulse repetition rate, high clouds, cloud microphysics, cloud dynamics, Doppler effect, Doppler radar, Remote sensing, Spurious relationship, Mode (computer interface), Cloud computing, Physics, Observational error",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "remote sensing"
+      ],
+      "first_seen": "2026-10-29T05:42:43.034Z",
+      "last_seen": "2026-10-30T05:26:00.397Z"
+    },
+    {
+      "impact": 52,
+      "top_venue": false,
+      "cited_by": 1,
+      "fwci": 3.5,
+      "venue": "Plants",
+      "id": "fc5f2f19da795757",
+      "title": "Advanced Remote Sensing and AI Techniques in Agriculture and Forestry",
+      "url": "https://doi.org/10.3390/plants15172706",
+      "kind": "paper",
+      "source": "openalex-lidar",
+      "source_name": "OpenAlex: LiDAR point cloud",
+      "published": "2026-09-03T00:00:00.000Z",
+      "summary": "remote sensing, artificial intelligence, agriculture, forestry, plant observations, agricultural systems management, Remote sensing, Agriculture, Automation, Precision agriculture, Environmental science, Remote sensing application, Forestry, Computer science",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "remote sensing"
+      ],
+      "first_seen": "2026-10-29T05:42:43.034Z",
+      "last_seen": "2026-10-30T05:26:00.397Z"
+    },
+    {
+      "impact": 28,
+      "top_venue": false,
+      "cited_by": 1,
+      "fwci": 3,
+      "venue": "Water",
+      "id": "980b5237937f9488",
+      "title": "DEMands of Precision: How DEM Resolution Shapes Various Flood Applications",
+      "url": "https://doi.org/10.3390/w18172162",
+      "kind": "paper",
+      "source": "openalex-lidar",
+      "source_name": "OpenAlex: LiDAR point cloud",
+      "published": "2026-09-02T00:00:00.000Z",
+      "summary": "digital elevation model resolution, flood susceptibility mapping, pluvial flooding, ASTER DEM, LiDAR DEM, DEM resampling, stormwater management, Flood myth, Resolution (logic), Computer science, Remote sensing, Geology, Geography, Artificial intelligence, Archaeology",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "remote sensing",
+        "LiDAR",
         "mapping"
       ],
       "first_seen": "2026-10-29T05:42:43.034Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
+    },
+    {
+      "impact": 25,
+      "top_venue": false,
+      "cited_by": 1,
+      "fwci": 2.6,
+      "venue": "Wind energy science",
+      "id": "f3acd36737b168c1",
+      "title": "An experimental campaign to measure turbulence in the marine boundary layer",
+      "url": "https://doi.org/10.5194/wes-11-3153-2026",
+      "kind": "paper",
+      "source": "openalex-lidar",
+      "source_name": "OpenAlex: LiDAR point cloud",
+      "published": "2026-09-02T00:00:00.000Z",
+      "summary": "marine boundary layer, turbulent flow, lidar observations, horizontal wind components, lateral coherence, turbulence model validation, offshore wind turbines, wind profiles, WRF model simulation, Meteorology, Planetary boundary layer, Wind speed, Turbulence, Lidar, Environmental science, Measure (da",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "LiDAR"
+      ],
+      "first_seen": "2026-10-29T05:42:43.034Z",
+      "last_seen": "2026-10-30T05:26:00.397Z"
+    },
+    {
+      "impact": 92,
+      "top_venue": true,
+      "cited_by": 1,
+      "fwci": 3.5,
+      "venue": "Earth system science data",
+      "id": "aa00fb6e6c54ce94",
+      "title": "A global 30 m disturbance-recovery age dataset for young natural and planted forests (1985–2024)",
+      "url": "https://doi.org/10.5194/essd-18-6225-2026",
+      "kind": "paper",
+      "source": "openalex-lidar",
+      "source_name": "OpenAlex: LiDAR point cloud",
+      "published": "2026-09-01T00:00:00.000Z",
+      "summary": "forest age mapping, natural forests, forest plantations, forest succession, Landsat time series, Continuous Change Detection and Classification, forest carbon dynamics, Suffix, Natural forest, Geography, Mean squared error, Natural (archaeology), Remote sensing, Mathematics, Statistics",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "remote sensing",
+        "Landsat",
+        "mapping"
+      ],
+      "first_seen": "2026-10-29T05:42:43.034Z",
+      "last_seen": "2026-10-30T05:26:00.397Z"
+    },
+    {
+      "impact": 25,
+      "top_venue": false,
+      "cited_by": 1,
+      "fwci": 2.6,
+      "venue": "The International Journal of Robotics Research",
+      "id": "055902e9418874f1",
+      "title": "DCReg: Decoupled characterization for efficient degenerate LiDAR registration",
+      "url": "https://doi.org/10.1177/02783649261465040",
+      "kind": "paper",
+      "source": "openalex-lidar",
+      "source_name": "OpenAlex: LiDAR point cloud",
+      "published": "2026-08-31T00:00:00.000Z",
+      "summary": "LiDAR point cloud registration, ill-conditioned optimization, Hessian matrix, preconditioners, preconditioned conjugate gradient, narrow corridors, robot localization, Computer science, Point cloud, Hessian matrix, Payload (computing), Robustness (evolution), Rigid transformation, Representation (po",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "LiDAR",
+        "point cloud"
+      ],
+      "first_seen": "2026-10-29T05:42:43.034Z",
+      "last_seen": "2026-10-30T05:26:00.397Z"
+    },
+    {
+      "impact": 34,
+      "top_venue": false,
+      "cited_by": 1,
+      "fwci": 3.9,
+      "venue": "Engineering Applications of Artificial Intelligence",
+      "id": "c8070946225bf857",
+      "title": "Multimodal surface defect detection from wooden logs for sawing optimization",
+      "url": "https://doi.org/10.1016/j.engappai.2026.116047",
+      "kind": "paper",
+      "source": "openalex-lidar",
+      "source_name": "OpenAlex: LiDAR point cloud",
+      "published": "2026-08-31T00:00:00.000Z",
+      "summary": "knot detection, surface defect detection, multimodal fusion, decision fusion, point clouds, laser scanning, camera images, timber grading, cross correlation function, Knot (papermaking), Point cloud, Artificial intelligence, RGB color model, Computer vision, Fusion, Computer science, Pipeline (softw",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "point cloud"
+      ],
+      "first_seen": "2026-10-29T05:42:43.034Z",
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "impact": 58,
@@ -4117,8 +4125,8 @@
         "GIS"
       ],
       "first_seen": "2026-10-29T04:19:19.776Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "1e3f3b82b65024d1",
@@ -4135,8 +4143,26 @@
         "GeoAI"
       ],
       "first_seen": "2026-10-29T04:19:19.776Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
+    },
+    {
+      "id": "ae2c648270944de1",
+      "title": "English | 2 years | Full-time MSc Geomatics for the Built Environment",
+      "url": "https://www.tudelft.nl/en/education/programmes/masters/gm/msc-geomatics",
+      "kind": "course",
+      "source": "tudelft-masters",
+      "source_name": "TU Delft master programmes",
+      "published": null,
+      "summary": "",
+      "deadline": null,
+      "location": null,
+      "matched": [
+        "geomatics"
+      ],
+      "first_seen": "2026-10-29T04:19:19.776Z",
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "4927843db256c3e8",
@@ -4154,8 +4180,8 @@
         "geodesy"
       ],
       "first_seen": "2026-10-29T04:19:19.776Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "a3ef2b385d3719fa",
@@ -4173,8 +4199,8 @@
         "geodesy"
       ],
       "first_seen": "2026-10-29T04:19:19.776Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "337104e404693ce4",
@@ -4191,26 +4217,8 @@
         "geomatics"
       ],
       "first_seen": "2026-10-29T04:19:19.776Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
-    },
-    {
-      "id": "ae2c648270944de1",
-      "title": "English | 2 years | Full-time MSc Geomatics for the Built Environment",
-      "url": "https://www.tudelft.nl/en/education/programmes/masters/gm/msc-geomatics",
-      "kind": "course",
-      "source": "tudelft-masters",
-      "source_name": "TU Delft master programmes",
-      "published": null,
-      "summary": "",
-      "deadline": null,
-      "location": null,
-      "matched": [
-        "geomatics"
-      ],
-      "first_seen": "2026-10-29T04:19:19.776Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "d9043e010239ecfe",
@@ -4227,8 +4235,8 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T04:19:19.776Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "a66be833ab478efa",
@@ -4245,8 +4253,8 @@
         "geoinformatics"
       ],
       "first_seen": "2026-10-29T04:19:19.776Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "514511bfb5cc6757",
@@ -4264,8 +4272,8 @@
         "spatial data"
       ],
       "first_seen": "2026-10-29T04:19:19.776Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "958f34a77b6506ea",
@@ -4282,8 +4290,8 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T04:19:19.776Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "ce34efc682a336f6",
@@ -4300,8 +4308,8 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T04:13:04.453Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "45d618b2500ce0d7",
@@ -4318,7 +4326,7 @@
         "GeoAI"
       ],
       "first_seen": "2026-10-29T04:13:04.453Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "f02f8db04338cd21",
@@ -4335,7 +4343,7 @@
         "earth observation"
       ],
       "first_seen": "2026-10-29T04:13:04.453Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "8e908c6174f04113",
@@ -4352,7 +4360,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T04:13:04.453Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "d84c9c35ddcd5726",
@@ -4369,7 +4377,7 @@
         "SAR"
       ],
       "first_seen": "2026-10-29T04:08:43.810Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "62f6b4eeaf05a901",
@@ -4386,7 +4394,7 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T04:08:43.810Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "4c8d8b0b0aa43e7c",
@@ -4403,7 +4411,7 @@
         "multispectral"
       ],
       "first_seen": "2026-10-29T04:08:43.810Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "8e01ba0ea80b56e7",
@@ -4420,7 +4428,7 @@
         "LiDAR"
       ],
       "first_seen": "2026-10-29T04:08:43.810Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "bbc5f0e3b87cd782",
@@ -4438,7 +4446,7 @@
         "earth observation"
       ],
       "first_seen": "2026-10-29T04:08:43.810Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "c07fa44ba97e3cc2",
@@ -4455,7 +4463,7 @@
         "earth observation"
       ],
       "first_seen": "2026-10-29T04:08:43.810Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "8dacbfe3f121216c",
@@ -4474,7 +4482,7 @@
         "satellite"
       ],
       "first_seen": "2026-10-29T04:06:44.492Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "f6da0afec50fe9b5",
@@ -4492,7 +4500,7 @@
         "hyperspectral"
       ],
       "first_seen": "2026-10-29T04:06:44.492Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "ce98ca00ca0fb410",
@@ -4509,7 +4517,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T04:06:44.492Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "1097ac7ea2bdd433",
@@ -4526,7 +4534,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T04:06:44.492Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "a7a43dfbc2126e9d",
@@ -4543,7 +4551,7 @@
         "remote sensing"
       ],
       "first_seen": "2026-10-29T04:06:44.492Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "be299c7d3ab959c4",
@@ -4560,8 +4568,8 @@
         "point cloud"
       ],
       "first_seen": "2026-10-29T04:06:44.492Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "dbc5f9322e86f8c8",
@@ -4578,8 +4586,8 @@
         "Geomatik"
       ],
       "first_seen": "2026-10-29T04:01:30.109Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "2f1eb20509bef025",
@@ -4596,8 +4604,8 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T04:01:30.109Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "b1fcd9f7b257d719",
@@ -4615,8 +4623,8 @@
         "hyperspectral"
       ],
       "first_seen": "2026-10-29T04:01:30.109Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "343fd6657d41eb5e",
@@ -4633,8 +4641,8 @@
         "earth observation"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
     },
     {
       "impact": 43,
@@ -4658,7 +4666,7 @@
         "point cloud"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "c7e8882b0de54a3f",
@@ -4675,7 +4683,7 @@
         "geoinformation"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "7e177aaf1f357629",
@@ -4692,7 +4700,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "4d815944b42510e6",
@@ -4709,7 +4717,7 @@
         "mapping"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "1b11115bfe65805d",
@@ -4726,8 +4734,8 @@
         "geomatics"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-30T03:51:07.598Z",
-      "deadline_checked": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z",
+      "deadline_checked": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "79f953e581c14c61",
@@ -4744,7 +4752,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T03:51:19.323Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "impact": 28,
@@ -4766,7 +4774,7 @@
         "LiDAR"
       ],
       "first_seen": "2026-10-29T02:30:38.369Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "5de847d39fe1a370",
@@ -4783,7 +4791,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T02:30:38.369Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "f900c5f7dad2b060",
@@ -4800,7 +4808,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T02:30:38.369Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "id": "657136a340d2d1f3",
@@ -4817,7 +4825,7 @@
         "geospatial"
       ],
       "first_seen": "2026-10-29T02:30:38.369Z",
-      "last_seen": "2026-10-30T03:51:07.598Z"
+      "last_seen": "2026-10-30T05:26:00.397Z"
     },
     {
       "impact": 40,
