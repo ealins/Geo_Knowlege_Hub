@@ -187,6 +187,30 @@ function parseJobsAc(html, source) {
   }
   return out;
 }
+// EURAXESS (EU research jobs portal): server-rendered search results. Each result
+// has an h3 link to /jobs/{id}, then labelled fields including "Application Deadline".
+function parseEuraxess(html) {
+  const out = [];
+  const re = /<a[^>]+href="(?:https:\/\/euraxess\.ec\.europa\.eu)?(\/jobs\/\d+)"[^>]*>([\s\S]*?)<\/a>/g;
+  const hits = [...html.matchAll(re)].filter((m) => clean(m[2].replace(/<[^>]+>/g, " ")).length > 12);
+  const seen = new Set();
+  hits.forEach((m, i) => {
+    if (seen.has(m[1])) return; seen.add(m[1]);
+    const block = html.slice(m.index, hits[i + 1]?.index ?? m.index + 6000).replace(/<[^>]+>/g, " ").replace(/\s+/g, " ");
+    const dl = block.match(/Application Deadline:?\s*([^()]{6,40})/i)?.[1] || "";
+    const loc = block.match(/Work Locations?:?\s*(.{3,80}?)(?:Research Field|Researcher Profile|Funding|Application Deadline|$)/i)?.[1] || "";
+    const posted = block.match(/Posted on:?\s*(\d{1,2} \w+ \d{4})/i)?.[1] || "";
+    out.push({
+      title: clean(m[2].replace(/<[^>]+>/g, " ")),
+      link: "https://euraxess.ec.europa.eu" + m[1],
+      date: posted ? new Date(posted + " UTC").toISOString() : "",
+      summary: clean(block.slice(0, 300)),
+      deadline: datesIn(dl, now)[0] || "",
+      location: clean(loc).replace(/^Number of offers:?\s*\d+,?\s*/i, "").slice(0, 80),
+    });
+  });
+  return out;
+}
 const pick = (s, re) => s.match(re)?.[1] ?? "";
 
 // Keyword search on a job board is loose, and an advert may mention "GIS" only in
@@ -402,6 +426,7 @@ async function runSource(src, statusOut) {
       : src.type === "arbeitsagentur" ? parseArbeitsagentur(body)
       : src.type === "isprs-calendar" ? parseIsprsCalendar(body, src)
       : src.type === "jobsacuk" ? await verifyAdverts(parseJobsAc(body, src))
+      : src.type === "euraxess" ? await verifyAdverts(parseEuraxess(body))
       : src.type === "page" ? parsePage(body, src, url)
       : [...parseJsonLd(body, src), ...parseHtml(body, src)];
     const kept = raw.map((r) => classify(r, src)).filter(Boolean);
@@ -454,7 +479,7 @@ for (const it of fresh) {
 // Listing pages (html) show only what is currently open: if such a source was
 // read successfully and an item is no longer on it, the item is gone. Feeds
 // and APIs roll over quickly, so their items keep the per-kind window instead.
-const htmlOk = new Set(enabled.filter((s) => ["html", "jobsacuk", "page", "discovered", "discovered-events", "curated"].includes(s.type) && statusOut[s.id]?.state === "ok").map((s) => s.id));
+const htmlOk = new Set(enabled.filter((s) => ["html", "jobsacuk", "euraxess", "page", "discovered", "discovered-events", "curated"].includes(s.type) && statusOut[s.id]?.state === "ok").map((s) => s.id));
 const enabledIds = new Set(enabled.map((s) => s.id));
 for (const it of previous.items ?? []) {
   if (merged.has(it.id) || htmlOk.has(it.source) || !enabledIds.has(it.source)) continue;

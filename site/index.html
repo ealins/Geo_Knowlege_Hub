@@ -154,6 +154,26 @@ input[type=search]:focus{outline:none;border-color:var(--accent);box-shadow:0 0 
 .colmore:hover{border-color:var(--accent)}
 .colempty{padding:22px 4px;color:var(--faint);font-size:13px}
 
+/* matcher */
+.matcher{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:6px}
+.matcher h3{margin:0 0 4px!important;color:var(--text)!important;font:600 14px var(--sans)!important}
+.matcher p.mh{margin:0 0 10px;color:var(--muted);font-size:12.5px;line-height:1.45}
+.matcher input{width:100%;padding:8px 10px;border:1px solid var(--line);border-radius:9px;background:var(--bg);color:var(--text);font:inherit;font-size:13px;margin-bottom:8px}
+.matcher input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--glow)}
+.matcher .chips{margin-bottom:8px}
+.matcher .chip{font-size:12px;padding:2px 9px}
+.mlabel{font-size:12px;color:var(--faint);margin:6px 0 5px}
+.mtop{margin-top:10px;border-top:1px solid var(--line);padding-top:8px;display:flex;flex-direction:column;gap:2px}
+.mtop a{display:flex;gap:9px;align-items:baseline;text-decoration:none;color:var(--text);font-size:12.5px;line-height:1.35;padding:5px 4px;border-radius:7px}
+.mtop a:hover{background:var(--hover)}
+.mtop b{flex:none;font-variant-numeric:tabular-nums;color:var(--calm);font-weight:700;min-width:34px}
+.mtop .none{color:var(--faint);font-size:12.5px;padding:4px}
+.mrow{display:flex;justify-content:space-between;align-items:center;margin-top:4px}
+.mclear{background:none;border:0;color:var(--faint);cursor:pointer;font-size:12px;padding:0}
+.mclear:hover{color:var(--hot)}
+.match{border-radius:999px;padding:0 8px;font-size:11.5px;font-weight:700;background:color-mix(in srgb,var(--calm) 16%,transparent);color:var(--calm)}
+.match.mid{background:color-mix(in srgb,var(--warm) 16%,transparent);color:var(--warm)}
+
 /* list: dense rows */
 .group{font:500 21px/1.2 var(--serif);font-variation-settings:"opsz" 36;margin:34px 0 8px;display:flex;align-items:baseline;gap:10px;letter-spacing:-.005em}
 .group span{font:500 12.5px var(--sans);color:var(--faint)}
@@ -247,6 +267,19 @@ th,td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--line);vertic
   <div class="layout">
     <aside>
      <details class="filters" id="filters" open><summary>Filters</summary>
+      <section class="matcher" aria-label="Job matcher">
+        <h3>Match positions to me</h3>
+        <p class="mh">Add your skills. Positions and programmes get a match score, and your best fits appear here.</p>
+        <label class="sr" for="mskills">Your skills</label>
+        <input id="mskills" placeholder="Skills, comma separated" autocomplete="off">
+        <div class="chips" id="mpresets"></div>
+        <div class="mlabel">Looking for</div>
+        <div class="chips" id="mlevels"></div>
+        <label class="sr" for="mwhere">Preferred place</label>
+        <input id="mwhere" placeholder="Preferred place, e.g. Germany or Stuttgart" autocomplete="off">
+        <div class="mrow"><span class="mlabel" style="margin:0">Best matches</span><button class="mclear" id="mclear" type="button">Clear</button></div>
+        <div class="mtop" id="mtop"></div>
+      </section>
       <h3>Domains</h3>
       <nav class="tree" id="tree" aria-label="Domains"></nav>
       <h3>Source</h3>
@@ -257,7 +290,7 @@ th,td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--line);vertic
       <label class="check"><input type="checkbox" id="savedOnly"> Saved only</label>
       <h3>Order</h3>
       <label class="sr" for="sort">Sort</label>
-      <select id="sort"><option value="auto">Best first</option><option value="seen">Recently found</option><option value="published">Publication date</option><option value="title">Title A to Z</option></select>
+      <select id="sort"><option value="auto">Best first</option><option value="match">Best match for me</option><option value="seen">Recently found</option><option value="published">Publication date</option><option value="title">Title A to Z</option></select>
      </details>
     </aside>
 
@@ -286,7 +319,23 @@ th,td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--line);vertic
 </footer>
 <script>
 const KINDS = [["all","All"],["job","Positions"],["paper","Papers"],["course","Programmes"],["event","Events"],["news","News"]];
-const STORE = { saved: "geo-radar-saved", theme: "geo-radar-theme" };
+const STORE = { saved: "geo-radar-saved", theme: "geo-radar-theme", profile: "geo-radar-profile" };
+const PRESETS = ["Photogrammetry", "LiDAR", "Point clouds", "Remote sensing", "SAR", "InSAR", "GIS", "Python", "Deep learning", "GNSS", "Geodesy", "CityGML", "BIM", "UAV", "Hyperspectral"];
+const LEVELS = [["PhD", /\bphd\b|doctoral|doktorand|promotion/], ["Postdoc", /postdoc|post-doc|research (associate|fellow)|wissenschaftliche/], ["Master or thesis", /\bmaster|\bmsc\b|thesis|abschlussarbeit/], ["Industry", /engineer|consultant|gmbh|\bag\b|specialist|fachkraft|developer|analyst|manager/], ["Internship", /intern|praktik|werkstudent|student assistant/]];
+let profile = { skills: [], levels: [], where: "" };
+const SYN = { "point clouds": "point cloud", "deep learning": "deep learning|neural|machine learning", "uav": "uav|drone|unmanned", "gis": "\\bgis\\b|geoinformat", "geodesy": "geodes|geodät|vermessung|surveying", "remote sensing": "remote sensing|fernerkundung|earth observation", "photogrammetry": "photogramm" };
+function skillRe(s) { const k = s.toLowerCase().trim(); return new RegExp(SYN[k] || k.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "i"); }
+function matchScore(it) {
+  if (!profile.skills.length || !(it.kind === "job" || it.kind === "course")) return null;
+  const title = it.title.toLowerCase(), body = [it.summary, (it.matched || []).join(" "), it.location, it.source_name].join(" ").toLowerCase();
+  let s = 0;
+  for (const k of profile.skills) { const r = skillRe(k); s += r.test(title) ? 1 : r.test(body) ? 0.6 : 0; }
+  if (!s) return 0;
+  let score = 0.55 * Math.min(1, s) + 0.45 * (s / profile.skills.length);
+  if (profile.levels.length) score += LEVELS.some(([l, r]) => profile.levels.includes(l) && r.test(title + " " + body)) ? 0.2 : -0.2;
+  if (profile.where.trim()) score += profile.where.toLowerCase().split(/[,\s]+/).filter(Boolean).some(w => (it.location || "").toLowerCase().includes(w) || title.includes(w)) ? 0.15 : 0;
+  return Math.max(0, Math.min(1, score));
+}
 const PAGE = 40;
 const NEEDS_DEADLINE = new Set(["job", "course", "event"]);
 const upcoming = it => it.kind === "event" && it.ends && Date.parse(it.ends) + 864e5 >= Date.now();
@@ -367,6 +416,7 @@ function sorted(items) {
         : a.open_posting && !a.deadline ? d(b, "published") - d(a, "published")
         : NEEDS_DEADLINE.has(a.kind) ? when(a) - when(b) : d(b, "first_seen") - d(a, "first_seen")));
   }
+  if (st.sort === "match") return items.sort((a, b) => (matchScore(b) ?? -1) - (matchScore(a) ?? -1) || when(a) - when(b));
   if (st.sort === "published") return items.sort((a, b) => d(b, "published") - d(a, "published"));
   if (st.sort === "title") return items.sort((a, b) => a.title.localeCompare(b.title));
   return items.sort((a, b) => d(b, "first_seen") - d(a, "first_seen"));
@@ -535,6 +585,7 @@ function card(it) {
       <h2><a href="${esc(it.url)}" target="_blank" rel="noopener noreferrer">${esc(it.title)}</a></h2>
       <div class="meta">
         <span class="kind">${esc(kindName)}</span>
+        ${(() => { const m = matchScore(it); return m == null || m < 0.15 ? "" : `<span class="match${m < 0.5 ? " mid" : ""}">${Math.round(m * 100)}% match</span>`; })()}
         ${isNew(it) ? '<span class="new">New</span>' : ""}
         ${details(it)}
         <span class="src">${esc(it.source_name)}</span>
@@ -609,7 +660,23 @@ function drawContours() {
   svg.innerHTML = p;
 }
 
+function renderMatcher() {
+  const has = new Set(profile.skills.map(s => s.toLowerCase()));
+  $("mpresets").innerHTML = PRESETS.map(p => `<button class="chip" data-preset="${esc(p)}" aria-pressed="${has.has(p.toLowerCase())}">${esc(p)}</button>`).join("");
+  $("mlevels").innerHTML = LEVELS.map(([l]) => `<button class="chip" data-level="${esc(l)}" aria-pressed="${profile.levels.includes(l)}">${esc(l)}</button>`).join("");
+  if (document.activeElement !== $("mskills")) $("mskills").value = profile.skills.join(", ");
+  if (document.activeElement !== $("mwhere")) $("mwhere").value = profile.where;
+  if (!profile.skills.length) { $("mtop").innerHTML = '<div class="none">Pick a few skills to see your best fits.</div>'; return; }
+  const top = feed.items.filter(it => NEEDS_DEADLINE.has(it.kind) && (it.deadline ? Date.parse(it.deadline) >= Date.now() - 864e5 : it.open_posting))
+    .map(it => [matchScore(it), it]).filter(([m]) => m != null && m >= 0.3).sort((a, b) => b[0] - a[0]).slice(0, 5);
+  $("mtop").innerHTML = top.length ? top.map(([m, it]) => `<a href="${esc(it.url)}" target="_blank" rel="noopener noreferrer"><b>${Math.round(m * 100)}%</b><span>${esc(it.title.length > 70 ? it.title.slice(0, 68) + "…" : it.title)}</span></a>`).join("")
+    + '<a href="#" data-showmatch="1" style="color:var(--accent)"><b></b><span>See all ranked by match</span></a>'
+    : '<div class="none">No strong matches open right now. Try broader skills.</div>';
+}
+function saveProfile() { write(STORE.profile, JSON.stringify(profile)); }
+
 function render() {
+  renderMatcher();
   renderStats();
   renderTree();
   const board = st.domain && st.kind === "all" && !st.q.trim();
@@ -636,6 +703,11 @@ function reset() { st.shown = PAGE; render(); }
 
 $("stats").addEventListener("click", e => { const b = e.target.closest("[data-k]"); if (b) { st.kind = b.dataset.k; reset(); } });
 document.addEventListener("click", e => {
+  const pr = e.target.closest("[data-preset]");
+  if (pr) { const p = pr.dataset.preset, i = profile.skills.findIndex(s => s.toLowerCase() === p.toLowerCase()); i >= 0 ? profile.skills.splice(i, 1) : profile.skills.push(p); saveProfile(); render(); return; }
+  const lv = e.target.closest("[data-level]");
+  if (lv) { const l = lv.dataset.level; profile.levels = profile.levels.includes(l) ? profile.levels.filter(x => x !== l) : [...profile.levels, l]; saveProfile(); render(); return; }
+  if (e.target.closest("[data-showmatch]")) { e.preventDefault(); st.domain = ""; st.sub = ""; st.kind = "job"; st.sort = "match"; $("sort").value = "match"; st.shown = PAGE; render(); window.scrollTo({ top: document.querySelector(".tabs").offsetTop - 1, behavior: "smooth" }); return; }
   const dm = e.target.closest("[data-dom]");
   if (dm) { setDomain(dm.dataset.dom); return; }
   const sb = e.target.closest("[data-sub]");
@@ -650,6 +722,9 @@ document.addEventListener("click", e => {
   if (cp) { navigator.clipboard?.writeText(cp.dataset.copy).then(() => { cp.textContent = "Copied"; setTimeout(() => cp.textContent = "Copy link", 1200); }).catch(() => {}); }
 });
 $("q").addEventListener("input", e => { st.q = e.target.value; reset(); });
+$("mskills").addEventListener("input", e => { profile.skills = e.target.value.split(",").map(s => s.trim()).filter(Boolean); saveProfile(); render(); });
+$("mwhere").addEventListener("input", e => { profile.where = e.target.value; saveProfile(); render(); });
+$("mclear").addEventListener("click", () => { profile = { skills: [], levels: [], where: "" }; saveProfile(); $("mskills").value = ""; $("mwhere").value = ""; if (st.sort === "match") { st.sort = "auto"; $("sort").value = "auto"; } render(); });
 $("sort").addEventListener("change", e => { st.sort = e.target.value; reset(); });
 $("source").addEventListener("change", e => { st.source = e.target.value; reset(); });
 $("newOnly").addEventListener("change", e => { st.newOnly = e.target.checked; reset(); });
@@ -666,6 +741,7 @@ document.addEventListener("keydown", e => {
 });
 
 try { saved = new Set(JSON.parse(read(STORE.saved, "[]"))); } catch { saved = new Set(); }
+try { profile = { skills: [], levels: [], where: "", ...JSON.parse(read(STORE.profile, "{}")) }; } catch {}
 applyTheme(read(STORE.theme, "auto"));
 drawContours();
 try { if (matchMedia("(max-width:860px)").matches) $("filters").open = false; } catch {}

@@ -876,6 +876,114 @@
       "type": "curated",
       "kind": "auto",
       "enabled": true
+    },
+    {
+      "id": "euraxess-photogrammetry",
+      "name": "EURAXESS: photogrammetry",
+      "url": "https://euraxess.ec.europa.eu/jobs/search?keywords=%22photogrammetry%22",
+      "type": "euraxess",
+      "kind": "job",
+      "tag": "photogrammetry",
+      "enabled": true
+    },
+    {
+      "id": "euraxess-remote-sensing",
+      "name": "EURAXESS: remote sensing",
+      "url": "https://euraxess.ec.europa.eu/jobs/search?keywords=%22remote%20sensing%22",
+      "type": "euraxess",
+      "kind": "job",
+      "tag": "remote sensing",
+      "enabled": true
+    },
+    {
+      "id": "euraxess-geoinformatics",
+      "name": "EURAXESS: geoinformatics",
+      "url": "https://euraxess.ec.europa.eu/jobs/search?keywords=%22geoinformatics%22",
+      "type": "euraxess",
+      "kind": "job",
+      "tag": "geoinformatics",
+      "enabled": true
+    },
+    {
+      "id": "euraxess-geodesy",
+      "name": "EURAXESS: geodesy",
+      "url": "https://euraxess.ec.europa.eu/jobs/search?keywords=%22geodesy%22",
+      "type": "euraxess",
+      "kind": "job",
+      "tag": "geodesy",
+      "enabled": true
+    },
+    {
+      "id": "euraxess-lidar",
+      "name": "EURAXESS: LiDAR",
+      "url": "https://euraxess.ec.europa.eu/jobs/search?keywords=%22LiDAR%22",
+      "type": "euraxess",
+      "kind": "job",
+      "tag": "LiDAR",
+      "enabled": true
+    },
+    {
+      "id": "euraxess-insar",
+      "name": "EURAXESS: InSAR",
+      "url": "https://euraxess.ec.europa.eu/jobs/search?keywords=%22InSAR%22",
+      "type": "euraxess",
+      "kind": "job",
+      "tag": "InSAR",
+      "enabled": true
+    },
+    {
+      "id": "euraxess-gis",
+      "name": "EURAXESS: GIS",
+      "url": "https://euraxess.ec.europa.eu/jobs/search?keywords=%22GIS%22",
+      "type": "euraxess",
+      "kind": "job",
+      "tag": "GIS",
+      "enabled": true
+    },
+    {
+      "id": "euraxess-earth-observation",
+      "name": "EURAXESS: earth observation",
+      "url": "https://euraxess.ec.europa.eu/jobs/search?keywords=%22earth%20observation%22",
+      "type": "euraxess",
+      "kind": "job",
+      "tag": "earth observation",
+      "enabled": true
+    },
+    {
+      "id": "euraxess-geomatics",
+      "name": "EURAXESS: geomatics",
+      "url": "https://euraxess.ec.europa.eu/jobs/search?keywords=%22geomatics%22",
+      "type": "euraxess",
+      "kind": "job",
+      "tag": "geomatics",
+      "enabled": true
+    },
+    {
+      "id": "euraxess-point-cloud",
+      "name": "EURAXESS: point cloud",
+      "url": "https://euraxess.ec.europa.eu/jobs/search?keywords=%22point%20cloud%22",
+      "type": "euraxess",
+      "kind": "job",
+      "tag": "point cloud",
+      "enabled": true
+    },
+    {
+      "id": "euraxess-gnss",
+      "name": "EURAXESS: GNSS",
+      "url": "https://euraxess.ec.europa.eu/jobs/search?keywords=%22GNSS%22",
+      "type": "euraxess",
+      "kind": "job",
+      "tag": "GNSS",
+      "enabled": true
+    },
+    {
+      "id": "euraxess-hyperspectral",
+      "name": "EURAXESS: hyperspectral",
+      "url": "https://euraxess.ec.europa.eu/jobs/search?keywords=%22hyperspectral%22",
+      "type": "euraxess",
+      "kind": "job",
+      "tag": "hyperspectral",
+      "enabled": true
     }
   ]
 }

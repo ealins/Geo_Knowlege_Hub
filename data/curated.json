@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-30T00:00:00Z",
+  "updated_at": "2026-10-30T07:00:00Z",
   "note": "Written daily by the scheduled Claude task (Indeed, Exa, web search). The radar drops anything expired.",
   "items": [
     {
@@ -11,6 +11,61 @@
       "posted": "2026-10-22",
       "deadline": null,
       "summary": "PhD position in gravimetry and geodesy (terrestrial and cryo-hydrological gravity).",
+      "via": "indeed"
+    },
+    {
+      "kind": "job",
+      "title": "Senior Computer Vision / Photogrammetry Engineer (m/w/d)",
+      "url": "https://to.indeed.com/aarz2kddpvv2",
+      "org": "Syte GmbH",
+      "location": "Remote, Germany",
+      "posted": "2026-10-07",
+      "deadline": null,
+      "summary": "Computer vision and photogrammetry engineering role.",
+      "via": "indeed"
+    },
+    {
+      "kind": "job",
+      "title": "Leitung Wahlen-IT / Sachgebiet Geografische Informationen (m/w/d)",
+      "url": "https://to.indeed.com/aaztq8q7zfb4",
+      "org": "Landeshauptstadt Stuttgart",
+      "location": "Stuttgart, Germany",
+      "posted": "2026-10-22",
+      "deadline": null,
+      "summary": "Lead for election IT and the geographic information (GIS) unit of the City of Stuttgart.",
+      "via": "indeed"
+    },
+    {
+      "kind": "job",
+      "title": "Vorbereitungsdienst im gehobenen vermessungstechnischen Verwaltungsdienst (m/w/d)",
+      "url": "https://to.indeed.com/aakkf4qhmbcb",
+      "org": "Landkreis Göppingen",
+      "location": "Göppingen, Germany",
+      "posted": "2026-10-08",
+      "deadline": null,
+      "summary": "Surveying and geodesy civil-service traineeship (Vermessung, Geodäsie).",
+      "via": "indeed"
+    },
+    {
+      "kind": "job",
+      "title": "Drohnenpilot / Vermessungstechniker (m/w/d)",
+      "url": "https://to.indeed.com/aab4xm7r8zn8",
+      "org": "MOST Robotics GmbH",
+      "location": "Herzberg am Harz, Germany",
+      "posted": "2026-09-30",
+      "deadline": null,
+      "summary": "UAV drone pilot and surveying technician (drone mapping, photogrammetry).",
+      "via": "indeed"
+    },
+    {
+      "kind": "job",
+      "title": "GIS-Fachkraft (m/w/d) für den Innendienst",
+      "url": "https://to.indeed.com/aax2t494pm4y",
+      "org": "TRIGIS GeoServices GmbH",
+      "location": "Weimar, Germany",
+      "posted": "2026-09-29",
+      "deadline": null,
+      "summary": "GIS specialist, network documentation.",
       "via": "indeed"
     }
   ]
