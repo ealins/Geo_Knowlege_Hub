@@ -22,7 +22,7 @@ const base = `http://localhost:${server.address().port}/`;
 fs.mkdirSync("shots", { recursive: true });
 const browser = await chromium.launch();
 const problems = [];
-for (const [name, width, height, scheme] of [["desktop", 1280, 1250, "light"], ["desktop-dark", 1280, 1250, "dark"], ["mobile", 390, 900, "light"]]) {
+for (const [name, width, height, scheme] of [["desktop", 1280, 1250, "light"], ["desktop-dark", 1280, 1250, "dark"], ["mobile", 390, 900, "light"], ["wide", 1920, 1100, "dark"]]) {
   const page = await browser.newPage({ viewport: { width, height }, colorScheme: scheme });
   page.on("console", m => m.type() === "error" && problems.push(`${name}: console error: ${m.text()}`));
   page.on("pageerror", e => problems.push(`${name}: ${e.message}`));
