@@ -868,6 +868,14 @@
       "on_topic": true,
       "tag": "event",
       "enabled": true
+    },
+    {
+      "id": "curated",
+      "name": "Indeed, Exa and web search (curated daily)",
+      "url": "https://geoacademic.app/data/curated.json",
+      "type": "curated",
+      "kind": "auto",
+      "enabled": true
     }
   ]
 }

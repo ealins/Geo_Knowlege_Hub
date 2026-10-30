@@ -1,4 +1,4 @@
-const VALID_TYPES = new Set(["rss", "html", "openalex", "arbeitsagentur", "jobsacuk", "page", "discovered", "isprs-calendar", "discovered-events"]);
+const VALID_TYPES = new Set(["rss", "html", "openalex", "arbeitsagentur", "jobsacuk", "page", "discovered", "isprs-calendar", "discovered-events", "curated"]);
 const VALID_KINDS = new Set(["job", "course", "event", "news", "paper", "auto"]);
 
 export function getEnabledSources(config) {

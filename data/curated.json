@@ -1,0 +1,17 @@
+{
+  "updated_at": "2026-10-30T00:00:00Z",
+  "note": "Written daily by the scheduled Claude task (Indeed, Exa, web search). The radar drops anything expired.",
+  "items": [
+    {
+      "kind": "job",
+      "title": "Doctoral researcher (f_m_x) – Terrestrial and Cryo-Hydrological Gravimetry",
+      "url": "https://to.indeed.com/aa7kts9crbtt",
+      "org": "GFZ Helmholtz Centre for Geosciences",
+      "location": "Potsdam, Germany",
+      "posted": "2026-10-22",
+      "deadline": null,
+      "summary": "PhD position in gravimetry and geodesy (terrestrial and cryo-hydrological gravity).",
+      "via": "indeed"
+    }
+  ]
+}

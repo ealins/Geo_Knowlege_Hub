@@ -320,6 +320,8 @@ function classify(raw, source) {
     const re = kindRes.find(([k]) => k === source.kind)?.[1];
     if ((re && !re.test(text)) || raw.title.trim().split(/\s+/).length < (source.kind === "course" ? 2 : source.on_topic ? 3 : 4) || raw.title.includes("@")) return null;
   }
+  // A posting with no closing date counts as open for 45 days after it was posted.
+  if (raw.open_posting && (!raw.date || now.getTime() - Date.parse(raw.date) > 45 * 864e5)) return null;
   let kind = source.kind && source.kind !== "auto" ? source.kind : "news";
   if (!source.kind || source.kind === "auto") {
     const hit = kindRes.find(([, re]) => re.test(text));
@@ -334,6 +336,7 @@ function classify(raw, source) {
   return {
     ...paper,
     ...(closed ? { apply_closed: true } : {}),
+    ...(raw.open_posting ? { open_posting: true } : {}),
     id: createHash("sha1").update(raw.link).digest("hex").slice(0, 16),
     title: raw.title,
     url: raw.link,
@@ -366,6 +369,18 @@ async function runSource(src, statusOut) {
       const file = await readJson(path.join(DATA_DIR, "programmes-discovered.json"), { items: [] });
       const raw = file.items.map((p) => ({ title: p.title, link: p.url, date: "", summary: `${p.summary || ""} ${p.university}`, deadline: p.deadline || "", location: `${p.university}, ${p.country}` }));
       const kept = raw.map((r) => classify(r, src)).filter(Boolean);
+      statusOut[src.id] = { state: "ok", last_checked: nowIso, last_success: nowIso, items_found: raw.length, items_matched: kept.length, consecutive_failures: 0, last_error: null };
+      return kept;
+    }
+    if (src.type === "curated") {
+      // Items collected by the scheduled Claude task (Indeed, Exa, web search), read from data/curated.json.
+      const file = await readJson(path.join(DATA_DIR, "curated.json"), { items: [] });
+      const raw = (file.items ?? []).map((c) => ({
+        title: c.title, link: c.url, date: c.posted || "", summary: [c.org, c.summary].filter(Boolean).join(". "),
+        deadline: c.deadline || "", starts: c.starts || "", ends: c.ends || c.starts || "", location: c.location || c.org || "",
+        kind: c.kind, open_posting: c.kind === "job" && !c.deadline,
+      }));
+      const kept = raw.map((r) => classify(r, { ...src, kind: r.kind })).filter(Boolean);
       statusOut[src.id] = { state: "ok", last_checked: nowIso, last_success: nowIso, items_found: raw.length, items_matched: kept.length, consecutive_failures: 0, last_error: null };
       return kept;
     }
@@ -439,7 +454,7 @@ for (const it of fresh) {
 // Listing pages (html) show only what is currently open: if such a source was
 // read successfully and an item is no longer on it, the item is gone. Feeds
 // and APIs roll over quickly, so their items keep the per-kind window instead.
-const htmlOk = new Set(enabled.filter((s) => ["html", "jobsacuk", "page", "discovered", "discovered-events"].includes(s.type) && statusOut[s.id]?.state === "ok").map((s) => s.id));
+const htmlOk = new Set(enabled.filter((s) => ["html", "jobsacuk", "page", "discovered", "discovered-events", "curated"].includes(s.type) && statusOut[s.id]?.state === "ok").map((s) => s.id));
 const enabledIds = new Set(enabled.map((s) => s.id));
 for (const it of previous.items ?? []) {
   if (merged.has(it.id) || htmlOk.has(it.source) || !enabledIds.has(it.source)) continue;
@@ -451,7 +466,7 @@ for (const it of previous.items ?? []) {
 const ENRICH_KINDS = new Set(["job", "course", "event"]);
 const RECHECK_MS = 3 * 864e5;
 const todo = [...merged.values()].filter(
-  (i) => ENRICH_KINDS.has(i.kind) && !i.deadline && !i.apply_closed && (!i.deadline_checked || now.getTime() - Date.parse(i.deadline_checked) > RECHECK_MS),
+  (i) => ENRICH_KINDS.has(i.kind) && !i.deadline && !i.apply_closed && !i.open_posting && (!i.deadline_checked || now.getTime() - Date.parse(i.deadline_checked) > RECHECK_MS),
 ).slice(0, 80);
 for (let n = 0; n < todo.length; n += 8) {
   await Promise.all(
@@ -478,6 +493,20 @@ const items = [...merged.values()]
   .filter((i) => !(i.kind === "event" && i.ends && Date.parse(i.ends) + 864e5 < now.getTime()))
   .filter((i) => !i.deadline || Date.parse(i.deadline) >= now.getTime() || (i.kind === "event" && i.ends))
   .sort((a, b) => b.first_seen.localeCompare(a.first_seen));
+
+// The same position or event often arrives from several sources (a university
+// page and a job board). Keep one: the entry with a closing date, else the first.
+const normTitle = (s) => s.toLowerCase().replace(/\([^)]*\)|\[[^\]]*\]/g, " ").replace(/[^\p{L}\p{N}]+/gu, " ").trim().slice(0, 70);
+const bestByKey = new Map();
+for (const it of items) {
+  if (!["job", "event", "course"].includes(it.kind)) continue;
+  const key = `${it.kind}|${normTitle(it.title)}`;
+  const cur = bestByKey.get(key);
+  if (!cur || (!cur.deadline && it.deadline)) bestByKey.set(key, it);
+}
+const dedupedItems = items.filter((it) => !["job", "event", "course"].includes(it.kind) || bestByKey.get(`${it.kind}|${normTitle(it.title)}`) === it);
+items.length = 0;
+items.push(...dedupedItems);
 
 await mkdir(DATA_DIR, { recursive: true });
 await writeFile(

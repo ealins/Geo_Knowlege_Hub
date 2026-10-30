@@ -158,7 +158,7 @@ function filtered(ignoreKind) {
     (!st.topic || (it.matched || []).includes(st.topic)) &&
     (!st.source || it.source_name === st.source) &&
     (!st.newOnly || isNew(it)) &&
-    (!NEEDS_DEADLINE.has(it.kind) || st.unlisted || (it.deadline && Date.parse(it.deadline) >= Date.now()) || upcoming(it)) &&
+    (!NEEDS_DEADLINE.has(it.kind) || st.unlisted || (it.deadline && Date.parse(it.deadline) >= Date.now()) || upcoming(it) || it.open_posting) &&
     (!st.savedOnly || saved.has(it.id)) &&
     (!q || [it.title, it.source_name, (it.matched || []).join(" ")].join(" ").toLowerCase().includes(q)));
 }
@@ -166,9 +166,9 @@ function filtered(ignoreKind) {
 function sorted(items) {
   const d = (x, k) => Date.parse(x[k] || 0) || 0;
   if (st.sort === "auto") {
-    const rank = it => NEEDS_DEADLINE.has(it.kind) ? (it.deadline || upcoming(it) ? 0 : 3) : it.kind === "paper" ? 1 : 2;
+    const rank = it => NEEDS_DEADLINE.has(it.kind) ? (it.deadline || upcoming(it) ? 0 : it.open_posting ? 0.5 : 3) : it.kind === "paper" ? 1 : 2;
     return items.sort((a, b) => rank(a) - rank(b)
-      || (rank(a) === 0 ? when(a) - when(b) : rank(a) === 1 ? (b.impact || 0) - (a.impact || 0) : d(b, "first_seen") - d(a, "first_seen")));
+      || (rank(a) === 0 ? when(a) - when(b) : rank(a) === 0.5 ? d(b, "published") - d(a, "published") : rank(a) === 1 ? (b.impact || 0) - (a.impact || 0) : d(b, "first_seen") - d(a, "first_seen")));
   }
   if (st.sort === "published") return items.sort((a, b) => d(b, "published") - d(a, "published"));
   if (st.sort === "title") return items.sort((a, b) => a.title.localeCompare(b.title));
@@ -206,6 +206,10 @@ function openLabel(it) {
     const days = Math.ceil((Date.parse(it.deadline) - Date.now()) / 864e5);
     const left = days <= 0 ? "closes today" : days === 1 ? "1 day left" : days + " days left";
     return `<span class="deadline">Open · ${esc(left)} · deadline ${fmt(it.deadline)}</span>`;
+  }
+  if (it.open_posting) {
+    const days = Math.max(0, Math.floor((Date.now() - Date.parse(it.published || it.first_seen)) / 864e5));
+    return `<span class="deadline">Open posting · posted ${days === 0 ? "today" : days === 1 ? "1 day ago" : days + " days ago"} · no closing date</span>`;
   }
   if (it.apply_closed) return '<span class="muted-tag">Current intake closed</span>';
   return ["job", "course", "event"].includes(it.kind) ? '<span class="muted-tag">Deadline not listed</span>' : "";
