@@ -1,0 +1,254 @@
+[
+ {
+  "url": "https://jobs.esa.int/",
+  "status": 200,
+  "final": "https://jobs.esa.int/",
+  "bytes": 62991,
+  "markers": [
+   "successfactors"
+  ],
+  "hosts": [
+   "jobs.esa.int"
+  ]
+ },
+ {
+  "url": "https://www.eumetsat.int/careers",
+  "status": 200,
+  "final": "https://www.eumetsat.int/work-us/careers-eumetsat",
+  "bytes": 129527,
+  "markers": [],
+  "hosts": [
+   "meteo.hr"
+  ]
+ },
+ {
+  "url": "https://jobs.ethz.ch/",
+  "status": 200,
+  "final": "https://jobs.ethz.ch/",
+  "bytes": 164994,
+  "markers": [],
+  "hosts": [
+   "apply.refline.ch",
+   "www.ethrat.ch"
+  ]
+ },
+ {
+  "url": "https://careers.tudelft.nl/",
+  "status": 200,
+  "final": "https://careers.tudelft.nl/",
+  "bytes": 33791,
+  "markers": [
+   "successfactors"
+  ],
+  "hosts": [
+   "careers.tudelft.nl"
+  ]
+ },
+ {
+  "url": "https://www.utwente.nl/en/organisation/careers/vacancies/",
+  "status": 200,
+  "final": "https://utwentecareers.nl/en/vacancies/",
+  "bytes": 70511,
+  "markers": [
+   "rss"
+  ],
+  "hosts": [
+   "utwentecareers.nl"
+  ]
+ },
+ {
+  "url": "https://jobs.dlr.de/",
+  "status": 200,
+  "final": "https://jobs.dlr.de/",
+  "bytes": 63847,
+  "markers": [
+   "successfactors"
+  ],
+  "hosts": [
+   "jobs.dlr.de"
+  ]
+ },
+ {
+  "url": "https://www.gfz-potsdam.de/en/career/job-offers",
+  "status": 200,
+  "final": "https://www.gfz.de/en/career/job-offers",
+  "bytes": 107115,
+  "markers": [],
+  "hosts": []
+ },
+ {
+  "url": "https://www.wur.nl/en/vacancies.htm",
+  "status": 200,
+  "final": "https://www.wur.nl/en/jobs/jobs-wageningen-university-research",
+  "bytes": 260720,
+  "markers": [],
+  "hosts": []
+ },
+ {
+  "url": "https://jobs.tuwien.ac.at/",
+  "status": 200,
+  "final": "https://jobs.tuwien.ac.at/Jobs",
+  "bytes": 66204,
+  "markers": [],
+  "hosts": []
+ },
+ {
+  "url": "https://tu-dresden.de/karriere/stellenangebote",
+  "status": 200,
+  "final": "https://tu-dresden.de/tu-dresden/arbeiten-an-der-tud/stellenangebote",
+  "bytes": 50204,
+  "markers": [],
+  "hosts": []
+ },
+ {
+  "url": "https://www.jobs.tu-berlin.de/en/job-postings",
+  "status": 200,
+  "final": "https://www.jobs.tu-berlin.de/en/job-postings",
+  "bytes": 85513,
+  "markers": [
+   "rss"
+  ],
+  "hosts": [
+   "www.jobs.tu-berlin.de",
+   "www.stellenticket.de",
+   "piwik.stellenticket.de",
+   "stellenticket.tu-berlin.de"
+  ]
+ },
+ {
+  "url": "https://www.uni-heidelberg.de/en/jobs",
+  "status": 200,
+  "final": "https://www.uni-heidelberg.de/en/job-market",
+  "bytes": 146779,
+  "markers": [],
+  "hosts": []
+ },
+ {
+  "url": "https://www.jobs.uni-freiburg.de/",
+  "error": "fetch failed"
+ },
+ {
+  "url": "https://www.awi.de/en/work-study/jobs.html",
+  "status": 200,
+  "final": "https://www.awi.de/en/work-study/jobs.html",
+  "bytes": 645983,
+  "markers": [],
+  "hosts": []
+ },
+ {
+  "url": "https://www.ufz.de/index.php?en=34275",
+  "status": 200,
+  "final": "https://www.ufz.de/index.php?en=34275",
+  "bytes": 49625,
+  "markers": [
+   "umantis"
+  ],
+  "hosts": [
+   "recruitingapp-5128.de.umantis.com"
+  ]
+ },
+ {
+  "url": "https://www.uzh.ch/cmsssl/en/explore/work/jobs.html",
+  "status": 200,
+  "final": "https://www.uzh.ch/en/explore/work/jobs.html",
+  "bytes": 138739,
+  "markers": [],
+  "hosts": []
+ },
+ {
+  "url": "https://careers.epfl.ch/",
+  "status": 200,
+  "final": "https://careers.epfl.ch/",
+  "bytes": 42628,
+  "markers": [
+   "successfactors"
+  ],
+  "hosts": [
+   "careers.epfl.ch"
+  ]
+ },
+ {
+  "url": "https://www.aalto.fi/en/careers-at-aalto",
+  "status": 200,
+  "final": "https://www.aalto.fi/en/careers-at-aalto",
+  "bytes": 128291,
+  "markers": [
+   "workday"
+  ],
+  "hosts": []
+ },
+ {
+  "url": "https://www.lunduniversity.lu.se/vacancies",
+  "status": 200,
+  "final": "https://www.lunduniversity.lu.se/vacancies",
+  "bytes": 201633,
+  "markers": [
+   "varbi"
+  ],
+  "hosts": []
+ },
+ {
+  "url": "https://www.dtu.dk/english/about/job-and-career/vacant-positions",
+  "status": 200,
+  "final": "https://www.dtu.dk/english/about/job-and-career/vacant-positions",
+  "bytes": 166101,
+  "markers": [],
+  "hosts": []
+ },
+ {
+  "url": "https://www.ugent.be/en/work",
+  "status": 200,
+  "final": "https://www.ugent.be/en/work",
+  "bytes": 33673,
+  "markers": [],
+  "hosts": [
+   "jobs.ugent.be"
+  ]
+ },
+ {
+  "url": "https://www.kuleuven.be/personeel/jobsite/en",
+  "status": 200,
+  "final": "https://www.kuleuven.be/personeel/jobsite/en",
+  "bytes": 36551,
+  "markers": [],
+  "hosts": []
+ },
+ {
+  "url": "https://www.uu.nl/en/organisation/working-at-utrecht-university/jobs",
+  "status": 200,
+  "final": "https://www.uu.nl/en/organisation/working-at-utrecht-university/jobs",
+  "bytes": 61799,
+  "markers": [],
+  "hosts": [
+   "www.nvp-hrnetwerk.nl"
+  ]
+ },
+ {
+  "url": "https://employment.ku.dk/all-vacancies/",
+  "error": "fetch failed"
+ },
+ {
+  "url": "https://vito.be/en/jobs",
+  "status": 200,
+  "final": "https://vito.be/en/jobs",
+  "bytes": 74417,
+  "markers": [],
+  "hosts": []
+ },
+ {
+  "url": "https://www.plus.ac.at/jobs/",
+  "status": 200,
+  "final": "https://www.plus.ac.at/personalabteilung-amt-der-universitaet/jobs/",
+  "bytes": 73156,
+  "markers": [],
+  "hosts": []
+ },
+ {
+  "url": "https://www.academictransfer.com/en/jobs/?q=remote+sensing",
+  "status": 200,
+  "final": "https://www.academictransfer.com/en/jobs/?q=remote+sensing",
+  "bytes": 230308,
+  "markers": [],
+  "hosts": []
+ }
+]
