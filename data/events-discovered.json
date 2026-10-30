@@ -1,277 +1,25 @@
 {
- "generated_at": "2026-10-30T01:10:41.228Z",
+ "generated_at": "2026-10-30T01:18:39.035Z",
  "organisations": 160,
- "count": 77,
+ "count": 35,
  "items": [
-  {
-   "title": "December 7&ndash;9, 2026 GEOINFO 2026",
-   "url": "https://geoinfobr.github.io/",
-   "starts": "2026-11-02T00:00:00.000Z",
-   "ends": "2026-11-02T23:59:59.000Z",
-   "deadline": null,
-   "host": "selperbrasil.org.br",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
-  },
   {
    "title": "31st International Symposium – CIPA2027 Abu Dhabi",
    "url": "https://www.cipaheritagedocumentation.org/31st-international-symposium-cipa2027-in-abu-dhabi-uae/",
-   "starts": "2027-11-15T00:00:00.000Z",
-   "ends": "2027-11-19T23:59:59.000Z",
+   "starts": "2027-11-13T00:00:00.000Z",
+   "ends": "2027-11-14T23:59:59.000Z",
    "deadline": null,
    "host": "cipaheritagedocumentation.org",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
+   "discovered_at": "2026-10-30T01:18:39.035Z"
   },
   {
-   "title": "Odluka o raspodjeli sredstava za opremanje osnovnoškolskih knjižnica obveznom lektirom i stručnom literaturom u 2026. godini",
-   "url": "https://mzom.gov.hr/vijesti/odluka-o-raspodjeli-sredstava-za-opremanje-osnovnoskolskih-knjiznica-obveznom-lektirom-i-strucnom-literaturom-u-2026-godini/8129",
-   "starts": "2026-10-29T00:00:00.000Z",
-   "ends": "2026-10-29T23:59:59.000Z",
+   "title": "Fragenforum (nur für Netzwerkmitglieder)",
+   "url": "https://www.dgpf.de/forum.html",
+   "starts": "2026-11-03T00:00:00.000Z",
+   "ends": "2026-11-03T23:59:59.000Z",
    "deadline": null,
-   "host": "hgd1952.hr",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
-  },
-  {
-   "title": "11 NOVEMBER 2026",
-   "url": "javascript:__doPostBack(&",
-   "starts": "2026-11-11T00:00:00.000Z",
-   "ends": "2026-11-11T23:59:59.000Z",
-   "deadline": null,
-   "host": "isrs-india.org",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
-  },
-  {
-   "title": "12 DECEMBER 2026",
-   "url": "javascript:__doPostBack(&",
-   "starts": "2026-12-12T00:00:00.000Z",
-   "ends": "2026-12-12T23:59:59.000Z",
-   "deadline": null,
-   "host": "isrs-india.org",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
-  },
-  {
-   "title": "XXXVI Международен симпозиум на СГЗБ – 05-06.11.2026г.",
-   "url": "https://geodesy-union.org/2026/10/27/xxxvi-%d0%bc%d0%b5%d0%b6%d0%b4%d1%83%d0%bd%d0%b0%d1%80%d0%be%d0%b4%d0%b5%d0%bd-%d1%81%d0%b8%d0%bc%d0%bf%d0%be%d0%b7%d0%b8%d1%83%d0%bc-%d0%bd%d0%b0-%d1%81%d0%b3%d0%b7%d0%b1-2026/",
-   "starts": "2026-11-05T00:00:00.000Z",
-   "ends": "2026-11-06T23:59:59.000Z",
-   "deadline": null,
-   "host": "geodesy-union.org",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
-  },
-  {
-   "title": "Курс по кадастър ще се проведе на 07-08.11.2026г.",
-   "url": "https://geodesy-union.org/2026/10/14/%d0%ba%d1%83%d1%80%d1%81-%d0%bf%d0%be-%d0%ba%d0%b0%d0%b4%d0%b0%d1%81%d1%82%d1%8a%d1%80-%d1%89%d0%b5-%d1%81%d0%b5-%d0%bf%d1%80%d0%be%d0%b2%d0%b5%d0%b4%d0%b5-%d0%bd%d0%b0-07-08-11-2026%d0%b3/",
-   "starts": "2026-11-07T00:00:00.000Z",
-   "ends": "2026-11-08T23:59:59.000Z",
-   "deadline": null,
-   "host": "geodesy-union.org",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
-  },
-  {
-   "title": "Публикуван е брой 3-4’2026 на списание ГКЗ",
-   "url": "https://geodesy-union.org/2026/07/28/%d0%bf%d1%83%d0%b1%d0%bb%d0%b8%d0%ba%d1%83%d0%b2%d0%b0%d0%bd-%d0%b5-%d0%b1%d1%80%d0%be%d0%b9-3-42026-%d0%bd%d0%b0-%d1%81%d0%bf%d0%b8%d1%81%d0%b0%d0%bd%d0%b8%d0%b5-%d0%b3%d0%ba%d0%b7/",
-   "starts": "2026-11-05T00:00:00.000Z",
-   "ends": "2026-11-06T23:59:59.000Z",
-   "deadline": null,
-   "host": "geodesy-union.org",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
-  },
-  {
-   "title": "СГЗБ и КИИП организират регионална геодезическа среща – семинар в гр. Русе на 11.06.2026г.",
-   "url": "https://geodesy-union.org/2026/06/04/%d1%81%d0%b3%d0%b7%d0%b1-%d0%b8-%d0%ba%d0%b8%d0%b8%d0%bf-%d0%be%d1%80%d0%b3%d0%b0%d0%bd%d0%b8%d0%b7%d0%b8%d1%80%d0%b0%d1%82-%d1%80%d0%b5%d0%b3%d0%b8%d0%be%d0%bd%d0%b0%d0%bb%d0%bd%d0%b0-%d0%b3%d0%b5/",
-   "starts": "2026-11-05T00:00:00.000Z",
-   "ends": "2026-11-06T23:59:59.000Z",
-   "deadline": null,
-   "host": "geodesy-union.org",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
-  },
-  {
-   "title": "Публикуван е брой 1-2’2026 на списание ГКЗ",
-   "url": "https://geodesy-union.org/2026/04/02/%d0%bf%d1%83%d0%b1%d0%bb%d0%b8%d0%ba%d1%83%d0%b2%d0%b0%d0%bd-%d0%b5-%d0%b1%d1%80%d0%be%d0%b9-5-62025-%d0%bd%d0%b0-%d1%81%d0%bf%d0%b8%d1%81%d0%b0%d0%bd%d0%b8%d0%b5-%d0%b3%d0%ba%d0%b7-copy/",
-   "starts": "2026-11-05T00:00:00.000Z",
-   "ends": "2026-11-06T23:59:59.000Z",
-   "deadline": null,
-   "host": "geodesy-union.org",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
-  },
-  {
-   "title": "Световен ден на геодезиста 2026",
-   "url": "https://geodesy-union.org/2026/03/16/%d1%81%d0%b2%d0%b5%d1%82%d0%be%d0%b2%d0%b5%d0%bd-%d0%b4%d0%b5%d0%bd-%d0%bd%d0%b0-%d0%b3%d0%b5%d0%be%d0%b4%d0%b5%d0%b7%d0%b8%d1%81%d1%82%d0%b0-2026/",
-   "starts": "2026-11-05T00:00:00.000Z",
-   "ends": "2026-11-06T23:59:59.000Z",
-   "deadline": null,
-   "host": "geodesy-union.org",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
-  },
-  {
-   "title": "Курс по кадастър ще се проведе на 31.01 – 01.02 2026г.",
-   "url": "https://geodesy-union.org/2026/01/08/%d0%ba%d1%83%d1%80%d1%81-%d0%bf%d0%be-%d0%ba%d0%b0%d0%b4%d0%b0%d1%81%d1%82%d1%8a%d1%80-%d1%89%d0%b5-%d1%81%d0%b5-%d0%bf%d1%80%d0%be%d0%b2%d0%b5%d0%b4%d0%b5-%d0%bd%d0%b0-31-01-01-02-2026%d0%b3/",
-   "starts": "2026-11-05T00:00:00.000Z",
-   "ends": "2026-11-06T23:59:59.000Z",
-   "deadline": null,
-   "host": "geodesy-union.org",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
-  },
-  {
-   "title": "Zes genomineerden voor GIN Kartografieprijs 2026 bekend!",
-   "url": "https://geoinformatienederland.nl/nieuws/zes-genomineerden-voor-gin-kartografieprijs-2026-bekend",
-   "starts": "2026-11-17T00:00:00.000Z",
-   "ends": "2026-11-17T23:59:59.000Z",
-   "deadline": null,
-   "host": "geoinformatienederland.nl",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
-  },
-  {
-   "title": "Geomatics Day 2026",
-   "url": "https://geoinformatienederland.nl/agenda/geomatics-day-2026",
-   "starts": "2026-11-06T00:00:00.000Z",
-   "ends": "2026-11-06T23:59:59.000Z",
-   "deadline": null,
-   "host": "geoinformatienederland.nl",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
-  },
-  {
-   "title": "Nationaal Congres Bodemdaling 2026",
-   "url": "https://geoinformatienederland.nl/agenda/nationaal-congres-bodemdaling-2026",
-   "starts": "2026-11-19T00:00:00.000Z",
-   "ends": "2026-11-19T23:59:59.000Z",
-   "deadline": null,
-   "host": "geoinformatienederland.nl",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
-  },
-  {
-   "title": "GIN-webinar: veilig graven en betrouwbare ondergrondinformatie",
-   "url": "https://geoinformatienederland.nl/agenda/gin-webinar-gi-4",
-   "starts": "2026-11-26T00:00:00.000Z",
-   "ends": "2026-11-26T23:59:59.000Z",
-   "deadline": null,
-   "host": "geoinformatienederland.nl",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
-  },
-  {
-   "title": "FIG WW 2027",
-   "url": "https://geoforum.no/fig-ww-2027/",
-   "starts": "2026-11-08T00:00:00.000Z",
-   "ends": "2026-11-08T23:59:59.000Z",
-   "deadline": null,
-   "host": "geoforum.no",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
-  },
-  {
-   "title": "Nyhet slik sender du inn foredrag til geomatikkdagene 2027 Din erfaring har en plass på Geomatikkdagene – også i 2027 Les mer",
-   "url": "https://geoforum.no/slik-sender-du-inn-foredrag-til-geomatikkdagene-2027/",
-   "starts": "2026-11-08T00:00:00.000Z",
-   "ends": "2026-11-08T23:59:59.000Z",
-   "deadline": null,
-   "host": "geoforum.no",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
-  },
-  {
-   "title": "Nyhet CfA for working week 2027 Information about submitting your abstract for FIG+Geomatikkdagene? Les mer",
-   "url": "https://geoforum.no/cfa-for-working-week-2027/",
-   "starts": "2026-11-08T00:00:00.000Z",
-   "ends": "2026-11-08T23:59:59.000Z",
-   "deadline": null,
-   "host": "geoforum.no",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
-  },
-  {
-   "title": "Geodesi- og hydrografidagene Sola 2026",
-   "url": "https://geoforum.no/event/geodesi-og-hydrografidagene-sola-2026/",
-   "starts": "2026-11-09T00:00:00.000Z",
-   "ends": "2026-11-09T23:59:59.000Z",
-   "deadline": null,
-   "host": "geoforum.no",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
-  },
-  {
-   "title": "Geodesi- og hydrografidagene Sola 2026 &raquo;",
-   "url": "https://geoforum.no/event/geodesi-og-hydrografidagene-sola-2026/",
-   "starts": "2027-05-23T00:00:00.000Z",
-   "ends": "2027-05-23T23:59:59.000Z",
-   "deadline": null,
-   "host": "geoforum.no",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
-  },
-  {
-   "title": "Kartverket: Geonorge Brukerkonferanse 2026 &raquo;",
-   "url": "https://geoforum.no/event/kartverket-geonorge-brukerkonferanse-2026/",
-   "starts": "2026-11-10T00:00:00.000Z",
-   "ends": "2026-11-10T23:59:59.000Z",
-   "deadline": null,
-   "host": "geoforum.no",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
-  },
-  {
-   "title": "Geodesi- og Hydrografidagene 2026",
-   "url": "https://geoforum.pameldingssystem.no/geodesi-og-hydrografidagene2026",
-   "starts": "2026-11-02T00:00:00.000Z",
-   "ends": "2026-11-02T23:59:59.000Z",
-   "deadline": null,
-   "host": "geoforum.no",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
-  },
-  {
-   "title": "Plan, bygg og geodata – Kommunal geomatikkonferanse 2026",
-   "url": "https://geoforum.no/event/plan-bygg-og-geodata-kommunal-geomatikkonferanse-2026/",
-   "starts": "2027-05-23T00:00:00.000Z",
-   "ends": "2027-05-23T23:59:59.000Z",
-   "deadline": null,
-   "host": "geoforum.no",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
-  },
-  {
-   "title": "Government hands over 40 staff houses to Malawi Defence Force MDF at Mvera 29 October 2026",
-   "url": "http://www.lands.gov.mw/index.php/ministry-news/government-hands-over-40-staff-houses-to-malawi-defence-force-mdf-at-mvera",
-   "starts": "2026-10-29T00:00:00.000Z",
-   "ends": "2026-10-29T23:59:59.000Z",
-   "deadline": null,
-   "host": "lands.gov.mw",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
-  },
-  {
-   "title": "Government signs housing partnerships to improve access to affordable homes 28 October 2026",
-   "url": "http://www.lands.gov.mw/index.php/ministry-news/government-signs-housing-partnerships-to-improve-access-to-affordable-homes",
-   "starts": "2026-10-29T00:00:00.000Z",
-   "ends": "2026-10-29T23:59:59.000Z",
-   "deadline": null,
-   "host": "lands.gov.mw",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
-  },
-  {
-   "title": "New members sought for coastal mapping advisory group Published date 29 October 2026 Toitū Te Whenua Land Information New Zealand (LINZ) is inviting organisatio",
-   "url": "http://www.linz.govt.nz/news/2026-10/new-members-sought-coastal-mapping-advisory-group",
-   "starts": "2026-10-29T00:00:00.000Z",
-   "ends": "2026-10-29T23:59:59.000Z",
-   "deadline": null,
-   "host": "linz.govt.nz",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
-  },
-  {
-   "title": "Pānui - October 2026 Published date 29 October 2026 The latest updates from the overseas investment team.",
-   "url": "http://www.linz.govt.nz/news/2026-10/panui-october-2026",
-   "starts": "2026-10-29T00:00:00.000Z",
-   "ends": "2026-10-29T23:59:59.000Z",
-   "deadline": null,
-   "host": "linz.govt.nz",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
-  },
-  {
-   "title": "Update to threshold for Australian investors Published date 29 October 2026 On 1 January 2027, the significant business assets threshold for Australian investor",
-   "url": "http://www.linz.govt.nz/news/2026-10/update-threshold-australian-investors",
-   "starts": "2026-10-29T00:00:00.000Z",
-   "ends": "2026-10-29T23:59:59.000Z",
-   "deadline": null,
-   "host": "linz.govt.nz",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
-  },
-  {
-   "title": "Surplus Crown-owned Land - October 2026 Published date 2 October 2026 We frequently publish a schedule of new Crown properties that have been declared surplus. ",
-   "url": "http://www.linz.govt.nz/news/2026-10/surplus-crown-owned-land-october-2026",
-   "starts": "2026-11-04T00:00:00.000Z",
-   "ends": "2026-11-04T23:59:59.000Z",
-   "deadline": null,
-   "host": "linz.govt.nz",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
+   "host": "dgpf.de",
+   "discovered_at": "2026-10-30T01:18:39.035Z"
   },
   {
    "title": "Doppel-Workshop: Optical 3D Metrology & LowCost3D",
@@ -280,7 +28,7 @@
    "ends": "2026-11-18T23:59:59.000Z",
    "deadline": null,
    "host": "dgpf.de",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
+   "discovered_at": "2026-10-30T01:18:39.035Z"
   },
   {
    "title": "PCP27 - Workshop Point Cloud Processing",
@@ -289,7 +37,7 @@
    "ends": "2027-02-04T23:59:59.000Z",
    "deadline": null,
    "host": "dgpf.de",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
+   "discovered_at": "2026-10-30T01:18:39.035Z"
   },
   {
    "title": "DGPF Jahrestagung 2027",
@@ -298,52 +46,61 @@
    "ends": "2027-05-19T23:59:59.000Z",
    "deadline": null,
    "host": "dgpf.de",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
+   "discovered_at": "2026-10-30T01:18:39.035Z"
   },
   {
-   "title": "Impressionen von der 46. Jahrestagung in Darmstadt",
-   "url": "https://www.dgpf.de/org/aktuelles/46-wissenschaftlich-technische-dgpf-jahrestagung-in-darmstadt.html",
-   "starts": "2026-11-03T00:00:00.000Z",
-   "ends": "2026-11-03T23:59:59.000Z",
+   "title": "Geomatics Day 2026",
+   "url": "https://geoinformatienederland.nl/agenda/geomatics-day-2026",
+   "starts": "2026-11-06T00:00:00.000Z",
+   "ends": "2026-11-06T23:59:59.000Z",
    "deadline": null,
-   "host": "dgpf.de",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
+   "host": "geoinformatienederland.nl",
+   "discovered_at": "2026-10-30T01:18:39.035Z"
   },
   {
-   "title": "Call for papers Kartdagarna 2027 – förlängd tid!",
-   "url": "https://kartografiska.se/nyheter/call-for-papers-kartdagarna-2027-forlangd-tid/",
-   "starts": "2026-11-15T00:00:00.000Z",
-   "ends": "2026-11-15T23:59:59.000Z",
+   "title": "Nationaal Congres Bodemdaling 2026",
+   "url": "https://geoinformatienederland.nl/agenda/nationaal-congres-bodemdaling-2026",
+   "starts": "2026-11-19T00:00:00.000Z",
+   "ends": "2026-11-19T23:59:59.000Z",
    "deadline": null,
-   "host": "kartografiska.se",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
+   "host": "geoinformatienederland.nl",
+   "discovered_at": "2026-10-30T01:18:39.035Z"
   },
   {
-   "title": "Call for papers till Kartdagarna 2027",
-   "url": "https://kartografiska.se/nyheter/call-for-papers-till-kartdagarna-2027/",
-   "starts": "2026-10-30T00:00:00.000Z",
-   "ends": "2026-10-30T23:59:59.000Z",
+   "title": "GIN-webinar: veilig graven en betrouwbare ondergrondinformatie",
+   "url": "https://geoinformatienederland.nl/agenda/gin-webinar-gi-4",
+   "starts": "2026-11-26T00:00:00.000Z",
+   "ends": "2026-11-26T23:59:59.000Z",
    "deadline": null,
-   "host": "kartografiska.se",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
+   "host": "geoinformatienederland.nl",
+   "discovered_at": "2026-10-30T01:18:39.035Z"
   },
   {
-   "title": "MMUYA APIGA MARUFUKU UANDAAJI WA MIPANGO YA MATUMI... Naibu Waziri wa Ardhi, Nyumba na Maendeleo ya Maka... 29 Oct, 2026 MPYA",
-   "url": "https://www.lands.go.tz/news/mmuya-apiga-marufuku-uandaaji-wa-mipango-ya-matumizi-ya-ardhi-kwenye-viwanja-vya-mita-20-kwa-20",
-   "starts": "2026-10-29T00:00:00.000Z",
-   "ends": "2026-10-29T23:59:59.000Z",
+   "title": "Geodesi- og hydrografidagene",
+   "url": "https://geoforum.no/geodesi-og-hydrografidagene/",
+   "starts": "2026-11-08T00:00:00.000Z",
+   "ends": "2026-11-08T23:59:59.000Z",
    "deadline": null,
-   "host": "lands.go.tz",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
+   "host": "geoforum.no",
+   "discovered_at": "2026-10-30T01:18:39.035Z"
   },
   {
-   "title": "IT’S ALL SYSTEMS GO FOR THE ANNUAL BRICS ASTRONOMY WORKING GROUP 2026 MEETING TO BE HELD IN INDIA",
-   "url": "https://www.nrf.ac.za/its-all-systems-go-for-the-annual-brics-astronomy-working-group-2026-meeting-to-be-held-in-india/",
-   "starts": "2026-10-26T00:00:00.000Z",
-   "ends": "2026-10-30T23:59:59.000Z",
+   "title": "Plan, bygg og geodata – kommunal geomatikk-konferanse",
+   "url": "https://geoforum.no/plan-bygg-og-geodata-kommunal-geomatikkonferanse/",
+   "starts": "2026-11-08T00:00:00.000Z",
+   "ends": "2026-11-08T23:59:59.000Z",
    "deadline": null,
-   "host": "nrf.ac.za",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
+   "host": "geoforum.no",
+   "discovered_at": "2026-10-30T01:18:39.035Z"
+  },
+  {
+   "title": "Geodesi- og hydrografidagene Sola 2026",
+   "url": "https://geoforum.no/event/geodesi-og-hydrografidagene-sola-2026/",
+   "starts": "2026-11-09T00:00:00.000Z",
+   "ends": "2026-11-09T23:59:59.000Z",
+   "deadline": null,
+   "host": "geoforum.no",
+   "discovered_at": "2026-10-30T01:18:39.035Z"
   },
   {
    "title": "Save the Date - 2027 ASPRS Fall Symposium",
@@ -352,25 +109,7 @@
    "ends": "2027-09-12T23:59:59.000Z",
    "deadline": null,
    "host": "asprs.org",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
-  },
-  {
-   "title": "Wavelength 2027 Registration of interest is now open for Wavelength 2027 Read More",
-   "url": "https://rspsoc.org.uk/members-area/events/wavelength-2027/",
-   "starts": "2027-04-09T00:00:00.000Z",
-   "ends": "2027-04-09T23:59:59.000Z",
-   "deadline": null,
-   "host": "rspsoc.org.uk",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
-  },
-  {
-   "title": "Save the Date: Annual General Meeting",
-   "url": "https://rspsoc.org.uk/save-the-date-annual-general-meeting/",
-   "starts": "2026-10-29T00:00:00.000Z",
-   "ends": "2026-10-29T23:59:59.000Z",
-   "deadline": null,
-   "host": "rspsoc.org.uk",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
+   "discovered_at": "2026-10-30T01:18:39.035Z"
   },
   {
    "title": "Wavelength 2027: Early Careers Conference in Remote Sensing",
@@ -379,16 +118,7 @@
    "ends": "2027-04-09T23:59:59.000Z",
    "deadline": null,
    "host": "rspsoc.org.uk",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
-  },
-  {
-   "title": "October 29, 2026 October 29, 2026",
-   "url": "https://rspsoc.org.uk/save-the-date-annual-general-meeting/",
-   "starts": "2026-10-29T00:00:00.000Z",
-   "ends": "2026-10-29T23:59:59.000Z",
-   "deadline": null,
-   "host": "rspsoc.org.uk",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
+   "discovered_at": "2026-10-30T01:18:39.035Z"
   },
   {
    "title": "The 1st International Online Conference on Geomatics",
@@ -397,16 +127,7 @@
    "ends": "2027-03-18T23:59:59.000Z",
    "deadline": null,
    "host": "aitonline.org",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
-  },
-  {
-   "title": "2025/2026 PGD Application",
-   "url": "https://arcsstee.org.ng/announcement-pgd/",
-   "starts": "2026-10-30T00:00:00.000Z",
-   "ends": "2026-10-30T23:59:59.000Z",
-   "deadline": null,
-   "host": "arcsstee.org.ng",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
+   "discovered_at": "2026-10-30T01:18:39.035Z"
   },
   {
    "title": "UN-ARCSSTE-E showcases its Space Outreach activities at the 2025 Nigeria Space Symposium",
@@ -415,7 +136,7 @@
    "ends": "2026-10-30T23:59:59.000Z",
    "deadline": null,
    "host": "arcsstee.org.ng",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
+   "discovered_at": "2026-10-30T01:18:39.035Z"
   },
   {
    "title": "Three-Day 3D Printing And Design Training Workshop Held At UN-ARCSSTEE",
@@ -424,25 +145,7 @@
    "ends": "2026-10-30T23:59:59.000Z",
    "deadline": null,
    "host": "arcsstee.org.ng",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
-  },
-  {
-   "title": "ARCSSTE-E HOLDS ITS 2026 FIRST QUARTERLY SEMINAR",
-   "url": "https://arcsstee.org.ng/arcsste-e-holds-its-2026-first-quarterly-seminar/",
-   "starts": "2026-10-30T00:00:00.000Z",
-   "ends": "2026-10-30T23:59:59.000Z",
-   "deadline": null,
-   "host": "arcsstee.org.ng",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
-  },
-  {
-   "title": "ARCSSTE-E CELEBRATES YURI’S NIGHT 2026 WITH POMP AND PAGEANTRY",
-   "url": "https://arcsstee.org.ng/arcsste-e-celebrates-yuris-night-2026-with-pomp-and-pageantry/",
-   "starts": "2026-10-30T00:00:00.000Z",
-   "ends": "2026-10-30T23:59:59.000Z",
-   "deadline": null,
-   "host": "arcsstee.org.ng",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
+   "discovered_at": "2026-10-30T01:18:39.035Z"
   },
   {
    "title": "ARCSSTE-E SHOWCASES SPACE INNOVATION AT THE REDEEMER’S UNIVERSITY SCIENCE SYMPOSIUM 2026",
@@ -451,34 +154,16 @@
    "ends": "2026-10-30T23:59:59.000Z",
    "deadline": null,
    "host": "arcsstee.org.ng",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
+   "discovered_at": "2026-10-30T01:18:39.035Z"
   },
   {
-   "title": "World Space Week",
-   "url": "https://arcsstee.org.ng/tag/world-space-week/",
+   "title": "National Space Science Workshop for Secondary Schools",
+   "url": "https://arcsstee.org.ng/national-space-science-workshop-for-secondary-schools/",
    "starts": "2026-10-30T00:00:00.000Z",
    "ends": "2026-10-30T23:59:59.000Z",
    "deadline": null,
    "host": "arcsstee.org.ng",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
-  },
-  {
-   "title": "11th ARC and WISK Summit",
-   "url": "https://events.isk.or.ke/",
-   "starts": "2026-10-27T00:00:00.000Z",
-   "ends": "2026-10-30T23:59:59.000Z",
-   "deadline": null,
-   "host": "isk.or.ke",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
-  },
-  {
-   "title": "AARSE CONFERENCE 2026 - Details",
-   "url": "https://aarse2026.org/",
-   "starts": "2026-10-26T00:00:00.000Z",
-   "ends": "2026-10-30T23:59:59.000Z",
-   "deadline": null,
-   "host": "africanremotesensing.org",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
+   "discovered_at": "2026-10-30T01:18:39.035Z"
   },
   {
    "title": "EuroSDR GeoAI SIG | 2nd Workshop: Learning by Sharing: The European Model Catalogue & LLMs in Action",
@@ -487,7 +172,7 @@
    "ends": "2026-11-20T23:59:59.000Z",
    "deadline": null,
    "host": "eurosdr.net",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
+   "discovered_at": "2026-10-30T01:18:39.035Z"
   },
   {
    "title": "EuroSDR Webinar – Securing Critical Geo and Geodetic Expertise in Europe",
@@ -496,52 +181,34 @@
    "ends": "2026-12-03T23:59:59.000Z",
    "deadline": null,
    "host": "eurosdr.net",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
+   "discovered_at": "2026-10-30T01:18:39.035Z"
   },
   {
    "title": "EuroSDR Workshop | Addressing Key Challenges for NMCAs and 3D: From Wish List to Practice",
    "url": "http://www.eurosdr.net/workshops/eurosdr-workshop-addressing-key-challenges-nmcas-and-3d-wish-list-practice",
-   "starts": "2027-01-20T00:00:00.000Z",
-   "ends": "2027-01-21T23:59:59.000Z",
+   "starts": "2026-12-04T00:00:00.000Z",
+   "ends": "2026-12-04T23:59:59.000Z",
    "deadline": null,
    "host": "eurosdr.net",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
+   "discovered_at": "2026-10-30T01:18:39.035Z"
   },
   {
    "title": "5th International Workshop on Point Cloud Processing",
    "url": "http://www.eurosdr.net/workshops/5th-international-workshop-point-cloud-processing",
-   "starts": "2027-02-04T00:00:00.000Z",
-   "ends": "2027-02-05T23:59:59.000Z",
+   "starts": "2026-11-01T00:00:00.000Z",
+   "ends": "2026-11-01T23:59:59.000Z",
    "deadline": null,
    "host": "eurosdr.net",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
+   "discovered_at": "2026-10-30T01:18:39.035Z"
   },
   {
    "title": "EuroSDR workshop | Towards a Digital Commons for Education about Land and Its Transformation",
    "url": "http://www.eurosdr.net/workshops/eurosdr-workshop-towards-digital-commons-education-about-land-and-its-transformation",
-   "starts": "2027-02-15T00:00:00.000Z",
-   "ends": "2027-02-15T23:59:59.000Z",
+   "starts": "2026-12-04T00:00:00.000Z",
+   "ends": "2026-12-04T23:59:59.000Z",
    "deadline": null,
    "host": "eurosdr.net",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
-  },
-  {
-   "title": "RCMRD International Conference (RIC) 2027",
-   "url": "http://www.rcmrd.org/en/resources/upcoming-events/rcmrd-international-conference-ric-2027",
-   "starts": "2026-10-19T00:00:00.000Z",
-   "ends": "2026-10-30T23:59:59.000Z",
-   "deadline": null,
-   "host": "rcmrd.org",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
-  },
-  {
-   "title": "RCMRD at CBD COP17 | Yerevan, Armenia | 19–30 October 2026",
-   "url": "http://www.rcmrd.org/en/component/content/article/rcmrd-at-cbd-cop17-yerevan-armenia-19-30-october-2026?catid=2&amp;Itemid=101",
-   "starts": "2026-10-19T00:00:00.000Z",
-   "ends": "2026-10-30T23:59:59.000Z",
-   "deadline": null,
-   "host": "rcmrd.org",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
+   "discovered_at": "2026-10-30T01:18:39.035Z"
   },
   {
    "title": "Symposium & Workshops",
@@ -550,7 +217,7 @@
    "ends": "2026-11-30T23:59:59.000Z",
    "deadline": "2026-11-20T23:59:59.000Z",
    "host": "earsel.org",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
+   "discovered_at": "2026-10-30T01:18:39.035Z"
   },
   {
    "title": "46th EARSeL Symposium and 50th General Assembly",
@@ -559,34 +226,7 @@
    "ends": "2027-06-04T23:59:59.000Z",
    "deadline": null,
    "host": "earsel.org",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
-  },
-  {
-   "title": "🛰️ Thailand Space Expo 2026 (TSX 2026) 01/10/2026 448 views",
-   "url": "http://www.gistda.or.th/news/%f0%9f%9b%b0%ef%b8%8f-thailand-space-expo-2026-tsx-2026/",
-   "starts": "2026-10-28T00:00:00.000Z",
-   "ends": "2026-10-31T23:59:59.000Z",
-   "deadline": null,
-   "host": "gistda.or.th",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
-  },
-  {
-   "title": "Event Join us at the Esri Infrastructure Management & GIS Conference October 27–29, 2026 | Palm Springs, California | The premier GIS event for infrastructure",
-   "url": "https://www.esri.com/en-us/about/events/imgis/overview",
-   "starts": "2026-10-27T00:00:00.000Z",
-   "ends": "2026-10-29T23:59:59.000Z",
-   "deadline": null,
-   "host": "esri.com",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
-  },
-  {
-   "title": "2026 FIG & UNECE WPLA International Conference",
-   "url": "http://www.gim-international.com/event/2026-fig-unece-wpla-international-conference",
-   "starts": "2026-10-28T00:00:00.000Z",
-   "ends": "2026-10-30T23:59:59.000Z",
-   "deadline": null,
-   "host": "gim-international.com",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
+   "discovered_at": "2026-10-30T01:18:39.035Z"
   },
   {
    "title": "Trimble Dimensions User Conference 2026",
@@ -595,25 +235,7 @@
    "ends": "2026-11-09T23:59:59.000Z",
    "deadline": null,
    "host": "gim-international.com",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
-  },
-  {
-   "title": "Geo Connect Asia 2027",
-   "url": "http://www.gim-international.com/event/geo-connect-asia-2027",
-   "starts": "2027-03-17T00:00:00.000Z",
-   "ends": "2027-03-17T23:59:59.000Z",
-   "deadline": null,
-   "host": "gim-international.com",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
-  },
-  {
-   "title": "Great Salt Lake keynote anchors Geo Week 2027 conference programme",
-   "url": "http://www.gim-international.com/news/great-salt-lake-keynote-anchors-geo-week-2027-conference-programme",
-   "starts": "2026-10-29T00:00:00.000Z",
-   "ends": "2026-10-29T23:59:59.000Z",
-   "deadline": null,
-   "host": "gim-international.com",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
+   "discovered_at": "2026-10-30T01:18:39.035Z"
   },
   {
    "title": "FIG Working Week 2027 in Stavanger: registration opens and abstract deadline approaches",
@@ -622,34 +244,34 @@
    "ends": "2026-11-01T23:59:59.000Z",
    "deadline": null,
    "host": "gim-international.com",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
+   "discovered_at": "2026-10-30T01:18:39.035Z"
   },
   {
-   "title": "4 Min Read NASA Names Troy Asher Armstrong Flight Research Center Director October 29, 2026 News Release",
-   "url": "https://www.nasa.gov/news-release/nasa-names-troy-asher-armstrong-flight-research-center-director/",
-   "starts": "2026-10-29T00:00:00.000Z",
-   "ends": "2026-10-29T23:59:59.000Z",
-   "deadline": null,
-   "host": "nasa.gov",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
-  },
-  {
-   "title": "TEAMFL Fall Meeting 2026 October 29 - 30, 2026 Apopka, Florida, USA",
-   "url": "http://www.riegl.com/en-usa/events/event/teamfl-fall-meeting",
-   "starts": "2026-10-29T00:00:00.000Z",
+   "title": "2026 FIG & UNECE WPLA International Conference",
+   "url": "http://www.gim-international.com/event/2026-fig-unece-wpla-international-conference",
+   "starts": "2026-10-28T00:00:00.000Z",
    "ends": "2026-10-30T23:59:59.000Z",
    "deadline": null,
-   "host": "riegl.com",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
+   "host": "gim-international.com",
+   "discovered_at": "2026-10-30T01:18:39.035Z"
   },
   {
-   "title": "Terrasolid International Training Event 2026 November 2 - 4, 2026 Vienna, Austria",
-   "url": "http://www.riegl.com/en-usa/events/event/terrasolid-international-training-event",
-   "starts": "2026-11-02T00:00:00.000Z",
-   "ends": "2026-11-04T23:59:59.000Z",
+   "title": "About our workshops",
+   "url": "https://bettermoments.com/phase-one-workshops/",
+   "starts": "2027-05-06T00:00:00.000Z",
+   "ends": "2027-05-13T23:59:59.000Z",
    "deadline": null,
-   "host": "riegl.com",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
+   "host": "phaseone.com",
+   "discovered_at": "2026-10-30T01:18:39.035Z"
+  },
+  {
+   "title": "View our workshops",
+   "url": "https://www.bettermoments.com/phase-one-workshops/",
+   "starts": "2027-05-06T00:00:00.000Z",
+   "ends": "2027-05-13T23:59:59.000Z",
+   "deadline": null,
+   "host": "phaseone.com",
+   "discovered_at": "2026-10-30T01:18:39.035Z"
   },
   {
    "title": "UF/FL-ASPRS Fall 2026 Geospatial Workshop November 3 - 4, 2026 Apopka, Florida, USA",
@@ -658,43 +280,43 @@
    "ends": "2026-11-04T23:59:59.000Z",
    "deadline": null,
    "host": "riegl.com",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
+   "discovered_at": "2026-10-30T01:18:39.035Z"
   },
   {
-   "title": "Denkmal 2026 November 5 - 7, 2026 Leipzig, Germany",
-   "url": "http://www.riegl.com/en-usa/events/event/denkmal-2026",
-   "starts": "2026-11-05T00:00:00.000Z",
-   "ends": "2026-11-07T23:59:59.000Z",
+   "title": "UF/FL-ASPRS Fall 2026 Geospatial Workshop",
+   "url": "https://my.asprs.org/ASPRSMember/ASPRSMember/Events/Event_Display.aspx?EventKey=FALL2026",
+   "starts": "2026-11-03T00:00:00.000Z",
+   "ends": "2026-11-03T23:59:59.000Z",
    "deadline": null,
    "host": "riegl.com",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
+   "discovered_at": "2026-10-30T01:18:39.035Z"
   },
   {
-   "title": "САБ – Успешно приключи INTERARCH 2026",
-   "url": "https://bularch.eu/uspeshno-priklyuchi-interarh-2026/",
-   "starts": "2026-10-29T00:00:00.000Z",
-   "ends": "2026-10-29T23:59:59.000Z",
+   "title": "EAASI Partners Summit 2026 November 17 - 20, 2026 Alicante, Spain",
+   "url": "http://www.riegl.com/en-usa/events/event/eaasi-partners-summit-2026",
+   "starts": "2026-11-17T00:00:00.000Z",
+   "ends": "2026-11-20T23:59:59.000Z",
    "deadline": null,
-   "host": "uacg.bg",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
+   "host": "riegl.com",
+   "discovered_at": "2026-10-30T01:18:39.035Z"
   },
   {
-   "title": "4. - 5. Februar 2027, Stuttgart",
-   "url": "https://pcp.ifp.uni-stuttgart.de/",
-   "starts": "2027-02-04T00:00:00.000Z",
-   "ends": "2027-02-05T23:59:59.000Z",
+   "title": "International Holzbau Forum 2026 December 2 - 4, 2026 Innsbruck, Österreich",
+   "url": "http://www.riegl.com/en-usa/events/event/international-holzbau-forum-2026",
+   "starts": "2026-12-02T00:00:00.000Z",
+   "ends": "2026-12-04T23:59:59.000Z",
    "deadline": null,
-   "host": "ifp.uni-stuttgart.de",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
+   "host": "riegl.com",
+   "discovered_at": "2026-10-30T01:18:39.035Z"
   },
   {
-   "title": "6. - 9. April 2027, Stuttgart",
-   "url": "https://phowo.ifp.uni-stuttgart.de/",
-   "starts": "2027-04-06T00:00:00.000Z",
-   "ends": "2027-04-09T23:59:59.000Z",
+   "title": "Geo Week 2027 February 23 - 25, 2027 Salt Lake City, UT, USA",
+   "url": "http://www.riegl.com/en-usa/events/event/geo-week-2027",
+   "starts": "2027-02-23T00:00:00.000Z",
+   "ends": "2027-02-25T23:59:59.000Z",
    "deadline": null,
-   "host": "ifp.uni-stuttgart.de",
-   "discovered_at": "2026-10-30T01:10:41.228Z"
+   "host": "riegl.com",
+   "discovered_at": "2026-10-30T01:18:39.035Z"
   }
  ]
 }
