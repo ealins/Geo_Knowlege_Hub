@@ -134,6 +134,36 @@ function parseArbeitsagentur(body) {
   }));
 }
 
+// ISPRS calendar (one page per year): a table of dates, event names, website and
+// place for every ISPRS, co-sponsored and related event, all within the field.
+const MON3 = { jan: 0, feb: 1, mar: 2, apr: 3, may: 4, jun: 5, jul: 6, aug: 7, sep: 8, oct: 9, nov: 10, dec: 11 };
+function parseDateRange(s) {
+  const utc = (y, m, d) => new Date(Date.UTC(+y, MON3[m.toLowerCase().slice(0, 3)], +d)).toISOString();
+  let m = s.match(/(\d{1,2})\s+([A-Za-z]{3})\w*\s*[-–]\s*(\d{1,2})\s+([A-Za-z]{3})\w*\s+(\d{4})/);
+  if (m) return { start: utc(m[5], m[2], m[1]), end: utc(m[5], m[4], m[3]) };
+  m = s.match(/(\d{1,2})\s*[-–]\s*(\d{1,2})\s+([A-Za-z]{3})\w*\s+(\d{4})/);
+  if (m) return { start: utc(m[4], m[3], m[1]), end: utc(m[4], m[3], m[2]) };
+  m = s.match(/(\d{1,2})\s+([A-Za-z]{3})\w*\s+(\d{4})/);
+  if (m) return { start: utc(m[3], m[2], m[1]), end: utc(m[3], m[2], m[1]) };
+  return null;
+}
+function parseIsprsCalendar(html, source) {
+  const out = [];
+  for (const row of html.split(/<tr class=['"]/).slice(1)) {
+    const cells = row.split(/<td\b/i).slice(1);
+    if (cells.length < 3) continue;
+    const when = parseDateRange(clean(cells[0]));
+    const nameCell = cells[1];
+    const title = nameCell.replace(/^[^>]*>/, "").replace(/<img[^>]*>/gi, "").split(/<br\s*\/?>/i).map(clean).find(Boolean) || "";
+    const site = nameCell.match(/href=['"]\s*(https?:[^'"\s]+)/i)?.[1];
+    if (!when || !title || !site) continue;
+    const sub = clean((nameCell.match(/<p>([\s\S]*?)<\/p>/i) || [])[1] || "");
+    const place = clean(cells[2].replace(/^[^>]*>/, " "));
+    out.push({ title: sub && !title.includes(sub) ? `${title}: ${sub}`.slice(0, 160) : title, link: site, date: when.start, starts: when.start, ends: when.end, summary: sub, deadline: "", location: place });
+  }
+  return out;
+}
+
 // jobs.ac.uk search results: each result shows employer, location and closing
 // date ("24 Nov"). The search term is added to the summary so the domain filter
 // accepts what the site already matched on its full text.
@@ -269,13 +299,17 @@ function paperImpact(raw) {
 function classify(raw, source) {
   const text = `${raw.title} ${raw.summary}`;
   const matched = domainTerms.filter((d) => d.re.test(text)).map((d) => d.term);
-  if (!matched.length || !raw.link) return null;
+  // on_topic sources (ISPRS, AGILE, ...) are about the field as a whole, so their
+  // events need no keyword in the title; the source's own tag is used instead.
+  if ((!matched.length && !source.on_topic) || !raw.link) return null;
+  if (!matched.length) matched.push(source.tag || source.name);
   // A programme page keeps its place after its intake closes; anything else is over.
   let closed = false;
+  if (raw.ends && Date.parse(raw.ends) + 864e5 < now.getTime()) return null; // event is over
   if (raw.deadline && Date.parse(raw.deadline) < now.getTime()) {
-    if (source.kind !== "course") return null;
-    raw = { ...raw, deadline: "" };
-    closed = true;
+    if (raw.starts) raw = { ...raw, deadline: "" }; // call closed, event still ahead
+    else if (source.kind !== "course") return null;
+    else { raw = { ...raw, deadline: "" }; closed = true; }
   }
   if (excludeRe && excludeRe.test(text)) return null;
   // Job pages also carry navigation and department links: require a position
@@ -283,7 +317,7 @@ function classify(raw, source) {
   // Sources marked "trusted" list only items of their kind (e.g. an event calendar).
   if (source.type === "html" && !source.trusted && ["job", "event", "course"].includes(source.kind)) {
     const re = kindRes.find(([k]) => k === source.kind)?.[1];
-    if ((re && !re.test(text)) || raw.title.trim().split(/\s+/).length < (source.kind === "course" ? 2 : 4) || raw.title.includes("@")) return null;
+    if ((re && !re.test(text)) || raw.title.trim().split(/\s+/).length < (source.kind === "course" ? 2 : source.on_topic ? 3 : 4) || raw.title.includes("@")) return null;
   }
   let kind = source.kind && source.kind !== "auto" ? source.kind : "news";
   if (!source.kind || source.kind === "auto") {
@@ -308,6 +342,7 @@ function classify(raw, source) {
     published: parseDate(raw.date),
     summary: (raw.summary || "").slice(0, 300),
     deadline: parseDate(raw.deadline),
+    ...(raw.starts ? { starts: parseDate(raw.starts), ends: parseDate(raw.ends || raw.starts) } : {}),
     location: raw.location || null,
     matched,
   };
@@ -341,6 +376,7 @@ async function runSource(src, statusOut) {
       src.type === "rss" ? parseFeed(body)
       : src.type === "openalex" ? parseOpenAlex(body)
       : src.type === "arbeitsagentur" ? parseArbeitsagentur(body)
+      : src.type === "isprs-calendar" ? parseIsprsCalendar(body, src)
       : src.type === "jobsacuk" ? await verifyAdverts(parseJobsAc(body, src))
       : src.type === "page" ? parsePage(body, src, url)
       : [...parseJsonLd(body, src), ...parseHtml(body, src)];
@@ -370,7 +406,13 @@ async function runSource(src, statusOut) {
 // ---------- main ----------
 const enabled = getEnabledSources(sourcesCfg);
 const statusOut = {};
-const batches = await Promise.all(enabled.map((s) => runSource(s, statusOut)));
+// A pool of 10: opening every site at once overloads the runner and makes
+// healthy sources fail with "fetch failed".
+const batches = [];
+let nextSource = 0;
+await Promise.all(Array.from({ length: 10 }, async () => {
+  while (nextSource < enabled.length) batches.push(await runSource(enabled[nextSource++], statusOut));
+}));
 const fresh = batches.flat();
 
 // Merge: keep first_seen for known items, refresh last_seen for items seen now.
@@ -411,6 +453,7 @@ for (let n = 0; n < todo.length; n += 8) {
         if (!found) return;
         if (Date.parse(found) >= now.getTime()) it.deadline = found;
         else if (it.kind === "course") it.apply_closed = true; // programme stays; its intake has passed
+        else if (it.kind === "event" && it.starts) it.call_closed = true; // call closed, event still ahead
         else it.deadline = found; // position or event already over: dropped below
       } catch {}
     }),
@@ -420,7 +463,8 @@ for (let n = 0; n < todo.length; n += 8) {
 const items = [...merged.values()]
   .filter(isLive)
   .filter((i) => i.kind !== "paper" || (i.impact ?? 0) >= minImpact)
-  .filter((i) => !i.deadline || Date.parse(i.deadline) >= now.getTime())
+  .filter((i) => !(i.kind === "event" && i.ends && Date.parse(i.ends) + 864e5 < now.getTime()))
+  .filter((i) => !i.deadline || Date.parse(i.deadline) >= now.getTime() || (i.kind === "event" && i.ends))
   .sort((a, b) => b.first_seen.localeCompare(a.first_seen));
 
 await mkdir(DATA_DIR, { recursive: true });

@@ -50,14 +50,6 @@
       "enabled": true
     },
     {
-      "id": "isprs-calendar",
-      "name": "ISPRS event calendar",
-      "url": "https://www.isprs.org/calendar/",
-      "type": "html",
-      "kind": "event",
-      "enabled": true
-    },
-    {
       "id": "erasmus-mundus-catalogue",
       "name": "Erasmus Mundus joint masters catalogue",
       "url": "https://www.eacea.ec.europa.eu/scholarships/erasmus-mundus-catalogue_en",
@@ -146,7 +138,9 @@
       "url": "https://www.isprs.org/news/",
       "type": "html",
       "kind": "news",
-      "enabled": true
+      "enabled": true,
+      "on_topic": true,
+      "tag": "ISPRS"
     },
     {
       "id": "ethz-jobs",
@@ -218,7 +212,9 @@
       "url": "https://www.dgpf.de/",
       "type": "html",
       "kind": "event",
-      "enabled": true
+      "enabled": true,
+      "on_topic": true,
+      "tag": "DGPF"
     },
     {
       "id": "rspsoc-events",
@@ -226,7 +222,9 @@
       "url": "https://www.rspsoc.org.uk/events",
       "type": "html",
       "kind": "event",
-      "enabled": true
+      "enabled": true,
+      "on_topic": true,
+      "tag": "RSPSoc"
     },
     {
       "id": "egu-meetings",
@@ -242,7 +240,9 @@
       "url": "https://agile-online.org/",
       "type": "html",
       "kind": "event",
-      "enabled": true
+      "enabled": true,
+      "on_topic": true,
+      "tag": "AGILE"
     },
     {
       "id": "studyinsweden-gis",
@@ -410,7 +410,9 @@
       "url": "https://www.eurosdr.net/workshops",
       "type": "html",
       "kind": "event",
-      "enabled": true
+      "enabled": true,
+      "on_topic": true,
+      "tag": "EuroSDR"
     },
     {
       "id": "foss4g",
@@ -418,7 +420,9 @@
       "url": "https://foss4g.org/",
       "type": "html",
       "kind": "event",
-      "enabled": true
+      "enabled": true,
+      "on_topic": true,
+      "tag": "FOSS4G"
     },
     {
       "id": "intergeo",
@@ -426,7 +430,9 @@
       "url": "https://www.intergeo.de/en",
       "type": "html",
       "kind": "event",
-      "enabled": true
+      "enabled": true,
+      "on_topic": true,
+      "tag": "INTERGEO"
     },
     {
       "id": "3dgeoinfo",
@@ -434,7 +440,9 @@
       "url": "https://www.3dgeoinfo.org/",
       "type": "html",
       "kind": "event",
-      "enabled": true
+      "enabled": true,
+      "on_topic": true,
+      "tag": "3D GeoInfo"
     },
     {
       "id": "gi-forum",
@@ -442,7 +450,9 @@
       "url": "https://www.agit.at/",
       "type": "html",
       "kind": "event",
-      "enabled": true
+      "enabled": true,
+      "on_topic": true,
+      "tag": "GI_Forum"
     },
     {
       "id": "tum-programs",
@@ -813,6 +823,93 @@
       "url": "https://geoacademic.app/data/programmes-discovered.json",
       "type": "discovered",
       "kind": "course",
+      "enabled": true
+    },
+    {
+      "id": "isprs-calendar-2026",
+      "name": "ISPRS Calendar 2026",
+      "url": "https://www.isprs.org/calendar/2026.aspx",
+      "type": "isprs-calendar",
+      "kind": "event",
+      "on_topic": true,
+      "tag": "ISPRS",
+      "enabled": true
+    },
+    {
+      "id": "isprs-calendar-2027",
+      "name": "ISPRS Calendar 2027",
+      "url": "https://www.isprs.org/calendar/2027.aspx",
+      "type": "isprs-calendar",
+      "kind": "event",
+      "on_topic": true,
+      "tag": "ISPRS",
+      "enabled": true
+    },
+    {
+      "id": "egu27",
+      "name": "EGU General Assembly 2027",
+      "url": "https://www.egu27.eu/",
+      "type": "page",
+      "kind": "event",
+      "title": "EGU General Assembly 2027",
+      "tag": "EGU Earth system geoscience",
+      "location": "Vienna, Austria",
+      "on_topic": true,
+      "enabled": true
+    },
+    {
+      "id": "fig2027",
+      "name": "FIG Working Week 2027",
+      "url": "https://fig.net/fig2027/call.htm",
+      "type": "page",
+      "kind": "event",
+      "title": "FIG Working Week 2027: call for papers",
+      "tag": "FIG surveying geodesy geospatial",
+      "on_topic": true,
+      "enabled": true
+    },
+    {
+      "id": "fossgis2027",
+      "name": "FOSSGIS Conference 2027",
+      "url": "https://pretalx.com/fossgis2027/cfp",
+      "type": "page",
+      "kind": "event",
+      "title": "FOSSGIS Conference 2027: call for participation",
+      "tag": "FOSSGIS open source GIS",
+      "on_topic": true,
+      "enabled": true
+    },
+    {
+      "id": "sigspatial2026",
+      "name": "ACM SIGSPATIAL 2026",
+      "url": "https://sigspatial2026.sigspatial.org/research-submission.html",
+      "type": "page",
+      "kind": "event",
+      "title": "ACM SIGSPATIAL 2026: research papers",
+      "tag": "ACM SIGSPATIAL GIS",
+      "on_topic": true,
+      "enabled": true
+    },
+    {
+      "id": "geoai26",
+      "name": "GeoAI 2026 workshop",
+      "url": "https://easychair.org/cfp/geoai26",
+      "type": "page",
+      "kind": "event",
+      "title": "GeoAI 2026 workshop: call for papers",
+      "tag": "GeoAI",
+      "on_topic": true,
+      "enabled": true
+    },
+    {
+      "id": "asprs-geoweek",
+      "name": "ASPRS / Geo Week 2027",
+      "url": "https://asprs.org/Main/News---Resources/ASPRS-News/Call_for_Speakers_for_2027_Geo_Week.aspx",
+      "type": "page",
+      "kind": "event",
+      "title": "Geo Week 2027: call for speakers",
+      "tag": "ASPRS Geo Week lidar",
+      "on_topic": true,
       "enabled": true
     }
   ]

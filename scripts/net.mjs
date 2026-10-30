@@ -3,13 +3,24 @@ export const UA = "GeoRadarBot/1.0 (+https://github.com/ealins/geo_knowlege_hub)
 const robotsCache = new Map();
 
 export async function fetchText(url, extraHeaders = {}) {
+  try {
+    return await fetchOnce(url, extraHeaders);
+  } catch (e) {
+    // One retry for network hiccups ("fetch failed", timeouts); HTTP errors are final.
+    if (/^HTTP \d+/.test(e.message)) throw e;
+    await new Promise((r) => setTimeout(r, 1500));
+    return fetchOnce(url, extraHeaders);
+  }
+}
+
+async function fetchOnce(url, extraHeaders = {}) {
   const res = await fetch(url, {
     headers: {
       "user-agent": UA,
       accept: "application/rss+xml,application/atom+xml,application/json,text/html;q=0.9,*/*;q=0.5",
       ...extraHeaders,
     },
-    signal: AbortSignal.timeout(20_000),
+    signal: AbortSignal.timeout(30_000),
     redirect: "follow",
   });
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
