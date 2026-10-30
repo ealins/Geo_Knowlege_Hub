@@ -3,7 +3,7 @@
   "societies": ["https://www.isprs.org/links/members.aspx", "https://www.isprs.org/links/activities.aspx"],
   "hubs": ["https://www.isprs.org/calendar/other_calendar.aspx"],
   "extra_hosts": [],
-  "skip_hosts": ["facebook.com", "twitter.com", "x.com", "linkedin.com", "youtube.com", "instagram.com", "elsevier.com", "mdpi.com", "springer.com", "wikipedia.org", "goo.gl", "google.com", "isprs.org", "maps.app.goo.gl"],
+  "skip_hosts": ["facebook.com", "twitter.com", "x.com", "linkedin.com", "youtube.com", "instagram.com", "elsevier.com", "mdpi.com", "springer.com", "wikipedia.org", "goo.gl", "google.com", "isprs.org", "arcsstee.org.ng", "maps.app.goo.gl"],
   "max_hosts": 160,
   "max_pages_per_host": 12,
   "max_events_per_host": 15

@@ -867,7 +867,7 @@
       "kind": "event",
       "on_topic": true,
       "tag": "event",
-      "enabled": false
+      "enabled": true
     },
     {
       "id": "curated",

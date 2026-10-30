@@ -21,7 +21,7 @@ const esc = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 const TOPIC = new RegExp(`(?<!\\p{L})(?:${domain.terms.map(esc).join("|")})(?!\\p{L})`, "iu");
 // The link text itself must name a kind of event (several languages).
 const EVENT_WORD = /(conference|workshop|symposi|congress|congres|kongres|summit|summer school|winter school|forum|assembly|annual meeting|colloquium|webinar|tagung|konferenz|jahrestagung|kolloquium|konferens|konferanse|konferencija|conferenza|conferencia|colloque|simpozij|simpoz|geomatikkdag|geodesi.*dag|dagene|geomatics day|geo ?week|working week)/i;
-const NEWSY = /(published|publication|issue|newsletter|press|award|prize|nominee|genomineerd|bekend|hands over|signs|decision|odluka|nyhet|news|obituary|showcases?|held at|recap|report on|photos|gallery|highlights|about our|view our|fragenforum|appointed|elected|membership|job|vacanc|tender|call for (members|nominations)|brojevi|списание|публикуван)/i;
+const NEWSY = /(published|publication|issue|newsletter|press|award|prize|nominee|genomineerd|bekend|hands over|signs|decision|odluka|nyhet|news|obituary|keynote|anchors|user conference|showcases?|held at|recap|report on|photos|gallery|highlights|about our|view our|fragenforum|appointed|elected|membership|job|vacanc|tender|call for (members|nominations)|brojevi|списание|публикуван)/i;
 const YEAR = /\b(2026|2027|2028)\b/;
 const GENERIC = /^(events?|calendar|conferences?|workshops?|upcoming events|past events|all events|news|home|read more|more|details|register|registration|call for papers|submit|programme|program)$/i;
 const NAV = /(event|calendar|conference|symposium|congress|workshop|meeting|tagung|veranstaltung|agenda|termine|kalender|news|aktuelles)/i;
