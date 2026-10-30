@@ -1,0 +1,43 @@
+name: Discover events
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Daily at 04:23 UTC. The radar picks the result up on its next run.
+    - cron: "23 4 * * *"
+  push:
+    branches: [main]
+    paths: ["scripts/discover-events.mjs", "config/discover-events.json"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: geo-radar-discover-events
+  cancel-in-progress: false
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Find events at societies and related organisations
+        run: node scripts/discover-events.mjs | tee discover-events.log
+      - name: Commit result
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          mkdir -p data
+          tail -n 400 discover-events.log | head -c 60000 > data/discover-events-log.txt
+          git add data/events-discovered.json data/discover-events-log.txt
+          if git diff --cached --quiet; then
+            echo "No changes."
+          else
+            git commit -m "discover: refresh events"
+            git pull --rebase -q
+            git push
+          fi

@@ -21,3 +21,20 @@ test("year-less takes next occurrence", () => {
 test("no deadline", () => {
   assert.equal(findDeadline("<p>Welcome to our department</p>", now), null);
 });
+
+import { eventRange } from "./deadline.mjs";
+test("event range same month", () => {
+  const r = eventRange("Held on 11-15 Jan 2027 in Tainan", now);
+  assert.match(r.start, /^2027-01-11/); assert.match(r.end, /^2027-01-15/);
+});
+test("event range across months", () => {
+  const r = eventRange("28 Jun - 3 Jul 2027", now);
+  assert.match(r.start, /^2027-06-28/); assert.match(r.end, /^2027-07-03/);
+});
+test("event range US style and past ranges ignored", () => {
+  assert.match(eventRange("June 3-5, 2027", now).start, /^2027-06-03/);
+  assert.equal(eventRange("12-14 March 2019", now), null);
+});
+test("event range German", () => {
+  assert.match(eventRange("15.-17.09.2027", now).start, /^2027-09-15/);
+});

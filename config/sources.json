@@ -858,6 +858,16 @@
       "tag": "AGILE GIScience geospatial",
       "on_topic": true,
       "enabled": true
+    },
+    {
+      "id": "discovered-events",
+      "name": "Societies and organisations (auto-discovered)",
+      "url": "https://geoacademic.app/data/events-discovered.json",
+      "type": "discovered-events",
+      "kind": "event",
+      "on_topic": true,
+      "tag": "event",
+      "enabled": true
     }
   ]
 }

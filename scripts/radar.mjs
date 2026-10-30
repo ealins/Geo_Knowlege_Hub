@@ -369,6 +369,14 @@ async function runSource(src, statusOut) {
       statusOut[src.id] = { state: "ok", last_checked: nowIso, last_success: nowIso, items_found: raw.length, items_matched: kept.length, consecutive_failures: 0, last_error: null };
       return kept;
     }
+    if (src.type === "discovered-events") {
+      // Events found by scripts/discover-events.mjs, read from the committed file.
+      const file = await readJson(path.join(DATA_DIR, "events-discovered.json"), { items: [] });
+      const raw = file.items.map((e) => ({ title: e.title, link: e.url, date: e.starts, starts: e.starts, ends: e.ends, summary: e.host, deadline: e.deadline || "", location: e.host }));
+      const kept = raw.map((r) => classify(r, src)).filter(Boolean);
+      statusOut[src.id] = { state: "ok", last_checked: nowIso, last_success: nowIso, items_found: raw.length, items_matched: kept.length, consecutive_failures: 0, last_error: null };
+      return kept;
+    }
     if (!(await robotsAllows(src.url.replace(/\{since:\d+\}/g, "")))) throw new Error("disallowed by robots.txt");
     // {since:N} in a URL becomes the date N days ago (YYYY-MM-DD), keeping API queries to recent work.
     const url = src.url.replace(/\{since:(\d+)\}/g, (_, d) => new Date(now.getTime() - Number(d) * 864e5).toISOString().slice(0, 10));
@@ -431,7 +439,7 @@ for (const it of fresh) {
 // Listing pages (html) show only what is currently open: if such a source was
 // read successfully and an item is no longer on it, the item is gone. Feeds
 // and APIs roll over quickly, so their items keep the per-kind window instead.
-const htmlOk = new Set(enabled.filter((s) => ["html", "jobsacuk", "page", "discovered"].includes(s.type) && statusOut[s.id]?.state === "ok").map((s) => s.id));
+const htmlOk = new Set(enabled.filter((s) => ["html", "jobsacuk", "page", "discovered", "discovered-events"].includes(s.type) && statusOut[s.id]?.state === "ok").map((s) => s.id));
 const enabledIds = new Set(enabled.map((s) => s.id));
 for (const it of previous.items ?? []) {
   if (merged.has(it.id) || htmlOk.has(it.source) || !enabledIds.has(it.source)) continue;

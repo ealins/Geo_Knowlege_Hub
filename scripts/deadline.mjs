@@ -74,3 +74,35 @@ export function findDeadline(html, now = new Date()) {
   const future = found.filter((d) => Date.parse(d) >= now.getTime()).sort();
   return future[0] ?? found.sort().at(-1);
 }
+
+// Event date range in free text ("11-15 Jan 2027", "28 Jun - 3 Jul 2027",
+// "June 3-5, 2027", "15.–17.09.2027"). Returns the earliest range that has not
+// ended yet as { start, end } ISO strings, or null.
+export function eventRange(text, now = new Date()) {
+  const out = [];
+  const D = "(\\d{1,2})(?:st|nd|rd|th)?\\.?";
+  const SEP = "\\s*(?:–|—|-|to|until|bis)\\s*";
+  const Y = ",?\\s*(20\\d{2})";
+  const mo = (s) => MONTHS[s.toLowerCase().replace(/\.$/, "")];
+  const add = (y, m1, d1, m2, d2) => {
+    if (!m1 || !m2) return;
+    const start = iso(+y, m1, +d1), end = iso(+y, m2, +d2);
+    if (start && end) out.push({ start: start.replace("23:59:59", "00:00:00"), end });
+  };
+  let m;
+  for (const [re, f] of [
+    [new RegExp(`\\b${D}${SEP}${D}\\s+(?:of\\s+)?(${MON})\\.?${Y}`, "gi"), (m) => add(m[4], mo(m[3]), m[1], mo(m[3]), m[2])],
+    [new RegExp(`\\b${D}\\s+(${MON})\\.?${SEP}${D}\\s+(${MON})\\.?${Y}`, "gi"), (m) => add(m[5], mo(m[2]), m[1], mo(m[4]), m[3])],
+    [new RegExp(`\\b(${MON})\\.?\\s+${D}${SEP}${D}${Y}`, "gi"), (m) => add(m[4], mo(m[1]), m[2], mo(m[1]), m[3])],
+    [new RegExp(`\\b(${MON})\\.?\\s+${D}${SEP}(${MON})\\.?\\s+${D}${Y}`, "gi"), (m) => add(m[5], mo(m[1]), m[2], mo(m[3]), m[4])],
+    [new RegExp(`\\b${D}\\s*(?:–|—|-)\\s*${D}(\\d{1,2})\\.${Y}`, "gi"), (m) => add(m[4], +m[3], m[1], +m[3], m[2])], // 15.-17.09.2027
+    [new RegExp(`\\b${D}\\s+(${MON})\\.?${Y}`, "gi"), (m) => add(m[3], mo(m[2]), m[1], mo(m[2]), m[1])],
+    [new RegExp(`\\b(${MON})\\.?\\s+${D}${Y}`, "gi"), (m) => add(m[3], mo(m[1]), m[2], mo(m[1]), m[2])],
+    [/\b(\d{1,2})\.(\d{1,2})\.(20\d{2})\b/g, (m) => add(m[3], +m[2], m[1], +m[2], m[1])],
+  ]) {
+    re.lastIndex = 0;
+    while ((m = re.exec(text))) f(m);
+  }
+  const live = out.filter((r) => Date.parse(r.end) + 864e5 >= now.getTime()).sort((a, b) => a.start.localeCompare(b.start));
+  return live[0] ?? null;
+}
