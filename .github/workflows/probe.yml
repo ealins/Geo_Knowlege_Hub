@@ -11,9 +11,9 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
-      - run: node scripts/dump.mjs
+      - run: node scripts/ats.mjs
         env:
-          URLS: '["https://www.isprs.org/calendar/2026.aspx", "https://www.isprs.org/calendar/2027.aspx", "https://www.isprs.org/calendar/other_calendar.aspx", "https://agile-online.org/conference-2027", "https://agile-online.org/conference-2027/call-for-papers-2027", "https://www.egu27.eu/", "https://www.dgpf.de/cal/Eventdetail/236/114|136|113|101/dgpf-jahrestagung-2027.html"]'
+          URLS: '["https://jobs.esa.int/", "https://www.eumetsat.int/careers", "https://jobs.ethz.ch/", "https://careers.tudelft.nl/", "https://www.utwente.nl/en/organisation/careers/vacancies/", "https://jobs.dlr.de/", "https://www.gfz-potsdam.de/en/career/job-offers", "https://www.wur.nl/en/vacancies.htm", "https://jobs.tuwien.ac.at/", "https://tu-dresden.de/karriere/stellenangebote", "https://www.jobs.tu-berlin.de/en/job-postings", "https://www.uni-heidelberg.de/en/jobs", "https://www.jobs.uni-freiburg.de/", "https://www.awi.de/en/work-study/jobs.html", "https://www.ufz.de/index.php?en=34275", "https://www.uzh.ch/cmsssl/en/explore/work/jobs.html", "https://careers.epfl.ch/", "https://www.aalto.fi/en/careers-at-aalto", "https://www.lunduniversity.lu.se/vacancies", "https://www.dtu.dk/english/about/job-and-career/vacant-positions", "https://www.ugent.be/en/work", "https://www.kuleuven.be/personeel/jobsite/en", "https://www.uu.nl/en/organisation/working-at-utrecht-university/jobs", "https://employment.ku.dk/all-vacancies/", "https://vito.be/en/jobs", "https://www.plus.ac.at/jobs/", "https://www.academictransfer.com/en/jobs/?q=remote+sensing"]'
       - name: Commit output
         if: always()
         run: |
