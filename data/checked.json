@@ -244,5 +244,23 @@
   "ok": false,
   "terms": "",
   "at": "2026-10-29T18:58:52.431Z"
+ },
+ "https://www.jobs.ac.uk/job/DTA986/faculty-position-in-international-relations-and-international-political-economy-full-rank": {
+  "v": 2,
+  "ok": false,
+  "terms": "",
+  "at": "2026-10-30T17:06:01.352Z"
+ },
+ "https://www.jobs.ac.uk/job/DTL472/ai-software-engineer-ktp-associate-24-months-fixed-term": {
+  "v": 2,
+  "ok": true,
+  "terms": "geospatial",
+  "at": "2026-10-30T17:06:01.352Z"
+ },
+ "https://www.jobs.ac.uk/job/DTM193/research-fellow-in-applied-ai-for-the-energy-transition": {
+  "v": 2,
+  "ok": false,
+  "terms": "",
+  "at": "2026-10-30T17:06:01.352Z"
  }
 }
