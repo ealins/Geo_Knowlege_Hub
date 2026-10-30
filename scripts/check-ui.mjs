@@ -22,11 +22,11 @@ const base = `http://localhost:${server.address().port}/`;
 fs.mkdirSync("shots", { recursive: true });
 const browser = await chromium.launch();
 const problems = [];
-for (const [name, width, height, scheme] of [["desktop", 1280, 1250, "light"], ["desktop-dark", 1280, 1250, "dark"], ["mobile", 390, 900, "light"], ["wide", 1920, 1100, "dark"]]) {
+for (const [name, width, height, scheme, hash = ""] of [["desktop", 1600, 1500, "light"], ["desktop-dark", 1280, 1250, "dark"], ["mobile", 390, 900, "light"], ["wide", 1920, 1100, "dark"], ["domain", 1920, 1500, "dark", "#d=rs"], ["domain-small", 1280, 1400, "light", "#d=lidar"]]) {
   const page = await browser.newPage({ viewport: { width, height }, colorScheme: scheme });
   page.on("console", m => m.type() === "error" && problems.push(`${name}: console error: ${m.text()}`));
   page.on("pageerror", e => problems.push(`${name}: ${e.message}`));
-  await page.goto(base);
+  await page.goto(base + hash);
   await page.waitForSelector(".row, .empty", { timeout: 8000 });
   await page.waitForTimeout(1600);
   if (await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1)) problems.push(`${name}: horizontal overflow`);

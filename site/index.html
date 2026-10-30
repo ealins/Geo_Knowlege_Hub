@@ -81,7 +81,7 @@ h1{margin:34px 0 0;max-width:16ch;font:500 clamp(34px,5vw,76px)/1.02 var(--serif
 
 /* layout */
 .wrap{max-width:1760px;margin:0 auto;padding:22px var(--gx) 64px}
-.layout{display:grid;grid-template-columns:250px minmax(0,1fr);gap:clamp(28px,3vw,56px);align-items:start}
+.layout{display:grid;grid-template-columns:260px minmax(0,1fr);gap:clamp(28px,3vw,56px);align-items:start}
 aside{position:sticky;top:64px}
 aside h3{font:600 12.5px/1 var(--sans);color:var(--faint);margin:24px 0 10px;letter-spacing:0}
 aside h3:first-child{margin-top:0}
@@ -98,6 +98,61 @@ input[type=search]:focus{outline:none;border-color:var(--accent);box-shadow:0 0 
 .sbox kbd{position:absolute;right:12px;top:50%;transform:translateY(-50%);font:12px var(--sans);color:var(--faint);border:1px solid var(--line);border-radius:6px;padding:0 7px;pointer-events:none}
 .sbox input{padding:13px 40px 13px 16px;font-size:15px;border-radius:12px}
 .count{color:var(--faint);font-size:12.5px;margin:12px 2px 0}
+
+/* domains */
+.main{container-type:inline-size;min-width:0}
+.tree{display:flex;flex-direction:column;gap:1px}
+.tnode{display:flex;align-items:center;gap:9px;width:100%;text-align:left;background:none;border:0;border-radius:8px;padding:6px 8px;cursor:pointer;color:var(--muted);font-size:13.5px}
+.tnode:hover{background:var(--hover);color:var(--text)}
+.tnode[aria-pressed="true"]{background:var(--hover);color:var(--text);font-weight:600}
+.tnode i.d{width:8px;height:8px;border-radius:50%;background:var(--dc);flex:none}
+.tnode em{margin-left:auto;font-style:normal;font-size:12px;color:var(--faint);font-variant-numeric:tabular-nums}
+.subs{margin:2px 0 6px 25px;padding-left:10px;border-left:1px solid var(--line);display:flex;flex-direction:column;gap:1px}
+.snode{display:flex;width:100%;text-align:left;background:none;border:0;border-radius:6px;padding:4px 8px;cursor:pointer;color:var(--muted);font-size:13px}
+.snode:hover{color:var(--text)}
+.snode[aria-pressed="true"]{color:var(--accent);font-weight:600}
+.snode em{margin-left:auto;font-style:normal;font-size:12px;color:var(--faint)}
+.sect{font:500 22px/1.2 var(--serif);font-variation-settings:"opsz" 36;margin:6px 0 14px}
+.sect small{font:13px var(--sans);color:var(--faint);margin-left:10px}
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px;margin:16px 0 8px}
+.tile{position:relative;overflow:hidden;text-align:left;display:flex;flex-direction:column;gap:7px;min-height:196px;padding:18px 18px 16px;border-radius:16px;border:1px solid var(--line);cursor:pointer;color:var(--text);
+  background:radial-gradient(120% 90% at 0 0,color-mix(in srgb,var(--dc) 13%,transparent),transparent 62%),var(--surface);transition:border-color .15s,transform .15s}
+.tile::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:var(--dc)}
+.tile:hover{border-color:var(--dc);transform:translateY(-2px)}
+.tn{font:600 16px/1.25 var(--sans);letter-spacing:-.014em}
+.tb{color:var(--muted);font-size:13px;line-height:1.45}
+.tbig{margin-top:auto;display:flex;align-items:baseline;gap:8px;color:var(--muted);font-size:13px}
+.tbig b{font:500 40px/1 var(--serif);color:var(--text);font-variant-numeric:tabular-nums}
+.tk{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:12.5px;color:var(--muted)}
+.tk span::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:5px;background:var(--k)}
+.tnext{font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:8px;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.tnext b{color:var(--hot);font-weight:600}
+.dhead{margin:6px 0 4px}
+.back{background:none;border:0;color:var(--accent);cursor:pointer;padding:0;font-size:13.5px}
+.back:hover{text-decoration:underline}
+.dtitle{margin:8px 0 0;font:500 clamp(28px,3.2vw,42px)/1.1 var(--serif);font-variation-settings:"opsz" 72;display:flex;align-items:center;gap:14px}
+.dtitle::before{content:"";width:12px;height:12px;border-radius:50%;background:var(--dc);box-shadow:0 0 0 5px color-mix(in srgb,var(--dc) 22%,transparent)}
+.dblurb{margin:8px 0 0;color:var(--muted);max-width:70ch}
+.subchips{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.board{display:grid;grid-template-columns:1fr;gap:16px;margin-top:18px;align-items:start}
+@container (min-width:700px){.board{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@container (min-width:1240px){.board{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.col{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:4px 14px 14px;min-width:0}
+.chead{display:flex;align-items:center;gap:9px;padding:14px 4px 10px;font:600 14.5px var(--sans);border-bottom:1px solid var(--line)}
+.chead i{width:9px;height:9px;border-radius:3px;background:var(--k)}
+.chead em{font-style:normal;color:var(--faint);font-weight:500;font-size:13px;margin-left:auto}
+.col .row{grid-template-columns:44px 1fr;gap:11px;padding:13px 4px}
+.col .ring{width:42px;height:42px}.col .ring::before{inset:3.5px}.col .ring b{font-size:14px}.col .ring b.w{font-size:11px}
+.col .gauge span{font-size:10.5px}
+.col .row h2{font-size:14.5px}
+.col .meta{font-size:12.5px;gap:2px 10px}
+.col .foot{position:absolute;right:4px;top:10px;margin:0}
+.col .foot .term,.col .kind,.col .actions .act:first-child{display:none}
+.col .row{position:relative}
+.col .row:last-of-type{border-bottom:0}
+.colmore{display:block;width:100%;margin-top:8px;background:none;border:1px dashed var(--line);border-radius:10px;padding:8px;color:var(--accent);cursor:pointer;font-size:13px}
+.colmore:hover{border-color:var(--accent)}
+.colempty{padding:22px 4px;color:var(--faint);font-size:13px}
 
 /* list: dense rows */
 .group{font:500 21px/1.2 var(--serif);font-variation-settings:"opsz" 36;margin:34px 0 8px;display:flex;align-items:baseline;gap:10px;letter-spacing:-.005em}
@@ -192,8 +247,8 @@ th,td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--line);vertic
   <div class="layout">
     <aside>
      <details class="filters" id="filters" open><summary>Filters</summary>
-      <h3>Topics</h3>
-      <div class="chips" id="topics"></div>
+      <h3>Domains</h3>
+      <nav class="tree" id="tree" aria-label="Domains"></nav>
       <h3>Source</h3>
       <label class="sr" for="source">Source</label><select id="source"><option value="">All sources</option></select>
       <h3>Show</h3>
@@ -206,12 +261,15 @@ th,td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--line);vertic
      </details>
     </aside>
 
-    <section aria-label="Results">
+    <section aria-label="Results" class="main">
       <div class="toolbar">
         <label class="sr" for="q">Search</label>
         <div class="sbox"><input id="q" type="search" placeholder="Search titles, sources and topics" autocomplete="off"><kbd>/</kbd></div>
       </div>
       <div class="count" id="count" aria-live="polite">Loading…</div>
+      <div id="dhead"></div>
+      <div id="overview"></div>
+      <div id="board"></div>
       <div id="list"></div>
       <button class="more" id="more" hidden>Show more</button>
     </section>
@@ -233,7 +291,7 @@ const PAGE = 40;
 const NEEDS_DEADLINE = new Set(["job", "course", "event"]);
 const upcoming = it => it.kind === "event" && it.ends && Date.parse(it.ends) + 864e5 >= Date.now();
 const when = it => Date.parse(it.deadline || it.starts || 0) || 0;
-const st = { kind: "all", topic: "", source: "", q: "", sort: "auto", newOnly: false, unlisted: false, savedOnly: false, shown: PAGE };
+const st = { domain: "", sub: "", kind: "all", topic: "", source: "", q: "", sort: "auto", newOnly: false, unlisted: false, savedOnly: false, shown: PAGE };
 let feed = { items: [] }, status = {}, saved = new Set();
 
 const $ = id => document.getElementById(id);
@@ -250,11 +308,49 @@ function applyTheme(t) {
   $("theme").textContent = t === "auto" ? "Auto theme" : t === "dark" ? "Dark" : "Light";
 }
 
-function filtered(ignoreKind) {
+const DOMAINS = [
+  { id: "photo", name: "Photogrammetry and 3D reconstruction", color: "#ff9f6b", blurb: "Image-based measurement, UAV mapping, orientation and dense reconstruction.",
+    re: /photogramm|3d reconstruction|structure.from.motion|\bsfm\b|dense matching|\buav\b|drone|bundle adjust|oblique|nerf|gaussian splat/,
+    subs: [["UAV and drones", /uav|drone|unmanned/], ["3D reconstruction", /reconstruction|structure.from|dense matching|nerf|gaussian splat/], ["Orientation and calibration", /orientation|calibrat|bundle/], ["Close-range and metrology", /close.range|metrology|industrial/]] },
+  { id: "lidar", name: "LiDAR and point clouds", color: "#4fd1c5", blurb: "Laser scanning from air, ground and vehicles, and everything done with point clouds.",
+    re: /lidar|point cloud|laser scan|\bals\b|\btls\b|punktwolke|slam/,
+    subs: [["Airborne", /airborne|\bals\b|bathymetr/], ["Terrestrial and mobile", /terrestrial|mobile mapping|\btls\b|slam/], ["Point cloud processing", /classification|segmentation|registration|processing|filtering/]] },
+  { id: "rs", name: "Remote sensing and Earth observation", color: "#6ea8ff", blurb: "Satellite and airborne imagery: optical, multispectral, hyperspectral, Copernicus.",
+    re: /remote sensing|earth observation|satellite|sentinel|landsat|hyperspectral|multispectral|copernicus|fernerkundung|\beo\b|imagery|modis|earth system/,
+    subs: [["Optical and multispectral", /optical|multispectral|landsat|sentinel-2|planet/], ["Hyperspectral", /hyperspectral|enmap/], ["Copernicus and Sentinel", /copernicus|sentinel/], ["Land cover and vegetation", /land cover|vegetation|forest|crop|agricultur|land use/], ["Climate and environment", /climate|\\bice\\b|glacier|ocean|coast|environment|disaster|flood|landslide/]] },
+  { id: "sar", name: "SAR and InSAR", color: "#c58bff", blurb: "Radar imaging and interferometry for deformation, hazards and surface change.",
+    re: /\bsar\b|insar|dinsar|radar|interferom|sentinel-1|subsidence/,
+    subs: [["InSAR and deformation", /insar|interferom|deformation|subsidence/], ["SAR processing", /polarimetr|processing|speckle|\bsar\b/], ["Hazards", /landslide|earthquake|volcan|flood/]] },
+  { id: "geodesy", name: "Geodesy and GNSS", color: "#f2c14e", blurb: "Positioning, reference frames, gravity, surveying and geodetic measurement.",
+    re: /geodes|geodät|geodetic|gnss|\bgps\b|gravimet|positioning|reference frame|surveying|vermessung|height system|geoid/,
+    subs: [["GNSS and positioning", /gnss|gps|positioning|navigation/], ["Gravity and geoid", /gravi|geoid|height/], ["Surveying", /surveying|vermessung|cadastr/], ["Reference frames", /reference frame|itrf|datum/]] },
+  { id: "gis", name: "GIS and geoinformatics", color: "#7bd88f", blurb: "Spatial data, analysis, cartography, web mapping and spatial data infrastructure.",
+    re: /\bgis\b|geoinformat|geospatial|geomatic|spatial data|cartograph|geovisual|mapping|\bmaps?\b|webgis|qgis|openstreetmap|spatial analysis|sdi\b|geodata/,
+    subs: [["Cartography and visualisation", /cartograph|visuali|map design|\bmaps?\b/], ["Spatial data and SDI", /spatial data|sdi\b|open data|openstreetmap|geodata|inspire/], ["Spatial analysis", /spatial analysis|statistic|model+ing|analysis/], ["Web and open source", /web|open.?source|qgis|postgis|python/]] },
+  { id: "geoai", name: "GeoAI and machine learning", color: "#ff7eb6", blurb: "Deep learning, foundation models and AI applied to geodata and imagery.",
+    re: /geoai|geo-ai|machine learning|deep learning|neural|foundation model|\bai\b|artificial intelligence|\bllm\b|transformer/,
+    subs: [["Deep learning", /deep learning|neural|cnn|transformer/], ["Foundation models", /foundation|llm|vision.language|gpt/], ["Segmentation and detection", /segmentation|detection|classification/]] },
+  { id: "city", name: "3D city models and BIM", color: "#9aa7ff", blurb: "CityGML, IFC, BIM, digital twins and urban information models.",
+    re: /citygml|\bifc\b|\bbim\b|digital twin|3d city|city model|smart city|building information|\blod ?\d|cityjson/,
+    subs: [["CityGML and 3D city models", /citygml|cityjson|3d city|city model|\blod/], ["BIM and IFC", /\bbim\b|\bifc\b|building information/], ["Digital twins and urban", /digital twin|smart city|urban/]] },
+  { id: "general", name: "General geospatial and societies", color: "#9aa8b5", blurb: "Conferences, societies and openings that span several fields.", re: /$^/, subs: [] },
+];
+const DOM = Object.fromEntries(DOMAINS.map(d => [d.id, d]));
+function classify(it) {
+  if (it._d) return;
+  const txt = (it.title + " " + (it.matched || []).join(" ") + " " + (it.summary || "")).toLowerCase();
+  it._d = new Set(); it._s = new Set();
+  for (const d of DOMAINS) if (d.re.test(txt)) { it._d.add(d.id); for (const [l, r] of d.subs) if (r.test(txt)) it._s.add(d.id + ":" + l); }
+  if (!it._d.size) it._d.add("general");
+}
+
+function filtered(ignoreKind, ignoreDomain, ignoreSub) {
   const q = st.q.trim().toLowerCase();
   return feed.items.filter(it =>
     (ignoreKind || st.kind === "all" || it.kind === st.kind) &&
     (!st.topic || (it.matched || []).includes(st.topic)) &&
+    (ignoreDomain || !st.domain || it._d.has(st.domain)) &&
+    (ignoreSub || ignoreDomain || !st.sub || it._s.has(st.domain + ":" + st.sub)) &&
     (!st.source || it.source_name === st.source) &&
     (!st.newOnly || isNew(it)) &&
     (!NEEDS_DEADLINE.has(it.kind) || st.unlisted || (it.deadline && Date.parse(it.deadline) >= Date.now()) || upcoming(it) || it.open_posting) &&
@@ -325,12 +421,66 @@ function renderStats() {
   }).join("");
 }
 
-function renderTopics() {
-  const counts = {};
-  for (const it of feed.items) for (const t of it.matched || []) counts[t] = (counts[t] || 0) + 1;
-  const top = Object.entries(counts).sort((a, b) => b[1] - a[1]).slice(0, 18);
-  $("topics").innerHTML = top.map(([t, n]) =>
-    `<button class="chip" data-t="${esc(t)}" aria-pressed="${st.topic === t}">${esc(t)}<i>${n}</i></button>`).join("");
+function renderTree() {
+  const pool = filtered(true, true);
+  const subPool = st.domain ? filtered(true, false, true) : [];
+  $("tree").innerHTML = `<button class="tnode" data-dom="" aria-pressed="${!st.domain}"><i class="d" style="--dc:var(--faint)"></i>All domains<em>${pool.length}</em></button>` +
+    DOMAINS.map(d => {
+      const n = pool.filter(it => it._d.has(d.id)).length;
+      if (!n && st.domain !== d.id) return "";
+      let subs = "";
+      if (st.domain === d.id && d.subs.length) subs = '<div class="subs">' + d.subs.map(([l]) => {
+        const c = subPool.filter(it => it._s.has(d.id + ":" + l)).length;
+        return c || st.sub === l ? `<button class="snode" data-sub="${esc(l)}" aria-pressed="${st.sub === l}">${esc(l)}<em>${c}</em></button>` : "";
+      }).join("") + "</div>";
+      return `<button class="tnode" data-dom="${d.id}" style="--dc:${d.color}" aria-pressed="${st.domain === d.id}"><i class="d"></i>${esc(d.name.replace(" and ", " & "))}<em>${n}</em></button>${subs}`;
+    }).join("");
+}
+
+function setDomain(id, sub) {
+  st.domain = id; st.sub = sub || ""; st.kind = "all"; st.shown = PAGE;
+  try { history.replaceState(null, "", id ? "#d=" + id + (sub ? "&s=" + encodeURIComponent(sub) : "") : location.pathname); } catch {}
+  render(); window.scrollTo({ top: Math.max(0, document.querySelector(".tabs").offsetTop - 1), behavior: "smooth" });
+}
+
+function renderOverview() {
+  const pool = filtered(true, true);
+  const tiles = DOMAINS.map(d => {
+    const its = pool.filter(it => it._d.has(d.id));
+    if (!its.length) return "";
+    const by = k => its.filter(i => i.kind === k).length;
+    const open = its.filter(i => NEEDS_DEADLINE.has(i.kind)).length;
+    const nxt = its.filter(i => NEEDS_DEADLINE.has(i.kind) && i.deadline && Date.parse(i.deadline) >= Date.now() - 864e5).sort((a, b) => Date.parse(a.deadline) - Date.parse(b.deadline))[0];
+    const days = nxt ? Math.max(0, dayLeft(nxt.deadline)) : 0;
+    return `<button class="tile" data-dom="${d.id}" style="--dc:${d.color}">
+      <span class="tn">${esc(d.name)}</span><span class="tb">${esc(d.blurb)}</span>
+      <span class="tbig"><b>${open}</b>open now</span>
+      <span class="tk">${[["job", "Positions"], ["course", "Programmes"], ["event", "Events"], ["paper", "Papers"]].map(([k, l]) => by(k) ? `<span style="--k:var(--${k})">${by(k)} ${l.toLowerCase()}</span>` : "").join("")}</span>
+      ${nxt ? `<span class="tnext"><b>${days === 0 ? "Today" : days + (days === 1 ? " day" : " days")}</b> · ${esc(nxt.title)}</span>` : '<span class="tnext">No dated deadline right now</span>'}
+    </button>`;
+  }).join("");
+  $("overview").innerHTML = `<h2 class="sect">Browse by domain<small>${pool.length} live items across ${DOMAINS.length - 1} fields</small></h2><div class="tiles">${tiles}</div><h2 class="sect" style="margin-top:34px">Everything, closing soonest first</h2>`;
+}
+
+function renderDomainHead() {
+  const d = DOM[st.domain];
+  const subPool = filtered(true, false, true);
+  $("dhead").innerHTML = `<div class="dhead" style="--dc:${d.color}"><button class="back" data-dom="">← All domains</button>
+    <h2 class="dtitle">${esc(d.name)}</h2><p class="dblurb">${esc(d.blurb)}</p>
+    ${d.subs.length ? `<div class="subchips"><button class="chip" data-sub="" aria-pressed="${!st.sub}">All<i>${subPool.length}</i></button>` + d.subs.map(([l]) => {
+      const c = subPool.filter(it => it._s.has(d.id + ":" + l)).length;
+      return c || st.sub === l ? `<button class="chip" data-sub="${esc(l)}" aria-pressed="${st.sub === l}">${esc(l)}<i>${c}</i></button>` : "";
+    }).join("") + "</div>" : ""}</div>`;
+}
+
+function renderBoard() {
+  const COLS = [["job", "Positions"], ["course", "Programmes"], ["event", "Events"], ["paper", "Papers"]];
+  const all = sorted(filtered(false));
+  $("board").innerHTML = '<div class="board">' + COLS.map(([k, l]) => {
+    const its = all.filter(i => i.kind === k);
+    return `<section class="col" style="--k:var(--${k})"><div class="chead"><i></i>${l}<em>${its.length}</em></div>` +
+      (its.length ? its.slice(0, 6).map(card).join("") + (its.length > 6 ? `<button class="colmore" data-k="${k}">See all ${its.length} ${l.toLowerCase()}</button>` : "") : `<div class="colempty">Nothing open in this area right now.</div>`) + "</section>";
+  }).join("") + "</div>";
 }
 
 const MON = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
@@ -461,11 +611,17 @@ function drawContours() {
 
 function render() {
   renderStats();
-  renderTopics();
+  renderTree();
+  const board = st.domain && st.kind === "all" && !st.q.trim();
+  const overview = !st.domain && st.kind === "all" && !st.q.trim();
   const items = sorted(filtered(false));
   const page = items.slice(0, st.shown);
-  const filters = [st.topic && `topic “${st.topic}”`, st.source, st.newOnly && "new this week", st.savedOnly && "saved"].filter(Boolean);
+  const filters = [st.domain && DOM[st.domain].name, st.sub, st.topic && `topic “${st.topic}”`, st.source, st.newOnly && "new this week", st.savedOnly && "saved"].filter(Boolean);
   $("count").textContent = `${items.length} ${items.length === 1 ? "item" : "items"}${filters.length ? " · " + filters.join(" · ") : ""}`;
+  $("dhead").innerHTML = ""; $("overview").innerHTML = ""; $("board").innerHTML = "";
+  if (st.domain) renderDomainHead();
+  if (overview) renderOverview();
+  if (board) { renderBoard(); $("list").innerHTML = ""; $("more").hidden = true; return; }
   let html = "", last = "";
   for (const it of page) {
     const g = st.sort === "seen" ? bucket(it) : st.sort === "auto" ? section(it) : "";
@@ -480,6 +636,12 @@ function reset() { st.shown = PAGE; render(); }
 
 $("stats").addEventListener("click", e => { const b = e.target.closest("[data-k]"); if (b) { st.kind = b.dataset.k; reset(); } });
 document.addEventListener("click", e => {
+  const dm = e.target.closest("[data-dom]");
+  if (dm) { setDomain(dm.dataset.dom); return; }
+  const sb = e.target.closest("[data-sub]");
+  if (sb) { st.sub = st.sub === sb.dataset.sub ? "" : sb.dataset.sub; reset(); return; }
+  const kk = e.target.closest(".colmore");
+  if (kk) { st.kind = kk.dataset.k; st.shown = PAGE; render(); window.scrollTo({ top: document.querySelector(".tabs").offsetTop - 1, behavior: "smooth" }); return; }
   const t = e.target.closest("[data-t]");
   if (t) { st.topic = st.topic === t.dataset.t ? "" : t.dataset.t; reset(); return; }
   const sv = e.target.closest("[data-save]");
@@ -513,6 +675,8 @@ Promise.all([
   fetch("data/status.json", { cache: "no-store" }).then(r => r.json()).catch(() => ({})),
 ]).then(([f, s]) => {
   feed = f; status = s;
+  feed.items.forEach(classify);
+  try { const m = location.hash.match(/d=([a-z]+)(?:&s=([^&]+))?/); if (m && DOM[m[1]]) { st.domain = m[1]; st.sub = m[2] ? decodeURIComponent(m[2]) : ""; } } catch {}
   const names = [...new Set(feed.items.map(i => i.source_name))].sort();
   $("source").innerHTML += names.map(n => `<option>${esc(n)}</option>`).join("");
   $("meta").textContent = `Updated ${new Date(feed.generated_at).toLocaleString()} · refreshed every 2 hours · ${feed.items.length} live items`;
