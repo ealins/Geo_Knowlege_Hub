@@ -432,8 +432,9 @@ for (const it of fresh) {
 // read successfully and an item is no longer on it, the item is gone. Feeds
 // and APIs roll over quickly, so their items keep the per-kind window instead.
 const htmlOk = new Set(enabled.filter((s) => ["html", "jobsacuk", "page", "discovered"].includes(s.type) && statusOut[s.id]?.state === "ok").map((s) => s.id));
+const enabledIds = new Set(enabled.map((s) => s.id));
 for (const it of previous.items ?? []) {
-  if (merged.has(it.id) || htmlOk.has(it.source)) continue;
+  if (merged.has(it.id) || htmlOk.has(it.source) || !enabledIds.has(it.source)) continue;
   merged.set(it.id, it);
 }
 // Open status: positions, programmes and events rarely state a deadline in the
@@ -452,6 +453,7 @@ for (let n = 0; n < todo.length; n += 8) {
         if (!(await robotsAllows(it.url))) return;
         const found = findDeadline(await fetchText(it.url), now);
         if (!found) return;
+        if (it.kind === "event" && it.starts && Date.parse(found) > Date.parse(it.starts)) return; // not a call deadline
         if (Date.parse(found) >= now.getTime()) it.deadline = found;
         else if (it.kind === "course") it.apply_closed = true; // programme stays; its intake has passed
         else if (it.kind === "event" && it.starts) it.call_closed = true; // call closed, event still ahead
@@ -462,6 +464,7 @@ for (let n = 0; n < todo.length; n += 8) {
 }
 
 const items = [...merged.values()]
+  .map((i) => (i.kind === "event" && i.starts && i.deadline && Date.parse(i.deadline) > Date.parse(i.starts) ? { ...i, deadline: null } : i))
   .filter(isLive)
   .filter((i) => i.kind !== "paper" || (i.impact ?? 0) >= minImpact)
   .filter((i) => !(i.kind === "event" && i.ends && Date.parse(i.ends) + 864e5 < now.getTime()))
