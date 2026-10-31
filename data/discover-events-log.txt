@@ -1,162 +1,162 @@
 organisations: 160
+esri.com: pages 12, events 0
 geography.bsu.edu.az: pages 12, events 0
 selperbrasil.org.br: pages 2, events 0 [HTTP 404]
-racurs.ru: pages 12, events 0
-inct.mdn.dz: pages 1, events 0 [fetch failed]
 mod.gov.bn: pages 1, events 0 [HTTP 404]
-cipaheritagedocumentation.org: pages 12, events 1
+inct.mdn.dz: pages 1, events 0 [fetch failed]
 ovg.at: pages 12, events 0
+cipaheritagedocumentation.org: pages 12, events 1
 igm.cl: pages 1, events 0 [HTTP 403]
+igb.bf: pages 1, events 0 [HTTP 500]
 locusalliance.org.au: pages 12, events 0
 csgpc.org: pages 1, events 0 [HTTP 500]
-crss-sct.ca: pages 12, events 0
-igb.bf: pages 1, events 0 [HTTP 500]
 portal.dls.moi.gov.cy: pages 1, events 0
 selper.org.co: pages 1, events 0 [HTTP 403]
 sfdp.cz: pages 7, events 0
+ssgi.gov.et: pages 1, events 0
 mlh.gov.bw: pages 1, events 0 [fetch failed]
 cegisbd.com: pages 1, events 0 [fetch failed]
-csprs.org.tw: pages 12, events 0
 hgd1952.hr: pages 7, events 0
+csprs.org.tw: pages 12, events 0
+geoforum.dk: pages 8, events 0 [fetch failed]
 hkis.org.hk: pages 1, events 0 [HTTP 403]
 sfpt.fr: pages 3, events 0
-geoforum.dk: pages 8, events 0 [fetch failed]
+crss-sct.ca: pages 12, events 0
 ncc.gov.ir: pages 1, events 0 [fetch failed]
 isi.or.id: pages 12, events 0
-tailte.ie: pages 8, events 0
 sifet.org: pages 2, events 0
 mfttt.hu: pages 1, events 0 [fetch failed]
-isrs-india.org: pages 6, events 0 [fetch failed]
+tailte.ie: pages 8, events 0
 jsprs.jp: pages 3, events 0
-ksgpc.or.kr: pages 1, events 0
 latgeo.lv: pages 1, events 0
+isrs-india.org: pages 6, events 0 [fetch failed]
+ksgpc.or.kr: pages 1, events 0
 gkk.ap.vgtu.lt: pages 1, events 0 [fetch failed]
 jupem.gov.my: pages 1, events 0 [fetch failed]
 ancfcc.gov.ma: pages 1, events 0
-ssgi.gov.et: pages 1, events 0 [fetch failed]
-foto.hut.fi: pages 1, events 0 [fetch failed]
+dgpf.de: pages 12, events 3
 geoson.org: pages 1, events 0 [HTTP 403]
 geodesy-union.org: pages 12, events 0 [HTTP 404]
-dgpf.de: pages 12, events 3
 nsaom.org.om: pages 1, events 0 [fetch failed]
+foto.hut.fi: pages 1, events 0 [fetch failed]
 geoinformatienederland.nl: pages 12, events 3
 philgrss.org: pages 1, events 0
 diraf.fap.mil.pe: pages 1, events 0 [fetch failed]
-lands.gov.mw: pages 10, events 0 [HTTP 404]
 dgterritorio.pt: pages 1, events 0
-ptfit.sgp.geodezja.org.pl: pages 7, events 0
-surveyofpakistan.gov.pk: pages 1, events 0 [fetch failed]
 geoforum.no: pages 12, events 1
-ssfdp.sk: pages 1, events 0
+ptfit.sgp.geodezja.org.pl: pages 7, events 0
+lands.gov.mw: pages 10, events 0 [HTTP 404]
 rjgc.gov.jo: pages 1, events 0 [fetch failed]
-ign.es: pages 1, events 0
+ssfdp.sk: pages 1, events 0
 geosa.gov.sa: pages 7, events 0 [HTTP 404]
 cse.sn: pages 1, events 0 [fetch failed]
+ign.es: pages 1, events 0
 mlr.gov.na: pages 1, events 0 [fetch failed]
-linz.govt.nz: pages 12, events 0
-survey.gov.lk: pages 1, events 0
 kartografiska.se: pages 2, events 0
+survey.gov.lk: pages 1, events 0
 sgpf.ch: pages 5, events 0
-igm.gub.uy: pages 1, events 0 [HTTP 400]
-rspsoc.org.uk: pages 12, events 1
-igvsb.gob.ve: pages 1, events 0
-lands.go.tz: pages 12, events 0
-geography.hus.vnu.edu.vn: pages 2, events 0
 nrf.ac.za: pages 12, events 0
-aerogeodeziya.az: pages 1, events 0 [fetch failed]
-rosreestr.ru: pages 1, events 0 [fetch failed]
+surveyofpakistan.gov.pk: pages 1, events 0 [fetch failed]
+igm.gub.uy: pages 1, events 0 [HTTP 400]
 gisqatar.org.qa: pages 1, events 0 [fetch failed]
-azercosmos.az: pages 1, events 0 [fetch failed]
-igac.gov.co: pages 1, events 0
-isa.ir: pages 1, events 0 [HTTP 403]
+rosreestr.ru: pages 1, events 0 [fetch failed]
+rspsoc.org.uk: pages 12, events 1
+lands.go.tz: pages 12, events 0
+igvsb.gob.ve: pages 1, events 0
+linz.govt.nz: pages 12, events 0
 asprs.org: pages 12, events 1
-bnetd.ci: pages 1, events 0 [fetch failed]
+geography.hus.vnu.edu.vn: pages 2, events 0
+aerogeodeziya.az: pages 1, events 0 [fetch failed]
+igac.gov.co: pages 1, events 0
+azercosmos.az: pages 1, events 0 [fetch failed]
+isa.ir: pages 1, events 0 [HTTP 403]
 eratosthenes.org.cy: pages 12, events 0
+bnetd.ci: pages 1, events 0 [fetch failed]
+ksrs.or.kr: pages 12, events 0
 myanmaregress.org: pages 1, events 0 [fetch failed]
 dhn.mil.pe: pages 1, events 0 [HTTP 403]
 suparco.gov.pk: pages 1, events 0 [fetch failed]
-ksrs.or.kr: pages 12, events 0
 rtsd.mi.th: pages 1, events 0 [fetch failed]
 harita.gov.tr: pages 1, events 0 [fetch failed]
 aitonline.org: pages 12, events 0
-paigh.org: pages 1, events 0
 cssteap.org: pages 1, events 0
+paigh.org: pages 1, events 0
 eis-africa.org: pages 1, events 0
-crtean.org.tn: pages 1, events 0 [fetch failed]
-isk.or.ke: pages 12, events 0 [HTTP 404]
+afrigist.org: pages 5, events 0
 acrs-aars.org: pages 8, events 0
+crtean.org.tn: pages 1, events 0 [fetch failed]
 picgisrs.org: pages 1, events 0 [HTTP 521]
 lc.gov.gh: pages 1, events 0 [fetch failed]
-afrigist.org: pages 5, events 0
+isk.or.ke: pages 12, events 0 [HTTP 404]
 eurosdr.net: pages 12, events 5
+africanremotesensing.org: pages 12, events 0
 aerotoyota.co.jp: pages 1, events 0
 intelligence-airbusds.com: pages 1, events 0 [HTTP 502]
-selper.info: pages 1, events 0 [HTTP 403]
 applanix.com: pages 1, events 0 [HTTP 404]
-africanremotesensing.org: pages 12, events 0
-gistda.or.th: pages 12, events 0
-geoway.com.cn: pages 1, events 0
+selper.info: pages 1, events 0 [HTTP 403]
 rcmrd.org: pages 6, events 0
-basir-rsi.ir: pages 1, events 0 [fetch failed]
+geoway.com.cn: pages 1, events 0
 earsel.org: pages 12, events 1
+basir-rsi.ir: pages 1, events 0 [fetch failed]
 chxy.bucea.edu.cn: pages 1, events 0
-alqotr.sa: pages 12, events 0
-ajiko.co.jp: pages 12, events 0
 cigic.cn: pages 1, events 0
+gistda.or.th: pages 12, events 0
+ajiko.co.jp: pages 12, events 0
+isrc.ac.ir: pages 1, events 0 [fetch failed]
 dglinks-limited-geospatial-services.business.site: pages 1, events 0 [HTTP 404]
 remote-sensing-portal.com: pages 1, events 0 [fetch failed]
-isrc.ac.ir: pages 1, events 0 [fetch failed]
-dm.gov.ae: pages 1, events 0 [HTTP 404]
 dsmgeodata.com: pages 1, events 0
+dm.gov.ae: pages 1, events 0 [HTTP 404]
+eaasi.eu: pages 12, events 0
 dlr.de: pages 1, events 0 [fetch failed]
-cyclomedia.com: pages 12, events 0
 photogrammetry.ethz.ch: pages 1, events 0
+cyclomedia.com: pages 12, events 0
 geocloud.work: pages 1, events 0
 geocad93.com: pages 2, events 0
 geomakani.com: pages 1, events 0
 sab.ac.lk: pages 12, events 0
-esri.com: pages 12, events 0
 geotechsys.com: pages 1, events 0
-eaasi.eu: pages 12, events 0
+cut.ac.cy: pages 12, events 0
+geocue.com: pages 12, events 0
 globalmapping.biz: pages 1, events 0
 gsecc.com: pages 1, events 0
-research.utm.my: pages 3, events 0
-geocue.com: pages 12, events 0
-ggs-solutions.eu: pages 2, events 0
 bayanat.co.ae: pages 1, events 0 [fetch failed]
+ggs-solutions.eu: pages 2, events 0
 icrse.org: pages 1, events 0
-cut.ac.cy: pages 12, events 0
+research.utm.my: pages 3, events 0
 hyspex.com: pages 12, events 0
-gim-international.com: pages 12, events 3
-momrah.gov.sa: pages 1, events 0 [fetch failed]
+gim-international.com: pages 12, events 2
+alqotr.sa: pages 12, events 0
 iictechnologies.com: pages 12, events 0 [HTTP 404]
 mbrsc.ae: pages 1, events 0 [HTTP 403]
+momrah.gov.sa: pages 1, events 0 [fetch failed]
 igi-systems.com: pages 12, events 0
-kkc.co.jp: pages 12, events 0
 leica-geosystems.com: pages 12, events 0
 gis.fujairah.ae: pages 1, events 0 [fetch failed]
-dst.nagaland.gov.in: pages 3, events 0
-leador.com.cn: pages 12, events 0
+kkc.co.jp: pages 12, events 0
 nasa.gov: pages 12, events 0
+dst.nagaland.gov.in: pages 3, events 0
 miigaik.ru: pages 12, events 0
 pasco.co.jp: pages 12, events 0
 phaseone.com: pages 8, events 0
 opengeospatial.org: pages 12, events 0 [HTTP 403]
-en.trgis.com: pages 3, events 0
 nrsc.gov.in: pages 12, events 0 [HTTP 404]
-piesat.cn: pages 12, events 0
-trimble.com: pages 1, events 0 [HTTP 404]
 en.kntu.ac.ir: pages 1, events 0 [fetch failed]
-nottingham.ac.uk: pages 1, events 0
+piesat.cn: pages 12, events 0
+en.trgis.com: pages 3, events 0
+trimble.com: pages 1, events 0 [HTTP 404]
 riegl.com: pages 12, events 1
-geoinformatika.uns.ac.rs: pages 2, events 0
+racurs.ru: pages 12, events 0
+leador.com.cn: pages 12, events 0
+nottingham.ac.uk: pages 1, events 0
+uacg.bg: pages 10, events 0
 itc.nl: pages 1, events 0
 sgugit.ru: pages 12, events 0 [fetch failed]
-isprs2020-nice.com: pages 4, events 0
-dica.polimi.it: pages 12, events 0
-ifp.uni-stuttgart.de: pages 12, events 0 [HTTP 404]
-uacg.bg: pages 10, events 0
-vexcel-imaging.com: pages 12, events 0
-photogauge.com: pages 1, events 0 [fetch failed]
+geoinformatika.uns.ac.rs: pages 2, events 0
 schulich.ucalgary.ca: pages 5, events 0
-events: 20, with call deadline: 2
+isprs2020-nice.com: pages 4, events 0
+ifp.uni-stuttgart.de: pages 12, events 0 [HTTP 404]
+photogauge.com: pages 1, events 0 [fetch failed]
+vexcel-imaging.com: pages 12, events 0
+dica.polimi.it: pages 1, events 0 [fetch failed]
+events: 19, with call deadline: 2
